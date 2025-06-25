@@ -1,0 +1,284 @@
+BRA_industrial_decisions = {
+	BRA_federal_investment_in_rural_state = {
+		icon = GFX_decision_gre_paying_ifc_debt
+	
+		allowed = {
+			original_tag = BRA
+		}
+	
+		#available = {
+		#	has_completed_focus = BRA_financial_stimulation
+		#}
+		
+		visible = {
+			has_completed_focus = BRA_financial_stimulation
+			#any_core_state = {}
+		}
+		state_target = any_controlled_state
+	    target_trigger = {
+	        FROM = {
+	           	is_fully_controlled_by = ROOT
+	           	has_dynamic_modifier = { modifier = BRA_neglected_state_dynamic_modifier }
+	           	NOT = {
+	           		state = 961
+	           		state = 962
+	           		state = 963
+	           		state = 964
+	           		state = 965
+	           		state = 966
+	           		state = 967
+	           		state = 968
+	           	}
+	        }
+	    }
+	    on_map_mode = map_and_decisions_view 
+		cost = 30
+		
+		fire_only_once = yes
+		days_remove = 30
+		#cancel_trigger = {
+		#	NOT = { is_fully_controlled_by = ROOT }
+		#}
+		remove_effect = {
+			FROM = {	
+				custom_effect_tooltip = BRA_federal_investment_in_rural_state_tt
+				effect_tooltip = {
+					add_to_variable = {
+						BRA_state_development_production_speed_new = 0.2
+						tooltip = MODIFIER_STATE_PRODUCTION_SPEED_BUILDINGS_FACTOR_tt
+					}
+					add_to_variable = {
+						BRA_state_development_local_factories_new = 0.2
+						tooltip = local_factories_tt
+					}
+					add_to_variable = {
+						BRA_state_development_local_building_slots_factor_new = 0.2
+						tooltip = MODIFIER_LOCAL_BUILDING_SLOTS_FACTOR_tt
+					}
+					add_to_variable = {
+						BRA_state_development_state_resources_factor_new = 0.2
+						tooltip = MODIFIER_STATE_RESOURCES_FACTOR_tt
+					}
+				}
+				hidden_effect = {
+					# Saving the variables as removing the original dm breaks them
+					set_variable = { BRA_state_development_production_speed_new = BRA_state_development_production_speed }
+					set_variable = { BRA_state_development_local_factories_new = BRA_state_development_local_factories }
+					set_variable = { BRA_state_development_local_building_slots_factor_new = BRA_state_development_local_building_slots_factor }
+					set_variable = { BRA_state_development_state_resources_factor_new = BRA_state_development_state_resources_factor }
+					# Adding value here as the values get messed up otherwise -_-
+					add_to_variable = {
+						BRA_state_development_production_speed_new = 0.2
+						tooltip = MODIFIER_STATE_PRODUCTION_SPEED_BUILDINGS_FACTOR_tt
+					}
+					add_to_variable = {
+						BRA_state_development_local_factories_new = 0.2
+						tooltip = local_factories_tt
+					}
+					add_to_variable = {
+						BRA_state_development_local_building_slots_factor_new = 0.2
+						tooltip = MODIFIER_LOCAL_BUILDING_SLOTS_FACTOR_tt
+					}
+					add_to_variable = {
+						BRA_state_development_state_resources_factor_new = 0.2
+						tooltip = MODIFIER_STATE_RESOURCES_FACTOR_tt
+					}
+					remove_dynamic_modifier = {
+						modifier = BRA_neglected_state_dynamic_modifier
+					}
+					# Restoring the old values for the new modifier + the new bonus
+					set_variable = { BRA_state_development_production_speed = BRA_state_development_production_speed_new }
+					set_variable = { BRA_state_development_local_factories = BRA_state_development_local_factories_new }
+					set_variable = { BRA_state_development_local_building_slots_factor = BRA_state_development_local_building_slots_factor_new }
+					set_variable = { BRA_state_development_state_resources_factor = BRA_state_development_state_resources_factor_new }
+					# Ta da
+					add_dynamic_modifier = {
+						modifier = BRA_growing_state_dynamic_modifier
+					}
+				}
+			}
+		}
+	
+		ai_will_do = {
+		}
+	}
+}
+
+BRA_ensure_support_cat = {
+
+	BRA_integralist_support = {
+		icon = GFX_decision_BRA_integralism
+		allowed = {
+			original_tag = BRA
+		}
+		available = {
+			NOT = {
+				has_country_flag = BRA_gaining_support_in_progress 
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0.5
+				has_government = fascism
+			}
+			modifier = {
+				factor = 10
+				fascism < 0.51
+			}
+		}
+		visible = {
+			has_completed_focus = BRA_work_with_the_integralists
+			NOT = {
+				has_completed_focus = BRA_estado_novo
+			}
+		}
+		state_target = any_controlled_state
+		target_trigger = {
+		    FROM = {
+		    	is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+		       	NOT = {
+		       		has_state_flag = BRA_gained_support
+		       	}
+		       	OR = {
+		       		has_state_category = town
+		       		has_state_category = large_town
+		       		has_state_category = city
+		       		has_state_category = large_city
+		       		has_state_category = megalopolis
+		       		has_state_category = metropolis
+		       	} 
+		    }
+		}
+		on_map_mode = map_and_decisions_view
+		cost = 20
+		
+		fire_only_once = yes
+		days_remove = 10
+		complete_effect = {
+			set_country_flag = BRA_gaining_support_in_progress
+		}
+		remove_effect = {
+			FROM = {
+				set_state_flag = BRA_gained_support
+			}
+			random_list = {
+				# Bad march
+				35 = {
+					country_event = { id = JUNO_brazil_events.10 days = 1 }
+					effect_tooltip = {
+						add_popularity = { ideology = fascism popularity = 0.01 }
+					}
+				}
+				# Average march
+				50 = {
+					country_event = { id = JUNO_brazil_events.11 days = 1 }
+					effect_tooltip = {
+						add_popularity = { ideology = fascism popularity = 0.03 }
+					}
+				}
+				# Good march
+				15 = {
+					country_event = { id = JUNO_brazil_events.12 days = 1 }
+					effect_tooltip = {
+						add_popularity = { ideology = fascism popularity = 0.05 }
+					}
+				}
+			}
+		}
+	}
+
+	BRA_execute_the_cohen_plan = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			original_tag = BRA
+		}	
+		available = {
+			OR = {
+				has_completed_focus = BRA_estado_novo
+			}
+		}
+		days_mission_timeout = 100
+		activation = {
+			has_completed_focus = BRA_cohen_plan
+		}
+		cancel_trigger = {
+		}
+		fire_only_once = yes
+		is_good = no
+		timeout_effect = {
+			news_event = {
+				id = south_american_news.60
+				hours = 1
+			}
+			retire_country_leader =  yes
+			add_stability = -0.1
+			#random_list = {
+				#50 = {
+			random_unit_leader = {
+				add_country_leader_role = {
+					country_leader = {
+						ideology = despotism
+						expire = "1965.1.1.1"
+					}
+					promote_leader = yes
+				}
+			}
+			set_politics = {
+				ruling_party = neutrality
+				last_election = "1934.3.26"
+				election_frequency = 48
+				elections_allowed = no
+			}
+				#}
+				#50 = {
+				#	set_politics = {
+				#		ruling_party = fascism
+				#		last_election = "1934.3.26"
+				#		election_frequency = 48
+				#		elections_allowed = no
+				#	}
+				#}
+			#}		
+		}
+	}
+}
+
+
+BRA_good_neighbor_decisions = {
+	BRA_washington_accords_mission = {
+		icon = GFX_decision_generic_prepare_civil_war
+		allowed = {
+			original_tag = BRA
+		}	
+		available = {
+			OR = {
+				is_in_faction_with = USA
+				USA = {
+					has_war = no
+				}
+				any_country = {
+					AND = {
+						has_war_with = USA
+						has_war_with = BRA
+					}
+				}
+			}
+		}
+		days_mission_timeout = 730
+		activation = {
+			has_idea = BRA_washington_accords_idea
+		}
+		cancel_trigger = {
+		}
+		fire_only_once = yes
+		is_good = no
+		timeout_effect = {
+			country_event = {
+				id = JUNO_brazil_events.18
+				hours = 1
+			}
+		}
+	}
+}

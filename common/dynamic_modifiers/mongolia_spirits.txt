@@ -1,0 +1,168 @@
+mon_industry_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_generic_agrarian_society
+
+	consumer_goods_factor                         = var:MON_ind_consumer_goods
+	production_speed_buildings_factor             = var:MON_ind_construction_speed
+	industrial_capacity_factory                   = var:MON_ind_factory_output
+	production_factory_max_efficiency_factor      = var:MON_ind_prod_eff_cap
+	production_speed_industrial_complex_factor    = var:MON_ind_civ_construction_speed
+	research_speed_factor                         = var:MON_ind_research_speed
+	production_speed_arms_factory_factor          = var:MON_ind_mill_construction_speed
+	production_factory_start_efficiency_factor    = var:MON_ind_prod_eff_base
+	production_factory_efficiency_gain_factor     = var:MON_ind_prod_eff_retention
+}
+
+
+mon_peoples_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_ARG_construction_guilds
+
+	consumer_goods_factor                         = var:MON_ind_consumer_goods
+	production_speed_buildings_factor             = var:MON_ind_construction_speed
+	industrial_capacity_factory                   = var:MON_ind_factory_output
+	production_factory_max_efficiency_factor      = var:MON_ind_prod_eff_cap
+	production_speed_industrial_complex_factor    = var:MON_ind_civ_construction_speed
+	research_speed_factor                         = var:MON_ind_research_speed
+	production_speed_arms_factory_factor          = var:MON_ind_mill_construction_speed
+	production_factory_start_efficiency_factor    = var:MON_ind_prod_eff_base
+	production_factory_efficiency_gain_factor     = var:MON_ind_prod_eff_retention
+}
+
+
+mon_powerhouse_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_GER_wirtschaftswunder
+
+	consumer_goods_factor                         = var:MON_ind_consumer_goods
+	production_speed_buildings_factor             = var:MON_ind_construction_speed
+	industrial_capacity_factory                   = var:MON_ind_factory_output
+	production_factory_max_efficiency_factor      = var:MON_ind_prod_eff_cap
+	production_speed_industrial_complex_factor    = var:MON_ind_civ_construction_speed
+	research_speed_factor                         = var:MON_ind_research_speed
+	production_speed_arms_factory_factor          = var:MON_ind_mill_construction_speed
+	production_factory_start_efficiency_factor    = var:MON_ind_prod_eff_base
+	production_factory_efficiency_gain_factor     = var:MON_ind_prod_eff_retention
+	conversion_cost_civ_to_mil_factor	      = var:MON_civ_to_mil
+}
+
+###AIR
+
+mon_air_dyn = {
+	enable = { always = yes }
+	icon = GFX_idea_SOV_red_airforce_ccp_2d_sov_compatibility
+
+	air_accidents_factor                    = var:MON_airforce_air_accidents_factor
+	air_ace_generation_chance_factor        = var:MON_airforce_air_ace_generation_chance_factor
+	air_night_penalty                       = var:MON_airforce_air_night_penalty
+	air_weather_penalty                     = var:MON_airforce_air_weather_penalty
+	air_mission_xp_gain_factor              = var:MON_airforce_air_mission_xp_gain_factor
+	
+	air_mission_efficiency                  = var:MON_airforce_air_mission_efficiency
+	air_cas_present_factor                  = var:MON_airforce_ground_attack_factor
+	air_fuel_consumption_factor             = var:MON_airforce_air_fuel_consumption_factor
+	air_agility_factor                      = var:MON_airforce_air_agility
+	air_range_factor                        = var:MON_airforce_air_range
+
+	experience_gain_air_factor              = var:MON_airforce_air_experience_gain_factor
+
+}
+
+mon_terror_dyn = {
+	enable = { always = yes }
+	icon = GFX_idea_air_war_plans_division_focus
+
+	air_accidents_factor                    = var:MON_airforce_air_accidents_factor
+	air_ace_generation_chance_factor        = var:MON_airforce_air_ace_generation_chance_factor
+	air_night_penalty                       = var:MON_airforce_air_night_penalty
+	air_weather_penalty                     = var:MON_airforce_air_weather_penalty
+	air_mission_xp_gain_factor              = var:MON_airforce_air_mission_xp_gain_factor
+	
+	air_mission_efficiency                  = var:MON_airforce_air_mission_efficiency
+	air_cas_present_factor                  = var:MON_airforce_ground_attack_factor
+	air_fuel_consumption_factor             = var:MON_airforce_air_fuel_consumption_factor
+	air_agility_factor                      = var:MON_airforce_air_agility
+	air_range_factor                        = var:MON_airforce_air_range
+
+	experience_gain_air_factor              = var:MON_airforce_air_experience_gain_factor
+
+}
+
+
+#ARMY
+
+mon_army_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_SOV_red_army_alt_ccp_2d_sov_compatibility 
+
+	army_attack_factor              = var:MON_arm_div_attack
+	army_defence_factor             = var:MON_arm_div_defense
+	army_org_factor                 = var:MON_army_org_factor
+	experience_gain_army_factor     = var:MON_experience_gain_army_factor
+	experience_loss_factor          = var:MON_experience_loss_factor
+	breakthrough_factor             = var:MON_breakthrough_factor
+	supply_consumption_factor       = var:MON_supply_efficiency_factor
+	planning_speed                  = var:MON_planning_speed
+	acclimatization_cold_climate_gain_factor = var:MON_cold_acclimatization_factor
+	cavalry_attack_factor           = var:MON_cavalry_attack
+	cavalry_defence_factor          = var:MON_cavalry_defense
+	army_morale_factor          = var:MON_division_recovery_rate 
+	dig_in_speed_factor              = var:MON_entrenchment_speed
+	org_loss_when_moving            = var:MON_org_loss_when_moving
+	army_armor_speed_factor         = var:MON_armor_speed
+	max_dig_in_factor = var:MON_max_dig_in_factor
+}
+
+mon_ironhorde_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_GER_wunderwaffen
+
+	army_attack_factor              = var:MON_arm_div_attack
+	army_defence_factor             = var:MON_arm_div_defense
+	army_org_factor                 = var:MON_army_org_factor
+	experience_gain_army_factor     = var:MON_experience_gain_army_factor
+	experience_loss_factor          = var:MON_experience_loss_factor
+	breakthrough_factor             = var:MON_breakthrough_factor
+	supply_consumption_factor       = var:MON_supply_efficiency_factor
+	planning_speed                  = var:MON_planning_speed
+	acclimatization_cold_climate_gain_factor = var:MON_cold_acclimatization_factor
+	cavalry_attack_factor           = var:MON_cavalry_attack
+	cavalry_defence_factor          = var:MON_cavalry_defense
+	army_morale_factor          = var:MON_division_recovery_rate
+	dig_in_speed_factor              = var:MON_entrenchment_speed
+	org_loss_when_moving            = var:MON_org_loss_when_moving
+	army_armor_speed_factor         = var:MON_armor_speed
+	max_dig_in_factor = var:MON_max_dig_in_factor
+}
+
+mon_honorkhan_dyn = {
+	enable = { always = yes }
+	icon   = GFX_idea_ETH_the_heroes_of_adwa_upgraded
+
+	army_attack_factor              = var:MON_arm_div_attack
+	army_defence_factor             = var:MON_arm_div_defense
+	army_org_factor                 = var:MON_army_org_factor
+	experience_gain_army_factor     = var:MON_experience_gain_army_factor
+	experience_loss_factor          = var:MON_experience_loss_factor
+	breakthrough_factor             = var:MON_breakthrough_factor
+	supply_consumption_factor       = var:MON_supply_efficiency_factor
+	planning_speed                  = var:MON_planning_speed
+	acclimatization_cold_climate_gain_factor = var:MON_cold_acclimatization_factor
+	cavalry_attack_factor           = var:MON_cavalry_attack
+	cavalry_defence_factor          = var:MON_cavalry_defense
+	army_morale_factor          = var:MON_division_recovery_rate
+	dig_in_speed_factor              = var:MON_entrenchment_speed
+	org_loss_when_moving            = var:MON_org_loss_when_moving
+	army_armor_speed_factor         = var:MON_armor_speed
+	max_dig_in_factor = var:MON_max_dig_in_factor
+}
+
+
+
+
+
+
+
+
+
+

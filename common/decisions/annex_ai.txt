@@ -1,0 +1,252 @@
+AI_annex = {
+    CAN_annex_SAF = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = SAF
+            original_tag = CAN
+            SAF = { has_capitulated = no }
+            SAF = { is_ai = yes }
+        }
+        visible = {
+            original_tag = CAN
+            SAF = { is_ai = yes }
+            country_exists = SAF
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = SAF transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = SAF
+                    is_controlled_by = CAN
+                }
+                add_core_of = CAN
+            }
+        }
+    }
+
+    SAF_annex_CAN = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = CAN
+            original_tag = SAF
+            CAN = { has_capitulated = no }
+            CAN = { is_ai = yes }
+        }
+        visible = {
+            original_tag = SAF
+            CAN = { is_ai = yes }
+            country_exists = CAN
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = CAN transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = CAN
+                    is_controlled_by = SAF
+                }
+                add_core_of = SAF
+            }
+        }
+    }
+
+	
+    ROM_annex_HUN = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = HUN
+            original_tag = ROM
+            HUN = { has_capitulated = no }
+            HUN = { is_ai = yes }
+        }
+        visible = {
+            original_tag = ROM
+            HUN = { is_ai = yes }
+            country_exists = HUN
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = HUN transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = HUN
+                    is_controlled_by = ROM
+                }
+                add_core_of = ROM
+            }
+        }
+    }
+
+	
+
+    ROM_annex_BUL = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = BUL
+            original_tag = ROM
+            BUL = { has_capitulated = no }
+            BUL = { is_ai = yes }
+        }
+        visible = {
+            original_tag = ROM
+            BUL = { is_ai = yes }
+            country_exists = BUL
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = BUL transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = BUL
+                    is_controlled_by = ROM
+                }
+                add_core_of = ROM
+            }
+        }
+    }
+
+    AST_annex_NZL = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = NZL
+            original_tag = AST
+            NZL = { has_capitulated = no }
+            NZL = { is_ai = yes }
+        }
+        visible = {
+            original_tag = AST
+            NZL = { is_ai = yes }
+            country_exists = NZL
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = NZL transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = NZL
+                    is_controlled_by = AST
+                }
+                add_core_of = AST
+            }
+        }
+    }
+
+    JAP_annex_SIA = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1940.01.01
+            country_exists = SIA
+            original_tag = JAP
+            SIA = { has_capitulated = no }
+            SIA = { is_ai = yes }
+        }
+        visible = {
+            original_tag = JAP
+            SIA = { is_ai = yes }
+            country_exists = SIA
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = SIA transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = SIA
+                    is_controlled_by = JAP
+                }
+                add_core_of = JAP
+            }
+        }
+    }
+
+    HUN_annex_ROM = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = ROM
+            original_tag = HUN
+            ROM = { has_capitulated = no }
+            ROM = { is_ai = yes }
+        }
+        visible = {
+            original_tag = HUN
+            ROM = { is_ai = yes }
+            country_exists = ROM
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = ROM transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = ROM
+                    is_controlled_by = HUN
+                }
+                add_core_of = HUN
+            }
+        }
+    }
+
+    SOV_annex_MON = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = MON
+            original_tag = SOV
+            MON = { has_capitulated = no }
+            MON = { is_ai = yes }
+        }
+        visible = {
+            original_tag = SOV
+            MON = { is_ai = yes }
+            country_exists = MON
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = MON transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = MON
+                    is_controlled_by = SOV
+                }
+                add_core_of = SOV
+            }
+        }
+    }
+}

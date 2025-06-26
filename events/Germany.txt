@@ -163,11 +163,6 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				tag = JAP
-				has_completed_focus = JAP_the_unthinkable_option
-			}
-			modifier = {
-				factor = 0
 				is_literally_china = yes
 				JAP = { has_completed_focus = JAP_purge_the_kodoha_faction }
 			}
@@ -1469,9 +1464,6 @@ country_event = {
 					controls_state = 94
 				}
 			}
-			hidden_effect = {
-				news_event = { hours = 6 id = news.33 }
-			}
 		}
 	}
 }
@@ -1487,9 +1479,6 @@ country_event = {
 
 	option = {
 		name = germany.16.a
-		hidden_effect = {
-			news_event = news.153
-		}
 		create_wargoal = {
 			type = annex_everything
 			target = FROM
@@ -1928,7 +1917,6 @@ country_event = {
 				factor = 0
 				fighting_army_strength_ratio = {
 					tag = FROM
-					ratio > 1
 				}
 			}
 
@@ -1962,7 +1950,6 @@ country_event = {
 				limit = {
 					ITA = {
 						OR = {
-							has_completed_focus = ITA_guarantee_austrian_independence
 							has_guaranteed = AUS
 						}
 					}
@@ -1986,7 +1973,7 @@ country_event = {
 				factor = 0
 				is_historical_focus_on = yes
 				NOT = { HUN = { has_completed_focus = HUN_protect_austria } }
-				NOT = { ITA = { has_completed_focus = ITA_guarantee_austrian_independence } }
+				NOT = { }
 				NOT = {
 					strength_ratio = {
 						tag = GER
@@ -2022,7 +2009,6 @@ country_event = {
 				add = 100
 				ITA = {
 					OR = {
-						has_completed_focus = ITA_guarantee_austrian_independence
 						is_in_faction_with = AUS
 					}
 				}
@@ -2079,7 +2065,6 @@ country_event = {
 			limit = {
 				ITA = {
 					OR = {
-						has_completed_focus = ITA_guarantee_austrian_independence
 						has_guaranteed = AUS
 					}
 					
@@ -2252,7 +2237,6 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = ENG_no_further_appeasement
 				}
 				add_political_power = -200
 			}
@@ -2427,7 +2411,6 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = ENG_no_further_appeasement }
 				}
 				add_political_power = -200
 			}
@@ -2611,7 +2594,6 @@ country_event = {
 		if = {
 			limit = {
 				is_in_faction_with = CZE
-				has_completed_focus = FRA_strengthen_the_little_entente
 			}
 			add_political_power = -100
 		}
@@ -2759,7 +2741,7 @@ country_event = {
 		}
 		
 		if = {
-			limit = { NOT = { has_completed_focus = FRA_strengthen_the_little_entente } }
+			limit = { }
 			add_stability = 0.05
 		}
 	}
@@ -2815,7 +2797,6 @@ country_event = {
 			limit = {
 				is_in_faction_with = CZE
 				is_faction_leader = yes
-				has_completed_focus = FRA_strengthen_the_little_entente
 				NOT = { is_in_faction_with = ENG }
 			}
 			add_to_faction = ENG #Britain joins the little entente
@@ -3075,12 +3056,6 @@ country_event = {
 							has_completed_focus = AUS_the_danubian_federation
 						}
 					}
-					AND = {
-						is_in_faction_with = HUN
-						HUN = {
-							has_completed_focus = wuw_HUN_a_danubian_federation
-						}
-					}
 				}	
 			}
 			modifier = {
@@ -3153,13 +3128,6 @@ country_event = {
 			generator = CZE.sudetenland_states_for_wargoal
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.57 }
-			# Hitler has faced resistance and showed now
-			add_to_variable = { 
-				GER_hitlers_blunders_variable = 1
-			}
-		}
 		set_country_flag = allies_support_czechs
 	}
 }
@@ -3190,13 +3158,7 @@ country_event = {
 			generator = CZE.sudetenland_states_for_wargoal
 		}
 
-		hidden_effect = {
-			country_event = { hours = 6 id = news.58 }
-			# Hitler has faced resistance and showed now
-			add_to_variable = { 
-				GER_hitlers_blunders_variable = 1
-			}
-		}
+
 	}
 }
 
@@ -3233,14 +3195,6 @@ country_event = {
 				}
 			}
 			GER = { remove_from_faction = CZE }
-		}
-
-		hidden_effect = {
-			country_event = { hours = 6 id = news.59 }
-			# Hitler has faced resistance and showed now
-			add_to_variable = { 
-				GER_hitlers_blunders_variable = 1
-			}
 		}
 
 	}
@@ -3307,24 +3261,6 @@ country_event = {
 		GER_czechoslovakia_modify_mefo_bills_or_economy_of_conquest = yes
 		GER_seize_gold_reserves_in_europe_peacefully = yes
 
-		hidden_effect = {
-			country_event = { hours = 6 id = news.56 }
-			if = {
-				limit = {
-					has_dlc = "Death or Dishonor"
-					country_exists = YUG
-					YUG = { has_war = no }
-					ENG = { NOT = { has_war_with = YUG } }
-					ENG = { has_government = democratic }
-				}
-				ENG = {
-					country_event = {
-						id = DOD_yugoslavia.42
-						days = 3
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -3470,12 +3406,7 @@ country_event = {
 							has_completed_focus = AUS_the_danubian_federation
 						}
 					}
-					AND = {
-						is_in_faction_with = HUN
-						HUN = {
-							has_completed_focus = wuw_HUN_a_danubian_federation
-						}
-					}
+
 				}
 				
 			}
@@ -3585,12 +3516,7 @@ country_event = {
 						}
 						is_in_faction_with = AUS
 					}
-					AND = {
-						HUN = {
-							has_completed_focus = wuw_HUN_a_danubian_federation
-						}
-						is_in_faction_with = HUN
-					}
+
 				}
 			}
 		}
@@ -3924,27 +3850,6 @@ country_event = {
 
 		add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 
-		hidden_effect = {
-			country_event = { hours = 6 id = news.60 }
-			every_state = {
-				limit = {
-					is_controlled_by = SLO
-				}
-				add_core_of = SLO
-			}
-			SLO = {
-				add_manpower = 9876
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					load_oob = "SLO_1939_nsb"
-				}
-				else = {
-					load_oob = "SLO_1939"
-				}
-			}
-		}
 	}
 	option = {
 		name = germany.55.b
@@ -4098,9 +4003,7 @@ country_event = {
 			limit = { has_global_flag = GER_HUN_CZE_split }
 			HUN = { country_event = DOD_hungary.106 }
 		}
-		hidden_effect = {
-			country_event = { hours = 6 id = news.62 }
-		}
+
 
 		if = {
 			limit = {
@@ -4182,9 +4085,7 @@ country_event = {
 				}
 			}
 		}
-		hidden_effect = {
-			country_event = { hours = 6 id = news.61 }
-		}
+
 	}
 	option = {
 		name = germany.56.b
@@ -4291,9 +4192,7 @@ country_event = {
 			}
 			POL = { transfer_state = 72 } # Give Poland Zaolzie
 		}
-		hidden_effect = {
-			country_event = { hours = 6 id = news.60 }
-		}
+
 	}
 	option = {
 		name = germany.57.b
@@ -4303,9 +4202,7 @@ country_event = {
 			limit = { country_exists = CZE }
 			annex_country = { target = CZE }
 		}
-		hidden_effect = {
-			country_event = { hours = 6 id = news.62 }
-		}
+
 	}
 }
 
@@ -4504,7 +4401,7 @@ country_event = {
 	option = { # Support France
 		name = germany.61.b
 		trigger = {
-			NOT = { has_completed_focus = ENG_a_change_in_course }
+			NOT = {  }
 		}
 		ai_chance = {
 			base = 10
@@ -4578,28 +4475,15 @@ country_event = {
 	option = {
 		name = germany.62.a
 		trigger = {
-			NOT = { has_completed_focus = ENG_a_change_in_course }
+			NOT = {  }
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.25 }
-		}
+
 		add_opinion_modifier = { target = GER modifier = protest_action }
 		GER = {
 			add_war_support = 0.1
 		}
 
-	}
-
-	option = {
-		name = germany.62.b
-		trigger = {
-			has_completed_focus = ENG_a_change_in_course
-		}
-
-		hidden_effect = {
-			news_event = { hours = 6 id = news.25 }
-		}
 	}
 
 }
@@ -4799,12 +4683,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { 
-				hours = 6 
-				id = news.26 
-			}
-		}
+
 
 	}
 
@@ -4825,9 +4704,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.151 }
-		}
+
 
 		set_country_flag = GER_rhineland_backed_down
 
@@ -4911,24 +4788,14 @@ country_event = {
 				}
 			}
 		}
-		hidden_effect = {
-			news_event = { 
-				id = news.27 
-				hours = 6 
-			}
-		}
+
 	}
 
 	option = {
 		# We must back down!
 		name = germany.65.b
 
-		hidden_effect = {
-			news_event = { 
-				id = news.152 
-				hours = 6 
-			}
-		}
+
 
 		set_country_flag = GER_rhineland_backed_down
 
@@ -4965,12 +4832,7 @@ country_event = {
 	option = {
 		name = germany.67.a
 
-		hidden_effect = {
-			news_event = { 
-				id = news.25
-				hours = 6
-			}
-		}
+
 
 		add_opinion_modifier = { target = GER modifier = protest_action }
 
@@ -5119,9 +4981,7 @@ country_event = {
 			GER_remove_himmler_effects = yes
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.28 }
-		}
+
 
 	}
 
@@ -5149,9 +5009,7 @@ country_event = {
 			GER_replace_goring_as_prevailing_industrialist = yes
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.29 }
-		}
+
 
 	}
 
@@ -5191,9 +5049,7 @@ country_event = {
 
 		add_stability = 0.25
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.30 }
-		}
+
 
 	}
 }
@@ -5453,9 +5309,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.31 }
-		}
+
 
 	}
 
@@ -5707,9 +5561,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.31 }
-		}
+
 
 	}
 
@@ -5963,9 +5815,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.31 }
-		}
+
 
 	}
 
@@ -6213,9 +6063,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 6 id = news.31 }
-		}
+
 
 	}
 
@@ -6401,9 +6249,7 @@ country_event = {
 				transfer_state = 800
 			}
 		}
-		hidden_effect = {
-			news_event = { hours = 6 id = news.201 }
-		}
+
 	}
 
 	option = {
@@ -6467,9 +6313,7 @@ country_event = {
 				type = puppet_wargoal_focus
 			}
 		}
-		hidden_effect = {
-			news_event = { hours = 6 id = news.217 }
-		}
+
 	}
 
 	option = {
@@ -6508,9 +6352,7 @@ country_event = {
 				type = puppet_wargoal_focus
 			}
 		}
-		hidden_effect = {
-			news_event = { hours = 6 id = news.216 }
-		}
+
 	}
 }
 
@@ -6661,10 +6503,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours= 6 id = news.202 }
-			set_global_flag = poland_swap_danzig
-		}
+
 	}
 }
 
@@ -6766,7 +6605,7 @@ country_event = {
 			OR = {
 				NOT = { FROM = { original_tag = POL } }
 				NOT = { original_tag = GER }
-				NOT = { has_completed_focus = GER_danzig_for_guarantees }
+				NOT = {  }
 			}
 		}
 	}
@@ -6775,7 +6614,7 @@ country_event = {
 		trigger = {
 			FROM = { original_tag = POL }
 			original_tag = GER
-			has_completed_focus = GER_danzig_for_guarantees
+			
 		}
 	}
 	desc = {
@@ -6784,7 +6623,7 @@ country_event = {
 			OR = {
 				NOT = { FROM = { original_tag = POL } }
 				NOT = { original_tag = GER }
-				NOT = { has_completed_focus = GER_danzig_for_guarantees }
+				NOT = { }
 			}
 		}
 	}
@@ -6793,7 +6632,7 @@ country_event = {
 		trigger = {
 			FROM = { original_tag = POL }
 			original_tag = GER
-			has_completed_focus = GER_danzig_for_guarantees
+			
 		}
 	}
 	picture = GFX_report_event_soviet_tanks
@@ -6829,7 +6668,7 @@ country_event = {
 		trigger = {
 			NOT = { FROM = { original_tag = POL } }
 			NOT = { original_tag = GER }
-			NOT = { has_completed_focus = GER_danzig_for_guarantees }
+			NOT = {  }
 		}
 		ai_chance = {
 			base = 0
@@ -6882,9 +6721,7 @@ country_event = {
 			}
 		}
 		country_event = { id = poland.1 days = 7 }
-		hidden_effect = {
-			news_event = { id = news.203 hours = 6 }
-		}
+
 	}
 
 	option = {
@@ -6949,9 +6786,7 @@ country_event = {
 			}
 		}
 
-		hidden_effect = {
-			news_event = { hours = 1 id = news.204 }
-		}
+
 		effect_tooltip = {
 			GER = {
 				declare_war_on = {
@@ -7247,9 +7082,7 @@ country_event = {
 				value = 200
 			}
 		}
-		hidden_effect = {
-			news_event = { hours = 6 id = news.182 }
-		}
+
 	}
 	option = {
 		name = germany.91.b
@@ -7260,9 +7093,7 @@ country_event = {
 				modifier = GER_FRA_join_germany_reject
 			}
 		}
-		hidden_effect = {
-			news_event = { hours = 6 id = news.183 }
-		}
+
 	}
 }
 
@@ -7304,9 +7135,7 @@ country_event = {
 			target = YUG
 			generator = { 102 853 }
 		}
-		hidden_effect = {
-			news_event = { id = news.164 hours = 6 }
-		}
+
 		set_country_flag = allies_support_yugoslavia
 
 		# Claiming German Slovenia
@@ -7349,9 +7178,7 @@ country_event = {
 			transfer_state = 853
 		}
 		set_country_flag = slovenia_acquired
-		hidden_effect = {
-			news_event = { id = news.163 hours = 6 }
-		}
+
 	}
 }
 
@@ -7411,9 +7238,7 @@ country_event = {
 			add_claim_by = ROOT
 		}
 		
-		hidden_effect = {
-			news_event = { id = news.166 hours = 6 }
-		}
+
 	}
 }
 
@@ -7433,9 +7258,7 @@ country_event = {
 			target = YUG
 			generator = { 102 853 }
 		}
-		hidden_effect = {
-			news_event = { id = news.167 hours = 6 }
-		}
+
 	}
 }
 
@@ -7455,9 +7278,7 @@ country_event = {
 			target = YUG
 			generator = { 102 853 }
 		}
-		hidden_effect = {
-			news_event = { id = news.165 hours = 6 }
-		}
+
 	}
 }
 
@@ -7561,10 +7382,7 @@ country_event = {
 			}
 			puppet = CRO
 			puppet = YUG
-			hidden_effect = {
-				set_global_flag = GER_fate_of_yugoslavia_puppet_CRO_YUG
-				news_event = { hours = 6 id = news.169 }
-			}
+
 			#custom_effect_tooltip = yugoslavia_mefo_bills_tt
 			#add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 		}
@@ -7784,9 +7602,7 @@ country_event = {
 			type = puppet_wargoal_focus
 			target = GRE
 		}
-		hidden_effect = {
-			news_event = { id = news.229 hours = 6 }
-		}
+
 	}
 }
 
@@ -8000,21 +7816,21 @@ country_event = {
 			if = { # WW (GOT) content - inner circle - If Hess started ascending, remove him (leaving Bormann available)
 				limit = {
 					OR = {
-						has_completed_focus = GER_party_chancellor_hess
+						
 						focus_progress = {
 							focus = GER_party_chancellor_hess
 							progress > 0
 						}
 					}
-					NOT = { has_completed_focus = GER_rally_the_industrialists } #Just extra safety meassure, this should never happen (events news.52 and news.53 should not be triggered if this is true)
+					NOT = {} #Just extra safety meassure, this should never happen (events news.52 and news.53 should not be triggered if this is true)
 				}
 				set_country_flag = GER_bye_bye_hess_flag #Just for tooltip purposes in the event option
 
 				if = { #If the focus in ongoing, it needs to be bypassed so it can actually be uncompleted (this doesn't trigger any pop-up)
 					limit = {
-						NOT = { has_completed_focus = GER_party_chancellor_hess }
+						NOT = { }
 					}
-					unlock_national_focus = GER_party_chancellor_hess
+					
 				}
 				uncomplete_national_focus = {
 					focus = GER_party_chancellor_hess

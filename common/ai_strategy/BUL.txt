@@ -110,10 +110,6 @@ BUL_befriend_ENG = {
 				option = DEMOCRATIC_LIBERAL
 			}
 		}
-		focus_progress = {
-			focus = BUL_legislative_elections
-			progress > 0.1
-		}
 		country_exists = ENG
 		ENG = {
 			has_opinion	= {
@@ -168,10 +164,6 @@ BUL_befriend_GRE = {
 				option = DEMOCRATIC_SOCIALIST
 			}
 		}
-		focus_progress = {
-			focus = BUL_legislative_elections
-			progress > 0.1
-		}
 		country_exists = GRE
 		GRE = {
 			has_opinion	= {
@@ -224,10 +216,6 @@ BUL_befriend_YUG = {
 				option = COMMUNIST_BALKAN_FEDERATION
 			}
 		}
-		focus_progress = {
-			focus = BUL_the_peoples_republic_of_bulgaria
-			progress > 0.1
-		}
 		country_exists = YUG
 		YUG = {
 			has_opinion	= {
@@ -279,10 +267,6 @@ BUL_befriend_SOV = {
 				rule = BUL_ai_behavior 
 				option = COMMUNIST
 			}
-		}
-		focus_progress = {
-			focus = BUL_the_peoples_republic_of_bulgaria
-			progress > 0.1
 		}
 		country_exists = SOV
 		SOV = {
@@ -447,7 +431,6 @@ BUL_we_dont_want_to_fight_sov = {
 	}
 	abort = {
 		OR = {
-			has_completed_focus = BUL_the_eastern_front
 			date > 1945.01.01
 		}
 	}
@@ -551,7 +534,6 @@ BUL_address_internal_affairs_first = {
 	enable = {
 		OR = {
 			has_completed_focus = BUL_power_to_the_tsar
-			has_completed_focus = BUL_oppose_the_royal_dictatorship
 		}
 	}
 	abort = {

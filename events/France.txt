@@ -277,9 +277,6 @@ country_event = {
 		custom_effect_tooltip = FRA_franco_british_cores
 		hidden_effect = {
 			ENG = { set_cosmetic_tag = FRA_UK }
-			GER = { 
-				country_event = { hours = 6 id = news.35 }
-			}
 		}
 	}
 }
@@ -672,10 +669,6 @@ country_event = {
 				change_tag_from = FRA
 			}
 		}
-		country_event = { hours = 6 id = news.34 }
-		hidden_effect =  {
-			FRA = { news_event = { id = france.20 days = 1 } }
-		}
 		FROM = {
 			clr_country_flag = GER_dont_seize_gold_reserves_flag
 		}
@@ -1015,10 +1008,6 @@ country_event = {
 			}
 			save_event_target_as = vichy_france
 			set_country_flag = vichy_france
-		}
-		country_event = { hours = 6 id = news.34 }
-		hidden_effect =  {
-			FRA = { news_event = { id = france.20 days = 1 } }
 		}
 		FROM = {
 			clr_country_flag = GER_dont_seize_gold_reserves_flag
@@ -1619,7 +1608,7 @@ country_event = {
 			}
 		}
 		if = {
-			limit = { NOT = { has_completed_focus = FRA_strengthen_the_little_entente } }
+			limit = { }
 			add_stability = 0.05
 		}
 	}

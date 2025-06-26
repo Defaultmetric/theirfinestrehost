@@ -21,24 +21,6 @@ SOV_historical_plan = {
 			}
 		}
 	}
-	abort = {
-		OR = {
-			is_subject = yes
-			# They will switch to a plan that excludes the trade treaty if Germany goes against Ribbentrop
-			AND = {
-				GER = {
-					OR = {
-						has_completed_focus = GER_heed_von_neuraths_concerns
-						has_completed_focus = GER_monarchist_sentiment
-					}
-				}
-				has_game_rule = {
-					rule = SOV_ai_behavior
-					option = DEFAULT
-				}
-			}
-		}
-	}
 
 	ai_national_focuses = {
 		#Things to do ASAP
@@ -139,7 +121,6 @@ SOV_historical_plan = {
 
 		#1945
 		SOV_war_measures_in_the_east #35
-		SOV_annex_tannu_tuva #35 -> Nov 1944
 		SOV_soviet_atomic_bomb_project
 	}
 

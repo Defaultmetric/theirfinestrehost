@@ -174,35 +174,3 @@ RAJ_communist_i_dont_want_a_navy = {
 		value = 0
 	}
 }
-
-RAJ_communist_agrarian_dont_waste_focus_bonuses = {
-	allowed = {
-		original_tag = RAJ
-		OR = {
-			has_country_flag = RAJ_AI_RANDOM_INDIA_COMMUNISM
-			has_game_rule = {
-				rule = RAJ_ai_behavior
-				option = GOE_INDIA_COMMUNISM	
-			}
-		}
-	}
-	enable = {
-		has_completed_focus = RAJ_every_man_a_leader
-	}
-
-	abort = {
-		always = no
-	}
-
-	ai_strategy = {
-		type = research_weight_factor
-		id = tech_mountaineers
-		value = 2000000
-	}
-
-	ai_strategy = {
-		type = build_army
-		id = mountaineers
-		value = 100
-	}
-}

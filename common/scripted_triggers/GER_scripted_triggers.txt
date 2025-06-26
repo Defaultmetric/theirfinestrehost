@@ -143,8 +143,6 @@ GER_naval_interest_trigger = {
 				has_war_with = JAP
 			}
 		}
-		has_completed_focus = GER_plan_z
-		has_completed_focus = GER_rebuild_the_high_seas_fleet
 	}
 }
 
@@ -225,10 +223,6 @@ GER_should_continue_split_SOV_front_with_ITA = {
 going_war_with_SOV = {
 	OR = {
 		has_war_with = SOV
-		focus_progress = {
-			focus = GER_war_with_the_ussr
-			progress > 0.01
-		}
 		is_justifying_wargoal_against = SOV
 		has_wargoal_against = SOV
 	}

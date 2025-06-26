@@ -1352,33 +1352,6 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					tag = GER
-					is_subject = yes
-				}
-				GER = { #Stop democratic Germany from doing Anschluss and awakening their ambition of global domination
-					uncomplete_national_focus = {
-						focus = GER_remilitarize_the_rhineland
-						uncomplete_children = yes
-					}
-					if = {
-						limit = {
-							has_dlc = "Gotterdammerung"
-						}
-						uncomplete_national_focus = {
-							focus = GER_oppose_hitler_ww
-							uncomplete_children = yes
-						}
-					}
-					else = {
-						uncomplete_national_focus = {
-							focus = GER_oppose_hitler
-							uncomplete_children = yes
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
 					POL = {
 						is_subject_of = GER
 						is_ai = no #So that there's no weird transfer of states between AIs
@@ -1475,7 +1448,6 @@ on_actions = {
 								target = PREV
 								transfer_troops = yes
 							}
-							country_event = { id = baltic.8 } #This lets the player know that they were given a baltic state. 
 						}
 					}
 				}
@@ -1958,38 +1930,6 @@ on_actions = {
 					original_tag = SOV
 				}
 				SOV = { set_country_flag = SOV_sinkiang_joined_comintern_counter_flag }
-			}
-		}
-	}
-
-	on_release_as_puppet = { 
-		effect = { 
-			if = {
-				limit = {
-					FROM = { 
-						tag = SOV 
-						has_completed_focus = SOV_autonomous_soviet_republics
-					}
-				}
-				ROOT = {
-					add_ideas = {
-						SOV_system_decentralization_idea
-						SOV_the_local_soviets_idea
-					}
-				}
-			}
-			if = {
-				limit = {
-					FROM = { 
-						tag = SOV 
-						has_completed_focus = SOV_international_union_of_soviet_republics
-					}
-				}
-				ROOT = {
-					add_ideas = {
-						SOV_puppet_international_of_soviet_republics_idea
-					}
-				}
 			}
 		}
 	}

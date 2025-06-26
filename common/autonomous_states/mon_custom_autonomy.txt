@@ -1,8 +1,14 @@
 autonomy_state = {
     id = mon_ultra_autonomy
     is_puppet = yes
-    min_freedom_level = 1.1
+    min_freedom_level = 0.0
     manpower_influence = 0.0
+    ai_overlord_wants_lower = {
+        factor = 1
+    }
+    ai_subject_wants_higher = {
+        factor = 0
+    }
 
     rule = {
         desc = "RULE_DESC_IS_A_SUBJECT"

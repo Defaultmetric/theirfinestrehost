@@ -8,7 +8,6 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
 					}
 				}
 				FROM = {
@@ -188,7 +187,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+
 					}
 				}
 				FROM = {
@@ -308,7 +307,7 @@ on_actions = {
 					FROM = { 
 						original_tag = GER
 						is_faction_leader = yes
-						has_completed_focus = GER_autarky_efforts
+
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -342,7 +341,7 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						original_tag = GER
-						has_completed_focus = GER_autarky_efforts
+
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -374,27 +373,6 @@ on_actions = {
 			}
 		}
 
-		effect = { # Adding the correct stuff for puppets for German Mitteleuropa stuff
-			IF = {
-				limit = {
-					FROM = {
-						original_tag = GER
-						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
-						}
-					}
-				}
-
-				GER_setup_faction_wide_aoe_effects_from = yes
-
-			}
-		}
-
 		effect = {
 			IF = {
 				limit = {
@@ -413,42 +391,6 @@ on_actions = {
 
 	# FROM is the country invited, THIS and ROOT are the faction leader.
 	on_offer_join_faction = { 
-
-		effect = {
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
-					}
-				}
-				ROOT = {
-					GER_one_more_member_increase_rnd_program_strength = yes
-				}
-				
-			}
-		}
-
-		effect = { # Adding the correct stuff for puppets for German Mitteleuropa stuff
-			IF = {
-				limit = {
-					ROOT = {
-						original_tag = GER
-						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
-						}
-					}
-				}
-
-				GER_setup_faction_wide_aoe_effects_root = yes
-
-			}
-		}
 
 		effect = { # Adding the correct stuff for faction joiners for the AH joint focus tree
 			IF = {
@@ -559,7 +501,6 @@ on_actions = {
 					ROOT = { 
 						original_tag = GER
 						is_faction_leader = yes
-						has_completed_focus = GER_autarky_efforts
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -593,7 +534,6 @@ on_actions = {
 				limit = {
 					FROM = { 
 						original_tag = GER
-						has_completed_focus = GER_autarky_efforts
 					}
 				}
 				if = { #This is a fail safe to not boost trade relations to ridiculous levels 
@@ -770,7 +710,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						original_tag = GER
-						has_completed_focus = GER_shared_rd_programs_ww
+
 					}
 					ROOT = {
 						NOT = { is_in_faction_with = FROM }
@@ -887,27 +827,6 @@ on_actions = {
 			}
 		}
 
-		effect = { # Adding the correct stuff for puppets for German Mitteleuropa stuff
-			IF = {
-				limit = {
-					FROM = {
-						original_tag = GER
-						is_faction_leader = yes
-						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
-						}
-					}
-				}
-
-				GER_setup_faction_wide_aoe_effects_from = yes
-
-			}
-		}
 
 	}
 
@@ -1092,28 +1011,6 @@ on_actions = {
 						add_dynamic_modifier = { modifier = HABSBURG_cavalry_modifier }
 					}
 				}
-			}
-		}
-
-		effect = { # Adding the correct stuff for puppets for the German Mitteleruopa faction stuff
-			IF = {
-				limit = {
-					FROM = {
-						original_tag = GER
-						is_faction_leader = yes
-						OR = {
-							has_completed_focus = GER_pool_technical_know_how_ww
-							has_completed_focus = GER_pool_technical_know_how
-							has_completed_focus = GER_shared_rd_programs_ww
-							has_completed_focus = GER_shared_rd_programs
-							has_completed_focus = GER_establish_a_customs_union
-							has_completed_focus = GER_mitteleuropa_cooperation_sphere
-						}
-					}
-				}
-
-				GER_setup_faction_wide_aoe_effects_from = yes
-
 			}
 		}
 
@@ -1475,7 +1372,7 @@ on_actions = {
 	
 					}
 					GER = {
-						has_completed_focus = GER_spheres_of_influence
+
 						has_country_flag = GER_SOV_agreed_sphere_of_influence
 					}
 	
@@ -1506,7 +1403,7 @@ on_actions = {
 		
 					}
 					GER = {
-						has_completed_focus = GER_spheres_of_influence
+
 						has_country_flag = GER_SOV_agreed_sphere_of_influence
 					}
 		
@@ -1607,8 +1504,7 @@ on_actions = {
 					original_tag = GER
 					NOT = { has_country_flag = GER_has_war_preparations_flag }
 					OR = {
-						has_completed_focus = GER_prepare_for_the_next_naval_blockade
-						has_completed_focus = GER_war_preparations
+
 					}
 				}
 				add_timed_idea = {
@@ -1900,7 +1796,7 @@ on_actions = {
 	    					has_global_flag = GER_eastern_bulwark_already_triggered_flag
 	    				}
 	    			}
-	    			GER = { has_completed_focus = GER_build_the_eastern_bulwark }
+
 	    		}
 	    		hidden_effect = {
 	    			GER = { 
@@ -2211,7 +2107,7 @@ on_actions = {
 			IF = { #Check if Germany helped a country to the warm embrace of socialism
 				limit = {
 					GER = {
-						has_completed_focus = GER_strengthen_the_proletarian_international
+
 					}
 					ROOT = {
 						is_in_array = {
@@ -2227,7 +2123,7 @@ on_actions = {
 					limit = {
 						GER = {
 							NOT = { 
-								has_completed_focus = GER_root_out_imperialism
+	
 							}
 						}
 						ROOT = {

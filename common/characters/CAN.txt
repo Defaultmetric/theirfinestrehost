@@ -684,7 +684,7 @@ characters={
 					limit = {
 						has_dlc = "Together for Victory"
 					}
-					has_completed_focus = true 
+					has_completed_focus = CAN_swastika_clubs 
 				}
 				if = {
 					limit = {
@@ -729,6 +729,7 @@ characters={
 					}
 					OR = {
 						has_completed_focus = CAN_strengthen_the_commonwealth_ties 
+						has_completed_focus = CAN_permanent_joint_defense_board 
 					}
 				}
 				if = {
@@ -754,6 +755,48 @@ characters={
 		}
 	}
 
+	CAN_william_kashtan={
+		name=CAN_william_kashtan
+		portraits={
+			army={
+				small="GFX_idea_CAN_william_kashtan" #small="GFX_idea_generic_communist_revolutionary_commonwealth_2d"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CAN_william_kashtan
+			allowed = {
+				original_tag = CAN
+			}
+			available = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					has_completed_focus = CAN_burn_the_royal_portraits 
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					NOT = {
+						has_autonomy_state = autonomy_supervised_state
+					}
+				}
+			}
+			traits = {
+				communist_revolutionary 
+			}
+			do_effect = {
+				NOT = {
+					has_government = communism 
+				}
+			}
+			ai_will_do = {
+				factor = 0.000
+			}
+		}
+	}
 
 	CAN_ian_a_mackenzie={
 		name=CAN_ian_a_mackenzie

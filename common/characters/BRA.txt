@@ -1,4 +1,26 @@
-
+characters={
+	BRA_getulio_vargas={
+		name=BRA_getulio_vargas
+		portraits={
+			civilian={
+				large=GFX_portrait_BRA_getulio_vargas # Can become Fascism leader later (via Portugal FT)
+			}
+		}
+		# Vanilla - Needs DLC checks
+		#country_leader={
+		#	ideology=despotism
+		#	expire="1965.1.1.1"
+		#	id=-1
+		#}
+		country_leader = {
+			ideology = populism
+			expire = "1965.1.1"
+			id=-1
+			traits = {
+				BRA_authoritarian_populist
+			}
+		}
+	}
 
 	BRA_arlindo_veiga_dos_santos={
 		name=BRA_arlindo_veiga_dos_santos
@@ -17,6 +39,40 @@
 		}
 	}
 	
+	BRA_plinio_salgado={
+		instance = {
+			allowed = {
+				NOT = {
+					has_dlc = "Trial of Allegiance"
+				}
+			}
+			portraits={
+				civilian={
+					large=GFX_portrait_BRA_plinio_salgado
+				}
+			}
+			country_leader={
+				ideology=fascism_ideology
+				expire="1965.1.1.1"
+				id=-1
+				traits = {
+					dictator
+				}
+			}
+			name=BRA_plinio_salgado	
+		}
+		instance = {
+			allowed = {
+				has_dlc = "Trial of Allegiance"				
+			}
+			portraits={
+				civilian={
+					large=GFX_portrait_BRA_plinio_salgado
+				}
+			}
+			name=BRA_plinio_salgado	
+		}
+	}
 
 	BRA_luis_carlos_prestes={
 		name=BRA_luis_carlos_prestes
@@ -127,6 +183,34 @@
 					large=GFX_portrait_BRA_eurico_dutra
 					small=GFX_portrait_BRA_eurico_dutra_civilian_small
 				}
+			}
+			advisor={
+				cost = 150
+				slot = political_advisor 
+				idea_token = BRA_eurico_gaspar_dutra
+				allowed = {
+					original_tag = BRA
+					has_dlc = "Trial of Allegiance"
+				}
+				available = {
+					OR = { 
+						has_completed_focus = BRA_posts_for_generals 
+						has_completed_focus = BRA_issue_lordships
+					}
+					is_country_leader = no
+				}
+				traits = {
+					BRA_minister_of_defense
+				}
+			}	
+			corps_commander={
+				traits={ ranger }
+				skill=3
+				attack_skill=2
+				defense_skill=3
+				planning_skill=2
+				logistics_skill=3
+				legacy_id=-1
 			}
 		}
 		instance = {
@@ -605,19 +689,171 @@
 					large="GFX_portrait_BRA_washington_luis"
 				}
 			}
+			advisor={
+				slot = political_advisor
+				idea_token = BRA_washington_luis_pereira
+				allowed  = {
+					original_tag  = BRA
+				}
+				available = {
+					has_completed_focus = BRA_end_the_state_of_emergency
+					NOT = {
+						OR = { 
+							has_government = fascism
+							has_government = communism
+						}
+					}
+					is_country_leader = no
+				}
+				traits  = {
+					BRA_deposed_former_president
+				}
+			}	
 			name=BRA_washington_luis_pereira
 		}
 	}
 
+	BRA_osvaldo_aranha={
+		instance = {
+			allowed = {
+				NOT = {
+					has_dlc = "Trial of Allegiance"
+				}
+			}
+			portraits={
+				army={
+					small="GFX_idea_generic_political_advisor_south_america_2"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = BRA_osvaldo_aranha
+				allowed  = {
+					original_tag  = BRA
+				}
+				traits  = {
+					compassionate_gentleman 
+				}
+			}
+			name=BRA_osvaldo_aranha	
+		}	
+		instance = {
+			allowed = {
+				has_dlc = "Trial of Allegiance"
+			}
+			portraits={
+				civilian={
+					small="GFX_portrait_BRA_osvaldo_aranha_small"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = BRA_osvaldo_aranha
+				allowed  = {
+					original_tag  = BRA
+				}
+				available = {
+					#NOT = {
+					#	has_government = fascism
+					#	has_government = communism
+					#}
+				}
+				traits  = {
+					BRA_renowned_ambassador
+				}
+			}	
+			name=BRA_osvaldo_aranha
+		}
+	}
 	
-	
-	
+	BRA_afranio_de_mello_franco={
+		instance = {
+			allowed = {
+				NOT = {
+					has_dlc = "Trial of Allegiance"
+				}
+			}
+			portraits={
+				army={
+					small="GFX_idea_generic_political_advisor_south_america_3"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = BRA_afranio_de_mello_franco
+				allowed  = {
+					original_tag  = BRA
+				}
+				traits  = {
+					popular_figurehead 
+				}
+			}
+			name=BRA_afranio_de_mello_franco	
+		}	
+		instance = {
+			allowed = {
+				has_dlc = "Trial of Allegiance"
+			}
+			portraits={
+				army={
+					small="GFX_idea_generic_political_advisor_south_america_3"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = BRA_afranio_de_mello_franco
+				allowed  = {
+					original_tag  = BRA
+				}
+				available = {
+					NOT = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
+				traits  = {
+					BRA_nobel_peace_prize_nominee
+				}
+
+				on_add = {
+					BRA = { set_rule = { can_send_volunteers = yes } }
+				}
+			}	
+			name=BRA_afranio_de_mello_franco
+		}
+	}
 
 
 	### Juno ###
 	### TODO_JUNO: Check above instances for correct DLC settings 
 
-	
+	BRA_jose_linhares = {
+		name=BRA_jose_linhares
+		portraits={
+			army={
+				small="GFX_portrait_BRA_jose_linhares_small"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = political_advisor
+			idea_token = BRA_jose_linhares
+			allowed  = {
+				original_tag  = BRA
+			}
+			available  = {
+				#NOT = {
+				#	OR = { 
+				#		has_government = communism
+				#		has_government = fascism
+				#	}
+				#}
+			}
+			traits  = {
+				BRA_supreme_court_justice 
+			}
+		}		
+	}
 
 	BRA_benedito_valadres = {
 		name=BRA_benedito_valadres
@@ -657,6 +893,12 @@
 			idea_token = BRA_alfred_agache
 			allowed  = {
 				original_tag  = BRA
+			}
+			available  = {
+				#NOT = {
+				#	has_completed_focus = BRA_romanticize_the_old_empire
+				#}
+			}
 			traits  = {
 				BRA_modernist_architect 
 			}
@@ -785,6 +1027,7 @@
 			}
 			available  = {
 				has_government = democratic
+				has_completed_focus = BRA_free_speech
 				is_country_leader = no
 			}
 			traits  = {
@@ -808,7 +1051,7 @@
 			}
 			available  = {
 				has_government = democratic
-				
+				has_completed_focus = BRA_free_speech
 			}
 			traits  = {
 				BRA_academic_writer
@@ -840,7 +1083,7 @@
 			}
 			available  = {
 				has_government = democratic
-				
+				has_completed_focus = BRA_free_speech
 				is_country_leader = no
 			}
 			traits  = {
@@ -870,6 +1113,7 @@
 			}
 			available  = {
 				has_government = democratic
+				has_completed_focus = BRA_free_speech
 				is_country_leader = no
 			}
 			traits  = {
@@ -917,6 +1161,28 @@
 		}		
 	}
 
+	BRA_olga_benario_prestes = {
+		name=BRA_olga_benario_prestes
+		portraits={
+			army={
+				large="GFX_portrait_BRA_olga_benario_prestes-export"
+				small="GFX_portrait_BRA_olga_benario_prestes_small"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_olga_benario_prestes
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				has_government = communism
+				#has_completed_focus = BRA_free_prestes
+			}
+			traits  = {
+				SWI_soviet_spy
+			}
 		}	
 		corps_commander={
 			visible = {
@@ -930,8 +1196,116 @@
 			logistics_skill=2
 			legacy_id=-1
 		}	
-	
+	}
 
+	BRA_apolonio_de_carvalho = {
+		name=BRA_apolonio_de_carvalho
+		portraits={
+			army={
+				small="GFX_portrait_BRA_apolinio_de_carvalho_small"
+				large="GFX_portrait_BRA_apolinio_de_carvalho"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_apolonio_de_carvalho
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				has_government = communism
+				#has_completed_focus = BRA_revive_the_anl
+			}
+			traits  = {
+				BRA_militant_communist
+			}
+		}		
+	}
+
+	BRA_war_industrialist = {
+		#name=BRA_apolonio_de_carvalho
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_south_america_1"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_war_industrialist
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				#has_government = communism
+				#has_completed_focus = BRA_revive_the_anl
+			}
+			traits  = {
+				war_industrialist
+			}
+		}		
+	}
+
+	BRA_captain_of_industry = {
+		#name=BRA_apolonio_de_carvalho
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_south_america_2"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_captain_of_industry
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				#has_government = communism
+				#has_completed_focus = BRA_revive_the_anl
+			}
+			traits  = {
+				captain_of_industry
+			}
+		}		
+	}
+
+	BRA_domingos_bras = {
+		name=BRA_domingos_bras
+		portraits={
+			#army={
+			#	small="GFX_idea_generic_political_advisor_south_america_3"
+			#}
+			civilian={
+				large=GFX_Portrait_South_America_Generic_1 
+				small=GFX_idea_south_america_generic_1
+			}
+		}
+		country_leader = {
+			expire = "1965.1.1"
+			ideology = stalinism
+			id=-1
+			traits = {
+				devoted_communist
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_domingos_bras
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				has_government = communism
+				is_country_leader = no
+			}
+			traits  = {
+				devoted_communist
+			}
+		}		
+	}
 
 	BRA_leoncio_basbaum = {
 		name=BRA_leoncio_basbaum
@@ -981,6 +1355,67 @@
 		}
 	}
 
+	BRA_gustavo_barroso = {
+		name=BRA_gustavo_barroso
+		portraits={
+			#army={
+			#	small="GFX_idea_generic_political_advisor_south_america_3"
+			#}
+			civilian={
+				small=GFX_portrait_BRA_gustavo_barroso_small
+				large=GFX_portrait_BRA_gustavo_barroso
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_gustavo_barroso
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				NOT = { has_government = communism }
+			}
+			traits  = {
+				DEN_fascist_militarist
+			}
+		}		
+	}
+
+	BRA_miguel_reale = {
+		name=BRA_miguel_reale
+		portraits={
+			#army={
+			#	small="GFX_idea_generic_political_advisor_south_america_3"
+			#}
+			civilian={
+				small=GFX_portrait_BRA_miguel_reale_small
+				large=GFX_portrait_BRA_miguel_reale
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = BRA_miguel_reale
+			allowed = {
+				original_tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				NOT = { has_government = communism }
+			}
+			traits  = {
+				SWI_fascist_propagandist
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 10
+					has_completed_focus	= BRA_work_with_the_integralists
+				}
+			}
+		}		
+	}
+
 	BRA_oliveria_viana = {
 		name=BRA_oliveria_viana
 		portraits={
@@ -1009,7 +1444,32 @@
 				factor = 1
 				modifier = {
 					factor = 10
+					has_completed_focus	= BRA_romanticize_the_old_empire
 				}
+			}
+		}		
+	}
+
+	BRA_geremia_lunarelli = {
+		name=BRA_geremia_lunarelli
+		portraits={
+			army={
+				small="GFX_portrait_BRA_geremia_lunardelli_small"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = political_advisor
+			idea_token = BRA_geremia_lunarelli
+			allowed  = {
+				original_tag  = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+			available  = {
+				has_completed_focus = BRA_promote_agriculture
+			}
+			traits  = {
+				 BRA_coffee_king
 			}
 		}		
 	}
@@ -1131,7 +1591,7 @@
 			traits={ career_officer offensive_doctrine jungle_rat }
 			skill=2
 			attack_skill=3
-			defense_skill=2
+			defense_skill=1
 			planning_skill=2
 			logistics_skill=1
 			legacy_id=-1
@@ -1287,6 +1747,30 @@
 			planning_skill=1
 			logistics_skill=1
 			legacy_id=-1
+		}
+	}
+
+	BRA_lampiao={
+		name=BRA_lampiao
+		portraits={
+			army={
+				large=GFX_portrait_BRA_lampiao
+				small=GFX_portrait_BRA_lampiao_small
+			}
+		}	
+		corps_commander={
+			traits={ trickster guerilla_fighter ranger }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+			visible = {
+				has_completed_focus = BRA_sway_the_cangaco
+				has_government = communism
+			}
+
 		}
 	}
 

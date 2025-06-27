@@ -305,7 +305,6 @@ characters = {
 			logistics_skill = 2
 			legacy_id = -1
 			visible = {
-				has_completed_focus = FIN_patriotic_peoples_movement
 				NOT = { has_government = communism }
 			}
 		}
@@ -457,28 +456,7 @@ characters = {
 		}
 	}
 
-	FIN_lauri_torni = {
-		name = FIN_lauri_torni
-		portraits = {
-			army = {
-				large = GFX_portrait_FIN_lauri_torni
-				small = GFX_portrait_FIN_lauri_torni_small
-			}
-		}
-		corps_commander = {
-			traits = { commando winter_specialist ranger skirmisher }
-			skill = 2
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
-			visible = {
-				has_completed_focus = FIN_military_promotions
-				NOT = { has_government = communism }
-			}
-		}
-	}
+	
 
 	FIN_erkki_raappana = {
 		name = FIN_erkki_raappana
@@ -520,7 +498,7 @@ characters = {
 			legacy_id = -1
 			visible = {
 				OR = {
-					has_completed_focus = FIN_social_democracy
+					
 					has_completed_focus = FIN_political_unity
 					has_completed_focus = FIN_cooperate_with_social_democrats
 				}
@@ -529,44 +507,7 @@ characters = {
 		}
 	}
 
-	FIN_akseli_anttila = {
-		name = FIN_akseli_anttila
-		portraits = {
-			army = {
-				small = GFX_portrait_FIN_akseli_anttila_small
-				large = GFX_portrait_FIN_akseli_anttila
-			}
-		}
-		corps_commander = {
-			traits = { infantry_officer reckless }
-			skill = 3
-			attack_skill = 2
-			defense_skill = 3
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id = -1
-			visible = {
-				has_completed_focus = FIN_the_second_finnish_civil_war
-			}
-		}
-		advisor = {
-			cost = 100
-			slot = theorist
-			idea_token = FIN_akseli_anttila
-			ledger = army
-			allowed = {
-				original_tag = FIN
-			}
-
-			available = {
-				has_completed_focus = FIN_the_second_finnish_civil_war
-			}
-			
-			traits = {
-				military_theorist
-			}
-		}
-	}
+	
 
 	FIN_aksel_airo = {
 		name = FIN_aksel_airo
@@ -619,109 +560,9 @@ characters = {
 		}
 	}
 
-	FIN_emil_vaateri = {
-		name = FIN_emil_vaateri
-		portraits = {
-			army = {
-				large = GFX_portrait_FIN_emil_vaateri
-				small = GFX_portrait_FIN_emil_vaateri_small
-			}
-		}
-		corps_commander = {
-			traits = { winter_expert infantry_officer jaeger militias_officer }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 3
-			legacy_id = -1
-			visible = {
-				OR = {
-					has_completed_focus = FIN_approach_the_soviets
-					has_completed_focus = FIN_confederated_finno_russian_republics
-				}
-				has_completed_focus = FIN_the_second_finnish_civil_war #So the character is available once the Civil War starts
-				has_government = communism
-			}
-		}
-	}
 
-	FIN_eyolf_mattsson = {
-		name = FIN_eyolf_mattsson
-		portraits = {
-			army = {
-				large = GFX_portrait_FIN_eyolf_mattsson
-				small = GFX_portrait_FIN_eyolf_mattsson_small
-			}
-		}
-		corps_commander = {
-			traits = { career_officer engineer infantry_officer jaeger }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 3
-			legacy_id = -1
-			visible = {
-				OR = {
-					has_completed_focus = FIN_approach_the_soviets
-					has_completed_focus = FIN_confederated_finno_russian_republics
-				}
-				has_completed_focus = FIN_the_second_finnish_civil_war #So the character is available once the Civil War starts
-				has_government = communism
-			}
-		}
-	}
 
-	FIN_toivo_antikainen = {
-		name = FIN_toivo_antikainen
-		portraits = {
-			army = {
-				large = GFX_portrait_FIN_toivo_antikainen
-				small = GFX_portrait_FIN_toivo_antikainen_small
-			}
-		}
-		corps_commander = {
-			traits = { infantry_officer militias_officer }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			planning_skill = 1
-			logistics_skill = 1
-			legacy_id = -1
-			visible = {
-				OR = {
-					has_completed_focus = FIN_approach_the_soviets
-					has_completed_focus = FIN_confederated_finno_russian_republics
-				}
-				has_completed_focus = FIN_the_second_finnish_civil_war #So the character is available once the Civil War starts
-				has_government = communism
-			}
-		}
-		advisor = {			
-			slot = army_chief
-			idea_token = FIN_toivo_antikainen
-			allowed = {
-				original_tag = FIN
-			}
-			available = {
-				has_government = communism
-				OR = {
-					has_completed_focus = FIN_approach_the_soviets
-					has_completed_focus = FIN_confederated_finno_russian_republics
-				}
-				has_completed_focus = FIN_the_second_finnish_civil_war #So the character is available once the Civil War starts
-			}
-			traits = {
-				army_chief_planning_1
-			}
-			cost = 50
-			ai_will_do = {
-				base = 1.000
-			}
-		}
-	}
-
+	
 
                                                                                            
  #    #    ##    #    #  #   #      #       ######    ##    #####   ######  #####    ####  
@@ -1359,7 +1200,7 @@ characters = {
 					NOT = {
 						has_government = communism
 						has_government = democratic
-						has_completed_focus = FIN_suomalainen_sosialismi
+						
 					}
 				}
 				else = {
@@ -1697,87 +1538,7 @@ characters = {
 		}
 	}
 
-	FIN_paavo_susitaival = {
-		instance = {
-			allowed = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			name = FIN_paavo_susitaival
-			portraits = {
-				army = {
-					large = GFX_portrait_FIN_paavo_susitaival
-					small = GFX_portrait_FIN_paavo_susitaival_small
-				}
-				civilian = {
-					small = GFX_portrait_FIN_paavo_susitaival_civilian_small
-				}
-			}
-			corps_commander = {
-				traits = { infantry_officer politically_connected }
-				skill = 2
-				attack_skill = 1
-				defense_skill = 2
-				planning_skill = 2
-				logistics_skill = 2
-				legacy_id = -1
-				visible = {
-					has_completed_focus = FIN_military_promotions
-					NOT = { has_government = communism }
-				}
-			}
-			advisor = {
-				slot = political_advisor
-				idea_token = FIN_paavo_susitaival
-				allowed = {
-					original_tag = FIN
-				}
-				available = {
-					has_completed_focus = FIN_right_wing_policies
-					NOT = { has_government = communism }
-				}
-				cost = 100
-				traits = {
-					fascist_demagogue 
-				}
-				ai_will_do = {
-					base = 1
-					modifier = {
-						factor = 200
-						FIN_is_fascist_ai = yes
-						NOT = { has_completed_focus = FIN_a_fascist_regime }
-					}
-					modifier = {
-						factor = 0
-						FIN_is_historical_ai = yes
-					}
-				}
-			}
-		}
-		instance = {
-			allowed = {
-				NOT = { has_dlc = "Arms Against Tyranny" }
-			}
-			name = FIN_paavo_susitaival
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_paavo_susitaival_civilian_small
-				}
-			}
-			advisor = {
-				slot = political_advisor
-				idea_token = FIN_paavo_susitaival
-				allowed = {
-					original_tag = FIN
-				}
-				traits = {
-					fascist_demagogue 
-				}
-				ai_will_do = {
-					base = 0
-				}
-			}
-		}
-	}
+	
 
 	FIN_elias_simojoki = {
 		name = FIN_elias_simojoki
@@ -1799,7 +1560,7 @@ characters = {
 					}
 					OR = {
 						has_completed_focus = FIN_political_unity
-						has_completed_focus = FIN_patriotic_peoples_movement
+						
 					}
 				}
 				else = {
@@ -1826,30 +1587,6 @@ characters = {
 		}
 	}
 
-	FIN_vilho_helanen = {
-		name = FIN_vilho_helanen
-		portraits = {
-			civilian = {
-				small = GFX_portrait_FIN_vilho_helanen_small
-			}
-		}
-		advisor = {
-			slot = political_advisor #Academic Karelia Society
-			idea_token = FIN_vilho_helanen
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				has_completed_focus = FIN_maan_turva
-				NOT = { has_government = communism }
-			}
-			cost = 70
-			traits = {
-				maan_turva_headman 
-			}
-		}
-	}
 
 	FIN_reino_ala_kulju = {
 		name = FIN_reino_ala_kulju
@@ -1897,7 +1634,7 @@ characters = {
 					OR = {
 						has_completed_focus = FIN_political_unity
 						has_completed_focus = FIN_finnish_irredentism
-						has_completed_focus = FIN_intellectual_elite
+						
 					}
 				}
 				else = {
@@ -1938,7 +1675,7 @@ characters = {
 				available = {
 					is_country_leader = no
 					OR = {
-						has_completed_focus = FIN_social_democracy
+						
 						has_completed_focus = FIN_cooperate_with_social_democrats
 						has_completed_focus = FIN_collaboration_with_the_left
 					}
@@ -1983,162 +1720,9 @@ characters = {
 		}
 	}
 
-	FIN_miina_sillanpaa = {
-		instance = {
-			allowed = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			name = FIN_miina_sillanpaa
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_miina_sillanpaa_small
-				}
-			}
-			advisor = {
-				slot = political_advisor #SDP
-				idea_token = FIN_miina_sillanpaa
-				allowed = {
-					original_tag = FIN
-				}
-				available = {
-					OR = {
-						has_completed_focus = FIN_social_democracy
-						has_completed_focus = FIN_cooperate_with_social_democrats
-						has_completed_focus = FIN_collaboration_with_the_left
-					}
-				}
-				cost = 70
-				traits = {
-					FIN_champion_of_equality_sillanpaa 
-				}
-				ai_will_do = {
-					base = 1.000
-					modifier = {
-						factor = 10
-						FIN_is_democratic_ai = yes
-					}
-					modifier = {
-						factor = 0
-						FIN_is_historical_ai = yes
-					}
-				}
-			}
-		}
-		instance = {
-			allowed = {
-				NOT = { has_dlc = "Arms Against Tyranny" }
-			}
-			name = FIN_miina_sillanpaa
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_miina_sillanpaa_small
-				}
-			}
-			advisor = {
-				slot = political_advisor #SDP
-				idea_token = FIN_miina_sillanpaa
-				allowed = {
-					original_tag = FIN
-				}
-				available = {
-					has_completed_focus = FIN_collaboration_with_the_left
-				}
-				traits = {
-					champion_of_equality
-				}
-				ai_will_do = {
-					base = 0
-				}
-			}
-		}
-	}
+	
 
-	FIN_karl_august_fagerholm = {
-		instance = {
-			allowed = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			name = FIN_karl_august_fagerholm
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_karl_august_fagerholm_small
-				}
-			}
-			advisor = {
-				slot = political_advisor #SDP
-				idea_token = FIN_karl_august_fagerholm
-				allowed = {
-					original_tag = FIN
-				}
-				available = {
-					has_completed_focus = FIN_suomalainen_sosialismi
-				}
-				cost = 100
-				traits = {
-					FIN_democratic_reformer_fagerholm 
-				}
-				ai_will_do = {
-					base = 0.01
-					modifier = {
-						add = 10
-						FIN_is_democratic_ai = yes
-					}
-					modifier = {
-						factor = 0
-						FIN_is_communist_ai = yes
-					}
-				}
-			}
-		}
-		instance = {
-			allowed = {
-				NOT = { has_dlc = "Arms Against Tyranny" }
-			}
-			name = FIN_karl_august_fagerholm
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_karl_august_fagerholm_small
-				}
-			}
-			advisor = {
-				slot = political_advisor #SDP
-				idea_token = FIN_karl_august_fagerholm
-				allowed = {
-					original_tag = FIN
-				}
-				traits = {
-					democratic_reformer 
-				}
-				ai_will_do = {
-					base = 0
-				}
-			}
-		}
-	}
 
-	FIN_mandi_hannula = {
-		name = FIN_mandi_hannula
-		portraits = {
-			civilian = {
-				small = GFX_portrait_FIN_mandi_hannula_small
-			}
-		}
-		advisor = {
-			slot = political_advisor #SDP
-			idea_token = FIN_mandi_hannula
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				has_completed_focus = FIN_social_democratic_womens_union
-			}
-			cost = 70
-			traits = {
-				womens_rights_activist
-			}
-		}
-	}
 
 	FIN_otto_brusiin = {
 		name = FIN_otto_brusiin
@@ -2195,7 +1779,7 @@ characters = {
 				}
 				available = {
 					is_country_leader = no
-					has_completed_focus = FIN_approach_the_soviets
+					
 				}
 				cost = 70
 				traits = {
@@ -2229,8 +1813,6 @@ characters = {
 				}
 				available = {
 					is_country_leader = no
-					has_completed_focus = FIN_approach_the_soviets
-				}
 				cost = 70
 				traits = {
 					editor 
@@ -2256,138 +1838,8 @@ characters = {
 		}
 	}
 
-	FIN_yrjo_leino = {
-		instance = {
-			allowed = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			name = FIN_yrjo_leino
-			portraits = {
-				civilian = {
-					large = GFX_portrait_FIN_yrjo_leino
-					small = GFX_portrait_FIN_yrjo_leino_small
-				}
-			}
-			country_leader = {
-				ideology = marxism # SKP
-				expire = "1965.1.1.1"
-				id = -1
-				traits = { veteran_communist personal_agenda_leino }
-			}
-			advisor = {
-				slot = political_advisor #SKP
-				idea_token = FIN_yrjo_leino
-				allowed = {
-					original_tag = FIN
-				}
-				available = {
-					has_completed_focus = FIN_suomalainen_sosialismi
-				}
-				cost = 100
-				traits = {
-					FIN_communist_revolutionary_leino
-				}
-				ai_will_do = {
-					base = 0
-					modifier = {
-						add = 100
-						FIN_is_communist_ai = yes
-					}
-				}
-			}
-		}
-		instance = {
-			allowed = {
-				NOT = { has_dlc = "Arms Against Tyranny" }
-			}
-			name = FIN_yrjo_leino
-			portraits = {
-				civilian = {
-					small = GFX_portrait_FIN_yrjo_leino_small
-				}
-			}
-			advisor = {
-				slot = political_advisor #SKP
-				idea_token = FIN_yrjo_leino
-				allowed = {
-					original_tag = FIN
-				}
-				traits = {
-					communist_revolutionary
-				}
-				ai_will_do = {
-					base = 0
-				}
-			}
-		}
-	}
 
-	FIN_otto_wille_kuusinen = {
-		name = FIN_otto_wille_kuusinen
-		portraits = {
-			civilian = {
-				large = GFX_portrait_FIN_otto_wille_kuusinen
-				small = GFX_portrait_FIN_otto_wille_kuusinen_small
-			}
-		}
-		country_leader = {
-			ideology = stalinism # SKP - Soviet version
-			expire = "1965.1.1.1"
-			id = -1
-			traits = { FIN_stalins_puppet_kuusinen comintern_workhorse personal_agenda_kuusinen }
-		}
-		advisor = {
-			slot = political_advisor
-			idea_token = FIN_otto_wille_kuusinen
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				is_country_leader = no
-				has_completed_focus = FIN_towards_a_red_government
-			}
-			cost = 70
-			traits = {
-				FIN_patriotic_socialist_kuusinen 
-			}
-			ai_will_do = {
-				base = 1
-				modifier = {
-					add = 10
-					NOT = { has_completed_focus = FIN_the_second_finnish_civil_war }
-				}
-			}
-		}
-	}
-
-	FIN_aarne_saarinen = {
-		name = FIN_aarne_saarinen
-		portraits = {
-			civilian = {
-				small = GFX_portrait_FIN_aarne_saarinen_small
-			}
-		}
-		advisor = {
-			slot = political_advisor #
-			idea_token = FIN_aarne_saarinen
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				has_completed_focus = FIN_towards_a_red_government
-			}
-			cost = 70
-			traits = {
-				FIN_technocrat_saarinen 
-			}
-			ai_will_do = {
-				base = 50 #Only available to commies
-			}
-		}
-	}
-
+	
 	FIN_karl_harald_wiik = {
 		name = FIN_karl_harald_wiik
 		portraits = {
@@ -2456,61 +1908,9 @@ characters = {
 		}
 	}
 
-	FIN_sandra_lehtinen = {
-		name = FIN_sandra_lehtinen
-		portraits = {
-			civilian = {
-				small = GFX_portrait_FIN_sandra_lehtinen_small
-			}
-		}
-		advisor = {
-			slot = political_advisor #
-			idea_token = FIN_sandra_lehtinen
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				OR = {
-					has_completed_focus = FIN_the_workers_state
-					has_completed_focus = FIN_social_democratic_womens_union
-				}
-			}
-			cost = 70
-			traits = {
-				veteran_trade_unionist 
-			}
-		}
-	}
+	
 
-	FIN_kullervo_manner = {
-		name = FIN_kullervo_manner
-		portraits = {
-			civilian = {
-				small = GFX_portrait_FIN_kullervo_manner_small
-			}
-		}
-		advisor = {
-			slot = political_advisor #
-			idea_token = FIN_kullervo_manner
-			allowed = {
-				original_tag = FIN
-				has_dlc = "Arms Against Tyranny"
-			}
-			available = {
-				if = { #Only show tooltip if he is not extradited
-					limit = {
-						NOT = { has_country_flag = FIN_kullervo_manner_extradited_flag }
-					}
-					has_country_flag = FIN_kullervo_manner_extradited_flag
-				}
-			}
-			cost = 25
-			traits = {
-				former_leader_of_red_finland 
-			}
-		}
-	}
+	
 
 	FIN_arvo_tuominen = {
 		name = FIN_arvo_tuominen

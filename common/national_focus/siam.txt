@@ -29,6 +29,20 @@ focus_tree = {
 	}
 
 	focus = {
+		id = legislate_administrative_powers
+		icon = GFX_focus_BEL_belgian_gates
+		x = 8
+		y = 0
+		cost = 5
+		completion_reward = {
+			add_political_power = 20
+			add_to_variable = { SIA_adm_stab = 0.05 }
+			add_to_variable = { SIA_adm_pp_gain = 0.05 }
+			custom_effect_tooltip = SIA_legislate_tt
+		}
+	}
+
+		focus = {
 		id = press_censorship
 		icon = GFX_focus_generic_annex_country
 		x = 4
@@ -43,20 +57,6 @@ focus_tree = {
 			add_to_variable = { SIA_adm_war_stab = 0.15 }
 			add_to_variable = { SIA_adm_drift = 0.25 }
 			custom_effect_tooltip = SIA_censorship_tt
-		}
-	}
-
-	focus = {
-		id = legislate_administrative_powers
-		icon = GFX_focus_BEL_belgian_gates
-		x = 8
-		y = 0
-		cost = 5
-		completion_reward = {
-			add_political_power = 20
-			add_to_variable = { SIA_adm_stab = 0.05 }
-			add_to_variable = { SIA_adm_pp_gain = 0.05 }
-			custom_effect_tooltip = SIA_legislate_tt
 		}
 	}
 
@@ -1298,36 +1298,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = exemplary_field_troops
-		icon = GFX_focus_generic_manpower
-		cost = 10
-		prerequisite = {
-			focus = artillery_advancements
-		}
-		prerequisite = {
-			focus = infantry_modernization
-		}
-		prerequisite = {
-			focus = support_structures
-		}
-		relative_position_id = infantry_modernization
-		x = 0
-		y = 1
-		completion_reward = { 
-			add_to_variable = {
-				SIA_mil_attack = 0.05
-			}
-			add_to_variable = {
-				SIA_mil_defense = 0.05
-			}
-			add_to_variable = {
-				SIA_mil_reinforce_rate = 0.05
-			}
-			custom_effect_tooltip = SIA_exemplary_troops_tt
-		}
-	}
-
-	focus = {
 		id = spec_ops_recruitment
 		icon = GFX_focus_ARG_march_to_la_casa_rosada
 		cost = 5
@@ -1501,6 +1471,36 @@ focus_tree = {
 				category = infantry_weapons
 			}
 			custom_effect_tooltip = SIA_military_research_tt
+		}
+	}
+
+		focus = {
+		id = exemplary_field_troops
+		icon = GFX_focus_generic_manpower
+		cost = 10
+		prerequisite = {
+			focus = artillery_advancements
+		}
+		prerequisite = {
+			focus = infantry_modernization
+		}
+		prerequisite = {
+			focus = support_structures
+		}
+		relative_position_id = infantry_modernization
+		x = 0
+		y = 1
+		completion_reward = { 
+			add_to_variable = {
+				SIA_mil_attack = 0.05
+			}
+			add_to_variable = {
+				SIA_mil_defense = 0.05
+			}
+			add_to_variable = {
+				SIA_mil_reinforce_rate = 0.05
+			}
+			custom_effect_tooltip = SIA_exemplary_troops_tt
 		}
 	}
 

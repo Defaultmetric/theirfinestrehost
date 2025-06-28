@@ -2317,14 +2317,14 @@ focus_tree = {
 				}
 				OR = {
 					GER = {
-						#has_completed_focus = GER_revive_the_kaiserreich_ww
+						has_completed_focus = GER_revive_the_kaiserreich_ww
 						OR = {
 							is_in_faction = no
 							is_faction_leader = yes
 						}
 					}
 					HUN = {
-#						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
+						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
 						OR = {
 							is_in_faction = no
 							is_faction_leader = yes
@@ -2342,14 +2342,14 @@ focus_tree = {
 			ELSE = {
 				OR = {
 					GER = {
-						#has_completed_focus = GER_revive_the_kaiserreich
+						has_completed_focus = GER_revive_the_kaiserreich
 						OR = {
 							is_in_faction = no
 							is_faction_leader = yes
 						}
 					}
 					HUN = {
-#						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
+						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
 						OR = {
 							is_in_faction = no
 							is_faction_leader = yes
@@ -2389,11 +2389,11 @@ focus_tree = {
 				}
 				OR = {
 					GER = {
-						#has_completed_focus = GER_revive_the_kaiserreich_ww
+						has_completed_focus = GER_revive_the_kaiserreich_ww
 						is_in_faction_with = ROOT 
 						}
 					HUN = {
-#						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
+						has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen
 						is_in_faction_with = ROOT 
 					}
 					AUS = {
@@ -2406,11 +2406,11 @@ focus_tree = {
 			ELSE = {
 				OR = {
 					GER = {
-						#has_completed_focus = GER_revive_the_kaiserreich
+						has_completed_focus = GER_revive_the_kaiserreich
 						is_in_faction_with = ROOT 
 						}
 					HUN = {
-						#has_completed_focus = GER_revive_the_kaiserreich
+						has_completed_focus = GER_revive_the_kaiserreich
 						is_in_faction_with = ROOT 
 					}
 					AUS = {
@@ -2430,8 +2430,8 @@ focus_tree = {
 				limit = { 
 					GER = { 
 						OR = {
-#							has_completed_focus = GER_mitteleuropa
-#							has_completed_focus = GER_the_central_powers 
+							has_completed_focus = GER_mitteleuropa
+							has_completed_focus = GER_the_central_powers 
 						}
 					}
 				}
@@ -2441,8 +2441,8 @@ focus_tree = {
 				limit = { 
 					GER = { 
 						OR = {
-							#has_completed_focus = GER_revive_the_kaiserreich_ww
-							#has_completed_focus = GER_revive_the_kaiserreich 
+							has_completed_focus = GER_revive_the_kaiserreich_ww
+							has_completed_focus = GER_revive_the_kaiserreich 
 						}
 						is_in_faction = no
 					}
@@ -2458,7 +2458,7 @@ focus_tree = {
 					HUN = { 
 						OR = {
 							has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary 
-#							has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen 
+							has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen 
 						}
 						is_faction_leader = yes
 					}
@@ -2470,14 +2470,14 @@ focus_tree = {
 					HUN = { 
 						OR = {
 							has_completed_focus = HUN_proclaim_the_restoration_of_austria_hungary 
-#							has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen 
+							has_completed_focus = wuw_HUN_the_lands_of_the_crown_of_saint_stephen 
 						}
 						is_faction_leader = no
 						is_in_faction = no
 					}
 					GER = { 
 						NOT = { 
-							#has_completed_focus = GER_revive_the_kaiserreich
+							has_completed_focus = GER_revive_the_kaiserreich
 						}
 					}
 				}
@@ -2541,7 +2541,7 @@ focus_tree = {
 				}
 				AND = { 
 					ENG = { has_government = communism }
-#					ROM = { NOT = { has_completed_focus = ROM_the_cordon_sanitaire } }
+					ROM = { NOT = { has_completed_focus = ROM_the_cordon_sanitaire } }
 				}
 			}
 		}
@@ -2551,7 +2551,7 @@ focus_tree = {
 			if = {
 				limit = { 
 					ENG = { 
-#						NOT = { has_completed_focus = ENG_concessions_to_the_trade_unions }
+						NOT = { has_completed_focus = ENG_concessions_to_the_trade_unions }
 						is_faction_leader = yes
 					}
 				}
@@ -2560,7 +2560,7 @@ focus_tree = {
 			else_if = {
 				limit = { 
 					ROM = { 
-#						has_completed_focus = ROM_the_cordon_sanitaire
+						has_completed_focus = ROM_the_cordon_sanitaire
 						is_faction_leader = yes
 					}
 				}
@@ -2741,7 +2741,7 @@ focus_tree = {
 
 		bypass = {
 			TUR = {
-#				has_completed_focus = TUR_pivot_to_the_past
+				has_completed_focus = TUR_pivot_to_the_past
 			}
 		}
 

@@ -99,10 +99,10 @@ focus_tree = {
 		
 		
 		icon = GFX_goal_generic_demand_territory
-		x = 0
+		x = 10
 		y = 0
 		offset = {
-			x = 0
+			x = -14
 			y = 0
 			trigger = {
 				has_completed_focus = SPA_a_great_spain
@@ -156,7 +156,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		offset = {
-			x = 0
+			x = 15
 			y = 0
 			trigger = {
 				has_completed_focus = SPA_a_great_spain
@@ -326,6 +326,10 @@ focus_tree = {
 		relative_position_id = SPA_secure_the_northern_garrisons
 		cost = 4
 
+		allow_branch = {
+			has_war_support = 400
+		}
+
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		completion_reward = {
@@ -345,7 +349,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_sin_paquito }
 		
 		icon = GFX_goal_generic_dangerous_deal
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_secure_the_northern_garrisons
 		cost = 4
@@ -371,11 +375,6 @@ focus_tree = {
 
 	focus = {
 		id = SPR_the_popular_front
-
-		allow_branch = {
-			if = { has_war_support = 0.97 }
-		}
-
 		available = {
 			NOT = {
 				has_country_flag = SPR_spanish_elections_flag
@@ -405,6 +404,7 @@ focus_tree = {
 					}
 				}
 			}
+			has_war_support = 400
 		}
 		
 		icon = GFX_goal_generic_national_unity
@@ -677,6 +677,10 @@ focus_tree = {
 		prerequisite = { focus = SPA_sin_paquito }
 		mutually_exclusive = { focus = SPA_unify_the_nationalist_front focus = SPA_supremacy_of_the_communion }
 		
+		allow_branch = {
+			has_war_support = 400
+		}
+
 		icon = GFX_focus_spa_the_phalanx_ascendant
 		x = -10
 		y = 1
@@ -3693,7 +3697,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_the_phalanx_ascendant focus = SPA_supremacy_of_the_communion }
 		
 		icon = GFX_focus_spa_unify_the_nationalist_front
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = SPA_con_paquito
 		cost = 5
@@ -5693,6 +5697,10 @@ focus_tree = {
 		relative_position_id = SPA_con_paquito
 		cost = 5
 
+		allow_branch = {
+			has_war_support = 400
+		}
+
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 		completion_reward = {
@@ -6953,7 +6961,7 @@ focus_tree = {
 			if = {
 				limit = {
 					FRA = {
-#						has_completed_focus = FRA_the_legitimate_heir
+						has_completed_focus = FRA_the_legitimate_heir
 					}
 				}
 				FRA = { country_event = { id = lar_spain.42 hours = 6 random_hours = 6 } }
@@ -10956,7 +10964,7 @@ focus_tree = {
 					any_country = {
 						original_tag = SOV
 						has_government = communism
-#						NOT = { has_completed_focus = SOV_the_right_opposition }
+						NOT = { has_completed_focus = SOV_the_right_opposition }
 					}
 				}
 				hidden_effect = {
@@ -10964,7 +10972,7 @@ focus_tree = {
 						limit = {
 							original_tag = SOV
 							has_government = communism
-#							NOT = { has_completed_focus = SOV_the_right_opposition }
+							NOT = { has_completed_focus = SOV_the_right_opposition }
 						}
 						ROOT = {
 							create_wargoal = {

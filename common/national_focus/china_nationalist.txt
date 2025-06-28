@@ -1247,6 +1247,139 @@
 	}
 
 	focus = {
+		id = CHI_scorched_earth_tactics
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = CHI_war_of_resistance }
+		x = 2
+		y = 1
+		relative_position_id = CHI_war_of_resistance
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_decision_tooltip = CHI_scorched_earth_tactics
+		}
+	}
+
+	focus = {
+		id = CHI_war_of_anti_imperialism
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CHI_war_of_national_liberation }
+		x = 0
+		y = 1
+		relative_position_id = CHI_war_of_national_liberation
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				has_war_with = JAP
+				has_war_with = MAN
+			}
+			has_country_flag = CHI_lessons_of_war_completed
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = CHI_war_of_anti_imperialism
+		}
+	}
+
+	focus = {
+		id = CHI_forced_conscription
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = CHI_scorched_earth_tactics }
+		x = 0
+		y = 1
+		relative_position_id = CHI_scorched_earth_tactics
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+			modifier = {
+				has_manpower > 1000000
+				factor = 0
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = CHI_forced_conscription
+		}
+	}
+
+	focus = {
+		id = CHI_dare_to_die_corps
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = CHI_forced_conscription }
+		x = 0
+		y = 2
+		relative_position_id = CHI_scorched_earth_tactics
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_50_cheaper_force_attack
+		}
+	}
+
+	focus = {
 		id = CHI_military_affairs_commission
 		icon = GFX_focus_secret_rearmament
 		x = 10

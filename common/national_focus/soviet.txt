@@ -472,7 +472,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_2_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_2 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -536,7 +536,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_3_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_3 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -598,7 +598,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_4_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_4 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -630,7 +630,7 @@ focus_tree = {
 
 		available = {
 			SOV_third_five_year_plan_available = yes
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -734,7 +734,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_3_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_3 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -787,7 +787,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_4_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_4 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -830,7 +830,7 @@ focus_tree = {
 				}
 			}
 			SOV_third_five_year_plan_available = yes
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -922,7 +922,7 @@ focus_tree = {
 		available = {
 			has_tech = rubber_processing
 			SOV_third_five_year_plan_available = yes
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 			has_full_control_of_state = 219 #MOSCOW
 			OR = {
 				has_full_control_of_state = 260 #VORONEZH
@@ -995,7 +995,7 @@ focus_tree = {
 
 		available = {
 			SOV_third_five_year_plan_available = yes
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -1074,7 +1074,7 @@ focus_tree = {
 
 		available = {
 			SOV_fourth_five_year_plan_available = yes
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_PROPAGANDA}
@@ -1113,7 +1113,7 @@ focus_tree = {
 				tooltip = SOV_fyp_controlled_factories_tier_5_tt
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_5 }
 			}
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -1190,7 +1190,7 @@ focus_tree = {
 
 		available = {
 			num_subjects > 0
-			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			NOT = { #has_completed_focus = SOV_curtailment_of_the_collective_farms }
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -2354,7 +2354,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_completed_focus = SOV_the_path_of_marxism_leninism
-				has_completed_focus = SOV_womens_fascist_movement
+#				has_completed_focus = SOV_womens_fascist_movement
 			}
 		}
 		
@@ -6729,12 +6729,12 @@ focus_tree = {
 		}
 
 		available = {
-			has_completed_focus = SOV_church_candidates
+#			has_completed_focus = SOV_church_candidates
 		}
 
 		bypass = {
-			has_completed_focus = SOV_depoliticize_the_military
-			has_completed_focus = SOV_socialist_humanism
+#			has_completed_focus = SOV_depoliticize_the_military
+#			has_completed_focus = SOV_socialist_humanism
 		}
 		
 		search_filters = {}
@@ -6920,7 +6920,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_path_of_marxism_leninism
 		icon = GFX_focus_SOV_the_path_of_marxism_leninism
-		x = 16
+		x = 13
 		y = 0
 		offset = {
 			x = -8
@@ -6930,7 +6930,7 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
+				#has_completed_focus = SOV_beaten_but_not_defeated
 			}
 		}
 		relative_position_id = SOV_strengthen_the_mobilization_plan
@@ -6945,7 +6945,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = SOV_the_hands_do }
+#				NOT = { has_completed_focus = SOV_the_hands_do }
 			}
 		}
 
@@ -6974,7 +6974,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_We_Will_Not_Fall
-		icon = GFX_SOV_father_of_nations_ccp_2d_sov_compatibility
+		icon = GFX_focus_GER_the_peoples_victory
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
 		x = 0
 		y = 2
@@ -7303,7 +7303,7 @@ focus_tree = {
 
 	focus = {
 		id = SOV_The_Last_Stand
-		icon = GFX_SOV_father_of_nations_ccp_2d_sov_compatibility
+		icon = GFX_focus_HUN_officialize_the_rakosi_battalion
 		prerequisite = { focus = SOV_We_Will_Not_Fall}
 		x = 0
 		y = 2
@@ -7737,7 +7737,7 @@ focus_tree = {
 		id = SOV_the_centre
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = -8
+		x = -4
 		y = 1
 		offset = {
 			x = 0
@@ -7747,8 +7747,8 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
-				NOT = { has_completed_focus = SOV_the_hands_do }
+				#has_completed_focus = SOV_beaten_but_not_defeated
+#				NOT = { has_completed_focus = SOV_the_hands_do }
 			}
 		}
 		relative_position_id = SOV_the_path_of_marxism_leninism
@@ -7763,16 +7763,16 @@ focus_tree = {
 				}
 				NOT = {
 					AND = {
-						has_completed_focus = SOV_the_left_opposition
-						has_completed_focus = SOV_left_opposition_coup
+						#has_completed_focus = SOV_the_left_opposition
+						#has_completed_focus = SOV_left_opposition_coup
 					}
 					AND = {
-						has_completed_focus = SOV_the_right_opposition
-						has_completed_focus = SOV_coup_detat
+						#has_completed_focus = SOV_the_right_opposition
+#						has_completed_focus = SOV_coup_detat
 					}
 					AND = {
-						has_completed_focus = SOV_beaten_but_not_defeated
-						has_completed_focus = SOV_the_hands_do
+						#has_completed_focus = SOV_beaten_but_not_defeated
+#						has_completed_focus = SOV_the_hands_do
 					}
 				}
 			}
@@ -9172,7 +9172,7 @@ focus_tree = {
 		id = SOV_addressing_internal_affairs
 		icon = GFX_focus_generic_self_management
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 7
+		x = 5
 		y = 1
 		offset = {
 			x = 0
@@ -9198,7 +9198,7 @@ focus_tree = {
 			y = 0
 			trigger = { # Stalinist branch hides
 				NOT = { has_dlc = "No Step Back" }
-				has_completed_focus = SOV_the_left_opposition
+				#has_completed_focus = SOV_the_left_opposition
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
@@ -9224,12 +9224,12 @@ focus_tree = {
 				has_dlc = "No Step Back"
 				OR = {
 					AND = {
-						has_completed_focus = SOV_the_left_opposition
-						has_completed_focus = SOV_left_opposition_coup
+						#has_completed_focus = SOV_the_left_opposition
+						#has_completed_focus = SOV_left_opposition_coup
 					}
 					AND = {
-						has_completed_focus = SOV_the_right_opposition
-						has_completed_focus = SOV_coup_detat
+						#has_completed_focus = SOV_the_right_opposition
+#						has_completed_focus = SOV_coup_detat
 					}
 				}
 				has_game_rule = {
@@ -9250,7 +9250,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
+				NOT = { #has_completed_focus = SOV_beaten_but_not_defeated }
 			}
 		}
 
@@ -9635,7 +9635,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = SOV_beaten_but_not_defeated }
+				NOT = { #has_completed_focus = SOV_beaten_but_not_defeated }
 			}
 		}
 
@@ -9810,8 +9810,8 @@ focus_tree = {
 			has_civil_war = no
 			OR = {
 				has_completed_focus = SOV_the_centre
-				has_completed_focus = SOV_the_left_opposition
-				has_completed_focus = SOV_the_right_opposition
+				#has_completed_focus = SOV_the_left_opposition
+				#has_completed_focus = SOV_the_right_opposition
 			}
 			if = {
 				limit = {
@@ -9834,7 +9834,7 @@ focus_tree = {
 				else = {
 					if = {
 						limit = {
-							has_completed_focus = SOV_covert_support_for_spanish_poum
+#							has_completed_focus = SOV_covert_support_for_spanish_poum
 						}
 						country_exists = SPC
 						NOT = { has_war_with = SPC }
@@ -9868,8 +9868,8 @@ focus_tree = {
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
-					has_completed_focus = SOV_covert_support_for_spanish_poum
-					has_completed_focus = SOV_coup_detat
+#					has_completed_focus = SOV_covert_support_for_spanish_poum
+#					has_completed_focus = SOV_coup_detat
 					has_global_flag = SPR_anarchist_uprising_flag
 					country_exists = SPC
 					SPC = { has_completed_focus = SPR_the_anti_fascist_workers_revolution }
@@ -12460,7 +12460,7 @@ ai_will_do = {
 		}
 
 		available = {
-			NOT = { has_completed_focus = SOV_the_left_opposition }
+			NOT = { #has_completed_focus = SOV_the_left_opposition }
 			NOT = { has_war_with = CHI }
 			is_subject = no
 		}

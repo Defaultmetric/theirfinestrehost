@@ -8224,7 +8224,7 @@ focus_tree = {
 						}
 						OR = {
 							has_completed_focus = ITA_culto_del_duce
-							has_completed_focus = ITA_convene_the_grand_council
+							#has_completed_focus = ITA_convene_the_grand_council
 						}
 					}
 				}
@@ -8280,7 +8280,7 @@ focus_tree = {
 						}
 						OR = {
 							has_completed_focus = ITA_culto_del_duce
-							has_completed_focus = ITA_convene_the_grand_council
+							#has_completed_focus = ITA_convene_the_grand_council
 						}
 					}
 				}
@@ -8368,7 +8368,7 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						NOT = { has_completed_focus = ITA_defy_the_duce	}
+						NOT = { #has_completed_focus = ITA_defy_the_duce	}
 					}
 					ITA_initiate_balance_of_power_effect = yes
 				}
@@ -8491,7 +8491,7 @@ focus_tree = {
 			has_full_control_of_state = 837
 			has_full_control_of_state = 838
 			NOT = { has_global_flag = ITA_antifascist_civil_war_triggered_flag }
-			hidden_trigger = { NOT = { has_completed_focus = ITA_defy_the_duce } }
+			hidden_trigger = { NOT = { #has_completed_focus = ITA_defy_the_duce } }
 		}
 
 		search_filters = {}
@@ -8709,7 +8709,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				NOT = { #has_completed_focus = ITA_defy_the_duce }
 				
 			}
 		}
@@ -9140,7 +9140,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				NOT = { #has_completed_focus = ITA_defy_the_duce }
 			}
 		}
 
@@ -9200,7 +9200,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				NOT = { #has_completed_focus = ITA_defy_the_duce }
 			}
 		}
 
@@ -9237,7 +9237,7 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = ITA_convene_the_grand_council
+				#has_completed_focus = ITA_convene_the_grand_council
 			}
 		}
 
@@ -9259,7 +9259,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = ITA_disband_the_blackshirts }
+#				NOT = { has_completed_focus = ITA_disband_the_blackshirts }
 				}
 				custom_effect_tooltip = available_political_advisor
 				show_ideas_tooltip = ITA_renato_ricci
@@ -9284,7 +9284,7 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = ITA_convene_the_grand_council
+				#has_completed_focus = ITA_convene_the_grand_council
 			}
 		}
 
@@ -9419,7 +9419,7 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = ITA_convene_the_grand_council
+				#has_completed_focus = ITA_convene_the_grand_council
 			}
 		}
 
@@ -10301,7 +10301,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				NOT = { #has_completed_focus = ITA_defy_the_duce }
 			}
 		}
 
@@ -10331,15 +10331,15 @@ focus_tree = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = ITA_convene_the_grand_council
+				#has_completed_focus = ITA_convene_the_grand_council
 			}
 		}
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
 		available = {
 			NOT = {
-				has_completed_focus = ITA_unite_the_opposition
-				has_completed_focus = ITA_defy_the_duce
+#				has_completed_focus = ITA_unite_the_opposition
+				#has_completed_focus = ITA_defy_the_duce
 			}
 		}
 
@@ -11500,5 +11500,3 @@ focus_tree = {
 			}
 		}
 	}
-
-}

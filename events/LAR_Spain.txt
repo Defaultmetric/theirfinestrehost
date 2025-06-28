@@ -6142,7 +6142,7 @@ country_event = {
 				unlock_national_focus = SPA_secure_the_northern_garrisons
 				if = {
 					limit = {
-						SPA = { has_completed_focus = SPA_sin_paquito }
+#						SPA = { has_completed_focus = SPA_sin_paquito }
 					}
 					unlock_national_focus = SPA_sin_paquito
 				}
@@ -6904,7 +6904,7 @@ country_event = {
 				}
 				if = { #If Right Opposition is still under Stalin's rule, volunteers come back
 					limit = {
-						SOV = { has_completed_focus = SOV_covert_support_for_spanish_poum }
+#						SOV = { has_completed_focus = SOV_covert_support_for_spanish_poum }
 						SPD = {
 							has_volunteers_amount_from = {
 								tag = SOV
@@ -7323,9 +7323,9 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = SPR_the_anti_fascist_workers_revolution
+#					has_completed_focus = SPR_the_anti_fascist_workers_revolution
 					NOT = {
-						has_completed_focus = SPR_the_stalinist_doctrine
+#						has_completed_focus = SPR_the_stalinist_doctrine
 					}
 				}
 				complete_national_focus = SPR_the_stalinist_doctrine
@@ -7350,13 +7350,13 @@ country_event = {
 				unlock_national_focus = SPR_the_popular_front
 				if = {
 					limit = {
-						SPD = { has_completed_focus = SPR_secure_the_guardia_civil }
+#						SPD = { has_completed_focus = SPR_secure_the_guardia_civil }
 					}
 					unlock_national_focus = SPR_secure_the_guardia_civil
 				}
 				if = {
 					limit = {
-						SPD = { has_completed_focus = SPR_secure_the_guardia_de_asalto }
+#						SPD = { has_completed_focus = SPR_secure_the_guardia_de_asalto }
 					}
 					unlock_national_focus = SPR_secure_the_guardia_de_asalto
 				}
@@ -7561,10 +7561,10 @@ country_event = {
 		hidden_effect = {
 			if = { #If POUM split + Right Oppo is in charge + tehy are supporting the POUM -> Then their volunteers stay in SPC
 				limit = {
-					has_completed_focus = SPR_the_anti_fascist_workers_revolution
+#					has_completed_focus = SPR_the_anti_fascist_workers_revolution
 					SOV = {
-						has_completed_focus = SOV_covert_support_for_spanish_poum
-						has_completed_focus = SOV_coup_detat
+#						has_completed_focus = SOV_covert_support_for_spanish_poum
+#						has_completed_focus = SOV_coup_detat
 					}
 				}
 				every_other_country = { #Exclude SOV
@@ -7598,7 +7598,7 @@ country_event = {
 			set_global_flag = { flag = SPR_civil_war_startup value = 1 days = 3 } # Make AI avoid attacking for a few days
 			if = {
 				limit = {
-					has_completed_focus = SPR_regional_defense_council_of_aragon
+#					has_completed_focus = SPR_regional_defense_council_of_aragon
 				}
 				set_politics = {
 					ruling_party = neutrality
@@ -7652,7 +7652,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = SPR_the_anti_fascist_workers_revolution
+#					has_completed_focus = SPR_the_anti_fascist_workers_revolution
 				}
 				set_politics = {
 					ruling_party = communism
@@ -8274,13 +8274,13 @@ country_event = {
 				unlock_national_focus = SPR_the_popular_front
 				if = {
 					limit = {
-						SPC = { has_completed_focus = SPR_secure_the_guardia_civil }
+#						SPC = { has_completed_focus = SPR_secure_the_guardia_civil }
 					}
 					unlock_national_focus = SPR_secure_the_guardia_civil
 				}
 				if = {
 					limit = {
-						SPC = { has_completed_focus = SPR_secure_the_guardia_de_asalto }
+#						SPC = { has_completed_focus = SPR_secure_the_guardia_de_asalto }
 					}
 					unlock_national_focus = SPR_secure_the_guardia_de_asalto
 				}
@@ -8466,7 +8466,7 @@ country_event = {
 		effect_tooltip = {
 			if = {
 				limit = {
-					has_completed_focus = SPR_regional_defense_council_of_aragon
+#					has_completed_focus = SPR_regional_defense_council_of_aragon
 					NOT = { has_government = neutrality }
 				}
 				set_politics = {
@@ -8502,7 +8502,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = SPR_the_anti_fascist_workers_revolution
+#					has_completed_focus = SPR_the_anti_fascist_workers_revolution
 					NOT = { has_government = communism }
 				}
 				set_politics = {
@@ -10357,7 +10357,7 @@ country_event = {
 			    tag = ROOT
 			    count > 0
 			}
-			has_completed_focus = SPR_relocate_the_gold_reserves
+#			has_completed_focus = SPR_relocate_the_gold_reserves
 		}
 		OR = {
 			has_country_flag = SPR_relocated_gold_reserves_selection_flag_sov
@@ -11177,7 +11177,7 @@ country_event = {
 			is_ai = no
 		}
 		has_completed_focus = SPA_a_great_spain
-		NOT = { has_completed_focus = SPA_the_phalanx_ascendant }
+#		NOT = { has_completed_focus = SPA_the_phalanx_ascendant }
 		NOT = { has_global_flag = SPB_alfonso_xiii_dead }
 		date > 1940.2.28
 	}
@@ -11590,7 +11590,7 @@ country_event = {
 
 	trigger = {
 		tag = SPD
-		has_completed_focus = SPR_war_of_independence
+#		has_completed_focus = SPR_war_of_independence
 		has_country_flag = SOV_took_spanish_states
 		has_war_with = SOV
 		SOV = { owns_state = 165 }
@@ -11625,7 +11625,7 @@ country_event = {
 
 	trigger = {
 		tag = SPD
-		has_completed_focus = SPR_war_of_independence
+#		has_completed_focus = SPR_war_of_independence
 		has_country_flag = SOV_took_spanish_states
 		has_war_with = SOV
 		SOV = { owns_state = 167 }
@@ -11660,7 +11660,7 @@ country_event = {
 
 	trigger = {
 		tag = SPD
-		has_completed_focus = SPR_war_of_independence
+#		has_completed_focus = SPR_war_of_independence
 		has_country_flag = SOV_took_spanish_states
 		has_war_with = SOV
 		SOV = { owns_state = 794 }
@@ -11755,7 +11755,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					has_completed_focus = SPR_the_popular_front
+#					has_completed_focus = SPR_the_popular_front
 				}
 				remove_ideas = SPR_government_power_struggle
 				add_political_power = 10

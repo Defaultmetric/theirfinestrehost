@@ -8776,6 +8776,108 @@ focus_tree = {
 		}
 	}
 
+		focus = {
+		id = GER_reorganize_the_wehrmacht #von Ribbentrop
+
+		icon = GFX_focus_GER_reorganize_the_wehrmacht
+		alternate_icon = GFX_focus_GER_reorganize_the_wehrmacht_historical
+
+		prerequisite = { focus = GER_remilitarize_the_rhineland }
+		mutually_exclusive = { focus = GER_heed_von_neuraths_concerns }
+		x = 10
+		y = 0
+		relative_position_id = GER_heed_von_neuraths_concerns
+		cost = 5
+		available = {
+		}
+
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_political_power = 50
+			add_war_support = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = joachim_von_ribbentrop
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = {
+				localization_key = remove_character_as_tt
+				CHARACTER = GER_konstantin_von_neurath
+				ROLE = political_advisor
+			}
+
+			#This is bad (too long)
+			#custom_effect_tooltip = remove_political_advisor
+			#show_ideas_tooltip = konstantin_von_neurath
+
+			#This is even worse (errors, no need to retire anyone)
+			#retire_character = GER_konstantin_von_neurath
+			
+			custom_effect_tooltip = {
+				localization_key = remove_character_as_tt
+				CHARACTER = GER_werner_von_blomberg
+				ROLE = fm_leader
+			}
+
+			custom_effect_tooltip = {
+				localization_key = remove_character_as_tt
+				CHARACTER = GER_werner_von_fritsch
+				ROLE = cc_leader
+			}
+
+			custom_effect_tooltip = {
+				localization_key = remove_character_as_tt
+				CHARACTER = GER_oswald_lutz
+				ROLE = cc_leader
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					has_country_leader_with_trait = GER_der_fuhrer
+				}
+				random_character = {
+					limit = {
+						is_country_leader = yes
+					}
+					swap_country_leader_traits = {
+						remove = GER_der_fuhrer
+						add = GER_der_fuhrer_wehrmacht
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_leader_with_trait = GER_der_fuhrer_fuhrerprinzip
+				}
+				random_character = {
+					limit = {
+						is_country_leader = yes
+					}
+					swap_country_leader_traits = {
+						remove = GER_der_fuhrer_fuhrerprinzip
+						add = GER_der_fuhrer_fuhrerprinzip_wehrmacht
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = GER_fuhrerprinzip
+				}
+				add_country_leader_trait = GER_der_fuhrer_fuhrerprinzip_wehrmacht
+			}
+			else = {
+				add_country_leader_trait = GER_der_fuhrer_wehrmacht
+			}
+		}
+	}
+
 	focus = {
 		id = GER_anschluss
 
@@ -14088,108 +14190,6 @@ focus_tree = {
 				target = GRE
 				type = annex_everything
 				expire = 0
-			}
-		}
-	}
-
-	focus = {
-		id = GER_reorganize_the_wehrmacht #von Ribbentrop
-
-		icon = GFX_focus_GER_reorganize_the_wehrmacht
-		alternate_icon = GFX_focus_GER_reorganize_the_wehrmacht_historical
-
-		prerequisite = { focus = GER_remilitarize_the_rhineland }
-		mutually_exclusive = { focus = GER_heed_von_neuraths_concerns }
-		x = 10
-		y = 0
-		relative_position_id = GER_heed_von_neuraths_concerns
-		cost = 5
-		available = {
-		}
-
-
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_WAR_SUPPORT }
-
-		completion_reward = {
-			add_political_power = 50
-			add_war_support = 0.05
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = joachim_von_ribbentrop
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = {
-				localization_key = remove_character_as_tt
-				CHARACTER = GER_konstantin_von_neurath
-				ROLE = political_advisor
-			}
-
-			#This is bad (too long)
-			#custom_effect_tooltip = remove_political_advisor
-			#show_ideas_tooltip = konstantin_von_neurath
-
-			#This is even worse (errors, no need to retire anyone)
-			#retire_character = GER_konstantin_von_neurath
-			
-			custom_effect_tooltip = {
-				localization_key = remove_character_as_tt
-				CHARACTER = GER_werner_von_blomberg
-				ROLE = fm_leader
-			}
-
-			custom_effect_tooltip = {
-				localization_key = remove_character_as_tt
-				CHARACTER = GER_werner_von_fritsch
-				ROLE = cc_leader
-			}
-
-			custom_effect_tooltip = {
-				localization_key = remove_character_as_tt
-				CHARACTER = GER_oswald_lutz
-				ROLE = cc_leader
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_country_leader_with_trait = GER_der_fuhrer
-				}
-				random_character = {
-					limit = {
-						is_country_leader = yes
-					}
-					swap_country_leader_traits = {
-						remove = GER_der_fuhrer
-						add = GER_der_fuhrer_wehrmacht
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_country_leader_with_trait = GER_der_fuhrer_fuhrerprinzip
-				}
-				random_character = {
-					limit = {
-						is_country_leader = yes
-					}
-					swap_country_leader_traits = {
-						remove = GER_der_fuhrer_fuhrerprinzip
-						add = GER_der_fuhrer_fuhrerprinzip_wehrmacht
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = GER_fuhrerprinzip
-				}
-				add_country_leader_trait = GER_der_fuhrer_fuhrerprinzip_wehrmacht
-			}
-			else = {
-				add_country_leader_trait = GER_der_fuhrer_wehrmacht
 			}
 		}
 	}

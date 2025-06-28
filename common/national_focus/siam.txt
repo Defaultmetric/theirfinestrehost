@@ -515,6 +515,20 @@ focus_tree = {
 	###############################################
 
 	focus = {
+		id = young_workers
+		icon = GFX_focus_generic_modernize_industry
+		x = 16
+		y = 0
+		cost = 5
+		completion_reward = {
+			add_to_variable = { SIA_ind_construction_speed = 0.05 }
+			add_to_variable = { SIA_ind_consumer_goods = -0.05 }
+			add_to_variable = { SIA_ind_output = 0.05 }
+			custom_effect_tooltip = SIA_young_workers_tt
+		}
+	}
+
+		focus = {
 		id = office_of_economic_development
 		icon = GFX_focus_spa_the_spanish_miracle
 		prerequisite = {
@@ -526,20 +540,6 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 			custom_effect_tooltip = SIA_office_econ_dev_tt
-		}
-	}
-
-	focus = {
-		id = young_workers
-		icon = GFX_focus_generic_modernize_industry
-		x = 16
-		y = 0
-		cost = 5
-		completion_reward = {
-			add_to_variable = { SIA_ind_construction_speed = 0.05 }
-			add_to_variable = { SIA_ind_consumer_goods = -0.05 }
-			add_to_variable = { SIA_ind_output = 0.05 }
-			custom_effect_tooltip = SIA_young_workers_tt
 		}
 	}
 
@@ -1202,7 +1202,7 @@ focus_tree = {
 		icon = GFX_focus_NOR_empower_sivorg
 		cost = 10
 		available = {
-			has_war_support = 0.70
+			has_war_support > 0.70
 		}
 		prerequisite = {
 			focus = bangkok_military_academy

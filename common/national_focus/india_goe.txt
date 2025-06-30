@@ -39,7 +39,6 @@ focus_tree = {
         mutually_exclusive = { focus = RAJ_keep_british_generals }
         cost = 5
 
-
         ai_will_do = {
             factor = 1
         }
@@ -106,6 +105,11 @@ focus_tree = {
         y = 0
         relative_position_id = RAJ_indianize_the_army
 
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
+
         cost = 5
 
         ai_will_do = {
@@ -133,8 +137,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_his_majestys_loyal_government
 	            }
 	        }
-			has_war_support > 400
-
         }
 
 
@@ -193,6 +195,11 @@ focus_tree = {
         mutually_exclusive = { focus = RAJ_look_to_the_future }
         cost = 5
 
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
+
         ai_will_do = {
             factor = 1
         }
@@ -223,8 +230,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_look_to_the_future
 	            }
 	        }
-			has_war_support > 400
-
         }
 
 
@@ -269,6 +274,11 @@ focus_tree = {
 
         cost = 5
 
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
+
         ai_will_do = {
             factor = 1
         }
@@ -295,8 +305,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_look_to_the_past
 				}
 			}
-			has_war_support > 400
-
         }
 
 
@@ -6993,7 +7001,7 @@ focus_tree = {
         icon = GFX_focus_RAJ_provincial_autonomy
         #prerequisite = { focus = }
         mutually_exclusive = { focus = RAJ_great_depression_price_controls focus = RAJ_his_majestys_loyal_government }
-        x = 29
+        x = 53
         y = 0
         relative_position_id = RAJ_great_depression_price_controls 
 
@@ -7024,8 +7032,6 @@ focus_tree = {
 					has_completed_focus = RAJ_great_depression_price_controls
 				}
 			}
-			has_war_support > 400
-
         }
 
 
@@ -7260,7 +7266,7 @@ focus_tree = {
         id = RAJ_trade_port
         icon = GFX_focus_POL_develop_polish_shipbuilding
         prerequisite = { focus = RAJ_great_depression_price_controls focus = RAJ_provincial_autonomy }
-        x = 19
+        x = 43
         y = 1
         relative_position_id = RAJ_great_depression_price_controls 
 
@@ -7466,8 +7472,8 @@ focus_tree = {
         id = RAJ_mahatma
         icon = GFX_focus_RAJ_mahatma
         prerequisite = { focus = RAJ_purna_swaraj }
-        x = -6
-        y = 8
+        x = -8
+        y = 1
         relative_position_id = RAJ_purna_swaraj
         mutually_exclusive = { focus = RAJ_league_against_gandhism }
         cost = 10
@@ -7498,8 +7504,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_league_against_gandhism
 	            }
 	        }
-			has_war_support > 400
-
         }
 
         cancel_if_invalid = yes
@@ -7544,6 +7548,11 @@ focus_tree = {
         mutually_exclusive = { focus = RAJ_mahatma }
         cost = 5
 
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
+
         ai_will_do = {
             factor = 1
         }
@@ -7570,8 +7579,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_mahatma
 	            }
 	        }
-			has_war_support > 400
-
         }
 
         cancel_if_invalid = yes
@@ -8785,6 +8792,11 @@ focus_tree = {
         id = RAJ_forward_bloc
         icon = GFX_focus_RAJ_forward_bloc
         prerequisite = { focus = RAJ_league_against_gandhism }
+
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
         x = 0
         y = 2
         relative_position_id = RAJ_league_against_gandhism
@@ -8818,8 +8830,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_red_in_the_shadows
 	            }
 	        }
-			has_war_support > 400
-
         }
 
         cancel_if_invalid = yes
@@ -8936,7 +8946,7 @@ focus_tree = {
         id = RAJ_india_united
         icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
         prerequisite = { focus = RAJ_a_congress_resurgent }
-        x = 3
+        x = 0
         y = 1
         relative_position_id = RAJ_a_congress_resurgent
         mutually_exclusive = { focus = RAJ_two_nation_theory_dlc }
@@ -8974,6 +8984,11 @@ focus_tree = {
         relative_position_id = RAJ_india_united
         mutually_exclusive = { focus = RAJ_india_united }
         cost = 10
+
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
 
         ai_will_do = {
             factor = 1
@@ -9024,6 +9039,11 @@ focus_tree = {
         mutually_exclusive = { focus = RAJ_forward_bloc }
         cost = 5
 
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
+
         ai_will_do = {
             factor = 1
         }
@@ -9051,8 +9071,6 @@ focus_tree = {
 	            	has_completed_focus = RAJ_forward_bloc
 	            }
 	        }
-			has_war_support > 400
-
         }
 
         cancel_if_invalid = yes
@@ -14782,7 +14800,7 @@ focus_tree = {
         id = RAJ_a_permanent_muslim_governmental_seat
         icon = GFX_focus_TUR_turanist_ambition
         prerequisite = { focus = RAJ_power_sharing_agreement }
-        x = 2
+        x = -2
         y = 1
         relative_position_id = RAJ_power_sharing_agreement
         
@@ -15306,9 +15324,9 @@ focus_tree = {
             }
             value = GFX_focus_RAJ_tryst_with_destiny
         } 
-        prerequisite = { focus = RAJ_united_bengal focus = RAJ_eastern_pakistan focus = RAJ_a_secular_state }
-        x = 2
-        y = 1
+        prerequisite = { focus = RAJ_a_secular_state }
+        x = 5
+        y = 0
         relative_position_id = RAJ_hedgemony_of_the_subcontinent
         
 
@@ -15448,6 +15466,11 @@ focus_tree = {
         relative_position_id = RAJ_tryst_with_destiny
         mutually_exclusive = { focus = RAJ_i_am_death focus = RAJ_pledge_for_the_allies }
         cost = 5
+
+        allow_branch = 
+        {
+            has_war_support > 400
+        }
 
         ai_will_do = {
             factor = 1
@@ -15611,7 +15634,7 @@ focus_tree = {
         id = RAJ_pledge_for_the_allies
         icon = GFX_focus_eng_the_sun_never_sets
         prerequisite = { focus =  RAJ_tryst_with_destiny }
-        x = 4
+        x = 2
         y = 0
         relative_position_id = RAJ_sideline_the_conflict
         mutually_exclusive = { focus = RAJ_i_am_death focus = RAJ_sideline_the_conflict }
@@ -16836,6 +16859,11 @@ focus = {
 	id = RAJ_his_majestys_loyal_government
 	icon = GFX_focus_RAJ_his_majestys_loyal_government
 	
+    allow_branch = 
+        {
+            has_war_support > 400
+        }
+
 	x = 44
 	y = 0
 	relative_position_id = RAJ_great_depression_price_controls 
@@ -20788,7 +20816,7 @@ focus = {
     focus = {
         id = RAJ_keep_british_generals
         icon = GFX_focus_RAJ_british_investors
-        x = -4
+        x = -5
         y = 0
         relative_position_id = RAJ_indianize_the_army
         mutually_exclusive = { focus = RAJ_indianize_the_army }

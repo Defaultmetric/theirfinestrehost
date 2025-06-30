@@ -106,10 +106,6 @@ focus_tree = {
 			factor = 5
 		}
 
-		allow_branch = {
-			has_war_support > 400
-		}
-
 		available = {
 			NOT = { has_war_with = SOU }
 			SOU = {
@@ -139,7 +135,7 @@ focus_tree = {
 		id = ROM_form_peasant_militias
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = ROM_a_deal_with_the_devil }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ROM_a_deal_with_the_devil
 
@@ -174,6 +170,10 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ROM_a_deal_with_the_devil
+
+		allow_branch = {
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -293,7 +293,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 9
@@ -327,7 +327,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_trade_treaty_with_germany
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -363,7 +363,7 @@ focus_tree = {
 			}
 			add_doctrine_cost_reduction = {
 				name = ROM_invite_german_advisors
-			    cost_reduction = 0.35
+			    cost_reduction = 1
 			    uses = 2
 			    category = land_doctrine
 			}
@@ -378,7 +378,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -416,7 +416,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -464,7 +464,7 @@ focus_tree = {
 		id = ROM_german_romanian_oil_exploitation_company
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ROM_join_axis }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = ROM_trade_treaty_with_germany
 
@@ -500,7 +500,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = oil
-					amount = 8
+					amount = 16
 				}
 			}
 			GER = {
@@ -510,7 +510,7 @@ focus_tree = {
 					}
 					add_resource = {
 						type = oil
-						amount = 4
+						amount = 10
 					}
 				}
 			}
@@ -524,6 +524,11 @@ focus_tree = {
 		x = 1
 		y = 3
 		relative_position_id = ROM_trade_treaty_with_germany
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -564,7 +569,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
-		cost = 10
+		cost = 5
 
 		allow_branch = {
 			has_war_support > 400
@@ -926,6 +931,23 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
+			random_owned_controlled_state = {
+				prioritize = { 46 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV } 
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1021,8 +1043,8 @@ focus_tree = {
 	focus = {
 		id = ROM_agrarian_reform
 		icon = GFX_goal_generic_consumer_goods
-		prerequisite = { focus = ROM_civil_works focus = ROM_national_defense_industry }
-		x = 1
+		prerequisite = { focus = ROM_civil_works }
+		x = 0
 		y = 1
 		relative_position_id = ROM_civil_works
 
@@ -1054,11 +1076,11 @@ focus_tree = {
 		id = ROM_danubian_transport_network
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = ROM_agrarian_reform }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = ROM_civil_works
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1163,7 +1185,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = ROM_danubian_transport_network }
 		mutually_exclusive = { focus = ROM_invite_foreign_motor_companies }
-		x = 0
+		x = -1
 		y = 3
 		relative_position_id = ROM_civil_works
 
@@ -1226,7 +1248,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_motorized
 		prerequisite = { focus = ROM_danubian_transport_network }
 		mutually_exclusive = { focus = ROM_malaxa }
-		x = 2
+		x = 1
 		y = 3
 		relative_position_id = ROM_civil_works
 
@@ -1251,6 +1273,24 @@ focus_tree = {
 
 		completion_reward = {
 			country_event = DOD_romania.120
+
+			random_owned_controlled_state = {
+				prioritize = { 79 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV } 
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1318,7 +1358,7 @@ focus_tree = {
 				set_state_flag = ROM_hunedoara_steel_works_IC
 				add_resource = {
 					type = steel
-					amount = 12
+					amount = 24
 				}
 			}
 		}
@@ -1455,7 +1495,7 @@ focus_tree = {
 		}
 
 		available = {
-			num_of_factories > 50
+			num_of_factories > 30
 		}
 
 		bypass = {
@@ -1514,6 +1554,10 @@ focus_tree = {
 		y = 0
 
 		cost = 10
+
+		allow_branch = {
+			has_war_support > 400
+		}
 
 		ai_will_do = {
 			factor = 5
@@ -1918,7 +1962,7 @@ focus_tree = {
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
-		x = 19
+		x = 14
 		y = 0
 
 		cost = 10
@@ -1975,7 +2019,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -2203,11 +2247,11 @@ focus_tree = {
 	
 	focus = {
 		id = ROM_crack_down_on_extremism
-		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = 3
+		icon = GFX_focus_generic_fascist_propaganda
+		prerequisite = { focus = ROM_appoint_german_friendly_government }
+		x = 0
 		y = 1
-		relative_position_id = ROM_institute_royal_dictatorship
+		relative_position_id = ROM_appoint_german_friendly_government
 
 		cost = 5
 
@@ -2296,6 +2340,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
+
+		allow_branch = {
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -2484,7 +2532,7 @@ focus_tree = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = ROM_flexible_foreign_policy }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
 
@@ -2657,13 +2705,13 @@ focus_tree = {
 	focus = {
 		id = ROM_iron_guard
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = ROM_appoint_german_friendly_government }
-		x = -1
+		prerequisite = { focus = ROM_crack_down_on_extremism }
+		x = 0
 		y = 1
-		relative_position_id = ROM_appoint_german_friendly_government
+		relative_position_id = ROM_crack_down_on_extremism
 		mutually_exclusive = { focus = ROM_national_christian_party }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2729,6 +2777,11 @@ focus_tree = {
 		relative_position_id = ROM_appoint_german_friendly_government
 		mutually_exclusive = { focus = ROM_iron_guard }
 		
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		cost = 10
 
 		ai_will_do = {
@@ -2793,11 +2846,11 @@ focus_tree = {
 	focus = {
 		id = ROM_force_abdication
 		icon = GFX_focus_rom_abdicate
-		prerequisite = { focus = ROM_iron_guard focus = ROM_securitate focus = ROM_national_christian_party }
+		prerequisite = { focus = ROM_iron_guard }
 		mutually_exclusive = { focus = ROM_handle_the_king }
-		x = 1				
-		y = 2
-		relative_position_id = ROM_appoint_soviet_friendly_government
+		x = 0				
+		y = 1
+		relative_position_id = ROM_iron_guard
 
 		cost = 10
 
@@ -2891,6 +2944,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_force_abdication
 
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		cost = 10
 
 		ai_will_do = {
@@ -2981,6 +3039,10 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = ROM_flexible_foreign_policy
+
+		allow_branch = {
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -3169,7 +3231,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 30
+		x = 25
 		y = 0
 
 		cost = 10
@@ -3830,7 +3892,7 @@ focus_tree = {
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 38
+		x = 33
 		y = 0
 
 		cost = 10
@@ -4526,7 +4588,7 @@ focus_tree = {
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 45
+		x = 40
 		y = 0
 
 		cost = 10

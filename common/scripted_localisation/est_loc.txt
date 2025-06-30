@@ -1,0 +1,851 @@
+defined_text = {
+	name = EST_ACTIVITY
+
+	text = {
+		trigger = {
+			has_global_flag = est_enabled
+		}
+		localization_key = est_on
+	}
+	text = {
+		localization_key = est_off
+	}
+}
+
+defined_text = {
+	name = EST_TANK_HULL_TYPE
+
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = toolpack_eqpt_year_5
+				has_global_flag = toolpack_eqpt_year_6
+			}
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_equipment_tier_modern #modern
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_light
+		}
+		localization_key = EST_equipment_tier_light #light
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_equipment_tier_medium #medium
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_heavy
+		}
+		localization_key = EST_equipment_tier_heavy #heavy
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn4
+		}
+		localization_key = EST_equipment_tier_super_heavy #super_heavy
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn5
+		}
+		localization_key = EST_equipment_tier_amphibious #amphibious
+	}
+}
+
+defined_text = {
+	name = EST_TANK_ROLE
+
+	text = {
+		trigger = {
+			has_global_flag = est_1_role_marked
+		}
+		localization_key = EST_empty_string	#empty
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_2_role_marked
+		}
+		localization_key = EST_tank_role_destroyer #_destroyer
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_3_role_marked
+		}
+		localization_key = EST_tank_role_aa # _aa
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_4_role_marked
+		}
+		localization_key = EST_tank_role_artillery #_artillery
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_5_role_marked
+		}
+		localization_key = EST_tank_role_flame #_flame
+	}
+}
+
+
+defined_text = {
+	name = EST_TANK_EQPT_TIER
+
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_any_year
+		}
+		localization_key = EST_empty_string
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					has_global_flag = toolpack_eqpt_year_5
+					has_global_flag = est_tankplane_hull_medium
+				}
+				has_global_flag = est_tankplane_btn4
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					has_global_flag = toolpack_eqpt_year_1
+				}
+				AND = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+						has_global_flag = toolpack_eqpt_year_3
+					}
+					has_global_flag = est_tankplane_btn5
+				}
+				AND = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+					OR = {
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = est_tankplane_hull_heavy
+					}
+				}
+			}
+		}
+		localization_key = EST_tier_text_1 #_1
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					has_global_flag = toolpack_eqpt_year_6
+					has_global_flag = est_tankplane_hull_medium
+				}
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					has_global_flag = toolpack_eqpt_year_2
+				}
+				AND = {
+					NOT = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+						has_global_flag = toolpack_eqpt_year_3
+					}
+					has_global_flag = est_tankplane_btn5
+				}
+				AND = {
+					has_global_flag = toolpack_eqpt_year_3
+					OR = {
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = est_tankplane_hull_heavy
+					}
+				}
+			}
+		}
+		localization_key = EST_tier_text_2 #_2
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					OR = {
+						has_global_flag = toolpack_eqpt_year_3
+						has_global_flag = toolpack_eqpt_year_4
+						AND = {
+							has_global_flag = toolpack_eqpt_year_5
+							is_r56 = no
+						}
+					}
+				}
+				AND = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_4
+						has_global_flag = toolpack_eqpt_year_5
+					}
+					OR = {
+						has_global_flag = est_tankplane_hull_heavy
+						has_global_flag = est_tankplane_hull_medium
+					}
+				}
+			}
+		}
+		localization_key = EST_tier_text_3 #_3
+	}
+	text = {
+		trigger = {
+			is_r56 = yes
+			has_global_flag = est_tankplane_hull_light
+			OR = {
+				has_global_flag = toolpack_eqpt_year_5
+				has_global_flag = toolpack_eqpt_year_6
+			}
+		}
+		localization_key = EST_tier_text_4 #_4
+	}
+}
+
+
+defined_text = {
+	name = EST_TANK_TECHNOLOGY_PREFIX
+
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn4
+		}
+		localization_key = EST_empty_string
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = toolpack_eqpt_any_year
+				AND = {
+					has_global_flag = toolpack_eqpt_year_5
+					has_global_flag = est_tankplane_hull_medium
+				}
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					has_global_flag = toolpack_eqpt_year_1
+				}
+				AND = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+					OR = {
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = est_tankplane_hull_heavy
+					}
+				}
+			}
+		}
+		localization_key = EST_tank_technology_prefix_basic #basic_
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					has_global_flag = toolpack_eqpt_year_2
+				}
+				AND = {
+					has_global_flag = toolpack_eqpt_year_3
+					OR = {
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = est_tankplane_hull_heavy
+					}
+				}
+			}
+		}
+		localization_key = EST_tank_technology_prefix_improved #improved_
+	}
+	text = {
+		trigger = {
+			OR = {
+				AND = {
+					has_global_flag = est_tankplane_hull_light
+					OR = {
+						has_global_flag = toolpack_eqpt_year_3
+						has_global_flag = toolpack_eqpt_year_4
+						has_global_flag = toolpack_eqpt_year_5	#to be replaced if R56 has something
+					}
+				}
+				AND = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_4
+						has_global_flag = toolpack_eqpt_year_5	#to be replaced if R56 has something
+					}
+					OR = {
+						has_global_flag = est_tankplane_hull_heavy
+						has_global_flag = est_tankplane_hull_medium
+					}
+				}
+			}
+		}
+		localization_key = EST_tank_technology_prefix_advanced # advanced_
+	}
+}
+
+defined_text = {
+	name = EST_TANK_TECHNOLOGY_ROLE
+
+	text = {
+		trigger = {
+			has_global_flag = est_1_role_marked
+		}
+		localization_key = EST_tank_technology_role_default #tank
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_2_role_marked
+		}
+		localization_key = EST_tank_technology_role_td #td
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_3_role_marked
+		}
+		localization_key = EST_tank_technology_role_spaa #spaa
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_4_role_marked
+		}
+		localization_key = EST_tank_technology_role_art #art
+	}
+}
+
+defined_text = {
+	name = EST_CARRIER_PREFIX
+
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn4
+		}
+		localization_key = EST_carrier_prefix_text #cv_
+	}
+	text = {
+		localization_key = EST_empty_string
+	}
+}
+
+#tank
+defined_text = {
+	name = EST_GUN_TIER_NAME
+
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 4 }
+		}
+		localization_key = est_gun_tier_4
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 3 }
+		}
+		localization_key = est_gun_tier_3
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 2 }
+		}
+		localization_key = est_gun_tier_2
+	}
+	text = {
+		localization_key = est_gun_tier_1
+	}
+}
+defined_text = {
+	name = EST_GUN_SIZE_NAME
+
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_size = 4 }
+		}
+		localization_key = est_gun_size_4
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_size = 3 }
+		}
+		localization_key = est_gun_size_3
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_size = 2 }
+		}
+		localization_key = est_gun_size_2
+	}
+	text = {
+		localization_key = est_gun_size_1
+	}
+}
+defined_text = {
+	name = EST_GET_TURRET_TYPE
+
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn4
+		}
+		localization_key = EST_sl_tank_turret_superheavy #super_heavy_three_man_tank
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_heavy
+			check_variable = { global.est_tank_gun_size = 4 }
+		}
+		localization_key = EST_sl_tank_turret_heavy_superstructure #heavy_fixed_superstructure
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_heavy
+		}
+		localization_key = EST_sl_tank_turret_heavy #heavy_two_man_tank
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_medium
+			check_variable = { global.est_tank_gun_size = 3 }
+		}
+		localization_key = EST_sl_tank_turret_medium_superstructure #medium_fixed_superstructure
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_sl_tank_turret_medium #medium_two_man_tank
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_light
+			check_variable = { global.est_tank_gun_size = 2 }
+		}
+		localization_key = EST_sl_tank_turret_light_superstructure #light_fixed_superstructure
+	}
+	text = {
+		localization_key = EST_sl_tank_turret_light #light_two_man_tank
+	}
+}
+defined_text = {
+	name = EST_GET_TANK_GUN
+
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_1
+			check_variable = { global.est_tank_gun_size = 1 }
+		}
+		localization_key = EST_sl_tank_gun_small_cannon #tank_small_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_1
+			check_variable = { global.est_tank_gun_size = 3 }
+		}
+		localization_key = EST_sl_tank_gun_heavy_cannon #tank_heavy_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_1
+			check_variable = { global.est_tank_gun_size = 4 }
+		}
+		localization_key = EST_sl_tank_gun_super_heavy_cannon #tank_super_heavy_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_1
+		}
+		localization_key = EST_sl_tank_gun_medium_cannon #tank_medium_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_2
+			check_variable = { global.est_tank_gun_size = 3 }
+		}
+		localization_key = EST_sl_tank_gun_heavy_howitzer #tank_heavy_howitzer
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_2
+		}
+		localization_key = EST_sl_tank_gun_medium_howitzer #tank_medium_howitzer
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_3
+		}
+		localization_key = EST_sl_tank_gun_high_velo #tank_high_velocity_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_4
+		}
+		localization_key = EST_sl_tank_gun_aa #tank_anti_air_cannon
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_5
+			check_variable = { global.est_tank_gun_size = 1 }
+		}
+		localization_key = EST_sl_tank_gun_close_support #tank_close_support_gun
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_5
+		}
+		localization_key = EST_sl_tank_gun_rocket_launcher #tank_rocket_launcher
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tank_gun_6
+		}
+		localization_key = EST_sl_tank_gun_flame #flamethrower
+	}
+}
+defined_text = {
+	name = EST_GET_TANK_GUN_TIER
+
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 4 }
+		}
+		localization_key = EST_tier_text_4 #_4
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 3 }
+		}
+		localization_key = EST_tier_text_3 #_3
+	}
+	text = {
+		trigger = {
+			check_variable = { global.est_tank_gun_tier = 2 }
+		}
+		localization_key = EST_tier_text_2 #_2
+	}
+	text = {	#None
+		localization_key = EST_empty_string
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_FRAME_TYPE
+
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_light
+		}
+		localization_key = EST_sl_plane_frame_type_small #small
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_sl_plane_frame_type_medium #medium
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_hull_heavy
+		}
+		localization_key = EST_sl_plane_frame_type_large #large
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_tankplane_btn4
+		}
+		localization_key = EST_sl_plane_frame_type_cv_small #cv_small
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_ENGINE_TYPE
+
+	text = {
+		trigger = {
+			has_global_flag = EST_plane_use_rocket_engine
+		}
+		localization_key = EST_sl_plane_engine_rocket #rocket_
+	}
+	text = {
+		trigger = {
+			has_global_flag = EST_plane_use_jet_engine
+		}
+		localization_key = EST_sl_plane_engine_jet #jet_
+	}
+	text = {	#blank for default
+		localization_key = EST_empty_string
+	}
+}
+
+
+defined_text = {
+	name = EST_PLANE_ENGINE_TYPE_FOR_GUI
+
+	text = {
+		trigger = {
+			has_global_flag = EST_plane_use_rocket_engine
+		}
+		localization_key = EST_engine_type_rocket #Rocket
+	}
+	text = {
+		trigger = {
+			has_global_flag = EST_plane_use_jet_engine
+		}
+		localization_key = EST_engine_type_jet #Jet
+	}
+	text = {
+		localization_key = EST_engine_type_prop #Prop
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_ENGINE_TIER
+
+	text = {
+		trigger = {
+			has_global_flag = EST_plane_use_jet_engine
+			OR = {
+				is_r56 = no
+				check_variable = {
+					global.EST_engine_tier = 1
+				}
+			}
+		}
+		localization_key = EST_empty_string
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_tier = 4
+			}
+		}
+		localization_key = EST_tier_text_4 #_4
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_tier = 3
+			}
+		}
+		localization_key = EST_tier_text_3 #_3
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_tier = 2
+			}
+		}
+		localization_key = EST_tier_text_2 #_2
+	}
+	text = {
+		localization_key = EST_tier_text_1 #_1
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_ENGINE_COUNT
+
+	text = {	#rocket engine is fixed to 1 engine
+		trigger = {
+			has_global_flag = EST_plane_use_rocket_engine
+		}
+		localization_key = EST_empty_string
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_count = 6
+			}
+		}
+		localization_key = EST_sl_engine_count_6 #_6x
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_count = 4
+			}
+		}
+		localization_key = EST_sl_engine_count_4 #_4x
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_count = 3
+			}
+		}
+		localization_key = EST_sl_engine_count_3 #_3x
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				global.EST_engine_count = 2
+			}
+		}
+		localization_key = EST_sl_engine_count_2 #_2x
+	}
+	text = {
+		localization_key = EST_sl_engine_count_1 #_1x
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_WEAPON
+
+	text = {
+		trigger = {
+			has_global_flag = est_1_role_marked
+		}
+		localization_key = EST_sl_plane_module_hmg #heavy_mg_2x
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_2_role_marked
+			OR = {
+				has_global_flag = est_tankplane_hull_light
+				has_global_flag = est_tankplane_btn4
+			}
+		}
+		localization_key = EST_sl_plane_module_cas_bomb #bomb_locks
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_2_role_marked
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_sl_plane_module_medium_bomb #medium_bomb_bay
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_2_role_marked
+			has_global_flag = est_tankplane_hull_heavy
+		}
+		localization_key = EST_sl_plane_module_large_bomb #large_bomb_bay
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_3_role_marked
+		}
+		localization_key = EST_sl_plane_module_torpedo #torpedo_mounting
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_4_role_marked
+		}
+		localization_key = EST_sl_plane_module_camera #recon_camera
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_ROLE
+
+	text = {	#guns+medium -> fighter
+		trigger = {
+			has_global_flag = est_1_role_marked
+			has_global_flag = est_tankplane_hull_medium
+		}
+		localization_key = EST_sl_plane_role_fighter #_fighter
+	}
+	text = {	#bombs+(cv) light -> cas
+		trigger = {
+			has_global_flag = est_2_role_marked
+			OR = {
+				has_global_flag = est_tankplane_hull_light
+				has_global_flag = est_tankplane_btn4
+			}
+		}
+		localization_key = EST_sl_plane_role_cas #_cas
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_3_role_marked
+			OR = {
+				has_global_flag = est_tankplane_hull_light
+				has_global_flag = est_tankplane_btn4
+			}
+		}
+		localization_key = EST_sl_plane_role_naval_bomber #_naval_bomber
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_3_role_marked
+			has_global_flag = est_tankplane_hull_heavy
+		}
+		localization_key = EST_sl_plane_role_maritime_patrol #_maritime_patrol_plane
+	}
+	text = {
+		trigger = {
+			has_global_flag = est_4_role_marked
+		}
+		localization_key = EST_sl_plane_role_scout #_scout_plane
+	}
+	text = {
+		# trigger = {	#probably easier to use as backup option
+		# 	OR = {
+		# 		AND = {	#light+guns -> nothing
+		# 			has_global_flag = est_1_role_marked
+		# 			has_global_flag = est_tankplane_hull_light
+		# 		}
+		# 		AND = {	#medium+bombs -> nothing
+		# 			has_global_flag = est_2_role_marked
+		# 			has_global_flag = est_tankplane_hull_medium
+		# 		}
+		# 	}
+		# }
+		localization_key = EST_empty_string
+	}
+}
+
+defined_text = {
+	name = EST_PLANE_EQPT_TIER
+
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_any_year
+		}
+		localization_key = EST_empty_string
+	}
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_year_1
+		}
+		localization_key = EST_tier_text_0 #_0
+	}
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_year_2
+		}
+		localization_key = EST_tier_text_1 #_1
+	}
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_year_3
+		}
+		localization_key = EST_tier_text_2 #_2
+	}
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_year_4
+		}
+		localization_key = EST_tier_text_3 #_3
+	}
+	text = {
+		trigger = {
+			has_global_flag = toolpack_eqpt_year_5
+		}
+		localization_key = EST_tier_text_4 #_4
+	}
+}
+
+defined_text = {
+	name = EST_GET_CREATOR
+	text = {
+		trigger = {
+			has_global_flag = est_use_root_design
+		}
+		localization_key = EST_producer_is_user_text #producer = ROOT
+	}
+	text = {	#None
+		localization_key = EST_empty_string
+	}
+}

@@ -1,0 +1,1815 @@
+scripted_gui = {
+
+	est_main_container = {
+	
+		context_type = selected_country_context
+		
+		window_name = "est_main_container"
+		
+		visible = {
+			ROOT = {
+				is_ai = no
+				has_global_flag = est_enabled
+				OR = {
+					has_country_flag = tp_is_host
+					NOT = {
+						has_global_flag = tp_is_multiplayer
+					}
+				}
+			}
+		}
+
+		effects = {
+			est_tab_button_frame_1a_click = {
+				clr_global_flag = toolpack_est_tank_tab
+				clr_global_flag = toolpack_est_plane_tab
+			}
+			est_tab_button_frame_2a_click = {
+				clr_global_flag = toolpack_est_plane_tab
+				set_global_flag = toolpack_est_tank_tab
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						NOT = {
+							has_variable = global.est_tank_gun_size
+							has_variable = global.est_tank_gun_tier
+						}
+					}
+					set_variable = { global.est_tank_gun_size = 1 }
+					set_variable = { global.est_tank_gun_tier = 1 }
+				}
+
+				clr_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+			}
+			est_tab_button_frame_3a_click = {
+				clr_global_flag = toolpack_est_tank_tab
+				set_global_flag = toolpack_est_plane_tab
+
+				clr_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+
+				if = {
+					limit = {
+						has_dlc = "La Resistance"
+						NOT = {
+							has_variable = global.EST_engine_tier
+							has_variable = global.EST_engine_count
+						}
+					}
+					set_variable = { global.EST_engine_tier = 1 }
+					set_variable = { global.EST_engine_count = 1 }
+				}
+			}
+
+			est_y1_enable_click = {
+				set_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_5
+				clr_global_flag = toolpack_eqpt_year_6
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_y2_enable_click = {
+				set_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_5
+				clr_global_flag = toolpack_eqpt_year_6
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_y3_enable_click = {
+				set_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_5
+				clr_global_flag = toolpack_eqpt_year_6
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_y4_enable_click = {
+				set_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_5
+				clr_global_flag = toolpack_eqpt_year_6
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_y5_enable_click = {
+				set_global_flag = toolpack_eqpt_year_5
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_6
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_y6_enable_click = {
+				set_global_flag = toolpack_eqpt_year_6
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_5
+
+				clr_global_flag = toolpack_eqpt_any_year
+			}
+			est_any_enable_click = {
+				clr_global_flag = toolpack_eqpt_year_6
+				clr_global_flag = toolpack_eqpt_year_1
+				clr_global_flag = toolpack_eqpt_year_2
+				clr_global_flag = toolpack_eqpt_year_3
+				clr_global_flag = toolpack_eqpt_year_4
+				clr_global_flag = toolpack_eqpt_year_5
+				set_global_flag = toolpack_eqpt_any_year
+			}
+
+			est_tankplane_btn1_enable_click = {
+				set_global_flag = est_tankplane_hull_light
+				clr_global_flag = est_tankplane_hull_medium
+				clr_global_flag = est_tankplane_hull_heavy
+				clr_global_flag = est_tankplane_btn4
+				clr_global_flag = est_tankplane_btn5
+
+				if = {
+					limit = {
+						has_global_flag = toolpack_est_plane_tab
+					}
+					clr_global_flag = est_4_role_marked	#deselect unsupported camera
+					clamp_variable = {
+						var = global.EST_engine_count
+						max = 2
+					}
+				}
+			}
+			est_tankplane_btn2_enable_click = {
+				clr_global_flag = est_tankplane_hull_light
+				set_global_flag = est_tankplane_hull_medium
+				clr_global_flag = est_tankplane_hull_heavy
+				clr_global_flag = est_tankplane_btn4
+				clr_global_flag = est_tankplane_btn5
+
+				if = {
+					limit = {
+						has_global_flag = toolpack_est_plane_tab
+					}
+					clr_global_flag = est_3_role_marked				#no torpedos on medium
+					clr_global_flag = EST_plane_use_rocket_engine	#deselect unsupported rocket engine (no flag defaults it to prop)
+					clamp_variable = {
+						var = global.EST_engine_count
+						min = 3
+						max = 4
+					}
+				}
+			}
+			est_tankplane_btn3_enable_click = {
+				clr_global_flag = est_tankplane_hull_light
+				clr_global_flag = est_tankplane_hull_medium
+				set_global_flag = est_tankplane_hull_heavy
+				clr_global_flag = est_tankplane_btn4
+				clr_global_flag = est_tankplane_btn5
+
+				if = {	#deselect unsupported guns when selecting heavy frame
+					limit = {
+						has_global_flag = toolpack_est_plane_tab
+					}
+					clr_global_flag = est_1_role_marked
+					clr_global_flag = est_4_role_marked
+					clr_global_flag = EST_plane_use_rocket_engine	#deselect unsupported rocket engine (no flag defaults it to prop)
+					if = { #deselect unsupported torpedos when selecting heavy frame without DLC
+						limit = {
+							NOT = {
+								has_dlc = "By Blood Alone"
+							}
+						}
+						clr_global_flag = est_3_role_marked
+					}
+					clamp_variable = {
+						var = global.EST_engine_count
+						min = 4
+					}
+				}
+			}
+			est_tankplane_btn4_enable_click = {
+				clr_global_flag = est_tankplane_hull_light
+				clr_global_flag = est_tankplane_hull_medium
+				clr_global_flag = est_tankplane_hull_heavy
+				set_global_flag = est_tankplane_btn4
+				clr_global_flag = est_tankplane_btn5
+
+				clr_global_flag = est_5_role_marked	#superheavy doesnt support flame
+				if = {
+					limit = {
+						has_global_flag = toolpack_est_plane_tab
+					}
+					clr_global_flag = est_4_role_marked				#deselect unsupported camera
+					clr_global_flag = EST_plane_use_rocket_engine	#deselect unsupported rocket engine (no flag defaults it to prop)
+					clamp_variable = {
+						var = global.EST_engine_count
+						max = 2
+					}
+				}
+			}
+			est_tankplane_btn5_enable_click = {
+				clr_global_flag = est_tankplane_hull_light
+				clr_global_flag = est_tankplane_hull_medium
+				clr_global_flag = est_tankplane_hull_heavy
+				clr_global_flag = est_tankplane_btn4
+				set_global_flag = est_tankplane_btn5
+
+				set_global_flag = est_1_role_marked	#since amphibious supports nothing else
+				clr_global_flag = est_2_role_marked	#amphibious doesnt support destroyer
+				clr_global_flag = est_3_role_marked	#amphibious doesnt support spaa
+				clr_global_flag = est_4_role_marked	#amphibious doesnt support spg
+				clr_global_flag = est_5_role_marked	#amphibious doesnt support flame
+
+				if = {	#Amphibious only supports light guns
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					set_variable = { global.est_tank_gun_size = 1 }
+				}
+			}
+
+			#tank/planes
+			est_mark_1_button_click = {
+				set_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+			}
+			est_mark_2_button_click = {
+				clr_global_flag = est_1_role_marked
+				set_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+			}
+			est_mark_3_button_click = {
+				clr_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				set_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+			}
+
+
+			##############################
+			est_add_design_button_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 0
+				}
+				est_add_remove_equipment = yes
+			}
+			est_use_root_design_button_click = {
+				set_global_flag = est_use_root_design
+			}
+			est_do_not_use_root_design_button_click = {
+				clr_global_flag = est_use_root_design
+			}
+			est_add_1_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 1
+				}
+				est_add_remove_equipment = yes
+			}
+			est_add_10_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 10
+				}
+				est_add_remove_equipment = yes
+			}
+			est_add_100_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 100
+				}
+				est_add_remove_equipment = yes
+			}
+			est_add_1000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 1000
+				}
+				est_add_remove_equipment = yes
+			}
+			est_add_10000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 10000
+				}
+				est_add_remove_equipment = yes
+			}
+			est_add_100000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = 100000
+				}
+				est_add_remove_equipment = yes
+			}
+
+			est_sub_1_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -1
+				}
+				est_add_remove_equipment = yes
+			}
+			est_sub_10_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -10
+				}
+				est_add_remove_equipment = yes
+			}
+			est_sub_100_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -100
+				}
+				est_add_remove_equipment = yes
+			}
+			est_sub_1000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -1000
+				}
+				est_add_remove_equipment = yes
+			}
+			est_sub_10000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -10000
+				}
+				est_add_remove_equipment = yes
+			}
+			est_sub_100000_click = {
+				set_variable = {
+					toolpack_est_equipment_amount = -100000
+				}
+				est_add_remove_equipment = yes
+			}
+
+			##############################
+
+			#main only
+			est_main_tab_infantry_eqp_select_click = {
+				set_global_flag = toolpack_est_infantry_eqp_selected
+			}
+			est_main_tab_infantry_eqp_deselect_click = {
+				clr_global_flag = toolpack_est_infantry_eqp_selected
+			}
+			est_main_tab_support_eqp_select_click = {
+				set_global_flag = toolpack_est_support_eqp_selected
+			}
+			est_main_tab_support_eqp_deselect_click = {
+				clr_global_flag = toolpack_est_support_eqp_selected
+			}
+			est_main_tab_artillery_select_click = {
+				set_global_flag = toolpack_est_artillery_selected
+			}
+			est_main_tab_artillery_deselect_click = {
+				clr_global_flag = toolpack_est_artillery_selected
+			}
+			est_main_tab_antitank_select_click = {
+				set_global_flag = toolpack_est_antitank_selected
+			}
+			est_main_tab_antitank_deselect_click = {
+				clr_global_flag = toolpack_est_antitank_selected
+			}
+			est_main_tab_antiair_select_click = {
+				set_global_flag = toolpack_est_antiair_selected
+			}
+			est_main_tab_antiair_deselect_click = {
+				clr_global_flag = toolpack_est_antiair_selected
+			}
+			est_main_tab_rocket_select_click = {
+				set_global_flag = toolpack_est_rocket_selected
+			}
+			est_main_tab_rocket_deselect_click = {
+				clr_global_flag = toolpack_est_rocket_selected
+			}
+			est_main_tab_motorized_select_click = {
+				set_global_flag = toolpack_est_motorized_selected
+			}
+			est_main_tab_motorized_deselect_click = {
+				clr_global_flag = toolpack_est_motorized_selected
+			}
+			est_main_tab_mechanized_select_click = {
+				set_global_flag = toolpack_est_mechanized_selected
+			}
+			est_main_tab_mechanized_deselect_click = {
+				clr_global_flag = toolpack_est_mechanized_selected
+			}
+			est_main_tab_motorized_rocket_select_click = {
+				set_global_flag = toolpack_est_motorized_rocket_selected
+			}
+			est_main_tab_motorized_rocket_deselect_click = {
+				clr_global_flag = toolpack_est_motorized_rocket_selected
+			}
+			est_main_tab_armored_car_select_click = {
+				set_global_flag = toolpack_est_armored_car_selected
+			}
+			est_main_tab_armored_car_deselect_click = {
+				clr_global_flag = toolpack_est_armored_car_selected
+			}
+			est_main_tab_amtrac_select_click = {
+				set_global_flag = toolpack_est_amtrac_selected
+			}
+			est_main_tab_amtrac_deselect_click = {
+				clr_global_flag = toolpack_est_amtrac_selected
+			}
+			est_main_tab_railway_gun_select_click = {
+				set_global_flag = toolpack_est_railway_gun_selected
+			}
+			est_main_tab_railway_gun_deselect_click = {
+				clr_global_flag = toolpack_est_railway_gun_selected
+			}
+			est_main_tab_armored_train_select_click = {
+				set_global_flag = toolpack_est_armored_train_selected
+			}
+			est_main_tab_armored_train_deselect_click = {
+				clr_global_flag = toolpack_est_armored_train_selected
+			}
+			est_main_tab_train_select_click = {
+				set_global_flag = toolpack_est_train_selected
+			}
+			est_main_tab_train_deselect_click = {
+				clr_global_flag = toolpack_est_train_selected
+			}
+			est_mark_4_button_click = {
+				clr_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				set_global_flag = est_4_role_marked
+				clr_global_flag = est_5_role_marked
+			}
+			#tank only
+			est_mark_5_button_click = {
+				clr_global_flag = est_1_role_marked
+				clr_global_flag = est_2_role_marked
+				clr_global_flag = est_3_role_marked
+				clr_global_flag = est_4_role_marked
+				set_global_flag = est_5_role_marked
+			}
+			est_tank_gun_1_enable_click = {
+				set_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_5
+				clr_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_2_enable_click = {
+				set_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_5
+				clr_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_3_enable_click = {
+				set_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_5
+				clr_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_4_enable_click = {
+				set_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_5
+				clr_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_5_enable_click = {
+				set_global_flag = est_tank_gun_5
+				clr_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_6_enable_click = {
+				set_global_flag = est_tank_gun_6
+				clr_global_flag = est_tank_gun_1
+				clr_global_flag = est_tank_gun_2
+				clr_global_flag = est_tank_gun_3
+				clr_global_flag = est_tank_gun_4
+				clr_global_flag = est_tank_gun_5
+			}
+			est_tank_gun_size_decrease_click = {
+				subtract_from_variable = {
+					var = global.est_tank_gun_size
+					value = 1
+				}
+			}
+			est_tank_gun_size_increase_click = {
+				if = {
+					limit = {
+						has_variable = global.est_tank_gun_size
+					}
+					add_to_variable = {
+						var = global.est_tank_gun_size
+						value = 1
+					}
+					if = {	#Max medium guns
+						limit = {
+							check_variable = { global.est_tank_gun_size > 2 }
+						}
+						clr_global_flag = est_tank_gun_4	#AA
+						clr_global_flag = est_tank_gun_5	#Rocket
+					}
+					if = {	#Max heavy guns
+						limit = {
+							check_variable = { global.est_tank_gun_size > 3 }
+						}
+						clr_global_flag = est_tank_gun_2	#Howitzer
+						clr_global_flag = est_tank_gun_3	#High velo
+						clr_global_flag = est_tank_gun_6	#Flame
+					}
+				}
+				else = {
+					set_variable = { global.est_tank_gun_size = 2 }
+				}
+			}
+			est_tank_gun_tier_decrease_click = {
+				subtract_from_variable = {
+					var = global.est_tank_gun_tier
+					value = 1
+				}
+			}
+			est_tank_gun_tier_increase_click = {
+				if = {
+					limit = {
+						has_variable = global.est_tank_gun_tier
+					}
+					add_to_variable = {
+						var = global.est_tank_gun_tier
+						value = 1
+					}
+				}
+				else = {
+					set_variable = { global.est_tank_gun_tier = 2 }
+				}
+			}
+
+			est_plane_engine_type_increase_click = {
+				if = {
+					limit = {
+						NOT = {
+							has_global_flag = EST_plane_use_jet_engine
+							has_global_flag = EST_plane_use_rocket_engine
+						}
+					}
+					set_global_flag = EST_plane_use_jet_engine
+					set_variable = { global.EST_engine_tier = 1 }
+				}
+				else = {
+					clr_global_flag = EST_plane_use_jet_engine
+					set_global_flag = EST_plane_use_rocket_engine
+					set_variable = { global.EST_engine_count = 1 }
+				}
+			}
+			est_plane_engine_type_decrease_click = {
+				if = {
+					limit = {
+						has_global_flag = EST_plane_use_rocket_engine
+					}
+					clr_global_flag = EST_plane_use_rocket_engine
+					set_global_flag = EST_plane_use_jet_engine
+					set_variable = { global.EST_engine_tier = 1 }
+				}
+				else = {
+					clr_global_flag = EST_plane_use_jet_engine
+				}
+			}
+			est_plane_engine_tier_increase_click = {
+				add_to_variable = {
+					var = global.EST_engine_tier
+					value = 1
+				}
+			}
+			est_plane_engine_tier_decrease_click = {
+				subtract_from_variable = {
+					var = global.EST_engine_tier
+					value = 1
+				}
+			}
+			est_plane_engine_count_decrease_click = {
+				if = {
+					limit = {
+						check_variable = { global.EST_engine_count = 6 }
+					}
+					subtract_from_variable = {
+						var = global.EST_engine_count
+						value = 2
+					}
+				}
+				else = {
+					subtract_from_variable = {
+						var = global.EST_engine_count
+						value = 1
+					}
+				}
+			}
+			est_plane_engine_count_increase_click = {
+				if = {
+					limit = {
+						check_variable = { global.EST_engine_count = 4 }
+					}
+					add_to_variable = {
+						var = global.EST_engine_count
+						value = 2
+					}
+				}
+				else = {
+					add_to_variable = {
+						var = global.EST_engine_count
+						value = 1
+					}
+				}
+			}
+		}
+
+		triggers = {
+			est_tab_button_frame_2a_click_enabled = {
+				#
+			}
+			est_tab_button_frame_3a_click_enabled = {
+				#
+			}
+			est_tab_button_frame_1b_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_tab_button_frame_2b_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tab_button_frame_3b_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+
+			est_y1_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_1
+				}
+			}
+			est_y1_disable_visible = {
+				has_global_flag = toolpack_eqpt_year_1
+			}
+			est_y2_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_2
+				}
+			}
+			est_y2_disable_visible = {
+				has_global_flag = toolpack_eqpt_year_2
+			}
+			est_y3_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+			}
+			est_y3_disable_visible = {
+				has_global_flag = toolpack_eqpt_year_3
+			}	
+			est_y4_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_4
+				}
+			}
+			est_y4_disable_visible = {
+				has_global_flag = toolpack_eqpt_year_4
+			}
+			est_y5_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_5
+				}
+			}
+			est_y5_disable_visible = {
+				has_global_flag = toolpack_eqpt_year_5
+			}
+
+			#r56-only button
+			est_y6_enable_visible = {
+				is_r56 = yes
+				NOT = {
+					has_global_flag = toolpack_eqpt_year_6
+				}
+				NOT = {
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_y6_disable_visible = {
+				is_r56 = yes
+				has_global_flag = toolpack_eqpt_year_6
+				NOT = {
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_y6_text_visible = {		
+				is_r56 = yes
+				NOT = {
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+
+			est_any_enable_visible = {
+				NOT = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+			}
+			est_any_disable_visible = {
+				has_global_flag = toolpack_eqpt_any_year
+			}
+
+			#amount buttons
+			est_sub_1_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_sub_10_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_sub_100_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_sub_1000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_sub_10000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_sub_100000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+
+
+
+			est_add_1_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_add_10_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_add_100_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_add_1000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_add_10000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+			est_add_100000_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+			}
+
+
+			est_add_design_button_click_enabled = {
+				toolpack_est_has_all_options_configured = yes
+				NOT = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						meta_trigger = {
+							text = {
+								has_country_flag = est_design_created_hull_[hull_type][tank_role][EQ_LEVEL][tank_gun][tank_gun_tier]
+							}
+							hull_type = "[This.EST_TANK_HULL_TYPE]"
+							tank_role = "[This.EST_TANK_ROLE]"					#tank role can be empty so must end in _ for non-empty
+							EQ_LEVEL = "[This.EST_TANK_EQPT_TIER]"				#empty for any
+							turret_type = "[This.EST_GET_TURRET_TYPE]"			#based on gun size vs hull size, select a valid turret
+							tank_gun = "[This.EST_GET_TANK_GUN]"
+							tank_gun_tier = "[This.EST_GET_TANK_GUN_TIER]"
+						}
+					}
+					AND = {
+						has_global_flag = toolpack_est_plane_tab
+						meta_trigger = {
+							text = {
+								has_country_flag = est_design_created_[frame_type]_frame_[EQ_LEVEL][plane_gun]
+							}
+							frame_type = "[This.EST_PLANE_FRAME_TYPE]"
+							EQ_LEVEL = "[This.EST_PLANE_EQPT_TIER]"				#empty for any
+							plane_gun = "[This.EST_PLANE_WEAPON]"
+						}
+					}
+				}
+				NOT = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+			}
+			est_use_root_design_button_click_enabled = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						meta_trigger = {
+							text = {
+								ROOT = {	#player country
+									has_country_flag = est_design_created_hull_[hull_type][tank_role][EQ_LEVEL][tank_gun][tank_gun_tier]
+								}
+							}
+							hull_type = "[This.EST_TANK_HULL_TYPE]"
+							tank_role = "[This.EST_TANK_ROLE]"					#tank role can be empty so must end in _ for non-empty
+							EQ_LEVEL = "[This.EST_TANK_EQPT_TIER]"				#empty for any
+							turret_type = "[This.EST_GET_TURRET_TYPE]"			#based on gun size vs hull size, select a valid turret
+							tank_gun = "[This.EST_GET_TANK_GUN]"
+							tank_gun_tier = "[This.EST_GET_TANK_GUN_TIER]"
+						}
+					}
+					AND = {
+						has_global_flag = toolpack_est_plane_tab
+						meta_trigger = {
+							text = {
+								ROOT = {
+									has_country_flag = est_design_created_[frame_type]_frame_[EQ_LEVEL][plane_gun]
+								}
+							}
+							frame_type = "[This.EST_PLANE_FRAME_TYPE]"
+							EQ_LEVEL = "[This.EST_PLANE_EQPT_TIER]"				#empty for any
+							plane_gun = "[This.EST_PLANE_WEAPON]"
+						}
+					}
+				}
+			}
+
+			#put main menu visibles here
+			est_main_tab_infantry_eqp_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_infantry_eqp_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_infantry_eqp_selected
+				}
+			}
+			est_main_tab_infantry_eqp_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_infantry_eqp_selected
+			}
+			est_main_tab_support_eqp_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_support_eqp_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_support_eqp_selected
+				}
+			}
+			est_main_tab_support_eqp_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_support_eqp_selected
+			}
+			est_main_tab_artillery_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_artillery_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_artillery_selected
+				}
+			}
+			est_main_tab_artillery_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_artillery_selected
+			}
+			est_main_tab_antitank_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_antitank_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_antitank_selected
+				}
+			}
+			est_main_tab_antitank_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_antitank_selected
+			}
+			est_main_tab_antiair_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_antiair_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_antiair_selected
+				}
+			}
+			est_main_tab_antiair_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_antiair_selected
+			}
+			est_main_tab_rocket_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_rocket_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_rocket_selected
+				}
+			}
+			est_main_tab_rocket_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_rocket_selected
+			}
+			est_main_tab_motorized_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_motorized_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_motorized_selected
+				}
+			}
+			est_main_tab_motorized_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_motorized_selected
+			}
+			est_main_tab_mechanized_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_mechanized_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_mechanized_selected
+				}
+			}
+			est_main_tab_mechanized_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_mechanized_selected
+			}
+			est_main_tab_motorized_rocket_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_motorized_rocket_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_motorized_rocket_selected
+				}
+			}
+			est_main_tab_motorized_rocket_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_motorized_rocket_selected
+			}
+			est_main_tab_armored_car_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_dlc = "La Resistance"
+			}
+			est_main_tab_armored_car_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_armored_car_selected
+				}
+				has_dlc = "La Resistance"
+			}
+			est_main_tab_armored_car_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_armored_car_selected
+				has_dlc = "La Resistance"
+			}
+			est_main_tab_amtrac_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_dlc = "Man the Guns"
+			}
+			est_main_tab_amtrac_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_amtrac_selected
+				}
+				has_dlc = "Man the Guns"
+			}
+			est_main_tab_amtrac_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_amtrac_selected
+				has_dlc = "Man the Guns"
+			}
+			est_main_tab_railway_gun_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_railway_gun_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_railway_gun_selected
+				}
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_railway_gun_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_railway_gun_selected
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_armored_train_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_armored_train_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_armored_train_selected
+				}
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_armored_train_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_armored_train_selected
+				has_dlc = "No Step Back"
+			}
+			est_main_tab_train_text_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_main_tab_train_select_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+					has_global_flag = toolpack_est_train_selected
+				}
+			}
+			est_main_tab_train_deselect_visible = {
+				NOT = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = toolpack_est_train_selected
+			}
+
+			#tank/plane combined ones
+			est_tankplane_btn1_disable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_tankplane_hull_light
+			}
+			est_tankplane_btn1_enable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				NOT = {
+					has_global_flag = est_tankplane_hull_light
+				}
+			}
+			est_tankplane_btn2_disable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_tankplane_hull_medium
+			}
+			est_tankplane_btn2_enable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				NOT = {
+					has_global_flag = est_tankplane_hull_medium
+				}
+			}
+			est_tankplane_btn3_disable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_tankplane_hull_heavy
+			}
+			est_tankplane_btn3_enable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				NOT = {
+					has_global_flag = est_tankplane_hull_heavy
+				}
+			}
+			est_tankplane_btn4_disable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_tankplane_btn4
+			}
+			est_tankplane_btn4_enable_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				NOT = {
+					has_global_flag = est_tankplane_btn4
+				}
+			}
+			est_tank_tab_hull_light_text_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_tank_tab_hull_medium_text_visible = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						NOT = {	#modern hull instead
+							has_global_flag = toolpack_eqpt_year_5
+							has_global_flag = toolpack_eqpt_year_6
+						}
+					}
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_tank_tab_hull_modern_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				OR = {
+					has_global_flag = toolpack_eqpt_year_5
+					has_global_flag = toolpack_eqpt_year_6
+				}
+			}
+			est_tank_tab_hull_heavy_text_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_unmark_1_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_1_role_marked
+			}
+			est_mark_1_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_unmark_2_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_2_role_marked
+			}
+			est_mark_2_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+			est_unmark_3_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+				has_global_flag = est_3_role_marked
+			}
+			est_mark_3_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					has_global_flag = toolpack_est_plane_tab
+				}
+			}
+
+			#tank tab only
+			est_tank_tab_hull_title_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_hull_superheavy_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_hull_amph_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tankplane_btn5_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_global_flag = est_tankplane_btn5
+			}
+			est_tankplane_btn5_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				NOT = {
+					has_global_flag = est_tankplane_btn5
+				}
+			}
+			est_tank_tab_role_title_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_role_standard_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_role_flame_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_tab_role_spg_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_role_spaa_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+			est_tank_tab_role_destroyer_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+			}
+
+			#NSB DLC tank menu only
+			est_tank_tab_gun_title_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_1_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_1_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_1
+			}
+			est_tank_gun_1_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_2_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_2_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_2
+			}
+			est_tank_gun_2_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_3_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_3_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_3
+			}
+			est_tank_gun_3_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_4_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_4_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_4
+			}
+			est_tank_gun_4_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_5_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_5_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_5
+			}
+			est_tank_gun_5_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				check_variable = { global.est_tank_gun_size > 1 }
+			}
+			est_tank_gun_5_text_alt_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				check_variable = { global.est_tank_gun_size = 1 }
+			}
+			est_tank_gun_6_enable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_6_disable_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+				has_global_flag = est_tank_gun_6
+			}
+			est_tank_gun_6_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_size_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_size_decrease_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_size_decrease_click_enabled = {
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size > 1 }
+			}
+			est_tank_gun_size_increase_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_size_increase_click_enabled = {
+				OR = {
+					NOT = {
+						has_variable = global.est_tank_gun_size
+					}
+					check_variable = { global.est_tank_gun_size < 4 }
+				}
+				NOT = {
+					has_global_flag = est_tankplane_btn5		#Light only on amphibious
+					AND = {										#Max medium on light (destroyer/art only)
+						has_global_flag = est_tankplane_hull_light
+						check_variable = { global.est_tank_gun_size > 1 }
+					}
+					AND = {										#Max heavy on medium (destroyer/art only)
+						has_global_flag = est_tankplane_hull_medium
+						check_variable = { global.est_tank_gun_size > 2 }
+					}
+				}
+			}
+			est_tank_gun_tier_text_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_tier_decrease_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_tier_decrease_click_enabled = {
+				has_variable = global.est_tank_gun_tier
+				check_variable = { global.est_tank_gun_tier > 1 }
+			}
+			est_tank_gun_tier_increase_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_tank_gun_tier_increase_click_enabled = {
+				OR = {
+					NOT = {
+						has_variable = global.est_tank_gun_tier
+					}
+					AND = {
+						check_variable = { global.est_tank_gun_tier < 4 }
+						is_r56 = yes
+					}
+					check_variable = { global.est_tank_gun_tier < 3 }
+				}
+				NOT = {
+					AND = {
+						check_variable = { global.est_tank_gun_tier > 1 }
+						has_global_flag = est_tank_gun_2
+					}
+					AND = {
+						has_global_flag = est_tank_gun_5
+						OR = {
+							AND = {	#Close support gun, lock on lowest
+								check_variable = { global.est_tank_gun_size = 1 }
+								check_variable = { global.est_tank_gun_tier = 1 }
+							}		#Rocket launcher, lock on improved
+							check_variable = { global.est_tank_gun_tier > 1 }
+						}
+					}
+				}
+			}
+			est_tank_gun_2_enable_click_enabled = {	#Howitzer, forbid on S-Heavy
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size < 4 }
+			}
+			est_tank_gun_3_enable_click_enabled = {	#High velo, forbid on S-Heavy
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size < 4 }
+			}
+			est_tank_gun_4_enable_click_enabled = {	#AA, forbid on Heavy/S-Heavy
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size < 3 }
+			}
+			est_tank_gun_5_enable_click_enabled = {	#Close Support/Rocket, forbid on Heavy/S-Heavy
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size < 3 }
+			}
+			est_tank_gun_6_enable_click_enabled = {	#Flame, forbid on S-Heavy
+				has_variable = global.est_tank_gun_size
+				check_variable = { global.est_tank_gun_size < 4 }
+			}
+			#DLC-only tank/plane combo triggers
+			est_designer_text_visible = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_use_root_design_text_visible = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_use_root_design_button_visible = {
+				NOT = {
+					has_global_flag = est_use_root_design
+				}
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_do_not_use_root_design_button_visible = {
+				has_global_flag = est_use_root_design
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_add_design_text_visible = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_add_design_button_visible = {
+				OR = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_dlc = "No Step Back"
+					}
+					AND = {
+						has_dlc = "By Blood Alone"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+
+			#more non-DLC tank/plane combo triggers
+			est_mark_1_button_click_enabled = {
+				NOT = {
+					AND = {	#heavy plane frame forbids taking guns which are unsupported
+						has_global_flag = est_tankplane_hull_heavy
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_mark_2_button_click_enabled = {
+				NOT = {
+					AND = {
+						has_global_flag = est_tankplane_btn5
+						has_global_flag = toolpack_est_tank_tab
+					}
+				}
+			}
+			est_mark_3_button_click_enabled = {
+				NOT = {
+					AND = {
+						has_global_flag = est_tankplane_btn5
+						has_global_flag = toolpack_est_tank_tab
+					}
+					AND = {	#no torpedos allowed on medium
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = toolpack_est_plane_tab
+					}
+					AND = {	#no torpedos allowed on heavy unless dlc
+						has_global_flag = est_tankplane_hull_heavy
+						has_global_flag = toolpack_est_plane_tab
+						NOT = {
+							has_dlc = "By Blood Alone"
+						}
+					}
+				}
+			}
+
+
+			
+			est_unmark_4_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					AND = {
+						has_dlc = "La Resistance"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+				has_global_flag = est_4_role_marked
+			}
+			est_mark_4_button_visible = {
+				OR = {
+					has_global_flag = toolpack_est_tank_tab
+					AND = {
+						has_dlc = "La Resistance"
+						has_global_flag = toolpack_est_plane_tab
+					}
+				}
+			}
+			est_mark_4_button_click_enabled = {
+				NOT = {
+					AND = {
+						has_global_flag = toolpack_est_tank_tab
+						has_global_flag = est_tankplane_btn5
+					}
+					AND = {
+						has_global_flag = toolpack_est_plane_tab
+						OR = {
+							has_global_flag = est_tankplane_hull_light
+							has_global_flag = est_tankplane_hull_heavy
+							has_global_flag = est_tankplane_btn4
+						}
+					}
+				}
+			}
+			est_unmark_5_button_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_global_flag = est_5_role_marked
+				has_dlc = "No Step Back"
+			}
+			est_mark_5_button_visible = {
+				has_global_flag = toolpack_est_tank_tab
+				has_dlc = "No Step Back"
+			}
+			est_mark_5_button_click_enabled = {
+				NOT = {
+					has_global_flag = est_tankplane_btn4
+					has_global_flag = est_tankplane_btn5
+				}
+			}
+
+			#plane tab only
+			est_planes_tab_hull_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_role_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_hull_carriersmall_text_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_role_fighter_text_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_role_bomber_text_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_role_torpedo_text_visible = {
+				has_global_flag = toolpack_est_plane_tab
+			}
+			est_planes_tab_role_recon_text_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "La Resistance"
+			}
+
+			est_planes_tab_engine_section_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_planes_tab_engine_type_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_type_decrease_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_type_decrease_click_enabled = {
+				OR = {
+					has_global_flag = EST_plane_use_jet_engine
+					has_global_flag = EST_plane_use_rocket_engine
+				}
+			}
+			est_plane_engine_type_increase_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_type_increase_click_enabled = {
+				OR = {
+					NOT = {
+						has_global_flag = EST_plane_use_jet_engine
+					}
+					NOT = {
+						has_global_flag = est_tankplane_btn4
+						has_global_flag = est_tankplane_hull_medium
+						has_global_flag = est_tankplane_hull_heavy
+					}
+				}
+				NOT = {
+					has_global_flag = EST_plane_use_rocket_engine
+				}
+			}
+			est_planes_tab_engine_count_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_planes_tab_engine_tier_title_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_count_decrease_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_count_decrease_click_enabled = {
+				check_variable = { global.EST_engine_count > 1 }
+				NOT = {
+					AND = {
+						has_global_flag = est_tankplane_hull_medium
+						check_variable = { global.EST_engine_count < 4 }
+					}
+					AND = {
+						has_global_flag = est_tankplane_hull_heavy
+						check_variable = { global.EST_engine_count < 6 }
+					}
+				}
+			}
+			est_plane_engine_count_increase_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_count_increase_click_enabled = {
+				check_variable = { global.EST_engine_count < 6 }
+				NOT = {
+					has_global_flag = EST_plane_use_rocket_engine
+				}
+				NOT = {
+					AND = {
+						OR = {
+							has_global_flag = est_tankplane_hull_light
+							has_global_flag = est_tankplane_btn4
+						}
+						check_variable = { global.EST_engine_count > 1 }
+					}
+					AND = {
+						has_global_flag = est_tankplane_hull_medium
+						check_variable = { global.EST_engine_count > 3 }
+					}
+				}
+			}
+			est_plane_engine_tier_decrease_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_tier_decrease_click_enabled = {
+				check_variable = { global.EST_engine_tier > 1 }
+			}
+			est_plane_engine_tier_increase_visible = {
+				has_global_flag = toolpack_est_plane_tab
+				has_dlc = "By Blood Alone"
+			}
+			est_plane_engine_tier_increase_click_enabled = {
+				check_variable = { global.EST_engine_tier < 4 }
+				NOT = {	#r56 has inconsistently named late-game jet engines, and vanilla has none, cannot use
+					has_global_flag = EST_plane_use_jet_engine
+				}
+				NOT = {	#rocket engine max tier 3, doesnt need to be reset on switch because jet is max tier 1
+					AND = {
+						has_global_flag = EST_plane_use_rocket_engine
+						check_variable = { global.EST_engine_tier > 2 }
+					}
+				}
+			}
+		}
+	}
+}

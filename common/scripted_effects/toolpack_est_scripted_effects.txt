@@ -1,0 +1,1791 @@
+
+est_add_remove_equipment = {
+	if = {
+		limit = {
+			NOT = {
+				has_global_flag = toolpack_est_tank_tab
+				has_global_flag = toolpack_est_plane_tab
+			}
+		}
+		if = {	#Infantry eqp
+			limit = {
+				has_global_flag = toolpack_est_infantry_eqp_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {	#not sure if its needed, who doesnt have guns?
+					limit = {
+						NOT = {
+							has_tech = infantry_weapons
+						}
+					}
+					set_technology = {
+						infantry_weapons = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_1
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = infantry_weapons
+						}
+					}
+					set_technology = {
+						infantry_weapons = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_0
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_2
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = infantry_weapons1
+						}
+					}
+					set_technology = {
+						infantry_weapons1 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = improved_infantry_weapons
+						}
+					}
+					set_technology = {
+						improved_infantry_weapons = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_4
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = advanced_infantry_weapons
+						}
+					}
+					set_technology = {
+						advanced_infantry_weapons = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_3
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_5
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = advanced_infantry_weapons_b
+						}
+					}
+					set_technology = {
+						advanced_infantry_weapons_b = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_6
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = advanced_infantry_weapons_e
+						}
+					}
+					set_technology = {
+						advanced_infantry_weapons_e = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_x_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = {
+							has_tech = advanced_infantry_weapons
+						}
+					}
+					set_technology = {
+						advanced_infantry_weapons = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_3	#highest tier in vanilla
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Support eqpt
+			limit = {
+				has_global_flag = toolpack_est_support_eqp_selected
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_support
+					}
+				}
+				set_technology = {
+					tech_support = 1
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment_1
+				amount = toolpack_est_equipment_amount
+			}
+		}
+		if = {	#Artillery
+			limit = {
+				has_global_flag = toolpack_est_artillery_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = gw_artillery
+						}
+					}
+					set_technology = {
+						gw_artillery = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = gw_artillery
+						}
+					}
+					set_technology = {
+						gw_artillery = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = artillery1
+						}
+					}
+					set_technology = {
+						artillery1 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_5
+						has_global_flag = toolpack_eqpt_year_6
+					}
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = artillery_b
+						}
+					}
+					set_technology = {
+						artillery_b = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = artillery4
+						}
+					}
+					set_technology = {
+						artillery4 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_3
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Anti-tank
+			limit = {
+				has_global_flag = toolpack_est_antitank_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = interwar_antitank
+						}
+					}
+					set_technology = {
+						interwar_antitank = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_tank_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = interwar_antitank
+						}
+					}
+					set_technology = {
+						interwar_antitank = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_tank_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antitank2
+						}
+					}
+					set_technology = {
+						antitank2 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_5
+						has_global_flag = toolpack_eqpt_year_6
+					}
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antitank_c
+						}
+					}
+					set_technology = {
+						antitank_c = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_tank_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antitank5
+						}
+					}
+					set_technology = {
+						antitank5 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_tank_equipment_3
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Anti-air
+			limit = {
+				has_global_flag = toolpack_est_antiair_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = interwar_antiair
+						}
+					}
+					set_technology = {
+						interwar_antiair = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = interwar_antiair
+						}
+					}
+					set_technology = {
+						interwar_antiair = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antiair2
+						}
+					}
+					set_technology = {
+						antiair2 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_5
+						has_global_flag = toolpack_eqpt_year_6
+					}
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antiair_c
+						}
+					}
+					set_technology = {
+						antiair_c = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = antiair5
+						}
+					}
+					set_technology = {
+						antiair5 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = anti_air_equipment_3
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Rocket arty
+			limit = {
+				has_global_flag = toolpack_est_rocket_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = rocket_artillery
+						}
+					}
+					set_technology = {
+						rocket_artillery = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = rocket_artillery_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+						has_global_flag = toolpack_eqpt_year_3
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = rocket_artillery
+						}
+					}
+					set_technology = {
+						rocket_artillery = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = rocket_artillery_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_5
+						has_global_flag = toolpack_eqpt_year_6
+					}
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = rocket_artillery_c
+						}
+					}
+					set_technology = {
+						rocket_artillery_c = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = rocket_artillery_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = rocket_artillery4
+						}
+					}
+					set_technology = {
+						rocket_artillery4 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = rocket_artillery_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Motorized
+			limit = {
+				has_global_flag = toolpack_est_motorized_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = tech_trucks
+						}
+					}
+					set_technology = {
+						tech_trucks = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_1
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = tech_trucks
+						}
+					}
+					set_technology = {
+						tech_trucks = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment_0
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = {
+							has_tech = motorised_infantry
+						}
+					}
+					set_technology = {
+						motorised_infantry = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = motorized_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Mechanized
+			limit = {
+				has_global_flag = toolpack_est_mechanized_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = mechanised_infantry
+						}
+					}
+					set_technology = {
+						mechanised_infantry = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = mechanized_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+						has_global_flag = toolpack_eqpt_year_3
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = mechanised_infantry
+						}
+					}
+					set_technology = {
+						mechanised_infantry = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = mechanized_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_4
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = mechanised_infantry2
+						}
+					}
+					set_technology = {
+						mechanised_infantry2 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = mechanized_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_6
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = mechanised_infantry_a
+						}
+					}
+					set_technology = {
+						mechanised_infantry_a = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = mechanized_equipment_x
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = mechanised_infantry3
+						}
+					}
+					set_technology = {
+						mechanised_infantry3 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = mechanized_equipment_3
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Mot rocket
+			limit = {
+				has_global_flag = toolpack_est_motorized_rocket_selected
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = motorized_rocket_unit
+					}
+				}
+				set_technology = {
+					motorized_rocket_unit = 1
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = motorized_rocket_equipment_1
+				amount = toolpack_est_equipment_amount
+			}
+		}
+		if = {	#Armored car
+			limit = {
+				has_global_flag = toolpack_est_armored_car_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = armored_car1
+						}
+					}
+					set_technology = {
+						armored_car1 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = armored_car_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = armored_car1
+						}
+					}
+					set_technology = {
+						armored_car1 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = gw_armored_car_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_3
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = armored_car2
+						}
+					}
+					set_technology = {
+						armored_car2 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = armored_car_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = armored_car3
+						}
+					}
+					set_technology = {
+						armored_car3 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = armored_car_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Amtrac
+			limit = {
+				has_global_flag = toolpack_est_amtrac_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = amphibious_mechanized_infantry
+						}
+					}
+					set_technology = {
+						amphibious_mechanized_infantry = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = amphibious_mechanized_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+						has_global_flag = toolpack_eqpt_year_3
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = amphibious_mechanized_infantry
+						}
+					}
+					set_technology = {
+						amphibious_mechanized_infantry = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = amphibious_mechanized_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {	#latest vanilla year
+				if = {
+					limit = {
+						NOT = {
+							has_tech = amphibious_mechanized_infantry_2
+						}
+					}
+					set_technology = {
+						amphibious_mechanized_infantry_2 = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = amphibious_mechanized_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+		if = {	#Railway gun
+			limit = {
+				has_global_flag = toolpack_est_railway_gun_selected
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = railway_gun
+					}
+				}
+				set_technology = {
+					railway_gun = 1
+				}
+			}
+			create_railway_gun = {
+				equipment = railway_gun_equipment_1
+			}
+		}
+		if = {	#Armored train
+			limit = {
+				has_global_flag = toolpack_est_armored_train_selected
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = armored_train
+					}
+				}
+				set_technology = {
+					armored_train = 1
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_3
+				amount = toolpack_est_equipment_amount
+			}
+		}
+		if = {	#Train
+			limit = {
+				has_global_flag = toolpack_est_train_selected
+			}
+			if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_any_year
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = basic_train
+						}
+					}
+					set_technology = {
+						basic_train = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_1
+						has_global_flag = toolpack_eqpt_year_2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = basic_train
+						}
+					}
+					set_technology = {
+						basic_train = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment_1
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = toolpack_eqpt_year_3
+						has_global_flag = toolpack_eqpt_year_4
+						has_global_flag = toolpack_eqpt_year_5
+					}
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = r56_mid_wartime_train
+						}
+					}
+					set_technology = {
+						r56_mid_wartime_train = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment_4
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = toolpack_eqpt_year_6
+					is_r56 = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_tech = r56_postwar_train
+						}
+					}
+					set_technology = {
+						r56_postwar_train = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment_5
+					amount = toolpack_est_equipment_amount
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = {
+							has_tech = wartime_train
+						}
+					}
+					set_technology = {
+						wartime_train = 1
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = train_equipment_2
+					amount = toolpack_est_equipment_amount
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = toolpack_est_tank_tab
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "No Step Back"
+				}
+			}
+			#standard tank eqp
+			meta_effect = {
+				text = {
+					if = {
+						limit = {
+							NOT = {
+								has_global_flag = est_tankplane_btn5
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = [techprefix][hull_type]_[tank_tech_role]
+								}
+							}
+							set_technology = {
+								[techprefix][hull_type]_[tank_tech_role] = 1
+							}
+						}
+					}
+					else = {	#amphibious tank
+						if = {
+							limit = {
+								OR = {
+									has_global_flag = toolpack_eqpt_year_1
+									has_global_flag = toolpack_eqpt_year_2
+									has_global_flag = toolpack_eqpt_year_3
+								}
+								NOT = {
+									has_tech = amphibious_tank
+								}
+							}
+							set_technology = {
+								amphibious_tank = 1
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = {
+									has_global_flag = toolpack_eqpt_year_1
+									has_global_flag = toolpack_eqpt_year_2
+									has_global_flag = toolpack_eqpt_year_3
+									has_tech = amphibious_tank_2
+								}
+							}
+							set_technology = {
+								amphibious_tank_2 = 1
+							}
+						}
+					}
+					add_equipment_to_stockpile = {
+						type = [hull_type]_tank[tank_role]_equipment[EQ_LEVEL]
+						amount = toolpack_est_equipment_amount
+					}
+				}
+				hull_type = "[This.EST_TANK_HULL_TYPE]"
+				tank_role = "[This.EST_TANK_ROLE]"					#tank role can be empty so must end in _ for non-empty
+				EQ_LEVEL = "[This.EST_TANK_EQPT_TIER]"				#empty for any
+				techprefix = "[This.EST_TANK_TECHNOLOGY_PREFIX]"	#prefix can be empty so must end in _ for non-empty
+				tank_tech_role = "[This.EST_TANK_TECHNOLOGY_ROLE]"
+			}
+		}
+		else = {	#designer tank eqp
+			meta_effect = {
+				text = {
+					if = {
+						limit = {
+							NOT = {
+								has_country_flag = est_design_created_hull_[hull_type][tank_role][EQ_LEVEL][tank_gun][tank_gun_tier]
+								has_global_flag = toolpack_eqpt_any_year
+								has_global_flag = est_use_root_design
+							}
+						}
+						create_equipment_variant = {
+							name = "[hull_type]_tank[tank_role][EQ_LEVEL]_[tank_gun][tank_gun_tier]"
+							type = [hull_type]_tank[tank_role]_chassis[EQ_LEVEL]
+							modules = {
+								main_armament_slot = [tank_gun][tank_gun_tier]
+								turret_type_slot = tank_[turret_type]_turret
+								suspension_type_slot = tank_torsion_bar_suspension
+								armor_type_slot = tank_welded_armor
+								engine_type_slot = tank_gasoline_engine
+							}
+							allow_without_tech = yes	#allows design without researching HULL
+						}
+						set_country_flag = est_design_created_hull_[hull_type][tank_role][EQ_LEVEL][tank_gun][tank_gun_tier]
+					}
+					add_equipment_to_stockpile = {
+						type = [hull_type]_tank[tank_role]_chassis[EQ_LEVEL]
+						variant_name = "[hull_type]_tank[tank_role][EQ_LEVEL]_[tank_gun][tank_gun_tier]"
+						amount = toolpack_est_equipment_amount
+						[creator_text]
+					}
+				}
+				hull_type = "[This.EST_TANK_HULL_TYPE]"
+				tank_role = "[This.EST_TANK_ROLE]"					#tank role can be empty so must end in _ for non-empty
+				EQ_LEVEL = "[This.EST_TANK_EQPT_TIER]"				#empty for any
+				turret_type = "[This.EST_GET_TURRET_TYPE]"			#based on gun size vs hull size, select a valid turret
+				tank_gun = "[This.EST_GET_TANK_GUN]"
+				tank_gun_tier = "[This.EST_GET_TANK_GUN_TIER]"
+				creator_text = "[This.EST_GET_CREATOR]"
+			}
+		}
+	}
+	else = {	#air
+		if = {
+			limit = {
+				NOT = {
+					has_dlc = "By Blood Alone"
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = est_tankplane_hull_light
+						has_global_flag = est_tankplane_btn4	#if carrier, add prefix CV_ to all techs and equipment adding
+					}
+				}
+				meta_effect = {
+					text = {
+						if = {
+							limit = {	#Fighter
+								has_global_flag = est_1_role_marked
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_1
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]early_fighter
+										}
+									}
+									set_technology = {
+										[cv_prefix]early_fighter = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]fighter_equipment_0
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_2
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]fighter1
+										}
+									}
+									set_technology = {
+										[cv_prefix]fighter1 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]fighter_equipment_1
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_3
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]fighter2
+										}
+									}
+									set_technology = {
+										[cv_prefix]fighter2 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]fighter_equipment_2
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_4
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]fighter3
+										}
+									}
+									set_technology = {
+										[cv_prefix]fighter3 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]fighter_equipment_3
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_5
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = jet_fighter1
+										}
+									}
+									set_technology = {
+										jet_fighter1 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = jet_fighter_equipment_1
+									amount = toolpack_est_equipment_amount
+								}
+							}
+						}
+						if = {
+							limit = {	#CAS
+								has_global_flag = est_2_role_marked
+							}
+							if = {
+								limit = {
+									OR = {
+										has_global_flag = toolpack_eqpt_year_1
+										has_global_flag = toolpack_eqpt_year_2
+									}
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]CAS1
+										}
+									}
+									set_technology = {
+										[cv_prefix]CAS1 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]CAS_equipment_1
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_3
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]CAS2
+										}
+									}
+									set_technology = {
+										[cv_prefix]CAS2 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]CAS_equipment_2
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									OR = {
+										has_global_flag = toolpack_eqpt_year_4
+										has_global_flag = toolpack_eqpt_year_5
+									}
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]CAS3
+										}
+									}
+									set_technology = {
+										[cv_prefix]CAS3 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]CAS_equipment_3
+									amount = toolpack_est_equipment_amount
+								}
+							}
+						}
+						if = {
+							limit = {	#Torpedo bomber
+								has_global_flag = est_3_role_marked
+							}
+							if = {
+								limit = {
+									OR = {
+										has_global_flag = toolpack_eqpt_year_1
+										has_global_flag = toolpack_eqpt_year_2
+									}
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]naval_bomber1
+										}
+									}
+									set_technology = {
+										[cv_prefix]naval_bomber1 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]nav_bomber_equipment_1
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = toolpack_eqpt_year_3
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]naval_bomber2
+										}
+									}
+									set_technology = {
+										[cv_prefix]naval_bomber2 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]nav_bomber_equipment_2
+									amount = toolpack_est_equipment_amount
+								}
+							}
+							if = {
+								limit = {
+									OR = {
+										has_global_flag = toolpack_eqpt_year_4
+										has_global_flag = toolpack_eqpt_year_5
+									}
+								}
+								if = {
+									limit = {
+										NOT = {
+											has_tech = [cv_prefix]naval_bomber3
+										}
+									}
+									set_technology = {
+										[cv_prefix]naval_bomber3 = 1
+									}
+								}
+								add_equipment_to_stockpile = {
+									type = [cv_prefix]nav_bomber_equipment_3
+									amount = toolpack_est_equipment_amount
+								}
+							}
+						}
+					}
+					cv_prefix = "[This.EST_CARRIER_PREFIX]"
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = est_tankplane_hull_medium
+				}
+				if = {
+					limit = {	#Heavy Fighter
+						has_global_flag = est_1_role_marked
+					}
+					if = {
+						limit = {
+							OR = {
+								has_global_flag = toolpack_eqpt_year_1
+								has_global_flag = toolpack_eqpt_year_2
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = heavy_fighter1
+								}
+							}
+							set_technology = {
+								heavy_fighter1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = heavy_fighter_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_3
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = heavy_fighter2
+								}
+							}
+							set_technology = {
+								heavy_fighter2 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = heavy_fighter_equipment_2
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								has_global_flag = toolpack_eqpt_year_4
+								has_global_flag = toolpack_eqpt_year_5
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = heavy_fighter3
+								}
+							}
+							set_technology = {
+								heavy_fighter3 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = heavy_fighter_equipment_3
+							amount = toolpack_est_equipment_amount
+						}
+					}
+				}
+				if = {
+					limit = {	#Tactical Bomber
+						has_global_flag = est_2_role_marked
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_1
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = early_bomber
+								}
+							}
+							set_technology = {
+								early_bomber = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = tac_bomber_equipment_0
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_2
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = tactical_bomber1
+								}
+							}
+							set_technology = {
+								tactical_bomber1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = tac_bomber_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_3
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = tactical_bomber2
+								}
+							}
+							set_technology = {
+								tactical_bomber2 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = tac_bomber_equipment_2
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_4
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = tactical_bomber3
+								}
+							}
+							set_technology = {
+								tactical_bomber3 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = tac_bomber_equipment_3
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_5
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = jet_tactical_bomber1
+								}
+							}
+							set_technology = {
+								jet_tactical_bomber1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = jet_tac_bomber_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+				}
+				if = {
+					limit = {	#Maritime Patrol - R56 only
+						has_global_flag = est_3_role_marked
+					}
+				}
+				if = {
+					limit = {	#Recon plane
+						has_global_flag = est_4_role_marked
+					}
+					if = {
+						limit = {
+							OR = {
+								has_global_flag = toolpack_eqpt_year_1
+								has_global_flag = toolpack_eqpt_year_2
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = scout_plane1
+								}
+							}
+							set_technology = {
+								scout_plane1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = scout_plane_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								NOT = {
+									has_tech = scout_plane2
+								}
+							}
+							set_technology = {
+								scout_plane2 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = scout_plane_equipment_2
+							amount = toolpack_est_equipment_amount
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = est_tankplane_hull_heavy
+				}
+				if = {
+					limit = {	#Strategic Bomber
+						has_global_flag = est_2_role_marked
+					}
+					# if = {
+					# 	limit = {
+					# 		has_global_flag = toolpack_eqpt_any_year
+					# 	}
+					# 	if = {
+					# 		limit = {
+					# 			NOT = {
+					# 				has_tech = strategic_bomber1
+					# 			}
+					# 		}
+					# 		set_technology = {
+					# 			strategic_bomber1 = 1
+					# 		}
+					# 	}
+					# 	add_equipment_to_stockpile = {
+					# 		type = strat_bomber_equipment
+					# 		amount = toolpack_est_equipment_amount
+					# 	}
+					# }
+					if = {
+						limit = {
+							OR = {
+								has_global_flag = toolpack_eqpt_year_1
+								has_global_flag = toolpack_eqpt_year_2
+							}
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = strategic_bomber1
+								}
+							}
+							set_technology = {
+								strategic_bomber1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = strat_bomber_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_3
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = strategic_bomber2
+								}
+							}
+							set_technology = {
+								strategic_bomber2 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = strat_bomber_equipment_2
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_4
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = strategic_bomber3
+								}
+							}
+							set_technology = {
+								strategic_bomber3 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = strat_bomber_equipment_3
+							amount = toolpack_est_equipment_amount
+						}
+					}
+					if = {
+						limit = {
+							has_global_flag = toolpack_eqpt_year_5
+						}
+						if = {
+							limit = {
+								NOT = {
+									has_tech = jet_strategic_bomber1
+								}
+							}
+							set_technology = {
+								jet_strategic_bomber1 = 1
+							}
+						}
+						add_equipment_to_stockpile = {
+							type = jet_strat_bomber_equipment_1
+							amount = toolpack_est_equipment_amount
+						}
+					}
+				}
+			}
+		}
+		else = {	#designer air eqp
+			meta_effect = {
+				text = {
+					if = {
+						limit = {
+							NOT = {
+								has_country_flag = est_design_created_[frame_type]_frame_[EQ_LEVEL][plane_gun]
+								has_global_flag = toolpack_eqpt_any_year
+								has_global_flag = est_use_root_design
+							}
+						}
+						create_equipment_variant = {
+							name = "[frame_type]_plane[plane_role][EQ_LEVEL]"
+							type = [frame_type]_plane[plane_role]_airframe[EQ_LEVEL]
+							modules = {
+								fixed_main_weapon_slot = [plane_gun]
+								engine_type_slot = [plane_engine_type]engine[plane_engine_tier][plane_engine_count]
+							}
+							allow_without_tech = yes	#allows design without researching FRAME
+						}
+						set_country_flag = est_design_created_[frame_type]_frame_[EQ_LEVEL][plane_gun]
+					}
+					add_equipment_to_stockpile = {
+						type = [frame_type]_plane[plane_role]_airframe[EQ_LEVEL]
+						variant_name = "[frame_type]_plane[plane_role][EQ_LEVEL]"
+						amount = toolpack_est_equipment_amount
+						[creator_text]
+					}
+				}
+				frame_type = "[This.EST_PLANE_FRAME_TYPE]"
+				EQ_LEVEL = "[This.EST_PLANE_EQPT_TIER]"				#empty for any
+				plane_role = "[This.EST_PLANE_ROLE]"				#linked to weapon and hull
+				plane_gun = "[This.EST_PLANE_WEAPON]"
+				creator_text = "[This.EST_GET_CREATOR]"
+				plane_engine_type = "[This.EST_PLANE_ENGINE_TYPE]"
+				plane_engine_tier = "[This.EST_PLANE_ENGINE_TIER]"
+				plane_engine_count = "[This.EST_PLANE_ENGINE_COUNT]"
+			}
+		}
+	}
+}

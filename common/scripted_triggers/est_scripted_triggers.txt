@@ -1,0 +1,73 @@
+
+is_r56 = {
+	has_variable = global.r56_var_multiplayer
+}
+toolpack_est_has_all_options_configured = {
+	OR = {
+		AND = {
+			NOT = {
+				has_global_flag = toolpack_est_tank_tab
+				has_global_flag = toolpack_est_plane_tab
+			}
+			OR = {
+				has_global_flag = toolpack_est_infantry_eqp_selected
+				has_global_flag = toolpack_est_support_eqp_selected
+				has_global_flag = toolpack_est_artillery_selected
+				has_global_flag = toolpack_est_antitank_selected
+				has_global_flag = toolpack_est_antiair_selected
+				has_global_flag = toolpack_est_rocket_selected
+				has_global_flag = toolpack_est_motorized_selected
+				has_global_flag = toolpack_est_mechanized_selected
+				has_global_flag = toolpack_est_motorized_rocket_selected
+				has_global_flag = toolpack_est_armored_car_selected
+				has_global_flag = toolpack_est_amtrac_selected
+				has_global_flag = toolpack_est_railway_gun_selected
+				has_global_flag = toolpack_est_armored_train_selected
+				has_global_flag = toolpack_est_train_selected
+			}
+		}
+		AND = {
+			OR = {
+				has_global_flag = toolpack_est_tank_tab
+				has_global_flag = toolpack_est_plane_tab
+			}
+			OR = {
+				has_global_flag = est_tankplane_hull_light
+				has_global_flag = est_tankplane_hull_medium
+				has_global_flag = est_tankplane_hull_heavy
+				has_global_flag = est_tankplane_btn4
+				has_global_flag = est_tankplane_btn5
+			}
+			OR = {
+				has_global_flag = est_1_role_marked
+				has_global_flag = est_2_role_marked
+				has_global_flag = est_3_role_marked
+				has_global_flag = est_4_role_marked
+				has_global_flag = est_5_role_marked
+			}
+		}
+	}
+	OR = {
+		has_global_flag = toolpack_eqpt_year_1
+		has_global_flag = toolpack_eqpt_year_2
+		has_global_flag = toolpack_eqpt_year_3
+		has_global_flag = toolpack_eqpt_year_4
+		has_global_flag = toolpack_eqpt_year_5
+		has_global_flag = toolpack_eqpt_year_6
+		has_global_flag = toolpack_eqpt_any_year
+	}
+	if = {
+		limit = {
+			has_global_flag = toolpack_est_tank_tab
+			has_dlc = "No Step Back"
+		}
+		OR = {
+			has_global_flag = est_tank_gun_1
+			has_global_flag = est_tank_gun_2
+			has_global_flag = est_tank_gun_3
+			has_global_flag = est_tank_gun_4
+			has_global_flag = est_tank_gun_5
+			has_global_flag = est_tank_gun_6
+		}
+	}
+}

@@ -4582,22 +4582,6 @@ focus_tree = {
 		y = 0
 		relative_position_id = FIN_suomalainen_sosialismi
 
-		offset = {
-			x = -16
-			y = 0
-			trigger = {
-				OR = {
-					NOT = { has_dlc = "Arms Against Tyranny" }
-					AND = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-						has_completed_focus = FIN_finnish_neutrality
-					}
-				}
-			}
-		}
 
 		mutually_exclusive = { focus = FIN_right_wing_policies focus = FIN_suomalainen_sosialismi }
 		
@@ -6642,17 +6626,6 @@ focus_tree = {
 		y = 0
 		relative_position_id = FIN_reach_out_to_scandinavia
 
-		offset = {
-			x = -25
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FIN_right_wing_policies
-			}
-		}
 
 		cost = 5
 
@@ -7150,17 +7123,6 @@ focus_tree = {
 		y = 0
 		relative_position_id = FIN_finnish_neutrality
 
-		offset = {
-			x = -25
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FIN_right_wing_policies
-			}
-		}
 		
 		mutually_exclusive = { focus = FIN_finnish_neutrality focus = FIN_suomalainen_sosialismi }
 		
@@ -9880,34 +9842,7 @@ focus_tree = {
 		y = 0
 		relative_position_id = FIN_right_wing_policies
 
-		offset = {
-			x = -14
-			y = 0
-			trigger = {
-				OR = {
-					NOT = { has_dlc = "Arms Against Tyranny" }
-					AND = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-						has_completed_focus = FIN_finnish_neutrality
-					}
-				}
-			}
-		}
 
-		offset = {
-			x = -27
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = FIN_suomalainen_sosialismi
-			}
-		}
 
 		cost = 10
 		available = {

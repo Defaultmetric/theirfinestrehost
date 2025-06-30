@@ -39,17 +39,6 @@ focus_tree = {
         mutually_exclusive = { focus = RAJ_keep_british_generals }
         cost = 5
 
-        offset = {
-            x = -40
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_great_depression_price_controls
-            }
-        }
 
         ai_will_do = {
             factor = 1
@@ -148,53 +137,9 @@ focus_tree = {
 
         }
 
-        offset = {
-            x = 46
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_great_depression_price_controls
-            }
-        }
 
-        offset = {
-            x = 14
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_look_to_the_past
-            }
-        }
 
-        offset = {
-            x = 14
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_look_to_the_future
-            }
-        }
 
-        offset = { #Note: Due to how the hiding feature is set up in this tree, it is necessary to move the leftmost focus (regardless of its visibility) so that the common branches get the proper offset
-            x = 26
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_provincial_autonomy
-            }
-        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -282,17 +227,6 @@ focus_tree = {
 
         }
 
-        offset = {
-            x = 7
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_look_to_the_past
-            }
-        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -365,17 +299,6 @@ focus_tree = {
 
         }
 
-        offset = {
-            x = -15
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_look_to_the_future
-            }
-        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -7105,17 +7028,6 @@ focus_tree = {
 
         }
 
-        offset = {
-        	x = 100
-        	y = 0
-        	trigger = {
-        		has_game_rule = {
-        			rule = obsolete_focus_branches_visibility
-        			option = HIDE
-        		}
-        		has_completed_focus = RAJ_great_depression_price_controls
-        	}
-        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -7352,44 +7264,8 @@ focus_tree = {
         y = 1
         relative_position_id = RAJ_great_depression_price_controls 
 
-        offset = {
-            x = -4
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_great_depression_price_controls
-            }
-        }
 
-        offset = {
-            x = -13
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                OR = {
-                    has_completed_focus = RAJ_look_to_the_past
-                    has_completed_focus = RAJ_look_to_the_future
-                }
-            }
-        }
 
-        offset = {
-            x = 2
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_provincial_autonomy
-            }
-        }
 
         cost = 5
 
@@ -8411,29 +8287,7 @@ focus_tree = {
 
         }
 
-        offset = {
-            x = -13
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_red_in_the_shadows
-            }
-        }
 
-        offset = {
-            x = -10
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_forward_bloc
-            }
-        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -12568,17 +12422,6 @@ focus_tree = {
         y =1
         relative_position_id = RAJ_forward_bloc
         
-        offset = {
-            x = -5
-            y = 0
-            trigger = {
-                has_game_rule = {
-                    rule = obsolete_focus_branches_visibility
-                    option = HIDE
-                }
-                has_completed_focus = RAJ_red_in_the_shadows
-            }
-        }
         cost = 10
 
         ai_will_do = {
@@ -17015,17 +16858,6 @@ focus = {
 		}
 	}
 
-	offset = {
-		x = -40
-		y = 0
-		trigger = {
-			has_game_rule = {
-				rule = obsolete_focus_branches_visibility
-				option = HIDE
-			}
-			has_completed_focus = RAJ_great_depression_price_controls
-		}
-	}
 
 	available = {
 		is_subject_of = ENG

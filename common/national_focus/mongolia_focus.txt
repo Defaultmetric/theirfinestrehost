@@ -19,6 +19,9 @@ focus_tree = {
 		x = 1
 		y = 0
 		cost = 5
+		ai_will_do = {
+			factor = 8
+		}
 		completion_reward = {
 			330 = {
 				add_building_construction = {
@@ -63,6 +66,9 @@ focus_tree = {
 		x = 2
 		y = 0
 		cost = 5
+		ai_will_do = {
+			factor = 8
+		}
 		relative_position_id = MON_infrastructure_effort
 		completion_reward = {
 			330 = {
@@ -101,6 +107,9 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
 		relative_position_id = MON_infrastructure_effort
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
@@ -141,6 +150,10 @@ focus_tree = {
 			set_technology = {
 				radio = 1
 			}
+			ai_will_do = 
+			{
+				factor = 3
+			}
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
 				MON_ind_research_speed = 0.05
@@ -177,6 +190,10 @@ focus_tree = {
 		}
 		x = -2
 		y = 1
+		ai_will_do = {
+			factor = 8
+		}
+
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 			818 = {
@@ -262,6 +279,11 @@ focus_tree = {
 		}
 		x = 3
 		y = 2
+
+		ai_will_do = {
+			factor = 8
+		}
+
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 			330 = {
@@ -303,6 +325,10 @@ focus_tree = {
 		}
 		x = 6
 		y = 1
+		ai_will_do = 
+			{
+				factor = 3
+			}
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 
@@ -334,6 +360,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = MON_regional_developement
+
+		ai_will_do = {
+			factor = 8
+		}
+
 		completion_reward = {
 			330 = {
 				add_resource = {
@@ -359,6 +390,11 @@ focus_tree = {
 		id = MON_oil_exploration
 		icon = GFX_SOV_oil_production_ccp_2d_sov_compatibility
 		cost = 5
+
+		ai_will_do = {
+			factor = 8
+		}
+
 		prerequisite = {
 			focus = MON_regional_developement
 		}
@@ -389,6 +425,11 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
+
+		ai_will_do = {
+			factor = 9
+		}
+
 		relative_position_id = MON_stimulate_economy
 		completion_reward = {
 			set_technology = {
@@ -548,6 +589,11 @@ focus_tree = {
 		id = MON_industrial_awakening
 		icon = GFX_goal_generic_consumer_goods
 		cost = 10
+
+		ai_will_do = {
+			factor = 8
+		}
+
 		prerequisite = {
 			focus = MON_exploit_ulaanbaatar
 		}
@@ -770,6 +816,9 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_industrial_awakening
 		}
+		ai_will_do = {
+			factor = 8
+		}
 		x = -1
 		y = 1
 		relative_position_id = MON_industrial_awakening
@@ -806,6 +855,10 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
+		ai_will_do = {
+			factor = 8
+		}
+
 		relative_position_id = MON_industrial_awakening
 		completion_reward = {
 			custom_effect_tooltip = MON_build_upwards_build_outwards_tt
@@ -860,6 +913,9 @@ focus_tree = {
 		id = MON_factories_without_end
 		icon = GFX_SOV_transformation_of_nature_ccp_2d_sov_compatibility
 		cost = 10
+		ai_will_do = {
+			factor = 8
+		}
 		prerequisite = {
 			focus = MON_industrial_heartbeat
 			focus = MON_build_upwards_build_outwards
@@ -918,6 +974,9 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_factories_without_end
 			focus = MON_scientific_militarization
+		}
+		ai_will_do = {
+			factor = 8
 		}
 		x = 1
 		y = 2
@@ -1144,7 +1203,7 @@ focus_tree = {
 	cost = 10
 
 	prerequisite = {
-		focus = MON_analyze_foreign_air_tactics
+		focus = MON_analyze_foreign_air_tactics focus = MON_further_increase_training
 	}
 	relative_position_id = MON_analyze_foreign_air_tactics
 	mutually_exclusive = {
@@ -2371,6 +2430,9 @@ focus = {
 			add_political_power = 50
 			add_stability = 0.05
 		}
+		ai_will_do = {
+			factor = 20
+		}
 	}
 	focus = {
 		id = MON_state_reorganization
@@ -2386,6 +2448,9 @@ focus = {
 			add_political_power = 25
 			add_ideas = MON_political_violence
 			remove_ideas = MON_struggle_for_control
+		}
+		ai_will_do = {
+			factor = 20
 		}
 	}
 	focus = {
@@ -2803,3 +2868,4 @@ focus = {
 			}
 		}
 	}
+}

@@ -1718,11 +1718,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			add_stability = -0.05
-			add_popularity = {
-			    ideology = ROOT
-			    popularity = -0.05
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1760,12 +1755,6 @@ focus_tree = {
 		y = 2
 		relative_position_id = GER_autarky_efforts
 		cost = 5
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
-		}
 
 		continue_if_invalid = yes
 
@@ -1809,23 +1798,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			GER_add_or_modify_wehrwirtschaft = yes
 			add_to_variable = { 
 				GER_wehrwirtschaft_local_resources_factor = 0.05
@@ -1844,97 +1816,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_establish_the_reichswerke
 		cost = 5
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
-			any_controlled_state = {
-				NOT = { is_core_of = ROOT }
-				is_fully_controlled_by = ROOT
-				OR = {
-					steel > 24
-					aluminium > 19
-					oil > 14
-					tungsten > 9
-					chromium > 9
-				}
-			}
-		}
-
-		cancel = {
-			NOT = {
-				any_controlled_state = {
-					is_core_of = ROOT
-					OR = {
-						steel > 25
-						aluminium > 20
-						oil > 15
-						tungsten > 10
-						chromium > 10
-					}
-				}
-			}
-		}
-
-		bypass = {
-			OR = {
-				has_resources_in_country = {
-					resource = steel
-					amount > 799
-					extracted = yes
-				}
-				any_subject_country = {
-					has_resources_in_country = {
-						resource = steel
-						amount > 799
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = aluminium
-					amount > 499
-					extracted = yes
-				}
-				any_subject_country = {
-					has_resources_in_country = {
-						resource = aluminium
-						amount > 499
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = tungsten
-					amount > 99
-					extracted = yes
-				}
-				any_subject_country = {
-					has_resources_in_country = {
-						resource = tungsten
-						amount > 99
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = chromium
-					amount > 99
-					extracted = yes
-				}
-				any_subject_country = {
-					has_resources_in_country = {
-						resource = chromium
-						amount > 99
-						extracted = yes
-					}
-				}
-			}
-		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
@@ -2000,7 +1881,6 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_tech_bonus = {
 				name = GER_seize_foreign_industries
@@ -2013,13 +1893,7 @@ focus_tree = {
 				amount = 20
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
 			if = {
 				limit = {
 					OR = {
@@ -2148,32 +2022,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
-			has_tech = oil_processing
-		}
-
-		continue_if_invalid = yes
-
-		bypass = {
-			OR = {
-				has_resources_in_country = {
-					resource = oil
-					amount > 149
-					extracted = yes
-				}
-				any_subject_country = {
-					has_resources_in_country = {
-						resource = oil
-						amount > 149
-						extracted = yes
-					}
-				}
-			}
-		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
@@ -2195,23 +2043,6 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_add_mefo_bills_penalty = yes
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -8106,12 +7937,12 @@ focus_tree = {
 	focus = {
 		id = GER_legion_condor
 		icon = GFX_focus_intervention_spain_nationalists
-		prerequisite = { focus = GER_remilitarize_the_rhineland focus = GER_oppose_hitler_ww focus = GER_oppose_hitler }
+		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
 
 
 
-		x = -9
+		x = 5
 		y = 1
 		relative_position_id = GER_remilitarize_the_rhineland
 
@@ -8829,7 +8660,7 @@ focus_tree = {
 		icon = GFX_focus_GER_anschluss
 		alternate_icon = GFX_focus_GER_anschluss_historical
 
-		prerequisite = { focus = GER_reorganize_the_wehrmacht focus = GER_heed_von_neuraths_concerns }
+		prerequisite = { focus = GER_reorganize_the_wehrmacht }
 
 		x = -3
 		y = 1
@@ -9553,7 +9384,7 @@ focus_tree = {
 		id = GER_uplift_the_rosenberg_office
 		icon = GFX_focus_ger_reichskommisariats
 		alternate_icon = GFX_focus_ger_reichskommisariats_historical
-		prerequisite = { focus = GER_heed_von_neuraths_concerns focus = GER_reorganize_the_wehrmacht }
+		prerequisite = { focus = GER_reorganize_the_wehrmacht }
 
 		x = 17
 		y = 1
@@ -10508,7 +10339,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
-		cost = 5
+		cost = 2
 
 		available = {
 			is_subject = no
@@ -10842,12 +10673,11 @@ focus_tree = {
 		icon = GFX_focus_befriend_italy
 		alternate_icon = GFX_focus_GER_befriend_italy
 
-		prerequisite = { focus = GER_fate_of_czechoslovakia focus = GER_integrate_czechoslovakia }
-		mutually_exclusive = { focus = GER_invade_italy }
+		prerequisite = { focus = GER_fate_of_czechoslovakia }
 		x = 2
 		y = 1
 		relative_position_id = GER_integrate_czechoslovakia
-		cost = 5
+		cost = 1
 
 		bypass = {
 			OR = {
@@ -10916,7 +10746,6 @@ focus_tree = {
 		id = GER_invade_italy
 		icon = GFX_focus_attack_italy
 		prerequisite = { focus = GER_around_maginot focus = GER_influence_the_benelux }
-		mutually_exclusive = { focus = GER_form_rome_berlin_axis }
 		x = 4
 		y = 0
 		relative_position_id = GER_form_rome_berlin_axis
@@ -10977,11 +10806,10 @@ focus_tree = {
 	focus = {
 		id = GER_alliance_with_spain
 		icon = GFX_focus_intervention_spain_nationalists
-		prerequisite = { focus = GER_form_rome_berlin_axis focus = GER_invade_italy }
-		mutually_exclusive = { focus = GER_operation_felix }
+		prerequisite = { focus = GER_fate_of_czechoslovakia}
 		x = 0
 		y = 1
-		relative_position_id = GER_form_rome_berlin_axis
+		relative_position_id = GER_fate_of_czechoslovakia
 		cost = 5
 
 		bypass = { 
@@ -11160,7 +10988,7 @@ focus_tree = {
 		id = GER_operation_felix
 		icon = GFX_focus_generic_attack_nationalist_spain_focus
 		prerequisite = { focus = GER_form_rome_berlin_axis focus = GER_invade_italy }
-		mutually_exclusive = { focus = GER_alliance_with_spain }
+		
 		x = 2
 		y = 0
 		relative_position_id = GER_alliance_with_spain
@@ -11278,6 +11106,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_alliance_with_spain
 		cost = 5
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -11424,7 +11257,10 @@ focus_tree = {
 
 		prerequisite = { focus = GER_fate_of_czechoslovakia focus = GER_integrate_czechoslovakia }
 
-		mutually_exclusive = { focus = GER_danzig_or_war }
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		x = 0
 		y = 1
@@ -11487,11 +11323,9 @@ focus_tree = {
 		icon = GFX_focus_GER_danzig_or_war
 		alternate_icon = GFX_focus_GER_danzig_or_war_historical
 
-		prerequisite = { focus = GER_reassert_eastern_claims }
-		mutually_exclusive = { focus = GER_danzig_for_slovakia }
-		x = 0
-		y = 3
-		relative_position_id = GER_reassert_eastern_claims
+		prerequisite = { focus = GER_molotov_ribbentrop_pact}
+		x = 77
+		y = 6
 		cost = 10
 
 		will_lead_to_war_with = POL
@@ -11717,7 +11551,7 @@ focus_tree = {
 	focus = {
 		id = GER_subjugate_romanian_economy
 		icon = GFX_focus_GER_subjugate_romanian_economy
-		prerequisite = { focus = GER_danzig_for_slovakia focus = GER_danzig_or_war }
+		prerequisite = { focus = GER_danzig_or_war }
 
 		x = -2
 		y = 1
@@ -11774,7 +11608,7 @@ focus_tree = {
 		id = GER_influence_the_benelux
 		icon = GFX_focus_generic_influence_benelux
 		prerequisite = { focus = GER_danzig_for_slovakia focus = GER_danzig_or_war }
-		mutually_exclusive = { focus = GER_around_maginot }
+		
 		x = 1
 		y = 2
 		relative_position_id = GER_danzig_for_slovakia
@@ -11811,8 +11645,7 @@ focus_tree = {
 		icon = GFX_focus_GER_around_maginot
 		alternate_icon = GFX_focus_GER_around_maginot_historical
 
-		prerequisite = { focus = GER_danzig_for_slovakia focus = GER_danzig_or_war }
-		mutually_exclusive = { focus = GER_influence_the_benelux }
+		prerequisite = { focus = GER_danzig_or_war }
 		x = -1
 		y = 2
 		relative_position_id = GER_danzig_or_war
@@ -12271,7 +12104,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = GER_war_with_france
-		cost = 10
+		cost = 4
 
 		cancel_if_invalid = yes
 		
@@ -12595,7 +12428,7 @@ focus_tree = {
 	focus = {
 		id = GER_operation_sea_lion
 		icon = GFX_focus_generic_naval_invasion
-		prerequisite = { focus = GER_war_with_france focus = GER_invade_italy }
+		prerequisite = { focus = GER_war_with_france }
 
 		x = -1
 		y = 1
@@ -14147,7 +13980,7 @@ focus_tree = {
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 
-		x = -11
+		x = -9
 		y = 0
 		relative_position_id = GER_reorganize_the_wehrmacht
 		cost = 5
@@ -14217,7 +14050,7 @@ focus_tree = {
 		id = GER_anti_soviet_pact
 		icon = GFX_focus_ger_bulwark_against_bolshevism
 		prerequisite = { focus = GER_anti_comintern_pact }
-		mutually_exclusive = { focus = GER_molotov_ribbentrop_pact }
+		
 		x = -1
 		y = 1
 		relative_position_id = GER_anti_comintern_pact
@@ -14451,11 +14284,10 @@ focus_tree = {
 		icon = GFX_goal_molotov_ribbentrop_pact
 		alternate_icon = GFX_focus_GER_molotov_ribbentrop_pact
 
-		prerequisite = { focus = GER_reorganize_the_wehrmacht }
-		mutually_exclusive = { focus = GER_anti_soviet_pact }
-		x = -7
+		prerequisite = { focus = GER_reassert_eastern_claims }
+		x = 0
 		y = 1
-		relative_position_id = GER_reorganize_the_wehrmacht
+		relative_position_id =  GER_reassert_eastern_claims
 		cost = 5
 		
 		available = {
@@ -14508,26 +14340,20 @@ focus_tree = {
 		icon = GFX_goal_generic_scientific_exchange
 		prerequisite = { focus = GER_molotov_ribbentrop_pact }
 
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = GER_molotov_ribbentrop_pact
-		cost = 10
+		cost = 2
 		
 		bypass = { 
 			OR = {
 				has_war_with = SOV
 				NOT = { country_exists = SOV }
-				has_completed_focus = GER_bulwark_against_bolshevism
-				has_completed_focus = GER_the_great_red_menace
 			}
 		}
 
 		available = {
-			NOT = { has_completed_focus = GER_anti_soviet_pact }
-			OR = {
-				NOT = { has_completed_focus = GER_bulwark_against_bolshevism }
-				NOT = { has_completed_focus = GER_the_great_red_menace }
-			}
+			NOT = { has_completed_focus = GER_anti_comintern_pact }
 		}
 
 		cancel = { 
@@ -14537,9 +14363,6 @@ focus_tree = {
 			} 
 		}
 
-		ai_will_do = {
-			factor = 10
-		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -14547,94 +14370,16 @@ focus_tree = {
 			SOV = {
 				country_event = { id = germany.75 days = 1 }
 				custom_effect_tooltip = needs_approval
-				# Actual reward effects added in event if Soviets approve
-				effect_tooltip = {
-					# Trade influence with the USSR? Or simply let the opinion mod do the work
-					give_SOV_armor_research_bonuses = yes
-				}
+	
 			}
+			effect_tooltip = {
+				add_tech_bonus = {
+					name = armor_bonus
+					bonus = 2.0
+					uses = 1
+					category = armor
+				}
 
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				#custom_effect_tooltip = GER_soviet_treaty_research_nsb_tt #Obsolete now
-				effect_tooltip = {
-					create_equipment_variant = {
-						name = "Panzer VII Löwe"
-						type = heavy_tank_chassis_2
-						design_team = mio:GER_daimler_benz_organization #We feed on your tears
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_heavy_cannon_2
-							turret_type_slot = tank_heavy_two_man_tank_turret
-							suspension_type_slot = tank_torsion_bar_suspension
-							armor_type_slot = tank_welded_armor
-							engine_type_slot = tank_gasoline_engine
-							special_type_slot_1 = tank_radio_1
-							special_type_slot_2 = additional_machine_guns
-							special_type_slot_3 = sloped_armor
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 6
-							tank_nsb_armor_upgrade = 6
-						}
-						icon = "GFX_GER_improved_heavy_tank_medium"
-					}
-					create_equipment_variant = {
-						name = "Panzerjäger Elefant"
-						type = heavy_tank_destroyer_chassis_2
-						design_team = mio:GER_porsche_organization #We feed on your tears
-						parent_version = 0
-						modules = {
-							main_armament_slot = tank_heavy_cannon_2
-							turret_type_slot = tank_heavy_fixed_superstructure_turret
-							suspension_type_slot = tank_torsion_bar_suspension
-							armor_type_slot = tank_welded_armor
-							engine_type_slot = tank_gasoline_engine
-							special_type_slot_1 = tank_radio_1
-							special_type_slot_2 = additional_machine_guns
-							special_type_slot_3 = squeezebore_adaptor
-							special_type_slot_4 = sloped_armor
-						}
-						upgrades = {
-							tank_nsb_engine_upgrade = 6
-							tank_nsb_armor_upgrade = 6
-						}
-						icon = "GFX_GER_improved_heavy_tank_medium"
-					}	
-					add_tech_bonus = {
-						name = armor_bonus
-						bonus = 2.0
-						uses = 1
-						category = armor
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			else = {
-				effect_tooltip = {
-					add_tech_bonus = {
-						name = med_armor_bonus
-						ahead_reduction = 1
-						category = cat_medium_armor
-					}
-					add_tech_bonus = {
-						name = armor_bonus
-						bonus = 1.0
-						uses = 2
-						category = armor
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 1
-			}
-
-			SOV = {
 				add_breakthrough_progress = {
 					specialization = specialization_land
 					value = 1
@@ -14642,6 +14387,7 @@ focus_tree = {
 			}
 		}
 	}
+
 
 	focus = {
 		id = GER_alliance_with_the_ussr
@@ -14912,6 +14658,11 @@ focus_tree = {
 		id = GER_the_final_blow_to_communism
 		icon = GFX_focus_generic_spread_fascism
 		prerequisite = { focus = GER_war_with_the_ussr }
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		x = 0
 		y = 1

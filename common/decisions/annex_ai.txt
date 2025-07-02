@@ -126,44 +126,13 @@ AI_annex = {
         }
     }
 
-    AST_annex_NZL = {
-        icon = generic_industry
-
-        fire_only_once = yes
-
-        available = {
-            date > 1939.01.01
-            country_exists = NZL
-            original_tag = AST
-            NZL = { has_capitulated = no }
-            NZL = { is_ai = yes }
-        }
-        visible = {
-            original_tag = AST
-            NZL = { is_ai = yes }
-            country_exists = NZL
-        }
-        cost = 0
-
-        complete_effect = {
-            annex_country = { target = NZL transfer_troops = yes }
-            every_state = {
-                limit = {
-                    is_core_of = NZL
-                    is_controlled_by = AST
-                }
-                add_core_of = AST
-            }
-        }
-    }
-
     JAP_annex_SIA = {
         icon = generic_industry
 
         fire_only_once = yes
 
         available = {
-            date > 1940.01.01
+            date > 1939.01.01
             country_exists = SIA
             original_tag = JAP
             SIA = { has_capitulated = no }
@@ -219,13 +188,44 @@ AI_annex = {
         }
     }
 
-    SOV_annex_MON = {
+    BUL_annex_ROM = {
         icon = generic_industry
 
         fire_only_once = yes
 
         available = {
             date > 1939.01.01
+            country_exists = ROM
+            original_tag = BUL
+            ROM = { has_capitulated = no }
+            ROM = { is_ai = yes }
+        }
+        visible = {
+            original_tag = BUL
+            ROM = { is_ai = yes }
+            country_exists = ROM
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = ROM transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = ROM
+                    is_controlled_by = BUL
+                }
+                add_core_of = BUL
+            }
+        }
+    }
+
+    SOV_annex_MON = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1940.01.01
             country_exists = MON
             original_tag = SOV
             MON = { has_capitulated = no }
@@ -249,4 +249,100 @@ AI_annex = {
             }
         }
     }
+	
+    GER_annex_FIN = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1940.05.01
+            country_exists = FIN
+            original_tag = GER
+            FIN = { has_capitulated = no }
+            FIN = { is_ai = yes }
+        }
+        visible = {
+            original_tag = GER
+            FIN = { is_ai = yes }
+            country_exists = FIN
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = FIN transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = FIN
+                    is_controlled_by = GER
+                }
+                add_core_of = GER
+            }
+        }
+    }
+
+    USA_annex_BRA = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.01.01
+            country_exists = BRA
+            original_tag = USA
+            BRA = { has_capitulated = no }
+            BRA = { is_ai = yes }
+        }
+        visible = {
+            original_tag = USA
+            BRA = { is_ai = yes }
+            country_exists = BRA
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = BRA transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = BRA
+                    is_controlled_by = USA
+                }
+                add_core_of = USA
+            }
+        }
+    }
+
+    ENG_annex_CAN = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1939.03.01
+            country_exists = CAN
+            original_tag = ENG
+            CAN = { has_capitulated = no }
+            CAN = { is_ai = yes }
+        }
+        visible = {
+            original_tag = ENG
+            CAN = { is_ai = yes }
+            country_exists = CAN
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = CAN transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = CAN
+                    is_controlled_by = ENG
+                }
+                add_core_of = ENG
+            }
+        }
+    }
+
+
+
 }

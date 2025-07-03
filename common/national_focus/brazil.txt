@@ -62,7 +62,6 @@ focus_tree = {
 				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
 				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
 			}
-			has_war_support > 400
 
 		}
 		search_filters = { FOCUS_FILTER_HISTORICAL }
@@ -101,7 +100,7 @@ focus_tree = {
 		id = BRA_ensure_continued_military_support
 		icon = GFX_focus_generic_military_dictatorship
 		prerequisite = { focus = BRA_tribunal_de_seguranca_nacional }
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 5
@@ -124,7 +123,7 @@ focus_tree = {
 			add_war_support = 0.1
 			custom_effect_tooltip = BRA_modify_aotci_ns_intro
 			add_to_variable = {
-				BRA_coup_neutrality_factor = 0.2
+				BRA_coup_neutrality_factor = 0.25
 				tooltip = neutrality_drift_factor_tt
 			}
 		}
@@ -140,6 +139,10 @@ focus_tree = {
 		cost = 5
 		ai_will_do = {
 			factor = 5
+		}
+		allow_branch = 
+		{
+			has_war_support > 400
 		}
 		available = {
 			NOT = {
@@ -175,6 +178,12 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		available = {
 		}
 
@@ -233,7 +242,7 @@ focus_tree = {
 	focus = {
 		id = BRA_estado_novo
 		icon = GFX_focus_BRA_estado_novo
-		prerequisite = { focus = BRA_ensure_continued_military_support }
+		
 		prerequisite = { focus = BRA_cohen_plan }
 		mutually_exclusive = { focus = BRA_estado_moderno }
 		x = 0
@@ -300,7 +309,7 @@ focus_tree = {
 	focus = {
 		id = BRA_cohen_plan
 		icon = GFX_focus_BRA_cohen_plan 
-		prerequisite = { focus = BRA_ensure_continued_military_support focus = BRA_work_with_the_integralists }
+		prerequisite = { focus = BRA_ensure_continued_military_support }
 		x = 0
 		y = 2
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
@@ -449,11 +458,11 @@ focus_tree = {
 	focus = {
 		id = BRA_corporatism
 		icon = GFX_focus_ICE_state_corporatism
-		prerequisite = { focus = BRA_anaue focus = BRA_the_polaca}
+		prerequisite = { focus = BRA_the_polaca}
 		mutually_exclusive = { focus = BRA_autarky }
-		x = 0
+		x = 4
 		y = 2
-		relative_position_id = BRA_anaue
+		relative_position_id = BRA_the_polaca
 		cost = 5
 		ai_will_do = {
 			factor = 10
@@ -556,9 +565,9 @@ focus_tree = {
 		id = BRA_tech_slot_1
 		icon = GFX_focus_research
 		prerequisite = { focus = BRA_departamento_de_ordem_politica_e_social  focus = BRA_departamendo_de_propaganda }
-		x = 0
-		y = 6
-		relative_position_id = BRA_cohen_plan
+		x = 2
+		y = 1
+		relative_position_id = BRA_departamendo_de_propaganda
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -809,12 +818,12 @@ focus_tree = {
 	focus = {
 		id = BRA_secure_our_borders
 		icon = GFX_focus_BRA_secure_our_borders
-		prerequisite = { focus = BRA_reward_army_loyalty focus = BRA_restoration_of_honor }
+		prerequisite = { focus = BRA_reward_army_loyalty  }
 		#mutually_exclusive = { focus = BRA_the_international_crisis }
 		x = 0
 		y = 3
 		relative_position_id = BRA_reward_army_loyalty
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
@@ -1063,7 +1072,7 @@ focus_tree = {
 		id = BRA_coffee_crisis_aftermath
 		icon = GFX_focus_BRA_coffee_crisis
 		#prerequisite = { focus =  }
-		x = -6
+		x = 10
 		y = 0
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 5
@@ -1986,12 +1995,11 @@ focus_tree = {
 		mutually_exclusive = { focus = BRA_domination_of_the_americas }
 		prerequisite = { 
 			focus = BRA_secure_our_borders 
-			focus = BRA_the_international_crisis
 		}
-		x = -10
+		x = 0
 		y = 1
 		relative_position_id = BRA_secure_our_borders
-		cost = 5
+		cost = 3
 		ai_will_do = {
 			factor = 30
 			modifier = {
@@ -2035,7 +2043,7 @@ focus_tree = {
 			focus = BRA_cooperation_in_the_americas 
 			#focus = BRA_the_international_crisis
 		}
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
 		cost = 10
@@ -2192,6 +2200,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
 		cost = 5
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 		ai_will_do = {
 			factor = 5
 			modifier = {
@@ -2451,6 +2463,27 @@ focus_tree = {
 			}
 			custom_effect_tooltip = BRA_washington_accords_tt
 			event_option_tooltip = JUNO_brazil_events.16.a
+		}
+	}
+
+	focus = {
+		id = BRA_tech_slot_2
+		icon = GFX_focus_research
+		prerequisite = { focus = BRA_washington_accords }
+		x = 2
+		y = 1
+		relative_position_id = BRA_washington_accords
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_research_slot = 1
 		}
 	}
 
@@ -2758,6 +2791,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 0
 		}
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		available = {
 			NOT = {
 				USA = {
@@ -2884,6 +2922,10 @@ focus_tree = {
 		ai_will_do = {
 			factor = 0
 		}
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 		available = {
 			NOT = {
 				USA = {
@@ -2984,6 +3026,12 @@ focus_tree = {
 				}
 			}
 		}
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		available = {
 			OR = {
 				has_government = fascism
@@ -3771,6 +3819,10 @@ focus_tree = {
 		}
 		x = -2
 		y = 1
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 		relative_position_id = BRA_anaue
 		cost = 5
 		ai_will_do = {
@@ -4512,7 +4564,7 @@ focus_tree = {
 	focus = {
 		id = BRA_end_the_state_of_emergency
 		icon = GFX_focus_BRA_end_the_state_of_emergency
-		x = -15
+		x = -20
 		y = 0
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		mutually_exclusive = { focus = BRA_tribunal_de_seguranca_nacional focus = BRA_prepare_for_second_intentona }
@@ -4533,6 +4585,7 @@ focus_tree = {
 				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
 				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
 			}
+			has_war_support > 400
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -4856,27 +4909,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BRA_tech_slot_2
-		icon = GFX_focus_BRA_university_of_sao_paulo
-		x = 1
-		y = 1
-		relative_position_id = BRA_implement_article_138
-		prerequisite = { focus = BRA_implement_article_138 focus = BRA_church }
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
-		available = {
-		}
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-
-	focus = {
 		id = BRA_ban_the_communist_party
 		icon = GFX_focus_BRA_ban_communist_party
 		x = 2
@@ -5066,10 +5098,10 @@ focus_tree = {
 	focus = {
 		id = BRA_united_states_of_south_america
 		icon = GFX_focus_BRA_us_of_brazil
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = BRA_us_brazil_technology_exchange
-		prerequisite = { focus = BRA_us_brazil_technology_exchange focus = BRA_south_american_research_cooperation }
+		prerequisite = { focus = BRA_us_brazil_technology_exchange }
 		cost = 5
 		ai_will_do = {
 			factor = 0
@@ -5191,14 +5223,12 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
 			}
 		}
-		x = 1
+		x = 4
 		y = 1
-		relative_position_id = BRA_address_labor_disputes
-		prerequisite = { focus = BRA_address_labor_disputes }
+		relative_position_id = BRA_cooperation_in_the_americas
+		prerequisite = { focus = BRA_cooperation_in_the_americas }
 		cost = 5
 		ai_will_do = {
 			factor = 5
@@ -7622,9 +7652,9 @@ focus_tree = {
 		icon = GFX_focus_BRA_father_of_the_poor
 		prerequisite = { focus = BRA_reward_army_loyalty focus = BRA_reinvigorate_the_navy }
 		mutually_exclusive = { focus = BRA_support_the_landowners }
-		x = -3
+		x = 6
 		y = 1
-		relative_position_id = BRA_reinvigorate_the_navy
+		relative_position_id = BRA_reward_army_loyalty
 		cost = 10
 		ai_will_do = {
 			factor = 10
@@ -7670,9 +7700,9 @@ focus_tree = {
 		id = BRA_support_industrialists
 		icon = GFX_focus_generic_industrialists
 		prerequisite = { focus = BRA_support_the_landowners focus = BRA_support_rural_folk }
-		x = 2
-		y = 1
-		relative_position_id = BRA_support_the_landowners
+		x = 6
+		y = 2
+		relative_position_id = BRA_reward_army_loyalty
 		mutually_exclusive = { focus = BRA_consolidation_of_labor_laws }
 		cost = 10
 		ai_will_do = {
@@ -7732,9 +7762,9 @@ focus_tree = {
 		id = BRA_consolidation_of_labor_laws
 		icon = GFX_focus_generic_workers
 		prerequisite = { focus = BRA_support_the_landowners focus = BRA_support_rural_folk }
-		x = 0
-		y = 1
-		relative_position_id = BRA_support_the_landowners
+		x = 4
+		y = 2
+		relative_position_id = BRA_reward_army_loyalty
 		mutually_exclusive = { focus = BRA_support_industrialists }
 		cost = 10
 		ai_will_do = {

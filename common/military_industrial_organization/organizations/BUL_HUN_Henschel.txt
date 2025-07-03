@@ -1,0 +1,37 @@
+HUN_henshchels_organization = {
+	include = generic_infantry_tank_organization
+	icon = GFX_idea_henschel
+
+	allowed = { tag = HUN }
+	
+	available = {
+		owner = {
+		has_completed_focus = wuw_HUN_seek_german_contracts
+		}
+	}
+
+	initial_trait = {
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+	}
+}
+
+BUL_henschels_organization = {
+	include = generic_infantry_tank_organization
+	icon = GFX_idea_henschelt
+
+	allowed = { tag = BUL }
+
+	available = {
+		owner = {
+		has_completed_focus = BUL_contract_foreign_companies
+		}
+	}
+
+	initial_trait = {
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+	}
+}

@@ -36,20 +36,156 @@ shared_focus = {
 		value = GFX_goal_panzerwaffe
 	} 
 
-	x = -18
+	x = 0
 	y = 0
+	offset = {
+		x = 24
+		y = 0
+		trigger = {
+			tag = BRA
+		}
+	}
+	offset = {
+		x = 48
+		y = 0
+		trigger = {
+			tag = ARG 
+		}
+	}
 
+	offset = {
+		x = 74
+		y = 0
+		trigger = {
+			tag = CHL
+		}
+	}
 
+	offset = {
+		x = 56
+		y = 0
+		trigger = {
+			tag = PAR
+		}
+	}
 
+	offset = {
+		x = 51
+		y = 0
+		trigger = {
+			tag = URG
+		}
+	}
 
+	offset = {
+		x = -29
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			tag = CHL
+			has_completed_focus = CHL_look_to_tradition
+		}	
+	}
 
+	offset = {
+		x = -15
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			tag = CHL
+			has_completed_focus = CHL_address_the_mapuche_conflict
+		}
+	}
 
+	offset = {
+		x = -38
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = CHL_endorse_the_constitution
+		}
+	}
 
+	offset = {
+		x = -42
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = CHL_denounce_the_anarchy
+		}
+	}
 
+	offset = {
+		x = -7
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = CHL_rule_by_decree
+		}
+	}
 
+	offset = {
+		x = -33
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = BRA_prepare_for_second_intentona
+		}	
+	}
 
+	offset = {
+		x = -15
+		y = 0
+		trigger = {
+			has_game_rule = {
+				rule = obsolete_focus_branches_visibility
+				option = HIDE
+			}
+			has_completed_focus = BRA_end_the_state_of_emergency
+		}	
+	}
 
+	offset = {
+			x = -21
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = ARG_the_clean_election 
+			}
+		}
 
+		offset = {
+			x = -33
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = ARG_a_call_to_reform 
+			}
+		}
 
 	cost = 5
 
@@ -1568,6 +1704,18 @@ shared_focus = {
 		}
 	}
 
+	offset = {
+		x = 1
+		y = 0
+		trigger = {
+			OR = {
+				original_tag = CHL
+				original_tag = URG
+				original_tag = PAR
+				original_tag = BOL
+			}
+		}
+	}
 
 	completion_reward = {
 		IF = {
@@ -1633,6 +1781,20 @@ shared_focus = {
 			factor = 10
 		}
 
+	offset = {
+		x = -1
+		y = 0
+		trigger = {
+			OR = {
+				original_tag = CHL
+				original_tag = URG
+				original_tag = PAR
+				original_tag = BOL
+				original_tag = BRA
+				original_tag = ARG
+			}
+		}
+	}
 
 	completion_reward = {
 		IF = {
@@ -1684,6 +1846,16 @@ shared_focus = {
 		}
 	}
 
+	offset = {
+		x = -1
+		y = 0
+		trigger = {
+			OR = {
+				original_tag = BRA
+				original_tag = ARG
+			}
+		}
+	}
  
 	available = {
 
@@ -2122,6 +2294,13 @@ shared_focus = {
 	x = 4
 	y = 1
 
+	offset = {
+		x = 2
+		y = 0
+		trigger = {
+			tag = BRA
+		}
+	}
 
 	cost = 5
 
@@ -2197,6 +2376,13 @@ shared_focus = {
 
 	dynamic = yes
 
+	offset = {
+		x = 4
+		y = 0
+		trigger = {
+			tag = BRA
+		}
+	}
 
 	icon = {
 		trigger = {
@@ -2854,7 +3040,7 @@ shared_focus = {
 				original_tag = BRA
 			}
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
-			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.2 tooltip = air_range_factor_tt }
+			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.1 tooltip = air_range_factor_tt }
 			add_to_variable = { JUNO_airforce_modifier_air_strategic_bomber_bombing_factor = 0.15 tooltip = air_strategic_bomber_bombing_factor_tt }
 		}
 		ELSE_IF = {
@@ -3083,7 +3269,7 @@ shared_focus = {
 				original_tag = BRA
 			}
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
-			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.2 tooltip = air_range_factor_tt }
+			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.05 tooltip = air_range_factor_tt }
 			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.1 tooltip = air_agility_factor_tt }
 		}
 		ELSE_IF = {

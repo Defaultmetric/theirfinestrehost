@@ -1936,7 +1936,7 @@
 		x = 16
 		y = 0
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -1970,7 +1970,7 @@
 		y = 0
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -1993,7 +1993,7 @@
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = industry
 			}			
 		}
@@ -2008,7 +2008,7 @@
 		y = 1
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 5
@@ -2122,10 +2122,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = AST_south_australian_housing_trust_IC
@@ -2185,10 +2185,10 @@
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = AST_department_of_supply_and_development_AF
@@ -2231,7 +2231,7 @@
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2256,6 +2256,12 @@
 				}
 				set_state_flag = AST_expand_lithgow_small_arms_factory_AF
 			}
+			add_tech_bonus = {
+				name = AST_small_arms
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons	
+				}
 		}
 	}
 
@@ -2384,8 +2390,15 @@
 				level = 2
 				path = { 7669 1431 12104 1454 }
 			}
-
-
+			custom_effect_tooltip = generic_skip_one_line_tt
+			871 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -2418,6 +2431,15 @@
 
 		completion_reward = {
 			add_ideas = AST_australian_arms_production
+			custom_effect_tooltip = generic_skip_one_line_tt
+			872 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 

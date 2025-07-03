@@ -895,6 +895,26 @@ ideas = {
 
 			cancel_if_invalid = no
 
+				allowed_to_remove = {
+				IF = {
+					limit = {
+						OR = {
+						original_tag = MAL
+						original_tag = SPA
+						original_tag = HOL
+						}
+					}
+					OR = {
+						has_war_support > 4
+					}
+				}
+				ELSE = {
+					OR = {
+						has_war_support > 4
+					}
+				}
+			}
+
 			ai_will_do = {
    				factor = 1
 

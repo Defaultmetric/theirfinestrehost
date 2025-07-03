@@ -247,7 +247,7 @@ NDiplomacy = {
 	FACTION_LEADERSHIP_CHANGE_MANPOWER_WEIGHT = 2,			-- Importance of manpower in field when determining how close a faction member is to being able to assume leadership.
 	FACTION_LEADERSHIP_CHANGE_FACTORY_WEIGHT = 2,			-- Importance of factory count when determining how close a faction member is to being able to assume leadership.
 
-	EMBARGO_COST = 100,										-- One-time cost
+	EMBARGO_COST = 2001,										-- One-time cost
 	REVOKE_EMBARGO_COST = 0,								-- Cost to remove an existing embargo
 	EMBARGO_THREAT_THRESHOLD = 30,						-- Target-generated threat threshold to allow embargo (affected by modifiers)
 
@@ -823,9 +823,9 @@ NMilitary = {
 	BASE_DIVISION_BRIGADE_CHANGE_COST = 2,	--Base cost to change a regiment column.  5
 	BASE_DIVISION_SUPPORT_SLOT_COST = 5, 	--Base cost to unlock a support slot    10
 
-	MAX_ARMY_EXPERIENCE = 500,			--Max army experience a country can store
-	MAX_NAVY_EXPERIENCE = 500,			--Max navy experience a country can store
-	MAX_AIR_EXPERIENCE = 500,				--Max air experience a country can store
+	MAX_ARMY_EXPERIENCE = 999,			--Max army experience a country can store
+	MAX_NAVY_EXPERIENCE = 999,			--Max navy experience a country can store
+	MAX_AIR_EXPERIENCE = 999,				--Max air experience a country can store
 
 	COMBAT_MINIMUM_TIME = 4,			-- Shortest time possible for a combat in hours
 	SPOTTING_QUALITY_DROP_HOURS = 4, 	-- Each X hours the intel quality drops after unit was spotted.

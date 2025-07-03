@@ -986,7 +986,7 @@
 
 	focus = {
 		id = JAP_purge_the_kodoha_faction
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_generic_fascist_propaganda
 		mutually_exclusive = { focus = JAP_the_unthinkable_option focus = JAP_support_the_kodoha_faction focus = JAP_strengthen_civilian_government }
 		x = 0
 		y = 0
@@ -1047,13 +1047,13 @@
 
 	focus = {
 		id = JAP_liaison_conference
-		icon = GFX_goal_generic_intelligence_exchange
+		icon = GFX_focus_AFG_establish_darulaman
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
 		x = -1
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -1076,12 +1076,14 @@
 			every_army_leader = {
 				add_planning = 1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_political_power = 100
 		}
 	}
 
 	focus = {
 		id = JAP_greater_east_asian_co_prosperity_sphere
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
 		prerequisite = { focus = JAP_liaison_conference }
 		x = -1
 		y = 1
@@ -1119,7 +1121,7 @@
 
 	focus = {
 		id = JAP_intervene_in_china
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_attack_china
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 
 		x = -1
@@ -1230,7 +1232,7 @@
 
 	focus = {
 		id = JAP_secure_china
-		icon = GFX_goal_generic_demand_territory
+		icon = GFX_focus_generic_military_mission
 		prerequisite = { focus = JAP_intervene_in_china }
 		x = 0
 		y = 1
@@ -1275,7 +1277,7 @@
 
 	focus = {
 		id = JAP_develop_chinese_resources
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_generic_aluminum
 		prerequisite = { focus = JAP_secure_china }
 		x = 0
 		y = 2
@@ -1323,7 +1325,7 @@
 
 	focus = {
 		id = JAP_strike_south_doctrine
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_focus_generic_naval_invasion
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
 		x = 0
@@ -1366,7 +1368,33 @@
 				}
 				JAP_create_patrick_heenan_operative = yes
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			unlock_decision_tooltip = JAP_pressure_france
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1450,7 +1478,7 @@
 
 	focus = {
 		id = JAP_secure_the_philippines
-		icon = GFX_goal_generic_occupy_states_ongoing_war
+		icon = GFX_focus_generic_attack_usa
 		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
 		mutually_exclusive = { focus = JAP_bypass_the_philippines }
 		x = 0
@@ -1803,7 +1831,7 @@
 
 	focus = {
 		id = JAP_exploit_the_southern_resource_area
-		icon = GFX_goal_generic_construction2
+		icon = GFX_focus_generic_coal_mining
 		prerequisite = { focus = JAP_strike_on_the_southern_resource_area }
 		prerequisite = { focus = JAP_coal_liquification }
 		x = 1
@@ -2064,7 +2092,7 @@
 
 	focus = {
 		id = JAP_nationalize_war_industry
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_generic_modernize_industry
 		prerequisite = { focus = JAP_guide_the_zaibatsus }
 		prerequisite = { focus = JAP_national_mobilization_law }
 		x = 0
@@ -2441,7 +2469,7 @@
 
 	focus = {
 		id = JAP_national_defense_state
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_generic_full_social_mobilization
 		prerequisite = { focus = JAP_nationalize_war_industry  }
 		x = -2
 		y = 1
@@ -4893,7 +4921,7 @@
 
 	focus = {
 		id = JAP_modern_artillery
-		icon = GFX_goal_generic_army_artillery2
+		icon = GFX_focus_generic_anti_tank_guns
 		prerequisite = { focus =JAP_supremacy_of_technology  }
 		x = -1
 		y = 1
@@ -4940,7 +4968,7 @@
 
 	focus = {
 		id = JAP_armored_divisions
-		icon = GFX_goal_generic_army_tanks
+		icon = GFX_focus_generic_tank_assault
 		prerequisite = { focus = JAP_supremacy_of_technology }
 		x = 0
 		y = 2
@@ -4996,14 +5024,14 @@
 	}
 
 	focus = {
-		id = JAP_bicycle_battalions
-		icon = GFX_goal_generic_special_forces
+		id = JAP_miltary_comms_industry
+		icon = GFX_goal_generic_radar
 		prerequisite = { focus = JAP_supremacy_of_technology focus = JAP_supremacy_of_will }
 		x = 1
 		y = 1
 		relative_position_id = JAP_supremacy_of_technology
 
-		cost = 1
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5023,7 +5051,13 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			set_technology = { bicycle_infantry = 1 }
+			
+			add_tech_bonus = {
+				name = Jap_radar_bonus
+				bonus = 1
+				uses = 2
+				category = radar_tech
+			}
 		}
 	}
 
@@ -5197,6 +5231,23 @@
 				bonus = 1.0
 				uses = 1
 				category = cat_heavy_fighter	
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -5690,6 +5741,30 @@
 				uses = 2
 				category = cat_base_strike
 			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -5783,6 +5858,30 @@
 
 		completion_reward = {
 			add_ideas = JAP_first_air_fleet
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -5876,6 +5975,30 @@
 				custom_effect_tooltip = available_designer
 				show_ideas_tooltip = kure_naval_arsenal
 			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -5968,6 +6091,30 @@
 					}
 				}
 				custom_effect_tooltip = JAP_yamato_tt
+				random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
 				hidden_effect = {
 					add_equipment_production = {
 						equipment = {
@@ -6117,6 +6264,385 @@
 				add_ideas = torpedo_cruisers_ns
 			}
 			
+		}
+	}
+	focus = {
+		id = JAP_the_siamese_project
+		icon = GFX_focus_generic_spread_fascism
+		x = 1
+		y = 3
+		relative_position_id = JAP_the_manchurian_project
+
+		cost = 5
+
+		available = {
+			has_completed_focus = JAP_alliance_with_siam
+			SIA = {is_in_faction_with = JAP}
+			SIA = {is_ai = no}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			SIA = {				
+				add_stability = 0.1
+				add_war_support = 0.1
+				add_political_power = 150
+			}
+		}
+	}
+	focus = {
+		id = JAP_expand_the_bangkok_industry
+		icon = GFX_SOV_steel_casting_industry_ccp_2d_sov_compatibility
+		prerequisite = { focus = JAP_the_siamese_project }
+		x = -1
+		y = 1
+		relative_position_id = JAP_the_siamese_project
+
+		cost = 5
+
+		available = {
+			289 = { is_fully_controlled_by = SIA }
+			SIA = {is_in_faction_with = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			289 = {
+				add_resource = {
+						type = steel
+						amount = 16
+					}	
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_siamese_base_of_operations
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = JAP_the_siamese_project }
+		x = 1
+		y = 1
+		relative_position_id = JAP_the_siamese_project
+
+		cost = 5
+
+		available = {
+			SIA = {is_in_faction_with = JAP}
+			724 = {is_fully_controlled_by = SIA}
+			869 = {is_fully_controlled_by = SIA}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			SIA = {
+				if = {
+					limit = {
+						controls_state = 724
+					}
+					
+					724 = {
+						add_building_construction = {
+						type = supply_node
+						province = 4297
+						level = 1
+						instant_build = yes
+						}
+						add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				if = {
+					limit = {
+						controls_state = 869
+					}
+					
+					869 = {
+						add_building_construction = {
+						type = supply_node
+						province = 1990
+						level = 1
+						instant_build = yes
+						}
+						add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = MON_build_upwards_build_outwards_tt
+				every_core_state = {
+				limit = {
+					is_fully_controlled_by = SIA
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			}
+		}
+	}
+	focus = {
+		id = JAP_invest_in_siamese_arms_production
+		icon = GFX_focus_generic_reorient_production
+		prerequisite = { focus = JAP_siamese_base_of_operations focus = JAP_expand_the_bangkok_industry}
+		x = -1
+		y = 1
+		relative_position_id = JAP_siamese_base_of_operations
+
+		cost = 5
+
+		available = {
+			868 = { is_fully_controlled_by = SIA }
+			SIA = {is_in_faction_with = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			868 = {	
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			SIA = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons	
+			}
+			}
+		}
+	}
+	focus = {
+		id = JAP_siamese_aluminium
+		icon = GFX_focus_GER_factories_for_resources
+		prerequisite = { focus = JAP_expand_the_bangkok_industry }
+		x = -1
+		y = 1
+		relative_position_id = JAP_expand_the_bangkok_industry
+
+		cost = 5
+
+		available = {
+			868 = { is_fully_controlled_by = SIA }
+			SIA = {is_in_faction_with = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			868 = {
+				add_resource = {
+						type = aluminium
+						amount = 28
+					}	
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_siamese_raiding_fleet
+		icon = GFX_focus_generic_midget_submarines
+		prerequisite = { focus = JAP_expand_the_bangkok_industry }
+		x = 0
+		y = 2
+		relative_position_id = JAP_expand_the_bangkok_industry
+
+		cost = 5
+
+		available = {
+			289 = { is_fully_controlled_by = SIA }
+			SIA = {is_in_faction_with = JAP}
+			724 = { is_fully_controlled_by = SIA }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			SIA = {
+			add_tech_bonus = {
+				name = JAP_sub_modernization
+				bonus = 3
+				uses = 1
+				category = ss_tech
+			}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			289 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			724 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_siamese_mountain_artillery
+		icon = GFX_focus_SMB_mountain_guns 
+		prerequisite = { focus = JAP_siamese_base_of_operations }
+		prerequisite = { focus = JAP_modern_artillery }
+		x = 1
+		y = 1
+		relative_position_id = JAP_siamese_base_of_operations
+
+		cost = 10
+
+		available = {
+			868 = { is_fully_controlled_by = SIA }
+			SIA = {is_in_faction_with = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			868 = {
+				
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				SIA = {
+				custom_effect_tooltip = mountain_guns_tt
+           		 hidden_effect = {
+                set_technology = {
+                    mountain_gun = 1
+                    popup = no
+                }
+            }
+				}
+			}
+		}
+	}
+	focus = {
+		id = JAP_marvel_of_construction
+		icon = GFX_focus_RAJ_special_economic_zones
+		prerequisite = { focus = JAP_invest_in_siamese_arms_production }
+		prerequisite = { focus = JAP_zaibatsus_legacy }
+		x = 4
+		y = 1
+		relative_position_id = JAP_invest_in_siamese_arms_production
+
+		cost = 10
+
+		available = {
+			SIA = {is_in_faction_with = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			custom_effect_tooltip = JAP_marvel_of_construction_tt
+			hidden_effect = {
+			SIA = {
+			every_state = {
+				limit = {
+					is_core_of = SIA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			}
+			}
 		}
 	}
 

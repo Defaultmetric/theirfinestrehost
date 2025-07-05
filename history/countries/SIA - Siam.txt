@@ -120,8 +120,19 @@ set_variable = {
 	SIA_mil_spec_marine_grace = 0.0
 }
 
-
 add_dynamic_modifier = { modifier = SIA_siamese_military_dyn }
+
+set_variable = { SIA_new_consumer_goods = 0.015 }
+set_variable = { SIA_new_war_stability = 0.10 }
+set_variable = { SIA_new_core_attack = 0.05 }
+set_variable = { SIA_new_core_defense = 0.05 }
+set_variable = { SIA_new_pp_gain = 0.20 }
+set_variable = {
+	SIA_new_stability = 0.015
+}
+set_variable = {
+	SIA_new_research = 0.00
+}
 
 set_rule = { can_join_factions = no }
 
@@ -133,6 +144,11 @@ set_technology = {
 	basic_train = 1
 	tech_trucks = 1
 	infantry_weapons1 = 1
+	tech_support = 1
+	motorised_infantry = 1
+	electronic_mechanical_engineering = 1
+	gwtank_chassis = 1
+	basic_light_tank_chassis = 1
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -148,9 +164,18 @@ if = {
 	set_technology = {
 		basic_naval_mines = 1
 		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_carrier = 1
+		early_ship_hull_heavy = 1
 		basic_battery = 1
 		basic_torpedo = 1
 		coastal_defense_ships = 1
+		basic_cruiser_armor_scheme = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_heavy_battery = 1
+		mtg_transport = 1
 	}
 }
 set_convoys = 150

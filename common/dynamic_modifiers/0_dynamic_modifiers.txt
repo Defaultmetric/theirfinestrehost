@@ -1270,3 +1270,74 @@ malaria = {
 	icon = GFX_modifiers_SOV_defend_moscow
 	
 }
+
+
+####### SIAM #######
+SIA_siamese_administration_dyn = {
+	enable = { always = yes }
+
+	icon = GFX_idea_SIA_adm_icon
+
+	stability_factor = SIA_adm_stab
+	political_power_factor = SIA_adm_pp_gain
+	war_stability_factor = SIA_adm_war_stab
+	drift_defence_factor = SIA_adm_drift
+	intelligence_agency_defense = SIA_adm_intel_defense
+	research_speed_factor = SIA_adm_research_speed
+	fascism_drift = SIA_adm_fascism_drift
+	offensive_war_stability_factor = SIA_adm_offensive_off_war_stab
+	party_popularity_stability_factor = SIA_adm_party_popularity_stab
+	recruitable_population_factor = SIA_adm_recruitable_population
+	political_advisor_cost_factor = SIA_adm_pol_advisor_cost
+	consumer_goods_factor = SIA_adm_consumer_goods
+}
+
+SIA_siamese_industry_dyn = {
+	enable = { always = yes }
+
+	icon = GFX_idea_SIA_ind_icon
+
+	industrial_capacity_factory = SIA_ind_output
+	consumer_goods_factor = SIA_ind_consumer_goods
+	production_speed_buildings_factor = SIA_ind_construction_speed
+	production_speed_rail_way_factor = SIA_ind_rail_speed
+	production_speed_arms_factory_factor = SIA_ind_mil_speed
+	production_factory_max_efficiency_factor = SIA_ind_cap
+	local_resources_factor = SIA_ind_local_resources
+	production_factory_efficiency_gain_factor = SIA_ind_growth
+	global_building_slots_factor = SIA_ind_global_slots
+}
+
+SIA_siamese_military_dyn = {
+	enable = { always = yes }
+
+	icon = GFX_idea_SIA_mil_icon
+
+	army_org_factor = SIA_mil_org
+	experience_gain_army_unit_factor = SIA_mil_exp_unit
+	planning_speed = SIA_mil_planning_speed
+	max_planning_factor = SIA_mil_max_planning
+	special_forces_cap = SIA_mil_spec_cap
+	army_attack_factor = SIA_mil_attack
+	army_defence_factor = SIA_mil_defense
+	acclimatization_hot_climate_gain_factor = SIA_mil_hot
+	experience_gain_army_factor = SIA_mil_exp
+	max_command_power_mult = SIA_mil_max_cp
+	training_time_factor = SIA_mil_training
+	land_reinforce_rate = SIA_mil_reinforce_rate
+	command_power_gain_mult = SIA_mil_cp_gain
+	attrition = SIA_mil_attrition
+	equipment_capture_factor = SIA_mil_equipment_capture
+	research_speed_factor = SIA_mil_research_speed
+	unit_leader_as_advisor_cp_cost_factor = SIA_mil_leader_cp_cost
+	army_morale_factor = SIA_mil_morale
+	mobilization_speed = SIA_mil_mobilization_speed
+	supply_node_range = SIA_mil_supply_node_range
+	supply_consumption_factor = SIA_mil_supply_consumption
+	fuel_gain_factor = SIA_mil_fuel_gain
+	conversion_cost_civ_to_mil_factor = SIA_mil_conversion_cost_civ_to_mil
+	special_forces_training_time_factor = SIA_mil_spec_training_time
+	special_forces_attack_factor = SIA_mil_spec_attack
+	special_forces_defence_factor = SIA_mil_spec_defense
+	extra_marine_supply_grace = SIA_mil_spec_marine_grace
+}

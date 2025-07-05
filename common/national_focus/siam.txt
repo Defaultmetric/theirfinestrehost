@@ -587,11 +587,17 @@ focus_tree = {
 		id = extend_the_work_week
 		icon = GFX_focus_ARG_crackdown_on_corruption
 		prerequisite = {
+			focus = industrial_renewal
+		}
+		prerequisite = {
+			focus = national_registry
+		}
+		prerequisite = {
 			focus = office_of_economic_development
 		}
 		relative_position_id = national_registry
 		x = 2
-		y = 0
+		y = 1
 		cost = 10
 		completion_reward = {
 			add_to_variable = {
@@ -612,12 +618,6 @@ focus_tree = {
 		icon = GFX_goal_generic_consumer_goods
 		prerequisite = {
 			focus = extend_the_work_week
-		}
-		prerequisite = {
-			focus = industrial_renewal
-		}
-		prerequisite = {
-			focus = national_registry
 		}
 		relative_position_id = extend_the_work_week
 		x = 0
@@ -768,88 +768,6 @@ focus_tree = {
 				category = industry
 			}
 		}
-	}
-
-		focus = {
-		id = local_weapon_artisans
-		icon = GFX_focus_AFG_scavenging
-		prerequisite = {
-			focus = industrial_titans
-		}
-		relative_position_id = industrial_titans
-		x = 1
-		y = 1
-		cost = 10
-		completion_reward = {
-			868 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			724 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			289 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			869 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = arming_the_peasantry
-		icon = GFX_focus_AFG_shadows_of_the_king
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = industrial_titans
-		}
-		relative_position_id = industrial_titans
-		cost = 10
-		completion_reward = {
-			add_to_variable = {
-				SIA_ind_mil_speed = 0.05
-				SIA_ind_cap = 0.05
-			}
-			869 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			868 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = SIA_arming_the_peasantry_tt
-		}
-
 	}
 
 	focus = {
@@ -1130,7 +1048,7 @@ focus_tree = {
 		icon = GFX_focus_BRA_rio_protocol
 		x = 29
 		y = 0
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 25
 			add_to_variable = { SIA_mil_max_cp = 0.10 }
@@ -1147,7 +1065,7 @@ focus_tree = {
 		relative_position_id = centralized_command
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_to_variable = {
 				SIA_mil_max_cp = 0.05
@@ -1169,7 +1087,7 @@ focus_tree = {
 		relative_position_id = removing_bureaucratic_hurdles
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_tech_bonus = {
 				uses = 1
@@ -1186,7 +1104,7 @@ focus_tree = {
 	focus = {
 		id = standardize_unit_training
 		icon = GFX_focus_FIN_parmis_devils
-		cost = 3
+		cost = 5
 		x = 27
 		y = 0
 		completion_reward = { 
@@ -1203,7 +1121,7 @@ focus_tree = {
 	focus = {
 		id = better_conditions
 		icon = GFX_focus_PER_embrace_opulence
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = standardize_unit_training
 		}
@@ -1224,7 +1142,7 @@ focus_tree = {
 	focus = {
 		id = extra_privileges
 		icon = GFX_focus_FIN_oy_alkoholiliike
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = better_conditions
 		}
@@ -1307,7 +1225,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = emergency_asset_seizure_focus
+		id = emergency_asset_seizure
 		icon = GFX_focus_usa_reestablish_the_gold_standard
 		cost = 5
 		prerequisite = {
@@ -1321,23 +1239,6 @@ focus_tree = {
 				idea = idea_asset_seizure
 				days = 360
 			}
-		}
-	}
-
-	focus = {
-		id = military_library
-		icon = GFX_focus_AFG_parliamentary_democracy
-		cost = 10
-		prerequisite = {
-			focus = general_mobilization
-		}
-		relative_position_id = general_mobilization
-		x = 1
-		y = 1
-		completion_reward = { 
-			air_experience = 150
-			navy_experience = 150
-			army_experience = 150
 		}
 	}
 
@@ -1392,7 +1293,7 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_tech_bonus = {
-				uses = 2
+				uses = 1
 				bonus = 1
 				category = support_tech
 			}
@@ -1405,9 +1306,6 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = general_mobilization
-		}
-		prerequisite = {
-			focus = improved_communications
 		}
 		relative_position_id = general_mobilization
 		x = 2
@@ -1453,6 +1351,7 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = extra_privileges
+			focus = total_authority
 		}
 		relative_position_id = extra_privileges
 		x = 0
@@ -1473,6 +1372,7 @@ focus_tree = {
 		icon = GFX_focus_GER_all_for_the_front
 		cost = 5
 		prerequisite = {
+			focus = extra_privileges
 			focus = total_authority
 		}
 		relative_position_id = extra_privileges
@@ -1492,6 +1392,8 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = bangkok_munitions_plant
+		}
+		prerequisite = {
 			focus = war_readiness_committee
 		}
 		relative_position_id = bangkok_munitions_plant
@@ -1562,8 +1464,8 @@ focus_tree = {
 		prerequisite = {
 			focus = ground_rearmament
 		}
-		relative_position_id = ground_rearmament
-		x = 0
+		relative_position_id = manufacturing_research
+		x = 3
 		y = 1
 		completion_reward = { 
 			add_tech_bonus = {
@@ -1571,6 +1473,7 @@ focus_tree = {
 				bonus = 1
 				category = infantry_weapons
 			}
+			custom_effect_tooltip = SIA_military_research_tt
 		}
 	}
 
@@ -1579,12 +1482,16 @@ focus_tree = {
 		icon = GFX_focus_generic_manpower
 		cost = 10
 		prerequisite = {
+			focus = artillery_advancements
+		}
+		prerequisite = {
 			focus = infantry_modernization
+		}
+		prerequisite = {
 			focus = support_structures
-			focus = elites
 		}
 		relative_position_id = infantry_modernization
-		x = 2
+		x = 0
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
@@ -1658,7 +1565,7 @@ focus_tree = {
 	focus = {
 		id = efficient_planning
 		icon = GFX_goal_demand_sudetenland
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = improved_communications
 		}
@@ -1676,7 +1583,7 @@ focus_tree = {
 	focus = {
 		id = improved_organization
 		icon = GFX_goal_generic_small_arms
-		cost = 5
+		cost = 10
 		prerequisite = {
 			focus = installing_the_new_command
 		}
@@ -1703,7 +1610,10 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
-				SIA_mil_hot = 0.40
+				SIA_mil_hot = 0.15
+			}
+			add_to_variable = {
+				SIA_mil_attrition = -0.7
 			}
 			custom_effect_tooltip = SIA_harsh_conditions_tt
 		}
@@ -1725,13 +1635,13 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
-				SIA_mil_attack = 0.10
+				SIA_mil_attack = 0.09
 			}
 			add_to_variable = {
-				SIA_mil_attrition = 0.10
+				SIA_mil_attrition = 0.010
 			}
 			add_to_variable = {
-				SIA_mil_reinforce_rate = -0.10
+				SIA_mil_reinforce_rate = -0.010
 			}
 			custom_effect_tooltip = SIA_go_big_tt
 		}
@@ -1762,474 +1672,6 @@ focus_tree = {
 				SIA_mil_org = 0.5
 			}
 			custom_effect_tooltip = SIA_balanced_approach_tt
-		}
-	}
-
-	##########################################################################
-	#				  DEVELOPMENT OF THE SIAMESE EMPIRE                      #
-	##########################################################################
-
-	focus = {
-		id = proclaim_the_siamese_empire
-		icon = GFX_focus_BRA_air_force
-		cost = 3.7	
-		x = 46
-		y = 0
-		available = {
-			has_government = fascism
-			has_dynamic_modifier = {
-				modifier = SIA_new_ambitions_dyn
-			}
-		}
-		completion_reward = {
-			add_stability = 0.05
-			add_war_support = 0.05
-			add_political_power = 150
-		}
-	}
-
-	focus = {
-		id = pick_up_after_the_french
-		icon = GFX_focus_RAJ_red_in_the_shadows
-		cost = 5
-		prerequisite = {
-			focus = proclaim_the_siamese_empire
-		}
-		available = {
-			controls_state = 670
-			controls_state = 671
-			controls_state = 741
-			controls_state = 286
-		}
-		relative_position_id = proclaim_the_siamese_empire
-		x = -4
-		y = 1
-		completion_reward = {
-			670 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			671 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			741 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			286 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-		}
-	}
-}
-
-	focus = {
-		id = plunder_allied_investments
-		icon = GFX_focus_RAJ_war_taxes
-		cost = 5
-		prerequisite = {
-			focus = pick_up_after_the_french
-		}
-		relative_position_id = pick_up_after_the_french
-		x = 0
-		y = 1
-		available = {
-			controls_state = 728
-			controls_state = 729
-			controls_state = 326
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = SIA_plundered_investments
-				days = 720
-			}
-		}
-	}
-
-	focus = {
-		id = exploit_south_burma
-		icon = GFX_focus_RAJ_seven_shackles
-		cost = 8
-		prerequisite = {
-			focus = proclaim_the_siamese_empire
-		}
-		relative_position_id = proclaim_the_siamese_empire
-		x = -2
-		y = 1
-		available = {
-			controls_state = 994
-			controls_state = 999
-			controls_state = 993
-			controls_state = 640
-			controls_state = 995
-			controls_state = 996
-		}
-		completion_reward = {
-			994 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			999 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			993 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			640 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-			995 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-			996 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = exploit_north_burma
-		icon = GFX_focus_RAJ_seven_shackles
-		cost = 5
-		prerequisite = {
-			focus = exploit_south_burma
-		}
-		relative_position_id = exploit_south_burma
-		x = 0
-		y = 1
-		available = {
-			controls_state = 288
-			controls_state = 997
-			controls_state = 998
-		}
-		completion_reward = { 
-			288 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-			997 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-			998 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = full_force_forward
-		icon = GFX_focus_GER_our_place_in_the_sun
-		cost = 5
-		prerequisite = {
-			focus = proclaim_the_siamese_empire
-		}
-		relative_position_id = proclaim_the_siamese_empire
-		available = {
-			has_war = yes
-		}
-		x = 0
-		y = 1
-		completion_reward = { 
-			add_political_power = 50
-			add_to_variable = {
-				SIA_new_core_attack = 0.05
-				SIA_new_core_defense = 0.05
-			}
-			custom_effect_tooltip = SIA_fff_tt
-		}
-	}
-
-	focus = {
-		id = blood_and_glory
-		icon = GFX_focus_ITA_generic_fascist_workers
-		cost = 10
-		prerequisite = {
-			focus = full_force_forward
-		}
-		relative_position_id = full_force_forward
-		x = 0
-		y = 2
-		completion_reward = {
-			add_to_variable = {
-				SIA_new_pp_gain = 0.4
-			}
-			add_to_variable = {
-				SIA_new_war_stability = 0.2
-			}
-			custom_effect_tooltip = SIA_blood_and_glory_tt
-		}
-	}
-
-	focus = {
-		id = the_golden_city
-		icon = GFX_focus_ARG_march_to_la_casa_rosada
-		cost = 5
-		prerequisite = {
-			focus = proclaim_the_siamese_empire
-		}
-		relative_position_id = proclaim_the_siamese_empire
-		x = 2
-		y = 1
-		available = {
-			controls_state = 336
-		}
-		completion_reward = {
-			336 = {
-				add_extra_state_shared_building_slots = 6
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-				add_building_construction = {
-					type = dockyard
-					level = 4
-				}
-			}
-			add_to_variable = {
-				SIA_new_research = 0.05
-			}
-			custom_effect_tooltip = SIA_the_golden_city_tt
-		}
-	}
-
-	focus = {
-		id = malayan_naval_base
-		icon = GFX_focus_BEL_antwerp_maritime_academy
-		cost = 10
-		prerequisite = {
-			focus = the_golden_city
-		}
-		available = {
-			controls_state = 333
-		}
-		relative_position_id = the_golden_city
-		x = 0
-		y = 1
-		completion_reward = {
-			333 = {
-				add_extra_state_shared_building_slots = 5
-				add_building_construction = {
-					type = dockyard
-					level = 5
-					instant_build = yes
-				}
-			}
-
-			336 = {
-				add_extra_state_shared_building_slots = 5
-				add_building_construction = {
-					type = dockyard
-					level = 5
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = manila_guard
-		icon = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
-		cost = 5
-		prerequisite = {
-			focus = proclaim_the_siamese_empire
-		}
-		relative_position_id = proclaim_the_siamese_empire
-		x = 4
-		y = 1
-
-		available = {
-			controls_state = 327
-			controls_state = 623
-			controls_state = 624
-		}
-
-		completion_reward = {
-			327 = {
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-				}
-			}
-			623 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-			624 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = filipino_working_class
-		icon = GFX_focus_CHL_enlarge_the_textile_industries
-		cost = 5
-		prerequisite = {
-			focus = manila_guard
-		}
-		relative_position_id = manila_guard
-		x = 0
-		y = 1
-		available = {
-			controls_state = 628
-			controls_state = 625
-			controls_state = 626
-			controls_state = 627
-		}
-		completion_reward = { 
-			add_timed_idea = {
-				idea = SIA_filipino_working_class
-				days = 720
-			}
-		}
-	}
-
-	focus = {
-		id = starve_out_the_indians
-		icon = GFX_focus_RAJ_specialized_dietery_requirements
-		cost = 10
-		prerequisite = {
-			focus = plunder_allied_investments
-			focus = exploit_north_burma
-		}
-		relative_position_id = plunder_allied_investments
-		x = 1
-		y = 1
-		completion_reward = { 
-			RAJ = {
-				add_war_support = -0.10
-				add_stability = -0.10
-			}
-		}
-	}
-
-	focus = {
-		id = box_in_the_australians
-		icon = GFX_focus_GER_japanese_naval_cooperation
-		cost = 10
-		prerequisite = {
-			focus = malayan_naval_base
-			focus = filipino_working_class
-		}
-		relative_position_id = malayan_naval_base
-		x = 1
-		y = 1
-		completion_reward = {
-			AST = {
-				add_war_support = -0.10
-				add_stability = -0.10
-			}
-		}
-	}
-
-	focus = {
-		id = siam_dominates_all
-		icon = GFX_focus_BEL_order_of_the_golden_lion
-		cost = 10
-		prerequisite = {
-			focus = box_in_the_australians
-		}
-		prerequisite = {
-			focus = blood_and_glory
-		}
-		prerequisite = {
-			focus = starve_out_the_indians
-		}
-		relative_position_id = blood_and_glory
-		x = 0
-		y = 2
-		completion_reward = {
-			add_stability = 0.15
-			add_war_support = 0.15
-			add_political_power = 200
-			add_to_variable = {
-				SIA_new_core_attack = 0.10
-				SIA_new_core_defense = 0.10
-			}
-			custom_effect_tooltip = SIA_siam_dominates_tt
 		}
 	}
 

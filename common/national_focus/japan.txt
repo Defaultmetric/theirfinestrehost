@@ -992,7 +992,7 @@
 		y = 0
 		relative_position_id = JAP_the_unthinkable_option
 
-		cost = 4
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -1030,7 +1030,10 @@
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			remove_ideas = { JAP_kodoha_faction }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.1
+			add_political_power = 50
 			hidden_effect = {
 				if = {
 					limit = {
@@ -1049,7 +1052,7 @@
 		id = JAP_liaison_conference
 		icon = GFX_focus_AFG_establish_darulaman
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
@@ -1089,7 +1092,7 @@
 		y = 1
 		relative_position_id = JAP_liaison_conference
 
-		cost = 4
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -1116,6 +1119,7 @@
 				}
 				JAP_create_ignatius_lincoln_operative = yes
 			}
+			add_political_power = 50
 		}
 	}
 
@@ -1128,7 +1132,7 @@
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere
 
-		cost = 10
+		cost = 5
 
 		available = { 
 			is_subject = no 
@@ -1238,7 +1242,7 @@
 		y = 1
 		relative_position_id = JAP_intervene_in_china
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 3
@@ -1276,50 +1280,35 @@
 	}
 
 	focus = {
-		id = JAP_develop_chinese_resources
-		icon = GFX_focus_generic_aluminum
+		id = JAP_terrors_from_the_battlefield
+		icon = GFX_focus_generic_total_war
 		prerequisite = { focus = JAP_secure_china }
 		x = 0
-		y = 2
-		relative_position_id = JAP_intervene_in_china
+		y = 1
+		relative_position_id = JAP_secure_china
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-			has_full_control_of_state = 605
-			has_full_control_of_state = 325
-		}
-
-		bypass = {
-
-		}
+		cost = 5
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			605 = {
-				add_resource = {
-					type = aluminium
-					amount = 20
-				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_army_tt
+			add_to_variable = {
+				JAP_mil_max_cp = 0.1
+				tooltip = max_command_power_mult_tt
 			}
-			325 = {
-				add_resource = {
-					type = aluminium
-					amount = 24
-				}
+			add_to_variable = {
+				JAP_mil_attrition = -0.1
+				tooltip = JAP_mil_attrition_bonus_tt
 			}
-			if = {
-				limit = { has_dlc = "Waking the Tiger" }
-				unlock_decision_category_tooltip = prospect_for_resources
-			}
+			add_to_variable = {
+				JAP_mil_reinforce_rate = 0.05
+			}	
+
 		}
 	}
 
@@ -1402,6 +1391,7 @@
 		id = JAP_non_aggression_pact_with_the_soviet_union
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = JAP_strike_south_doctrine }
+		prerequisite = { focus = JAP_secure_china }
 		x = 0
 		y = 2
 		relative_position_id = JAP_strike_south_doctrine
@@ -1830,96 +1820,6 @@
 	}
 
 	focus = {
-		id = JAP_exploit_the_southern_resource_area
-		icon = GFX_focus_generic_coal_mining
-		prerequisite = { focus = JAP_strike_on_the_southern_resource_area }
-		prerequisite = { focus = JAP_coal_liquification }
-		x = 1
-		y = 1
-		relative_position_id = JAP_strike_on_the_southern_resource_area
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 10
-		}
-
-		available = {
-			OR = {
-				has_full_control_of_state = 333
-				has_full_control_of_state = 672
-				has_full_control_of_state = 334
-			}
-			has_full_control_of_state = 336
-			has_full_control_of_state = 671
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			336 = {
-				add_resource = {
-					type = aluminium
-					amount = 12
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			333 = {
-				if = {
-					limit = { is_fully_controlled_by = ROOT }
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			672 = {
-				if = {
-					limit = { is_fully_controlled_by = ROOT }
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			334 = {
-				if = {
-					limit = { is_fully_controlled_by = ROOT }
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			671 = {
-				add_resource = {
-					type = aluminium
-					amount = 6
-				}
-			}
-			if = {
-				limit = { has_dlc = "Waking the Tiger" }
-				unlock_decision_category_tooltip = prospect_for_resources
-			}
-		}
-	}
-
-	focus = {
 		id = JAP_sign_tripartite_pact
 		icon = GFX_goal_anschluss
 		prerequisite = { focus = JAP_liaison_conference }
@@ -2010,10 +1910,40 @@
 	}
 
 	focus = {
+		id = JAP_spanish_volunteers
+		icon = GFX_focus_ARG_invite_spanish_nationalists
+		prerequisite = { focus = JAP_sign_tripartite_pact }
+		x = 1
+		y = 1
+		relative_position_id = JAP_sign_tripartite_pact
+
+		cost = 2
+
+		available = 
+		{
+			any_other_country = {
+					original_tag = SPR
+					has_government = fascism
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 1
+					}
+				}
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = JAP_legion_condor_ns
+				days = 365
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_guide_the_zaibatsus
 		icon = GFX_focus_jap_zaibatsu
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
@@ -2038,23 +1968,6 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = JAP_zaibatsus_factories
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-					instant_build = yes
-				}
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			swap_ideas = {
-				remove_idea = JAP_zaibatsus
-				add_idea = JAP_guide_the_zaibatsus				
-			}
-		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -2074,135 +1987,40 @@
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 4
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_zaibatsus_factories
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			swap_ideas = {
-				remove_idea = JAP_zaibatsus
-				add_idea = JAP_guide_the_zaibatsus
+			custom_effect_tooltip = JAP_zaibatsus_tt
+			add_to_variable = {
+				JAP_ind_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
 			}
+			add_to_variable = {
+				JAP_ind_civ_construction_speed = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			add_to_variable = {
+				JAP_ind_mill_construction_speed = 0.05
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			
 		}
 	}
 
-	focus = {
-		id = JAP_nationalize_war_industry
-		icon = GFX_focus_generic_modernize_industry
-		prerequisite = { focus = JAP_guide_the_zaibatsus }
-		prerequisite = { focus = JAP_national_mobilization_law }
-		x = 0
-		y = 2
-		relative_position_id = JAP_guide_the_zaibatsus
-
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 3
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = JAP_nationalize_war_industry_AF
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 4
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = JAP_nationalize_war_industry_IC
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-					instant_build = yes
-				}
-			}
-		}
-
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-					is_core_of = ROOT
-					not = {
-						OR = {
-							state = 646
-							state = 645
-							state = 555
-						}
-					}
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 4
-					instant_build = yes
-				}
-				set_state_flag = JAP_nationalize_war_industry_AF
-			}
-			random_owned_controlled_state = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-					is_core_of = ROOT
-					not = {
-						OR = {
-							state = 646
-							state = 645
-							state = 555
-						}
-					}					
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-					instant_build = yes
-				}
-				set_state_flag = JAP_nationalize_war_industry_IC
-			}
-		}
-	}
 
 	focus = {
 		id = JAP_coal_liquification
-		icon = GFX_goal_generic_oil_refinery
-		prerequisite = { focus = JAP_nationalize_war_industry }
-		x = 0
-		y = 5
-		relative_position_id = JAP_guide_the_zaibatsus
+		icon = GFX_SOV_synthetic_rubber_ccp_2d_sov_compatibility
+		prerequisite = { focus = JAP_autarky }
+		x = 6
+		y = 0
+		relative_position_id = JAP_sign_tripartite_pact
 
 
 		cost = 5
@@ -2265,10 +2083,11 @@
 	}
 
 	focus = {
-		id = JAP_national_mobilization_law
-		icon = GFX_goal_generic_axis_build_infantry
+		id = JAP_war_machine
+		icon = GFX_focus_generic_military_industry
 		prerequisite = { focus = JAP_guide_the_zaibatsus }
-		x = 2
+		mutually_exclusive = { focus  = JAP_autarky}
+		x = -1
 		y = 1
 		relative_position_id = JAP_guide_the_zaibatsus
 
@@ -2276,23 +2095,6 @@
 
 		ai_will_do = {
 			factor = 2
-		}
-
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = JAP_the_unthinkable_option
-						has_completed_focus = JAP_strengthen_civilian_government
-					}
-				}
-			}
 		}
 
 		available = {
@@ -2310,36 +2112,54 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			if = {
-				limit = {	
-					has_war_support < 0.5
-				}
-				add_war_support = 0.1
-			}
-			else_if = {
-				limit = {
-					has_idea = war_economy
-				}
-				add_political_power = 150
-			}
-			else = {
 				add_ideas = war_economy
+				custom_effect_tooltip = generic_skip_one_line_tt
+				random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_mill_construction_speed = 0.05
+				tooltip = production_speed_arms_factory_factor_tt
+				}
 			}
 		}
 	}
 
 	focus = {
-		id = JAP_national_research_policy
-		icon = GFX_focus_research
-		prerequisite = { focus = JAP_national_mobilization_law }
+		id = JAP_nationalize_war_industry
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { focus = JAP_war_machine}
 		x = 0
-		y = 1
-		relative_position_id = JAP_national_mobilization_law
+		y = 2
+		relative_position_id = JAP_war_machine
 
-		cost = 10
+
+		cost = 5
 
 		ai_will_do = {
-			factor = 4
+			factor = 3
 		}
 
 		available = {
@@ -2354,20 +2174,451 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
-			add_research_slot = 1
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = JAP_nationalize_war_industry_AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				set_state_flag = JAP_nationalize_war_industry_IC
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_mill_construction_speed = 0.05
+				tooltip = production_speed_arms_factory_factor_tt
+				}
+				add_to_variable = {
+				JAP_ind_civ_construction_speed = -0.15
+				tooltip = production_speed_industrial_complex_factor_tt
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_better_production_techniques
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = JAP_nationalize_war_industry}
+		x = -1
+		y = 1
+		relative_position_id = JAP_nationalize_war_industry
+
+
+		cost = 10
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+        		name = JAP_industry_bonus
+        		bonus = 1.0
+        		uses = 1
+        		category = industry
+        		ahead_reduction = 1
+    		}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_zaibatsus_tt
+			add_to_variable = {
+				JAP_ind_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				JAP_ind_factory_output = 0.075
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				MON_ind_prod_eff_base = 0.1
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
+			add_to_variable = {
+				MON_ind_prod_eff_retention = 0.1
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}	
+		}
+	}
+
+	focus = {
+		id = JAP_autarky
+		icon = GFX_focus_GER_autarky_ambitions
+		prerequisite = { focus = JAP_guide_the_zaibatsus }
+		mutually_exclusive = { focus  = JAP_war_machine}
+		x = 1
+		y = 1
+		relative_position_id = JAP_guide_the_zaibatsus
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+				random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+				add_tech_bonus = {
+					name = excavation_bonus
+					bonus = 1
+					uses = 1
+					category = excavation_tech
+					ahead_reduction = 1
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				JAP_ind_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+				}
+		}
+	}
+
+	focus = {
+		id = JAP_oil_exploration
+		icon = GFX_SOV_oil_production_ccp_2d_sov_compatibility
+		cost = 5
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		prerequisite = {
+			focus = JAP_autarky
+		}
+		x = 2
+		y = 2
+		relative_position_id = JAP_autarky
+		completion_reward = {
+			529 = {
+				add_resource = {
+					type = oil
+					amount = 24
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_Tokyo_steel_refinery
+		icon = GFX_SOV_steel_casting_industry_ccp_2d_sov_compatibility
+		prerequisite = { focus = JAP_autarky }
+		x = 0
+		y = 2
+		relative_position_id = JAP_autarky
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+			282 = {
+				add_resource = {
+					type = steel
+					amount = 24
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+				random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+				}
+				add_to_variable = {
+				JAP_ind_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_develop_chinese_resources
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = JAP_autarky }
+		prerequisite = { focus = JAP_coal_liquification }
+		x = 1
+		y = 1
+		relative_position_id = JAP_autarky
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_full_control_of_state = 605
+			has_full_control_of_state = 325
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			605 = {
+				add_resource = {
+					type = aluminium
+					amount = 20
+				}
+			}
+			325 = {
+				add_resource = {
+					type = aluminium
+					amount = 24
+				}
+			}
+			if = {
+				limit = { has_dlc = "Waking the Tiger" }
+				unlock_decision_category_tooltip = prospect_for_resources
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+				}
+		}
+	}
+	focus = {
+		id = JAP_exploit_the_southern_resource_area
+		icon = GFX_focus_generic_coal_mining
+		prerequisite = { focus = JAP_develop_chinese_resources }
+
+		x = 0
+		y = 2
+		relative_position_id = JAP_develop_chinese_resources
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				has_full_control_of_state = 333
+				has_full_control_of_state = 672
+				has_full_control_of_state = 334
+			}
+			has_full_control_of_state = 336
+			has_full_control_of_state = 671
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			336 = {
+				add_resource = {
+					type = aluminium
+					amount = 12
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			333 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			672 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			334 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			671 = {
+				add_resource = {
+					type = aluminium
+					amount = 24
+				}
+			}
+			if = {
+				limit = { has_dlc = "Waking the Tiger" }
+				unlock_decision_category_tooltip = prospect_for_resources
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_zaibatsus_tt
+				add_to_variable = {
+				JAP_ind_local_resources = 0.05
+				tooltip = local_resources_factor_tt
+				}
 		}
 	}
 
 	focus = {
 		id = JAP_imperial_arsenals
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = JAP_national_mobilization_law }
 		prerequisite = { focus = JAP_challenge_the_zaibatsus }
 		x = 2
 		y = 1
-		relative_position_id = JAP_national_mobilization_law
 
 		cost = 10
 
@@ -2468,12 +2719,66 @@
 	}
 
 	focus = {
+		id = JAP_national_mobilization_law ##EMPTY FOR NO ERRORS
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = JAP_imperial_arsenals }
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
+		id = JAP_bomber_modernization ##EMPTY FOR NO ERRORS
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = JAP_imperial_arsenals }
+		x = 0
+		y = 1
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		
+		completion_reward = {
+			
+		}
+	}
+
+	focus = {
 		id = JAP_national_defense_state
 		icon = GFX_focus_generic_full_social_mobilization
-		prerequisite = { focus = JAP_nationalize_war_industry  }
-		x = -2
-		y = 1
-		relative_position_id = JAP_imperial_arsenals
+		prerequisite = {focus = JAP_nationalize_war_industry focus = JAP_Tokyo_steel_refinery}
+		x = -1
+		y = 3
+		relative_position_id = JAP_autarky
 
 		cost = 10
 
@@ -2512,20 +2817,16 @@
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			if = {
-				limit = {
-					has_war_support < 0.8
-				}
-				add_war_support = 0.1
+			add_ideas = tot_economic_mobilisation
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_zaibatsus_tt
+			add_to_variable = {
+				JAP_ind_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
 			}
-			else_if = {
-				limit = {
-					has_idea = tot_economic_mobilisation
-				}
-				add_political_power = 150
-			}
-			else = {
-				add_ideas = tot_economic_mobilisation
+			add_to_variable = {
+				JAP_ind_factory_output = 0.05
+				tooltip = industrial_capacity_factory_tt
 			}
 		}
 	}
@@ -2571,7 +2872,7 @@
 		y = 1
 		relative_position_id = JAP_national_defense_state
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2598,6 +2899,21 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_army_tt
+				add_to_variable = {
+					JAP_mil_attack = 0.05
+					tooltip = army_attack_factor_tt
+				}
+				add_to_variable = {
+					JAP_mil_defense = 0.05
+					tooltip = army_defence_factor_tt
+				}
+				add_to_variable = {
+					JAP_mil_morale = 0.05
+					tooltip = army_morale_factor_tt
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				set_rule = {
 					can_use_kamikaze_pilots = yes
@@ -2610,48 +2926,7 @@
 				}
 				custom_effect_tooltip = cost_reduced_last_stand 
 			}
-		}
-	}
 
-	focus = {
-		id = JAP_strengthen_the_divine_wind
-		icon = GFX_goal_generic_secret_weapon
-		prerequisite = { focus = JAP_spiritual_mobilization }
-		prerequisite = { focus = JAP_warrior_spirit }
-		x = 1
-		y = 1
-		relative_position_id = JAP_spiritual_mobilization
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 3
-		}
-
-		available = {
-			is_special_project_completed = sp:sp_rocket_interceptor
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_dlc = "By Blood Alone" }
-				}
-				custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect
-				hidden_effect = { set_technology = { suicide_craft = 1 } }
-			}
-			else = {
-				custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
-				hidden_effect = { set_technology = { suicide_charge = 1 popup = no} }
-			}
 		}
 	}
 
@@ -4343,7 +4618,7 @@
 	focus = {
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
-		x = -3
+		x = -2
 		y = 0
 		relative_position_id = JAP_strengthen_civilian_government
 
@@ -4387,8 +4662,41 @@
 	}
 
 	focus = {
+		id = JAP_demand_manchukuo_submission
+		icon = GFX_focus_generic_annex_country_2
+		x = 1
+		y = 2
+		relative_position_id = JAP_the_manchurian_project
+		prerequisite = { focus = JAP_the_manchurian_project}
+
+		cost = 1
+
+		available = {
+			MAN = { is_subject_of = ROOT }
+			MAN = { is_ai = yes }
+			NOT = 
+			{
+				has_completed_focus = JAP_united_manchukuo
+			} 
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+            annex_country = { target = MAN }
+        }
+	}
+
+	focus = {
 		id = JAP_expand_the_showa_steel_works
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_generic_steel
 		prerequisite = { focus = JAP_the_manchurian_project }
 		x = 2
 		y = 1
@@ -4560,7 +4868,7 @@
 
 	focus = {
 		id = JAP_light_industry_development
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_CHL_enlarge_the_textile_industries
 		prerequisite = { focus = JAP_expand_manchurian_railways }
 		x = -1
 		y = 1
@@ -4602,7 +4910,7 @@
 
 	focus = {
 		id = JAP_heavy_industry_development
-		icon = GFX_goal_generic_build_tank
+		icon = GFX_SOV_industrial_modernization_ccp_2d_sov_compatibility
 		prerequisite = { focus = JAP_expand_manchurian_railways }
 		x = 1
 		y = 1
@@ -4644,7 +4952,7 @@
 
 	focus = {
 		id = JAP_japanese_settlement
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_focus_DEN_civilian_preparations
 		prerequisite = { focus = JAP_heavy_industry_development }
 		prerequisite = { focus = JAP_light_industry_development }
 		x = 0
@@ -4695,6 +5003,80 @@
 					instant_build = yes
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = JAP_united_manchukuo
+		icon = GFX_SOV_call_for_aid_ccp_2d_sov_compatibility
+		prerequisite = { focus = JAP_japanese_settlement }
+		x = 0
+		y = 1
+		relative_position_id = JAP_japanese_settlement
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			JAP = 
+			{
+				has_full_control_of_state = 525
+				has_full_control_of_state = 527
+				has_full_control_of_state = 609
+				has_full_control_of_state = 745
+			}
+			MAN = {is_subject_of = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+
+			MAN = 
+			{
+				transfer_state = 527
+				transfer_state = 609
+				transfer_state = 525
+				transfer_state = 745
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			528 = 
+			{
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			536 = 
+			{
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			537 = 
+			{
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}	
 		}
 	}
 
@@ -4755,7 +5137,7 @@
 
 	focus = {
 		id = JAP_army_expansion_law
-		icon = GFX_goal_generic_army_doctrines
+		icon = GFX_focus_generic_fascist_troops
 		x = 6
 		y = 0
 		relative_position_id = JAP_the_manchurian_project 
@@ -4784,14 +5166,15 @@
 
 
 		completion_reward = {
+			add_ideas = extensive_conscription
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 50
-			air_experience = 50
 		}
 	}
 
 	focus = {
 		id = JAP_small_arms_modernization
-		icon = GFX_goal_generic_small_arms
+		icon = GFX_focus_ETH_freedom_at_gunpoint
 		prerequisite = { focus = JAP_army_expansion_law }
 		x = -1
 		y = 1
@@ -4839,6 +5222,50 @@
 	}
 
 	focus = {
+		id = JAP_Manchukuo_small_arms
+		icon = GFX_focus_generic_reorient_production
+		prerequisite = { focus = JAP_small_arms_modernization }
+		prerequisite = { focus = JAP_expand_the_showa_steel_works }
+		x = -2
+		y = 1
+		relative_position_id = JAP_small_arms_modernization
+
+		cost = 5
+
+		available = {
+			MAN = {is_subject_of = JAP}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			328 = {	
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			MAN = {
+			add_tech_bonus = {
+				bonus = 2.0
+				uses = 1
+				category = infantry_weapons	
+			}
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_supremacy_of_technology
 		icon = GFX_focus_ARG_universidad_de_buenos_aires
 		prerequisite = { focus = JAP_small_arms_modernization }
@@ -4871,7 +5298,22 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_ideas = JAP_supremacy_of_technology
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_dynamic_modifier = {
+       			modifier = JAP_supremacy_of_tech_dyn
+   			}
+			add_to_variable = {
+				JAP_special_project_speed_factor = 0.10
+				tooltip = special_project_speed_factor_tt
+			}
+			add_to_variable = {
+				JAP_production_speed_facility_factor = 0.10
+				tooltip = production_speed_facility_factor_tt
+			}
+
+
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_research_slot = 1
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4970,8 +5412,8 @@
 		id = JAP_armored_divisions
 		icon = GFX_focus_generic_tank_assault
 		prerequisite = { focus = JAP_supremacy_of_technology }
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = JAP_supremacy_of_technology
 
 		cost = 10
@@ -4996,19 +5438,35 @@
 		completion_reward = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_supremacy_tech_tt
+			add_to_variable = { 
+				JAP_sp_tag_tank_speed_factor = 0.1
+				tooltip = sp_tag_tank_speed_factor_tt
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_army_tt
+				add_to_variable = {
+					JAP_mil_org = 0.05
+					tooltip = army_org_factor_tt
+				}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_tech_bonus = {
-			name = JAP_mech1_bonus
-			bonus = 2.0
-			uses = 1
-			technology = mechanised_infantry
-		}
+				name = JAP_mech1_bonus
+				bonus = 2.0
+				uses = 1
+				technology = mechanised_infantry
+				ahead_reduction = 1
+			}
+
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_tech_bonus = {
 				name = JAP_armored_divisions
 				bonus = 1
-				uses = 3
+				uses = 2
 				category = armor	
 			}
 
@@ -5024,12 +5482,89 @@
 	}
 
 	focus = {
-		id = JAP_miltary_comms_industry
-		icon = GFX_goal_generic_radar
-		prerequisite = { focus = JAP_supremacy_of_technology focus = JAP_supremacy_of_will }
-		x = 1
-		y = 1
+		id = JAP_UNO_reverse_card
+		icon = GFX_SOV_soviet_atomic_bomb_project_ccp_2d_sov_compatibility
+		prerequisite = { focus = JAP_supremacy_of_technology }
+		x = 0
+		y = 2
 		relative_position_id = JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+			IF = {
+					limit = {
+						530 = {
+							is_fully_controlled_by = ROOT
+							air_facility < 1
+							land_facility < 1
+							naval_facility < 1
+							nuclear_facility < 1
+						}
+					}
+					530 = {
+						add_building_construction = {
+							type = nuclear_facility
+							level = 1
+							instant_build = yes
+							province = 4094
+						}
+					}
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.35
+			}
+			add_tech_bonus = {
+				name = MON_atomic_bonus
+				category = nuclear
+				bonus = 1
+				uses = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_supremacy_tech_tt
+			add_to_variable = { 
+				JAP_sp_nuclear_reactor_speed_factor = 0.1
+				tooltip = sp_nuclear_reactor_speed_factor_tt
+			}
+			add_to_variable = { 
+				JAP_sp_nuclear_bomb_speed_factor = 0.1
+				tooltip = sp_nuclear_bomb_speed_factor_tt
+			}
+			add_to_variable = { 
+				JAP_sp_nuclear_warheads_speed_factor = 0.1
+				tooltip = sp_nuclear_warheads_speed_factor_tt
+			}
+		}
+	}
+
+	focus = {
+		id = JAP_miltary_comms_industry
+		icon = GFX_goal_generic_radar 
+		prerequisite = { focus = JAP_army_expansion_law focus = JAP_new_air_estimates}
+		x = 3
+		y = 1
+		relative_position_id = JAP_army_expansion_law
 
 		cost = 5
 
@@ -5060,16 +5595,48 @@
 			}
 		}
 	}
+	focus = {
+		id = JAP_experimental_rotorcrafts
+		icon = GFX_focus_generic_early_helicopter
+		prerequisite = { focus = JAP_miltary_comms_industry}
+		prerequisite = { focus = JAP_new_air_estimates}
+
+		x = 1
+		y = 1
+		relative_position_id = JAP_miltary_comms_industry
+
+		cost = 5
+		available = {
+			has_completed_focus = JAP_supremacy_of_technology
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_supremacy_tech_tt
+			add_to_variable = {
+			JAP_sp_air_helicopter_speed_factor = 0.1
+			tooltip = sp_air_helicopter_speed_factor_tt
+		}
+
+		}
+	}
 
 	focus = {
 		id = JAP_army_expansion
-		icon = GFX_goal_generic_army_artillery
+		icon = GFX_focus_CHL_departemento_de_las_tropas_nacistas_de_asalto
 		prerequisite = { focus = JAP_army_expansion_law }
 		x = 1
 		y = 1
 		relative_position_id = JAP_army_expansion_law
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5093,6 +5660,8 @@
 
 
 		completion_reward = {
+			add_ideas = USA_womens_armed_service_integration_act
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = hajime_sugiyama
 		}
@@ -5131,7 +5700,54 @@
 
 
 		completion_reward = {
-			add_ideas = JAP_superior_will 
+			custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = JAP_army_tt
+				add_to_variable = {
+					JAP_mil_attack = 0.05
+					tooltip = army_attack_factor_tt
+				}
+				add_to_variable = {
+					JAP_mil_defense = 0.05
+					tooltip = army_defence_factor_tt
+				}
+				add_to_variable = {
+					JAP_mil_morale = 0.05
+					tooltip = army_morale_factor_tt
+				}
+		}
+	}
+
+	focus = {
+		id = JAP_elites
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		cost = 10
+		prerequisite = {
+			focus = JAP_supremacy_of_will
+		}
+		relative_position_id = JAP_supremacy_of_will
+		x = 1
+		y = 1
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_army_tt
+			add_to_variable = {
+				JAP_mil_planning_speed = 0.05
+				tooltip = planning_speed_factor_tt
+				}
+			add_to_variable = {
+				JAP_mil_max_planning = 0.05
+				tooltip = max_planning_factor_tt
+			}
+			add_to_variable = {
+				JAP_mil_training = -0.1
+				tooltip = training_time_factor_tt
+			}
+			add_to_variable = {
+				JAP_mil_max_cp = 0.1
+				tooltip = max_command_power_mult_tt
+			}
+
+
 		}
 	}
 
@@ -5188,12 +5804,64 @@
 	}
 
 	focus = {
+		id = JAP_new_air_estimates
+		icon = GFX_focus_generic_cas_aircraft
+		x = 25
+		y = 0
+
+		cost = 5
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 3
+				category = air_equipment
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			air_experience = 50
+		}
+	}
+	
+	focus = {
 		id = JAP_fighter_modernization
-		icon = GFX_goal_generic_air_fighter2
-		prerequisite = { focus = JAP_army_expansion_law focus = JAP_new_naval_estimates }
-		x = 4
+		icon = GFX_focus_PER_luftwaffe_planes
+		prerequisite = { focus = JAP_new_air_estimates }
+		x = 0
 		y = 2
-		relative_position_id = JAP_army_expansion_law
+		relative_position_id = JAP_new_air_estimates
 
 		cost = 10
 
@@ -5232,6 +5900,9 @@
 				uses = 1
 				category = cat_heavy_fighter	
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			random_owned_controlled_state = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
@@ -5254,8 +5925,9 @@
 
 	focus = {
 		id = JAP_range_focus
-		icon = GFX_goal_generic_air_production
+		icon = GFX_SOV_long_range_aircraft_ccp_2d_sov_compatibility
 		prerequisite = { focus = JAP_fighter_modernization }
+		mutually_exclusive = {focus = JAP_agility_focus }
 		x = -1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
@@ -5280,6 +5952,15 @@
 
 
 		completion_reward = {
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_air_tt
+		add_to_variable = {
+			JAP_airforce_air_range = 0.05
+			tooltip = air_range_factor_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -5299,21 +5980,14 @@
 
 	focus = {
 		id = JAP_agility_focus
-		icon = GFX_goal_generic_air_production
+		icon = GFX_focus_chi_flying_tigers
 		prerequisite = { focus = JAP_fighter_modernization }
+		mutually_exclusive = {focus = JAP_range_focus }
 		x = 1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
 
 		cost = 5
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 2
-				has_completed_focus = JAP_purge_the_kodoha_faction
-			}
-		}
 
 		available = {
 
@@ -5329,7 +6003,15 @@
 
 
 		completion_reward = {
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_air_tt
+		add_to_variable = {
+			JAP_airforce_air_agility = 0.10
+			tooltip = air_agility_factor_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
 
+			
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -5357,7 +6039,7 @@
 	focus = {
 		id = JAP_the_zero
 		icon = GFX_focus_jap_zero
-		prerequisite = { focus = JAP_first_air_fleet }
+		prerequisite = { focus = JAP_first_air_fleet  }
 		prerequisite = { focus = JAP_agility_focus }
 		x = 1
 		y = 1
@@ -5418,21 +6100,61 @@
 	}
 
 	focus = {
-		id = JAP_bomber_modernization
-		icon = GFX_goal_generic_CAS
-		prerequisite = { focus = JAP_range_focus focus = JAP_agility_focus }
-		x = 0
+		id = JAP_amerikabomber
+		icon = GFX_focus_GER_amerikabomber
+		prerequisite = { focus = JAP_range_focus }
+		x = -2
 		y = 2
 		relative_position_id = JAP_fighter_modernization
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
 		}
 
 		available = {
+			has_completed_focus = JAP_supremacy_of_technology 
+		}
 
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_supremacy_tech_tt
+		add_to_variable = { 
+			JAP_sp_air_intercontinental_bomber_speed_factor = 0.2
+			tooltip = sp_air_intercontinental_bomber_speed_factor_tt
+		}
+		add_to_variable = { 
+			JAP_sp_air_mothership_aircraft_speed_factor =  0.1
+			tooltip = sp_air_mothership_aircraft_speed_factor_tt
+		}
+
+		}
+	}
+
+	focus = {
+		id = JAP_expand_dai_nippon_air_force
+		icon = GFX_focus_FIN_expand_air_force_academy
+		prerequisite = { focus = JAP_range_focus focus = JAP_agility_focus}
+		x = 0
+		y = 2
+		relative_position_id = JAP_fighter_modernization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
 		}
 
 		bypass = {
@@ -5445,26 +6167,41 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_tech_bonus = {
-				name = JAP_bomber_modernization
-				bonus = 1.0
-				uses = 1
-				category = cas_bomber
-				category = tactical_bomber					
-			}
-			add_tech_bonus = {
-				bonus = 0.25
-				uses = 3
-				category = air_equipment
-			}
+					custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_air_tt
+		add_to_variable = {
+			JAP_airforce_air_night_penalty = -0.05
+			tooltip = air_night_penalty_tt
+		}
+		add_to_variable = {
+			JAP_airforce_air_weather_penalty = -0.05
+			tooltip = air_weather_penalty_tt
+		}
+
+		add_to_variable = {
+			JAP_airforce_air_accidents_factor = -0.10
+			tooltip = air_accidents_factor_tt
+		}
+		add_to_variable = {
+			JAP_airforce_air_ace_generation_chance_factor = 0.10
+			tooltip = air_ace_generation_chance_factor_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+				add_to_variable = {
+			JAP_airforce_air_fuel_consumption_factor = 0.05
+			tooltip = air_fuel_consumption_factor_tt
+		}
+
+
 		}
 	}
 
 	focus = {
 		id = JAP_strategic_bomber_effort
-		icon = GFX_goal_generic_air_bomber
+		icon = GFX_focus_SWE_marauder_bombers
 		prerequisite = { focus = JAP_range_focus }
-		prerequisite = { focus = JAP_bomber_modernization }
+		prerequisite = { focus = JAP_expand_dai_nippon_air_force }
+
 		x = -1
 		y = 3
 		relative_position_id = JAP_fighter_modernization
@@ -5492,28 +6229,29 @@
 			add_tech_bonus = {
 				name = JAP_strategic_bomber_effort
 				bonus = 1.0
-				uses = 2
+				uses = 1
 				category = cat_strategic_bomber	
 			}
-			add_tech_bonus = {
-				name = MON_experimental_design_facility_bonus
-				bonus = 1
-				uses = 1
-				category = air_equipment
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_air_tt
+		add_to_variable = {
+			JAP_airforce_air_range = 0.025
+			tooltip = air_range_factor_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
 
 	focus = {
 		id = JAP_unified_fighter_development
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = JAP_agility_focus }
+		prerequisite = { focus = JAP_expand_dai_nippon_air_force }
 
 		x = 1
 		y = 3
 		relative_position_id = JAP_fighter_modernization
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -5533,13 +6271,24 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			remove_ideas = JAP_duplicate_research_efforts
+			custom_effect_tooltip = JAP_zaibatsus_tt
+			add_to_variable = {
+				JAP_ind_research_speed = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = MON_experimental_design_facility_bonus
+				bonus = 1
+				uses = 1
+				category = air_equipment
+			}
 		}
 	}
 
 	focus = {
 		id = JAP_jet_prototypes
-		icon = GFX_goal_generic_build_airforce
+		icon = GFX_focus_generic_jet_planes
 		prerequisite = { focus = JAP_unified_fighter_development focus = JAP_strategic_bomber_effort }
 		x = 0
 		y = 4
@@ -5552,7 +6301,7 @@
 		}
 
 		available = {
-
+			has_completed_focus = JAP_supremacy_of_technology
 		}
 
 		bypass = {
@@ -5578,13 +6327,22 @@
 				category = jet_technology
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_supremacy_tech_tt
+			
+		add_to_variable = { 
+			JAP_sp_tag_jet_speed_factor = 0.1
+			tooltip = sp_tag_jet_speed_factor_tt
+		}
+
+
 		}
 	}
 
 	focus = {
 		id = JAP_new_naval_estimates
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 8
+		x = 10
 		y = 0
 		relative_position_id = JAP_army_expansion_law
 
@@ -5635,20 +6393,6 @@
 		}
 
 		completion_reward = {
-			if = {
-				limit = {
-					not = { has_dlc = "Man the Guns" }
-				}
-				add_tech_bonus = {
-					name = JAP_supremacy_of_the_battlefleet
-					bonus = 1.0
-					uses = 1
-					category = shbb_tech	
-				}
-			}
-			else = {
-				navy_experience = 50
-			}
 			random_owned_controlled_state = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
@@ -5698,13 +6442,54 @@
 					instant_build = yes
 				}
 				set_state_flag = JAP_new_naval_estimates_DY2
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+			navy_experience = 50
+		}
+	}
+
+	focus = {
+		id = JAP_airborne_torpedoes
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = JAP_new_naval_estimates focus = JAP_new_air_estimates}
+		x = -2
+		y = 2
+		relative_position_id = JAP_new_naval_estimates
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			
+			add_tech_bonus = {
+				name = Jap_torp_bonus
+				bonus = 1
+				uses = 1
+				technology = homing_torpedo
+				technology = electric_torpedo
 			}
 		}
 	}
 
 	focus = {
 		id = JAP_carrier_warfare_experiments
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_focus_SMB_blue_water_fleet
 		prerequisite = { focus = JAP_new_naval_estimates }
 		mutually_exclusive = { focus = JAP_supremacy_of_the_battlefleet }
 		x = -1
@@ -5776,7 +6561,7 @@
 		y = 2
 		relative_position_id = JAP_new_naval_estimates
 
-		cost = 7
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -5822,68 +6607,127 @@
 					category = marine_tech	
 				}
 			}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_army_tt
+		add_to_variable = {
+			JAP_mil_spec_cap = 0.05
+			tooltip = special_forces_cap_tt
+		}
+		add_to_variable = {
+		JAP_mil_spec_training_time = -0.1
+		tooltip = special_forces_training_time_factor_tt
+		}
+		add_to_variable = {
+			JAP_mil_spec_marine_grace = 24
+			tooltip = extra_marine_supply_grace_tt
+		}
+
 		}
 	}
 
 	focus = {
-		id = JAP_first_air_fleet
-		icon = GFX_goal_generic_navy_carrier
-		prerequisite = { focus = JAP_carrier_warfare_experiments }
-		x = 0
-		y = 2
-		relative_position_id = JAP_carrier_warfare_experiments
+	id = JAP_first_air_fleet
+	icon = GFX_goal_generic_navy_carrier
+	prerequisite = { focus = JAP_carrier_warfare_experiments }
+	x = 0
+	y = 2
+	relative_position_id = JAP_carrier_warfare_experiments
 
-		cost = 4
+	cost = 5
 
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 2
-				has_completed_focus = JAP_purge_the_kodoha_faction
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_completed_focus = JAP_purge_the_kodoha_faction
+		}
+	}
+
+	available = {
+
+	}
+
+	bypass = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_completed_focus = JAP_supremacy_of_technology
 			}
-		}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_supremacy_tech_tt
+			add_to_variable = {
+				JAP_sp_naval_modern_carrier_speed_factor = 0.1
+				tooltip = sp_naval_modern_carrier_speed_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
 			add_ideas = JAP_first_air_fleet
-			random_owned_controlled_state = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-					is_core_of = ROOT	
-					not = {
-						OR = {
-							state = 646
-							state = 645
-							state = 555
-						}
-					}				
-					free_building_slots = {
-						building = dockyard
-						size > 1
-						include_locked = yes
+		random_owned_controlled_state = {
+			limit = {
+				ROOT = { has_full_control_of_state = PREV }
+				is_core_of = ROOT
+				not = {
+					OR = {
+						state = 646
+						state = 645
+						state = 555
 					}
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = dockyard
-					level = 2
-					instant_build = yes
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
 				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+			}
+		}
+		else = 
+		{
+		custom_effect_tooltip = JAP_hidden_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_ideas = JAP_first_air_fleet
+		random_owned_controlled_state = {
+			limit = {
+				ROOT = { has_full_control_of_state = PREV }
+				is_core_of = ROOT
+				not = {
+					OR = {
+						state = 646
+						state = 645
+						state = 555
+					}
+				}
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
 			}
 		}
 	}
+}
+
 
 	focus = {
 		id = JAP_modern_escorts
@@ -5924,7 +6768,7 @@
 
 	focus = {
 		id = JAP_supremacy_of_the_battlefleet
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_SOV_expand_the_red_fleet_ccp_2d_sov_compatibility
 		prerequisite = { focus = JAP_new_naval_estimates }
 		mutually_exclusive = { focus = JAP_carrier_warfare_experiments }
 		x = 1
@@ -6003,8 +6847,56 @@
 	}
 
 	focus = {
+		id = JAP_undersea_warfare
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = JAP_supremacy_of_the_battlefleet focus = JAP_cruiser_modernization}
+	
+		x = 1
+		y = 1
+		relative_position_id = JAP_supremacy_of_the_battlefleet
+		cost = 5
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			if = 
+			{
+				limit = 
+				{
+					has_completed_focus = JAP_supremacy_of_technology
+				}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = JAP_supremacy_tech_tt
+					add_to_variable = {
+					JAP_sp_tag_submarine_speed_factor = 0.1
+					tooltip = sp_tag_submarine_speed_factor_tt
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_tech_bonus = {
+				name = JAP_u_boat_efforts
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+				}
+			}
+			else = {
+			custom_effect_tooltip = JAP_hidden_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = JAP_u_boat_efforts
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_the_ultimate_battleship
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_focus_GER_high_seas_fleet
 		prerequisite = { focus = JAP_supremacy_of_the_battlefleet }
 		x = 0
 		y = 2
@@ -6017,15 +6909,9 @@
 		}
 
 		available = {
-			is_special_project_completed = sp:sp_naval_super_heavy_battleship
+
 		}
 
-		bypass = {
-			AND = {
-				has_tech = heavy_battleship
-				has_tech = heavy_battleship2
-			}
-		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6033,119 +6919,13 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.5
-			}
-
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}	
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = JAP_kure_naval_arsenal_organization
-			}
-
-			if = {
-				limit = {
-					not = { has_dlc = "Man the Guns" }
-				}
-				add_tech_bonus = {
-					name = JAP_the_ultimate_battleship
-					bonus = 2.0
-					uses = 1
-					category = shbb_tech	
-				}
-			}
-			else = {
-				#if = {
-					#limit = {
-						#not = { has_tech = ship_hull_super_heavy }
-					#}
-					#set_technology = {
-						#ship_hull_super_heavy = 1
-					#}
-				#}
-				create_equipment_variant = {
-					name = "Yamato Class"
-					type = ship_hull_super_heavy_1
-					name_group = JAP_BB_HISTORICAL
-					parent_version = 0
-					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
-					modules = {
-						fixed_ship_battery_slot = ship_super_heavy_battery_1
-						fixed_ship_anti_air_slot = ship_anti_air_2
-						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-						fixed_ship_radar_slot = empty
-						fixed_ship_engine_slot = heavy_ship_engine_2
-						fixed_ship_secondaries_slot = ship_secondaries_2
-						fixed_ship_armor_slot = ship_armor_shbb
-						front_1_custom_slot = ship_anti_air_1
-						front_2_custom_slot = empty
-						mid_1_custom_slot = empty
-						mid_2_custom_slot = ship_secondaries_2
-						mid_3_custom_slot = ship_secondaries_2
-						rear_1_custom_slot = ship_super_heavy_battery_1
-						rear_2_custom_slot = ship_airplane_launcher_1
-					}
-				}
-				custom_effect_tooltip = JAP_yamato_tt
-				random_owned_controlled_state = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-					is_core_of = ROOT	
-					not = {
-						OR = {
-							state = 646
-							state = 645
-							state = 555
-						}
-					}				
-					free_building_slots = {
-						building = dockyard
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 5
-				add_building_construction = {
-					type = dockyard
-					level = 5
-					instant_build = yes
-				}
-			}
-				hidden_effect = {
-					add_equipment_production = {
-						equipment = {
-							type = ship_hull_super_heavy_1
-							creator = "JAP" 
-							version_name = "Yamato Class"
-						}
-						name = "Yamato" 
-						requested_factories = 1
-						progress = 0.75
-						amount = 1
-					}
-					add_equipment_production = {
-						equipment = {
-							type = ship_hull_super_heavy_1
-							creator = "JAP" 
-							version_name = "Yamato Class"
-						}
-						name = "Musashi" 
-						requested_factories = 1
-						progress = 0.5
-						amount = 1
-					}
-				}
-			}
+			add_ideas = GER_seeherrschaft_ns
 		}
 	}
 
 	focus = {
 		id = JAP_cruiser_modernization
-		icon = GFX_goal_generic_navy_cruiser
+		icon = GFX_focus_generic_torpedo_production
 		prerequisite = { focus = JAP_new_naval_estimates }
 		x = 3
 		y = 1
@@ -6178,40 +6958,32 @@
 				category = cl_tech	
 				category = ca_tech	
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
-	}
-
-	focus = {
-		id = JAP_long_lance_torpedoes
-		icon = GFX_goal_generic_occupy_start_war
-		prerequisite = { focus = JAP_cruiser_modernization }
-		x = 0
-		y = 1
-		relative_position_id = JAP_cruiser_modernization
-
-		cost = 4
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
-			add_ideas = the_long_lance
-		}
-
 	}
 
 	focus = {
@@ -6219,11 +6991,11 @@
 
 		icon = GFX_goal_generic_navy_cruiser
 
-		prerequisite = { focus = JAP_long_lance_torpedoes }
+		prerequisite = { focus = JAP_cruiser_modernization }
 
 		x = 0
-		y = 1
-		relative_position_id = JAP_long_lance_torpedoes
+		y = 2
+		relative_position_id = JAP_cruiser_modernization
 
 		cost = 5
 
@@ -6266,6 +7038,40 @@
 			
 		}
 	}
+
+	focus = {
+		id = JAP_long_lance_torpedoes
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = JAP_the_ultimate_battleship }
+		prerequisite = { focus = JAP_torpedo_cruisers }
+		x = 1
+		y = 1
+		relative_position_id = JAP_the_ultimate_battleship
+
+		cost = 4
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = the_long_lance
+		}
+	}
+
 	focus = {
 		id = JAP_the_siamese_project
 		icon = GFX_focus_generic_spread_fascism
@@ -6642,6 +7448,96 @@
 				}
 			}
 			}
+			}
+		}
+	}
+	focus = {
+		id = JAP_national_research_policy
+		icon = GFX_focus_research
+		prerequisite = { focus = JAP_autarky focus = JAP_war_machine}
+		x = -1
+		y = 1
+		relative_position_id = JAP_autarky
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = JAP_zaibatsus_tt
+			add_to_variable = {
+				JAP_ind_research_speed = 0.075
+				tooltip = research_speed_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = JAP_strengthen_the_divine_wind
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { focus = JAP_miltary_comms_industry }
+		prerequisite = { focus = JAP_zaibatsus_legacy }
+		x = 0
+		y = 4
+		relative_position_id = JAP_miltary_comms_industry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			is_special_project_completed = sp:sp_rocket_interceptor
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = JAP_air_tt
+		add_to_variable = {
+			JAP_airforce_air_range = 0.05
+			tooltip = air_range_factor_tt
+		}
+		add_to_variable = {
+			JAP_airforce_air_agility = 0.05
+			tooltip = air_agility_factor_tt
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					NOT = { has_dlc = "By Blood Alone" }
+				}
+				custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect
+				hidden_effect = { set_technology = { suicide_craft = 1 } }
+			}
+			else = {
+				custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
+				hidden_effect = { set_technology = { suicide_charge = 1 popup = no} }
 			}
 		}
 	}

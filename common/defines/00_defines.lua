@@ -247,7 +247,7 @@ NDiplomacy = {
 	FACTION_LEADERSHIP_CHANGE_MANPOWER_WEIGHT = 2,			-- Importance of manpower in field when determining how close a faction member is to being able to assume leadership.
 	FACTION_LEADERSHIP_CHANGE_FACTORY_WEIGHT = 2,			-- Importance of factory count when determining how close a faction member is to being able to assume leadership.
 
-	EMBARGO_COST = 2001,										-- One-time cost
+	EMBARGO_COST = 100,										-- One-time cost
 	REVOKE_EMBARGO_COST = 0,								-- Cost to remove an existing embargo
 	EMBARGO_THREAT_THRESHOLD = 30,						-- Target-generated threat threshold to allow embargo (affected by modifiers)
 

@@ -4418,36 +4418,7 @@ focus_tree = {
 						}
 					}
 
-					send_embargo = SOV
-				}
-				else = {
-					send_embargo = GER
-				}
-			}
 
-			else = {
-				if = {
-					limit = {
-						has_country_leader = {
-							ruling_only = yes 
-							character = SWE_nils_flyg
-						}
-					}
-
-					SOV = {
-						add_opinion_modifier = {
-							target = PREV 
-							modifier = SWE_embargoed_us
-						}
-					}
-				}
-				else = {
-					GER = {
-						add_opinion_modifier = {
-							target = PREV 
-							modifier = SWE_embargoed_us
-						}
-					}
 				}
 			}
 

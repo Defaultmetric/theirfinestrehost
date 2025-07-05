@@ -1,11 +1,14 @@
 SIA_siamese_empire = {
+
 	SIA_core_indochina = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
 
-		cost = 30
+		priority = 5
+
+		cost = 20
 		fire_only_once = yes
 		days_remove = 30
 		available = {
@@ -14,12 +17,30 @@ SIA_siamese_empire = {
 			controls_state = 286
 			controls_state = 741
 		}
-		remove_effect = {
-			add_state_core = 670
-			add_state_core = 671
-			add_state_core = 286
-			add_state_core = 741
-		}
+	   remove_effect = {
+		   add_state_core = 670
+		   add_state_core = 671
+		   add_state_core = 286
+		   add_state_core = 741
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
 
 	SIA_core_singapore = {
@@ -28,41 +49,85 @@ SIA_siamese_empire = {
 			always = yes
 		}
 
+		priority = 10
+
 		cost = 35
 		fire_only_once = yes
 		days_remove = 30
 		available = {
 			controls_state = 336
 		}
-		remove_effect = {
-			add_state_core = 336
-			add_war_support = 0.05
-			add_stability = 0.05
-		}
+	   remove_effect = {
+		   add_state_core = 336
+		   add_war_support = 0.05
+		   add_stability = 0.05
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
+
 	SIA_core_north_borneo = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
 
-		cost = 20
+		priority = 7
+
+		cost = 25
 		fire_only_once = yes
 		days_remove = 30
 		available = {
 			controls_state = 333
 		}
-		remove_effect = {
-			add_state_core = 333
-		}
+	   remove_effect = {
+		   add_state_core = 333
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+			    custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
+
 	SIA_core_north_phi = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
 
-		cost = 15
+		priority = 4
+
+		cost = 20
 		fire_only_once = yes
 		days_remove = 30
 		available = {
@@ -70,17 +135,38 @@ SIA_siamese_empire = {
 			controls_state = 327
 			controls_state = 624
 		}
-		remove_effect = {
-			add_state_core = 623
-			add_state_core = 327
-			add_state_core = 624
-		}
+	   remove_effect = {
+		   add_state_core = 623
+		   add_state_core = 327
+		   add_state_core = 624
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
+
 	SIA_core_south_phi = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
+
+		priority = 3
 
 		cost = 15
 		fire_only_once = yes
@@ -88,23 +174,42 @@ SIA_siamese_empire = {
 		available = {
 			controls_state = 628
 			controls_state = 625
-			controls_state = 330
 			controls_state = 626
 			controls_state = 627
 		}
-		remove_effect = {
-			add_state_core = 628
-			add_state_core = 625
-			add_state_core = 330
-			add_state_core = 626
-			add_state_core = 627
-		}
+	   remove_effect = {
+		   add_state_core = 628
+		   add_state_core = 625
+		   add_state_core = 626
+		   add_state_core = 627
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
+
 	SIA_core_treaty = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
+
+		priority = 2
 
 		cost = 10
 		fire_only_once = yes
@@ -114,17 +219,38 @@ SIA_siamese_empire = {
 			controls_state = 729
 			controls_state = 326
 		}
-		remove_effect = {
-			add_state_core = 728
-			add_state_core = 729
-			add_state_core = 326
-		}
+	   remove_effect = {
+		   add_state_core = 728
+		   add_state_core = 729
+		   add_state_core = 326
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
+
 	SIA_core_hainan = {
 		icon = GFX_decision_generic_form_nation
 		visible = {
 			always = yes
 		}
+
+		priority = 1
 
 		cost = 5
 		fire_only_once = yes
@@ -132,9 +258,164 @@ SIA_siamese_empire = {
 		available = {
 			controls_state = 591
 		}
-		remove_effect = {
-			add_state_core = 591
+	   remove_effect = {
+		   add_state_core = 591
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
+	}
+
+	SIA_core_south_burma = {
+		icon = GFX_decision_generic_form_nation
+		visible = {
+			always = yes
 		}
+
+		priority = 9
+
+		cost = 30
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			controls_state = 994
+			controls_state = 999
+			controls_state = 993
+			controls_state = 640
+			controls_state = 995
+			controls_state = 996
+		}
+	   remove_effect = {
+		   add_state_core = 994
+		   add_state_core = 999
+		   add_state_core = 993
+		   add_state_core = 640
+		   add_state_core = 995
+		   add_state_core = 996
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
+	}
+
+	SIA_core_north_burma = {
+				icon = GFX_decision_generic_form_nation
+		visible = {
+			always = yes
+		}
+
+		priority = 8
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			controls_state = 288
+			controls_state = 997
+			controls_state = 998
+		}
+	   remove_effect = {
+		   add_state_core = 288
+		   add_state_core = 997
+		   add_state_core = 998
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
+	}
+
+	SIA_core_east_raj = {
+				icon = GFX_decision_generic_form_nation
+		visible = {
+			always = yes
+		}
+
+		priority = 6
+
+		cost = 20
+		fire_only_once = yes
+		days_remove = 30
+		available = {
+			controls_state = 430
+			controls_state = 432
+			controls_state = 990
+			controls_state = 434
+			controls_state = 324
+			controls_state = 985
+			controls_state = 431
+		}
+	   remove_effect = {
+		   add_state_core = 430
+		   add_state_core = 432
+		   add_state_core = 990
+		   add_state_core = 434
+		   add_state_core = 324
+		   add_state_core = 985
+		   add_state_core = 431
+		   IF = {
+			   limit = {
+				   original_tag = SIA
+				   NOT = {
+					   has_dynamic_modifier = {
+						   modifier = SIA_new_ambitions_dyn
+					   }
+				   }
+			   }
+			   add_dynamic_modifier = {
+				   modifier = SIA_new_ambitions_dyn
+			   }
+		   }
+		   ELSE = {
+			    add_to_variable = { SIA_new_consumer_goods = -0.015 }
+				add_to_variable = { SIA_new_stability = 0.015 }
+				custom_effect_tooltip = SIA_new_ambitions_else_tt
+		   }
+	   }
 	}
 
 }

@@ -5,6 +5,6 @@ tags={
 	"Balance"
 	"National Focuses"
 }
-name="Their Finest Rehost(TFR)"
+name="theirfinestrehost"
 supported_version="1.16.9"
 remote_file_id="3513811852"

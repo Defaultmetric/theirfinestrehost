@@ -18,7 +18,7 @@ focus_tree = {
 		icon = GFX_focus_GER_integration_of_puppet_economies
 		x = 2
 		y = 0
-		cost = 3.7
+		cost = 5
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
@@ -33,7 +33,7 @@ focus_tree = {
 		icon = GFX_focus_BEL_belgian_gates
 		x = 8
 		y = 0
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 20
 			add_to_variable = { SIA_adm_stab = 0.05 }
@@ -51,7 +51,7 @@ focus_tree = {
 			focus = legislate_administrative_powers
 		}
 		relative_position_id = legislate_administrative_powers
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 35
 			add_to_variable = { SIA_adm_war_stab = 0.15 }
@@ -107,7 +107,7 @@ focus_tree = {
 		relative_position_id = legislate_administrative_powers
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 50
 			add_to_variable = { SIA_adm_pp_gain = 0.05 }
@@ -124,7 +124,7 @@ focus_tree = {
 		relative_position_id = improve_bureaucracy
 		x = -2
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_to_variable = {
 				SIA_adm_research_speed = 0.025
@@ -147,7 +147,7 @@ focus_tree = {
 		relative_position_id = improve_bureaucracy
 		x = -4
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_to_variable = {
 				SIA_adm_stab = 0.025
@@ -171,7 +171,7 @@ focus_tree = {
 		relative_position_id = improve_bureaucracy
 		x = 2
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_to_variable = { SIA_adm_stab = 0.05 }
 			add_to_variable = { SIA_adm_pp_gain = 0.05 }
@@ -188,7 +188,7 @@ focus_tree = {
 		relative_position_id = proper_criminal_policing
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 35
 			add_to_variable = { SIA_adm_pol_advisor_cost = -0.15 }
@@ -200,7 +200,7 @@ focus_tree = {
 	focus = {
 		id = increase_the_retirement_age
 		icon = GFX_focus_ITA_corpo_volontari_della_liberta
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = improve_bureaucracy
 		}
@@ -323,7 +323,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = concessions_to_the_right }
 		relative_position_id = concessions_to_the_right
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
@@ -349,7 +349,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = concessions_to_the_right }
 		relative_position_id = concessions_to_the_right
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
@@ -376,7 +376,7 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_war_support = 0.05
 			set_politics = {
@@ -387,24 +387,24 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = social_order
-		icon = GFX_SOV_liberate_ryutin_ccp_2d_sov_compatibility
-		prerequisite = { focus = fascist_fervor }
-		relative_position_id = fascist_fervor
-		x = -3
-		y = 1
-		cost = 10
-		completion_reward = {
-			add_to_variable = {
-				SIA_adm_stab = 0.10
-			}
-			add_to_variable = {
-				SIA_adm_pp_gain = 0.05
-			}
-		custom_effect_tooltip = SIA_social_order_tt
-		}
-	}
+#	focus = {
+#		id = social_order
+#		icon = GFX_SOV_liberate_ryutin_ccp_2d_sov_compatibility
+#		prerequisite = { focus = fascist_fervor }
+#		relative_position_id = fascist_fervor
+#		x = -3
+#		y = 1
+#		cost = 10
+#		completion_reward = {
+#			add_to_variable = {
+#				SIA_adm_stab = 0.10
+#			}
+#			add_to_variable = {
+#				SIA_adm_pp_gain = 0.05
+#			}
+#		custom_effect_tooltip = SIA_social_order_tt
+#		}
+#	}
 
 	focus = {
 		id = fanaticism
@@ -415,7 +415,7 @@ focus_tree = {
 		relative_position_id = fascist_fervor
 		x = -1
 		y = 1
-		cost = 10
+		cost = 5
 		completion_reward = {
 			add_to_variable = { SIA_adm_party_popularity_stab = 0.30 }
 			add_to_variable = {
@@ -433,7 +433,7 @@ focus_tree = {
 		relative_position_id = fascist_fervor
 		x = 1
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_political_power = 35
 			diplomatic_relation = 
@@ -453,7 +453,7 @@ focus_tree = {
 		relative_position_id = delegation_to_japan
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_war_support = 0.10
 			add_to_variable = {
@@ -472,7 +472,7 @@ focus_tree = {
 		relative_position_id = fanaticism
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			custom_effect_tooltip = SIA_new_ambitions_tt
 		}
@@ -636,11 +636,12 @@ focus_tree = {
 		icon = GFX_SOV_paced_industrialization_ccp_2d_sov_compatibility
 		prerequisite = {
 			focus = young_workers
+			focus = malayan_steel
 		}
 		relative_position_id = young_workers
-		x = 2
+		x = 3
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			289 = { #Siam
 			add_extra_state_shared_building_slots = 2
@@ -663,7 +664,7 @@ focus_tree = {
 			focus = hat_yai_foundry
 		}
 		relative_position_id = bangkok_industrial_complex
-		x = 0
+		x = -1
 		y = 1
 		cost = 10
 		completion_reward = {
@@ -770,6 +771,88 @@ focus_tree = {
 		}
 	}
 
+			focus = {
+		id = local_weapon_artisans
+		icon = GFX_focus_AFG_scavenging
+		prerequisite = {
+			focus = industrial_titans
+		}
+		relative_position_id = industrial_titans
+		x = 1
+		y = 1
+		cost = 10
+		completion_reward = {
+			868 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			724 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			289 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			869 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = arming_the_peasantry
+		icon = GFX_focus_AFG_shadows_of_the_king
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = industrial_titans
+		}
+		relative_position_id = industrial_titans
+		cost = 10
+		completion_reward = {
+			add_to_variable = {
+				SIA_ind_mil_speed = 0.05
+				SIA_ind_cap = 0.05
+			}
+			869 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			868 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SIA_arming_the_peasantry_tt
+		}
+
+	}
+
 	focus = {
 		id = malayan_steel
 		icon = GFX_SOV_rebuild_the_nation_ccp_2d_sov_compatibility
@@ -780,7 +863,7 @@ focus_tree = {
 			724 = {
 				add_resource = {
 					type = steel
-					amount = 12
+					amount = 24
 				}
 			}
 		}
@@ -795,7 +878,7 @@ focus_tree = {
 		relative_position_id = malayan_steel
 		x = 0
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			add_to_variable = {
 				SIA_ind_rail_speed = 0.15
@@ -813,7 +896,7 @@ focus_tree = {
 		id = hat_yai_foundry
 		icon = GFX_SOV_steel_casting_industry_ccp_2d_sov_compatibility
 		prerequisite = {
-			focus = malayan_steel
+			focus = bangkok_industrial_complex
 		}
 		mutually_exclusive = {
 			focus = malayan_construction
@@ -899,7 +982,7 @@ focus_tree = {
 			focus = bangkok_rail_company
 		}
 		relative_position_id = bangkok_rail_company
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		completion_reward = {
@@ -961,7 +1044,7 @@ focus_tree = {
 		relative_position_id = malayan_steel
 		x = 2
 		y = 1
-		cost = 3
+		cost = 5
 		completion_reward = {
 			869 = {
 				add_resource = {
@@ -979,7 +1062,7 @@ focus_tree = {
 	focus = {
 		id = centralize_oil_stockpiles
 		icon = GFX_SOV_oil_production_ccp_2d_sov_compatibility
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = lanna_prospecting
 		}
@@ -1165,7 +1248,7 @@ focus_tree = {
 		icon = GFX_focus_CONGO_congo_army
 		x = 33
 		y = 0
-		cost = 3
+		cost = 5
 		completion_reward = {
 			289 = {
 				add_extra_state_shared_building_slots = 1
@@ -1181,7 +1264,7 @@ focus_tree = {
 	focus = {
 		id = bangkok_military_academy
 		icon = GFX_focus_AFG_establish_darulaman
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = bangkok_guard
 		}
@@ -1227,7 +1310,7 @@ focus_tree = {
 	focus = {
 		id = emergency_asset_seizure_focus
 		icon = GFX_focus_usa_reestablish_the_gold_standard
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = general_mobilization
 		}
@@ -1245,7 +1328,7 @@ focus_tree = {
 	focus = {
 		id = ground_rearmament
 		icon = GFX_focus_generic_full_social_mobilization
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = general_mobilization
 		}
@@ -1263,7 +1346,7 @@ focus_tree = {
 	focus = {
 		id = leverage_civilian
 		icon = GFX_focus_ARG_balancing_act
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = general_mobilization
 		}
@@ -1284,7 +1367,7 @@ focus_tree = {
 	focus = {
 		id = support_structures
 		icon = GFX_focus_generic_field_hostpital
-		cost = 3
+		cost = 5
 		relative_position_id = ground_rearmament
 		prerequisite = {
 			focus = leverage_civilian
@@ -1303,7 +1386,7 @@ focus_tree = {
 	focus = {
 		id = spec_ops_recruitment
 		icon = GFX_focus_ARG_march_to_la_casa_rosada
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = general_mobilization
 		}
@@ -1348,7 +1431,7 @@ focus_tree = {
 	focus = {
 		id = bangkok_munitions_plant
 		icon = GFX_focus_CONGO_copper_cartridges
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = extra_privileges
 		}
@@ -1370,9 +1453,9 @@ focus_tree = {
 	focus = {
 		id = war_readiness_committee
 		icon = GFX_focus_GER_all_for_the_front
-		cost = 3
+		cost = 5
 		prerequisite = {
-			focus = extra_privileges
+			focus = total_authority
 		}
 
 		relative_position_id = extra_privileges
@@ -1389,11 +1472,9 @@ focus_tree = {
 	focus = {
 		id = manufacturing_research
 		icon = GFX_focus_IRQ_construct_the_kut_barrage
-		cost = 3
+		cost = 8
 		prerequisite = {
 			focus = bangkok_munitions_plant
-		}
-		prerequisite = {
 			focus = war_readiness_committee
 		}
 		relative_position_id = bangkok_munitions_plant
@@ -1482,15 +1563,11 @@ focus_tree = {
 		icon = GFX_focus_generic_manpower
 		cost = 10
 		prerequisite = {
-			focus = artillery_advancements
-		}
-		prerequisite = {
 			focus = infantry_modernization
-		}
-		prerequisite = {
 			focus = support_structures
+			focus = elites
 		}
-		relative_position_id = infantry_modernization
+		relative_position_id = support_structures
 		x = 0
 		y = 1
 		completion_reward = { 
@@ -1510,7 +1587,7 @@ focus_tree = {
 	focus = {
 		id = high_command_purge
 		icon = GFX_focus_rom_parties_end
-		cost = 3
+		cost = 5
 		x = 38
 		y = 0
 		completion_reward = { 
@@ -1547,7 +1624,7 @@ focus_tree = {
 	focus = {
 		id = improved_communications
 		icon = GFX_focus_generic_electrification
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = installing_the_new_command
 		}
@@ -1556,7 +1633,7 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
-				SIA_mil_reinforce_rate = 0.05
+				SIA_mil_reinforce_rate = 0.10
 			}
 			custom_effect_tooltip = SIA_improved_communications_tt
 		}
@@ -1565,7 +1642,7 @@ focus_tree = {
 	focus = {
 		id = efficient_planning
 		icon = GFX_goal_demand_sudetenland
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = improved_communications
 		}
@@ -1601,7 +1678,7 @@ focus_tree = {
 	focus = {
 		id = harsh_conditions_training
 		icon = GFX_focus_URG_colorados
-		cost = 3
+		cost = 5
 		prerequisite = {
 			focus = improved_organization
 		}

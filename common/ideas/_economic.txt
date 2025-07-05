@@ -895,20 +895,22 @@ ideas = {
 
 			cancel_if_invalid = no
 
-			allowed_to_remove = {
+				allowed_to_remove = {
 				IF = {
 					limit = {
 						OR = {
 						original_tag = MAL
-						original_tag = SPR
-						original_tag = INS
+						original_tag = SPA
+						original_tag = HOL
 						}
 					}
-					has_war_support > 4
+					OR = {
+						has_war_support > 4
+					}
 				}
 				ELSE = {
 					OR = {
-						has_war_support > 0.05
+						has_war_support > 4
 					}
 				}
 			}

@@ -121,6 +121,15 @@
 				uses = 2
 				category = land_doctrine
 			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -186,17 +195,6 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = MAN_invite_japanese_settlers_2IC }
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
 
 		completion_reward = {
 			random_owned_state = {
@@ -219,7 +217,6 @@
 					level = 3
 					instant_build = yes
 				}
-				set_state_flag = MAN_invite_japanese_settlers_2IC
 			}
 		}
 	}
@@ -261,14 +258,23 @@
 				}
 				add_extra_state_shared_building_slots = 2
 			}
+			random_owned_state = {
+				limit = { is_fully_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = MAN_law_university
 		icon = GFX_focus_research
-		prerequisite = { focus = MAN_collective_farms focus = MAN_mukden_military_academy focus = MAN_expand_the_textile_industry }
-		x = 0
+		prerequisite = {  focus = MAN_mukden_military_academy }
+		x = -3
 		y = 1
 		relative_position_id = MAN_collective_farms
 
@@ -301,9 +307,9 @@
 	focus = {
 		id = MAN_research_and_education_department
 		icon = GFX_focus_research
-		prerequisite = { focus = MAN_law_university }
-		x = 0
-		y = 1
+		prerequisite = { focus = MAN_expand_the_textile_industry }
+		x = 6
+		y = 0
 		relative_position_id = MAN_law_university
 
 		cost = 10
@@ -313,19 +319,9 @@
 		}
 
 		available = {
-			OR = {
-				num_of_factories > 50
-				all_state = {
-					OR = {
-						NOT = { is_core_of = CHI }
-						NOT = { is_core_of = PRC }
-						OR = {
-							is_controlled_by = ROOT
-							CONTROLLER = { is_in_faction_with = ROOT }
-							CONTROLLER = { is_subject_of = ROOT }
-						}
-					}
-				}
+			JAP = 
+			{
+				has_completed_focus = JAP_the_manchurian_project
 			}
 		}
 
@@ -411,26 +407,6 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = MAN_expand_the_textile_industry_IC
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-					instant_build = yes
-				}
-			}
-			random_core_state = {
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-				}
-			}
-		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -442,19 +418,19 @@
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 4
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = MAN_expand_the_textile_industry_IC
 			}
 			random_core_state = {
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 4
+					level = 3
 				}
 			}
 		}
@@ -463,11 +439,10 @@
 	focus = {
 		id = MAN_obedience
 		icon = GFX_focus_CZE_german_puppet
-		prerequisite = { focus = MAN_army_modernization }
-		mutually_exclusive = { focus = MAN_assertiveness }
-		x = -2
-		y = 4
-		relative_position_id = MAN_army_modernization
+		prerequisite = { focus = MAN_collective_farms focus = MAN_expand_the_textile_industry focus = MAN_mukden_military_academy}
+		x = 0
+		y = 1
+		relative_position_id = MAN_collective_farms
 
 		cost = 10
 
@@ -1272,13 +1247,7 @@
 		}
 
 		available = {
-			is_subject_of = JAP
-			NOT = { has_war_with = JAP }
-			NOT = { has_war_with = MEN }
-			MEN = {
-				exists = yes
-				is_subject_of = JAP
-			}
+	
 		}
 
 		bypass = {
@@ -1293,7 +1262,6 @@
 		
 
 		completion_reward = {
-			annex_country = { target = MEN transfer_troops = yes }
 			add_stability = 0.025
 		}
 	}
@@ -1375,7 +1343,6 @@
 		id = MAN_assertiveness
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = MAN_trade_delegation }
-		mutually_exclusive = { focus = MAN_obedience }
 		x = 2
 		y = 4
 		relative_position_id = MAN_trade_delegation

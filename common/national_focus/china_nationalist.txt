@@ -50,13 +50,17 @@
 #
 #		}
 #	}
-	shared_focus = CHI_invite_foreign_investors
 
 	focus = {
 		id = CHI_three_principles_of_the_people
 		icon = GFX_goal_generic_national_unity
 		x = 5
 		y = 0
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -1390,6 +1394,11 @@
 		y = 0
 		relative_position_id = CHI_three_principles_of_the_people
 
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		cost = 10
 
 		ai_will_do = {
@@ -1828,7 +1837,7 @@
 	focus = {
 		id = CHI_unified_industrial_planning
 		icon = GFX_goal_generic_construction
-		x = 7
+		x = -10
 		y = 0
 		relative_position_id =  CHI_military_affairs_commission
 
@@ -1854,9 +1863,17 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = CHI_unified_industrial_planning
-				bonus = 1.0
-				uses = 2
+				bonus = 2.0
+				uses = 3
 				category = industry
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -1893,6 +1910,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
+			add_stability = 0.1
 		}
 	}
 
@@ -1926,6 +1944,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {			
 			add_research_slot = 1
+			add_stability = 0.1
 		}
 	}
 
@@ -1980,7 +1999,14 @@
 					instant_build = yes
 				}
 			}
-
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -1992,16 +2018,13 @@
 		y = 1
 		relative_position_id = CHI_rural_reconstruction_movement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
 		}
 
 		available = {
-			NOT = {
-				has_idea = CHI_hyper_inflation_5
-			}
 		}
 
 		bypass = {
@@ -2014,9 +2037,16 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			CHI_hyper_inflation_level_up = yes
 			custom_effect_tooltip = available_industrial_concern
-			show_ideas_tooltip = CHI_mining_commission			
+			show_ideas_tooltip = CHI_mining_commission
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}			
 		}
 	}
 
@@ -2036,9 +2066,6 @@
 
 		available = {
 			controls_state = 615
-			NOT = {
-				has_idea = CHI_hyper_inflation_5
-			}
 		}
 
 		bypass = {
@@ -2051,7 +2078,6 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			CHI_hyper_inflation_level_up = yes
 			615 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
@@ -2059,6 +2085,14 @@
 					level = 3
 					instant_build = yes
 				}			
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -2078,9 +2112,6 @@
 		}
 
 		available = {
-			NOT = {
-				has_idea = CHI_hyper_inflation_5
-			}
 		}
 
 		bypass = {
@@ -2091,12 +2122,10 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-			CHI_hyper_inflation_level_up = yes
-			random_state = {
-				limit = {
-					has_state_flag = CHI_develop_the_hanyan_arsenal_AF
-				}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 620 }
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
@@ -2104,27 +2133,13 @@
 					instant_build = yes
 				}
 			}
-		}
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			CHI_hyper_inflation_level_up = yes
 			random_owned_controlled_state = {
-				prioritize = { 620 }
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex
 					level = 3
 					instant_build = yes
 				}
-				set_state_flag = CHI_develop_the_hanyan_arsenal_AF
 			}
 		}
 	}
@@ -2137,7 +2152,7 @@
 		y = 1
 		relative_position_id = CHI_unified_industrial_planning
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -2170,6 +2185,11 @@
 		x = 0
 		y = 1
 		relative_position_id = CHI_financial_policy
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		cost = 10
 
@@ -2267,6 +2287,11 @@
 		y = 1
 		relative_position_id = CHI_reform_the_national_bank
 
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		cost = 10
 
 		ai_will_do = {
@@ -2291,4 +2316,1193 @@
 		}
 	}
 
+	focus = {
+		id = CHI_reform_1
+		icon = GFX_focus_chi_army_reform
+	
+		x = 10
+		y = 0
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			OR = {
+			surrender_progress > 0.01
+			date > 1937.3.1
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				CHI_def = 0.2
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				CHI_att = 0.2
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				CHI_org = 0.1
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				CHI_mob = 0.3
+				tooltip = mobilization_speed_tt
+			}
+			add_to_variable = {
+				CHI_rec = 0.4
+			tooltip = recruitable_population_factor_tt
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_reform_2
+		icon = GFX_focus_chi_army_reform
+		relative_position_id = CHI_reform_1
+		prerequisite = {focus = CHI_reform_1}
+
+		x = 0
+		y = 2
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			OR = {
+			surrender_progress > 0.3
+			date > 1938.3.1
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				CHI_def = 0.2
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				CHI_att = 0.2
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				CHI_org = 0.1
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				CHI_mob = 0.3
+				tooltip = mobilization_speed_tt
+			}
+			add_to_variable = {
+				CHI_rec = 0.4
+			tooltip = recruitable_population_factor_tt
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_reform_3
+		icon = GFX_focus_chi_army_reform
+		relative_position_id = CHI_reform_2
+		prerequisite = {focus = CHI_reform_2}
+
+		x = 0
+		y = 2
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			OR = {
+			surrender_progress > 0.6
+			date > 1939.3.1
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				CHI_def = 0.2
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				CHI_att = 0.2
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				CHI_org = 0.1
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				CHI_mob = 0.3
+				tooltip = mobilization_speed_tt
+			}
+			add_to_variable = {
+				CHI_rec = 0.4
+			tooltip = recruitable_population_factor_tt
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_wave_1
+		icon = GFX_focus_generic_limited_social_mobilization
+
+		x = 13
+		y = 0
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			surrender_progress > 0.2
+			has_full_control_of_state = 744
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_wave_1_tt
+			division_template = {
+        		name = "Wave 1"
+				priority = 1
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+						}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+					}
+			}
+			hidden_effect = {
+			744 = {
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+		}
+			}
+		}
+    }
+	focus = {
+		id = CHI_wave_2
+		icon = GFX_focus_generic_limited_social_mobilization
+		relative_position_id = CHI_wave_1
+		prerequisite = { focus = CHI_wave_1 }
+
+		x = 0
+		y = 2
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			surrender_progress > 0.5
+			has_full_control_of_state = 605
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_wave_2_tt
+			hidden_effect = {
+			605 = {
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 2\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			
+		}
+			}
+		}
+    }
+	focus = {
+		id = CHI_wave_3
+		icon = GFX_focus_generic_limited_social_mobilization
+		relative_position_id = CHI_wave_2
+		prerequisite = { focus = CHI_wave_2 }
+
+		x = 0
+		y = 2
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			surrender_progress > 0.75
+			has_full_control_of_state = 751
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_wave_3_tt
+			
+			hidden_effect = {
+			751 = {
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			create_unit = {
+				division = "name = \"Wave 3\" division_template = \"Wave 1\" start_experience_factor = 0.1"
+				owner = CHI
+			}
+			
+		}
+			}
+		}
+    }
 }
+	
+	
+

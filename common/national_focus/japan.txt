@@ -6056,7 +6056,7 @@
 		}
 
 		available = {
-
+			has_tech = improved_small_airframe
 		}
 
 		bypass = {
@@ -6071,15 +6071,6 @@
 		completion_reward = {
 			custom_effect_tooltip = JAP_the_zero_tt
 			hidden_effect = { 
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "By Blood Alone"
-						}
-					}
-					set_technology = { cv_fighter2 = 1 } 
-				}
-				else = {
 					create_equipment_variant = {
 						name = "A6M Zero-Sen"
 						type = cv_small_plane_airframe_2
@@ -6094,7 +6085,6 @@
 						}
 						icon = "GFX_JAP_cv_fighter2_medium"
 					}
-				}
 			}
 		}
 	}

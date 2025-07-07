@@ -57,7 +57,7 @@ focus_tree = {
 #		}
 #
 #		completion_reward = {
-#
+#			
 #		}
 #	}
 
@@ -67,6 +67,18 @@ focus_tree = {
 		x = 7
 		y = 0
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 		mutually_exclusive = { focus = USA_reestablish_the_gold_standard }
 		cost = 10
 

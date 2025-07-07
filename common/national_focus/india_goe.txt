@@ -7007,6 +7007,19 @@ focus_tree = {
 
         cost = 5
 
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         ai_will_do = {
             factor = 1
         }

@@ -2429,6 +2429,7 @@ focus_tree = {
 			factor = 20
 		}
 		available = {	
+			OR = {
 			any_other_country = {
 				original_tag = USA
 				has_war_with_major = yes
@@ -2440,6 +2441,8 @@ focus_tree = {
 			NOT = {
 				is_in_faction = yes
 			}
+			USA = {is_ai = yes}
+		}
 		}
 
 		bypass = {
@@ -7918,6 +7921,31 @@ focus_tree = {
 		completion_reward = {
 			set_cosmetic_tag = BRA_america_do_sul
 			custom_effect_tooltip = BRA_unify_south_america_tt
+		}
+	}
+	focus = {
+		id = BRA_join_allies
+		icon = GFX_focus_generic_south_america
+		prerequisite = { 
+			focus = BRA_cooperation_in_the_americas
+		}
+		relative_position_id = BRA_cooperation_in_the_americas
+		x = 0
+		y = 1
+		
+		cost = 1
+	
+		available = {
+			USA = {is_ai = yes}
+			date > 1941.5.22
+		}
+
+		search_filters = { }
+
+		completion_reward = {
+			ENG = {
+            add_to_faction = BRA
+        }
 		}
 	}
 }

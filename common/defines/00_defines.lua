@@ -8,7 +8,7 @@ NGame = {
 	CHECKSUM_SALT = "zwOdv5d9wm9uDSOT",				-- Data to modify generated checksum when game binaries have changed but not any content files.
 	LAG_DAYS_FOR_LOWER_SPEED = 10,					-- Days of client lag for decrease of gamespeed
 	LAG_DAYS_FOR_PAUSE = 25,						-- Days of client lag for pause of gamespeed.
-	GAME_SPEED_SECONDS = { 2.0, 0.5, 0.2, 0.1, 0.0 }, -- game speeds for each level. Must be 5 entries with last one 0 for unbound
+	GAME_SPEED_SECONDS = { 0.5, 0.2, 0.15, 0.1, 0.0 }, -- game speeds for each level. Must be 5 entries with last one 0 for unbound
 	MAJOR_PARTICIPANTS_FOR_MAJOR_WAR = 3,			-- Minimum number of major countries involved in a war to consider it major enough to not end the game even though the enddate has been reached.
 	TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 30, -- Max recalculation time for all trade routes (0 means we do not recalucate prediodically trade routes)
 	COMBAT_LOG_MAX_MONTHS = 12,
@@ -27,7 +27,7 @@ NGame = {
 },
 
 NGeography = {
-	MEDITERRANEAN_SEA_REGIONS = { 29, 68, 69, 168, 169, 202 }, -- The sea regions that are considered as part of the Mediterranean sea
+	MEDITERRANEAN_SEA_REGIONS = { 15, 29, 68, 69, 168, 169, 202, 299, 300, 301 }, -- The sea regions that are considered as part of the Mediterranean sea
 },
 
 NDiplomacy = {
@@ -414,7 +414,7 @@ NCountry = {
 	AIR_SUPPLY_CONVERSION_SCALE = 0.01,				-- Conversion scale for planes to air supply
 	AIR_SUPPLY_DROP_EXPIRATION_HOURS = 168,			-- Air drop length after being dropped
 	STARTING_COMMAND_POWER = 0.0,					-- starting command power for every country
-	BASE_MAX_COMMAND_POWER = 80.0,					-- base value for maximum command power
+	BASE_MAX_COMMAND_POWER = 120.0,					-- base value for maximum command power
 	BASE_COMMAND_POWER_GAIN = 0.4,					-- base value for daily command power gain
 	AIR_VOLUNTEER_PLANES_RATIO = 0.2,				-- Ratio for volunteer planes available for sending in relation to sender air force
 	AIR_VOLUNTEER_BASES_CAPACITY_LIMIT = 0.1,		-- Ratio for volunteer planes available for sending in relation to receiver air base capacity
@@ -628,7 +628,7 @@ NProduction = {
 	LICENSE_EQUIPMENT_TECH_SPEED_PER_YEAR = 0,		-- MIC speed modifier for licensed equipment for each year of difference between actual and latest equipment
 	LICENSE_EQUIPMENT_TECH_SPEED_MAX_YEARS = 4,			-- Maximum years for MIC speed modifier
 	LICENSE_EQUIPMENT_SPEED_NOT_FACTION = 0,		-- MIC speed modifier for licensed equipment for not being in faction
-	LICENSE_EQUIPMENT_UPGRADE_XP_FACTOR = 2.0,			-- XP cost for upgrading licensed equipment
+	LICENSE_EQUIPMENT_UPGRADE_XP_FACTOR = 1.0,			-- XP cost for upgrading licensed equipment
 	LICENSE_EQUIPMENT_SPEED_NO_LICENSE = 0,			-- Penalty for producing non licensed equipment
 	CONVERSION_SPEED_BONUS = 0,							-- Modifier to the production speed when converting equipment
 	EQUIPMENT_MODULE_ADD_XP_COST = 5.0,					-- XP cost for adding a new equipment module in an empty slot when creating an equipment variant.
@@ -670,11 +670,11 @@ NMarket = {
 
 NTechnology = {
 	MAX_SUBTECHS = 3,						-- Max number of sub technologies a technology can have.
-	BASE_RESEARCH_POINTS_SAVED = 30.0,		-- Base amount of research points a country can save per slot.
-	BASE_YEAR_AHEAD_PENALTY_FACTOR = 2,		-- Base year ahead penalty
-	BASE_TECH_COST = 110,					-- Base cost for a tech. multiplied with tech cost and ahead of time penalties
+	BASE_RESEARCH_POINTS_SAVED = 50.0,		-- Base amount of research points a country can save per slot.
+	BASE_YEAR_AHEAD_PENALTY_FACTOR = 3,		-- Base year ahead penalty
+	BASE_TECH_COST = 80,					-- Base cost for a tech. multiplied with tech cost and ahead of time penalties
 	MAX_TECH_SHARING_BONUS = 0.5, 			-- Max technology sharing bonus that can be applied instantly
-	LICENSE_PRODUCTION_TECH_BONUS = 0.2,	-- License production tech bonus
+	LICENSE_PRODUCTION_TECH_BONUS = 0.5,	-- License production tech bonus
 
 	DEFAULT_XP_UNLOCK_RESEARCH_COST = 0,			-- default xp cost of a research to unlock directly
 	DEFAULT_XP_BOOST_RESEARCH_COST = 0,				-- default xp cost of a research to speed up the process
@@ -3274,7 +3274,7 @@ NFocus = {
 	FOCUS_POINT_DAYS = 7,						-- Each point takes a week
 	FOCUS_PROGRESS_PEACE = 1,					-- Progress during peace
 	FOCUS_PROGRESS_WAR = 1,					-- Progress during war
-	MAX_SAVED_FOCUS_PROGRESS = 10,				-- This much progress can be saved while not having a focus selected
+	MAX_SAVED_FOCUS_PROGRESS = 30,				-- This much progress can be saved while not having a focus selected
 },
 
 NOperatives = {
@@ -4109,7 +4109,7 @@ NAITheatre = {
 	AI_THEATRE_AI_FRONT_MIN_DESIRED_RATIO = 0.18,						-- Fronts are sorted based on priority, we nudge unit demand based on this sorting, the higher the value the more units the most important front gets
 },
 NIndustrialOrganisation = {
-	ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.1,					-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
+	ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0,					-- Cost in Political Power daily generation when one MIO is assigned to a research slot. If 0, cost is entirely disabled.
 	ASSIGN_INDUSTRIAL_MANUFACTURER_PP_COST_PER_DAY = 0.0,		-- Cost in Political Power daily generation when one MIO is assigned to a production line. If 0, cost is entirely disabled.
 	FUNDS_FOR_SIZE_UP = 700,									-- Funds needed for a MIO to increment its size and get points to unlock traits
 	FUNDS_FOR_SIZE_UP_LEVEL_FACTOR = 100, 						-- How much each level mutliplies the funds for size up

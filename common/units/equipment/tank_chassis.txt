@@ -119,7 +119,7 @@ equipments = {
 		}
 		module_count_limit = {
 			category = tank_secondary_turret
-			count < 3
+			count < 2
 		}
 		module_count_limit = {
 			module = amphibious_drive
@@ -233,6 +233,11 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 	}
+		maximum_speed = 5
+		build_cost_ic = 2
+		reliability = 0.95
+		armor_value = 15
+	}
 
 	light_tank_chassis_1 = {
 		abbreviation = "lt1"
@@ -296,7 +301,7 @@ equipments = {
 		}
 	}
 		maximum_speed = 5
-		build_cost_ic = 2.35
+		build_cost_ic = 2.5
 		reliability = 0.95
 		armor_value = 15
 	}
@@ -365,22 +370,13 @@ equipments = {
 					tank_secondary_turret
 				}
 			}
-
-			special_type_slot_3 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_radio_module
-					tank_secondary_turret
-				}
-			}
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
 
-		build_cost_ic = 2.7
+		build_cost_ic = 3
 		maximum_speed = 6
 		reliability = 1.1
 		armor_value = 20
@@ -476,7 +472,7 @@ equipments = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
-		build_cost_ic = 3
+		build_cost_ic = 4
 		maximum_speed = 7
 		reliability = 1.3
 		armor_value = 25
@@ -646,7 +642,7 @@ equipments = {
 
 		fuel_consumption = -0.5
 		maximum_speed = 4
-		build_cost_ic = 2
+		build_cost_ic = 5
 		reliability = 0.5
 		armor_value = 20
 		hardness = 0.85
@@ -718,7 +714,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		maximum_speed = 4
-		build_cost_ic = 3.5
+		build_cost_ic = 5
 		reliability = 0.75
 		armor_value = 20
 		resources = {
@@ -804,7 +800,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		armor_value = 30
-		build_cost_ic = 3.75
+		 = 5
 		reliability = 0.8
 		maximum_speed = 5
 	}
@@ -896,7 +892,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		maximum_speed = 6
-		build_cost_ic = 3.75
+		build_cost_ic = 6
 		reliability = 1.1
 		armor_value = 40
 		resources = {
@@ -1048,7 +1044,7 @@ equipments = {
 			engine_type_slot = tank_gasoline_engine
 		}
 		maximum_speed = 6
-		build_cost_ic = 4.00
+		build_cost_ic = 7
 		breakthrough = 0.5
 		defense = 0.5
 		reliability = 1.3
@@ -1288,7 +1284,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		maximum_speed = 3
-		build_cost_ic = 9
+		build_cost_ic = 10
 		reliability = 0.75
 		armor_value = 35
 	}
@@ -1370,6 +1366,7 @@ equipments = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
+		build_cost_ic = 12
 		armor_value = 55
 		maximum_speed = 5
 		reliability = 0.8
@@ -1463,7 +1460,7 @@ equipments = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
-		build_cost_ic = 10
+		build_cost_ic = 14
 		maximum_speed = 5
 		reliability = 1.1
 		armor_value = 65
@@ -1561,7 +1558,7 @@ equipments = {
 			tank_nsb_engine_upgrade
 			tank_nsb_armor_upgrade
 		}
-		build_cost_ic = 10
+		build_cost_ic = 14
 		defense = 1
 		breakthrough = 1
 		maximum_speed = 5
@@ -1731,7 +1728,7 @@ equipments = {
 
 		fuel_consumption = -1
 		maximum_speed = 7
-		build_cost_ic = 0
+		build_cost_ic = 18
 		reliability = 1.4
 		armor_value = 80
 		hardness = 0.95
@@ -2094,7 +2091,7 @@ equipments = {
 
 		fuel_consumption = 0
 		maximum_speed = 5
-		build_cost_ic = 4.5
+		build_cost_ic = 9
 		reliability = 1.1
 		armor_value = 15
 		hardness = 0.85

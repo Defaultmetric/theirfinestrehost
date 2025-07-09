@@ -214,6 +214,7 @@ NDiplomacy = {
 
 	AUTONOMY_LEVEL_CHANGE_PP_COST_BASE = 50.0,		-- Base cost of changing level of autonomy
 	AUTONOMY_LEVEL_CHANGE_PP_ANNEX = 300,			-- Annexation cost
+	AUTONOMY_LEVEL_CHANGE_SANCTUARY = 30,
 	AUTONOMY_LEVEL_CHANGE_PP_FREE = 300,			-- Break free cost
 	MAX_SCORE_DIFF_TO_CHANGE_AUTONOMY = 10,			-- The max diff between current freedom score and the cap for next or previous level allowed for changing
 	MASTER_BUILD_AUTONOMY_FACTOR = -0.7,            -- scales autonomy gain from construction by this

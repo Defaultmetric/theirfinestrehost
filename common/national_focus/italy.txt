@@ -4379,7 +4379,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4393,9 +4393,9 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_italian_tankettes
-				bonus = 1
-				uses = 1
-				category = cat_light_armor
+				bonus = 2
+				uses = 2
+				category = armor
 			}
 
 			random_core_state = {
@@ -4407,49 +4407,11 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 3
 					instant_build = yes
-				}
-			}
-
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = improved_light_tank_chassis
-					}
-					ITA_add_improved_light_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_italian_tankettes_light_hull_tt
-					effect_tooltip = {
-						ITA_add_improved_light_tank_templates = yes
-					}
-				}
-				
-				ITA_add_basic_light_tank_destroyer_template = yes
-
-				if = {
-					limit = {
-						is_special_project_completed = sp:sp_land_flamethrower_tank
-					}
-					#L3/35 lf Flamethrower
-					ITA_add_basic_light_flamethrower_template = yes
-				}
-				else = {
-					sp:sp_land_flamethrower_tank = {
-						add_project_progress_ratio = 0.5
-					}
-					custom_effect_tooltip = ITA_italian_tankettes_flamethrower_tt
-					effect_tooltip = {
-						#L3/35 lf Flamethrower
-						ITA_add_basic_light_flamethrower_template = yes
-					}
 				}
 			}
 		}
@@ -4686,8 +4648,8 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_self_propelled_guns
-				bonus = 0.5
-				uses = 3
+				bonus = 2
+				uses = 1
 				category = artillery
 			}
 
@@ -4700,19 +4662,12 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
-			}
-			
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				ITA_add_basic_medium_tank_templates = yes
 			}
 		}
 	}
@@ -4742,35 +4697,6 @@ focus_tree = {
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
 			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = improved_medium_tank_chassis
-					}
-					ITA_add_improved_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = improved_heavy_tank_chassis
-					}
-					ITA_add_improved_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_heavy_tank_templates = yes
-					}
-				}	
-			}
 
 			#Update NS icon
 			ITA_improve_regio_esercito_dm_effect = yes
@@ -4840,37 +4766,6 @@ focus_tree = {
 				}
 			}
 
-
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = improved_medium_tank_chassis
-					}
-					ITA_add_improved_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_medium_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = improved_heavy_tank_chassis
-					}
-					ITA_add_improved_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_heavy_templates_tt
-					effect_tooltip = {
-						ITA_add_improved_heavy_tank_templates = yes
-					}
-				}	
-			}
-
 			#Update NS icon
 			ITA_improve_regio_esercito_dm_effect = yes
 		}
@@ -4919,36 +4814,6 @@ focus_tree = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
-				}
-			}
-
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				if = {
-					limit = {
-						has_tech = advanced_medium_tank_chassis
-					}
-					ITA_add_advanced_medium_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_medium_tempaltes_tt
-					effect_tooltip = {
-						ITA_add_advanced_medium_tank_templates = yes
-					}
-				}
-				if = {
-					limit = {
-						has_tech = advanced_heavy_tank_chassis
-					}
-					ITA_add_advanced_heavy_tank_templates = yes
-				}
-				else = {
-					custom_effect_tooltip = ITA_ferrea_mole_ferreo_cuore_heavy_tempaltes_tt
-					effect_tooltip = {
-						ITA_add_advanced_heavy_tank_templates = yes
-					}
 				}
 			}
 		}
@@ -5181,18 +5046,13 @@ focus_tree = {
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_tech_bonus = {
 				name = ITA_reggianes_exports
 				bonus = 0.50
 				uses = 1
 				category = air_equipment #Maybe more specific stuff? (Light/Medium bombers, fighters...)
-			}
-
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_reggianes_exports_templates = yes
 			}
 		}
 	}
@@ -5213,29 +5073,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
-			air_experience = 15
-			if = {
-				limit = {
-					country_exists = GER
-					NOT = { has_war_with = GER }
-				}
-				add_equipment_to_stockpile = { 
-					type = small_plane_cas_airframe_1
-					amount = 100
-					producer = GER
-					variant_name = "Ju 87"
-				}
-			}
-			else = {
-				add_tech_bonus = {
-					name = ITA_diving_bombers
-					bonus = 0.5
-					uses = 1
-					category = cas_bomber
-					category = naval_bomber
-				}	
-			}
-			#NTH_Manu: Sends a request to Germany to purchase CAS and/or licensing design templates (historically 100 Ju87)
+			air_experience = 150
 		}
 	}
 
@@ -5284,8 +5122,10 @@ focus_tree = {
 				limit = {
 					has_dlc = "By Blood Alone"
 				}
+				OR = {
 				has_tech = improved_small_airframe
 				has_tech = improved_medium_airframe
+				}
 			}
 			else = {
 				has_tech = fighter2
@@ -5348,11 +5188,9 @@ focus_tree = {
 		
 			add_tech_bonus = {
 				name = ITA_standardization
-				bonus = 0.75
+				bonus = 1
 				uses = 1
-				category = tactical_bomber
 				category = light_fighter
-				category = cat_strategic_bomber
 			}
 
 			random_core_state = {
@@ -5403,30 +5241,14 @@ focus_tree = {
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
 			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
 
-			air_experience = 15
+			custom_effect_tooltip = generic_skip_one_line_tt
 	
 			add_tech_bonus = {
 				name = ITA_specialization
-				bonus = 0.5
-				uses = 2
-				category = air_equipment
-			}
-
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+				ahead_reduction = 2
+				bonus = 2
+				uses = 1
+				category = light_fighter
 			}
 
 			#Update NS icon
@@ -5464,20 +5286,14 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_long_range_aircraft_templates = yes
-			}
 		}
 	}
 
@@ -5489,7 +5305,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5507,20 +5323,15 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_bomber_designs_templates = yes
-			}
+			
 		}
 	}
 
@@ -5532,7 +5343,7 @@ focus_tree = {
 		x = 4
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5550,20 +5361,15 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_fighter_designs_templates = yes
-			}
+			
 		}
 	}
 
@@ -5575,7 +5381,7 @@ focus_tree = {
 		x = 6
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -5605,12 +5411,7 @@ focus_tree = {
 				}
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_add_multirole_aircraft_templates = yes
-			}
+			
 		}
 	}
 

@@ -5557,7 +5557,7 @@ focus_tree = {
 		id = uk_colonial_focus 
 		prerequisite = { focus = uk_service_focus }
 		icon = GFX_focus_research2
-		x = -5
+		x = -6
 		y = 1
 		relative_position_id = uk_service_focus
 		cost = 10
@@ -5590,6 +5590,10 @@ focus_tree = {
 					}
 				}
 			}
+		}
+
+		allow_branch = {
+			has_war_support > 400
 		}
 
 		icon = GFX_goal_generic_construct_civilian
@@ -6491,7 +6495,7 @@ focus_tree = {
 
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 
-		x = 4
+		x = 0
 		y = 1
 		relative_position_id = uk_colonial_focus
 
@@ -8261,7 +8265,7 @@ focus_tree = {
 			}
 		}
 
-		x = 10
+		x = 5
 		y = 0
 		relative_position_id = ENG_revisit_colonial_policy
 
@@ -9144,6 +9148,10 @@ focus_tree = {
 			}
 		} #UK at war with fascist/commie. iraq is fascist/commie
 
+		allow_branch = {
+			has_war_support > 400
+		}
+
 		bypass = {
 			IRQ = { exists = no }
 		}
@@ -9242,17 +9250,7 @@ focus_tree = {
 		prerequisite = { focus = uk_iran_focus focus = ENG_no_further_appeasement }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = ENG_a_change_in_course
-				}
-			}
+			has_war_support > 400
 		}
 
 
@@ -9323,7 +9321,7 @@ focus_tree = {
 
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_construct_military
-		x = 4
+		x = 1
 		y = 1
 		relative_position_id = ENG_home_defence
 		cost = 10
@@ -9454,6 +9452,11 @@ focus_tree = {
 				}				
 			}			
 		}
+
+		allow_branch = {
+			has_war_support > 400
+		}
+
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_position_armies
 		x = -3
@@ -9695,6 +9698,11 @@ focus_tree = {
 				}								
 			}			
 		}
+
+		allow_branch = {
+			has_war_support > 400
+		}
+
 		prerequisite = { focus = ENG_home_defence }
 		icon = GFX_goal_generic_position_armies
 		x = 1
@@ -12853,7 +12861,7 @@ focus_tree = {
 	focus = {
 		id = ENG_man_with_the_plan
 		icon = GFX_focus_ARG_accept_german_advisors
-		x = 13
+		x = 44
 		y = 0
 		cost = 1
 		allow_branch = {
@@ -12916,8 +12924,11 @@ focus_tree = {
 			JAP = { is_ai = yes }
 			date > 1941.1.1
 		}
-		x = 2
-		y = 0
+		prerequisite = {
+			focus = ENG_man_with_the_plan
+		}
+		x = 0
+		y = 1
 		cost = 1
 
 		available_if_capitulated = yes
@@ -12985,7 +12996,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ENG_their_finest_rehost
+		id = ENG_the_lion_charges_alone
 		icon = GFX_focus_GER_the_peoples_victory
 		relative_position_id = ENG_USA_industrial_merge
 		allow_branch = {
@@ -12996,45 +13007,48 @@ focus_tree = {
 			JAP = { is_ai = yes }
 			date > 1942.5.22
 		}
-		x = 2
-		y = 0
+		prerequisite = {
+			focus = ENG_USA_industrial_merge
+		}
+		x = 0
+		y = 1
 		cost = 1
 
 		available_if_capitulated = yes
 		completion_reward = {
 			CAN = {hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			add_ideas = mon_motherland_idea
 			}}
 			AST = {hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			add_ideas = mon_motherland_idea
 			}}
 			SAF = {hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			add_ideas = mon_motherland_idea
 			}}
 			BRA = {hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			add_ideas = mon_motherland_idea
 			}}
 			FRA = {hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			add_ideas = mon_motherland_idea
 			}}
 
 			add_ideas = mon_motherland_idea
 			add_ideas = BRA_national_defence_fund_idea
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = their_finest_rehost_tt
+			custom_effect_tooltip = the_lion_charges_alone_tt
 			hidden_effect = {
 			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
+			add_ideas = the_lion_charges_alone
 			}
 		}
 	}

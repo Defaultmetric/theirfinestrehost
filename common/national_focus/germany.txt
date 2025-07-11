@@ -3277,10 +3277,10 @@ focus_tree = {
 					}
 				}
 				54 = { #Franken
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 3
 						instant_build = yes
 					}
 				}
@@ -3295,10 +3295,10 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 3
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 3
 						instant_build = yes
 					}
 				}
@@ -3327,10 +3327,10 @@ focus_tree = {
 				limit = {
 					is_controlled_by = ROOT
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -3570,7 +3570,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_instill_auftragstaktik
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4169,7 +4169,21 @@ focus_tree = {
 			army_experience = 15
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
+			add_tech_bonus = {
+				name = GER_new_med
+				#ahead_reduction = 1
+				bonus = 1
+				uses = 1
+				category = cat_medium_armor
+			}
+			add_tech_bonus = {
+				name = GER_new_heavy
+				#ahead_reduction = 1
+				bonus = 1
+				uses = 1
+				category = cat_heavy_armor
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_doctrine_cost_reduction = {
 				name = GER_adopt_new_panzer_doctrine
 				cost_reduction = 0.5
@@ -4197,7 +4211,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_panzer_troops_school
-		icon = GFX_goal_generic_army_tanks
+		icon = GFX_focus_generic_military_academy
 		prerequisite = { focus = GER_adopt_new_panzer_doctrine }
 
 		x = 1
@@ -4238,13 +4252,13 @@ focus_tree = {
 	
 	focus = {
 		id = GER_advanced_panzer_research
-		icon = GFX_focus_generic_army_tanks2
+		icon = GFX_focus_BRA_acquire_german_tanks
 		prerequisite = { focus = GER_adopt_new_panzer_doctrine }
 
 		x = 3
 		y = 1
 		relative_position_id = GER_adopt_new_panzer_doctrine
-		cost = 10
+		cost = 5
 		available = {
 			has_tech = radio
 		}
@@ -4252,80 +4266,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = GER_advanced_panzer_research
-				#ahead_reduction = 1
-				bonus = 1
-				uses = 1
-				category = cat_medium_armor
-			}
-
-
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panzer III Ausf. A"
-					type = medium_tank_chassis_1
-					design_team = mio:GER_daimler_benz_organization #We feed on your tears
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_high_velocity_cannon
-						turret_type_slot = tank_medium_three_man_tank_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 3
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Panzer IV"
-					type = medium_tank_chassis_1
-					design_team = mio:GER_daimler_benz_organization #We feed on your tears
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_close_support_gun
-						turret_type_slot = tank_medium_three_man_tank_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 2
-					}
-					icon = "GFX_GER_basic_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Sturmgeschütz III"
-					design_team = mio:GER_alkett_organization #We feed on your tears
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1
-					modules = {
-						main_armament_slot = tank_medium_howitzer
-						turret_type_slot = tank_medium_fixed_superstructure_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 4
-						tank_nsb_armor_upgrade = 3
-					}
-					icon = "GFX_GER_basic_medium_td_medium"
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4351,30 +4291,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					NOT = { has_dlc = "Arms Against Tyranny"}
-				}
-				if = {
-					limit = {
-						has_idea = GER_MAN
-					}
-					swap_ideas = {
-						remove_idea = GER_MAN
-						add_idea = GER_MAN_improved
-					}
-				}
-				else = {
-					effect_tooltip = {
-						swap_ideas = {
-							remove_idea = GER_MAN
-							add_idea = GER_MAN_improved
-						}
-					}
-				}
-			}
-			else = {
-				mio:GER_MAN_organization = {
+			mio:GER_MAN_organization = {
 					add_mio_size = 1
 					add_mio_funds_gain_factor = 0.25
 					add_mio_research_bonus = 0.05
@@ -4382,7 +4299,11 @@ focus_tree = {
 					#unlock_mio_trait_tooltip = 
 					#unlock_mio_trait_tooltip = 
 				}
-			}
+			mio:GER_Henschel_organization = {
+					add_mio_size = 1
+					add_mio_funds_gain_factor = 0.25
+					add_mio_research_bonus = 0.05
+				}
 		}
 	}
 	
@@ -4412,8 +4333,10 @@ focus_tree = {
 				uses = 1
 				category = cat_heavy_armor
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				name = GER_expand_kummersdorfs_capacity
+				ahead_reduction = 1
 				bonus = 1
 				uses = 1
 				category = cat_medium_armor
@@ -4421,54 +4344,6 @@ focus_tree = {
 			add_breakthrough_progress = {
 				specialization = specialization_land
 				value = 0.5
-			}
-
-			
-			if = {
-				limit = { 
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				create_equipment_variant = {
-					name = "Panther Ausf. A"
-					type = medium_tank_chassis_3
-					design_team = mio:GER_man_organization #We feed on your tears
-					modules = {
-						main_armament_slot = tank_high_velocity_cannon
-						turret_type_slot = tank_medium_three_man_tank_turret
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = sloped_armor
-						special_type_slot_3 = smoke_launchers
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 4
-					}
-					icon = "GFX_GER_advanced_medium_tank_medium"
-				}
-				create_equipment_variant = {
-					name = "Tiger I Ausf. A"
-					type = heavy_tank_chassis_2
-					design_team = mio:GER_porsche_organization #We feed on your tears
-					modules = {
-						main_armament_slot = tank_heavy_cannon
-						turret_type_slot = tank_heavy_three_man_tank_turret
-						suspension_type_slot = tank_interleaved_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = smoke_launchers
-						special_type_slot_3 = additional_machine_guns
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 8
-						tank_nsb_armor_upgrade = 6
-					}
-					icon = "GFX_GER_advanced_heavy_tank_medium"
-				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4700,10 +4575,10 @@ focus_tree = {
 					controls_state = 59
 				}
 				59 = { #Hannover
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -4713,10 +4588,10 @@ focus_tree = {
 					limit = {
 						is_fully_controlled_by = ROOT
 					}
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -4727,7 +4602,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = GER_aeronautical_research_institute
 				bonus = 0.25
-				uses = 2
+				uses = 3
 				category = air_equipment
 			}
 			add_breakthrough_progress = {
@@ -4798,7 +4673,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = GER_dive_bombers
-				bonus = 0.5
+				bonus = 1
 				uses = 1
 				category = light_air
 			}
@@ -9389,7 +9264,7 @@ focus_tree = {
 		x = 17
 		y = 1
 		relative_position_id = GER_heed_von_neuraths_concerns
-		cost = 5
+		cost = 3
 		available = {
 			has_government = fascism
 		}

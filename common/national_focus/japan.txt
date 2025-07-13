@@ -2345,20 +2345,20 @@
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 				add_tech_bonus = {
 					name = excavation_bonus
-					bonus = 1
-					uses = 1
+					bonus = 2
+					uses = 2
 					category = excavation_tech
-					ahead_reduction = 1
+					ahead_reduction = 2
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = JAP_zaibatsus_tt
@@ -2470,7 +2470,7 @@
 				tooltip = local_resources_factor_tt
 				}
 				add_to_variable = {
-				JAP_ind_construction_speed = 0.05
+				JAP_ind_construction_speed = 0.1
 				tooltip = production_speed_buildings_factor_tt
 			}
 		}
@@ -2792,6 +2792,19 @@
 		x = -1
 		y = 3
 		relative_position_id = JAP_autarky
+
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
 		cost = 10
 
@@ -4652,6 +4665,19 @@
 			}
 		}
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		available = {
 			MAN = { is_subject_of = ROOT }
 		}
@@ -5162,6 +5188,19 @@
 			modifier = {
 				factor = 2
 				has_completed_focus = JAP_support_the_kodoha_faction
+			}
+		}
+
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
 			}
 		}
 
@@ -5816,6 +5855,19 @@
 
 		cost = 5
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		available = {
 
 		}
@@ -6342,6 +6394,19 @@
 		relative_position_id = JAP_army_expansion_law
 
 		cost = 5
+
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -7082,6 +7147,19 @@
 			SIA = {is_ai = no}
 		}
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		bypass = {
 
 		}
@@ -7534,6 +7612,88 @@
 				custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
 				hidden_effect = { set_technology = { suicide_charge = 1 popup = no} }
 			}
+		}
+	}
+
+	focus = {
+		id = JAP_chi_war
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = 0
+		y = 4
+		
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+			}
+		}
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			date > 1937.7.7
+		}
+
+		
+
+		completion_reward = {
+			add_threat = 15 send_embargo = SOV
+		}
+	}
+
+	focus = {
+		id = JAP_embargo_focus
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = 0
+		y = 2
+		
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+			}
+		}
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+		}
+
+		
+
+		completion_reward = {
+			send_embargo = SOV
+			send_embargo = ENG
+			send_embargo = GER
+			send_embargo = BRA
+			send_embargo = FRA
+			send_embargo = SAF
+			send_embargo = CAN
+			send_embargo = AST
+			send_embargo = ROM
+			send_embargo = HUN
+			send_embargo = ITA
+			send_embargo = BUL
+			send_embargo = FIN
+			send_embargo = MON
 		}
 	}
 

@@ -225,11 +225,28 @@ AI_annex = {
         fire_only_once = yes
 
         available = {
-            date > 1940.01.01
-            country_exists = MON
-            original_tag = SOV
-            MON = { has_capitulated = no }
-            MON = { is_ai = yes }
+            if = 
+            {
+                limit = {
+                FIN = 
+                    {
+                        is_ai = no
+                    }
+                }
+                date > 1940.01.01
+                country_exists = MON
+                original_tag = SOV
+                MON = { has_capitulated = no }
+                MON = { is_ai = yes }
+            }
+            else =
+            {
+                date > 1936.01.01
+                country_exists = MON
+                original_tag = SOV
+                MON = { has_capitulated = no }
+                MON = { is_ai = yes }
+            }
         }
         visible = {
             original_tag = SOV
@@ -249,6 +266,37 @@ AI_annex = {
             }
         }
     }
+
+    USA_annex_MEX = {
+        icon = generic_industry
+
+        fire_only_once = yes
+
+        available = {
+            date > 1940.01.01
+            country_exists = MEX
+            original_tag = USA
+            FIN = { has_capitulated = no }
+            FIN = { is_ai = yes }
+        }
+        visible = {
+            original_tag = USA
+            MEX = { is_ai = yes }
+            country_exists = MEX
+        }
+        cost = 0
+
+        complete_effect = {
+            annex_country = { target = MEX transfer_troops = yes }
+            every_state = {
+                limit = {
+                    is_core_of = MEX
+                    is_controlled_by = USA
+                }
+                add_core_of = USA
+            }
+        }
+    }
 	
     GER_annex_FIN = {
         icon = generic_industry
@@ -256,7 +304,7 @@ AI_annex = {
         fire_only_once = yes
 
         available = {
-            date > 1940.05.01
+            date > 1941.01.01
             country_exists = FIN
             original_tag = GER
             FIN = { has_capitulated = no }

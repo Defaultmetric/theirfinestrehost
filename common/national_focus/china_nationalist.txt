@@ -1843,6 +1843,19 @@
 
 		cost = 10
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		ai_will_do = {
 			factor = 4
 		}
@@ -2306,6 +2319,20 @@
 		x = 10
 		y = 0
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
+
 		cost = 1
 
 		ai_will_do = {
@@ -2360,7 +2387,7 @@
 
 		available = {
 			OR = {
-			surrender_progress > 0.4
+			surrender_progress > 0.3
 			date > 1939.3.1
 			}
 		}
@@ -2448,6 +2475,53 @@
 	}
 
 	focus = {
+		id = CHI_embargo_focus
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = 0
+		y = 2
+		
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+			}
+		}
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+		}
+
+		
+
+		completion_reward = {
+			send_embargo = SOV
+			send_embargo = ENG
+			send_embargo = GER
+			send_embargo = BRA
+			send_embargo = FRA
+			send_embargo = SAF
+			send_embargo = CAN
+			send_embargo = AST
+			send_embargo = ROM
+			send_embargo = HUN
+			send_embargo = ITA
+			send_embargo = BUL
+			send_embargo = FIN
+			send_embargo = MON
+		}
+	}
+
+	focus = {
 		id = CHI_wave_1
 		icon = GFX_focus_generic_limited_social_mobilization
 
@@ -2460,8 +2534,21 @@
 			factor = 20
 		}
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		available = {
-			surrender_progress > 0.3
+			surrender_progress > 0.2
 			has_full_control_of_state = 744
 		}
 
@@ -2494,6 +2581,8 @@
 					support = {
 						artillery = { x = 0 y = 0 }
 						engineer = { x = 0 y = 1 }
+						logistics_company = { x = 0 y = 2}
+						anti_air = { x = 0 y = 3 }
 					}
 			}
 			hidden_effect = {
@@ -2646,7 +2735,7 @@
 		}
 
 		available = {
-			surrender_progress > 0.5
+			surrender_progress > 0.4
 			has_full_control_of_state = 605
 		}
 
@@ -2939,7 +3028,7 @@
 		}
 
 		available = {
-			surrender_progress > 0.8
+			surrender_progress > 0.65
 			has_full_control_of_state = 751
 		}
 
@@ -3473,6 +3562,7 @@
 			}
 		}
     }
+
 }
 	
 	

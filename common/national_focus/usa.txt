@@ -62,6 +62,46 @@ focus_tree = {
 #	}
 
 	focus = {
+		id = embargo_focus
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = 2
+		y = 2
+		
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+			}
+		}
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+		}
+
+		
+
+		completion_reward = {
+			send_embargo = GER
+			send_embargo = CAN
+			send_embargo = ROM
+			send_embargo = HUN
+			send_embargo = ITA
+			send_embargo = BUL
+			send_embargo = FIN
+		}
+	}
+
+	focus = {
 		id = USA_continue_the_new_deal
 		icon = GFX_focus_generic_self_management
 		x = 7
@@ -79,6 +119,7 @@ focus_tree = {
 				}
 			}
 		}
+
 		mutually_exclusive = { focus = USA_reestablish_the_gold_standard }
 		cost = 10
 
@@ -86,19 +127,6 @@ focus_tree = {
 			factor = 1
 		}
 
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = USA_reestablish_the_gold_standard
-				}
-			}
-		}
 
 		available = {
 			has_government = democratic
@@ -140,17 +168,15 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		allow_branch = {
-			has_dlc = "Man the Guns"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
 				}
-				NOT = {
-					has_completed_focus = USA_reestablish_the_gold_standard
 				}
 			}
 		}
@@ -168,23 +194,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		completion_reward = {
 			add_stability = -0.05
-			custom_effect_tooltip = available_political_advisor
-		    show_ideas_tooltip = earl_browder
-		    if = {
-		    	limit = {
-		    		is_ai = yes
-		    		OR = {
-						has_country_flag = USA_AI_RANDOM_COMMUNIST
-						has_game_rule = {
-							rule = USA_ai_behavior
-							option = COMMUNIST
-						}
-					}
-		    	}
-		    	add_ideas = earl_browder
 		    }
-		}
 	}
+
 	focus = {
 		id = USA_desegregate_the_armed_forces
 		icon = GFX_goal_generic_small_arms
@@ -199,10 +211,6 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				communism > 0.1
-				has_country_leader = { ruling_only = yes name = "Harry S. Truman" }
-			}
 		}
 		
 		bypass = {
@@ -217,6 +225,7 @@ focus_tree = {
 			add_ideas = USA_armed_forces_desegregation
 		}
 	}
+
 	focus = {
 		id = USA_full_desegregation
 		icon = GFX_focus_generic_support_the_left_right
@@ -233,10 +242,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-
-		available = {
-			communism > 0.2
-		}
 		
 		bypass = {
 
@@ -251,27 +256,9 @@ focus_tree = {
 				remove_idea = USA_armed_forces_desegregation
 				add_idea = USA_full_desegregation
 			}
-			if = {
-				limit = {
-					not = { has_government = communism }
-				}
-				USA_congress_large_opposition = yes
-			}
-			if = {
-				limit = {
-					has_country_flag = mtg_usa_civil_war_fascists_1
-					not = { has_country_flag = mtg_usa_civil_war_fascists_2 }
-				}
-				country_event = mtg_usa_civil_war_fascists.2
-				custom_effect_tooltip = mtg_usa_civil_war_warning_tt
-			}
-			else_if = {
-				limit = { not = { has_country_flag = mtg_usa_civil_war_fascists_1 } }
-				country_event = mtg_usa_civil_war_fascists.1
-				custom_effect_tooltip = mtg_usa_civil_war_warning_tt
-			}
 		}
 	}
+
 	focus = {
 		id = USA_democratic_socialism
 		icon = GFX_focus_generic_soviet_politics
@@ -1930,6 +1917,19 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_limited_intervention }
 		relative_position_id = USA_continue_the_new_deal
 
+
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
 		cost = 10
 
@@ -4430,6 +4430,19 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
 		available = {
 
 		}
@@ -5208,6 +5221,19 @@ focus_tree = {
 		relative_position_id = USA_war_plans_division
 		
 		cost = 10
+
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
 		ai_will_do = {
 			factor = 1

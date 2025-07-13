@@ -32,6 +32,53 @@ focus_tree = {
     continuous_focus_position = { x = 200 y = 3800 }
 
     focus = {
+		id = RAJ_embargo_focus
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = 0
+		y = 2
+		
+		allow_branch = 
+		{
+			if = 
+			{
+				ENG = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+			}
+		}
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+		}
+
+		
+
+		completion_reward = {
+			send_embargo = SOV
+			send_embargo = ENG
+			send_embargo = GER
+			send_embargo = BRA
+			send_embargo = FRA
+			send_embargo = SAF
+			send_embargo = CAN
+			send_embargo = AST
+			send_embargo = ROM
+			send_embargo = HUN
+			send_embargo = ITA
+			send_embargo = BUL
+			send_embargo = FIN
+			send_embargo = MON
+		}
+	}
+
+    focus = {
         id = RAJ_indianize_the_army
         icon = GFX_focus_RAJ_indianisation_of_army
         x = 0
@@ -42,6 +89,19 @@ focus_tree = {
         ai_will_do = {
             factor = 1
         }
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
         available = {
 
@@ -7490,6 +7550,19 @@ focus_tree = {
         relative_position_id = RAJ_purna_swaraj
         mutually_exclusive = { focus = RAJ_league_against_gandhism }
         cost = 10
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
         ai_will_do = {
             factor = 1
@@ -20836,6 +20909,19 @@ focus = {
 
         cost = 5
 
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         ai_will_do = {
             factor = 1
         }
@@ -21406,6 +21492,19 @@ focus = {
         y = 0
         relative_position_id = RAJ_indianize_the_army
         
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         cost = 5
 
         ai_will_do = {
@@ -21652,6 +21751,19 @@ focus = {
         x = 4
         y = 0
         relative_position_id = RAJ_east_india_railways_dlc
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
         
         cost = 5
 
@@ -22032,6 +22144,19 @@ focus = {
         y = 0
         relative_position_id = RAJ_bombay_baroda_and_central_india_railway
         
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         cost = 5
 
         ai_will_do = {
@@ -22098,6 +22223,19 @@ focus = {
         available = {
 
         }
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
         
         bypass = {
 
@@ -22134,6 +22272,19 @@ focus = {
             factor = 1
         }
 
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         available = {
 
         }
@@ -22162,6 +22313,19 @@ focus = {
         relative_position_id = RAJ_military_pensions
         
         cost = 5
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
         ai_will_do = {
             factor = 1
@@ -23948,6 +24112,19 @@ focus = {
         y = 0
         relative_position_id = RAJ_local_recruitment_offices
         
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         cost = 5
 
         ai_will_do = {
@@ -24844,6 +25021,20 @@ focus = {
         y = 1
         relative_position_id = RAJ_british_air_experts
         
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
+
         cost = 5
 
         ai_will_do = {
@@ -24882,6 +25073,19 @@ focus = {
         x = 8
         y = 0
         relative_position_id = RAJ_indian_air_force
+
+        allow_branch = 
+		{
+			if = 
+			{
+				ENG = {
+				NOT = 
+				{
+					has_completed_focus = ENG_man_with_the_plan
+				}
+				}
+			}
+		}
 
         cost = 5
 

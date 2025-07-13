@@ -770,11 +770,11 @@ focus_tree = {
 			
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_factory = 0.05
+				GER_industrial_industrial_capacity_factory = 0.1
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
+				GER_industrial_industrial_capacity_dockyard = 0.1
 				tooltip = industrial_capacity_dockyard_tt
 			}
 		}
@@ -4311,6 +4311,36 @@ focus_tree = {
 				bonus = 0.5
 				uses = 1
 				category = cat_medium_armor
+			}
+		}
+	}
+
+	focus = {
+		id = GER_advanced_anti_tank_research
+		icon = GFX_focus_generic_anti_tank_guns
+		prerequisite = { focus = GER_advanced_panzer_research }
+
+		x = 0
+		y = 2
+		relative_position_id = GER_advanced_panzer_research
+		cost = 5
+		available = {
+			OR = {
+			has_tech = advanced_medium_tank_chassis
+			has_tech = advanced_heavy_tank_chassis
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+			add_tech_bonus = {
+				name = GER_advanced_panzer
+				ahead_reduction = 2
+				bonus = 1
+				uses = 1
+				category = cat_anti_tank
 			}
 		}
 	}
@@ -8550,17 +8580,6 @@ focus_tree = {
 		relative_position_id = GER_reorganize_the_wehrmacht
 		cost = 10
 
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				OR = {
-					has_government = democratic
-					has_government = communism
-				}
-			}
-		}
-
 		bypass = {
 			OR = {
 				AUS = {
@@ -8593,39 +8612,7 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		available = {
-			has_war = no
-			is_subject = no
-			IF = {
-				limit = { has_dlc = "Gotterdammerung" }
-
-				custom_trigger_tooltip = {
-					tooltip = GER_anschluss_army_trigger_tt
-					fighting_army_strength_ratio = {
-						tag = AUS
-						ratio > global.deployed_manpower_ratio_needed_for_anschluss
-					}
-				}
-			}
-
-			ELSE = {
-				has_army_manpower = { size > 499999 }
-				
-				custom_trigger_tooltip = {
-				 	tooltip = GER_anschluss_eq_trigger_tt
-				 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 50 }
-				}
-			}
-			
-			NOT = { has_idea = rhineland_challenge_met }
-			if = {
-				limit = {
-					SWI = { has_completed_focus = SWI_gotthard_union }
-				}
-				NOT = { 
-					AUS = { has_idea = SWI_swiss_democratic_propaganda }
-				}
-			}
-
+			date > 1937.7.12
 		}
 
 		ai_will_do = {
@@ -11858,7 +11845,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 10
+		cost = 1
 
 		bypass = {
 			OR = {
@@ -12377,7 +12364,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_operation_sea_lion
-		cost = 4
+		cost = 1
 
 		ai_will_do = {
 			factor = 10

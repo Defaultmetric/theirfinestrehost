@@ -207,6 +207,26 @@ equipment_modules = {
 		}
 	}
 
+	tank_HVSS_suspension = {
+		abbreviation = "HVS"
+		category = tank_suspension_type
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			build_cost_ic = 2
+			defense = 4
+		}
+		dismantle_cost_ic  = 2
+
+		multiply_stats =  {
+		}
+
+		can_convert_from = {
+			module = tank_torsion_bar_suspension
+			convert_cost_ic = 0.5
+		}
+	}
+
 	tank_wheeled_suspension = {
 		abbreviation = "whe"
 		category = tank_non_tracked_suspension_type

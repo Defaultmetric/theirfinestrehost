@@ -412,7 +412,7 @@ equipment_modules = {
 	tank_medium_three_man_tank_turret = {
 		abbreviation = "m3m"
 		category = tank_medium_turret_type_40
-		sfx = sfx_ui_sd_module_turret
+		sfx = sfx_ui_sd_module_turret_01
 
 		allowed_module_categories = {
 			main_armament_slot = {
@@ -1467,8 +1467,9 @@ equipment_modules = {
 
 		add_stats = {
 			build_cost_ic = 1.5
-			soft_attack = 10
+			soft_attack = 5
 			breakthrough = 2.0
+			hardness = -0.2
 		}
 		xp_cost = 1
 		multiply_stats = {
@@ -1481,11 +1482,30 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			soft_attack = 5
-			hard_attack = 3
+			soft_attack = 3
+			hard_attack = 5
 			build_cost_ic = 3
 			reliability = -0.1
 			breakthrough = 2
+			hardness = -0.05
+		}
+		xp_cost = 1
+		multiply_stats = {
+		}
+	}
+
+	hull_mounted_howitzer = {
+		abbreviation = "hmh"
+		category = tank_secondary_turret
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			soft_attack = 10
+			hard_attack = 2
+			build_cost_ic = 4
+			reliability = -0.15
+			breakthrough = 2
+			hardness = -0.1
 		}
 		xp_cost = 1
 		multiply_stats = {
@@ -1527,8 +1547,8 @@ equipment_modules = {
 
 		add_stats = {
 			build_cost_ic = 0.5
-			defense = 10
-			breakthrough = 1
+			defense = 2
+			breakthrough = 5
 		}
 		xp_cost = 1
 		multiply_stats = {
@@ -1542,9 +1562,11 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			reliability = -0.1
-			breakthrough = 2
-			defense = 10
+			reliability = -0.15
+		}
+		multiply_stats = {
+			soft_attack = 0.10
+			hard_attack = 0.10
 		}
 		xp_cost = 1
 	}
@@ -1555,7 +1577,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			reliability = 0.25
+			reliability = 0.20
 			build_cost_ic = 1
 		}
 		xp_cost = 1
@@ -1574,7 +1596,7 @@ equipment_modules = {
 		}
 		xp_cost = 1
 		multiply_stats = {
-			ap_attack = 0.15
+			hard_attack = 0.10
 		}
 
 		build_cost_resources = {
@@ -1633,7 +1655,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			reliability = 0.15
+			reliability = 0.10
 		}
 		dismantle_cost_ic = 1
 		xp_cost = 15
@@ -1649,7 +1671,7 @@ equipment_modules = {
 
 		add_stats = {
 			soft_attack = 4
-			defense = 4
+			defense = 2
 			build_cost_ic = 0.5
 		}
 		xp_cost = 1

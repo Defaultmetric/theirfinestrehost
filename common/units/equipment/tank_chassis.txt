@@ -38,7 +38,10 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_0
+					tank_light_turret_tier_1
+					tank_light_turret_tier_2
+					tank_light_turret_tier_3
+					tank_light_turret_tier_f
 				}
 			}
 			
@@ -194,7 +197,8 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_0
+					tank_light_turret_tier_1
+					tank_light_turret_tier_f
 				}
 			}
 			
@@ -209,7 +213,7 @@ equipments = {
 		}
 	}
 		maximum_speed = 5
-		breakthrough = 6
+		breakthrough = 5
 		defense = 2
 		build_cost_ic = 2
 		reliability = 0.95
@@ -229,7 +233,8 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_0
+					tank_light_turret_tier_1
+					tank_light_turret_tier_f
 				}
 			}
 			main_armament_slot = inherit
@@ -237,7 +242,7 @@ equipments = {
 			armor_type_slot = inherit
 			engine_type_slot = inherit
 			special_type_slot_1 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -250,7 +255,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		maximum_speed = 5
-		breakthrough = 8
+		breakthrough = 7
 		defense = 2
 		build_cost_ic = 2.5
 		reliability = 0.95
@@ -271,6 +276,8 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tank_light_turret_tier_1
+					tank_light_turret_tier_2
+					tank_light_turret_tier_f
 				}
 			}
 			main_armament_slot = inherit		
@@ -279,7 +286,7 @@ equipments = {
 			engine_type_slot = inherit
 			special_type_slot_1 = inherit
 			special_type_slot_2 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -316,7 +323,10 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
+					tank_light_turret_tier_1
 					tank_light_turret_tier_2
+					tank_light_turret_tier_3
+					tank_light_turret_tier_f
 				}
 			}
 			
@@ -327,7 +337,7 @@ equipments = {
 			special_type_slot_1 = inherit
 			special_type_slot_2 = inherit
 			special_type_slot_3 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -335,7 +345,7 @@ equipments = {
 				}
 			}
 			special_type_slot_4 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -390,12 +400,10 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_medium_turret_type
-=======
-					tank_light_turret_type
 					tank_medium_turret_tier_1
->>>>>>> Stashed changes
+					tank_medium_turret_tier_2
+					tank_medium_turret_tier_3
+					tank_medium_turret_tier_f
 				}
 			}
 			
@@ -547,12 +555,7 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_light_turret_tier_0
-=======
-					tank_light_turret_type
-					tank_medium_turret_tier_1
->>>>>>> Stashed changes
+					tank_light_turret_tier_1
 				}
 			}
 			main_armament_slot = inherit
@@ -560,7 +563,7 @@ equipments = {
 			armor_type_slot = inherit
 			engine_type_slot = inherit
 			special_type_slot_1 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -595,13 +598,8 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_medium_turret_tier_fixed
-					tank_medium_turret_tier_0
-=======
-					tank_light_turret_type
 					tank_medium_turret_tier_1
->>>>>>> Stashed changes
+					tank_medium_turret_tier_f
 				}
 			}
 			main_armament_slot = inherit
@@ -610,7 +608,7 @@ equipments = {
 			engine_type_slot = inherit
 			special_type_slot_1 = inherit
 			special_type_slot_2 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -618,7 +616,7 @@ equipments = {
 				}
 			}
 			special_type_slot_3 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -631,7 +629,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		armor_value = 30
-		breakthrough = 8
+		breakthrough = 10
 		defense = 3
 		build_cost_ic = 5
 		reliability = 0.8
@@ -649,15 +647,9 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_medium_turret_tier_fixed
-					tank_medium_turret_tier_0
-					tank_medium_turret_tier_1
-=======
-					tank_light_turret_type
 					tank_medium_turret_tier_1
 					tank_medium_turret_tier_2
->>>>>>> Stashed changes
+					tank_medium_turret_tier_f
 				}
 			}
 			main_armament_slot = inherit
@@ -667,8 +659,8 @@ equipments = {
 			special_type_slot_1 = inherit
 			special_type_slot_2 = inherit
 			special_type_slot_3 = inherit
-			special_type_slot_1 = {
-				required _ no
+			special_type_slot_4 = {
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -704,15 +696,10 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_medium_turret_tier_2
-					tank_medium_turret_tier_fixed
-					tank_medium_turret_tier_1
-=======
-					tank_medium_turret_tier_1_43
 					tank_medium_turret_tier_1
 					tank_medium_turret_tier_2
->>>>>>> Stashed changes
+					tank_medium_turret_tier_3
+					tank_medium_turret_tier_f
 				}
 			}
 			main_armament_slot = inherit
@@ -729,7 +716,7 @@ equipments = {
 			tank_nsb_armor_upgrade
 		}
 		maximum_speed = 6
-		breakthrough = 24
+		breakthrough = 22
 		defense = 3
 		build_cost_ic = 7
 		reliability = 1.3
@@ -769,18 +756,10 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-<<<<<<< Updated upstream
-					tank_heavy_turret_tier_0
 					tank_heavy_turret_tier_1
 					tank_heavy_turret_tier_2
-					tank_heavy_turret_tier_fixed
-=======
-					tank_light_turret_type
-					tank_medium_turret_tier_1
-					tank_heavy_turret_type
-					tank_heavy_turret_type_34
-					tank_heavy_superstructure_type
->>>>>>> Stashed changes
+					tank_heavy_turret_tier_3
+					tank_heavy_turret_tier_f
 				}
 			}
 			
@@ -933,7 +912,7 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_0
+					tank_light_turret_tier_1
 				}
 			}
 			
@@ -942,7 +921,7 @@ equipments = {
 			armor_type_slot = inherit
 			engine_type_slot = inherit
 			special_type_slot_1 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -975,8 +954,8 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_heavy_turret_tier_0
-					tank_heavy_turret_tier_fixed
+					tank_heavy_turret_tier_1
+					tank_heavy_turret_tier_f
 				}
 			}
 			
@@ -986,7 +965,7 @@ equipments = {
 			engine_type_slot = inherit
 			special_type_slot_1 = inherit
 			special_type_slot_2 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -994,7 +973,7 @@ equipments = {
 				}
 			}
 			special_type_slot_3 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -1028,9 +1007,9 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_heavy_turret_tier_0
-					tank_heavy_turret_tier_fixed
 					tank_heavy_turret_tier_1
+					tank_heavy_turret_tier_f
+					tank_heavy_turret_tier_2
 				}
 			}
 			
@@ -1042,7 +1021,7 @@ equipments = {
 			special_type_slot_2 = inherit
 			special_type_slot_3 = inherit
 			special_type_slot_4 = {
-				required _ no
+				required = no
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
@@ -1056,7 +1035,7 @@ equipments = {
 		}
 		build_cost_ic = 14
 		maximum_speed = 5
-		breakthrough = 22
+		breakthrough = 24
 		defense = 4
 		reliability = 1.1
 		armor_value = 65
@@ -1078,10 +1057,10 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_heavy_turret_tier_0
-					tank_heavy_turret_tier_fixed
 					tank_heavy_turret_tier_1
+					tank_heavy_turret_tier_f
 					tank_heavy_turret_tier_2
+					tank_heavy_turret_tier_3
 				}
 			}
 			
@@ -1100,7 +1079,7 @@ equipments = {
 		}
 		build_cost_ic = 14
 		maximum_speed = 5
-		breakthrough = 22
+		breakthrough = 24
 		defense = 4
 		reliability = 1.3
 		armor_value = 80

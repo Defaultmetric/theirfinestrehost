@@ -269,12 +269,11 @@ equipment_modules = {
 
 	tank_light_one_man_tank_turret = {
 		abbreviation = "l1m"
-		category = tank_light_turret_type
+		category = tank_light_turret_tier_1
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
 			build_cost_ic = 1
-			breakthrough = 7
 		}
 
 		dismantle_cost_ic = 0.5
@@ -287,12 +286,11 @@ equipment_modules = {
 
 	tank_light_two_man_tank_turret = {
 		abbreviation = "l2m"
-		category = tank_light_turret_type
+		category = tank_light_turret_tier_2
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
 			build_cost_ic = 1.25
-			breakthrough = 10
 			
 		}
 		xp_cost = 2
@@ -305,13 +303,11 @@ equipment_modules = {
 
 	tank_light_three_man_tank_turret = {
 		abbreviation = "l3m"
-		category = tank_light_turret_type
+		category = tank_light_turret_tier_3
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
 			build_cost_ic = 1.5
-			maximum_speed = -0.1
-			breakthrough = 14
 		}
 		dismantle_cost_ic = 0.5
 		xp_cost = 2
@@ -323,7 +319,7 @@ equipment_modules = {
 
 	tank_light_fixed_superstructure_turret = {
 		abbreviation = "lfs"
-		category = tank_light_turret_type
+		category = tank_light_turret_tier_f
 		sfx = sfx_ui_sd_module_turret
 		forbid_equipment_type = anti_air
 
@@ -352,7 +348,7 @@ equipment_modules = {
 		}
 
 		can_convert_from = {
-			module_category = tank_light_turret_type
+			module_category = tank_light_turret_tier_1
 			convert_cost_ic = 0.75
 		}
 	}
@@ -372,7 +368,6 @@ equipment_modules = {
 		}
 		add_stats = {
 			build_cost_ic = 1.25
-			breakthrough = 8
 			
 		}
 		dismantle_cost_ic = 1
@@ -400,7 +395,6 @@ equipment_modules = {
 		}
 		add_stats = {
 			build_cost_ic = 1.75
-			breakthrough = 16
 		}
 		dismantle_cost_ic = 1
 		xp_cost = 2
@@ -424,8 +418,6 @@ equipment_modules = {
 		}
 		add_stats = {
 			build_cost_ic = 2.25
-			maximum_speed = -0.25
-			breakthrough = 24
 		}
 		dismantle_cost_ic = 1
 		xp_cost = 2
@@ -494,7 +486,6 @@ equipment_modules = {
 
 		add_stats = {
 			build_cost_ic = 5
-			breakthrough = 18
 		}
 
 		multiply_stats = {
@@ -526,7 +517,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 5.5
 			maximum_speed = -0.25
-			breakthrough = 22
 		}
 
 		multiply_stats = {
@@ -537,7 +527,7 @@ equipment_modules = {
 
 	tank_improved_heavy_three_man_tank_turret = {
 		abbreviation = "h4m"
-		category = GFX_EMI_tank_heavy_turret_tier_3
+		category = tank_heavy_turret_tier_3
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -559,7 +549,6 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 5.5
 			maximum_speed = -0.25
-			breakthrough = 22
 		}
 
 		multiply_stats = {
@@ -570,7 +559,7 @@ equipment_modules = {
 
 	tank_heavy_fixed_superstructure_turret = {
 		abbreviation = "hfs"
-		category = GFX_EMI_tank_heavy_turret_tier_f
+		category = tank_heavy_turret_tier_f
 		sfx = sfx_ui_sd_module_turret
 		forbid_equipment_type = anti_air
 
@@ -599,7 +588,7 @@ equipment_modules = {
 		}
 
 		can_convert_from = {
-			module_category = tank_heavy_turret_type
+			module_category = tank_heavy_turret_tier_1
 			convert_cost_ic = 5
 		}
 

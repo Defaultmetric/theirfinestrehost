@@ -359,7 +359,7 @@ equipment_modules = {
 
 	tank_medium_one_man_tank_turret = {
 		abbreviation = "m1m"
-		category = tank_medium_turret_type
+		category = tank_medium_turret_tier_1
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -387,7 +387,7 @@ equipment_modules = {
 
 	tank_medium_two_man_tank_turret = {
 		abbreviation = "m2m"
-		category = tank_medium_turret_type
+		category = tank_medium_turret_tier_2
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -411,7 +411,7 @@ equipment_modules = {
 
 	tank_medium_three_man_tank_turret = {
 		abbreviation = "m3m"
-		category = tank_medium_turret_type_40
+		category = tank_medium_turret_tier_3
 		sfx = sfx_ui_sd_module_turret_01
 
 		allowed_module_categories = {
@@ -434,34 +434,11 @@ equipment_modules = {
 		}
 	}
 
-	tank_improved_medium_three_man_tank_turret = {
-		abbreviation = "m4m"
-		category = tank_medium_turret_type_43
-		sfx = sfx_ui_sd_module_turret
 
-		allowed_module_categories = {
-			main_armament_slot = {
-				tank_1943_medium_gun
-			}
-		}
-		forbid_equipment_type = {
-			anti_tank 
-		}
-		add_stats = {
-			build_cost_ic = 2.25
-			maximum_speed = -0.25
-			breakthrough = 24
-		}
-		dismantle_cost_ic = 1
-		xp_cost = 2
-		multiply_stats = {
-			breakthrough = 0.05
-		}
-	}
 
 	tank_medium_fixed_superstructure_turret = {
 		abbreviation = "mfs"
-		category = tank_medium_turret_type
+		category = tank_medium_turret_tier_f
 		sfx = sfx_ui_sd_module_turret
 		forbid_equipment_type = anti_air
 
@@ -490,7 +467,7 @@ equipment_modules = {
 		}
 
 		can_convert_from = {
-			module_category = tank_medium_turret_type
+			module_category = tank_medium_turret_tier_1
 			convert_cost_ic = 1.5
 		}
 
@@ -498,7 +475,7 @@ equipment_modules = {
 
 	tank_heavy_two_man_tank_turret = {
 		abbreviation = "h2m"
-		category = tank_heavy_turret_type_34
+		category = tank_heavy_turret_tier_1
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -528,7 +505,7 @@ equipment_modules = {
 
 	tank_heavy_three_man_tank_turret = {
 		abbreviation = "h3m"
-		category = tank_heavy_turret_type_40
+		category = tank_heavy_turret_tier_2
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -560,7 +537,7 @@ equipment_modules = {
 
 	tank_improved_heavy_three_man_tank_turret = {
 		abbreviation = "h4m"
-		category = tank_heavy_turret_type_43
+		category = GFX_EMI_tank_heavy_turret_tier_3
 		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
@@ -593,7 +570,7 @@ equipment_modules = {
 
 	tank_heavy_fixed_superstructure_turret = {
 		abbreviation = "hfs"
-		category = tank_heavy_superstructure_type
+		category = GFX_EMI_tank_heavy_turret_tier_f
 		sfx = sfx_ui_sd_module_turret
 		forbid_equipment_type = anti_air
 

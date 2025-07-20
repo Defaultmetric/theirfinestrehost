@@ -585,6 +585,77 @@ equipment_modules = {
 
 	}
 
+	tank_large_superstructure_m = {
+		abbreviation = "tls"
+		category = tank_large_superstructure_m
+		sfx = sfx_ui_sd_module_turret
+		forbid_equipment_type = anti_air
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
+				tank_medium_main_armament_3
+				tank_heavy_main_armament_1
+				tank_heavy_main_armament_2
+				tank_heavy_main_armament_3
+			}
+		}
+		forbid_equipment_type_exact_match_for_category = {
+			tank_super_heavy_main_armament = armor
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 2
+		add_stats = {
+			build_cost_ic = 10
+			reliability = 0.1
+			defense = 2
+		}
+		multiply_stats = {
+			breakthrough = -0.3
+		}
+
+		can_convert_from = {
+			module_category = tank_heavy_turret_tier_1
+			convert_cost_ic = 10
+		}
+	}
+
+	tank_large_superstructure_h = {
+		abbreviation = "tlsh"
+		category = tank_large_superstructure_h
+		sfx = sfx_ui_sd_module_turret
+		forbid_equipment_type = anti_air
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
+				tank_medium_main_armament_3
+				tank_heavy_main_armament_1
+				tank_heavy_main_armament_2
+				tank_heavy_main_armament_3
+				tank_super_heavy_main_armament
+			}
+		}
+		forbid_equipment_type_exact_match_for_category = {
+			tank_super_heavy_main_armament = armor
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 2
+		add_stats = {
+			build_cost_ic = 10
+			reliability = 0.1
+			defense = 2
+		}
+		multiply_stats = {
+			breakthrough = -0.3
+		}
+
+		can_convert_from = {
+			module_category = tank_heavy_turret_tier_1
+			convert_cost_ic = 10
+		}
+	}
+
 	tank_super_heavy_three_man_tank_turret = {
 		abbreviation = "s3m"
 		category = tank_super_heavy_turret_type

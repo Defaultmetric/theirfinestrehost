@@ -406,7 +406,7 @@ equipment_modules = {
 	tank_medium_three_man_tank_turret = {
 		abbreviation = "m3m"
 		category = tank_medium_turret_tier_3
-		sfx = sfx_ui_sd_module_turret_01
+		sfx = sfx_ui_sd_module_turret
 
 		allowed_module_categories = {
 			main_armament_slot = {
@@ -473,6 +473,7 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_medium_main_armament_1
 				tank_heavy_main_armament_1
 			}
 		}
@@ -500,6 +501,7 @@ equipment_modules = {
 		allowed_module_categories = {
 			main_armament_slot = {
 				tank_heavy_main_armament_2
+				tank_heavy_main_armament_2
 			}
 		}
 		forbid_equipment_type = {
@@ -526,6 +528,7 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_medium_main_armament_3
 				tank_heavy_main_armament_3
 			}
 		}
@@ -554,6 +557,8 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
 				tank_heavy_main_armament_1
 				tank_heavy_main_armament_2
 			}
@@ -641,10 +646,10 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
-				tank_light_main_armament_1
+				tank_light_main_armament_3
 				tank_medium_main_armament_3
 				tank_1943_medium_gun
-				tank_heavy_main_armament
+				tank_heavy_main_armament_3
 				tank_super_heavy_main_armament
 			}
 		}
@@ -891,7 +896,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 		allow_equipment_type = artillery
 		add_stats = {
-			soft_attack = 26
+			soft_attack = 30
 			hard_attack = 2
 			ap_attack = 10
 			build_cost_ic = 4
@@ -906,6 +911,27 @@ equipment_modules = {
 		}
 		build_cost_resources = {
 			steel = 1
+		}
+	}
+
+	tank_small_cannon_3 = {
+		abbreviation = "sc3"
+		category = tank_light_main_armament_3
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			soft_attack = 20
+			hard_attack = 22
+			ap_attack = 40
+			build_cost_ic = 3
+			maximum_speed = -0.15
+			reliability = -0.15
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 1
+		can_convert_from = {
+			module_category = tank_light_main_armament_1
+			convert_cost_ic = 1.5
 		}
 	}
 
@@ -927,7 +953,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 3
 		}
 
@@ -955,7 +981,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
@@ -1011,7 +1037,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 4
 		}
 		build_cost_resources = {
@@ -1038,7 +1064,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 5.5
 		}
 		build_cost_resources = {
@@ -1067,7 +1093,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 4
 		}
 
@@ -1096,7 +1122,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 1
 		can_convert_from = {
-			module_category = tank_medium_main_armament
+			module_category = tank_medium_main_armament_1
 			convert_cost_ic = 5
 		}
 		build_cost_resources = {
@@ -1429,14 +1455,47 @@ equipment_modules = {
 	}
 
 	secondary_turret_hmg = {
-		abbreviation = "thmg"
-		category = tank_secondary_turret
+		abbreviation = "thx1"
+		category = tank_secondary_turret_0
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
 			build_cost_ic = 1.5
 			soft_attack = 10
 			breakthrough = 2.0
+			reliability = -0.05
+		}
+		xp_cost = 1
+		multiply_stats = {
+		}
+	}
+
+	secondary_turret_hmgx2 = {
+		abbreviation = "thx2"
+		category = tank_secondary_turret_0
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 3
+			soft_attack = 20
+			breakthrough = 4.0
+			reliability = -0.3
+		}
+		xp_cost = 1
+		multiply_stats = {
+		}
+	}
+
+	secondary_turret_hmgx3 = {
+		abbreviation = "thx3"
+		category = tank_secondary_turret_0
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 4.5
+			soft_attack = 30
+			breakthrough = 6.0
+			reliability = -0.6
 		}
 		xp_cost = 1
 		multiply_stats = {
@@ -1444,7 +1503,7 @@ equipment_modules = {
 	}
 
 	secondary_turret_small_cannon = {
-		abbreviation = "tsc"
+		abbreviation = "tx1"
 		category = tank_secondary_turret
 		sfx = sfx_ui_sd_module_turret
 
@@ -1461,7 +1520,7 @@ equipment_modules = {
 	}
 
 	secondary_turret_small_cannonx2 = {
-		abbreviation = "tsc"
+		abbreviation = "tx2"
 		category = tank_secondary_turret
 		sfx = sfx_ui_sd_module_turret
 
@@ -1469,7 +1528,7 @@ equipment_modules = {
 			soft_attack = 10
 			hard_attack = 6
 			build_cost_ic = 6
-			reliability = -0.45
+			reliability = -0.35
 			breakthrough = 4
 		}
 		xp_cost = 1
@@ -1477,8 +1536,8 @@ equipment_modules = {
 		}
 	}
 
-	secondary_turret_small_cannon = {
-		abbreviation = "tsc"
+	secondary_turret_small_cannonx3 = {
+		abbreviation = "tx3"
 		category = tank_secondary_turret
 		sfx = sfx_ui_sd_module_turret
 
@@ -1677,6 +1736,48 @@ equipment_modules = {
 		}
 	}
 }
+
+#module_blank = {
+#	abbreviation = 
+#	cetegory = tank_special_module
+#	sfx = sfx_ui_sd_module_turret
+#
+#	add_stats = {
+#		
+#	}
+#	xp_cost = 1
+#	multiply_stats = {
+#
+#	}
+#}
+
+#module_blank = {
+#	abbreviation = 
+#	cetegory = tank_special_module
+#	sfx = sfx_ui_sd_module_turret
+#
+#	add_stats = {
+#		
+#	}
+#	xp_cost = 1
+#	multiply_stats = {
+#
+#	}
+#}
+
+#module_blank = {
+#	abbreviation = 
+#	cetegory = tank_special_module
+#	sfx = sfx_ui_sd_module_turret
+#
+#	add_stats = {
+#		
+#	}
+#	xp_cost = 1
+#	multiply_stats = {
+#
+#	}
+#}
 
 #module_blank = {
 #	abbreviation = 

@@ -434,6 +434,15 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 5
+
+		available = 
+		{
+			JAP = 
+			{
+				has_completed_focus = JAP_greater_east_asian_co_prosperity_sphere
+			}
+		}
+
 		completion_reward = {
 			add_political_power = 35
 			diplomatic_relation = 
@@ -778,7 +787,7 @@ focus_tree = {
 		}
 	}
 
-			focus = {
+		focus = {
 		id = local_weapon_artisans
 		icon = GFX_focus_AFG_scavenging
 		prerequisite = {
@@ -1373,7 +1382,7 @@ focus_tree = {
 				SIA_mil_fuel_gain = 0.10
 			}
 			add_to_variable = {
-				SIA_mil_conversion_cost_civ_to_mil = 0.30
+				SIA_mil_conversion_cost_civ_to_mil = -0.30
 			}
 			custom_effect_tooltip = SIA_leverage_civilian_tt
 		}
@@ -1545,14 +1554,13 @@ focus_tree = {
 				bonus = 0.5
 				category = artillery
 			}
-			custom_effect_tooltip = SIA_military_research_tt
 		}
 	}
 
 	focus = {
 		id = infantry_modernization
 		icon = GFX_focus_secret_rearmament
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = ground_rearmament
 		}
@@ -1565,7 +1573,6 @@ focus_tree = {
 				bonus = 1
 				category = infantry_weapons
 			}
-			custom_effect_tooltip = SIA_military_research_tt
 		}
 	}
 

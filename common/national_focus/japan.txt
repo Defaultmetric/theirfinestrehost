@@ -1802,6 +1802,14 @@
 			factor = 3
 		}
 
+		bypass = 
+		{
+			SIA = 
+			{
+				is_in_faction_with = JAP
+			}
+		}
+
 		available = {
 			is_faction_leader = yes
 			is_subject = no
@@ -1811,9 +1819,6 @@
 			}
 		}
 
-		#bypass = {
-		#	is_in_faction_with = SIA
-		#}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1821,14 +1826,7 @@
 
 
 		completion_reward = {
-			SIA = { 
-				country_event = { id = generic.5 hours = 2 }
-			}
-			add_ai_strategy = {
-				type = protect
-				id = "SIA"
-				value = 100
-			}
+			JAP = { add_to_faction = SIA }
 		}
 	}
 
@@ -5517,6 +5515,7 @@
 
 			set_technology = {
 			mechanised_infantry = 1
+			improved_light_tank_chassis = 1
 			basic_heavy_tank_chassis = 1
 			basic_medium_tank_chassis = 1
 			basic_light_tank_chassis = 1

@@ -194,6 +194,111 @@ focus_tree = {
 
 		}
 	}
+
+	focus = {
+		id = GER_rapid_economic_growth
+		icon = GFX_focus_generic_economic_recovery
+		prerequisite = { focus = GER_prioritize_economic_growth }
+
+		x = 0
+		y = 1
+		relative_position_id = GER_prioritize_economic_growth
+		cost = 5
+
+		allow_branch = 
+		{
+			if = 
+			{
+				has_global_flag = FRA_le_pari_continental_flag
+			}
+		}
+
+		continue_if_invalid = yes
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = { 
+				GER_industrial_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = { 
+				GER_industrial_conversion_cost_civ_to_mil_factor = -0.2
+				tooltip = conversion_cost_civ_to_mil_factor_tt
+			}
+			add_to_variable = { 
+				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = { 
+				GER_industrial_production_factory_efficiency_gain_factor = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = { 
+				GER_industrial_production_factory_start_efficiency_factor = 0.05
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
+			add_to_variable = { 
+				GER_industrial_line_change_production_efficiency_factor = 0.05
+				tooltip = line_change_production_efficiency_factor_tt
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			modify_building_resources = {
+        	   building = synthetic_refinery
+        	   resource = rubber
+        	   amount = 1
+        	}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
 	
 	focus = {
 		id = GER_currency_reforms
@@ -1545,7 +1650,6 @@ focus_tree = {
 		relative_position_id = GER_kdf_wagen_factories
 		cost = 10
 		available = {
-			industrial_complex > 49
 		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
@@ -1563,11 +1667,11 @@ focus_tree = {
 				prioritize = { 56 }
 				add_resource = {
 					type = tungsten
-					amount = 2
+					amount = 8
 				}
 				add_resource = {
 					type = chromium
-					amount = 2
+					amount = 8
 				}
 			}
 
@@ -1580,6 +1684,42 @@ focus_tree = {
 				category = electronics
 			}
 
+		}
+	}
+
+	focus = {
+		id = GER_total_france_mobilization
+		icon = GFX_focus_generic_full_social_mobilization
+		prerequisite = { focus = GER_develop_heraeus_facilities }
+
+		allow_branch = 
+		{
+			if = 
+			{
+				has_global_flag = FRA_le_pari_continental_flag
+			}
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = GER_develop_heraeus_facilities
+		cost = 5
+		available = {
+				has_war_support > 0.80
+		}
+
+		continue_if_invalid = yes
+
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			add_war_support = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_ideas = totaler_krieg_economy_v2
+
+			
 		}
 	}
 	

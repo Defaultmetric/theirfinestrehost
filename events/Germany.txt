@@ -7822,61 +7822,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	# Italy gets 1 state Savoy
-	option = {
-		ai_chance = { base = 70 }
-		name = germany.104.a
-		trigger = {
-			has_global_flag = ITA_claims_on_france_735
-			has_global_flag = ITA_claims_on_france_1
-		}
-		clr_global_flag = ITA_claims_on_france_1
-		random_other_country = {
-			limit = {
-				original_tag = FRA
-				has_government = fascism
-			}
-			country_event = france.27
-		}
-		ITA = { country_event = { id = italy.16 hours = 2 } }
-	}
-
-	# Italy gets 1 state Corsica
-	option = {
-		ai_chance = { base = 70 }
-		name = germany.104.b
-		trigger = {
-			NOT = { has_global_flag = ITA_claims_on_france_735 }
-			has_global_flag = ITA_claims_on_france_1
-		}
-		random_other_country = {
-			limit = {
-				original_tag = FRA
-				has_government = fascism
-			}
-			country_event = france.27
-		}
-		ITA = { country_event = { id = italy.15 hours = 2 } }
-	}
-
-	# Italy gets Savoy
-	option = {
-		ai_chance = { base = 70 }
-		name = germany.104.c
-		trigger = {
-			has_global_flag = ITA_claims_on_france_735
-			NOT = { has_global_flag = ITA_claims_on_france_1 }
-		}
-		random_other_country = {
-			limit = {
-				original_tag = FRA
-				has_government = fascism
-			}
-			country_event = france.27
-		}
-		ITA = { country_event = { id = italy.15 hours = 2 } }
-	}
-
 	# Italy gets Savoy and Corsica
 	option = {
 		ai_chance = { base = 20 }
@@ -7893,13 +7838,6 @@ country_event = {
 			country_event = france.27
 		}
 		ITA = { country_event = { id = italy.15 hours = 2 } }
-	}
-
-	# Italy gets nothing
-	option = {
-		ai_chance = { base = 10 }
-		name = germany.104.f
-		ITA = { country_event = { id = italy.14 hours = 2 } }
 	}
 }
 

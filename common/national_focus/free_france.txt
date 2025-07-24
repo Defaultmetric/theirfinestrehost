@@ -883,15 +883,15 @@
 	focus = {
 		id = FRA_colonial_economy
 		icon = GFX_focus_generic_population_growth
-		x = 6
-		y = 1
+		x = 5
+		y = 0
 	
 		allow_branch = 
 		{
 			has_global_flag = FRA_la_guerre_longue_flag
 		}
 
-		relative_position_id = FRA_form_the_provisional_government_of_the_republic
+		relative_position_id = FRA_form_the_national_committee
 		cost = 10
 
 		ai_will_do = {
@@ -904,7 +904,7 @@
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -946,7 +946,7 @@
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -988,7 +988,7 @@
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1044,7 +1044,7 @@
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1101,7 +1101,7 @@
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1155,7 +1155,7 @@
 	
 		cancel_if_invalid = yes
 		continue_if_invalid = no
-		available_if_capitulated = no
+		available_if_capitulated = yes
 	
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
@@ -1237,7 +1237,7 @@
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_ideas = their_finest_rehost
+			add_ideas = FRA_return_to_homeland_idea
 		}
 	}
 		

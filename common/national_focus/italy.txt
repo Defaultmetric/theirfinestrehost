@@ -2730,7 +2730,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = steel
-					amount = 10
+					amount = 24
 				}
 			}
 		}
@@ -2784,7 +2784,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ITA_industria_della_gomma_sintetica
-				bonus = 0.5
+				bonus = 1
 				uses = 2
 				category = cat_synth_oil
 			}
@@ -3637,6 +3637,124 @@ focus_tree = {
 				uses = 2
 				category = motorized_equipment
 				category = light_air
+			}
+		}
+	}
+
+	focus = {
+		id = ITA_africa_will_be_ours
+		icon = GFX_focus_GER_reclaim_former_african_colonies
+		prerequisite = { focus = ITA_increase_artillery_production }
+		prerequisite = { focus = ITA_expand_national_universities }
+		x = 3
+		y = 2
+		relative_position_id = ITA_redirect_alfa_romeo_production
+		cost = 10
+		available = {
+			has_full_control_of_state = 661
+			has_full_control_of_state = 663
+			date > 1939.1.1
+			has_global_flag = FRA_la_guerre_longue_flag
+		}
+
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			custom_effect_tooltip = ITA_africa_will_be_ours_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ITA_eco_tt
+			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.10 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.10 tooltip = production_factory_max_efficiency_factor_tt}
+			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.10 tooltip = production_factory_start_efficiency_factor_tt }
+			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 tooltip = production_factory_efficiency_gain_factor_tt }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ITA_industriale_tt
+			add_to_variable = { ITA_iri_consumer_goods_factor = -0.1 tooltip = consumer_goods_factor_tt }
+			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+			hidden_effect = 
+			{
+				449 = {
+					add_building_construction = {
+						type = radar_station
+						level = 2
+						instant_build = yes
+					}
+				}
+
+				448 = {
+					add_building_construction = {
+						type = bunker
+						province = 12039
+						level = 4
+						instant_build = yes
+					}
+				}
+
+				661 = {
+					add_building_construction = {
+						type = bunker
+						province = 10067
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						province = 7154
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = supply_node
+						province = 10754
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				451 = {
+					add_building_construction = {
+						type = bunker
+						province = 9992
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						province = 10120
+						level = 4
+						instant_build = yes
+					}
+				}
+
+				663 = {
+					add_building_construction = {
+						type = bunker
+						province = 4060
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						province = 1060
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = supply_node
+						province = 10731
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				#left-side supply hub
+				build_railway = {
+				path = { 1149 12711 10758 10754 }
+				}
+				#right-side supply hub
+				build_railway = {
+				path = { 12079 1186 10731 }
+				}
 			}
 		}
 	}
@@ -4644,6 +4762,10 @@ focus_tree = {
 		relative_position_id = ITA_self_propelled_guns
 		cost = 5
 		available = {
+			NOT = 
+			{
+				has_completed_focus = ITA_end_interservice_rivalry
+			}
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -4752,9 +4874,18 @@ focus_tree = {
 			hidden_effect = {
 				add_ideas = ITA_hidden_ferrea_mole_ns
 			}
-
+		add_to_variable = {
+			ITA_re_mechanized_attack = 0.05
+			tooltip = mechanized_attack_factor_tt
+			}
+		add_to_variable = {
+			ITA_re_armor_attack = 0.1
+			tooltip = army_armor_attack_factor_tt
+		}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 50
-
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
 			add_tech_bonus = {
 				name = ITA_ferrea_mole_ferreo_cuore
 				bonus = 1
@@ -4808,10 +4939,10 @@ focus_tree = {
 			air_experience = 25
 
 			add_tech_bonus = {
-				name = ITA_air_innovations_bba #fighter_bonus
-				bonus = 0.5
-				uses = 1
-				category = light_fighter
+				name = ITA_citta_dell_aria
+				bonus = 0.25
+				uses = 3 # was 4
+				category = air_equipment
 			}
 
 			add_doctrine_cost_reduction = {
@@ -4820,6 +4951,69 @@ focus_tree = {
 				uses = 2
 				category = air_doctrine
 			}
+		}
+	}
+
+	focus = {
+		id = ITA_end_interservice_rivalry
+		icon = GFX_focus_SWE_institute_of_technology
+		prerequisite = { focus = ITA_citta_dell_aria }
+		prerequisite = { focus = ITA_army_primacy_bba }
+
+		x = -2
+		y = 2
+		relative_position_id = ITA_air_innovations_bba
+		cost = 15
+		available = {
+			NOT = 
+			{
+				has_completed_focus = ITA_end_fiat_ansaldo_duopoly
+			}
+		}
+
+		bypass = 
+		{
+			has_completed_focus = ITA_end_fiat_ansaldo_duopoly
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_to_variable = { ITA_military_industry_dm_production_lack_of_resource_penalty_factor = -0.1 }
+			custom_effect_tooltip = ITA_end_fiat_ansaldo_duopoly_military_industry_tt
+			
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ITA_end_interservice_rivalry_tt
+			hidden_effect = {
+				IF = {
+					limit = { 
+						162 = {
+							is_fully_controlled_by = ROOT
+							air_facility < 1
+							land_facility < 1
+							naval_facility < 1
+							nuclear_facility < 1
+						}
+					}
+
+					162 = {
+						add_building_construction = {
+							type = land_facility
+							level = 1
+							instant_build = yes
+							province = 9907 
+						}
+					}
+				}
+				
+				remove_ideas = ITA_hidden_research_penalties_ns
+			}
+		
+
+
+			#Update NS icon
+			ITA_improve_regio_esercito_dm_effect = yes
+			
 		}
 	}
 
@@ -4841,10 +5035,10 @@ focus_tree = {
 		completion_reward = {
 
 			add_tech_bonus = {
-				name = ITA_citta_dell_aria
-				bonus = 0.25
-				uses = 3 # was 4
-				category = air_equipment
+				name = ITA_air_innovations_bba #fighter_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -4952,13 +5146,13 @@ focus_tree = {
 
 	focus = {
 		id = ITA_reggianes_exports
-		icon = GFX_goal_generic_air_fighter2
-		prerequisite = { focus = ITA_citta_dell_aria }
+		icon = GFX_goal_continuous_research
+		prerequisite = { focus = ITA_air_innovations_bba }
 
-		x = -2
+		x = 6
 		y = 1
-		relative_position_id = ITA_citta_dell_aria
-		cost = 10
+		relative_position_id = ITA_air_innovations_bba
+		cost = 5
 		available = {
 			has_full_control_of_state = 161
 		}
@@ -5014,7 +5208,7 @@ focus_tree = {
 				name = ITA_reggianes_exports
 				bonus = 0.50
 				uses = 1
-				category = air_equipment #Maybe more specific stuff? (Light/Medium bombers, fighters...)
+				category = air_equipment
 			}
 		}
 	}
@@ -5025,7 +5219,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_citta_dell_aria }
 		prerequisite = { focus = ITA_expand_rome_flying_school }
 
-		x = 2
+		x = 4
 		y = 1
 		relative_position_id = ITA_citta_dell_aria
 		cost = 5
@@ -5035,7 +5229,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
-			air_experience = 150
+			air_experience = 100
+			add_tech_bonus = {
+				name = heavy_bombs_bonus
+				technology = heavy_bombs
+				bonus = 1.0
+				uses = 1
+				ahead_reduction = 1
+			}
 		}
 	}
 
@@ -5207,8 +5408,8 @@ focus_tree = {
 	
 			add_tech_bonus = {
 				name = ITA_specialization
-				ahead_reduction = 2
-				bonus = 2
+				ahead_reduction = 1
+				bonus = 1
 				uses = 1
 				category = light_fighter
 			}
@@ -9018,8 +9219,7 @@ focus_tree = {
 	focus = {
 		id = ITA_devotion
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = ITA_to_live_as_a_lion focus = ITA_boost_the_grand_council_of_fascism }
-		prerequisite = { focus = ITA_strengthen_the_regime }
+		prerequisite = { focus = ITA_to_live_as_a_lion  }
 
 		x = -6
 		y = 1
@@ -13375,18 +13575,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_rule = can_create_factions }
-				}
-				set_rule = { can_create_factions = yes }
-			}
-			if = {
-				limit = {
-					is_in_faction = no
-				}
-				create_faction = "italy_empire_faction"
-			}
 
 			unlock_decision_tooltip = form_roman_empire
 

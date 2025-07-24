@@ -433,6 +433,7 @@ focus_tree = {
 		icon = GFX_focus_IRQ_liberate_north_africa
 		available = {
 			
+			
 		}
 		prerequisite = {
 			focus = FRA_extra_research_slot4
@@ -829,21 +830,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-	28 = {
-		add_building_construction = {
-			type = industrial_complex
-			level = 1
-			instant_build = yes
-		}
-		add_extra_state_shared_building_slots = 1
-	}
 	19 = {
 		add_building_construction = {
 			type = industrial_complex
-			level = 1
+			level = 2
 			instant_build = yes
 		}
-		add_extra_state_shared_building_slots = 1
+		add_extra_state_shared_building_slots = 2
 	}
 	16 = {
 		add_building_construction = {
@@ -884,7 +877,7 @@ focus_tree = {
 				name = FRA_industrial_modernization
 				ahead_reduction = 1
 				bonus = 1.0
-				uses = 2
+				uses = 1
 				category = industry
 			}
 		}
@@ -2338,7 +2331,6 @@ focus_tree = {
 			factor = 0.2
 		}
 		completion_reward = {
-			army_experience = 25
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = maurice_gamelin
 		}
@@ -4140,6 +4132,140 @@ focus_tree = {
 					}
 				}
 				add_dynamic_modifier = { modifier = FRA_north_industrial_migration_modifier days = 2000 }
+			}
+
+			21 = {
+				remove_building = { type = industrial_complex level = 1 }
+				remove_building = { type = arms_factory level = 1 }
+			}
+			22 = {
+				remove_building = { type = industrial_complex level = 2 }
+			}
+			31 = {
+				remove_building = { type = industrial_complex level = 1 }
+				remove_building = { type = arms_factory level = 1 }
+			}
+			26 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			20 = {
+				remove_building = { type = industrial_complex level = 2 }
+				remove_building = { type = arms_factory level = 1 }
+			}
+			1 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			458 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			461 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			298 = {
+				remove_building = { type = industrial_complex level = 1 }
+				remove_building = { type = arms_factory level = 1 }
+			}
+			773 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			295 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+			553 = {
+				remove_building = { type = industrial_complex level = 1 }
+			}
+
+			806 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			19 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			23 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			30 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			14 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			15 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			16 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			785 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			29 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 		}

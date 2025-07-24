@@ -1,0 +1,46 @@
+CHI_fighter = 
+{
+    category = air
+
+	available_for = { CHI }
+
+	roles = {
+		fighter
+	}
+
+	priority = {
+		factor = 1000
+	}
+
+    fighter_default = { 
+		priority = {
+			factor = 10
+			modifier = { 
+				has_tech = basic_small_airframe 
+				factor = 0 #let's not waste XP here
+			}
+		}
+
+		history = yes
+		target_variant = {
+			match_value = 3000
+			type = small_plane_airframe_1
+			modules = {
+				fixed_main_weapon_slot = heavy_mg_4x
+				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+			
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = armor_plate_small
+				special_type_slot_2 = fuel_tanks_small
+			}
+		}
+
+		allowed_modules = {
+			heavy_mg_4x
+			light_mg_4x
+			engine_2_1x
+			armor_plate_small
+            fuel_tanks_small
+		}
+	}
+}

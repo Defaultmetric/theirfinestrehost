@@ -1700,6 +1700,11 @@ focus_tree = {
 			}
 		}
 
+		bypass = 
+		{
+			has_completed_focus = GER_totaler_krieg
+		}
+
 		x = 0
 		y = 1
 		relative_position_id = GER_develop_heraeus_facilities
@@ -1958,6 +1963,11 @@ focus_tree = {
 		cost = 5
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		available = 
+		{
+			has_war_with_major = yes
+		}
 
 		completion_reward = {
 			random_controlled_state = {
@@ -2811,6 +2821,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_armament_rationalization
 		cost = 5
+
+		bypass = 
+		{
+			has_completed_focus = GER_total_france_mobilization
+		}
+
 		available = {
 			has_war_with_major = yes
 			OR = {
@@ -12287,23 +12303,18 @@ focus_tree = {
 		icon = GFX_focus_GER_the_swiss_gold
 		prerequisite = { focus = GER_war_with_france }
 		mutually_exclusive = { focus = GER_operation_tannenbaum }
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = GER_war_with_france
 		cost = 5
 		available = {
-			SWI = {
-				exists = yes
-				has_war = no
-				NOT = { has_government = communism }
-				custom_trigger_tooltip = {
-					tooltip = GER_alone_or_peace_faction_tt
-					is_alone_or_in_faction_at_peace_with_GER = yes
+			FRA = 
+			{
+				NOT = 
+				{
+					has_full_control_of_state = 16
 				}
 			}
-		}
-		allow_branch = {
-			has_war_support > 400
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }

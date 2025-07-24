@@ -20,6 +20,23 @@ ideas = {
 			}
 		}
 
+		FRA_return_to_homeland_idea = {
+		picture = SPR_anti_fascist_crusade
+	
+		allowed = {
+			original_tag = FRA
+		}
+
+		removal_cost = -1
+	
+		modifier = 
+		{
+			army_core_attack_factor = 0.15
+			army_core_defence_factor = 0.15
+		}
+		}
+
+
 		FRA_the_one_he_fears_idea = {
 		picture = SWI_spirit_of_helvetia_aggressive_war
 	
@@ -1588,46 +1605,6 @@ ideas = {
 			modifier = {
 				army_org = 5
 				justify_war_goal_time = -0.25
-			}
-		}
-
-		FRA_factory_strikes = {
-			picture = generic_production_bonus
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				NOT = {
-					has_government = communism
-				}
-			}
-
-			modifier = {
-				industrial_capacity_factory = -0.9
-				industrial_capacity_dockyard = -0.9
-				stability_factor = -0.1
-				war_support_factor = -0.1
-			}
-		}
-
-		FRA_matignon_agreements = {
-			picture = generic_production_bonus
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				NOT = {
-					has_government = fascism
-				}
-			}
-
-			modifier = {
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = -0.1
-				stability_factor = 0.1
-				consumer_goods_factor = 0.10
 			}
 		}
 

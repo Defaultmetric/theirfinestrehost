@@ -11,156 +11,7 @@ soundeffect = {
 	max_audible_behaviour = fail
 	volume = 0.5
 }
-category = {
-	name = "quotes"
-	soundeffects = { 
-		FRA_CAP
-		GER_ERIKA
-		JAP_WAR
-		USA_JOIN
-		SOVIETS_WIN
-		GER_SPEECH
-		GER_AI
-		ROM_SPEECH
-		FIN_WAR
-		GOKU_EV
-	}
-}
 
-sound = {
-	name = "GOKU_EV"
-	file = "quotes/GOKU_EV.wav"
-}
-soundeffect = {
-	name = "GOKU_EV"
-	volume = 8
-	sounds = {
-		sound = "GOKU_EV"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-
-
-
-sound = {
-	name = "GER_AI"
-	file = "quotes/GER_AI.wav"
-}
-soundeffect = {
-	name = "GER_AI"
-	volume = 8
-	sounds = {
-		sound = "GER_AI"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "FIN_WAR"
-	file = "quotes/FIN_WAR.wav"
-}
-soundeffect = {
-	name = "FIN_WAR"
-	volume = 8
-	sounds = {
-		sound = "FIN_WAR"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "ROM_SPEECH"
-	file = "quotes/ROM_SPEECH.wav"
-}
-soundeffect = {
-	name = "ROM_SPEECH"
-	volume = 8
-	sounds = {
-		sound = "ROM_SPEECH"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "GER_SPEECH"
-	file = "quotes/GER_SPEECH.wav"
-}
-soundeffect = {
-	name = "GER_SPEECH"
-	volume = 8
-	sounds = {
-		sound = "GER_SPEECH"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "FRA_CAP"
-	file = "quotes/FRA_CAP.wav"
-}
-soundeffect = {
-	name = "FRA_CAP"
-	volume = 8
-	sounds = {
-		sound = "FRA_CAP"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-
-sound = {
-	name = "GER_ERIKA"
-	file = "quotes/GER_ERIKA.wav"
-}
-soundeffect = {
-	name = "GER_ERIKA"
-	volume = 8
-	sounds = {
-		sound = "GER_ERIKA"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "JAP_WAR"
-	file = "quotes/JAP_WAR.wav"
-}
-soundeffect = {
-	name = "JAP_WAR"
-	volume = 8
-	sounds = {
-		sound = "JAP_WAR"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "USA_JOIN"
-	file = "quotes/USA_JOIN.wav"
-}
-soundeffect = {
-	name = "USA_JOIN"
-	volume = 8
-	sounds = {
-		sound = "USA_JOIN"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
-sound = {
-	name = "SOVIETS_WIN"
-	file = "quotes/SOVIETS_WIN.wav"
-}
-soundeffect = {
-	name = "SOVIETS_WIN"
-	volume = 8
-	sounds = {
-		sound = "SOVIETS_WIN"
-	}
-	max_audible = 5
-	max_audible_behaviour = fail
-}
 #################################################################
 #####################IMPACT_EFFECTS##############################
 #################################################################
@@ -1024,6 +875,43 @@ soundeffect = {
     random_sound_when_looping = yes
 }
 
+soundeffect = {
+    name = helicopter_tank_start
+    falloff = falloff_100
+    sounds = {
+        sound = helicopter_start_01
+    }
+    max_audible = 3
+    max_audible_behaviour = fail
+    is3d = yes
+    volume = 0.1
+}
+
+soundeffect = {
+    name = helicopter_tank
+    falloff = falloff_100
+    sounds = {
+        sound = helicopter_loop_01
+        sound = helicopter_loop_02
+        sound = helicopter_loop_03
+        sound = helicopter_loop_04
+        sound = helicopter_loop_05
+        sound = helicopter_loop_06
+        sound = helicopter_loop_01
+        sound = helicopter_loop_02
+        sound = helicopter_loop_03
+        sound = helicopter_loop_04
+        sound = helicopter_loop_05
+        sound = helicopter_loop_06
+    }
+    max_audible = 3
+    max_audible_behaviour = fail
+    is3d = yes
+    loop = no
+    volume = 0.1
+    random_sound_when_looping = yes
+}
+
 ############# INFANTRY ANIMATION #############
 
 soundeffect = {
@@ -1049,7 +937,26 @@ soundeffect = {
 	is3d = yes
 	volume = 0.35
 }
-
+soundeffect = {
+	name = infantry_rifle_cartridge
+	falloff = "falloff_100"
+	sounds = {
+		sound = infantry_rifle_cartridge_01
+		sound = infantry_rifle_cartridge_02
+		sound = infantry_rifle_cartridge_03
+		sound = infantry_rifle_cartridge_04
+		sound = infantry_rifle_cartridge_05
+		sound = infantry_rifle_cartridge_06
+		sound = infantry_rifle_cartridge_07
+	} 
+	max_audible = 2
+	delay_random_offset = { 0.0 0.15 }
+	playbackrate_random_offset = { -0.15 0.15 }
+	volume_random_offset = { -0.05 0.15 }
+	max_audible_behaviour = fail
+	is3d = yes
+	volume = 0.09
+}
 soundeffect = {
 	name = infantry_mg_attack
 	falloff = "falloff_100"
@@ -1141,23 +1048,6 @@ soundeffect = {
 
 
 ############ TANK ANIMATION ##################
-
-soundeffect = {
-	name = helicopter_tank_start
-	
-	sounds = {
-		sound = FRA_car_01_idle
-	}
-	max_audible = 1
-}
-soundeffect = {
-	name = helicopter_tank
-	
-	sounds = {
-		sound = FRA_car_01_idle
-	}
-	max_audible = 1
-}
 
 soundeffect = {
     name = land_cruiser_idle_engine_loop
@@ -3366,4 +3256,3 @@ soundeffect = {
 	fade_out = 0.40
 	volume = 0.70
 }
-

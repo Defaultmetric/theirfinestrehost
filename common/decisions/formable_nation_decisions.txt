@@ -7815,29 +7815,10 @@ form_greater_german_reich_category = {
 		}
 
 		visible = {
-			AND = {
-				original_tag = GER
-				has_government = fascism
-				# Should be formable by other Nazis as well
-				#has_country_leader = { 
-				#	ruling_only = yes 
-				#	character = GER_adolf_hitler 
-				#}
-			}
+		
+			original_tag = GER
+				
 			NOT = { has_global_flag = form_greater_german_reich_flag }
-			OR = {
-				AND = {
-					has_war_with = FRA
-					FRA = { has_capitulated = yes }
-				}
-				AND = {
-					owns_state = 16
-					has_full_control_of_state = 16
-				}
-				219 = {
-					state_is_fully_controlled_by_ROOT_or_subject = yes
-				}
-			}
 		}
 
 		complete_effect = {
@@ -8045,9 +8026,113 @@ form_greater_german_reich_category = {
 				}
 			}
 		}
+	}
 
-		ai_will_do = {
-			factor = 200
+	form_reich_der_vergeltung = {
+
+		available = {
+			is_subject = no
+			16 = { #Paris
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			9 = { #Prague
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			10 = { #Warsaw
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			28 = { 
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			980 = { 
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			8 = { 
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			all_owned_state = {
+				is_fully_controlled_by = ROOT
+			}
+			has_global_flag = czech_denied_flag
+		}
+
+		visible = {
+		
+			original_tag = GER
+				
+			NOT = { has_global_flag = form_reich_der_vergeltung }
+		}
+
+		cost = 25
+		icon = generic_form_nation
+
+		complete_effect = {
+		add_war_support = 0.05
+		add_stability = 0.05
+		set_cosmetic_tag = GER_reich_der_vergeltung
+
+
+			set_province_name = { 
+				id = 6521 
+				name = VICTORY_POINTS_6521_Germania 
+			}
+			add_victory_points = {
+				province = 6521
+				value = 25
+			}
+			hidden_effect = {
+				set_global_flag = form_reich_der_vergeltung
+			}
+					add_state_core = 85
+			
+					add_state_core = 807
+			
+					add_state_core = 86
+		
+					add_state_core = 762
+		
+		
+					add_state_core = 87
+		
+			
+					add_state_core = 98
+			
+
+			###Cehia 
+
+			
+					add_state_core = 69
+			
+					add_state_core = 972
+			
+					add_state_core = 9
+				
+		
+			
+					add_state_core = 75
+		
+					add_state_core = 74
+		
+
+					add_state_core = 72
+
+	
+
+			###### slovenia
+
+			add_state_core = 102
+
+			###denmark
+
+			add_state_core = 912
+
+			###france + Belgium + lux 
+
+			add_state_core = 28
+			add_state_core = 8
+			add_state_core = 980
+
+			add_state_core = 188
 		}
 	}
 }

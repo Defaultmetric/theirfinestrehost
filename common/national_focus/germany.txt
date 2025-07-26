@@ -9867,6 +9867,8 @@ focus_tree = {
 		relative_position_id = GER_demand_sudetenland
 		cost = 5
 
+		cancel_if_invalid = yes
+
 		bypass = {
 			OR = {
 				AND = {
@@ -9886,6 +9888,11 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = 
+			{
+				has_global_flag = czech_denied_flag
+			}
+
 			is_subject = no
 			HUN = { 
 				is_friend_or_potential_friend_of_GER = yes
@@ -9942,6 +9949,8 @@ focus_tree = {
 		relative_position_id = GER_first_vienna_award
 		cost = 10
 
+		cancel_if_invalid = yes
+
 		ai_will_do = {
 			factor = 10
 			modifier = {
@@ -9981,6 +9990,10 @@ focus_tree = {
 		}
 		
 		available = { 
+			NOT = 
+			{
+				has_global_flag = czech_denied_flag
+			}
 			is_subject = no
 			has_army_manpower = { size > 749999 }
 		}
@@ -12001,7 +12014,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 1
+		cost = 4
 
 		bypass = {
 			OR = {

@@ -185,6 +185,57 @@ ETH_second_italo_ethiopian_war_category = {
 	}
 }
 
+ITA_timer_category = 
+{
+
+	ITA_force_entry_into_war = {
+	icon = GFX_decision_generic_police_action
+
+	allowed = {
+		tag = ITA
+	}
+
+	available = {
+		ITA = 
+		{
+			has_war_with = ENG
+		}
+	}
+
+	activation = 
+	{
+		GER = 
+		{
+			has_war_with = POL
+		}
+	}
+
+
+	is_good = no
+	fire_only_once = yes
+	days_mission_timeout = 90
+
+	cancel_trigger = {
+		has_war_with = ENG
+	}
+
+	timeout_effect = {
+		
+		
+			GER = 
+			{
+				add_to_faction = ITA
+			}
+			declare_war_on = {
+				target = ENG
+				type = annex_everything
+			}
+			
+		
+	}
+}
+}
+
 
 ##     ## ####  ######   ######  ####  #######  ##       #### ##    ## ####  ######
 ###   ###  ##  ##    ## ##    ##  ##  ##     ## ##        ##  ###   ##  ##  ##    ##
@@ -198,7 +249,7 @@ ETH_second_italo_ethiopian_war_category = {
 ### MISSIOLINIS
 ITA_missiolinis = {
 	DEBUG_MISSIOLINIS_FASTER_TACK = {
-		priority = 100
+		priority = 100 
 		allowed = {
 			tag = ITA
 		}

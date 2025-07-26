@@ -2254,7 +2254,6 @@ country_event = {
 				limit = {
 					has_completed_focus = ENG_no_further_appeasement
 				}
-				add_political_power = -200
 			}
 		}
 		else_if = {
@@ -2429,7 +2428,6 @@ country_event = {
 				limit = {
 					NOT = { has_completed_focus = ENG_no_further_appeasement }
 				}
-				add_political_power = -200
 			}
 			if = {
 				limit = {
@@ -2608,16 +2606,6 @@ country_event = {
 		}
 
 		#PP and notify CZE (they are happy with us)
-		if = {
-			limit = {
-				is_in_faction_with = CZE
-				has_completed_focus = FRA_strengthen_the_little_entente
-			}
-			add_political_power = -100
-		}
-		else = {
-			add_political_power = -200
-		}
 
 		CZE = {
 			country_event = {
@@ -2644,96 +2632,12 @@ country_event = {
 		}
 
 		#Deal with faction relations FRA-ENG / FRA-GER / FRA-CZE
-		if = {
-			limit = {
-				is_in_faction_with = ENG
-			}
-			ENG = {
-				country_event = {
-					id = germany.43
-					hours = 2
+
+			ENG = 
+				{
+					add_to_faction = CZE
+					add_to_faction = FRA
 				}
-				if = {
-					limit = {
-						is_faction_leader = yes
-					}
-					remove_from_faction = ROOT
-					else_if = {
-						limit = {
-							ROOT = { is_faction_leader = yes }
-						}
-						ROOT = { remove_from_faction = ENG }
-					}
-					else = { #Another country is faction leader -> Kick FRA tack
-						random_other_country = {
-							limit = {
-								is_in_faction_with = ROOT
-								is_faction_leader = yes
-							}
-							remove_from_faction = ROOT
-						}
-					}
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				is_in_faction_with = GER
-			}
-			if = {
-				limit = { GER = { is_faction_leader = yes } }
-				GER = {
-					if = {
-						limit = {
-							is_faction_leader = yes
-						}
-						remove_from_faction = ROOT
-						else_if = {
-							limit = {
-								ROOT = { is_faction_leader = yes }
-							}
-							ROOT = { remove_from_faction = GER }
-						}
-						else = { #Another country is faction leader -> Kick FRA tack
-							random_other_country = {
-								limit = {
-									is_in_faction_with = ROOT
-									is_faction_leader = yes
-								}
-								remove_from_faction = ROOT
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		if = {
-			limit = {
-				is_in_faction = yes
-				is_faction_leader = yes
-				CZE = { is_in_faction = no }
-			}
-			add_to_faction = CZE
-			CZE = {
-				add_ai_strategy = {
-					type = alliance
-					id = ROOT
-					value = 200
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				is_in_faction = no
-			}
-			if = {
-				limit = {
-					CZE = { is_in_faction = no }
-				}
-				create_faction = french_alliance
-				set_rule = { can_create_factions = yes }
-				add_to_faction = CZE
 				CZE = {
 					add_ai_strategy = {
 						type = alliance
@@ -2741,29 +2645,9 @@ country_event = {
 						value = 200
 					}
 				}
-			}
-			else_if = {
-				limit = {
-					CZE = {
-						is_faction_leader = yes
-						has_completed_focus = CZE_an_entente_of_our_own
-					}
-				}
-				CZE = { add_to_faction = ROOT }
-				add_ai_strategy = {
-					type = alliance
-					id = CZE
-					value = 200
-				}
-			}
-		}
-		
-		if = {
-			limit = { NOT = { has_completed_focus = FRA_strengthen_the_little_entente } }
-			add_stability = 0.05
+				set_global_flag = czech_denied_flag
 		}
 	}
-}
 
 # France (Britain Supports the Czechs) - Event for FRA (always from ENG)
 country_event = {
@@ -3189,6 +3073,13 @@ country_event = {
 			target = CZE
 			generator = CZE.sudetenland_states_for_wargoal
 		}
+
+		GER = 
+				{
+					add_ideas = the_world_against_us
+					}
+
+		set_global_flag = czech_denied_flag
 
 		hidden_effect = {
 			country_event = { hours = 6 id = news.58 }
@@ -7017,6 +6908,58 @@ country_event = {
 
 	is_triggered_only = yes
 
+
+	immediate = {
+		hidden_effect = {
+	if = {
+		limit = {
+			date < 1939.1.1
+			NOT = 
+			{
+				has_global_flag = czech_denied_flag
+			}
+		}
+		FRA = {
+			add_timed_idea = {
+				idea = factory_overdrive_2
+				days = 90
+			}
+			add_ideas = totaler_krieg_economy_v2
+		}
+		CAN = {
+			add_timed_idea = {
+				idea = factory_overdrive_1
+				days = 90
+			}
+			add_ideas = totaler_krieg_economy_v2
+		}
+		SAF = {
+			add_timed_idea = {
+				idea = factory_overdrive_1
+				days = 90
+			}
+			add_ideas = totaler_krieg_economy_v2
+		}
+	}
+	else_if = {
+		limit = {
+			date < 1939.3.1
+			NOT = 
+			{
+				has_global_flag = czech_denied_flag
+			}
+		}
+		add_timed_idea = {
+			idea = factory_overdrive_1
+			days = 90
+		}
+		add_ideas = totaler_krieg_economy_v2
+	}
+}
+	}
+
+
+
 	option = {
 		name = germany.88.a
 		if = {
@@ -7068,6 +7011,8 @@ country_event = {
 		}
 		add_state_core = 85
 		add_state_core = 807
+
+
 		if = {
 			limit = {
 				ENG = {

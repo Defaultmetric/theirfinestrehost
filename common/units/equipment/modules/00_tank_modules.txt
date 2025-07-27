@@ -426,6 +426,29 @@ equipment_modules = {
 		}
 	}
 
+	tank_improved_medium_three_man_tank_turret = {
+		abbreviation = "m4m"
+		category = tank_medium_turret_tier_4
+		sfx = sfx_ui_sd_module_turret
+
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_medium_main_armament_3
+			}
+		}
+		forbid_equipment_type = {
+			anti_tank 
+		}
+		add_stats = {
+			build_cost_ic = 2.25
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 2
+		multiply_stats = {
+			breakthrough = 0.05
+		}
+	}
+
 
 
 	tank_medium_fixed_superstructure_turret = {
@@ -520,6 +543,7 @@ equipment_modules = {
 		}
 
 	}
+
 
 	tank_improved_heavy_three_man_tank_turret = {
 		abbreviation = "h4m"
@@ -1274,7 +1298,7 @@ equipment_modules = {
 	}
 	tank_AP_high_velocity_cannon = {
 		abbreviation = "hv4"
-		category = tank_1943_medium_gun
+		category = tank_medium_main_armament_3
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {

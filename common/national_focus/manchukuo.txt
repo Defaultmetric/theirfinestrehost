@@ -164,6 +164,14 @@
 		completion_reward = {
 			add_ideas = MAN_mukden_military_academy
 			add_war_support = 0.15
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+			name = MON_mech1_bonus
+			ahead_reduction = 2.0
+			bonus = 2.0
+			uses = 2
+			category = motorized_equipment
+		}
 		}
 	}
 
@@ -301,6 +309,13 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = artillery_bonus
+				category = artillery
+				bonus = 2
+				uses = 2
+			}
 		}
 	}
 
@@ -337,7 +352,14 @@
 		
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_research_slot = 1			
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+			ahead_reduction = 1
+			bonus = 1
+			uses = 1
+			category = armor
+		}			
 		}
 	}
 
@@ -1038,6 +1060,13 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = MAN_national_defense_state
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+			ahead_reduction = 2
+			bonus = 2
+			uses = 1
+			category = armor
+		}
 		}
 	}
 
@@ -1087,6 +1116,7 @@
 					instant_build = yes
 				}
 			}
+			add_ideas = embrace_the_future_ideas
 		}
 	}
 
@@ -1098,7 +1128,7 @@
 		y = 1
 		relative_position_id = MAN_mukden_arsenal
 
-		cost = 8
+		cost = 5
 
 		ai_will_do = {
 			factor = 1

@@ -77,34 +77,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_radio_module
-					tank_secondary_turret
-				}
-			}
-
-			special_type_slot_3 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_radio_module
-					tank_secondary_turret
-				}
-			}
-
-			special_type_slot_4 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 			
@@ -118,7 +92,7 @@ equipments = {
 			count < 2
 		}
 		module_count_limit = {
-			category = tank_secondary_turret
+			category = tank_secondary_turret_s
 			count < 2
 		}
 		module_count_limit = {
@@ -163,12 +137,56 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
+
+		####
+
+		module_count_limit = 
+		{
+			category = tank_small_secondary_turret 
+  			count < 2
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_small_cannonx3
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_hmgx3
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_small_cannonx2
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_hmgx2
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			category = tank_secondary_hmg
+  			count < 2
+		}
+		####
+
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = -1
@@ -230,6 +248,16 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tank_engine_type
+				}
+			}
+
+			special_type_slot_1 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 		}
@@ -296,7 +324,18 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
+				}
+			}
+
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
+					tank_radio_module
 				}
 			}
 		}
@@ -362,7 +401,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -370,8 +410,19 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
+				}
+			}
+
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
+					tank_radio_module
 				}
 			}
 		}
@@ -441,7 +492,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -449,8 +501,9 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
 				}
 			}
 
@@ -458,8 +511,9 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
 				}
 			}
 
@@ -467,8 +521,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
+					tank_reliability_module
 				}
 			}
 		}
@@ -554,39 +610,12 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					tank_radio_module
 					tank_special_module
-					tank_secondary_turret
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
-				}
-			}
-
-			special_type_slot_3 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
-				}
-			}
-
-			special_type_slot_4 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
-				}
-			}
-			
 		}
 		module_count_limit = {
 			module = sloped_armor
@@ -595,10 +624,6 @@ equipments = {
 		module_count_limit = {
 			category = tank_radio_module
 			count < 2
-		}
-		module_count_limit = {
-			category = tank_secondary_turret
-			count < 3 #two secondary turrets only
 		}
 		module_count_limit = {
 			module = amphibious_drive
@@ -641,12 +666,44 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
+
+		####
+
+		module_count_limit = 
+		{
+			category = tank_small_secondary_turret 
+  			count < 2
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_small_cannonx3
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			module = secondary_turret_hmgx3
+  			count < 1
+		}
+
+		module_count_limit = 
+		{
+			category = tank_secondary_hmg
+  			count < 2
+		}
+		####
+
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_medium_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = -0.5
@@ -712,11 +769,13 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					tank_radio_module
 					tank_special_module
-					tank_secondary_turret
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
+
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade
@@ -780,9 +839,10 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					tank_radio_module
 					tank_special_module
-					tank_secondary_turret
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -790,7 +850,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -799,10 +860,12 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
+
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade
@@ -863,9 +926,10 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					tank_radio_module
 					tank_special_module
-					tank_secondary_turret
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -873,7 +937,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -882,7 +947,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -891,7 +957,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -960,9 +1027,10 @@ equipments = {
 			special_type_slot_1 = {
 				required = no
 				allowed_module_categories = {
-					tank_radio_module
 					tank_special_module
-					tank_secondary_turret
+					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -970,7 +1038,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -979,7 +1048,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -988,8 +1058,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
+					tank_reliability_module
 				}
 			}	
 		}
@@ -1006,8 +1078,8 @@ equipments = {
 			count < 2
 		}
 		module_count_limit = {
-			category = tank_secondary_turret
-			count < 3 #two secondary turrets only
+			category = tank_secondary_turret_m
+			count < 2 
 		}
 		module_count_limit = {
 			module = extra_ammo_storage
@@ -1049,12 +1121,16 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_medium_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 		maximum_speed = 6
 		build_cost_ic = 7
@@ -1142,34 +1218,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
-				}
-			}
-
-			special_type_slot_2 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
-				}
-			}
-
-			special_type_slot_3 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
-				}
-			}
-
-			special_type_slot_4 = {
-				required = no
-				allowed_module_categories = {
-					tank_special_module
-					tank_secondary_turret
-					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1202,6 +1252,21 @@ equipments = {
 			count < 2
 		}
 
+		####
+
+		module_count_limit = 
+		{
+			category = tank_small_secondary_turret 
+  			count < 2
+		}
+
+		module_count_limit = 
+		{
+			category = tank_secondary_hmg
+  			count < 2
+		}
+		####
+
 		module_count_limit = {
 			module = extra_ammo_storage
 			count < 2
@@ -1224,12 +1289,16 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_heavy_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = 0.5
@@ -1301,7 +1370,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
 				}
 			}
 		}
@@ -1366,7 +1435,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1374,7 +1444,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1383,10 +1454,13 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
+
+			
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade
@@ -1450,7 +1524,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1458,7 +1533,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1467,7 +1543,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1476,8 +1553,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
+					tank_reliability_module
 				}
 			}
 		}
@@ -1547,7 +1626,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1555,7 +1635,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1564,7 +1645,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1573,8 +1655,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
+					tank_reliability_module
 				}
 			}
 		}
@@ -1623,7 +1707,7 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-	
+					tank_modern_turret_type
 				}
 			}
 			
@@ -1665,6 +1749,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1672,8 +1758,9 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
 				}
 			}
 
@@ -1681,8 +1768,9 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
-					tank_secondary_turret
 				}
 			}
 
@@ -1690,7 +1778,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
+					tank_reliability_module
 				}
 			}
 
@@ -1710,6 +1801,12 @@ equipments = {
 
 		module_count_limit = {
 			module = wet_ammo_storage
+			count < 2
+		}
+
+		module_count_limit = 
+		{
+			module = tank_small_secondary_turret
 			count < 2
 		}
 
@@ -1741,13 +1838,17 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
 
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_modern_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = -1
@@ -1847,7 +1948,8 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 				}
 			}
 
@@ -1855,7 +1957,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1864,7 +1967,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
 				}
 			}
@@ -1873,8 +1977,10 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
-					tank_secondary_turret
+					tank_small_secondary_turret
+					tank_secondary_hmg
 					tank_radio_module
+					tank_reliability_module
 				}
 			}
 
@@ -1923,12 +2029,16 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_super_heavy_three_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = 0
@@ -2054,6 +2164,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_radio_module
+					tank_reliability_module
 				}
 			}
 
@@ -2104,13 +2215,17 @@ equipments = {
 			module = stabilizer
 			count < 2
 		}
+		module_count_limit = {
+			module = computer_guided_stabilizer
+			count < 2
+		}
 
 		default_modules = {
 			main_armament_slot = empty
-			turret_type_slot = tank_light_one_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
+			turret_type_slot = empty
+			suspension_type_slot = empty
+			armor_type_slot = empty
+			engine_type_slot = empty
 		}
 
 		fuel_consumption = 0

@@ -19,13 +19,49 @@ HUN_henshchels_organization = {
 
 BUL_henschels_organization = {
 	include = generic_infantry_tank_organization
-	icon = GFX_idea_henschelt
+	icon = GGFX_idea_henschel
 
 	allowed = { tag = BUL }
 
 	available = {
 		owner = {
 		has_completed_focus = BUL_contract_foreign_companies
+		}
+	}
+
+	initial_trait = {
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+	}
+}
+
+Generic_henschels_organization = {
+	include = generic_infantry_tank_organization
+	icon = GFX_idea_henschel
+
+	allowed = { tag = MAN }
+
+	available = {
+
+	}
+
+	initial_trait = {
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+	}
+}
+
+spain_henschels_organization = {
+	include = generic_infantry_tank_organization
+	icon = GFX_idea_henschel
+
+	allowed = { tag = SPR }
+
+	available = {
+		owner = {
+		has_completed_focus = SPA_join_the_axis
 		}
 	}
 

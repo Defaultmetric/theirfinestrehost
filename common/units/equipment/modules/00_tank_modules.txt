@@ -8,6 +8,7 @@ equipment_modules = {
 		abbreviation = "gas"
 		category = tank_engine_type
 		sfx = sfx_ui_sd_module_engine
+		xp_cost = 3
 
 		add_stats = {
 			build_cost_ic = 1
@@ -24,6 +25,7 @@ equipment_modules = {
 		abbreviation = "die"
 		category = tank_engine_type
 		sfx = sfx_ui_sd_module_engine
+		xp_cost = 3
 
 		add_stats = {
 			build_cost_ic = 1 
@@ -37,6 +39,7 @@ equipment_modules = {
 		abbreviation = "pel"
 		category = tank_engine_type
 		sfx = sfx_ui_sd_module_engine
+		xp_cost = 3
 
 		add_stats = {
 			fuel_consumption = 2
@@ -48,7 +51,7 @@ equipment_modules = {
 		multiply_stats = {
 			breakthrough = 0.15
 			defense = 0.15
-			build_cost_ic = 0.15
+			build_cost_ic = 0.05
 		}
 	}
 
@@ -56,6 +59,7 @@ equipment_modules = {
 		abbreviation = "tur"
 		category = tank_engine_type
 		sfx = sfx_ui_sd_module_engine
+		xp_cost = 3
 
 		add_stats = {
 			build_cost_ic = 3
@@ -82,10 +86,10 @@ equipment_modules = {
 			defense = 2
 			breakthrough = 2
 		}
-		xp_cost = 8
+		xp_cost = 2
 		multiply_stats = {
 			build_cost_ic = -0.2
-
+			reliability = -0.1
 		}
 	}
 
@@ -97,10 +101,10 @@ equipment_modules = {
 		add_stats = {
 			defense = 3
 			breakthrough = 3
-			hardness = 0.02	
+			hardness = 0.05	
 		}
 		dismantle_cost_ic = 1
-		xp_cost = 8
+		xp_cost = 4
 		multiply_stats = {
 			build_cost_ic = 0.1
 			armor_value = 0.325
@@ -111,14 +115,14 @@ equipment_modules = {
 		abbreviation = "wel"
 		category = tank_armor_type
 		sfx = sfx_ui_sd_module_sonar
-		xp_cost = 8
 
 		add_stats = {
 			defense = 4
 			breakthrough = 4
+			hardness = 0.025
 		}
 		dismantle_cost_ic = 1
-		xp_cost = 8
+		xp_cost = 3
 		multiply_stats = {
 			armor_value = 0.3
 		}
@@ -146,10 +150,33 @@ equipment_modules = {
 	}
 	###Suspension Types
 
+
+	tank_HVSS_suspension = {
+		abbreviation = "HVS"
+		category = tank_suspension_type
+		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
+
+		add_stats = {
+			build_cost_ic = 2
+			defense = 8
+		}
+		dismantle_cost_ic  = 2
+
+		multiply_stats =  {
+		}
+
+		can_convert_from = {
+			module = tank_torsion_bar_suspension
+			convert_cost_ic = 0.5
+		}
+	}
+
 	tank_torsion_bar_suspension = {
 		abbreviation = "tor"
 		category = tank_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 			build_cost_ic = 1
@@ -165,6 +192,7 @@ equipment_modules = {
 		abbreviation = "chr"
 		category = tank_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 			build_cost_ic = 1
@@ -180,6 +208,7 @@ equipment_modules = {
 		abbreviation = "bog"
 		category = tank_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 		}
@@ -191,6 +220,7 @@ equipment_modules = {
 		abbreviation = "int"
 		category = tank_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 			build_cost_ic = 2
@@ -211,6 +241,7 @@ equipment_modules = {
 		abbreviation = "whe"
 		category = tank_non_tracked_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 			reliability = -0.2
@@ -227,6 +258,7 @@ equipment_modules = {
 		abbreviation = "htr"
 		category = tank_non_tracked_suspension_type
 		sfx = sfx_ui_sd_module_sonar
+		xp_cost = 2
 
 		add_stats = {
 			reliability = -0.1
@@ -1440,42 +1472,118 @@ equipment_modules = {
 		}
 	}
 
-	secondary_turret_hmg = {
-		abbreviation = "thmg"
-		category = tank_secondary_turret
-		sfx = sfx_ui_sd_module_turret
-
-		add_stats = {
-			build_cost_ic = 1.5
-			soft_attack = 8
-			breakthrough = 2.0
-			reliability = -0.05
-			hardness = -0.025
-			armor_value = -2
-		}
-		xp_cost = 1
-		multiply_stats = {
-		}
-	}
+	###small sec turrets ####
 
 	secondary_turret_small_cannon = {
-		abbreviation = "tsc"
-		category = tank_secondary_turret
+		abbreviation = "tx1"
+		category = tank_small_secondary_turret
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
 			soft_attack = 5
-			hard_attack = 4
-			build_cost_ic = 2
+			hard_attack = 3
+			build_cost_ic = 3
 			reliability = -0.1
-			breakthrough = 3
-			hardness = -0.05
-			armor_value = -5
+			breakthrough = 2
 		}
 		xp_cost = 1
 		multiply_stats = {
+			hardness = -0.075
 		}
 	}
+
+	secondary_turret_small_cannonx2 = {
+		abbreviation = "tx2"
+		category = tank_small_secondary_turret
+	
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			soft_attack = 10
+			hard_attack = 6
+			build_cost_ic = 6
+			reliability = -0.35
+			breakthrough = 4
+		}
+		xp_cost = 2
+		multiply_stats = {
+			hardness = -0.15
+		}
+	}
+
+	secondary_turret_small_cannonx3 = {
+		abbreviation = "tx3"
+		category = tank_small_secondary_turret
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			soft_attack = 15
+			hard_attack = 9
+			build_cost_ic = 9
+			reliability = -0.7
+			breakthrough = 6
+		}
+		xp_cost = 3
+		multiply_stats = {
+			hardness = -0.3
+		}
+	}
+
+	######hmgs
+
+	secondary_turret_hmg = {
+		abbreviation = "thx1"
+		category = tank_secondary_hmg
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 1.5
+			soft_attack = 10
+			breakthrough = 2.0
+			reliability = -0.05
+		}
+		xp_cost = 1
+		multiply_stats = {
+			hardness = -0.05
+		}
+	}
+
+	secondary_turret_hmgx2 = {
+		abbreviation = "thx2"
+		category = tank_secondary_hmg
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 3
+			soft_attack = 20
+			breakthrough = 4.0
+			reliability = -0.3
+		}
+		xp_cost = 1
+		multiply_stats = {
+			hardness = -0.1
+		}
+	}
+
+	secondary_turret_hmgx3 = {
+		abbreviation = "thx3"
+		category = tank_secondary_hmg
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 4.5
+			soft_attack = 30
+			breakthrough = 6.0
+			reliability = -0.6
+		}
+		xp_cost = 1
+		multiply_stats = {
+			hardness = -0.2
+		}
+	}
+
+
+	#####################
 
 	sloped_armor = {
 		abbreviation = "slop"
@@ -1502,6 +1610,30 @@ equipment_modules = {
 			breakthrough = 20
 		}
 		xp_cost = 1
+		multiply_stats = {
+
+		}
+	}
+
+
+	computer_guided_stabilizer = {
+		abbreviation = "cgs"
+		category = tank_special_module
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			build_cost_ic = 4
+			breakthrough = 30
+			defense = 8
+			reliability = -0.2
+		}
+		xp_cost = 1
+		multiply_stats = 
+		{
+			soft_attack = 0.05
+			hard_attack = 0.05
+			ap_attack = 0.15
+		}
 
 	}
 
@@ -1527,6 +1659,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
+			build_cost_ic = 1
 			reliability = -0.2
 			breakthrough = 5
 		}
@@ -1538,9 +1671,26 @@ equipment_modules = {
 		}
 	}
 
-	wet_ammo_storage = {
-		abbreviation = "wet"
-		category = tank_special_module
+	###RELIABILITY-MODULES###
+
+	fire_extinguisher = {
+		abbreviation = "fer"
+		category = tank_reliability_module
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			reliability = 0.15
+			build_cost_ic = 1
+		}
+		xp_cost = 1
+		multiply_stats = {
+			
+		}
+	}
+
+	auto_fire_extinguisher = {
+		abbreviation = "afe"
+		category = tank_reliability_module
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
@@ -1552,6 +1702,39 @@ equipment_modules = {
 			
 		}
 	}
+
+	wet_ammo_storage = {
+		abbreviation = "was"
+		category = tank_reliability_module
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			reliability = 0.35
+			build_cost_ic = 1
+		}
+		xp_cost = 1
+		multiply_stats = {
+			
+		}
+	}
+
+	auto_fire_wet_ammo = {
+		abbreviation = "fwa"
+		category = tank_reliability_module
+		sfx = sfx_ui_sd_module_turret
+
+		add_stats = {
+			reliability = 0.60
+			build_cost_ic = 1
+		}
+		xp_cost = 1
+		multiply_stats = {
+			
+		}
+	}
+	
+
+	###RELIABILITY###
 
 	squeezebore_adaptor = {
 		abbreviation = "sque"
@@ -1580,6 +1763,7 @@ equipment_modules = {
 			armor_value = 10
 			breakthrough = 3
 			build_cost_ic = 0.5
+			hardness = 0.05
 		}
 		xp_cost = 1
 		multiply_stats = {
@@ -1608,11 +1792,15 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			build_cost_ic = 1.5
-			breakthrough = 8
-			defense = 8
+			build_cost_ic = 3
+			reliability = -0.3
 		}
 		xp_cost = 1
+		multiply_stats = 
+		{
+			soft_attack = 0.2
+			hard_attack = 0.2
+		}
 		
 	}
 
@@ -1656,7 +1844,7 @@ equipment_modules = {
 			build_cost_ic = 1
 			maximum_speed = -0.25
 		}
-		xp_cost = 3
+		xp_cost = 1
 		multiply_stats = {
 			
 		}

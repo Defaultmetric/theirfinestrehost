@@ -2838,8 +2838,12 @@ focus_tree = {
 				name = SPA_an_armored_corps
 				bonus = 1.0
 				uses = 1
+				ahead_reduction = 1.0
 				category = armor
 			}
+			add_ideas = embrace_the_future_ideas
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
 
@@ -2911,6 +2915,57 @@ focus_tree = {
 					}
 				}
 				ITA = { country_event = generic.2 }
+			}
+		}
+	}
+
+	focus = {
+		id = SPA_core_portugal
+		available = {
+			has_completed_focus = SPA_join_the_axis
+			has_global_flag = scw_over
+			has_full_control_of_state = 180
+			has_full_control_of_state = 112
+			has_full_control_of_state = 181
+			has_full_control_of_state = 795
+			has_full_control_of_state = 179
+		}
+		bypass = {
+			
+		}
+		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		
+		icon = GFX_focus_generic_attack_portugal
+		x = 11
+		y = 1
+		relative_position_id = SPA_the_national_syndicalist_state
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			180 = {
+				add_core_of = ROOT
+			}
+			112 = {
+				add_core_of = ROOT
+			}
+			181 = {
+				add_core_of = ROOT
+			}
+			795 = {
+				add_core_of = ROOT
+			}
+			179 = {
+				add_core_of = ROOT
 			}
 		}
 	}

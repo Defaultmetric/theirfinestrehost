@@ -231,35 +231,5 @@ every_possible_country = {
 			}
 		}
 	}
-	generate_character = {
-		token_base = CHI_kwong_jiang
-		name = CHI_kwong_jiang
-		portraits = {
-			army = { small="GFX_idea_generic_political_advisor_asia_1" }
-		}
-		advisor={
-			slot = political_advisor
-			available  = {
-				has_completed_focus  = CHI_legislative_yuan 
-				if  = {
-					limit  = {
-						has_dlc = "Man the Guns"
-					}
-					not  = {
-						has_autonomy_state  = autonomy_supervised_state
-					}
-				}
-			}
-			allowed = {
-				OR = {
-					original_tag = CHI
-					is_chinese_warlord = yes
-				}
-			}
-			traits  = {
-				democratic_reformer 
-			}
-		}
-	}
 }
 

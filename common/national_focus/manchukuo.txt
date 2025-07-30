@@ -490,7 +490,17 @@
 		completion_reward = {
 			add_political_power = 150
 			add_stability = 0.1
-
+			if = {
+				limit = {
+					is_subject_of = JAP
+				}
+				JAP = { 
+					set_autonomy = {
+						target = MAN
+						autonomy_state = autonomy_wtt_imperial_associate 
+					}
+				}
+			}
 		}
 	}
 

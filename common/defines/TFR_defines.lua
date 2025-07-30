@@ -36,8 +36,6 @@ NDefines.NTechnology.BASE_TECH_COST = 80
 NDefines.NTechnology.MAX_TECH_SHARING_BONUS = 0.5
 NDefines.NTechnology.LICENSE_PRODUCTION_TECH_BONUS = 0.5
 
-NDefines.NCountry.MAX_COMMAND_POWER = 120.0						-- Max command power a country can have
-
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
@@ -52,3 +50,4 @@ NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 3 	--Base cost to unlock a regiment slot
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 2	--Base cost to change a regiment column.
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 2 	--Base cost to unlock a support slot
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.15,   -- effect on defense due to enemy air superiorty

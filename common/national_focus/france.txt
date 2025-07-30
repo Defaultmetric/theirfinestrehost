@@ -5552,18 +5552,6 @@ focus_tree = {
 				remove_idea = FRA_expanded_citizenship
 				add_idea = FRA_france_undividable
 			}
-			every_owned_state = {
-				limit = {
-					is_controlled_by = ROOT
-					NOT = {
-						is_core_of = ROOT
-					}
-					NOT = {
-						is_on_continent = europe
-					}
-				}
-				add_compliance = 10
-			}
 		}
 	}
 	focus = {

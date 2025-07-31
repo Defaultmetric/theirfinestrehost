@@ -1128,7 +1128,7 @@ focus_tree = {
 	icon = GFX_focus_SOV_flying_clubs
 	x = 1
 	y = 1
-	cost = 10
+	cost = 5
 
 	prerequisite = {
 		focus = MON_new_pilots_training
@@ -1235,8 +1235,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = MON_experimental_design_facility_bonus
-				bonus = 0.25
-				uses = 3
+				bonus = 1
+				uses = 1
 				category = air_equipment
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1297,7 +1297,7 @@ focus_tree = {
 		icon = GFX_SOV_the_eyes_fear_ccp_2d_sov_compatibility
 		x = 5
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = MON_further_increase_training
 		prerequisite = {
 			focus = MON_further_increase_training
@@ -1341,7 +1341,8 @@ focus_tree = {
 			set_technology = { basic_small_airframe = 1 engines_2 = 1 }
 		add_tech_bonus = {
 		name = MON_improved_small_bonus
-		technology = improved_small_airframe
+		category = light_fighter
+		ahead_reduction = 1
 		bonus = 1.0
 		uses = 1
 		}
@@ -1366,8 +1367,9 @@ focus_tree = {
 		set_technology = { basic_medium_airframe = 1 engines_2 = 1 }
 		add_tech_bonus = {
 		name = MON_improved_medium_bonus
-		technology = improved_medium_airframe
+		category = cat_heavy_fighter
 		bonus = 1.0
+		ahead_reduction = 1
 		uses = 1
 	}
 }
@@ -1392,8 +1394,9 @@ focus_tree = {
 		set_technology = { basic_large_airframe = 1  engines_2 = 1}
 		add_tech_bonus = {
 		name = MON_improved_large_bonus
-		technology = improved_large_airframe
-		bonus = 0.5
+		category = tactical_bomber
+		bonus = 1
+		ahead_reduction = 1
 		uses = 1
 	}
 }
@@ -1509,6 +1512,15 @@ focus_tree = {
 			remove_dynamic_modifier = { modifier = mon_air_dyn }
 			add_dynamic_modifier = { modifier = mon_terror_dyn }
 		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_tech_bonus = {
+				name = MON_terror_of_the_skies_bonus
+				bonus = 1
+				ahead_reduction = 1
+				uses = 1
+				category = air_equipment
+			}
 	}
 }
 
@@ -1532,7 +1544,7 @@ focus_tree = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
 		add_to_variable = {
-			MON_airforce_ground_attack_factor = 0.10
+			MON_airforce_ground_attack_factor = 0.20
 			tooltip = air_cas_present_factor_tt
 		}
 	}

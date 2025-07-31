@@ -3236,7 +3236,7 @@ focus_tree = {
 		x = 25
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -3255,7 +3255,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		complete_tooltip = {
-			air_experience = 25
+			air_experience = 150
 			random_state = {
 				limit = {
 					has_state_flag = ROM_expand_the_air_force_AB
@@ -3279,7 +3279,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			air_experience = 25
+			air_experience = 150
 			random_owned_controlled_state = {
 				prioritize = { 46 79 }
 				limit = {
@@ -3613,7 +3613,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_local_development
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 9
@@ -3634,7 +3634,7 @@ focus_tree = {
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = ROM_air_superiority
-				cost_reduction = 0.50
+				cost_reduction = 1
 				uses = 2
 				category = strategic_destruction_tree
 			}
@@ -3649,7 +3649,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_air_superiority
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3780,7 +3780,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_local_development
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -3803,6 +3803,7 @@ focus_tree = {
 				name = ROM_strategic_bomber_force
 				bonus = 1.0
 				uses = 1
+				ahead_reduction = 1
 				category = cat_strategic_bomber
 			}
 		}
@@ -3816,7 +3817,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_strategic_bomber_force
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3837,7 +3838,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_heavy_bombers
-				bonus = 1.0
+				bonus = 1.5
+				ahead_reduction = 1.5
 				uses = 1
 				category = cat_strategic_bomber
 			}
@@ -3897,7 +3899,7 @@ focus_tree = {
 		x = 33
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 9
@@ -3916,7 +3918,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			army_experience = 50
+			army_experience = 150
 		}
 	}
 
@@ -3928,7 +3930,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_army_maneuvers
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3972,7 +3974,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_army_war_college
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3995,6 +3997,7 @@ focus_tree = {
 				name = ROM_the_zb_53
 				bonus = 1.0
 				uses = 1
+				ahead_reduction = 1
 				category = infantry_weapons
 			}
 		}
@@ -4008,7 +4011,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_the_zb_53
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -4098,7 +4101,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ROM_artillery_modernization
 				bonus = 1.0
-				uses = 1
+				uses = 3
 				category = artillery
 			}
 		}
@@ -4107,8 +4110,7 @@ focus_tree = {
 	focus = {
 		id = ROM_modern_at_guns
 		icon = GFX_goal_generic_army_artillery
-		prerequisite = { focus = ROM_artillery_modernization }
-		mutually_exclusive = { focus = ROM_mobile_tank_destroyers }
+		prerequisite = { focus = ROM_artillery_modernization focus = ROM_acquire_modern_tanks}
 		x = 1
 		y = 2
 		relative_position_id = ROM_the_zb_53
@@ -4134,7 +4136,8 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_modern_at_guns
-				bonus = 0.75
+				bonus = 1
+				ahead_reduction = 1
 				uses = 2
 				category = cat_anti_tank
 			}
@@ -4182,7 +4185,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_army_maneuvers
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 9
@@ -4274,7 +4277,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_royal_guards_divisions
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 5
@@ -4306,7 +4309,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = ROM_royal_guards_divisions
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -4476,7 +4479,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = ROM_royal_guards_divisions
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -4496,15 +4499,23 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = ROM_acquire_modern_tanks
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = ROM_the_maresal
+				bonus = 1.0
+				ahead_reduction = 1
+				uses = 1
+				category = cat_heavy_armor
+				category = cat_medium_armor
+			}
 		}
 	}
 
 	focus = {
 		id = ROM_mobile_tank_destroyers
 		icon = GFX_goal_generic_build_tank
-		prerequisite = { focus = ROM_acquire_modern_tanks }
-		prerequisite = { focus = ROM_artillery_modernization }
-		mutually_exclusive = { focus = ROM_modern_at_guns }
+		prerequisite = { focus = ROM_acquire_modern_tanks focus = ROM_artillery_modernization}
+	
 		x = 0
 		y = 1
 		relative_position_id = ROM_acquire_modern_tanks
@@ -4579,6 +4590,7 @@ focus_tree = {
 				ahead_reduction = 2
 				uses = 1
 				category = cat_heavy_armor
+				category = cat_medium_armor
 			}
 		}
 	}
@@ -4593,7 +4605,7 @@ focus_tree = {
 		x = 40
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -4612,7 +4624,7 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
-			navy_experience = 25
+			navy_experience = 150
 			random_state = {
 				limit = {
 					has_state_flag = ROM_expand_the_galati_shipyards_AB
@@ -4626,7 +4638,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			navy_experience = 25
+			navy_experience = 150
 			random_owned_controlled_state = {
 				prioritize = { 971 }
 				limit = {

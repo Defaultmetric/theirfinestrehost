@@ -9414,24 +9414,6 @@ focus_tree = {
 					}
 				}
 			}
-
-			IF = {
-				limit = {
-					country_exists = CZE
-					664 = { is_owned_by = CZE }
-				}
-				strength_ratio = { tag = CZE ratio > 0.75 }
-			}
-			IF = {
-				limit = {
-					country_exists = SLO
-					664 = { is_owned_by = SLO }
-				}
-				strength_ratio = { tag = SLO ratio > 0.75 }
-			}
-
-			has_army_manpower = { size > 120000 }
-
 		}
 
 		bypass = {
@@ -9538,17 +9520,6 @@ focus_tree = {
 				}
 			}
 
-			IF = {
-				limit = {
-					73 = {
-						is_owned_by = CZE
-					}
-				}
-				strength_ratio = { tag = CZE ratio > 0.70 }
-			}
-
-			has_army_manpower = { size > 150000 }
-
 		}
 
 		bypass = {
@@ -9614,7 +9585,6 @@ focus_tree = {
 		available = {
 
 			is_subject = no
-			has_army_manpower = { size > 200000 }
 
 			NOT = {
 				OR = {
@@ -9629,28 +9599,6 @@ focus_tree = {
 					}
 				}
 			}
-
-			76 = {
-				OWNER = {
-					NOT = {
-						OR = {
-							is_in_faction_with = ROOT
-							has_war_with = ROOT
-						}
-					}
-				}
-			}
-
-			IF = {
-				limit = {
-					ROM = {
-						owns_state = 76
-					}
-				}
-				strength_ratio = { tag = ROM ratio > 0.66 }
-			}
-
-
 		}
 
 		bypass = {
@@ -9740,17 +9688,6 @@ focus_tree = {
 					is_owned_by = ROOT
 				}
 			}
-
-			IF = {
-				limit = {
-					45 = {
-						is_owned_by = YUG
-					}
-				}
-				strength_ratio = { tag = YUG ratio > 0.75 }
-			}
-
-			has_army_manpower = { size > 175000 }
 
 		}
 
@@ -9847,7 +9784,7 @@ focus_tree = {
 
 		will_lead_to_war_with = AUS
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -9862,18 +9799,6 @@ focus_tree = {
 					is_owned_by = ROOT
 				}
 			}
-
-			IF = {
-				limit = {
-					975 = {
-						is_owned_by = AUS
-					}
-				}
-				strength_ratio = { tag = AUS ratio > 0.70 }
-			}
-
-			has_army_manpower = { size > 185000 }
-
 		}
 
 		bypass = {
@@ -9948,12 +9873,6 @@ focus_tree = {
 					}
 				}
 			}
-			IF = {
-				limit = { country_exists = SLO }
-				strength_ratio = { tag = SLO ratio > 0.75 }
-				NOT = { has_war_with = SLO }
-			}
-			has_army_manpower = { size > 175000 }
 
 		}
 
@@ -10051,7 +9970,7 @@ focus_tree = {
 		will_lead_to_war_with = SLO
 		will_lead_to_war_with = CZE
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -10072,8 +9991,6 @@ focus_tree = {
 					has_war_with = ROOT
 				}
 			}
-
-			has_army_manpower = { size > 180000 }
 
 		}
 
@@ -10159,7 +10076,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_demand_carpathian_ruthenia
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 40
@@ -15143,14 +15060,60 @@ focus_tree = {
 	}
 
 	focus = {
-		id = wuw_HUN_enlarge_the_ganz_danubius_division
-		icon = GFX_focus_POL_develop_polish_shipbuilding
+		id = wuw_HUN_expand_the_ganz_muvek_capacity
+		icon = GFX_focus_generic_industrialists
 		prerequisite = { focus = wuw_HUN_expand_the_ganz_muvek }
 		prerequisite = { focus = wuw_HUN_announce_the_gyor_program }
-		#mutually_exclusive = { focus = wuw_HUN_avoid_interventionalist_destablilization }
-		x = 0
+		x = -1
+		y = 1
+		relative_position_id = wuw_HUN_announce_the_gyor_program
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = MON_red_industry_rises_tt
+			every_state = {
+				limit = {
+					is_core_of = HUN
+					is_fully_controlled_by = HUN
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+
+	focus = {
+		id = wuw_HUN_enlarge_the_ganz_danubius_division
+		icon = GFX_focus_POL_develop_polish_shipbuilding
+		prerequisite = { focus = wuw_HUN_reinstate_the_navy }
+		
+		x = 26
 		y = 2
-		relative_position_id = wuw_HUN_expand_the_ganz_muvek
+		relative_position_id = wuw_HUN_economic_intervention
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
@@ -16083,7 +16046,7 @@ focus_tree = {
 		id = wuw_HUN_expand_the_hungarian_academy_of_sciences
 		icon = GFX_focus_generic_improve_the_administration
 		prerequisite = { focus = wuw_HUN_announce_the_gyor_program }
-		mutually_exclusive = { focus = wuw_HUN_invite_foreign_investors }
+	
 		x = 0
 		y = 2
 		relative_position_id = wuw_HUN_announce_the_gyor_program
@@ -16319,7 +16282,7 @@ focus_tree = {
 		id = wuw_HUN_invite_foreign_investors
 		icon = GFX_goal_generic_intelligence_exchange
 		prerequisite = { focus = wuw_HUN_devalue_the_pengo }
-		mutually_exclusive = { focus = wuw_HUN_expand_the_hungarian_academy_of_sciences }
+	
 		x = 0
 		y = 2
 		relative_position_id = wuw_HUN_devalue_the_pengo
@@ -17105,7 +17068,7 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_extensive_licensing_programs
 		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = wuw_HUN_joint_air_development }
+		prerequisite = { focus = wuw_HUN_joint_air_development focus = wuw_HUN_establish_the_mavag_army_division}
 		#mutually_exclusive = { focus = wuw_HUN_repulö_muszaki_intezet }
 		x = 1
 		y = 1
@@ -17118,71 +17081,6 @@ focus_tree = {
 		}
 
 		available = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_dlc = "By Blood Alone"
-					}
-				}
-				NOT = {
-					has_tech = fighter3
-					has_tech = heavy_fighter3
-				}
-			}
-			ELSE = {
-				NOT = {
-					has_tech = advanced_small_airframe
-					has_tech = advanced_medium_airframe
-				}
-			}
-			OR = {
-				GER = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				FRA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				ITA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				ENG = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-				USA = {
-					custom_trigger_tooltip = {
-						tooltip = fighter_tt
-						OR = {
-							is_available_fighter_HUN = yes
-							is_available_heavy_fighter_HUN = yes
-						}
-					}
-				}
-			}
 
 		}
 
@@ -17199,8 +17097,14 @@ focus_tree = {
 			add_ideas = HUN_license_foreign
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			country_event = DOD_hungary.150
+			if = 
+			{
+				limit = 
+				{
+					has_completed_focus = wuw_HUN_joint_air_development
+				}
+				country_event = DOD_hungary.150
+			}
 
 		}
 	}
@@ -18031,14 +17935,14 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = wuw_HUN_quantity_over_quality
-				bonus = 0.25
-				uses = 2
+				bonus = 1
+				uses = 1
 				category = armor
 			}
 
 			add_tech_bonus = {
 				name = wuw_HUN_quantity_over_quality
-				bonus = 0.25
+				bonus = 0.5
 				uses = 2
 				category = artillery
 			}
@@ -18113,8 +18017,9 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_the_botond
-				bonus = 0.75
-				uses = 1
+				bonus = 2
+				ahead_reduction = 2.0
+				uses = 2
 				category = motorized_equipment
 			}
 
@@ -18140,9 +18045,8 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_the_turan
 		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = wuw_HUN_quantity_over_quality }
-		prerequisite = { focus = wuw_HUN_establish_the_mavag_army_division }
-		#mutually_exclusive = { focus = wuw_HUN_expand_the_army }
+		prerequisite = { focus = wuw_HUN_quantity_over_quality focus = wuw_HUN_establish_the_mavag_army_division }
+		
 		x = -1
 		y = 1
 		relative_position_id = wuw_HUN_quantity_over_quality

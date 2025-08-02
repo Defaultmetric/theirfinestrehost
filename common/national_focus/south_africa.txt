@@ -1,4 +1,4 @@
-﻿focus_tree = {
+focus_tree = {
 	id = south_african_focus
 	
 	country = {
@@ -12,46 +12,6 @@
 	}
 	
 	default = no
-
-
-
-#	focus = {
-#		id = SAF_
-#		icon = GFX_
-#		prerequisite = { focus = }
-#		mutually_exclusive = { focus =  }
-#		x = -3
-#		y = 0
-#		relative_position_id = 
-#
-#		cost = 10
-#
-#		ai_will_do = {
-#			factor = 1
-#		}
-#
-#		available = {
-#
-#		}
-#		
-#		bypass = {
-#
-#		}
-#
-#		cancel_if_invalid = yes
-#		continue_if_invalid = no
-#		available_if_capitulated = no
-#
-#		complete_tooltip = {
-#
-#		}
-#
-#		completion_reward = {
-#
-#		}
-#	}
-
-
 
 	############################
 	#### WAR PREP SECTION ######
@@ -2024,6 +1984,17 @@
 
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = SAF_south_african_railways
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			random_owned_controlled_state = 
+			{
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -2088,13 +2059,10 @@
 			add_tech_bonus = {
 				name = SAF_expand_the_mining_industry
 				bonus = 1.0
-				uses = 1
-				technology = excavation1
-				technology = excavation2
-				technology = excavation3
-				technology = excavation4
-				technology = excavation5
+				uses = 3
+				category = excavation_tech
 			}
+			
 		}
 	}
 
@@ -2132,6 +2100,16 @@
 				uses = 3
 				category = industry
 			}
+
+			random_owned_controlled_state = 
+			{
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -2162,107 +2140,18 @@
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf2
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf3
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf4
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
 		completion_reward = {
-			random_owned_controlled_state = {
+			custom_effect_tooltip = MON_red_industry_rises_tt
+			every_state = {
 				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
+					is_core_of = SAF
+					is_fully_controlled_by = SAF
 				}
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
-				}
-				set_state_flag = SAF_infrastructure_effort_Inf
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf2
-				}
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf3
-				}
-				random_neighbor_state = { # done like this to prevent double selection of previous state
-					limit = {
-						is_controlled_by = ROOT
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-					set_state_flag = SAF_infrastructure_effort_Inf4
 				}
 			}
 		}
@@ -2276,7 +2165,7 @@
 		y = 3
 		relative_position_id = SAF_south_african_railways
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 20
@@ -2360,7 +2249,11 @@
 			275 = {
 				add_resource = {
 					type = steel
-					amount = 16
+					amount = 30
+				}
+				add_resource = {
+					type = tungsten
+					amount = 30
 				}
 			}
 		}
@@ -2399,10 +2292,10 @@
 				limit = {
 					has_state_flag = SAF_pretoria_arms_AF
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -2417,14 +2310,20 @@
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 				set_state_flag = SAF_pretoria_arms_AF
 			}
+			add_tech_bonus = {
+            name = infantry_weapons_bonus
+            category = infantry_weapons
+            bonus = 2
+            uses = 2
+        }
 		}
 	}
 
@@ -2457,6 +2356,15 @@
 
 		completion_reward = {
 			add_ideas = SAF_gold_exports
+			random_owned_controlled_state = 
+			{
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -2468,7 +2376,7 @@
 		y = 5
 		relative_position_id = SAF_south_african_railways
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 45
@@ -2545,7 +2453,7 @@
 	focus = {
 		id = SAF_the_cape_defense_institute
 		icon = GFX_focus_research
-		prerequisite = { focus = SAF_establish_the_atomics_energy_board }
+		prerequisite = { focus = SAF_fund_the_university_of_south_africa }
 		x = -1
 		y = 7
 		relative_position_id = SAF_south_african_railways
@@ -2577,7 +2485,7 @@
 	focus = {
 		id = SAF_defense_collaboration_initiative
 		icon = GFX_goal_generic_scientific_exchange
-		prerequisite = { focus = SAF_establish_the_atomics_energy_board }
+		prerequisite = { focus = SAF_fund_the_university_of_south_africa }
 		x = 1
 		y = 7
 		relative_position_id = SAF_south_african_railways
@@ -2626,7 +2534,7 @@
 		x = 15
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2646,19 +2554,12 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 50
 			add_doctrine_cost_reduction = {
 				name = SAF_special_service_battalion
-				cost_reduction = 0.25
+				cost_reduction = 1
 				uses = 1
 				category = land_doctrine
-			}
-			add_tech_bonus = 
-			{
-				name = armor_bonus_saf
-				ahead_reduction = 1
-				bonus = 1
-				category = armor
 			}
 		}
 	}
@@ -2691,10 +2592,12 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			army_experience = 50
 			add_tech_bonus = {
 				name = SAF_improve_the_three_oh_three
-				bonus = 1.0
+				bonus = 2
 				uses = 1
+				ahead_reduction = 2
 				category = infantry_weapons
 			}
 		}
@@ -2976,8 +2879,8 @@
 	focus = {
 		id = SAF_armor_effort
 		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = SAF_south_african_special_forces focus = SAF_mechanization_effort }
-		x = 0
+		prerequisite = { focus = SAF_south_african_special_forces focus = SAF_mechanization_effort focus = SAF_fund_the_university_of_south_africa}
+		x = -2
 		y = 6
 		relative_position_id = SAF_special_service_battalion
 

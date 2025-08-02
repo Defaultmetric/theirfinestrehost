@@ -17,33 +17,19 @@ HUN_henshchels_organization = {
 	}
 }
 
-BUL_henschels_organization = {
-	include = generic_infantry_tank_organization
-	icon = GGFX_idea_henschel
-
-	allowed = { tag = BUL }
-
-	available = {
-		owner = {
-		has_completed_focus = BUL_contract_foreign_companies
-		}
-	}
-
-	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
-	}
-}
-
 Generic_henschels_organization = {
 	include = generic_infantry_tank_organization
 	icon = GFX_idea_henschel
 
-	allowed = { tag = MAN }
+	allowed = {
+	OR = {
+	 tag = MAN
+	 tag = ROM 
+	 }
+	}
 
 	available = {
-
+		
 	}
 
 	initial_trait = {

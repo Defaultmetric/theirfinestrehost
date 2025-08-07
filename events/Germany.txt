@@ -6955,6 +6955,22 @@ country_event = {
 		}
 		add_ideas = totaler_krieg_economy_v2
 	}
+	if = 
+	{
+		limit = 
+		{
+			date < 1939.9.1
+		}
+		set_global_flag = early_war
+	}
+	if = 
+	{
+		limit = 
+		{
+			date > 1939.9.1
+		}
+		set_global_flag = late_war
+	}
 }
 	}
 

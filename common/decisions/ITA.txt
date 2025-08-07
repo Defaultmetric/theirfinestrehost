@@ -187,54 +187,136 @@ ETH_second_italo_ethiopian_war_category = {
 
 ITA_timer_category = 
 {
+	ITA_force_entry_into_war_early = {
+		icon = GFX_decision_generic_police_action
 
-	ITA_force_entry_into_war = {
-	icon = GFX_decision_generic_police_action
+		allowed = {
+			tag = ITA
+		}
 
-	allowed = {
-		tag = ITA
-	}
+		activation = {
+			has_global_flag = early_war
+		}
 
-	available = {
-		ITA = 
-		{
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 270
+
+		cancel_trigger = {
 			has_war_with = ENG
 		}
-	}
 
-	activation = 
-	{
-		GER = 
-		{
-			has_war_with = POL
-		}
-	}
-
-
-	is_good = no
-	fire_only_once = yes
-	days_mission_timeout = 90
-
-	cancel_trigger = {
-		has_war_with = ENG
-	}
-
-	timeout_effect = {
-		
-		
-			GER = 
-			{
+		timeout_effect = {
+			GER = {
 				add_to_faction = ITA
 			}
 			declare_war_on = {
 				target = ENG
 				type = annex_everything
 			}
-			
-		
+		}
+	}
+
+	ITA_force_entry_warning_early = {
+		icon = GFX_decision_placeholder
+
+		allowed = {
+			tag = ITA
+		}
+
+		activation = {
+			has_global_flag = early_war
+		}
+
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 240  # cu 30 zile mai puțin
+
+		cancel_trigger = {
+			has_war_with = ENG
+		}
+
+		timeout_effect = {
+			country_event = italy.force.1
+		}
+	}
+
+	ITA_force_entry_into_war_late = {
+		icon = GFX_decision_generic_police_action
+
+		activation = {
+			has_global_flag = late_war
+		}
+
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 180
+
+		cancel_trigger = {
+			has_war_with = ENG
+		}
+
+		timeout_effect = {
+			GER = {
+				add_to_faction = ITA
+			}
+			declare_war_on = {
+				target = ENG
+				type = annex_everything
+			}
+		}
+	}
+
+	ITA_force_entry_warning_late = {
+		icon = GFX_decision_placeholder
+
+		allowed = {
+			tag = ITA
+		}
+
+		activation = {
+			has_global_flag = late_war
+		}
+
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 150  # 30 zile înainte de late war
+
+		cancel_trigger = {
+			has_war_with = ENG
+		}
+
+		timeout_effect = {
+			country_event = italy.force.1
+		}
 	}
 }
-}
+
+
 
 
 ##     ## ####  ######   ######  ####  #######  ##       #### ##    ## ####  ######

@@ -53,4 +53,5 @@ NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 2 	--Base cost to unlock a 
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.15   -- effect on defense due to enemy air superiorty
 
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.50 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.9 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT

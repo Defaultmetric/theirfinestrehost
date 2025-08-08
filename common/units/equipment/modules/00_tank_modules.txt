@@ -272,6 +272,13 @@ equipment_modules = {
 		category = tank_light_turret_tier_1
 		sfx = sfx_ui_sd_module_turret
 
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+			}
+		}
+
 		add_stats = {
 			build_cost_ic = 1
 		}
@@ -289,6 +296,14 @@ equipment_modules = {
 		category = tank_light_turret_tier_2
 		sfx = sfx_ui_sd_module_turret
 
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+			}
+		}
+
 		add_stats = {
 			build_cost_ic = 1.25
 			
@@ -305,6 +320,15 @@ equipment_modules = {
 		abbreviation = "l3m"
 		category = tank_light_turret_tier_3
 		sfx = sfx_ui_sd_module_turret
+
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+				tank_light_main_armament_3
+			}
+		}
 
 		add_stats = {
 			build_cost_ic = 1.5
@@ -325,11 +349,15 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_2
+				tank_light_main_armament_2
+				tank_light_main_armament_3
 				tank_medium_main_armament_1
 			}
 		}
 		forbid_equipment_type_exact_match_for_category = {
-			tank_medium_main_armamement = armor
+			tank_medium_main_armament = armor
 			tank_heavy_main_armament = armor
 			tank_super_heavy_main_armament = armor
 		}
@@ -360,6 +388,8 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
 				tank_medium_main_armament_1
 			}
 		}
@@ -384,6 +414,10 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+				tank_medium_main_armament_1
 				tank_medium_main_armament_2
 			}
 		}
@@ -407,6 +441,12 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+				tank_light_main_armament_3
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
 				tank_medium_main_armament_3
 			}
 		}
@@ -419,7 +459,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 2
 		multiply_stats = {
-	
+			breakthrough = 0.05
 		}
 	}
 
@@ -493,6 +533,8 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
 				tank_medium_main_armament_1
 				tank_heavy_main_armament_1
 			}
@@ -520,7 +562,12 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
-				tank_heavy_main_armament_2
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
+				tank_heavy_main_armament_1
 				tank_heavy_main_armament_2
 			}
 		}
@@ -549,6 +596,14 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
+				tank_light_main_armament_3
+				tank_medium_main_armament_1
+				tank_medium_main_armament_2
+				tank_heavy_main_armament_1
+				tank_heavy_main_armament_2
 				tank_medium_main_armament_3
 				tank_heavy_main_armament_3
 			}
@@ -578,6 +633,7 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
 				tank_medium_main_armament_1
 				tank_medium_main_armament_2
 				tank_heavy_main_armament_1
@@ -613,6 +669,10 @@ equipment_modules = {
 		forbid_equipment_type = anti_air
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_medium_main_armament_1
+				tank_heavy_main_armament_1
+				tank_medium_main_armament_2
+				tank_heavy_main_armament_2
 				tank_medium_main_armament_3
 				tank_heavy_main_armament_3
 			}
@@ -955,7 +1015,7 @@ equipment_modules = {
 
 	tank_small_cannon_2 = {
 		abbreviation = "sc2"
-		category = tank_light_main_armament_1
+		category = tank_light_main_armament_2
 		sfx = sfx_ui_sd_module_turret
 		parent = tank_small_cannon
 		add_stats = {

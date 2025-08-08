@@ -186,20 +186,6 @@ leader_traits = {
 		planning_skill_factor = 1
 		logistics_skill_factor = 1
 	}
-
-	brave = {
-		type = land
-		trait_type = personality_trait
-		
-		modifier = {
-			org_loss_at_low_org_factor = -0.1
-		}
-		new_commander_weight = {
-			factor = 0
-		}
-		
-		defense_skill = 1
-	}
 	
 	war_hero = { 
 		type = { land navy }
@@ -844,7 +830,10 @@ leader_traits = {
 			modifier = { #ITALY
 				factor = 2
 				FROM = {
-					has_completed_focus = ITA_strengthen_the_blackshirts
+					OR = {
+						has_completed_focus = ITA_strengthen_the_blackshirts
+						#TODO_Manu: Alt-hist focuses
+					}
 				}
 			}
 			modifier = { #ITALY
@@ -903,10 +892,10 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		
 		field_marshal_modifier = {
-			supply_consumption_factor = -0.15
+			supply_consumption_factor = -0.1
 		}
 		enable_ability = extra_suplies
 		ai_will_do = {
@@ -922,7 +911,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			org_loss_when_moving = -0.30
 		}
@@ -948,7 +937,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			max_dig_in_factor = 0.30
 		}
@@ -969,7 +958,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			planning_speed = 0.25
 		}
@@ -994,7 +983,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			max_planning = 0.1
 		}
@@ -1024,7 +1013,7 @@ leader_traits = {
 			has_trait = inflexible_strategist
 		}
 
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			defence = 0.10
 		}
@@ -1053,7 +1042,7 @@ leader_traits = {
 		prerequisites = {
 			has_trait = brilliant_strategist
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			breakthrough_factor = 0.10
 		}
@@ -1078,7 +1067,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			land_reinforce_rate = 0.02
 		}
@@ -1101,7 +1090,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		field_marshal_modifier = {
 			army_morale_factor = 0.10
 		}
@@ -1123,7 +1112,7 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		
 		field_marshal_modifier = {
 			max_army_group_size = 2
@@ -1154,7 +1143,7 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = is_using_battle_plans
 		
-		cost = 1500
+		cost = 500
 		modifier = {
 			planning_speed = 0.1
 		}
@@ -1183,11 +1172,11 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = cavalary_ratio_over_40
 		
-		cost = 1500
+		cost = 500
 		modifier = {
-			cavalry_attack_factor = 0.12
-			motorized_attack_factor = 0.12
-			mechanized_attack_factor = 0.12
+			cavalry_attack_factor = 0.06
+			motorized_attack_factor = 0.06
+			mechanized_attack_factor = 0.06
 		}
 		
 		slot = high_command
@@ -1211,9 +1200,9 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = infantry_ratio_over_80
 		
-		cost = 1500
+		cost = 500
 		modifier = {
-			army_infantry_defence_factor = 0.13
+			army_infantry_defence_factor = 0.1
 		}
 		
 		slot = high_command
@@ -1240,7 +1229,7 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = fighting_with_enough_units
 		
-		cost = 2000
+		cost = 500
 		
 		corps_commander_modifier = {
 			max_commander_army_size = 6
@@ -1268,9 +1257,9 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = has_flanked
 		
-		cost = 1000
+		cost = 500
 		modifier = {
-			recon_factor = 0.25
+			recon_factor = 0.2
 		}
 
 		ai_will_do = {
@@ -1286,9 +1275,9 @@ leader_traits = {
 		gain_xp = {
 			temperature < -10
 		}
-		cost = 1000
+		cost = 500
 		modifier = {
-			winter_attrition_factor = -0.5
+			winter_attrition_factor = -0.4
 		}
 		
 		ai_will_do = {
@@ -1304,9 +1293,12 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		modifier = {
-			terrain_penalty_reduction = 0.30
+			#terrain_penalty_reduction = 0.30
+			river = {
+				attack = 0.1
+			}
 			acclimatization_cold_climate_gain_factor = 0.1
 			acclimatization_hot_climate_gain_factor = 0.1
 		}
@@ -1329,7 +1321,7 @@ leader_traits = {
 				urban_assault_specialist
 				winter_specialist
 			}
-			num_parents_needed = 2
+			num_parents_needed = 1
 		} 
 	}
 
@@ -1363,7 +1355,7 @@ leader_traits = {
 				has_combat_modifier = river_crossing
 			}
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			river = {
 				attack = 0.05
@@ -1394,10 +1386,10 @@ leader_traits = {
 			check_variable = { num_armored > temp }
 		}
 		custom_gain_xp_trigger_tooltip = armored_ratio_over_40
-		cost = 1200
+		cost = 500
 		modifier = {
 			army_armor_speed_factor = 0.05 
-			army_armor_attack_factor = 0.16 
+			army_armor_attack_factor = 0.08 
 		}
 		ai_will_do = {
 			factor = 1
@@ -1423,9 +1415,9 @@ leader_traits = {
 				has_combat_modifier = amphibious_attack
 			}
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
-			out_of_supply_factor = -0.25
+			out_of_supply_factor = -0.2
 		}
 		
 		ai_will_do = {
@@ -1444,12 +1436,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = desert
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			desert = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		new_commander_weight = {
@@ -1472,12 +1464,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = marsh
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			marsh = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1493,12 +1485,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = mountain
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			mountain = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1514,12 +1506,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = hills
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			hills = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1535,12 +1527,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = jungle
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			jungle = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1556,12 +1548,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = forest
 		}
-		cost = 1200
+		cost = 500
 		modifier = {
 			forest = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1577,12 +1569,12 @@ leader_traits = {
 		gain_xp = {
 			is_fighting_in_terrain = urban
 		}
-		cost = 1000
+		cost = 500
 		modifier = {
 			urban = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1599,7 +1591,7 @@ leader_traits = {
 		gain_xp = {
 			is_amphibious_invasion = yes
 		}
-		cost = 600
+		cost = 500
 		modifier = {
 			amphibious_invasion = 0.3 # 30% faster invasions
 			invasion_preparation = -0.3
@@ -1627,9 +1619,9 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-		cost = 1000
+		cost = 500
 		modifier = {
-			army_armor_defence_factor = 0.10 
+			army_armor_defence_factor = 0.12
 		}
 		
 		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
@@ -1654,8 +1646,8 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			motorized_defence_factor = 0.15
-			mechanized_defence_factor = 0.15
+			motorized_defence_factor = 0.1
+			mechanized_defence_factor = 0.1
 		}
 		
 		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
@@ -1687,7 +1679,7 @@ leader_traits = {
 		cost = 500
 		modifier = {
 			#cavalry_attack_factor = 0.10
-			cavalry_defence_factor = 0.10
+			cavalry_defence_factor = 0.12
 		}
 		
 		ai_will_do = {
@@ -1711,10 +1703,10 @@ leader_traits = {
 				dig_in > 10
 			}
 		}
-		cost = 700
+		cost = 500
 		modifier = {
 			fort = {
-				attack = 0.15
+				attack = 0.1
 			}
 		}
 		enable_ability = siege_artillery
@@ -1763,7 +1755,7 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			army_infantry_attack_factor = 0.10
+			army_infantry_attack_factor = 0.05
 		}
 		
 		ai_will_do = {
@@ -1785,7 +1777,7 @@ leader_traits = {
 		cost = 500
 		modifier = {
 			max_dig_in = 5
-			recon_factor_while_entrenched = 0.25
+			recon_factor_while_entrenched = 0.2
 		}
 		
 		ai_will_do = {
@@ -1806,7 +1798,7 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			extra_marine_supply_grace = 240
+			extra_marine_supply_grace = 180
 		}
 		
 		enable_ability = faster_naval_invasion_planning
@@ -1827,7 +1819,7 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			shore_bombardment_bonus = 0.25
+			shore_bombardment_bonus = 0.20
 		}
 		
 		ai_will_do = {
@@ -1868,7 +1860,7 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			extra_paratrooper_supply_grace = 240
+			extra_paratrooper_supply_grace = 180
 		}
 		
 		enable_ability = glider_planes
@@ -1891,8 +1883,8 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			cas_damage_reduction = 0.5
-			air_superiority_bonus_in_combat = -0.5
+			cas_damage_reduction = 0.3
+			air_superiority_bonus_in_combat = -0.3
 		}
 		
 		ai_will_do = {
@@ -1968,7 +1960,7 @@ leader_traits = {
 		}
 		cost = 500
 		modifier = {
-			dig_in_speed_factor = 0.5
+			dig_in_speed_factor = 0.4
 		}
 		
 		ai_will_do = {
@@ -1980,8 +1972,7 @@ leader_traits = {
 		
 		gui_row = 14
 	}
-	
-	
+
 
 
 ##################################
@@ -3657,8 +3648,7 @@ leader_traits = {
 			factor = 0
 		}
 	}
-
-	inspirational_bagpiper = { 
+		inspirational_bagpiper = { 
 		type = { land }
 		trait_type = personality_trait
 		

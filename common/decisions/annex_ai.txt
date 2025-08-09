@@ -385,6 +385,36 @@ AI_annex = {
         }
     }
 
+    BRA_annex_MEX = {
+    icon = generic_industry
+
+    fire_only_once = yes
+
+    available = {
+        date > 1939.01.01
+        country_exists = MEX
+        original_tag = BRA
+        MEX = { has_capitulated = no }
+        MEX = { is_ai = yes }
+    }
+    visible = {
+        original_tag = BRA
+        MEX = { is_ai = yes }
+        country_exists = MEX
+    }
+    cost = 0
+
+    complete_effect = {
+        annex_country = { target = MEX transfer_troops = yes }
+        every_state = {
+            limit = {
+                is_core_of = MEX
+                is_controlled_by = BRA
+            }
+            add_core_of = BRA
+        }
+    }
+}
 
 
 }

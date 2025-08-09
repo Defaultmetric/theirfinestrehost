@@ -12872,7 +12872,15 @@ focus_tree = {
 			add_research_slot = 1
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ENG_man_with_the_plan_tt
+			SOV = 
+				{
+					add_research_slot = 1
+				}
+			ENG = {
+            	add_to_faction = BRA
+        	}
 			hidden_effect = {
+			
 			every_state = {
 				limit = {
 					is_core_of = ENG
@@ -12886,21 +12894,172 @@ focus_tree = {
 			}
 			hidden_effect = 
 			{
-				USA = {add_ideas = {adt_neutrality_idea} add_ideas = {adt_neutrality_idea2} add_ideas = {adt_stupid_ai}}
-				CHI = {add_ideas = {adt_neutrality_idea} add_ideas = {adt_neutrality_idea2} add_ideas = {adt_stupid_ai}}
-				RAJ = {add_ideas = {adt_neutrality_idea} add_ideas = {adt_neutrality_idea2} add_ideas = {adt_stupid_ai}}
-				MAN = {add_ideas = {adt_neutrality_idea} add_ideas = {adt_neutrality_idea2} add_ideas = {adt_stupid_ai}}
-				JAP = {add_ideas = {adt_neutrality_idea} add_ideas = {adt_neutrality_idea2} add_ideas = {adt_stupid_ai}}
+				ADT = 
+				{
+					annex_country = { target = RAJ }
+					annex_country = { target = CHI }
+					annex_country = { target = MAN }
+					annex_country = { target = JAP }
+					annex_country = { target = USA }
+					annex_country = { target = PHI }
+					annex_country = { target = SIA }
+				}
+				ENG = 
+				{
+					transfer_state = 992
+					transfer_state = 134
+					transfer_state = 113
+					transfer_state = 135
+					134 = { add_core_of = ENG }
+					113 = { add_core_of = ENG }
+					135 = { add_core_of = ENG }
+				}
+
+				113 = 
+				{
+					add_resource = {
+            			type = oil
+            			amount = 20
+        			}
+					add_resource = {
+            			type = aluminium
+            			amount = 50
+        			}
+					add_resource = {
+            			type = steel
+            			amount = 30
+        			}
+				}
+				MON = 
+				{
+					transfer_state = 650
+				}
+				MON = { add_offsite_building = { type = dockyard level = 5 } }
+				if = 
+				{
+					limit = 
+					{
+						FIN = 
+						{
+							is_ai = yes
+						}
+					}
+					ADT = 
+					{
+						annex_country = { target = FIN }
+					}
+					SOV = 
+					{
+						annex_country = { target = MON }
+					}
+					SOV = 
+					{
+						transfer_state = 146
+						transfer_state = 147
+						transfer_state = 722
+					}
+				}
+				if = 
+				{
+					limit = 
+					{
+						MEX = 
+						{
+							is_ai = yes
+						}
+					}
+					BRA = 
+					{
+						annex_country = { target = MEX }
+					}
+				}
+				SOV = 
+				{
+					every_owned_state = {
+        				add_core_of = SOV
+    				}
+				}
+				BRA = {
+    				every_owned_state = {
+       		 			add_core_of = BRA
+    				}	
+				}
+				ADT = 
+				{
+					every_owned_state = {
+        				add_core_of = ADT
+    				}
+				}
+
+				#######RESOURCE DISTRIBUTION########
+				    473 = {
+					add_resource = {
+						type = oil
+						amount = 100
+					}
+					add_resource = {
+						type = tungsten
+						amount = 50
+					}
+    			}
+   				 681 = {
+					add_resource = {
+						type = oil
+						amount = 50
+					}
+					add_resource = {
+						type = steel
+						amount = 50
+					}
+				}
+				586 = {
+					add_resource = {
+						type = oil
+						amount = 50
+					}
+				}
+				481 = {
+					add_resource = {
+						type = rubber
+						amount = 40
+					}
+				}
+				468 = {
+					add_resource = {
+						type = steel
+						amount = 50
+					}
+				}
+					573 = {
+						add_resource = {
+						type = tungsten
+						amount = 80
+					}
+				}
+				219 = {
+					add_resource = {
+						type = rubber
+						amount = 14
+					}
+				}
+				195 = {
+					add_resource = {
+						type = tungsten
+						amount = 30
+					}
+				}
+				2 = {
+					add_resource = {
+						type = rubber
+						amount = 20
+					}
+    			}
+				
 			}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = { man_with_the_plan }
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = {GER_seeherrschaft_ns}
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			add_stability = 0.1
-			add_war_support = 0.05
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_offsite_building = { type = dockyard level = 10 }
@@ -12915,8 +13074,6 @@ focus_tree = {
 			USA = { is_ai = yes }
 		}
 		available = {
-			USA = { is_ai = yes }
-			JAP = { is_ai = yes }
 			date > 1941.1.1
 		}
 		x = 2
@@ -12925,8 +13082,65 @@ focus_tree = {
 
 		available_if_capitulated = yes
 		completion_reward = {
-			add_offsite_building = { type = industrial_complex level = 50 }
-    		add_offsite_building = { type = arms_factory level = 75 }
+				ENG = {
+					add_offsite_building = { type = industrial_complex level = 10 }
+					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = dockyard level = 10 }
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 10 }
+					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = dockyard level = 10 }
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 10 }
+					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = dockyard level = 10 }
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 10 }
+					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = dockyard level = 10 }
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 20 }
+							add_offsite_building = { type = arms_factory level = 20 }
+							add_offsite_building = { type = dockyard level = 20 }
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							add_offsite_building = { type = dockyard level = 10 }
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 20 }
+							add_offsite_building = { type = arms_factory level = 20 }
+							add_offsite_building = { type = dockyard level = 20 }
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							add_offsite_building = { type = dockyard level = 10 }
+						}
+					}
+				}
+
 				121 = 
 				{
 					add_resource = {
@@ -12939,7 +13153,7 @@ focus_tree = {
         			}
 					add_resource = {
             			type = steel
-            			amount = 75
+            			amount = 50
         			}
 					add_resource = {
             			type = chromium
@@ -12951,6 +13165,11 @@ focus_tree = {
 			hidden_effect = {
 			set_technology = 
 			{
+			armor_tech_1 = 1
+			armor_tech_2 = 1
+			engine_tech_1 = 1
+			engine_tech_2 = 1
+			advanced_radio = 1
 			basic_heavy_tank_chassis = 1
 			basic_medium_tank_chassis = 1
 			basic_light_tank_chassis = 1
@@ -12960,19 +13179,16 @@ focus_tree = {
 			improved_light_tank_chassis = 1
 			amphibious_tank_chassis = 1
 			amphibious_drive = 1
-			}
-			add_tech_bonus = {
-				name = UK_mech1_bonus
-				bonus = 2.0
-				uses = 1
-				technology = mechanised_infantry
-				ahead_reduction = 1
+			antitank4 = 1
+			antitank3 = 1
+			antitank2 = 1
+			antitank1 = 1
 			}
 
 			add_tech_bonus = {
-				name = JAP_armored_divisions
+				name = ENG_armored_divisions
 				bonus = 1
-				uses = 3
+				uses = 2
 				category = armor	
 			}
 
@@ -12981,11 +13197,12 @@ focus_tree = {
 				limit = {
 					is_fully_controlled_by = ROOT
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 1
 			}
 			}
 		}
 	}
+
 
 	focus = {
 		id = ENG_their_finest_rehost
@@ -12995,8 +13212,6 @@ focus_tree = {
 			USA = { is_ai = yes }
 		}
 		available = {
-			USA = { is_ai = yes }
-			JAP = { is_ai = yes }
 			date > 1942.5.22
 		}
 		x = 2
@@ -13005,41 +13220,43 @@ focus_tree = {
 
 		available_if_capitulated = yes
 		completion_reward = {
-			CAN = {hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			add_ideas = mon_motherland_idea
-			}}
-			AST = {hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			add_ideas = mon_motherland_idea
-			}}
-			SAF = {hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			add_ideas = mon_motherland_idea
-			}}
-			BRA = {hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			add_ideas = mon_motherland_idea
-			}}
-			FRA = {hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			add_ideas = mon_motherland_idea
-			}}
-
-			add_ideas = mon_motherland_idea
-			add_ideas = BRA_national_defence_fund_idea
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = their_finest_rehost_tt
-			hidden_effect = {
-			add_ideas = spiritual_mobilization_idea
-			add_ideas = their_finest_rehost
-			}
-		}
+    ENG = {
+        add_ideas = BRA_national_defence_fund_idea
+    }
+    hidden_effect = {
+        ENG = {
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+        CAN = {
+            add_ideas = BRA_national_defence_fund_idea
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+        BRA = {
+            add_ideas = BRA_national_defence_fund_idea
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+        SAF = {
+            add_ideas = BRA_national_defence_fund_idea
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+        AST = {
+            add_ideas = BRA_national_defence_fund_idea
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+        FRA = {
+            add_ideas = BRA_national_defence_fund_idea
+            add_ideas = their_finest_rehost
+            add_ideas = spiritual_mobilization_idea
+        }
+   	 }
+	 custom_effect_tooltip = generic_skip_one_line_tt
+	 custom_effect_tooltip = their_finest_rehost_tt
+	}	
 	}
 
 }

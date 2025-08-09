@@ -844,7 +844,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_the_phalanx_ascendant focus = SPA_unify_the_nationalist_front }
+		prerequisite = {  focus = SPA_unify_the_nationalist_front }
 		
 		icon = GFX_focus_befriend_italy
 		x = 4
@@ -885,7 +885,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_the_phalanx_ascendant focus = SPA_unify_the_nationalist_front }
+		prerequisite = { focus = SPA_unify_the_nationalist_front }
 		
 		icon = GFX_focus_chi_mission_to_germany
 		x = 6
@@ -1328,7 +1328,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_establish_the_directory focus = SPA_extol_the_martyrs_of_the_war }
+		prerequisite = { focus = SPA_extol_the_martyrs_of_the_war }
 		
 		icon = GFX_goal_generic_axis_build_infantry
 		x = 3
@@ -1349,7 +1349,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_establish_the_directory focus = SPA_extol_the_martyrs_of_the_war }
+		prerequisite = { focus = SPA_extol_the_martyrs_of_the_war }
 		
 		icon = GFX_focus_generic_strike_at_democracy1
 		x = 5
@@ -1380,7 +1380,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_establish_the_directory focus = SPA_extol_the_martyrs_of_the_war }
+		prerequisite = {  focus = SPA_extol_the_martyrs_of_the_war }
 		
 		icon = GFX_goal_generic_fortify_city
 		x = 4
@@ -2879,7 +2879,7 @@ focus_tree = {
 				is_in_faction_with = ITA
 			}
 		}
-		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+		prerequisite = { focus = SPA_fuse_the_parties }
 
 		ai_will_do = {
 			factor = 1
@@ -2967,6 +2967,34 @@ focus_tree = {
 			179 = {
 				add_core_of = ROOT
 			}
+		}
+	}
+
+	focus = {
+		id = SPA_the_skill_issue
+		available = {
+			date > 1940.1.1
+		}
+		bypass = {
+			
+		}
+		allow_branch = 
+		{
+			has_global_flag = spanish_civil_war
+			date > 1939.9.1
+		}
+		
+		
+		icon = GFX_focus_fra_loyalty_trotzky
+		x = 0
+		y = 0
+		
+		cost = 1
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			set_global_flag = scw_over
 		}
 	}
 
@@ -3367,7 +3395,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+		prerequisite = {  focus = SPA_fuse_the_parties }
 		
 		icon = GFX_goal_generic_consumer_goods
 		x = 6
@@ -4176,10 +4204,10 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_integrate_the_requetes focus = SPA_confirm_the_fueros }
+		prerequisite = { focus = SPA_integrate_the_requetes  }
 		
 		icon = GFX_focus_research
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = SPA_integrate_the_requetes
 		cost = 10

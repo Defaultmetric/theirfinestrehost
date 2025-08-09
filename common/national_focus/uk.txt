@@ -12894,6 +12894,19 @@ focus_tree = {
 			}
 			hidden_effect = 
 			{
+
+				###remove factories 
+				
+				##BRA
+				277 = { 
+					remove_building = { type = industrial_complex level = 3 }
+				}
+				315 = {
+					remove_building = { type = industrial_complex level = 3 }
+				}
+			
+
+
 				ADT = 
 				{
 					annex_country = { target = RAJ }
@@ -12903,6 +12916,26 @@ focus_tree = {
 					annex_country = { target = USA }
 					annex_country = { target = PHI }
 					annex_country = { target = SIA }
+					transfer_state = 671
+					transfer_state = 670
+					transfer_state = 741
+					transfer_state = 286
+				}
+				671 = 
+				{
+					add_core_of = ADT
+				}
+				670 = 
+				{
+					add_core_of = ADT
+				}
+				741 = 
+				{
+					add_core_of = ADT
+				}
+				286 = 
+				{
+					add_core_of = ADT
 				}
 				ENG = 
 				{
@@ -13098,23 +13131,23 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 				ENG = {
-					add_offsite_building = { type = industrial_complex level = 10 }
-					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
 					
 				}
 				BRA = {
-					add_offsite_building = { type = industrial_complex level = 10 }
-					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
 					
 				}
 				AST = {
-					add_offsite_building = { type = industrial_complex level = 10 }
-					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
 					
 				}
 				FRA = {
-					add_offsite_building = { type = industrial_complex level = 10 }
-					add_offsite_building = { type = arms_factory level = 10 }
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
 					
 				}
 
@@ -13123,15 +13156,15 @@ focus_tree = {
 					if = {
 						limit = { NOT = { country_exists = SAF } }
 						CAN = {
-							add_offsite_building = { type = industrial_complex level = 20 }
-							add_offsite_building = { type = arms_factory level = 20 }
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
 							
 						}
 					}
 					else = {
 						CAN = {
-							add_offsite_building = { type = industrial_complex level = 10 }
-							add_offsite_building = { type = arms_factory level = 10 }
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
 							
 						}
 					}
@@ -13142,15 +13175,15 @@ focus_tree = {
 					if = {
 						limit = { NOT = { country_exists = CAN } }
 						SAF = {
-							add_offsite_building = { type = industrial_complex level = 20 }
-							add_offsite_building = { type = arms_factory level = 20 }
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
 							
 						}
 					}
 					else = {
 						SAF = {
-							add_offsite_building = { type = industrial_complex level = 10 }
-							add_offsite_building = { type = arms_factory level = 10 }
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
 							
 						}
 					}
@@ -13235,6 +13268,66 @@ focus_tree = {
 
 		available_if_capitulated = yes
 		completion_reward = {
+			ENG = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+
     ENG = {
         add_ideas = BRA_national_defence_fund_idea
     }

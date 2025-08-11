@@ -45,6 +45,12 @@ technologies = {
 			tank_christie_suspension
 			tank_bogie_suspension
 			tank_interleaved_suspension
+			tank_HVSS_suspension
+			hull_mounted_howitzer
+			secondary_turret_small_cannonx3
+			secondary_turret_small_cannonx2
+			secondary_turret_hmgx3
+			secondary_turret_hmgx2
 			tank_light_one_man_tank_turret
 			tank_light_two_man_tank_turret
 			tank_light_three_man_tank_turret
@@ -52,6 +58,8 @@ technologies = {
 			tank_medium_one_man_tank_turret
 			tank_medium_two_man_tank_turret
 			tank_medium_three_man_tank_turret
+			tank_large_superstructure_m
+			tank_large_superstructure_h
 			tank_improved_medium_three_man_tank_turret
 			tank_improved_heavy_three_man_tank_turret
 			tank_medium_fixed_superstructure_turret
@@ -65,13 +73,6 @@ technologies = {
 			extra_ammo_storage
 			smoke_launchers
 			expanded_fuel_tank
-			tank_HVSS_suspension
-			secondary_turret_small_cannon
-			secondary_turret_small_cannonx2
-			secondary_turret_small_cannonx3
-			secondary_turret_hmg
-			secondary_turret_hmgx2
-			secondary_turret_hmgx3
 		}
 		enable_subunits = {
 			light_armor
@@ -523,11 +524,6 @@ technologies = {
 			position = { x = -1 y = 8 }
 		}
 
-		path = {
-			leads_to_tech = advanced_medium_tank_chassis
-			research_cost_coeff = 1
-		}
-
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -745,7 +741,7 @@ technologies = {
 					parent_version = 0
 					modules = {
 						main_armament_slot = tank_medium_cannon_2
-						turret_type_slot = tank_medium_two_man_tank_turret
+						turret_type_slot = tank_medium_one_man_tank_turret
 						suspension_type_slot = tank_bogie_suspension
 						armor_type_slot = tank_welded_armor
 						engine_type_slot = tank_gasoline_engine
@@ -771,7 +767,7 @@ technologies = {
 					parent_version = 0
 					modules = {
 						main_armament_slot = tank_anti_air_cannon_2
-						turret_type_slot = tank_medium_two_man_tank_turret
+						turret_type_slot = tank_medium_one_man_tank_turret
 						suspension_type_slot = tank_torsion_bar_suspension
 						armor_type_slot = tank_riveted_armor
 						engine_type_slot = tank_gasoline_engine
@@ -897,7 +893,7 @@ technologies = {
 					parent_version = 0
 					modules = {
 						main_armament_slot = tank_medium_cannon_2
-						turret_type_slot = tank_medium_three_man_tank_turret
+						turret_type_slot = tank_medium_one_man_tank_turret
 						suspension_type_slot = tank_bogie_suspension
 						armor_type_slot = tank_welded_armor
 						engine_type_slot = tank_gasoline_engine

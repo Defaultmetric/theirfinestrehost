@@ -58,3 +58,4 @@ NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipme
 
 
 NDefines.NGraphics.CAMERA_ZOOM_SPEED_DISTANCE_MULT = 12    -- How much the camera zoom speed is affected by distance to the ground. Higher means more zoom speed.
+NDefines.NNavy.NAVAL_INVASION_PREPARE_HOURS = 72

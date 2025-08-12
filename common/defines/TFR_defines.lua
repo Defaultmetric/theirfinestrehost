@@ -57,5 +57,4 @@ NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.9 				-- Base factory speed mult
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
 
-NDefines.NGraphics.CAMERA_ZOOM_SPEED_DISTANCE_MULT = 12    -- How much the camera zoom speed is affected by distance to the ground. Higher means more zoom speed.
 NDefines.NNavy.NAVAL_INVASION_PREPARE_HOURS = 72

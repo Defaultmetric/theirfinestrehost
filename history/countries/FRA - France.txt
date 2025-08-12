@@ -203,7 +203,6 @@ if = {
 		basic_dp_light_battery = 1
 		#cruiser_submarines = 1
 	}
-	add_ideas = MTG_naval_treaty_adherent
 }
 
 
@@ -392,8 +391,6 @@ if = {
 			basic_heavy_battery = 1
 			improved_ship_torpedo_launcher = 1
 		}
-		remove_ideas = MTG_naval_treaty_adherent
-		add_ideas = MTG_naval_treaty_adherent_reduced
 	}
 	if = {
 		limit = {
@@ -425,18 +422,53 @@ set_popularities = {
 }
 
 add_ideas = {
-	FRA_victors_of_wwi
 	FRA_disjointed_government
-	FRA_protected_by_the_maginot_line
 	limited_conscription
-	FRA_full_employment
 	FRA_political_violence
-	FRA_inefficient_economy_2
 }
 
-give_guarantee = CZE
-give_guarantee = YUG
-give_guarantee = ROM
+############### DYNAMIC MODIFIERS ###################
+
+
+#Industry
+set_variable = { FRA_ind_consumer_goods       =  0}
+set_variable = { FRA_ind_prod_eff_cap      = 0}
+set_variable = { FRA_ind_factory_output       = -0.2 }
+set_variable = { FRA_ind_dockyard_output       = -0.2 }
+
+
+add_dynamic_modifier = { modifier = FRA_industry_dyn}
+
+#Army
+
+set_variable = { FRA_mil_planning_speed      = -0.25 }
+set_variable = { FRA_mil_max_planning	      = 0.25 }
+set_variable = { FRA_rec_pop_factor = -0.25} #Full employment
+set_variable = { FRA_land_cost_factor = 0.5} 
+set_variable = { FRA_rec_pop_flat = -0.003}
+set_variable = { FRA_wsp = -0.05} 
+
+
+add_dynamic_modifier = { modifier = FRA_military_dyn}
+
+#Navy
+
+set_variable = { FRA_mil_spec_training_time = 0.1} 
+
+add_dynamic_modifier = { modifier = FRA_navy_dyn} 
+
+#Air
+
+set_variable = { FRA_airforce_air_accidents_factor = 0.05} 
+
+add_dynamic_modifier = { modifier = FRA_air_dyn}
+ 
+################# END OF DYNAMIC ####################
+
+
+recruit_character = itschrisma
+recruit_character = iggy
+recruit_character = rat
 
 recruit_character = FRA_philippe_petain
 recruit_character = FRA_maurice_thorez
@@ -804,7 +836,7 @@ if = {
 			armor_type_slot = tank_riveted_armor
 			engine_type_slot = tank_gasoline_engine
 			special_type_slot_1 = tank_radio_1
-			special_type_slot_2 = additional_machine_guns
+			special_type_slot_2 = secondary_turret_small_cannon
 		}
 		upgrades = {
 			tank_nsb_engine_upgrade = 6
@@ -1341,7 +1373,7 @@ if = {
 				armor_type_slot = tank_riveted_armor
 				engine_type_slot = tank_gasoline_engine
 				special_type_slot_1 = tank_radio_1
-				special_type_slot_2 = additional_machine_guns
+				special_type_slot_2 = secondary_turret_small_cannon
 			}
 			upgrades = {
 				tank_nsb_engine_upgrade = 6

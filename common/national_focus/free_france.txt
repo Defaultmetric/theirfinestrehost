@@ -965,6 +965,38 @@
 	}
 
 	focus = {
+		id = FRA_african_vacation
+		icon = GFX_focus_SWE_privately_managed_vacation
+		x = -3
+		y = 1
+	
+		prerequisite = 
+		{
+			focus = FRA_colonial_economy
+		}
+
+		relative_position_id = FRA_colonial_economy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			has_idea = FRA_full_employment
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			remove_ideas = FRA_full_employment
+		}
+	}
+
+	focus = {
 		id = FRA_colonial_economy_3
 		icon = GFX_focus_generic_agricultural_subsidies
 		x = 1
@@ -1012,6 +1044,40 @@
 			{
 				FRA_ind_dockyard_output = 0.1
 				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_colonial_military_training
+		icon = GFX_focus_chi_army_reform
+		x = 0
+		y = 2
+	
+		prerequisite = 
+		{
+			focus = FRA_colonial_economy_3
+		}
+
+		relative_position_id = FRA_colonial_economy_3
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_to_variable = { 
+				FRA_xp_gain = 0.5
+				tooltip = experience_gain_army_tt 
 			}
 		}
 	}

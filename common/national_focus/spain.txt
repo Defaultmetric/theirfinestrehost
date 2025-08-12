@@ -24,7 +24,7 @@ focus_tree = {
 
 	default = no
 
-	continuous_focus_position = { x = 50 y = 2500 }
+	continuous_focus_position = { x = 50 y = 1600 }
 
 	initial_show_position = {
 		x = 33
@@ -75,7 +75,7 @@ focus_tree = {
 		
 		
 		icon = GFX_goal_generic_demand_territory
-		x = 10
+		x = 5
 		y = 0
 		cost = 5
 
@@ -114,11 +114,10 @@ focus_tree = {
 		bypass = {
 			has_global_flag = spanish_civil_war
 		}
-		prerequisite = { focus = SPA_a_great_spain }
 		
 		icon = GFX_focus_generic_concessions
-		x = 0
-		y = 1
+		x = 2
+		y = 0
 		relative_position_id = SPA_a_great_spain
 		cost = 5
 
@@ -136,11 +135,10 @@ focus_tree = {
 		bypass = {
 			has_global_flag = spanish_civil_war
 		}
-		prerequisite = { focus = SPA_hand_over_the_ceda_campaign_chest }
 		
 		icon = GFX_goal_generic_military_deal
-		x = 0
-		y = 1
+		x = 2
+		y = 0
 		relative_position_id = SPA_hand_over_the_ceda_campaign_chest
 		cost = 4
 
@@ -165,11 +163,10 @@ focus_tree = {
 		bypass = {
 			has_global_flag = spanish_civil_war
 		}
-		prerequisite = { focus = SPA_negotiate_carlist_support }
 		
 		icon = GFX_goal_generic_special_forces
-		x = 0
-		y = 1
+		x = 2
+		y = 0
 		relative_position_id = SPA_negotiate_carlist_support
 		cost = 5
 
@@ -190,11 +187,13 @@ focus_tree = {
 			has_global_flag = spanish_civil_war
 		}
 		prerequisite = { focus = SPA_the_army_of_africa }
+		prerequisite = { focus = SPA_negotiate_carlist_support }
+		prerequisite = { focus = SPA_hand_over_the_ceda_campaign_chest }
+		prerequisite = { focus = SPA_a_great_spain}
 		
 		icon = GFX_goal_generic_position_armies
-		x = 0
+		x = 8
 		y = 1
-		relative_position_id = SPA_the_army_of_africa
 		cost = 5
 
 		available_if_capitulated = yes
@@ -2556,12 +2555,11 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+		
 		
 		icon = GFX_goal_generic_army_doctrines
-		x = 2
-		y = 1
-		relative_position_id = SPA_the_national_syndicalist_state
+		x = 16
+		y = 0
 		cost = 10
 
 		available_if_capitulated = yes
@@ -2654,7 +2652,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_national_and_popular_army_of_spain }
 		
 		icon = GFX_goal_generic_army_artillery
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_the_national_and_popular_army_of_spain
 		cost = 10
@@ -2879,7 +2877,7 @@ focus_tree = {
 				is_in_faction_with = ITA
 			}
 		}
-		prerequisite = { focus = SPA_fuse_the_parties }
+		
 
 		ai_will_do = {
 			factor = 1
@@ -2890,9 +2888,8 @@ focus_tree = {
 		}
 		
 		icon = GFX_goal_support_fascism
-		x = 4
-		y = 1
-		relative_position_id = SPA_the_national_syndicalist_state
+		x = 18
+		y = 0
 		cost = 5
 
 		available_if_capitulated = yes
@@ -2920,20 +2917,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SPA_core_portugal
+		id = SPA_attack_portugal
 		available = {
-			has_completed_focus = SPA_join_the_axis
 			has_global_flag = scw_over
-			has_full_control_of_state = 180
-			has_full_control_of_state = 112
-			has_full_control_of_state = 181
-			has_full_control_of_state = 795
-			has_full_control_of_state = 179
 		}
 		bypass = {
 			
 		}
-		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+		prerequisite = { focus = SPA_fuse_the_parties }
 
 		ai_will_do = {
 			factor = 1
@@ -2944,9 +2935,47 @@ focus_tree = {
 		}
 		
 		icon = GFX_focus_generic_attack_portugal
-		x = 11
+		x = 7
 		y = 1
 		relative_position_id = SPA_the_national_syndicalist_state
+		cost = 5
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+    		}
+		}
+	}
+
+	focus = {
+		id = SPA_core_portugal
+		available = {
+			has_full_control_of_state = 180
+			has_full_control_of_state = 112
+			has_full_control_of_state = 181
+			has_full_control_of_state = 795
+			has_full_control_of_state = 179
+		}
+		bypass = {
+			
+		}
+		prerequisite = { focus = SPA_attack_portugal }
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		
+		icon = GFX_focus_ARG_strengthening_the_concordancia
+		x = 0
+		y = 1
+		relative_position_id = SPA_attack_portugal
 		cost = 5
 
 		available_if_capitulated = yes
@@ -3395,12 +3424,12 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = {  focus = SPA_fuse_the_parties }
+		
 		
 		icon = GFX_goal_generic_consumer_goods
-		x = 6
-		y = 1
-		relative_position_id = SPA_the_national_syndicalist_state
+		x = 2
+		y = 0
+		relative_position_id = SPA_join_the_axis
 		cost = 10
 
 		available_if_capitulated = yes
@@ -3985,7 +4014,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_unify_the_nationalist_front }
 		
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPA_unify_the_nationalist_front
 		cost = 5
@@ -4133,6 +4162,11 @@ focus_tree = {
 			POR = { is_in_faction = yes }
 		}
 		prerequisite = { focus = SPA_portuguese_aid }
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 		
 		icon = GFX_goal_generic_major_alliance
 		x = 0
@@ -4204,12 +4238,12 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_integrate_the_requetes  }
+		prerequisite = { focus = SPA_a_methodical_approach  }
 		
 		icon = GFX_focus_research
 		x = 0
-		y = 1
-		relative_position_id = SPA_integrate_the_requetes
+		y = 2
+		relative_position_id = SPA_a_methodical_approach
 		cost = 10
 
 		available_if_capitulated = yes
@@ -4259,9 +4293,10 @@ focus_tree = {
 		}
 		prerequisite = { focus = SPA_banish_the_party_leaders }
 		prerequisite = { focus = SPA_safeguard_the_freedom_of_worship }
+		prerequisite = { focus = SPA_integrate_the_requetes}
 		
 		icon = GFX_focus_spa_fuse_the_parties
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = SPA_banish_the_party_leaders
 		cost = 10
@@ -4338,6 +4373,10 @@ focus_tree = {
 			NOT = { has_government = fascism }
 			fascism < 0.4		
 			NOT = { has_global_flag = POR_iberian_summit_in_progress_flag }
+		}
+		allow_branch = 
+		{
+			has_war_support > 400
 		}
 		bypass = {
 			OR = {
@@ -4929,7 +4968,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_fuse_the_parties }
 		
 		icon = GFX_focus_generic_treaty
-		x = 6
+		x = 2
 		y = 1
 		relative_position_id = SPA_fuse_the_parties
 		cost = 10
@@ -5066,12 +5105,12 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_expand_spanish_bases focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
+		prerequisite = { focus = SPA_national_recovery }
 		
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = -3
-		y = 2
-		relative_position_id = SPA_dictator_for_life
+		x = 3
+		y = 1
+		relative_position_id = SPA_national_recovery
 		cost = 10
 
 		available_if_capitulated = yes
@@ -5258,10 +5297,10 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
+		prerequisite = { focus = SPA_dictator_for_life  }
 		
 		icon = GFX_goal_rhineland
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPA_dictator_for_life
 		cost = 10
@@ -5398,6 +5437,11 @@ focus_tree = {
 		prerequisite = { focus = SPA_adopt_the_26_points focus = SPA_settle_the_succession_question }
 		mutually_exclusive = { focus = SPA_dictator_for_life }
 		
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		x = 3
 		y = 1
@@ -5440,10 +5484,10 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
+		prerequisite = { focus = SPA_dictator_for_life}
 		
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPA_dictator_for_life
 		cost = 10
@@ -5573,6 +5617,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPA_demand_french_north_africa
 		cost = 10
+
+		allow_branch = 
+		{has_war_support > 400}
 
 		available_if_capitulated = yes
 

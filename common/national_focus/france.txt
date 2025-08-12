@@ -121,7 +121,10 @@ focus_tree = {
 
 		available = {
 			SPR_scw_in_progress = yes
-			is_subject = no
+			NOT = 
+			{
+				has_completed_focus = FRA_intervention_in_china
+			}
 		}
 		
 		bypass = {
@@ -133,8 +136,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			unlock_decision_category_tooltip = FRA_spanish_intervention_category
-			set_country_flag = FRA_non_intervention
+			add_timed_idea = {
+				idea = GER_legion_condor_ns
+				days = 270
+			}
 		}
 	}
 
@@ -161,6 +166,10 @@ focus_tree = {
 			JAP = 
 			{
 				has_war_with = CHI
+			}
+			NOT = 
+			{
+				has_completed_focus = FRA_intervention_in_spain
 			}
 		}
 		
@@ -1139,9 +1148,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = FRA_nuclear_bonus
-				bonus = 0.75
+				bonus = 1
 				uses = 1
-				ahead_reduction = 0.75
+				ahead_reduction = 1
 				category = nuclear
 			}
 

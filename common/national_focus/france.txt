@@ -21,6 +21,7 @@ focus_tree = {
 
 	
 	default = no
+	shared_focus = allies_joint_alliance
 
 	focus = {
 		id = FRA_form_the_popular_front
@@ -2164,7 +2165,7 @@ focus_tree = {
 		
 		prerequisite = {focus = FRA_wwi_tactics}
 		relative_position_id = FRA_wwi_tactics
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -2186,7 +2187,7 @@ focus_tree = {
 			add_doctrine_cost_reduction = {
 				name = FRA_methodical_battle
 				category = land_doctrine
-				uses = 2
+				uses = 1
 				cost_reduction = 1
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2206,7 +2207,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_methodical_battle
-		cost = 5
+		cost = 10
 
 		available_if_capitulated = yes
 
@@ -2250,7 +2251,6 @@ focus_tree = {
 			18 = { is_controlled_by = ROOT }
 			29 = { is_controlled_by = ROOT }
 			785 = { is_controlled_by = ROOT }
-			has_idea = FRA_protected_by_the_maginot_line
 		}
 		completion_reward = {
 			ROOT = { country_event = { id = france.2 } }

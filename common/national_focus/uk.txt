@@ -18,6 +18,7 @@ focus_tree = {
 		}
 	}
 	default = no
+	shared_focus = allies_joint_alliance
 
 	focus = {
 		id = ENG_steady_as_she_goes
@@ -4855,6 +4856,32 @@ focus_tree = {
 						transfer_state = 146
 						transfer_state = 147
 						transfer_state = 722
+					}
+
+					### Delete the extra factories
+
+					146 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					330 = {
+						remove_building = { type = industrial_complex level = 3 }
+						remove_building = { type = arms_factory level = 1 }
+					}
+					329 = {
+						remove_building = { type = industrial_complex level = 1 }
+						remove_building = { type = arms_factory level = 1 }
+					}
+					618 = {
+						remove_building = { type = industrial_complex level = 1 }
+					}
+					617 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					760 = {
+						remove_building = { type = arms_factory level = 1 }
+					}
+					619 = {
+						remove_building = { type = industrial_complex level = 1 }
 					}
 				}
 				if = 

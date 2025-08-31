@@ -1902,7 +1902,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = SOV_the_ussr_academy_of_sciences
-		cost = 5
+		cost = 1
 
 		available = {
 
@@ -8194,13 +8194,13 @@ focus = {
 		available = {
 			has_country_flag = {
 				flag = SOV_first_moscow_trial_flag
-				days > 175
+				days > 140
 			}
 			custom_trigger_tooltip = {
 				tooltip = SOV_last_purge_focus_days_tt
 				has_country_flag = {
 					flag = SOV_first_moscow_trial_flag
-					days > 175
+					days > 140
 				}
 			}
 		}
@@ -8354,7 +8354,7 @@ focus = {
 			add_to_variable = { SOV_the_politburo_mobilization_speed = 0.05 }
 			custom_effect_tooltip = SOV_organization_centralization_discipline_ns_tt
 
-			add_political_power = 50
+			add_political_power = 100
 
 			SOV_paranoia_medium_decrease_effect = yes
 		}
@@ -8437,13 +8437,13 @@ focus = {
 		available = {
 			has_country_flag = {
 				flag = SOV_second_moscow_trial_flag
-				days > 175
+				days > 140
 			}
 			custom_trigger_tooltip = {
 				tooltip = SOV_last_purge_focus_days_military_tt
 				has_country_flag = {
 					flag = SOV_second_moscow_trial_flag
-					days > 175
+					days > 140
 				}
 			}
 		}
@@ -8535,13 +8535,13 @@ focus = {
 		available = {
 			has_country_flag = {
 				flag = SOV_trial_of_the_generals_flag
-				days > 175
+				days > 140
 			}
 			custom_trigger_tooltip = {
 				tooltip = SOV_last_purge_focus_days_rights_tt
 				has_country_flag = {
 					flag = SOV_trial_of_the_generals_flag
-					days > 175
+					days > 140
 				}
 			}
 		}
@@ -8715,18 +8715,18 @@ focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_the_bloc_of_rights_and_trotskyites
-		cost = 2
+		cost = 4
 
 		available = {
 			has_country_flag = {
 				flag = SOV_third_moscow_trial_flag
-				days > 175
+				days > 70
 			}
 			custom_trigger_tooltip = {
 				tooltip = SOV_last_purge_focus_days_cult_tt
 				has_country_flag = {
 					flag = SOV_third_moscow_trial_flag
-					days > 175
+					days > 70
 				}
 			}
 			has_completed_focus = SOV_expand_the_agitprop
@@ -8739,7 +8739,7 @@ focus = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_PROPAGANDA}
 
 		completion_reward = {
-			add_political_power = 25
+			add_political_power = 50
 
 			custom_effect_tooltip = unlock_propaganda_campaign_tt
 			unlock_decision_tooltip = SOV_propaganda_stalin
@@ -8816,7 +8816,7 @@ focus = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_inheritor_of_the_mantle_of_lenin
-		cost = 10
+		cost = 5
 		
 		available = {
 			custom_trigger_tooltip = {
@@ -8883,7 +8883,7 @@ focus = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_the_faithful_servant_of_lenin
-		cost = 10
+		cost = 5
 
 		available = {
 			custom_trigger_tooltip = {
@@ -8935,7 +8935,7 @@ focus = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY}
 
 		completion_reward = {
-			add_political_power = 50
+			add_political_power = 100
 
 			#Swap Stalin's Trait
 			if = { #INHERITOR BRANCH
@@ -9053,7 +9053,7 @@ focus = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_great_commander
-		cost = 10
+		cost = 5
 
 		available = {
 			custom_trigger_tooltip = {
@@ -14278,7 +14278,7 @@ focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_baltic_security
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -14365,7 +14365,7 @@ focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_respect_baltic_self_determination
-		cost = 2
+		cost = 5
 		
 		ai_will_do = {
 			factor = 1
@@ -14377,6 +14377,10 @@ focus = {
 		dynamic = yes 
 
 		available = {
+			GER = 
+			{
+				has_war_with = ENG
+			}
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
 			is_subject = no
 		}
@@ -14851,7 +14855,7 @@ focus = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_claims_on_poland
-		cost = 1
+		cost = 4
 
 		ai_will_do = {
 			factor = 2.5

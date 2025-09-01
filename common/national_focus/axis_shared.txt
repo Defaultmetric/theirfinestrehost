@@ -365,6 +365,11 @@ joint_focus = {
 					uses = 1
 					technology = rubber_processing
 				}
+
+				add_to_variable = { 
+	    			axis_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
 		    }
 	}
 }
@@ -880,6 +885,10 @@ joint_focus = {
 	    				uses = 1
 	    				category = excavation_tech
 	    		}
+				every_state = {
+					limit = { is_core_of = HUN }
+					add_extra_state_shared_building_slots = 1
+	    		}
 	    		}
 	    		974 = { 
 	    			add_resource = { 
@@ -933,6 +942,7 @@ joint_focus = {
 	    				uses = 2
 	    				category = industry
 	    			}
+					
 	    			81 = {
 	    				add_extra_state_shared_building_slots = 2
 	    				add_building_construction = {
@@ -991,6 +1001,10 @@ joint_focus = {
 	    				type = oil
 	    				amount = 15 
 	    			}
+					every_state = {
+					limit = { is_core_of = ROM }
+					add_extra_state_shared_building_slots = 1
+	    		}
 	    			add_building_construction = { 
 	    				type = infrastructure 
 	    				level = 1 
@@ -1046,6 +1060,7 @@ joint_focus = {
 	    				uses = 2
 	    				category = industry
 	    			}
+					
 	    			random_owned_controlled_state = {
 	    				add_extra_state_shared_building_slots = 2
 	    				add_building_construction = {
@@ -1096,6 +1111,10 @@ joint_focus = {
 	    				bonus = 1
 	    				uses = 1
 	    				category = excavation_tech
+	    		}
+				every_state = {
+					limit = { is_core_of = BUL }
+					add_extra_state_shared_building_slots = 1
 	    		}
 	    		}
 	    		212 = { 

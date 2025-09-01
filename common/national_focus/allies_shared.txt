@@ -123,7 +123,7 @@ joint_focus = {
 
 	available = {
 		is_in_faction_with = ENG
-		
+		threat > 0.15
 	}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -1203,7 +1203,7 @@ joint_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
+	completion_reward_joint_originator = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
@@ -1211,152 +1211,108 @@ joint_focus = {
 			
 
 			hidden_effect = {
-			BRA = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_brazil
+						BRA = {
+							if = {
+								limit = { has_global_flag = invested_in_brazil }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = BRA }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = BRA
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
 
-			CAN = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_canada
+						CAN = {
+							if = {
+								limit = { has_global_flag = invested_in_canada }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = CAN }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = CAN
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
 
-			FRA = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_france
+						FRA = {
+							if = {
+								limit = { has_global_flag = invested_in_france }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = FRA }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = FRA
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
 
-			SAF = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_saf
+						SAF = {
+							if = {
+								limit = { has_global_flag = invested_in_saf }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = SAF }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = SAF
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
 
-			RAJ = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_raj
+						RAJ = {
+							if = {
+								limit = { has_global_flag = invested_in_raj }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = RAJ }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = RAJ
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
 
-			AST = 
-	    		{
-					if = 
-					{
-						limit = 
-						{
-							has_global_flag = invested_in_ast
+						AST = {
+							if = {
+								limit = { has_global_flag = invested_in_ast }
+								custom_effect_tooltip = MON_red_industry_rises_tt
+								custom_effect_tooltip = generic_skip_one_line_tt
+								every_state = {
+									limit = { is_core_of = AST }
+									add_extra_state_shared_building_slots = 1
+									add_building_construction = {
+										type = infrastructure
+										level = 1
+										instant_build = yes
+									}
+								}
+							}
 						}
-						custom_effect_tooltip = MON_red_industry_rises_tt
-	    				custom_effect_tooltip = generic_skip_one_line_tt
-	    				every_state = {
-	    				limit = {
-	    					is_core_of = AST
-	    				}
-	    				add_extra_state_shared_building_slots = 1
-	    				add_building_construction = {
-	    					type = infrastructure
-	    					level = 1
-	    					instant_build = yes
-	    				}
-	    			}
-				}
-	    	}
-
-			}
-
+					}
 		    }
 	}
 }

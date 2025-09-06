@@ -10,7 +10,7 @@ shared_focus = {
 	y = 0
 	#Uk
 	offset = {
-		x = 30
+		x = 34
 		y = 0
 		trigger = {
 			has_focus_tree = british_focus
@@ -19,7 +19,7 @@ shared_focus = {
 
 	#france
 	offset = {
-		x = 35 
+		x = 39 
 		y = 0
 		trigger = {
 			has_focus_tree = french_focus
@@ -28,7 +28,7 @@ shared_focus = {
 
 	#SAF
 	offset = {
-		x = 22 
+		x = 26 
 		y = 0
 		trigger = {
 			has_focus_tree = south_african_focus
@@ -37,7 +37,7 @@ shared_focus = {
 
 	#Brazil
 	offset = {
-		x = 0 
+		x = 4 
 		y = 10
 		trigger = {
 			has_focus_tree = brazil_tree
@@ -46,7 +46,7 @@ shared_focus = {
 
 	#Canada
 	offset = {
-		x = 26 
+		x = 30 
 		y = 0
 		trigger = {
 			has_focus_tree = canadian_focus
@@ -55,7 +55,7 @@ shared_focus = {
 
 	#RAJ
 	offset = {
-		x = -17
+		x = -13
 		y = 5
 		trigger = {
 			has_focus_tree = indian_focus_goe
@@ -64,7 +64,7 @@ shared_focus = {
 
 	#Australia
 	offset = {
-		x = 27
+		x = 31
 		y = 0
 		trigger = {
 			has_focus_tree = australian_focus
@@ -110,7 +110,7 @@ shared_focus = {
 }
 
 joint_focus = {
-	id = allies_political_cooperation
+	id = ALLIES_political_cooperation
 	icon = GFX_focus_generic_improve_the_administration
 	prerequisite = { focus = allies_joint_alliance }
 
@@ -123,7 +123,7 @@ joint_focus = {
 
 	available = {
 		is_in_faction_with = ENG
-		threat > 0.15
+		
 	}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -143,14 +143,14 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_civ_eco_boost
+	id = ALLIES_civ_eco_boost
 	icon = GFX_focus_generic_modernize_industry
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_mining_expertise focus = allies_mil_eco_boost}
+	prerequisite = { focus = ALLIES_political_cooperation }
+	mutually_exclusive = {focus = ALLIES_infra }
 
-	x = -2
+	x = 1
 	y = 1
-	relative_position_id = allies_political_cooperation
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -176,14 +176,14 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_mining_expertise
+	id = ALLIES_mining_expertise
 	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_civ_eco_boost focus = allies_mil_eco_boost}
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	mutually_exclusive = {focus = ALLIES_mil_eco_boost}
 
-	x = 0
-	y = 1
-	relative_position_id = allies_political_cooperation
+	x = 1
+	y = 2
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -208,14 +208,14 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_mil_eco_boost
+	id = ALLIES_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_mining_expertise focus = allies_civ_eco_boost}
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	mutually_exclusive = {focus = ALLIES_mining_expertise }
 
-	x = 2
-	y = 1
-	relative_position_id = allies_political_cooperation
+	x = -1
+	y = 2
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -240,13 +240,14 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_infra
+	id = ALLIES_infra
 	icon = GFX_focus_generic_road_investment
-	prerequisite = { focus = allies_civ_eco_boost focus = allies_mining_expertise focus = allies_mil_eco_boost }
+	prerequisite = { focus = ALLIES_political_cooperation }
+	mutually_exclusive = { focus = ALLIES_civ_eco_boost }
 
-	x = 1
+	x = -1
 	y = 1
-	relative_position_id = allies_mining_expertise
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -271,13 +272,427 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_conversion_speed
-	icon = GFX_focus_GER_factories_for_resources
-	prerequisite = { focus = allies_civ_eco_boost focus = allies_mining_expertise focus = allies_mil_eco_boost }
+	id = ALLIES_blitzkrieg_economy
+	icon = GFX_focus_generic_annex_country_2
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_adaptive_economy focus = ALLIES_the_waiting_game}
+
+	x = -3
+	y = 1
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+
+		custom_effect_tooltip = blitzkrieg_eco_tt
+	    set_global_flag = allies_blitzkrieg_eco
+
+	}
+}
+
+joint_focus = {
+	id = ALLIES_blitzkrieg_phase1
+	icon = GFX_focus_GER_prioritize_the_four_year_plan
+	prerequisite = { focus = ALLIES_blitzkrieg_economy }
 
 	x = -1
 	y = 1
-	relative_position_id = allies_mining_expertise
+	relative_position_id = ALLIES_blitzkrieg_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	allies_mill_output = 0.075
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.075
+	    		
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.075
+	    		
+	    	}
+
+			add_to_variable = { 
+	    		allies_mill_speed = 0.05
+	    		
+	    	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = blitzkrieg_timer days = -120 } 
+		}
+	    
+			add_to_variable = { 
+	        	allies_mill_output = 0.075
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.075
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.075
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_mill_speed = 0.05
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+	}
+}
+
+
+joint_focus = {
+	id = ALLIES_blitzkrieg_phase1_rubber
+	icon = GFX_focus_BRA_rubber_war
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 }
+
+	x = -1
+	y = 1
+	relative_position_id = ALLIES_blitzkrieg_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+
+				add_to_variable = { 
+	    			allies_construction_speed = 0.05
+	    	
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = blitzkrieg_timer days = -120 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					technology = rubber_processing
+				}
+
+				add_to_variable = { 
+	    			allies_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_blitzkrieg_phase2
+	icon = GFX_focus_generic_central_planning
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 }
+	prerequisite = { focus = ALLIES_war_economy }
+
+	bypass = 
+	{
+		has_global_flag = allies_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	allies_mill_output = 0.075
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.0075
+	    		
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.075
+	    		 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = 0.050
+	    		
+	    	}
+			add_to_variable = { 
+	    		allies_consumer = -0.1
+	    		
+	    	}
+	}
+
+	x = 1
+	y = 2
+	relative_position_id = ALLIES_blitzkrieg_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = blitzkrieg_timer days = -120 }
+		}
+	    
+			add_to_variable = { 
+	        	allies_mill_output = 0.075
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.075
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.075
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = 0.050
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		allies_consumer = -0.1
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_blitzkrieg_phase3
+	icon = GFX_focus_generic_workers_and_farmers_rise
+	prerequisite = { focus = ALLIES_blitzkrieg_phase2 }
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_blitzkrieg_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		has_war_support > 2
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	allies_mill_output = -0.35
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = -0.35
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = -0.2
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = -0.15
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		allies_consumer = 0.30
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    		allies_mill_speed = -0.15
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			allies_construction_speed = -0.15
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	        		allies_base = -0.2
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
+	            add_to_variable = { 
+	        		allies_conversion = 0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    custom_effect_tooltip = blitzkrieg_phase3_tt
+		add_to_variable = { 
+			mill_output = -0.35
+			tooltip = industrial_capacity_factory_tt 
+		}
+
+		add_to_variable = { 
+			dockyard_output = -0.35
+			tooltip = industrial_capacity_dockyard_tt 
+		}
+
+		add_to_variable = { 
+			growth_gain = -0.2
+			tooltip = production_factory_efficiency_gain_factor_tt 
+		}
+
+		add_to_variable = { 
+			cap = -0.15
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+
+		add_to_variable = { 
+			consumer = 0.30
+			tooltip = consumer_goods_factor_tt
+		}
+
+		add_to_variable = { 
+			mill_speed = -0.15
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+
+		add_to_variable = { 
+			construction_speed = -0.15
+			tooltip = production_speed_buildings_factor_tt 
+		}
+
+		add_to_variable = { 
+			base = -0.2
+			tooltip = production_factory_start_efficiency_factor_tt 
+		}
+
+		add_to_variable = { 
+			conversion = 0.25
+			tooltip = conversion_cost_civ_to_mil_factor_tt
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_economy
+	icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_blitzkrieg_economy focus = ALLIES_the_waiting_game}
+
+	x = 1
+	y = 1
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	        custom_effect_tooltip = adaptive_eco_tt
+
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_1
+	icon = GFX_focus_generic_reorient_production
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_3}
+
+	x = -2
+	y = 1
+	relative_position_id = ALLIES_adaptive_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -293,31 +708,490 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
+	        add_to_variable = { 
+	        	allies_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_high_value
+			custom_effect_tooltip = high_value_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_2
+	icon = GFX_focus_generic_rubber
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_3}
+
+	x = 0
+	y = 1
+	relative_position_id = ALLIES_adaptive_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+		    }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		set_global_flag = allies_medium_value
+		custom_effect_tooltip = medium_value_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_3
+	icon = GFX_focus_GER_kdf_wagen
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_1}
+
+	x = 2
+	y = 1
+	relative_position_id = ALLIES_adaptive_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_low_value
+			custom_effect_tooltip = low_value_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_the_waiting_game
+	icon = GFX_focus_DEN_limited_regulations
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_blitzkrieg_economy focus = ALLIES_adaptive_economy}
+
+	x = 5
+	y = 1
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    custom_effect_tooltip = the_waiting_game_tt
+		set_global_flag = allies_the_waiting_game
+	}
+}
+
+joint_focus = {
+	id = ALLIES_the_waiting_game_phase1
+	icon = GFX_focus_generic_currency_reforms
+	prerequisite = { focus = ALLIES_the_waiting_game }
+
+	x = 1
+	y = 1
+	relative_position_id = ALLIES_the_waiting_game
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_economy_unbound_timer
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = waiting_game_timer days = -50 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = electronics
+				}
+				
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = construction_tech
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_the_waiting_game_phase1_emergency
+	icon = GFX_focus_GER_integrated_economies
+	prerequisite = { focus = ALLIES_the_waiting_game_phase1 }
+
+	x = 1
+	y = 1
+	relative_position_id = ALLIES_the_waiting_game_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+			add_to_variable = { 
+	        	allies_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = waiting_game_timer days = 365 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	        add_to_variable = { 
+	        	allies_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_the_waiting_game_phase2
+	icon = GFX_focus_generic_economic_recovery
+	prerequisite = { focus = ALLIES_war_economy }
+	prerequisite = { focus = ALLIES_the_waiting_game_phase1 }
+
+	x = -1
+	y = 2
+	relative_position_id = ALLIES_the_waiting_game_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	    			allies_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+				add_to_variable = { 
+	    			allies_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = waiting_game_timer days = -90 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_to_variable = { 
+	    			allies_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+				add_to_variable = { 
+	    			allies_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_the_waiting_game_phase3
+	icon = GFX_focus_GER_autarky_achieved
+	prerequisite = { focus = ALLIES_the_waiting_game_phase2 }
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_the_waiting_game_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		has_war_support > 2
+	}
+
+	bypass = 
+	{
+		has_global_flag = allies_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+			add_to_variable = { 
+	        	allies_mill_output = 0.1
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.1
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.1
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		allies_consumer = -0.15
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			allies_construction_speed = 0.10
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		set_global_flag = allies_economy_unbound
+
+	   		add_to_variable = { 
+	        	mill_output = 0.1
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		dockyard_output  = 0.1
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		growth_gain = 0.1
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		consumer = -0.15
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			construction_speed = 0.10
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			custom_effect_tooltip = rubber_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_war_economy
+	icon = GFX_focus_SWI_issue_war_bonds
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_3 focus = ALLIES_the_waiting_game_phase1}
+
+	x = 0
+	y = 1
+	relative_position_id = ALLIES_adaptive_2
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+		GER = 
+		{
+			has_war_with = ENG
+		}
+	}
+
+	bypass = 
+	{
+		OR = {
+			has_global_flag = allies_financial_collapse
+			has_global_flag = allies_economy_unbound_timer
+		}
+	}
+
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        		allies_base = 0.1
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
+	            add_to_variable = { 
+	        		allies_conversion = -0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				add_to_variable = { 
+	        		allies_base = 0.1
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
 	            add_to_variable = { 
 	        		allies_conversion = -0.25
 	        		tooltip = conversion_cost_civ_to_mil_factor_tt
 	    		}
 
+
 		    }
 	}
 }
 
 joint_focus = {
-	id = allies_customs_union
-	icon = GFX_focus_GER_customs_union
-	prerequisite = { focus = allies_conversion_speed }
-	prerequisite = { focus = allies_infra }
+	id = ALLIES_adaptive_1_phase2
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_3_phase2}
 
-	x = 0
-	y = 2
-	relative_position_id = allies_mining_expertise
-	cost = 10
+	x = -2
+	y = 1
+	relative_position_id = ALLIES_war_economy
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
 		is_in_faction_with = ENG
-		
+		NOT = 
+		{
+				has_global_flag = allies_the_waiting_game
+				has_global_flag = allies_blitzkrieg_eco
+		}
 	}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -327,74 +1201,56 @@ joint_focus = {
 	        limit = { is_in_faction_with = ENG }
 
 	            add_to_variable = { 
-	        		allies_consumer = -0.1
-	        		tooltip = consumer_goods_factor_tt 
-	    		}
-	    		add_to_variable = { 
-	        		allies_base = 0.1
-	        		tooltip = production_factory_start_efficiency_factor_tt 
-	    		}
-
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_slow_and_steady
-	icon = GFX_focus_generic_the_giant_wakes
-	prerequisite = { focus = allies_customs_union }
-	mutually_exclusive = { focus = allies_industry_optimization}
-	
-
-	x = -1
-	y = 1
-	relative_position_id = allies_customs_union
-	cost = 10
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		is_in_faction_with = ENG
-		
-	}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = ENG }
-
-	        add_to_variable = { 
-	        	allies_cap = 0.1
-	        	tooltip = production_factory_max_efficiency_factor_tt 
+	        	allies_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = -0.05
+	    		allies_growth_gain = 0.05
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
+			add_to_variable = { 
+	    		allies_mill_speed = 0.05
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+			add_to_variable = { 
+					allies_consumer = -0.10
+					tooltip = consumer_goods_factor_tt
+	    		}
 		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_high_value_2
+			custom_effect_tooltip = high_value_tt
 	}
 }
 
 joint_focus = {
-	id = allies_industry_optimization
-	icon = GFX_focus_generic_economic_recovery
-	prerequisite = { focus = allies_customs_union }
-	mutually_exclusive = { focus = allies_slow_and_steady }
+	id = ALLIES_adaptive_2_phase2
+	icon = GFX_focus_GER_customs_union
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
-	x = 1
+	x = 0
 	y = 1
-	relative_position_id = allies_customs_union
-	cost = 10
+	relative_position_id = ALLIES_war_economy
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
 		is_in_faction_with = ENG
-		
+		NOT = 
+		{
+				has_global_flag = allies_the_waiting_game
+				has_global_flag = allies_blitzkrieg_eco
+		}
 	}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -403,6 +1259,316 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
+			add_to_variable = { 
+	    			allies_construction_speed = 0.025
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+
+				add_to_variable = { 
+					allies_consumer = -0.10
+					tooltip = consumer_goods_factor_tt
+	    		}
+
+				add_to_variable = { 
+	    			allies_resources_factor = 0.10
+	    			tooltip = local_resources_factor_tt 
+	    		}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_medium_value_2
+			custom_effect_tooltip = medium_value_tt	
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_3_phase2
+	icon = GFX_focus_usa_reestablish_the_gold_standard
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2}
+
+	x = 2
+	y = 1
+	relative_position_id = ALLIES_war_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		NOT = 
+		{
+				has_global_flag = allies_the_waiting_game
+				has_global_flag = allies_blitzkrieg_eco
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_to_variable = { 
+	    			allies_construction_speed = 0.025
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+
+				add_to_variable = { 
+					allies_consumer = -0.1
+					tooltip = consumer_goods_factor_tt
+	    		}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_low_value_2
+			custom_effect_tooltip = low_value_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3
+	icon = GFX_goal_unknown
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	allow_branch = 
+	{
+		NOT = 
+		{
+			OR = 
+			{
+				has_global_flag = allies_low_value_2
+				has_global_flag = allies_medium_value_2
+				has_global_flag = allies_high_value_2
+			}
+		}
+	}
+
+	available = {
+		is_in_faction_with = ENG
+		has_war_support > 2
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	        custom_effect_tooltip = adaptive_3_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_high_high
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		has_global_flag = allies_high_value
+		has_global_flag = allies_high_value_2
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	    		allies_cap = 0.05
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_med_high
+	icon = GFX_focus_generic_military_industry
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = allies_medium_value
+				has_global_flag = allies_high_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = allies_high_value
+				has_global_flag = allies_medium_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	    		allies_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_med_med
+	icon = GFX_focus_generic_reorient_production
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = allies_medium_value
+				has_global_flag = allies_medium_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = allies_low_value
+				has_global_flag = allies_high_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = allies_high_value
+				has_global_flag = allies_low_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	    		allies_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	        	allies_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_low_med
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = allies_low_value
+				has_global_flag = allies_medium_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = allies_medium_value
+				has_global_flag = allies_low_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
 	        	allies_mill_output = 0.075
 	        	tooltip = industrial_capacity_factory_tt 
@@ -414,20 +1580,80 @@ joint_focus = {
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
+	    		allies_growth_gain = 0.075
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
-		    }
+			add_to_variable = { 
+	    		allies_cap = 0.075
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+		}
 	}
 }
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_low_low
+	icon = GFX_focus_RAJ_special_economic_zones
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		has_global_flag = allies_low_value
+		has_global_flag = allies_low_value_2
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	        	allies_mill_output = 0.1
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.1
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.1
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    			allies_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    	}
+		}
+	}
+}
+
 
 joint_focus = {
 	id = allies_allied_researchers
 	icon = GFX_focus_NORDIC_dem_form_alliance
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = 11
+	x = 14
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -1471,7 +2697,7 @@ joint_focus = {
 	icon = GFX_focus_BRA_pact_of_silence_allies
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -13
+	x = -17
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -3011,31 +4237,31 @@ joint_focus = {
 	            limit = {
 	                is_coastal = yes
 	                is_controlled_by = ROOT
-	                NOT = { has_state_flag = AXIS_naval_powerhouse_used }
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
 	            }
 	            add_extra_state_shared_building_slots = 3
 	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
-	            set_state_flag = AXIS_naval_powerhouse_used
+	            set_state_flag = ALLIES_naval_powerhouse_used
 	        }
 	        random_owned_state = {
 	            limit = {
 	                is_coastal = yes
 	                is_controlled_by = ROOT
-	                NOT = { has_state_flag = AXIS_naval_powerhouse_used }
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
 	            }
 	            add_extra_state_shared_building_slots = 3
 	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
-	            set_state_flag = AXIS_naval_powerhouse_used
+	            set_state_flag = ALLIES_naval_powerhouse_used
 	        }
 	        random_owned_state = {
 	            limit = {
 	                is_coastal = yes
 	                is_controlled_by = ROOT
-	                NOT = { has_state_flag = AXIS_naval_powerhouse_used }
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
 	            }
 	            add_extra_state_shared_building_slots = 3
 	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
-	            set_state_flag = AXIS_naval_powerhouse_used
+	            set_state_flag = ALLIES_naval_powerhouse_used
 	        }
 		    }
 	}

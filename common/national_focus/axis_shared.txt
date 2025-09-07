@@ -10,7 +10,7 @@ shared_focus = {
 	y = 15
 	#Germany
 	offset = {
-		x = 63
+		x = 66
 		y = -15
 		trigger = {
 			has_focus_tree = german_focus
@@ -19,7 +19,7 @@ shared_focus = {
 
 	#Romania
 	offset = {
-		x = -15 
+		x = -14 
 		y = -8 
 		trigger = {
 			has_focus_tree = romanian_focus
@@ -28,7 +28,7 @@ shared_focus = {
 
 	#Spain
 	offset = {
-		x = 1 
+		x = 4
 		y = -15
 		trigger = {
 			has_focus_tree = spanish_focus
@@ -37,7 +37,7 @@ shared_focus = {
 
 	#Hungary
 	offset = {
-		x = 15 
+		x = 19 
 		y = -15
 		trigger = {
 			has_focus_tree = wuw_hungarian_focus
@@ -46,7 +46,7 @@ shared_focus = {
 
 	#Italy
 	offset = {
-		x = 45 
+		x = 48 
 		y = -15
 		trigger = {
 			has_focus_tree = italian_focus
@@ -55,7 +55,7 @@ shared_focus = {
 
 	#Bulgaria
 	offset = {
-		x = 15
+		x = 19
 		y = -15
 		trigger = {
 			has_focus_tree = bulgarian_focus
@@ -137,9 +137,9 @@ joint_focus = {
 	id = AXIS_civ_eco_boost
 	icon = GFX_focus_generic_modernize_industry
 	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = {focus = AXIS_mining_expertise focus = AXIS_mil_eco_boost}
+	mutually_exclusive = {focus = AXIS_infra }
 
-	x = -2
+	x = 1
 	y = 1
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
@@ -169,11 +169,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_mining_expertise
 	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = {focus = AXIS_civ_eco_boost focus = AXIS_mil_eco_boost}
+	prerequisite = { focus = AXIS_infra focus = AXIS_civ_eco_boost }
+	mutually_exclusive = {focus = AXIS_mil_eco_boost}
 
-	x = 0
-	y = 1
+	x = 1
+	y = 2
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
 
@@ -201,11 +201,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = {focus = AXIS_mining_expertise focus = AXIS_civ_eco_boost}
+	prerequisite = { focus = AXIS_infra focus = AXIS_civ_eco_boost }
+	mutually_exclusive = {focus = AXIS_mining_expertise }
 
-	x = 2
-	y = 1
+	x = -1
+	y = 2
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
 
@@ -233,11 +233,12 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_infra
 	icon = GFX_focus_generic_road_investment
-	prerequisite = { focus = AXIS_civ_eco_boost focus = AXIS_mining_expertise focus = AXIS_mil_eco_boost }
+	prerequisite = { focus = AXIS_political_cooperation }
+	mutually_exclusive = { focus = AXIS_civ_eco_boost }
 
-	x = 1
+	x = -1
 	y = 1
-	relative_position_id = AXIS_mining_expertise
+	relative_position_id = AXIS_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -262,13 +263,427 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = AXIS_conversion_speed
-	icon = GFX_focus_GER_factories_for_resources
-	prerequisite = { focus = AXIS_civ_eco_boost focus = AXIS_mining_expertise focus = AXIS_mil_eco_boost }
+	id = AXIS_blitzkrieg_economy
+	icon = GFX_focus_generic_annex_country_2
+	prerequisite = { focus = AXIS_mil_eco_boost focus = AXIS_mining_expertise}
+	mutually_exclusive = {focus = AXIS_adaptive_economy focus = AXIS_the_waiting_game}
+
+	x = -3
+	y = 1
+	relative_position_id = AXIS_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+
+		custom_effect_tooltip = blitzkrieg_eco_tt
+	    set_global_flag = axis_blitzkrieg_eco
+
+	}
+}
+
+joint_focus = {
+	id = AXIS_blitzkrieg_phase1
+	icon = GFX_focus_GER_prioritize_the_four_year_plan
+	prerequisite = { focus = AXIS_blitzkrieg_economy }
 
 	x = -1
 	y = 1
-	relative_position_id = AXIS_mining_expertise
+	relative_position_id = AXIS_blitzkrieg_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	axis_mill_output = 0.075
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.075
+	    		
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.075
+	    		
+	    	}
+
+			add_to_variable = { 
+	    		axis_mill_speed = 0.05
+	    		
+	    	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_blitzkrieg_timer days = -120 } 
+		}
+	    
+			add_to_variable = { 
+	        	axis_mill_output = 0.075
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.075
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.075
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_mill_speed = 0.05
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+	}
+}
+
+
+joint_focus = {
+	id = AXIS_blitzkrieg_phase1_rubber
+	icon = GFX_focus_BRA_rubber_war
+	prerequisite = { focus = AXIS_blitzkrieg_phase1 }
+
+	x = -1
+	y = 1
+	relative_position_id = AXIS_blitzkrieg_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+
+				add_to_variable = { 
+	    			axis_construction_speed = 0.05
+	    	
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_blitzkrieg_timer days = -120 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	            modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+				add_tech_bonus = {
+					bonus = 1.0
+					uses = 1
+					technology = rubber_processing
+				}
+
+				add_to_variable = { 
+	    			axis_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = AXIS_blitzkrieg_phase2
+	icon = GFX_focus_generic_central_planning
+	prerequisite = { focus = AXIS_blitzkrieg_phase1 }
+	prerequisite = { focus = AXIS_war_economy }
+
+	bypass = 
+	{
+		has_global_flag = axis_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	axis_mill_output = 0.075
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.0075
+	    		
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.075
+	    		 
+	    	}
+
+			add_to_variable = { 
+	    		axis_cap = 0.050
+	    		
+	    	}
+			add_to_variable = { 
+	    		axis_consumer = -0.1
+	    		
+	    	}
+	}
+
+	x = 1
+	y = 2
+	relative_position_id = AXIS_blitzkrieg_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_blitzkrieg_timer days = -120 }
+		}
+	    
+			add_to_variable = { 
+	        	axis_mill_output = 0.075
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.075
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.075
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_cap = 0.050
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		axis_consumer = -0.1
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+	}
+}
+
+joint_focus = {
+	id = AXIS_blitzkrieg_phase3
+	icon = GFX_focus_generic_workers_and_farmers_rise
+	prerequisite = { focus = AXIS_blitzkrieg_phase2 }
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_blitzkrieg_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		has_war_support > 2
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_financial_collapse
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        	axis_mill_output = -0.35
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = -0.35
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = -0.2
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_cap = -0.15
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		axis_consumer = 0.30
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    		axis_mill_speed = -0.15
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			axis_construction_speed = -0.15
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	        		axis_base = -0.2
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
+	            add_to_variable = { 
+	        		axis_conversion = 0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    custom_effect_tooltip = blitzkrieg_phase3_tt
+		add_to_variable = { 
+			mill_output = -0.35
+			tooltip = industrial_capacity_factory_tt 
+		}
+
+		add_to_variable = { 
+			dockyard_output = -0.35
+			tooltip = industrial_capacity_dockyard_tt 
+		}
+
+		add_to_variable = { 
+			growth_gain = -0.2
+			tooltip = production_factory_efficiency_gain_factor_tt 
+		}
+
+		add_to_variable = { 
+			cap = -0.15
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+
+		add_to_variable = { 
+			consumer = 0.30
+			tooltip = consumer_goods_factor_tt
+		}
+
+		add_to_variable = { 
+			mill_speed = -0.15
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+
+		add_to_variable = { 
+			construction_speed = -0.15
+			tooltip = production_speed_buildings_factor_tt 
+		}
+
+		add_to_variable = { 
+			base = -0.2
+			tooltip = production_factory_start_efficiency_factor_tt 
+		}
+
+		add_to_variable = { 
+			conversion = 0.25
+			tooltip = conversion_cost_civ_to_mil_factor_tt
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_economy
+	icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
+	prerequisite = { focus = AXIS_mil_eco_boost focus = AXIS_mining_expertise}
+	mutually_exclusive = {focus = AXIS_blitzkrieg_economy focus = AXIS_the_waiting_game}
+
+	x = 1
+	y = 1
+	relative_position_id = AXIS_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	        custom_effect_tooltip = adaptive_eco_tt
+
+		    }
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_1
+	icon = GFX_focus_generic_reorient_production
+	prerequisite = { focus = AXIS_adaptive_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_2 focus = AXIS_adaptive_3}
+
+	x = -2
+	y = 1
+	relative_position_id = AXIS_adaptive_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -284,63 +699,39 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = GER }
 
-	            add_to_variable = { 
-	        		axis_conversion = -0.25
-	        		tooltip = conversion_cost_civ_to_mil_factor_tt
-	    		}
+	        add_to_variable = { 
+	        	axis_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
 
 		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = axis_high_value
+			custom_effect_tooltip = high_value_tt
 	}
 }
 
 joint_focus = {
-	id = AXIS_customs_union
-	icon = GFX_focus_GER_customs_union
-	prerequisite = { focus = AXIS_conversion_speed }
-	prerequisite = { focus = AXIS_infra }
+	id = AXIS_adaptive_2
+	icon = GFX_focus_generic_rubber
+	prerequisite = { focus = AXIS_adaptive_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_1 focus = AXIS_adaptive_3}
 
 	x = 0
-	y = 2
-	relative_position_id = AXIS_mining_expertise
-	cost = 10
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		is_in_faction_with = GER
-		
-	}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = GER }
-
-	            add_to_variable = { 
-	        		axis_consumer = -0.1
-	        		tooltip = consumer_goods_factor_tt 
-	    		}
-	    		add_to_variable = { 
-	        		axis_base = 0.1
-	        		tooltip = production_factory_start_efficiency_factor_tt 
-	    		}
-
-		    }
-	}
-}
-
-joint_focus = {
-	id = AXIS_improved_refining
-	icon = GFX_focus_generic_rubber
-	prerequisite = { focus = AXIS_customs_union }
-	mutually_exclusive = { focus = AXIS_industry_optimization}
-	
-
-	x = -1
 	y = 1
-	relative_position_id = AXIS_customs_union
-	cost = 10
+	relative_position_id = AXIS_adaptive_economy
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -360,25 +751,23 @@ joint_focus = {
 	            	   	resource = rubber
 	            	  	amount = 1
 	            	}
-				add_tech_bonus = {
-					bonus = 1.0
-					uses = 1
-					technology = rubber_processing
-				}
 		    }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		set_global_flag = axis_medium_value
+		custom_effect_tooltip = medium_value_tt
 	}
 }
 
 joint_focus = {
-	id = AXIS_industry_optimization
-	icon = GFX_focus_generic_economic_recovery
-	prerequisite = { focus = AXIS_customs_union }
-	mutually_exclusive = { focus = AXIS_improved_refining }
+	id = AXIS_adaptive_3
+	icon = GFX_focus_GER_kdf_wagen
+	prerequisite = { focus = AXIS_adaptive_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_2 focus = AXIS_adaptive_1}
 
-	x = 1
+	x = 2
 	y = 1
-	relative_position_id = AXIS_customs_union
-	cost = 10
+	relative_position_id = AXIS_adaptive_economy
+	cost = 5
 
 	text_icon = NORDIC_focus_style
 
@@ -393,6 +782,837 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = GER }
 
+	            add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = axis_low_value
+			custom_effect_tooltip = low_value_tt
+	}
+}
+
+joint_focus = {
+	id = AXIS_the_waiting_game
+	icon = GFX_focus_DEN_limited_regulations
+	prerequisite = { focus = AXIS_mil_eco_boost focus = AXIS_mining_expertise}
+	mutually_exclusive = {focus = AXIS_blitzkrieg_economy focus = AXIS_adaptive_economy}
+
+	x = 5
+	y = 1
+	relative_position_id = AXIS_mil_eco_boost
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		GER = 
+		{
+			has_completed_focus = GER_anschluss
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    custom_effect_tooltip = the_waiting_game_tt
+		set_global_flag = axis_the_waiting_game
+	}
+}
+
+joint_focus = {
+	id = AXIS_the_waiting_game_phase1
+	icon = GFX_focus_generic_currency_reforms
+	prerequisite = { focus = AXIS_the_waiting_game }
+
+	x = 1
+	y = 1
+	relative_position_id = AXIS_the_waiting_game
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_economy_unbound_timer
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_waiting_game_timer days = -50 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = electronics
+				}
+				
+				add_tech_bonus = {
+					bonus = 0.75
+					uses = 1
+					category = construction_tech
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = AXIS_the_waiting_game_phase1_emergency
+	icon = GFX_focus_GER_integrated_economies
+	prerequisite = { focus = AXIS_the_waiting_game_phase1 }
+
+	x = 1
+	y = 1
+	relative_position_id = AXIS_the_waiting_game_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+			add_to_variable = { 
+	        	axis_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_waiting_game_timer days = 365 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	        add_to_variable = { 
+	        	axis_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_the_waiting_game_phase2
+	icon = GFX_focus_generic_economic_recovery
+	prerequisite = { focus = AXIS_war_economy }
+	prerequisite = { focus = AXIS_the_waiting_game_phase1 }
+
+	x = -1
+	y = 2
+	relative_position_id = AXIS_the_waiting_game_phase1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	    			axis_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+				add_to_variable = { 
+	    			axis_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		ROOT = 
+		{
+			add_days_mission_timeout = { mission = axis_waiting_game_timer days = -90 }
+		}
+
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	            add_to_variable = { 
+	    			axis_construction_speed = 0.05
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+				add_to_variable = { 
+	    			axis_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = AXIS_the_waiting_game_phase3
+	icon = GFX_focus_GER_autarky_achieved
+	prerequisite = { focus = AXIS_the_waiting_game_phase2 }
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_the_waiting_game_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		has_war_support > 2
+	}
+
+	bypass = 
+	{
+		has_global_flag = axis_economy_unbound_timer
+	}
+
+	bypass_effect = 
+	{
+			add_to_variable = { 
+	        	axis_mill_output = 0.1
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.1
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.1
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		axis_consumer = -0.15
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			axis_construction_speed = 0.10
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+		set_global_flag = axis_economy_unbound
+
+	   		add_to_variable = { 
+	        	mill_output = 0.1
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		dockyard_output  = 0.1
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		growth_gain = 0.1
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    		consumer = -0.15
+	    		tooltip = consumer_goods_factor_tt
+	    	}
+
+			add_to_variable = { 
+	    			construction_speed = 0.10
+	    			tooltip = production_speed_buildings_factor_tt 
+	    	}
+
+			custom_effect_tooltip = rubber_tt
+	}
+}
+
+joint_focus = {
+	id = AXIS_war_economy
+	icon = GFX_focus_SWI_issue_war_bonds
+	prerequisite = { focus = AXIS_blitzkrieg_phase1 focus = AXIS_adaptive_1 focus = AXIS_adaptive_2 focus = AXIS_adaptive_3 focus = AXIS_the_waiting_game_phase1}
+
+	x = 0
+	y = 1
+	relative_position_id = AXIS_adaptive_2
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+		GER = 
+		{
+			has_war_with = ENG
+		}
+	}
+
+	bypass = 
+	{
+		OR = {
+			has_global_flag = axis_financial_collapse
+			has_global_flag = axis_economy_unbound_timer
+		}
+	}
+
+
+	bypass_effect = 
+	{
+		add_to_variable = { 
+	        		axis_base = 0.1
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
+	            add_to_variable = { 
+	        		axis_conversion = -0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+				add_to_variable = { 
+	        		axis_base = 0.1
+	        		tooltip = production_factory_start_efficiency_factor_tt 
+	    		}
+
+	            add_to_variable = { 
+	        		axis_conversion = -0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
+
+
+		    }
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_1_phase2
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = AXIS_war_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = -2
+	y = 1
+	relative_position_id = AXIS_war_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		NOT = 
+		{
+				has_global_flag = axis_the_waiting_game
+				has_global_flag = axis_blitzkrieg_eco
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	            add_to_variable = { 
+	        	axis_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_mill_speed = 0.05
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
+
+			add_to_variable = { 
+					axis_consumer = -0.10
+					tooltip = consumer_goods_factor_tt
+	    	}
+
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = axis_high_value_2
+			custom_effect_tooltip = high_value_tt
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_2_phase2
+	icon = GFX_focus_GER_customs_union
+	prerequisite = { focus = AXIS_war_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 1
+	relative_position_id = AXIS_war_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		NOT = 
+		{
+				has_global_flag = axis_the_waiting_game
+				has_global_flag = axis_blitzkrieg_eco
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+			add_to_variable = { 
+	    			axis_construction_speed = 0.025
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+
+				add_to_variable = { 
+					axis_consumer = -0.10
+					tooltip = consumer_goods_factor_tt
+	    		}
+
+				add_to_variable = { 
+	    			axis_resources_factor = 0.10
+	    			tooltip = local_resources_factor_tt 
+	    		}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = axis_medium_value_2
+			custom_effect_tooltip = medium_value_tt	
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_3_phase2
+	icon = GFX_focus_usa_reestablish_the_gold_standard
+	prerequisite = { focus = AXIS_war_economy}
+	mutually_exclusive = {focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2}
+
+	x = 2
+	y = 1
+	relative_position_id = AXIS_war_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		NOT = 
+		{
+				has_global_flag = axis_the_waiting_game
+				has_global_flag = axis_blitzkrieg_eco
+		}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	            add_to_variable = { 
+	    			axis_construction_speed = 0.025
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
+
+				add_to_variable = { 
+					axis_consumer = -0.1
+					tooltip = consumer_goods_factor_tt
+	    		}
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = axis_low_value_2
+			custom_effect_tooltip = low_value_tt
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3
+	icon = GFX_goal_unknown
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	allow_branch = 
+	{
+		NOT = 
+		{
+			OR = 
+			{
+				has_global_flag = axis_low_value_2
+				has_global_flag = axis_medium_value_2
+				has_global_flag = axis_high_value_2
+			}
+		}
+	}
+
+	available = {
+		is_in_faction_with = GER
+		has_war_support > 2
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	        custom_effect_tooltip = adaptive_3_tt
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3_high_high
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		has_global_flag = axis_high_value
+		has_global_flag = axis_high_value_2
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = GER }
+	        add_to_variable = { 
+	    		axis_cap = 0.05
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3_med_high
+	icon = GFX_focus_generic_military_industry
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = axis_medium_value
+				has_global_flag = axis_high_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = axis_high_value
+				has_global_flag = axis_medium_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = GER }
+	        add_to_variable = { 
+	    		axis_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	        	axis_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3_med_med
+	icon = GFX_focus_generic_reorient_production
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = axis_medium_value
+				has_global_flag = axis_medium_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = axis_low_value
+				has_global_flag = axis_high_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = axis_high_value
+				has_global_flag = axis_low_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = GER }
+	        add_to_variable = { 
+	    		axis_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	        	axis_mill_output = 0.05
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.05
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3_low_med
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = axis_low_value
+				has_global_flag = axis_medium_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = axis_medium_value
+				has_global_flag = axis_low_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = GER }
+	        add_to_variable = { 
+	        	axis_mill_output = 0.075
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_dockyard_output  = 0.075
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		axis_growth_gain = 0.075
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		axis_cap = 0.075
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+		}
+	}
+}
+
+joint_focus = {
+	id = AXIS_adaptive_phase3_low_low
+	icon = GFX_focus_RAJ_special_economic_zones
+	prerequisite = { focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = AXIS_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		has_global_flag = axis_low_value
+		has_global_flag = axis_low_value_2
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		date > 1940.1.1
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = GER }
 	        add_to_variable = { 
 	        	axis_mill_output = 0.1
 	        	tooltip = industrial_capacity_factory_tt 
@@ -408,16 +1628,26 @@ joint_focus = {
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
-		    }
+			add_to_variable = { 
+	    		axis_cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
+			add_to_variable = { 
+	    			axis_resources_factor = 0.05
+	    			tooltip = local_resources_factor_tt 
+	    	}
+		}
 	}
 }
+
+
 
 joint_focus = {
 	id = AXIS_fascist_researchers
 	icon = GFX_focus_ARG_fascist_researchers
 	prerequisite = { focus = AXIS_joint_alliance }
 
-	x = 8
+	x = 12
 	y = 1
 	relative_position_id = AXIS_joint_alliance
 	cost = 5
@@ -880,6 +2110,10 @@ joint_focus = {
 	    				uses = 1
 	    				category = excavation_tech
 	    		}
+				every_state = {
+					limit = { is_core_of = HUN }
+					add_extra_state_shared_building_slots = 1
+	    		}
 	    		}
 	    		974 = { 
 	    			add_resource = { 
@@ -933,6 +2167,7 @@ joint_focus = {
 	    				uses = 2
 	    				category = industry
 	    			}
+					
 	    			81 = {
 	    				add_extra_state_shared_building_slots = 2
 	    				add_building_construction = {
@@ -991,6 +2226,10 @@ joint_focus = {
 	    				type = oil
 	    				amount = 15 
 	    			}
+					every_state = {
+					limit = { is_core_of = ROM }
+					add_extra_state_shared_building_slots = 1
+	    		}
 	    			add_building_construction = { 
 	    				type = infrastructure 
 	    				level = 1 
@@ -1046,6 +2285,7 @@ joint_focus = {
 	    				uses = 2
 	    				category = industry
 	    			}
+					
 	    			random_owned_controlled_state = {
 	    				add_extra_state_shared_building_slots = 2
 	    				add_building_construction = {
@@ -1096,6 +2336,10 @@ joint_focus = {
 	    				bonus = 1
 	    				uses = 1
 	    				category = excavation_tech
+	    		}
+				every_state = {
+					limit = { is_core_of = BUL }
+					add_extra_state_shared_building_slots = 1
 	    		}
 	    		}
 	    		212 = { 
@@ -1367,7 +2611,7 @@ joint_focus = {
 	icon = GFX_focus_generic_fascist_troops
 	prerequisite = { focus = AXIS_joint_alliance }
 
-	x = -13
+	x = -17
 	y = 1
 	relative_position_id = AXIS_joint_alliance
 	cost = 5

@@ -524,6 +524,29 @@ ENG_supermarine_organization = {
 	}
 
 	add_trait = { 
+		token = ENG_mio_trait_hyper_efficient_fuel
+		name = ENG_mio_trait_hyper_efficient_fuel
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		special_trait_background = yes
+
+		position = { x=2 y=1 }
+		relative_position_id = generic_mio_trait_minimum_weapon_requirements
+
+		#any_parent = { generic_mio_trait_super_heavy_shells generic_mio_trait_semi_armor_piercing_shells generic_mio_trait_high_velocity_guns }
+
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane maritime_patrol_plane }
+
+		equipment_bonus = {
+			air_range = 0.25
+		}
+
+		 available = {
+        	date > 1941.1.1
+			has_global_flag = noAsia
+    	}
+	}
+
+	add_trait = { 
 		token = ENG_mio_trait_elliptical_wings
 		name = ENG_mio_trait_elliptical_wings
 		icon = GFX_generic_mio_trait_icon_defense

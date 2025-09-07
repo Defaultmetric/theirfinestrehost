@@ -1,0 +1,117 @@
+Shared_AXIS_blitzkrieg_eco = { 
+
+	icon = GFX_decision_ger_military_buildup
+
+	picture = GFX_decision_cat_generic_mefo_bills
+	
+	allowed = {
+		OR = 
+		{
+			original_tag = GER
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = ITA
+			original_tag = SPR
+		}
+	}
+
+	visible = {
+		has_global_flag = axis_blitzkrieg_eco
+		ROOT = { is_in_faction_with = GER }
+	}
+	
+	priority = 100
+
+	visible_when_empty = yes
+	
+}
+
+Shared_AXIS_the_waiting_game = { 
+
+	icon = GFX_decision_category_generic_economy
+
+	picture = GFX_decision_cat_picture_soviet_comecon 
+	
+	visible = {
+		has_global_flag = axis_the_waiting_game
+		ROOT = { is_in_faction_with = GER }
+	}
+
+	allowed = {
+		OR = 
+		{
+			original_tag = GER
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = ITA
+			original_tag = SPR
+		}
+	}
+	
+	priority = 100
+
+	visible_when_empty = yes
+	
+}
+
+Shared_ALLIES_blitzkrieg_eco = { 
+
+	icon = GFX_decision_ger_military_buildup
+
+	picture = GFX_decision_cat_generic_mefo_bills
+	
+	allowed = {
+		OR = 
+		{
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = BRA
+			original_tag = SAF
+			original_tag = FRA
+			original_tag = RAJ
+			original_tag = AST
+		}
+	}
+
+	visible = {
+		has_global_flag = allies_blitzkrieg_eco
+		ROOT = { is_in_faction_with = ENG }
+	}
+	
+	priority = 100
+
+	visible_when_empty = yes
+	
+}
+
+Shared_ALLIES_the_waiting_game = { 
+
+	icon = GFX_decision_category_generic_economy
+
+	picture = GFX_decision_cat_picture_soviet_comecon 
+	
+	allowed = {
+		OR = 
+		{
+			original_tag = ENG
+			original_tag = CAN
+			original_tag = BRA
+			original_tag = SAF
+			original_tag = FRA
+			original_tag = RAJ
+			original_tag = AST
+		}
+	}
+
+	visible = {
+		has_global_flag = allies_the_waiting_game
+		ROOT = { is_in_faction_with = ENG }
+	}
+	
+	priority = 100
+
+	visible_when_empty = yes
+	
+}

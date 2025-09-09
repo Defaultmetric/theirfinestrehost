@@ -57,7 +57,28 @@ NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.025    -- global dama
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.035    -- air global damage modifier
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.065        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.042        -- global damage modifier
-
+NDefines.NMilitary.PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
+	1.00,
+	0.9,
+	0.8,
+	0.7,
+	0.6,
+	0.5,
+	0.4,
+	0.3,
+	0.0, --there isn't much point setting this higher than 0
+}
+NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
+	1.00,
+	0.85,
+	0.70,
+	0.60,
+	0.50,
+	0.40,
+	0.30,
+	0.20,
+	0.10,
+}
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.9 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT

@@ -392,4 +392,80 @@ sub_units = {
 			attack = -0.4
 		}
 	}
+
+	super_heavy_howitzer_brigade = {
+		abbreviation = "shhb"
+		sprite = artillery
+		map_icon_category = infantry
+		priority = 1198
+		ai_priority = 100
+		active = yes
+		is_artillery_brigade = yes
+		
+		type = {
+			infantry
+			artillery
+		}
+
+		group = combat_support
+		
+		categories = {
+			category_army
+			category_line_artillery
+			category_artillery
+		}
+
+		combat_width = 3
+
+		manpower = 2000
+		need = {
+			super_heavy_artillery_equipment = 28
+		}
+		
+		max_strength = 2		#was 0.6
+		max_organisation = 25		#was 0
+		default_morale = 0.1
+		training_time = 120
+		weight = 0.8
+		supply_consumption = 0.35
+
+		#Line artillery bonuses
+		# soft_attack = 0.25
+		
+		forest = {
+			attack = -0.1	#was -0.2
+			movement = -0.5
+		}
+
+		hills = {
+			movement = -0.05
+		}
+
+		mountain = {
+			movement = -0.3		#was -0.2
+		}
+
+		jungle = {
+			attack = -0.6		#was -0.25
+			movement = -0.5
+		}
+
+		marsh = {
+			attack = -0.06		#was -0.2
+			movement = -0.5
+		}
+
+		fort = {
+			attack = 0.3
+		}
+
+		river = {
+			attack = -0.6		#was -0.2
+			movement = -0.4
+		}
+
+		amphibious = {
+			attack = -0.7		#was -0.4
+		}
+	}
 }

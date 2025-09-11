@@ -286,10 +286,10 @@ focus_tree = {
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 			818 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -322,14 +322,6 @@ focus_tree = {
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 			817 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			819 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -825,10 +817,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			287 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -858,10 +850,10 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			818 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -885,7 +877,7 @@ focus_tree = {
 			add_research_slot = 1
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_mill_construction_speed = 0.3
+				MON_ind_mill_construction_speed = 0.2
 				tooltip = production_speed_arms_factory_factor_tt
 			}
 		}
@@ -896,6 +888,14 @@ focus_tree = {
 		cost = 10
 		ai_will_do = {
 			factor = 8
+		}
+
+		available = 
+		{
+			SOV = 
+			{
+				has_war_with = GER
+			}
 		}
 		prerequisite = {
 			focus = MON_industrial_heartbeat
@@ -2770,6 +2770,75 @@ focus = {
 			add_political_power = 25
 			add_ideas = MON_political_violence
 			remove_ideas = MON_struggle_for_control
+			330 = {
+    add_resource = {
+        type = oil
+        amount = 999
+    }
+    add_resource = {
+        type = aluminium
+        amount = 999
+    }
+    add_resource = {
+        type = steel
+        amount = 999
+    }
+    add_resource = {
+        type = tungsten
+        amount = 999
+    }
+    add_resource = {
+        type = chromium
+        amount = 999
+    }
+    add_resource = {
+        type = rubber
+        amount = 999
+    }
+	MON = {
+    send_embargo = USA
+    send_embargo = SOV
+    send_embargo = ENG
+    send_embargo = FRA
+    send_embargo = BRA
+    send_embargo = CAN
+    send_embargo = SAF
+    send_embargo = AST
+    send_embargo = RAJ
+    send_embargo = GER
+    send_embargo = ITA
+    send_embargo = HOL
+    send_embargo = BEL
+    send_embargo = LUX
+    send_embargo = DEN
+    send_embargo = NOR
+    send_embargo = SWE
+    send_embargo = FIN
+    send_embargo = LIT
+    send_embargo = LAT
+    send_embargo = EST
+    send_embargo = INS
+    send_embargo = SIA
+    send_embargo = ROM
+    send_embargo = YUG
+    send_embargo = ALB
+    send_embargo = GRE
+    send_embargo = BUL
+    send_embargo = HUN
+    send_embargo = AUS
+    send_embargo = CZE
+    send_embargo = POL
+    send_embargo = PER
+    send_embargo = VEN
+    send_embargo = MEX
+    send_embargo = PHI
+    send_embargo = MAN
+    send_embargo = JAP
+    send_embargo = CHI
+	}
+
+}
+
 		}
 		ai_will_do = {
 			factor = 20

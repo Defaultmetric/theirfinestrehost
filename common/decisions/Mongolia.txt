@@ -1,0 +1,1390 @@
+revolutionary_reconstruction = 
+{
+    mon_reconstruct_dornod_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dornod_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dornod_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dornod_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dornod_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dornod_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dornod_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dornod_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dornod_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dornod_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dornod_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dornod_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dornod_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dornod_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state}
+        }
+        add_to_variable = { MON_dornod_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_gobi_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_gobi_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_gobi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_gobi_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_gobi_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_gobi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_gobi_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_gobi_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_gobi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_gobi_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_gobi_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_gobi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_gobi_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_gobi_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_gobi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_ulaanbaatar_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_ulaanbaatar_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+    remove_effect = {
+        330 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_ulaanbaatar_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_ulaanbaatar_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_ulaanbaatar_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+    remove_effect = {
+        330 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_ulaanbaatar_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_ulaanbaatar_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_ulaanbaatar_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+    remove_effect = {
+        330 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_ulaanbaatar_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_ulaanbaatar_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_ulaanbaatar_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+    remove_effect = {
+        330 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_ulaanbaatar_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_ulaanbaatar_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_ulaanbaatar_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+    remove_effect = {
+        330 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_ulaanbaatar_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovsgol_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovsgol_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovsgol_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovsgol_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovsgol_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovsgol_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovsgol_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovsgol_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovsgol_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovsgol_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovsgol_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovsgol_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovsgol_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovsgol_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_khovsgol_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_tannu_tuva_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_tannu_tuva_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_tannu_tuva_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_tannu_tuva_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_tannu_tuva_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_tannu_tuva_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_tannu_tuva_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_tannu_tuva_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_tannu_tuva_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_tannu_tuva_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_tannu_tuva_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_tannu_tuva_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_tannu_tuva_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_tannu_tuva_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_tannu_tuva_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovd_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovd_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovd_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovd_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovd_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovd_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovd_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovd_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovd_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovd_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovd_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_khovd_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_khovd_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_khovd_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_khovd_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dabancheng_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dabancheng_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dabancheng_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dabancheng_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dabancheng_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dabancheng_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dabancheng_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dabancheng_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dabancheng_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dabancheng_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dabancheng_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dabancheng_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dabancheng_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dabancheng_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_dabancheng_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dzungaria_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dzungaria_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dzungaria_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dzungaria_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dzungaria_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dzungaria_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dzungaria_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dzungaria_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dzungaria_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dzungaria_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dzungaria_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_dzungaria_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_dzungaria_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_dzungaria_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_dzungaria_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_urumqi_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_urumqi_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_urumqi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_urumqi_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_urumqi_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_urumqi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_urumqi_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_urumqi_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_urumqi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_urumqi_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_urumqi_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_urumqi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_urumqi_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_urumqi_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_urumqi_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_kunlun_shan_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_kunlun_shan_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_kunlun_shan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_kunlun_shan_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_kunlun_shan_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_kunlun_shan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_kunlun_shan_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_kunlun_shan_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_kunlun_shan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_kunlun_shan_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_kunlun_shan_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_kunlun_shan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_kunlun_shan_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_kunlun_shan_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_kunlun_shan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_taklamakan_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_taklamakan_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_taklamakan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_taklamakan_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_taklamakan_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_taklamakan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_taklamakan_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_taklamakan_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_taklamakan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_taklamakan_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_taklamakan_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_taklamakan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_taklamakan_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_taklamakan_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_taklamakan_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_yarkand_1 = {
+    icon = GFX_decision_generic_scorched_earth
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_yarkand_rebuilds value = 0 } }
+    cost = 10
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_yarkand_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_yarkand_2 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_yarkand_rebuilds value = 1 } }
+    cost = 30
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_yarkand_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_yarkand_3 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_yarkand_rebuilds value = 2 } }
+    cost = 50
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_yarkand_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_yarkand_4 = {
+    icon = GFX_decision_generic_industry
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_yarkand_rebuilds value = 3 } }
+    cost = 100
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { add_extra_state_shared_building_slots = 1 }
+        add_to_variable = { MON_yarkand_rebuilds = 1 }
+    }
+}
+
+mon_reconstruct_yarkand_5 = {
+    icon = GFX_decision_faction_tur_kurdish
+    allowed = { tag = MON }
+    visible = { check_variable = { var = MON_yarkand_rebuilds value = 4 } }
+    cost = 200
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { 
+            add_extra_state_shared_building_slots = 1
+            add_dynamic_modifier = { modifier = MON_reconstructed_state }
+        }
+        add_to_variable = { MON_yarkand_rebuilds = 1 }
+    }
+}
+
+}
+
+
+
+
+
+
+
+fix_the_worker_shortage = 
+{
+    fix_dornod_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 819 } }
+    remove_effect = {
+        819 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_gobi_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+    remove_effect = {
+        817 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_khovsgol_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 820 } }
+    remove_effect = {
+        820 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_tannu_tuva_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+    remove_effect = {
+        329 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_khovd_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 818 } }
+    remove_effect = {
+        818 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_dabancheng_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 760 } }
+    remove_effect = {
+        760 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_dzungaria_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+    remove_effect = {
+        618 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_urumqi_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+    remove_effect = {
+        617 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_kunlun_shan_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+    remove_effect = {
+        759 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_taklamakan_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+    remove_effect = {
+        287 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+fix_yarkand_worker_shortage = {
+    icon = GFX_decision_SOV_the_workers_dictatorship
+    allowed = { tag = MON }
+    cost = 25
+    days_remove = 60
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+    remove_effect = {
+        619 = { 
+            remove_dynamic_modifier = { modifier = MON_worker_shortages }  
+        }
+    }
+}
+
+
+}
+
+
+
+
+
+the_red_industry_rises = 
+{
+    red_infrastructure_rises = {
+    icon = GFX_decision_NOR_deploy_prep_trot_3
+    allowed = { tag = MON }
+    
+    cost = 30
+    days_remove = 30
+    remove_effect = {
+            random_owned_controlled_state = {
+                limit = { NOT = { has_state_flag = invested_in_state } }
+                add_building_construction = { type = infrastructure level = 1 }
+                set_state_flag = invested_in_state
+            }
+        }
+    }
+
+
+
+    civilian_industry_rises = {
+    icon = GFX_decision_NOR_deploy_prep_comm_3
+    allowed = { tag = MON }
+    available = { MON = {has_war = no} }
+    cost = 100
+    days_remove = 120
+    remove_effect = {
+        add_offsite_building = { type = industrial_complex level = 1 }
+    }
+    }
+
+    military_industry_rises = {
+    icon = GFX_decision_NOR_prepare_state_dem_3
+    allowed = { tag = MON }
+    available = { MON = {has_war = yes} }
+    cost = 75
+    days_remove = 90
+    remove_effect = {
+        add_offsite_building = { type = arms_factory level = 1 }
+    }
+}
+
+}
+
+fury_of_the_past = 
+{
+    mongolian_fury = {
+
+        priority = 100
+		icon = GFX_decision_revolt
+
+		allowed = {
+			tag = MON
+		}
+
+		activation = {
+            OR = 
+            {
+                has_completed_focus = MON_fury_of_the_past
+                has_global_flag = reactivation
+            }
+
+		}
+
+		available = {
+			always = no
+		}
+
+		days_mission_timeout = 75
+
+		timeout_effect = {
+            if = 
+            {
+                limit = 
+                {
+                    MON = {
+                        has_completed_focus = MON_the_unstoppable_horde
+                    }
+                }
+                    add_to_variable = 
+                    {
+                        FURY_arm_div_attack = fury_level
+                        tooltip = army_attack_factor_tt 
+                    }
+
+                    ### x2 Cas RED
+                    add_to_variable = 
+                    {
+                        FURY_cas_reduction = fury_level
+                        tooltip = cas_damage_reduction_tt 
+                    }
+                    add_to_variable = 
+                    {
+                        FURY_cas_reduction = fury_level 
+                    }
+
+                    ### x2 Cas DMG
+
+                    add_to_variable = 
+                    {
+                        FURY_cas_dmg = fury_level
+                        tooltip = air_cas_present_factor_tt 
+                    }
+                    add_to_variable = 
+                    {
+                        FURY_cas_dmg = fury_level 
+                    }
+
+                    ### x2 Horse dmg
+                    add_to_variable = 
+                    {
+                        FURY_cav_attack = fury_level
+                        tooltip = cavalry_attack_factor_tt 
+                    }
+                    add_to_variable = 
+                    {
+                        FURY_cav_attack = fury_level
+                    } 
+            }
+            else = {
+			add_to_variable = 
+            {
+                FURY_arm_div_attack = fury_level
+                tooltip = army_attack_factor_tt 
+            }
+
+            ### x2 Cas RED
+            add_to_variable = 
+            {
+                FURY_cas_reduction = fury_level
+                tooltip = cas_damage_reduction_tt 
+            }
+            add_to_variable = 
+            {
+                FURY_cas_reduction = fury_level 
+            }
+
+            ### x2 Cas DMG
+
+            add_to_variable = 
+            {
+                FURY_cas_dmg = fury_level
+                tooltip = air_cas_present_factor_tt 
+            }
+            add_to_variable = 
+            {
+                FURY_cas_dmg = fury_level 
+            }
+		}
+    }
+}
+
+    fury_of_kiev_leningrad = 
+    {
+        icon = GFX_decision_SOV_the_workers_dictatorship
+
+        allowed = {
+			tag = MON
+		}
+
+        available = 
+        {
+            SOV = 
+            {
+                NOT = 
+                {
+                    has_full_control_of_state = 195
+                    has_full_control_of_state = 202
+                }
+            }
+        }
+
+        cost = 0
+
+        complete_effect = 
+        {
+            custom_effect_tooltip = fury_tt
+            set_variable = { fury_level = 0.02 }
+        }
+    }
+
+}
+
+
+MON_gosproyektstroy_decision_category = 
+{
+    MON_gosproyektstroy_bring_foreign_experts = {
+		priority = 50
+
+		icon = hol_attract_foreign_investors
+
+		targets = { SOV }
+
+		allowed = {
+			original_tag = MON
+		}
+
+		available = {
+			has_idea = MON_gosproyektstroy_1
+			NOT = { has_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag }
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 29
+				}
+			}
+		}
+
+		days_remove = 90
+
+		fire_only_once = yes
+
+		visible = {
+			has_idea = MON_gosproyektstroy_1
+			NOT = { has_country_flag = MON_gosproyektstroy_level_2_flag }
+			NOT = { has_country_flag = MON_gosproyektstroy_level_3_flag }
+			country_exists = FROM
+			NOT = { has_war_with = FROM }
+		}
+
+		cost = 50
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		complete_effect = {
+			set_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+
+		remove_effect = {
+	
+				set_country_flag = { flag = MON_gosproyektstroy_level_2_flag value = 1 }
+				swap_ideas = {
+					remove_idea = MON_gosproyektstroy_1
+					add_idea = MON_gosproyektstroy_2_cap
+				}
+
+			clr_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+	}
+
+    MON_gosproyektstroy_focus_construction = {
+		priority = 13
+
+		icon = generic_construction
+
+		allowed = {
+			original_tag = MON
+		}
+
+		available = {
+		
+			has_idea = MON_gosproyektstroy_2_cap 
+				
+			NOT = { has_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag }
+		}
+
+		days_remove = 60
+
+		fire_only_once = yes
+
+		visible = {
+			has_idea = MON_gosproyektstroy_2_cap
+		
+			NOT = { has_country_flag = MON_gosproyektstroy_level_3_flag }
+		}
+
+		cost = 50
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		complete_effect = {
+			set_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+
+		remove_effect = {
+			set_country_flag = { flag = MON_gosproyektstroy_level_3_flag value = 1 } 
+		
+				swap_ideas = {
+					remove_idea = MON_gosproyektstroy_2_cap
+					add_idea = MON_gosproyektstroy_3_construction
+				}
+		
+
+			clr_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+	}
+
+    MON_gosproyektstroy_focus_consumer = {
+		priority = 13
+
+		icon = GFX_decision_generic_consumer_goods
+
+		allowed = {
+			original_tag = MON
+		}
+
+		available = {
+		
+			has_idea = MON_gosproyektstroy_3_construction 
+				
+			NOT = { has_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag }
+		}
+
+		days_remove = 30
+
+		fire_only_once = yes
+
+		visible = {
+			has_idea = MON_gosproyektstroy_3_construction
+		
+			NOT = { has_country_flag = MON_gosproyektstroy_level_4_flag }
+		}
+
+		cost = 50
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		complete_effect = {
+			set_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+
+		remove_effect = {
+			set_country_flag = { flag = MON_gosproyektstroy_level_4_flag value = 1 } 
+		
+				swap_ideas = {
+					remove_idea = MON_gosproyektstroy_3_construction
+					add_idea = MON_gosproyektstroy_4_consumer
+				}
+		
+
+			clr_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
+		}
+	}
+}
+
+

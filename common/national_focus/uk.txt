@@ -4850,6 +4850,10 @@ focus_tree = {
 						{
 							is_ai = yes
 						}
+						MON = 
+						{
+							is_ai = yes
+						}
 					}
 					ADT = 
 					{
@@ -4890,6 +4894,57 @@ focus_tree = {
 					}
 					619 = {
 						remove_building = { type = industrial_complex level = 1 }
+					}
+				}
+				if = 
+				{
+					limit = 
+					{
+						FIN = 
+						{
+							is_ai = yes
+						}
+						MON = 
+						{
+							is_ai = no
+						}
+					}
+					ADT = 
+					{
+						annex_country = { target = FIN }
+					}
+					SOV = 
+						{
+							transfer_state = 146
+							transfer_state = 147
+							transfer_state = 722
+						}
+
+					#Remove Factories if Mongolia and no Finland -3 mill -14 civs
+					146 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+
+					219 = {
+    					remove_building = { type = arms_factory level = 3 }
+					}
+					226 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					242 = {
+						remove_building = { type = industrial_complex level = 1 }
+					}
+					206 = {
+						remove_building = { type = industrial_complex level = 5 }
+					}
+					405 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					198 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					192 = {
+						remove_building = { type = industrial_complex level = 2 }
 					}
 				}
 				if = 

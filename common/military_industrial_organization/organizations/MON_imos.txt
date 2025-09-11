@@ -13,6 +13,105 @@ MON_tank_refurbishment_plant_organization = {
 			reliability = -0.05
 		}
 	}
+	add_trait = {
+		token = MON_mio_trait_24hour_shifts
+		name = MON_mio_trait_24hour_shifts
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 9 y= 0 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_24hour_shifts
+					NOT = { has_country_flag = hour_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = hour_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_centralized_development
+		name = MON_mio_trait_centralized_development
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 9 y= 1 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_centralized_tank_development
+					NOT = { has_country_flag = centralized_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = centralized_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_snowpiercer
+		name = MON_mio_trait_snowpiercer
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+
+		position = { x = 9 y= 2 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_snowpiercer
+					NOT = { has_country_flag = snowpiercer_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = snowpiercer_taken_flag
+			}
+		}
+
+		equipment_bonus = 
+		{
+			soft_attack = 0.1
+			ap_attack = 0.1
+		}
+	}
+
 }
 
 MON_okmo_organization = {
@@ -31,14 +130,211 @@ MON_okmo_organization = {
 		}
 	}
 
-	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
+	override_trait = {
+		token = generic_mio_trait_light_tank_specialization
+
+		position = { x=-1 y=1 }
+		relative_position_id = MON_mio_trait_technical_superiority
+		any_parent = { MON_mio_trait_technical_superiority }
+	}
+
+	override_trait = {
+		token = generic_mio_trait_medium_tank_specialization
+
+		position = { x=0 y=1 }
+		relative_position_id = MON_mio_trait_technical_superiority
+		any_parent = { MON_mio_trait_technical_superiority }
+	}
+
+	override_trait = {
+		token = generic_mio_trait_heavy_tank_specialization
+
+		position = { x=1 y=1 }
+		relative_position_id = MON_mio_trait_technical_superiority
+		any_parent = { MON_mio_trait_technical_superiority }
+	}
+
+	add_trait = {
+		token = MON_mio_trait_24hour_shifts
+		name = MON_mio_trait_24hour_shifts
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 0 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
 		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_24hour_shifts
+					NOT = { has_country_flag = hour_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = hour_taken_flag
+			}
+		}
+
 		production_bonus = {
 			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
 		}
 	}
+
+	add_trait = {
+		token = MON_mio_trait_centralized_development
+		name = MON_mio_trait_centralized_development
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 1 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_centralized_tank_development
+					NOT = { has_country_flag = centralized_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = centralized_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_snowpiercer
+		name = MON_mio_trait_snowpiercer
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+
+		position = { x = 2 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_snowpiercer
+					NOT = { has_country_flag = snowpiercer_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = snowpiercer_taken_flag
+			}
+		}
+
+		equipment_bonus = 
+		{
+			soft_attack = 0.1
+			ap_attack = 0.1
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_trait_steel_wheel_design
+	name = MON_mio_trait_steel_wheel_design
+	icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+	special_trait_background = yes
+
+	limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_interleaved_track_wheels
+
+	any_parent = { generic_mio_trait_interleaved_track_wheels generic_mio_trait_overlapped_track_wheels }
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	equipment_bonus = {
+		reliability = 0.03
+		breakthrough = 0.05
+		armor_value = 0.05
+	}
+
+	production_bonus = {
+		production_cost_factor = 0.03
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_telescopic_sight
+	name = MON_mio_trait_telescopic_sight
+	icon = GFX_generic_mio_trait_icon_hard_attack
+	special_trait_background = yes
+
+	limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+
+	position = { x=-0 y=1 }
+	relative_position_id = generic_mio_trait_turret_sights
+
+	any_parent = { generic_mio_trait_turret_sights }
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	equipment_bonus = {
+		hard_attack = 0.05
+		ap_attack = 0.05
+		breakthrough = 0.05
+	}
+
+	production_bonus = {
+		production_cost_factor = 0.03
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_technical_superiority
+	name = MON_mio_trait_technical_superiority
+	icon = GFX_generic_mio_department_icon_tank_general_quality
+	special_trait_background = yes
+
+	position = { x=0 y=1 }
+	relative_position_id = generic_mio_trait_adaptable_chassis
+
+	any_parent = { generic_mio_trait_adaptable_chassis }
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	equipment_bonus = {
+		defense = 0.05
+		soft_attack = 0.05
+		armor_value = 0.05
+	}
+
+	production_bonus = {
+		production_cost_factor = 0.03
+	}
+}
+
 }
 
 MON_astrov_design_bureau_organization = {
@@ -59,6 +355,175 @@ MON_astrov_design_bureau_organization = {
 			production_capacity_factor = 0.075
 		}
 	}
+
+	add_trait = {
+		token = MON_mio_trait_24hour_shifts
+		name = MON_mio_trait_24hour_shifts
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 7 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_24hour_shifts
+					NOT = { has_country_flag = hour_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = hour_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_centralized_development
+		name = MON_mio_trait_centralized_development
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 8 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_centralized_tank_development
+					NOT = { has_country_flag = centralized_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = centralized_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_snowpiercer
+		name = MON_mio_trait_snowpiercer
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+
+		position = { x = 9 y= 4 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_snowpiercer
+					NOT = { has_country_flag = snowpiercer_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = snowpiercer_taken_flag
+			}
+		}
+
+		equipment_bonus = 
+		{
+			soft_attack = 0.1
+			ap_attack = 0.1
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_trait_high_velocity_armament
+	name = MON_mio_trait_high_velocity_armament
+	icon = GFX_generic_mio_department_icon_tank_general_at
+	special_trait_background = yes
+
+	position = { x=1 y=2 }
+	relative_position_id = generic_mio_trait_spaced_armor
+
+	all_parents = { generic_mio_trait_improved_gun_metallurgy }
+	any_parent = { generic_mio_trait_spaced_armor generic_mio_trait_crew_survival_layout generic_mio_trait_sloped_side_armor }
+	
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = { }
+
+	equipment_bonus = {
+		ap_attack = 0.05
+		hard_attack = 0.05
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_schachtellaufwerk 
+	name = MON_mio_trait_schachtellaufwerk 
+	icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+	special_trait_background = yes
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_improved_suspension
+
+	all_parents = { generic_mio_trait_improved_suspension }
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = { }
+
+	equipment_bonus = {
+		breakthrough = 0.05
+		reliability = 0.05
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_mobility_design_philosophy
+	name = MON_mio_trait_mobility_design_philosophy 
+	icon = GFX_generic_mio_department_icon_tank_medium_tank_engine
+	special_trait_background = yes
+
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_improved_suspension
+
+	all_parents = { generic_mio_trait_improved_suspension }
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = { }
+
+	equipment_bonus = {
+		maximum_speed = 0.1
+	}
+}
+
 }
 
 MON_morozov_design_bureau_organization = {
@@ -100,13 +565,201 @@ MON_kirov_organization = {
 			military_industrial_organization_research_bonus = 0.05
 		}
 		equipment_bonus = {
-			reliability = 0.10
-			maximum_speed = 0.10
-		}
-		production_bonus = {
-			production_capacity_factor = 0.075
+			reliability = 0.05
+			armor_value = 0.05
 		}
 	}
+
+	add_trait = {
+		token = MON_mio_trait_24hour_shifts
+		name = MON_mio_trait_24hour_shifts
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 9 y= 0 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_24hour_shifts
+					NOT = { has_country_flag = hour_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = hour_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_centralized_development
+		name = MON_mio_trait_centralized_development
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 9 y= 1 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_centralized_tank_development
+					NOT = { has_country_flag = centralized_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = centralized_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.10
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_snowpiercer
+		name = MON_mio_trait_snowpiercer
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+
+		position = { x = 9 y= 2 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_snowpiercer
+					NOT = { has_country_flag = snowpiercer_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = snowpiercer_taken_flag
+			}
+		}
+
+		equipment_bonus = 
+		{
+			soft_attack = 0.1
+			ap_attack = 0.1
+		}
+	}
+
+	override_trait = {
+		token = generic_mio_trait_improved_crew_ergonomics
+
+		position = { x=0 y=2 }
+	}
+
+	add_trait = {
+	token = MON_mio_trait_experimental_high_caliber
+	name = MON_mio_trait_experimental_high_caliber
+	icon = GFX_generic_mio_department_icon_tank_general_at
+	special_trait_background = yes
+
+	all_parents = {
+        generic_mio_trait_anti_tank_specialization
+    }
+
+	position = { x=0 y= 1 }
+	relative_position_id = generic_mio_trait_anti_tank_specialization
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = {
+	}
+
+	equipment_bonus = {
+		hard_attack = 0.1
+		soft_attack = 0.05
+		build_cost_ic = 0.03
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_tungsten_tipped_heavy_rounds
+	name = MON_mio_trait_tungsten_tipped_heavy_rounds
+	icon = GFX_generic_mio_trait_icon_ap_attack
+	special_trait_background = yes
+
+	all_parents = {
+        generic_mio_trait_anti_tank_specialization
+    }
+
+	position = { x=1 y= 1 }
+	relative_position_id = generic_mio_trait_anti_tank_specialization
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = {
+	}
+
+	equipment_bonus = {
+		ap_attack = 0.1
+		hard_attack = 0.05
+		build_cost_ic = 0.05
+	}
+}
+
+add_trait = {
+	token = MON_mio_trait_unorthodox_transmission_design
+	name = MON_mio_trait_unorthodox_transmission_design
+	icon = GFX_generic_mio_department_icon_tank_heavy_tank_engine
+	special_trait_background = yes
+
+	all_parents = {
+        generic_mio_trait_simplified_transmission_system
+    }
+
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_simplified_transmission_system
+
+	visible = {
+		FROM = { original_tag = MON }
+	}
+
+	available = {
+	}
+
+	limit_to_equipment_type = { 
+		armor
+	}
+
+	equipment_bonus = {
+		maximum_speed = 0.1
+		reliability = -0.05
+		fuel_consumption = 0.05
+	}
+}
+
 }
 
 MON_mig_design_bureau_organization = {
@@ -120,17 +773,146 @@ MON_mig_design_bureau_organization = {
 	}
 
 	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
 		equipment_bonus = {
 			air_agility = 0.05
 			maximum_speed = 0.05
 			air_attack = 0.05
-			air_range = 0.05
 		}
 	}
+
+	add_trait = {
+	token = MON_mio_trait_maintenance_first_design
+	name = MON_mio_trait_maintenance_first_design
+
+	icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+	special_trait_background = yes
+	
+	position = { x=-2 y=1 }
+	relative_position_id = generic_mio_trait_expanded_production_facilities
+
+	all_parents = { generic_mio_trait_expanded_production_facilities }
+
+	equipment_bonus = {
+		reliability = 0.05
+	}
+
+	production_bonus = {
+		production_efficiency_gain_factor = 0.05
+	}
 }
+
+	add_trait = {
+	token = MON_mio_trait_fuselage_based_weapons
+	name = MON_mio_trait_fuselage_based_weapons
+
+	icon = GFX_generic_mio_trait_icon_anti_air_attack
+	special_trait_background = yes
+	
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_gun_pods
+
+	any_parent = { generic_mio_trait_heavier_airframe generic_mio_trait_maximum_wing_loads generic_mio_trait_gun_pods }
+
+	equipment_bonus = {
+		air_attack = 0.05
+		air_agility = 0.05
+	} 
+}
+
+	####SPECIAL 
+	add_trait = {
+	token = MON_mio_trait_utmost_optimization
+	name = MON_mio_trait_utmost_optimization
+
+	icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+	special_trait_background = yes
+	
+	position = { x=9 y=0 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_utmost_optimization
+					NOT = { has_country_flag = utmost_optimization_flag }
+				}
+		}
+
+	production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = utmost_optimization_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_stronger_engines
+	name = MON_mio_stronger_engines
+
+	icon = GFX_generic_mio_trait_icon_maximum_speed
+	special_trait_background = yes
+	
+	position = { x=9 y=1 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_stronger_engines
+					NOT = { has_country_flag = stronger_engines_flag }
+				}
+		}
+
+	equipment_bonus = 
+	{
+		air_range = 0.10
+		maximum_speed = 0.05
+	}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = stronger_engines_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_follow_soviet_designs
+	name = MON_mio_follow_soviet_designs
+
+	icon = GFX_generic_mio_department_icon_facilities
+	special_trait_background = yes
+	
+	position = { x=9 y=2 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_follow_soviet_designs
+					NOT = { has_country_flag = follow_soviet_designs_flag }
+				}
+		}
+
+	organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = follow_soviet_designs_flag
+			}
+		}
+	}
+
+}
+
+
 
 MON_ilyushin_design_bureau_organization = {
 	include = generic_medium_aircraft_organization
@@ -143,16 +925,142 @@ MON_ilyushin_design_bureau_organization = {
 	}
 
 	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
-		production_bonus = {
-			production_capacity_factor = 0.05
-		}
 		equipment_bonus = {
 			air_agility = 0.05
+			air_attack = 0.05
 		}
 	}
+
+	####SPECIAL 
+	add_trait = {
+	token = MON_mio_trait_utmost_optimization
+	name = MON_mio_trait_utmost_optimization
+
+	icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+	special_trait_background = yes
+	
+	position = { x=9 y=0 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_utmost_optimization
+					NOT = { has_country_flag = utmost_optimization_flag }
+				}
+		}
+
+	production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = utmost_optimization_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_stronger_engines
+	name = MON_mio_stronger_engines
+
+	icon = GFX_generic_mio_trait_icon_maximum_speed
+	special_trait_background = yes
+	
+	position = { x=9 y=1 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_stronger_engines
+					NOT = { has_country_flag = stronger_engines_flag }
+				}
+		}
+
+	equipment_bonus = 
+	{
+		air_range = 0.10
+		maximum_speed = 0.05
+	}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = stronger_engines_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_follow_soviet_designs
+	name = MON_mio_follow_soviet_designs
+
+	icon = GFX_generic_mio_department_icon_facilities
+	special_trait_background = yes
+	
+	position = { x=9 y=2 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_follow_soviet_designs
+					NOT = { has_country_flag = follow_soviet_designs_flag }
+				}
+		}
+
+	organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = follow_soviet_designs_flag
+			}
+		}
+	}
+
+
+	###
+
+	add_trait = {
+	token = MON_mio_trait_flying_boat_specialist
+	name = MON_mio_trait_flying_boat_specialist
+	icon = GFX_generic_mio_trait_icon_torpedo_attack
+	special_trait_background = yes
+	
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_skip_bombing
+	all_parents = { generic_mio_trait_skip_bombing }
+
+	limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
+
+	equipment_bonus = {
+		surface_detection = 0.03
+		naval_strike_attack = 0.05
+	} 
+}
+
+add_trait = {
+	token = MON_mio_trait_schnellbomber_doctrine
+	name = MON_mio_trait_schnellbomber_doctrine
+	icon = GFX_generic_mio_department_icon_plane_medium_engine
+	special_trait_background = yes
+	
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_refined_engines
+	all_parents = { generic_mio_trait_refined_engines }
+
+	limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
+
+	equipment_bonus = {
+		maximum_speed = 0.1
+	} 
+}
+
+
 }
 
 MON_tupolev_design_bureau_organization = {
@@ -173,4 +1081,96 @@ MON_tupolev_design_bureau_organization = {
 			production_capacity_factor = 0.05
 		}
 	}
+
+	####SPECIAL 
+	add_trait = {
+	token = MON_mio_trait_utmost_optimization
+	name = MON_mio_trait_utmost_optimization
+
+	icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+	special_trait_background = yes
+	
+	position = { x=0 y=0 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_utmost_optimization
+					NOT = { has_country_flag = utmost_optimization_flag }
+				}
+		}
+
+	production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = utmost_optimization_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_stronger_engines
+	name = MON_mio_stronger_engines
+
+	icon = GFX_generic_mio_trait_icon_maximum_speed
+	special_trait_background = yes
+	
+	position = { x=1 y=0 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_stronger_engines
+					NOT = { has_country_flag = stronger_engines_flag }
+				}
+		}
+
+	equipment_bonus = 
+	{
+		air_range = 0.10
+		maximum_speed = 0.05
+	}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = stronger_engines_flag
+			}
+		}
+	}
+
+	add_trait = {
+	token = MON_mio_follow_soviet_designs
+	name = MON_mio_follow_soviet_designs
+
+	icon = GFX_generic_mio_department_icon_facilities
+	special_trait_background = yes
+	
+	position = { x=0 y=1 }
+
+	available = {
+				MON = 
+				{
+					has_completed_focus = MON_follow_soviet_designs
+					NOT = { has_country_flag = follow_soviet_designs_flag }
+				}
+		}
+
+	organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+
+	on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = follow_soviet_designs_flag
+			}
+		}
+	}
+
 }

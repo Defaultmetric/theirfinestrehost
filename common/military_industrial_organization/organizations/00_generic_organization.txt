@@ -15,7 +15,7 @@ generic_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = GER original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
+		NOT = { OR = { original_tag = GER original_tag = MON original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -1695,7 +1695,7 @@ generic_heavy_tank_organization = {
 		mutually_exclusive = { generic_mio_trait_apcr_hvap_shells }
 		
 		equipment_bonus = {
-			soft_attack = 0.15
+			soft_attack = 0.10
 			hard_attack = 0.05
 
 		}
@@ -4053,7 +4053,7 @@ generic_general_aircraft_organization = {
 
 	allowed = {
 		NOT = { 
-			OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CAN tag = YUG tag = ROM tag = CZE tag = HUN tag = CHI tag = MAN tag = HOL tag = BUL tag = GRE tag = TUR tag = LAT tag = LIT 
+			OR = {original_tag = MON original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CAN tag = YUG tag = ROM tag = CZE tag = HUN tag = CHI tag = MAN tag = HOL tag = BUL tag = GRE tag = TUR tag = LAT tag = LIT 
 			} 
 		}
 		NOT = { tag = SPR tag = SPA tag = SPB tag = SPC tag = SPD }

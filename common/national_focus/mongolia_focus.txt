@@ -26,7 +26,7 @@ focus_tree = {
 			330 = {
 				add_building_construction = {
 					type = infrastructure
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -90,7 +90,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = MON_civil_works_industry_bonus
 				bonus = 1
-				uses = 2
+				uses = 1
 				category = industry
 			}
 		}
@@ -114,7 +114,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_consumer_goods = -0.2
+				MON_ind_consumer_goods = -0.15
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -122,13 +122,10 @@ focus_tree = {
 				tooltip = production_speed_buildings_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			add_to_variable = {
 				MON_ind_civ_construction_speed = 0.05
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			817 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -154,11 +151,13 @@ focus_tree = {
 			set_technology = {
 				radio = 1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
 				MON_ind_research_speed = 0.05
 				tooltip = research_speed_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_stability = 0.05
 		}
 	}
@@ -181,6 +180,96 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = MON_exploit_ulaanbaatar
+		icon = GFX_focus_generic_mining_industry
+		cost = 5
+		prerequisite = {
+			focus = MON_academy_of_sciences
+		}
+
+		mutually_exclusive = 
+		{
+			focus = MON_ulaanbaatar_industrial_hub
+		}
+		x = -1
+		y = 1
+		relative_position_id = MON_academy_of_sciences
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		completion_reward = {
+			330 = {
+				add_resource = {
+					type = steel
+					amount = 18
+				}
+				add_resource = {
+					type = chromium
+					amount = 18
+				}
+				add_resource = {
+					type = tungsten
+					amount = 18
+				}
+				add_resource = {
+					type = aluminium
+					amount = 18
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = MON_ulaanbaatar_industrial_hub
+		icon = GFX_focus_AUS_courting_the_princess_of_industry
+		cost = 5
+		prerequisite = {
+			focus = MON_academy_of_sciences
+		}
+
+		mutually_exclusive = 
+		{
+			focus = MON_exploit_ulaanbaatar
+		}
+		x = 1
+		y = 1
+		relative_position_id = MON_academy_of_sciences
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		completion_reward = {
+			330 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}
+				add_resource = {
+					type = chromium
+					amount = 12
+				}
+				add_resource = {
+					type = tungsten
+					amount = 12
+				}
+				add_resource = {
+					type = aluminium
+					amount = 12
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = { 
+	        		idea = civ_eco_boost 
+	        		days = 365 
+	    		}
+		}
+	}
+
 	focus = {
 		id = MON_stimulate_economy
 		icon = GFX_focus_generic_communist_industry
@@ -204,14 +293,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			820 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
 				MON_ind_factory_output = 0.05
@@ -219,66 +301,19 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = MON_red_industry_rises
-		icon = GFX_focus_AFG_state_atheism
-		prerequisite = {
-			focus = MON_stimulate_economy
-		}
-		x = 1
-		y = 1
-		cost = 10
-		relative_position_id = MON_stimulate_economy
-		completion_reward = {
-			custom_effect_tooltip = MON_red_industry_rises_tt
-			every_state = {
-				limit = {
-					is_core_of = MON
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-	}
-	focus = {
-		id = MON_increase_immigration
-		icon = GFX_focus_generic_workers_and_farmers_rise
-		cost = 5
-		prerequisite = {
-			focus = MON_stimulate_economy
-		}
-		x = -1
-		y = 1
-		relative_position_id = MON_stimulate_economy
-		completion_reward = {
-			add_ideas = MON_immigration_program
-			330 = {
-				set_state_category = large_city
-			}
-			817 = {
-				set_state_category = rural
-			}
-			818 = {
-				set_state_category = town
-			}
-			819 = {
-				set_state_category = town
-			}
-		}
-	}
+
 	focus = {
 		id = MON_regional_developement
 		icon = GFX_SOV_industrial_modernization_ccp_2d_sov_compatibility
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = MON_agrarian_reform
 		}
-		x = 3
-		y = 2
+		prerequisite = {
+			focus = MON_radio_propaganda
+		}
+		x = 4
+		y = 1
 
 		ai_will_do = {
 			factor = 8
@@ -286,17 +321,8 @@ focus_tree = {
 
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
-			330 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			820 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			818 = {
-				add_extra_state_shared_building_slots = 1
-			}
 			817 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -304,7 +330,7 @@ focus_tree = {
 				}
 			}
 			819 = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -313,6 +339,9 @@ focus_tree = {
 			}
 		}
 	}
+
+	
+
 	focus = {
 		id = MON_start_of_industrial_revolution
 		icon = GFX_SOV_heavy_industry_ccp_2d_sov_compatibility
@@ -338,6 +367,7 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
 			
 			add_to_variable = {
@@ -350,42 +380,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = MON_exploit_ulaanbaatar
-		icon = GFX_focus_generic_mining_industry
-		cost = 5
-		prerequisite = {
-			focus = MON_regional_developement
-		}
-		x = 1
-		y = 1
-		relative_position_id = MON_regional_developement
 
-		ai_will_do = {
-			factor = 8
-		}
-
-		completion_reward = {
-			330 = {
-				add_resource = {
-					type = steel
-					amount = 12
-				}
-				add_resource = {
-					type = chromium
-					amount = 12
-				}
-				add_resource = {
-					type = tungsten
-					amount = 12
-				}
-				add_resource = {
-					type = aluminium
-					amount = 24
-				}
-			}
-		}
-	}
 	focus = {
 		id = MON_oil_exploration
 		icon = GFX_SOV_oil_production_ccp_2d_sov_compatibility
@@ -396,11 +391,11 @@ focus_tree = {
 		}
 
 		prerequisite = {
-			focus = MON_regional_developement
+			focus = MON_start_of_industrial_revolution
 		}
-		x = -1
+		x = 1
 		y = 1
-		relative_position_id = MON_regional_developement
+		relative_position_id = MON_start_of_industrial_revolution
 		completion_reward = {
 			817 = {
 				add_resource = {
@@ -414,6 +409,54 @@ focus_tree = {
 				uses = 1
 				category = excavation_tech
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_army_modifier_tt
+			add_to_variable = {
+				MON_army_fuel_consumption = -0.1
+				tooltip = army_fuel_consumption_factor_tt
+			}
+
+		}
+	}
+	
+
+	focus = {
+		id = MON_increase_immigration
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		cost = 5
+		prerequisite = {
+			focus = MON_regional_developement
+		}
+		x = -1
+		y = 1
+		relative_position_id = MON_regional_developement
+		completion_reward = {
+			add_ideas = MON_immigration_program
+			custom_effect_tooltip = generic_skip_one_line_tt
+			820 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = MON_red_industry_rises
+		icon = GFX_focus_AFG_state_atheism
+		prerequisite = {
+			focus = MON_regional_developement
+		}
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = MON_regional_developement
+		completion_reward = {
+			custom_effect_tooltip = red_industry_rises_tt
 		}
 	}
 	focus = {
@@ -423,8 +466,8 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_stimulate_economy
 		}
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 
 		ai_will_do = {
 			factor = 9
@@ -504,48 +547,12 @@ focus_tree = {
 					target_province = 4725
 				}
 			}
-			
-			# Building slots + infrastructure in infra states
-			330 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			820 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			818 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			819 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			817 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_timed_idea = { 
+	        		idea = infra_boost
+	        		days = 365 
+	    	}
+
 		}
 	}
 	focus = {
@@ -553,30 +560,25 @@ focus_tree = {
 		icon = GFX_SOV_shift_to_armaments_production_ccp_2d_sov_compatibility
 		cost = 5
 		prerequisite = {
-			focus = MON_improve_railways
+			focus = MON_stimulate_economy
 		}
 		prerequisite = {
-			focus = MON_oil_exploration
-			focus = MON_exploit_ulaanbaatar
+			focus = MON_increase_immigration
 		}
 		x = 0
-		y = 1
-		relative_position_id = MON_improve_railways
+		y = 2
+		relative_position_id = MON_stimulate_economy
 		mutually_exclusive = {
 			focus = MON_industrial_awakening
 		}
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_consumer_goods = -0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				MON_ind_civ_construction_speed = -0.3
+				MON_ind_civ_construction_speed = -0.2
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_mill_construction_speed = 0.9
+				MON_ind_mill_construction_speed = 0.2
 				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
@@ -595,17 +597,14 @@ focus_tree = {
 		}
 
 		prerequisite = {
-			focus = MON_exploit_ulaanbaatar
-		}
-		prerequisite = {
-			focus = MON_oil_exploration
+			focus = MON_red_industry_rises
 		}
 		prerequisite = {
 			focus = MON_start_of_industrial_revolution
 		}
-		x = 2
-		y = 1
-		relative_position_id = MON_exploit_ulaanbaatar
+		x = 0
+		y = 2
+		relative_position_id = MON_start_of_industrial_revolution
 		mutually_exclusive = {
 			focus = MON_shift_to_armaments
 		}
@@ -614,14 +613,10 @@ focus_tree = {
 				name = industry_bonus
 				category = industry
 				bonus = 1
+				ahead_reduction = 2
 				uses = 1
 			}
-			add_tech_bonus = {
-				name = excavation_bonus
-				category = excavation_tech
-				bonus = 1
-				uses = 1
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
 				MON_ind_construction_speed = 0.05
@@ -649,7 +644,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_factory_output = 0.15
+				MON_ind_factory_output = 0.2
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = {
@@ -694,7 +689,7 @@ focus_tree = {
 				tooltip = production_factory_start_efficiency_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_prod_eff_retention = -0.1
+				MON_ind_prod_eff_retention = -0.2
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
@@ -708,7 +703,7 @@ focus_tree = {
 			focus = MON_quality_production
 		}
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = MON_standardize_production
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
@@ -825,22 +820,15 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_consumer_goods = -0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
 				MON_ind_construction_speed = 0.05
 				tooltip = production_speed_buildings_factor_tt
 			}
-			add_to_variable = {
-				MON_ind_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-			330 = {
-				add_extra_state_shared_building_slots = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			287 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -868,14 +856,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
-			817 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			818 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -958,13 +939,15 @@ focus_tree = {
 		completion_reward = {
 			add_breakthrough_progress = {
 				specialization = specialization_nuclear
-				value = 0.75
+				value = 2
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				name = MON_atomic_bonus
 				category = nuclear
 				bonus = 1
 				uses = 1
+				ahead_reduction = 1
 			}
 		}
 	}
@@ -979,7 +962,7 @@ focus_tree = {
 			factor = 8
 		}
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = MON_factories_without_end
 		cost = 10
 		completion_reward = {
@@ -989,15 +972,11 @@ focus_tree = {
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_mill_construction_speed = 0.6
-				tooltip = production_speed_arms_factory_factor_tt
-			}
-			add_to_variable = {
-				MON_ind_prod_eff_cap = 0.1
+				MON_ind_prod_eff_cap = 0.15
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_factory_output = 0.05
+				MON_ind_factory_output = 0.15
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = {
@@ -1030,7 +1009,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_domestic_arms
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_generic_military_industry
 		cost = 5
 		prerequisite = {
 			focus = MON_shift_to_armaments
@@ -1052,7 +1031,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_war_production
-		icon = GFX_focus_secret_rearmament
+		icon = GFX_focus_generic_mass_production
 		cost = 10
 		prerequisite = {
 			focus = MON_domestic_arms
@@ -1066,6 +1045,9 @@ focus_tree = {
 				MON_ind_factory_output = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			817 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -1073,6 +1055,30 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+			}
+		}
+	}
+
+	focus = {
+		id = MON_every_last_drop
+		icon = GFX_focus_generic_communist_industry
+		cost = 10
+		prerequisite = {
+			focus = MON_war_production
+		}
+		x = 0
+		y = 1
+		relative_position_id = MON_war_production
+		completion_reward = {
+			custom_effect_tooltip = MON_industry_modifier_tt
+			
+			add_to_variable = {
+				MON_ind_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				MON_ind_prod_eff_retention = -0.1
+				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
 	}
@@ -1085,19 +1091,21 @@ focus_tree = {
 	cost = 5
 
 	completion_reward = {
-	air_experience = 25
-
 	330 = {
 			add_building_construction = {
 				type = air_base
-				level = 5
+				level = 10
 				instant_build = yes
 			}
 	}
 
+	custom_effect_tooltip = generic_skip_one_line_tt
 	custom_effect_tooltip = MON_air_modifier_tt
 
 	add_to_variable = { MON_airforce_air_fuel_consumption_factor = -0.05 tooltip = air_fuel_consumption_factor_tt }
+
+	custom_effect_tooltip = generic_skip_one_line_tt
+	air_experience = 50
 }
 
 }
@@ -1118,8 +1126,7 @@ focus_tree = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
 		add_to_variable = { MON_airforce_air_accidents_factor              = -1.0  tooltip = air_accidents_factor_tt }
-		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.5  tooltip = air_ace_generation_chance_factor_tt }
-		add_to_variable = { MON_airforce_air_training_xp_gain_factor      =  0.05 tooltip = air_training_xp_gain_factor_tt }
+		add_to_variable = { MON_airforce_air_training_xp_gain_factor      =  0.15 tooltip = air_training_xp_gain_factor_tt }
 	}
 }
 
@@ -1138,11 +1145,7 @@ focus_tree = {
 	completion_reward = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
-		add_to_variable = { MON_airforce_air_accidents_factor              = -0.9  tooltip = air_accidents_factor_tt }
-		add_to_variable = { MON_airforce_air_night_penalty                 = -0.4  tooltip = air_night_penalty_tt }
-		add_to_variable = { MON_airforce_air_weather_penalty              = -0.3  tooltip = air_weather_penalty_tt }
-		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.15 tooltip = air_ace_generation_chance_factor_tt }
-		add_to_variable = { MON_airforce_air_experience_gain_factor       =  0.05 tooltip = experience_gain_air_tt }
+		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.55 tooltip = air_ace_generation_chance_factor_tt }
 	}
 }
 
@@ -1163,61 +1166,9 @@ focus_tree = {
 	completion_reward = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
-		add_to_variable = { MON_airforce_air_experience_gain_factor =  0.10 tooltip = experience_gain_air_tt }
-		add_to_variable = { MON_airforce_air_night_penalty          = -0.20 tooltip = air_night_penalty_tt }
-		add_to_variable = { MON_airforce_air_weather_penalty        = -0.10 tooltip = air_weather_penalty_tt }
-	}
-}
-
-	focus = {
-	id = MON_every_factory_a_hangar
-	icon = GFX_goal_generic_air_production
-	x = -1
-	y = 1
-	cost = 10
-
-	prerequisite = {
-		focus = MON_analyze_foreign_air_tactics
-		focus = MON_further_increase_training
-	}
-	relative_position_id = MON_analyze_foreign_air_tactics
-	mutually_exclusive = {
-		focus = MON_elite_pilots_program
-	}
-
-	completion_reward = {
-		custom_effect_tooltip = MON_air_modifier_tt
-		add_to_variable = { MON_airforce_air_ace_generation_chance_factor = 0.05 tooltip = air_ace_generation_chance_factor_tt }
-		add_to_variable = { MON_airforce_air_accidents_factor              = -0.10 tooltip = air_accidents_factor_tt }
-
-		custom_effect_tooltip = MON_industry_modifier_tt
-		add_to_variable = { MON_ind_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
-	}
-}
-
-	focus = {
-	id = MON_elite_pilots_program
-	icon = GFX_focus_NOR_moscows_education_centers
-	x = 3
-	y = 1
-	cost = 10
-
-	prerequisite = {
-		focus = MON_analyze_foreign_air_tactics focus = MON_further_increase_training
-	}
-	relative_position_id = MON_analyze_foreign_air_tactics
-	mutually_exclusive = {
-		focus = MON_every_factory_a_hangar
-	}
-
-	completion_reward = {
-		custom_effect_tooltip = MON_air_modifier_tt
-
-		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.10 tooltip = air_ace_generation_chance_factor_tt }
-		add_to_variable = { MON_airforce_air_accidents_factor              = -0.10 tooltip = air_accidents_factor_tt }
-		add_to_variable = { MON_airforce_air_fuel_consumption_factor       = -0.05 tooltip = air_fuel_consumption_factor_tt }
-		add_to_variable = { MON_airforce_air_weather_penalty              = -0.10 tooltip = air_weather_penalty_tt }
-		add_to_variable = { MON_airforce_air_night_penalty                = -0.10 tooltip = air_night_penalty_tt }
+		add_to_variable = { MON_airforce_air_experience_gain_factor =  0.20 tooltip = experience_gain_air_tt }
+		add_to_variable = { MON_airforce_air_night_penalty          = -0.30 tooltip = air_night_penalty_tt }
+		add_to_variable = { MON_airforce_air_weather_penalty        = -0.20 tooltip = air_weather_penalty_tt }
 	}
 }
 
@@ -1273,7 +1224,7 @@ focus_tree = {
 	focus = {
 		id = MON_miltary_comms_industry
 		icon = GFX_goal_generic_radar
-		x = -2
+		x = -1
 		y = 1
 		cost = 5
 		prerequisite = {
@@ -1295,14 +1246,12 @@ focus_tree = {
 	focus = {
 		id = MON_defense_of_the_motherland
 		icon = GFX_SOV_the_eyes_fear_ccp_2d_sov_compatibility
-		x = 5
+		x = 4
 		y = 1
 		cost = 5
 		relative_position_id = MON_further_increase_training
 		prerequisite = {
 			focus = MON_further_increase_training
-			focus = MON_analyze_foreign_air_tactics
-			focus = MON_establish_a_unified_command
 			focus = MON_new_tech_investors
 		}
 		available = {
@@ -1328,10 +1277,10 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 10
-		relative_position_id = MON_every_factory_a_hangar
+		relative_position_id = MON_analyze_foreign_air_tactics
 		prerequisite = {
-			focus = MON_every_factory_a_hangar
-			focus = MON_elite_pilots_program
+			focus = MON_analyze_foreign_air_tactics
+			focus = MON_further_increase_training
 		}
 		mutually_exclusive = {
 			focus = MON_heavier_crafts
@@ -1348,16 +1297,35 @@ focus_tree = {
 		}
 		}
 	}
+
+	focus = {
+	id = MON_lower_material_usage
+	icon = GFX_focus_generic_copy_plane_designs
+	x = 2
+	y = 1
+	cost = 10
+
+	prerequisite = {
+		focus = MON_a_nimble_air_force
+		focus = MON_heavier_crafts
+		focus = MON_focus_on_strategic_bombing
+	}
+	relative_position_id = MON_a_nimble_air_force
+
+	completion_reward = {
+		add_ideas = optimized_aircraft_assembly
+	}
+}
 	focus = {
 		id = MON_heavier_crafts
 		icon = GFX_focus_usa_escort_fighters
-		x = 2
+		x = 1
 		y = 1
 		cost = 10
-		relative_position_id = MON_every_factory_a_hangar
+		relative_position_id = MON_analyze_foreign_air_tactics
 		prerequisite = {
-			focus = MON_every_factory_a_hangar
-			focus = MON_elite_pilots_program
+			focus = MON_analyze_foreign_air_tactics
+			focus = MON_further_increase_training
 		}
 		mutually_exclusive = {
 			focus = MON_a_nimble_air_force
@@ -1378,13 +1346,13 @@ focus_tree = {
 	focus = {
 		id = MON_focus_on_strategic_bombing
 		icon = GFX_focus_SWE_marauder_bombers
-		x = 5
+		x = 3
 		y = 1
 		cost = 10
-		relative_position_id = MON_every_factory_a_hangar
+		relative_position_id = MON_analyze_foreign_air_tactics
 		prerequisite = {
-			focus = MON_every_factory_a_hangar
-			focus = MON_elite_pilots_program
+			focus = MON_analyze_foreign_air_tactics
+			focus = MON_further_increase_training
 		}
 		mutually_exclusive = {
 			focus = MON_heavier_crafts
@@ -1402,96 +1370,142 @@ focus_tree = {
 }
 
 	}
-	focus = {
-	id = MON_mig_imo
-	icon = GFX_SOV_ground_support_ccp_2d_sov_compatibility
-	x = 0
+
+focus = {
+	id = MON_stronger_engines
+	icon = GFX_focus_generic_university_2
+	x = -3
 	y = 1
-	cost = 5
-	relative_position_id = MON_a_nimble_air_force
+	cost = 10
 
 	prerequisite = {
-		focus = MON_a_nimble_air_force
+		focus = MON_lower_material_usage
 	}
+	relative_position_id = MON_lower_material_usage
+	
+	available = {
+    has_tech = engines_3
+	}
+
 
 	completion_reward = {
-		set_technology = {
-			early_bombs = 1
-			aircraft_construction = 1
-		}
 		custom_effect_tooltip = MON_air_modifier_tt
-		add_to_variable = {
-			MON_airforce_ground_attack_factor = 0.10
-			tooltip = air_cas_present_factor_tt
-		}
-	}
-}
-
-	focus = {
-	id = MON_med_imo
-	icon = GFX_goal_generic_air_bomber
-	x = 0
-	y = 1
-	cost = 5
-	relative_position_id = MON_heavier_crafts
-
-	prerequisite = {
-		focus = MON_heavier_crafts
-	}
-
-	completion_reward = {
-		set_technology = {
-			aircraft_construction = 1
-			survivability_studies = 1
-		}
-
-		custom_effect_tooltip = MON_air_modifier_tt
-
 		add_to_variable = {
 			MON_airforce_air_agility = 0.05
 			tooltip = air_agility_factor_tt
 		}
-	}
-}
-
-	focus = {
-	id = MON_heavy_imo
-	icon = GFX_SOV_long_range_aircraft_ccp_2d_sov_compatibility
-	x = 0
-	y = 1
-	cost = 5
-	relative_position_id = MON_focus_on_strategic_bombing
-
-	prerequisite = {
-		focus = MON_focus_on_strategic_bombing
-	}
-
-	completion_reward = {
-		set_technology = {
-			survivability_studies = 1
-			range_improvements = 1
-		}
-
-		custom_effect_tooltip = MON_air_modifier_tt
-
 		add_to_variable = {
 			MON_airforce_air_range = 0.05
 			tooltip = air_range_factor_tt
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = MON_special_trait_tt
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_tech_bonus = {
+				name = mon_engine_bonus
+				bonus = 1
+				uses = 1
+				ahead_reduction = 1
+				category = air_equipment
+			}
 	}
 }
-	focus = {
+
+focus = {
+	id = MON_follow_soviet_designs
+	icon = GFX_goal_generic_soviet_construction
+	x = 3
+	y = 1
+	cost = 5
+
+	prerequisite = {
+		focus = MON_lower_material_usage
+	}
+	relative_position_id = MON_lower_material_usage
+	
+
+	completion_reward = {
+		custom_effect_tooltip = MON_special_trait_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 1
+			}
+	}
+}
+
+
+focus = {
+	id = MON_every_factory_a_hangar
+	icon = GFX_goal_generic_air_production
+	x = -1
+	y = 1
+	cost = 5
+
+	prerequisite = {
+		focus = MON_lower_material_usage
+	}
+	relative_position_id = MON_lower_material_usage
+	mutually_exclusive = {
+		focus = MON_elite_pilots_program
+	}
+
+	completion_reward = {
+
+		custom_effect_tooltip = MON_industry_modifier_tt
+		add_to_variable = { MON_ind_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+	}
+}
+
+focus = {
+	id = MON_elite_pilots_program
+	icon = GFX_focus_NOR_moscows_education_centers
+	x = 1
+	y = 1
+	cost = 5
+
+	prerequisite = {
+		focus = MON_lower_material_usage 
+	}
+	relative_position_id = MON_lower_material_usage
+	mutually_exclusive = {
+		focus = MON_every_factory_a_hangar
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = MON_air_modifier_tt
+
+		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.10 tooltip = air_ace_generation_chance_factor_tt }
+		add_to_variable = { MON_airforce_air_accidents_factor              = -0.10 tooltip = air_accidents_factor_tt }
+		add_to_variable = { MON_airforce_air_fuel_consumption_factor       = -0.05 tooltip = air_fuel_consumption_factor_tt }
+		add_to_variable = { MON_airforce_air_weather_penalty              = -0.10 tooltip = air_weather_penalty_tt }
+		add_to_variable = { MON_airforce_air_night_penalty                = -0.10 tooltip = air_night_penalty_tt }
+	}
+}
+
+focus = {
 	id = MON_terror_of_the_skies
 	icon = GFX_goal_generic_CAS
-	x = 3
-	y = 2
+	x = 1
+	y = 1
 	cost = 10
-	relative_position_id = MON_a_nimble_air_force
-	prerequisite = {
-		focus = MON_mig_imo
-		focus = MON_med_imo
-		focus = MON_heavy_imo
+	relative_position_id = MON_every_factory_a_hangar
+
+	available = {
+			OR = 
+			{
+				has_tech = improved_small_airframe 
+				has_tech = improved_medium_airframe 
+				has_tech = improved_large_airframe 
+			}
 	}
+
+	prerequisite = {
+		focus = MON_every_factory_a_hangar
+		focus = MON_elite_pilots_program
+	}
+
 	completion_reward = {
 		custom_effect_tooltip = MON_terror_dyn_tt
 
@@ -1524,6 +1538,45 @@ focus_tree = {
 	}
 }
 
+focus = {
+	id = MON_jet_fighters
+	icon = GFX_focus_generic_jet_planes
+	x = 2
+	y = 1
+	cost = 10
+	relative_position_id = MON_terror_of_the_skies
+
+	prerequisite = {
+		focus = MON_terror_of_the_skies
+	}
+
+	available = {
+			OR = 
+			{
+				has_tech = advanced_small_airframe 
+				has_tech = advanced_medium_airframe 
+				has_tech = advanced_large_airframe 
+			}
+	}
+
+	completion_reward = {
+		add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 1
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_tech_bonus = {
+				name = mon_jet_focus
+				bonus = 1.0
+				ahead_reduction = 1
+				uses = 1
+				category = jet_technology
+			}
+	}
+}
+
 	focus = {
 	id = MON_pulash_tactics
 	icon = GFX_focus_ETH_rally_around_the_emperor
@@ -1544,34 +1597,54 @@ focus_tree = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
 		add_to_variable = {
-			MON_airforce_ground_attack_factor = 0.20
+			MON_airforce_ground_attack_factor = 0.15
 			tooltip = air_cas_present_factor_tt
 		}
 	}
 }
 
+ focus = {
+	id = MON_utmost_optimization
+	icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+	x = -2
+	y = 1
+	cost = 10
+
+	prerequisite = {
+		focus = MON_terror_of_the_skies
+	}
+	relative_position_id = MON_terror_of_the_skies
+	
+
+	completion_reward = {
+		custom_effect_tooltip = MON_special_trait_tt
+	}
+}
+
+
+
+
 	##########Army
 	focus = {
 	id = MON_rebuilding_peoples_army
 	icon = GFX_SOV_military_reorganization_ccp_2d_sov_compatibility
-	x = 32
+	x = 30
 	y = 0
-	cost = 2
+	cost = 5
 
 	completion_reward = {
 		custom_effect_tooltip = MON_army_modifier_tt
 
-		add_to_variable = { MON_experience_gain_army_factor = 0.10 tooltip = experience_gain_army_factor_tt }
 		add_to_variable = { MON_army_org_factor = 0.05 tooltip = army_org_factor_tt }
-		add_to_variable = { MON_arm_div_attack = 0.10 tooltip = army_attack_factor_tt }
-		add_to_variable = { MON_arm_div_defense = 0.10 tooltip = army_defence_factor_tt }
+		add_to_variable = { MON_arm_div_attack = 0.05 tooltip = army_attack_factor_tt }
+		add_to_variable = { MON_arm_div_defense = 0.05 tooltip = army_defence_factor_tt }
 	}
 }
 
 	focus = {
 	id = MON_establish_a_unified_command
 	icon = GFX_SOV_strengthen_the_mobilization_plan_ccp_2d_sov_compatibility
-	x = -1
+	x = 1
 	y = 1
 	cost = 5
 	relative_position_id = MON_rebuilding_peoples_army
@@ -1584,7 +1657,7 @@ focus_tree = {
 		custom_effect_tooltip = MON_army_modifier_tt
 
 		add_to_variable = {
-			MON_experience_gain_army_factor = 0.10
+			MON_experience_gain_army_factor = 0.20
 			tooltip = experience_gain_army_factor_tt
 		}
 		add_to_variable = {
@@ -1604,7 +1677,7 @@ focus_tree = {
 	focus = {
 	id = MON_new_tech_investors
 	icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
-	x = 1
+	x = -1
 	y = 1
 	cost = 5
 	relative_position_id = MON_rebuilding_peoples_army
@@ -1620,9 +1693,10 @@ focus_tree = {
 			tooltip = research_speed_factor_tt
 		}
 
+		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = MON_army_modifier_tt
 		add_to_variable = {
-			MON_arm_div_attack = 0.10
+			MON_arm_div_attack = 0.05
 			tooltip = army_attack_factor_tt
 		}
 		add_to_variable = {
@@ -1640,24 +1714,21 @@ focus_tree = {
 	focus = {
 	id = MON_embrace_the_future
 	icon = GFX_SOV_superior_war_machines_ccp_2d_sov_compatibility
-	x = -4
-	y = 1
+	x = -3
+	y = 2
 	cost = 5
-	relative_position_id = MON_establish_a_unified_command
+	relative_position_id = MON_new_tech_investors
 
 	prerequisite = {
-		focus = MON_establish_a_unified_command
 		focus = MON_new_tech_investors
 	}
+
 
 	mutually_exclusive = {
 		focus = MON_rekindle_old_glory
 	}
 
 	completion_reward = {
-		
-		army_experience = 75
-
 		custom_effect_tooltip = MON_army_modifier_tt
 		add_to_variable = {
 			MON_org_loss_when_moving = -0.10
@@ -1667,6 +1738,19 @@ focus_tree = {
 			MON_army_org_factor = 0.05
 			tooltip = army_org_factor_tt
 		}
+		add_to_variable = { 
+			MON_mechanized_att = 0.05
+			tooltip = mechanized_attack_factor_tt 
+		}
+
+		add_to_variable = {
+			MON_armor_speed = 0.05
+			tooltip = army_armor_speed_factor_tt
+		}
+
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		army_experience = 75
 	}
 }
 
@@ -1676,14 +1760,13 @@ focus_tree = {
 	focus = {
 	id = MON_rekindle_old_glory
 	icon = GFX_focus_SOV_restore_cossack_units
-	x = 6
-	y = 1
+	x = 3
+	y = 2
 	cost = 5
 	relative_position_id = MON_establish_a_unified_command
 
 	prerequisite = {
 		focus = MON_establish_a_unified_command
-		focus = MON_new_tech_investors
 	}
 
 	mutually_exclusive = {
@@ -1691,32 +1774,60 @@ focus_tree = {
 	}
 
 	completion_reward = {
-		
-		army_experience = 75
 
 		custom_effect_tooltip = MON_army_modifier_tt
 		add_to_variable = {
-			MON_experience_loss_factor = -0.10
-			tooltip = experience_loss_factor_tt
-		}
-		add_to_variable = {
-			MON_army_org_factor = 0.05
+			MON_army_org_factor = 0.1
 			tooltip = army_org_factor_tt
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		army_experience = 75
 	}
 }
+
+focus = {
+		id = MON_specialised_winter_equipment
+		icon = GFX_focus_generic_winter_warfare
+		x = -4
+		y = 1
+		cost = 5
+		relative_position_id = MON_rekindle_old_glory
+		prerequisite = {
+			focus = MON_rekindle_old_glory
+			focus  = MON_embrace_the_future
+		}
+		completion_reward = {
+			custom_effect_tooltip = MON_army_modifier_tt
+			add_to_variable = {
+				MON_cold_acclimatization_factor = 0.15
+				tooltip = acclimatization_cold_climate_gain_factor_tt
+			}
+			add_to_variable = { 
+				MON_winter_attriton = -0.15 
+				tooltip = winter_attrition_factor_tt 
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = FIN_winter_warfare_battalion_tt
+
+			hidden_effect = {
+				set_technology = {
+					winter_logistics_support_tech = 1
+					popup = no
+				}
+			}
+		}
+	}
 
 
 	focus = {
 	id = MON_experimental_facilities
 	icon = GFX_focus_generic_tank_production
-	x = 6
+	x = 1
 	y = 1
 	cost = 5
-	relative_position_id = MON_embrace_the_future
+	relative_position_id = MON_establish_a_unified_command
 	prerequisite = {
-		focus = MON_rekindle_old_glory
-		focus = MON_embrace_the_future
+		focus = MON_establish_a_unified_command
 	}
 	completion_reward = {
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -1748,21 +1859,20 @@ focus_tree = {
 	focus = {
 	id = MON_improved_logistics
 	icon = GFX_focus_SOV_the_road_of_life
-	x = 4
+	x = -1
 	y = 1
 	cost = 5
-	relative_position_id = MON_embrace_the_future
+	relative_position_id = MON_new_tech_investors
 
 	prerequisite = {
-		focus = MON_rekindle_old_glory
-		focus = MON_embrace_the_future
+		focus = MON_new_tech_investors
 	}
 
 	completion_reward = {
 		custom_effect_tooltip = MON_army_modifier_tt
 		add_to_variable = {
-			MON_supply_efficiency_factor = -0.05
-			tooltip = supply_combat_penalties_on_core_factor_tt
+			MON_supply_efficiency_factor = -0.1
+			tooltip = supply_consumption_factor_tt
 		}
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_tech_bonus = {
@@ -1780,8 +1890,8 @@ focus_tree = {
 	id = MON_way_of_tiger
 	icon = GFX_focus_SWE_en_svensk_tiger
 	x = -2
-	y = 2
-	cost = 10
+	y = 1
+	cost = 5
 	relative_position_id = MON_embrace_the_future
 
 	prerequisite = {
@@ -1796,18 +1906,6 @@ focus_tree = {
 		set_technology = {
 			improved_light_tank_chassis = 1
 		}
-		
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = MON_army_modifier_tt
-
-		add_to_variable = {
-			MON_org_loss_when_moving = -0.10
-			tooltip = org_loss_when_moving_tt
-		}
-		add_to_variable = {
-			MON_armor_speed = 0.05
-			tooltip = army_armor_speed_factor_tt
-		}
 	}
 }
 
@@ -1815,8 +1913,8 @@ focus_tree = {
 	id = MON_way_of_lion
 	icon = GFX_focus_SWE_the_lion_of_the_north
 	x = 0
-	y = 2
-	cost = 10
+	y = 1
+	cost = 5
 	relative_position_id = MON_embrace_the_future
 
 	prerequisite = {
@@ -1831,13 +1929,6 @@ focus_tree = {
 		set_technology = {
 			basic_medium_tank_chassis = 1
 		}
-		custom_effect_tooltip = generic_skip_one_line_tt
-		add_tech_bonus = {
-			name = MON_artillery_boost
-			bonus = 1.0
-			uses = 1
-			category = artillery
-		}
 	}
 }
 
@@ -1845,8 +1936,8 @@ focus_tree = {
 	id = MON_way_of_bear
 	icon = GFX_focus_eng_expose_the_belly_of_the_bear
 	x = 2
-	y = 2
-	cost = 10
+	y = 1
+	cost = 5
 	relative_position_id = MON_embrace_the_future
 
 	prerequisite = {
@@ -1861,14 +1952,50 @@ focus_tree = {
 		set_technology = {
 			basic_heavy_tank_chassis = 1
 		}
-		custom_effect_tooltip = generic_skip_one_line_tt
+	}
+}
+
+	focus = {
+	id = MON_infantry_guns_advancements
+	icon = GFX_goal_generic_small_arms
+	x = 3
+	y = 1
+	cost = 5
+	relative_position_id = MON_rekindle_old_glory
+
+	prerequisite = {
+		focus = MON_rekindle_old_glory
+	}
+
+	completion_reward = {
 		add_tech_bonus = {
-			name = MON_thunder_artillery_bonus
-			bonus = 0.5
+			name = MON_echoes_of_the_horde_bonus
+			bonus = 1.5
+			uses = 2
+			category = infantry_weapons
+		}
+	}
+}
+
+	focus = {
+	id = MON_arty_advancements
+	icon = GFX_focus_RAJ_mountain_guns
+	x = 1
+	y = 1
+	cost = 5
+	relative_position_id = MON_infantry_guns_advancements
+
+	prerequisite = {
+		focus = MON_infantry_guns_advancements
+	}
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = MON_red_barrage_bonus
+			bonus = 1.0
 			uses = 2
 			category = artillery
 		}
-		custom_effect_tooltip = MON_army_modifier_tt
 	}
 }
 
@@ -1889,19 +2016,12 @@ focus_tree = {
 	}
 
 	completion_reward = {
-		add_tech_bonus = {
-			name = MON_echoes_of_the_horde_bonus
-			bonus = 1.0
-			uses = 1
-			category = infantry_weapons
-		}
 
 		custom_effect_tooltip = MON_army_modifier_tt
 
-		add_to_variable = { MON_arm_div_attack = 0.05 tooltip = army_attack_factor_tt }
-		add_to_variable = { MON_arm_div_defense = 0.05 tooltip = army_defence_factor_tt }
+		add_to_variable = { MON_cavalry_attack = 0.05 tooltip = cavalry_attack_factor_tt }
+		add_to_variable = { MON_cavalry_defense = 0.05 tooltip = cavalry_defence_factor_tt }
 		add_to_variable = { MON_breakthrough_factor = 0.05 tooltip = breakthrough_factor_tt }
-		add_to_variable = { MON_org_loss_when_moving = -0.10 tooltip = org_loss_when_moving_tt }
 	}
 }
 
@@ -1922,17 +2042,18 @@ focus_tree = {
 	}
 
 	completion_reward = {
-		add_tech_bonus = {
-			name = MON_new_army_bonus
-			bonus = 0.75
-			uses = 2
-			category = infantry_weapons
-		}
 
 		custom_effect_tooltip = MON_army_modifier_tt
 
-		add_to_variable = { MON_arm_div_attack = 0.05 tooltip = army_attack_factor_tt }
-		add_to_variable = { MON_arm_div_defense = 0.075 tooltip = army_defence_factor_tt }
+		add_to_variable = { 
+			MON_inf_att = 0.075
+			tooltip = army_infantry_attack_factor_tt
+		}
+		add_to_variable = { 
+			MON_inf_def = 0.10
+			tooltip = army_infantry_defence_factor_tt
+		}
+
 		add_to_variable = { MON_division_recovery_rate = 0.05 tooltip = army_morale_factor_tt }
 	}
 }
@@ -1955,233 +2076,231 @@ focus_tree = {
 	focus = {
 	id = MON_soviet_advisors
 	icon = GFX_focus_generic_soviet_politics
-	x = 5
+	x = 1
 	y = 1
 	cost = 5
-	relative_position_id = MON_way_of_lion
+	relative_position_id = MON_new_tech_investors
 
 	prerequisite = {
-		focus = MON_way_of_lion
-		focus = MON_way_of_tiger
-		focus = MON_way_of_bear
-		focus = MON_new_army
-		focus = MON_echoes_of_the_horde
+		focus = MON_establish_a_unified_command
+		focus = MON_new_tech_investors
 	}
 
 	completion_reward = {
 
+		custom_effect_tooltip = MON_soviet_advisors_tt
 
 		custom_effect_tooltip = generic_skip_one_line_tt
-		army_experience = 75
-		custom_effect_tooltip = generic_skip_one_line_tt		
-
-		custom_effect_tooltip = MON_army_modifier_tt
-		add_to_variable = {
-			MON_cold_acclimatization_factor = 0.10
-			tooltip = acclimatization_cold_climate_gain_factor_tt
-		}
-		
+		army_experience = 50	
 	}
 }
 
-
-	focus = {
-	id = MON_steel_scouts
-	icon = GFX_focus_generic_tankette
-	x = -2
-	y = 1
-	cost = 5
-	relative_position_id = MON_way_of_lion
-
-	prerequisite = {
-		focus = MON_way_of_tiger
-	}
-
-	completion_reward = {
-		
-		add_tech_bonus = {
-			name = MON_tiger_tank_bonus
-			bonus = 1.0
-			uses = 1
-			technology = advanced_light_tank_chassis
-		}
-		custom_effect_tooltip = MON_army_modifier_tt
-		add_to_variable = {
-			MON_arm_div_attack = 0.05
-			tooltip = army_attack_factor_tt
-		}
-
-	}
-}
 
 	focus = {
 	id = MON_wolves_of_steppe
-	icon = GFX_focus_generic_army_tanks2
-	x = 0
-	y = 2
-	cost = 5
-	relative_position_id = MON_steel_scouts
-
-	prerequisite = {
-		focus = MON_steel_scouts
-	}
-
-	completion_reward = {
-		add_tech_bonus = {
-			name = MON_wolves_armor_bonus
-			ahead_reduction = 1
-			bonus = 1
-			uses = 1
-			category = armor
-		}
-
-		custom_effect_tooltip = MON_army_modifier_tt
-
-		add_to_variable = {
-			MON_arm_div_defense = 0.05
-			tooltip = army_defence_factor_tt
-		}
-	}
-}
-
-	focus = {
-	id = MON_armored_spearhead
-	icon = GFX_focus_generic_tank_assault
-	x = 0
+	icon = GFX_focus_generic_anti_tank_guns
+	x = 1
 	y = 1
 	cost = 5
 	relative_position_id = MON_way_of_lion
 
 	prerequisite = {
 		focus = MON_way_of_lion
+		focus = MON_way_of_bear
+		focus = MON_way_of_tiger
 	}
 
 	completion_reward = {
+
 		add_tech_bonus = {
-			name = MON_lion_tank_bonus
-			bonus = 1
-			uses = 1
-			technology = improved_medium_tank_chassis
+			name = MON_support_arty
+			uses = 2
+			bonus = 0.75
+			ahead_reduction = 2
+			category = artillery
 		}
 
-		custom_effect_tooltip = MON_army_modifier_tt
-		add_to_variable = {
-			MON_arm_div_attack = 0.05
-			tooltip = army_attack_factor_tt
-		}
-	}
-}
-
-	focus = {
-	id = MON_iron_vanguard
-	icon = GFX_goal_generic_army_tanks
-	x = 0
-	y = 2
-	cost = 5
-	relative_position_id = MON_armored_spearhead
-
-	prerequisite = {
-		focus = MON_armored_spearhead
-	}
-
-	completion_reward = {
-		add_tech_bonus = {
-			ahead_reduction = 1
-			bonus = 1
-			uses = 1
-			category = armor
-		}
-
-		custom_effect_tooltip = MON_army_modifier_tt
-		add_to_variable = {
-			MON_arm_div_defense = 0.05
-			tooltip = army_defence_factor_tt
-		}
 	}
 }
 
 	focus = {
 	id = MON_steel_goliaths
 	icon = GFX_SOV_they_will_know_fear_ccp_2d_sov_compatibility
-	x = 2
+	x = -1
 	y = 1
 	cost = 5
 	relative_position_id = MON_way_of_lion
 
 	prerequisite = {
 		focus = MON_way_of_bear
+		focus = MON_way_of_tiger
+		focus = MON_way_of_lion
 	}
 
 	completion_reward = {
 		add_tech_bonus = {
-			name = MON_bear_tank_bonus
-			bonus = 1
-			uses = 1
-			technology = improved_heavy_tank_chassis
-		}
-
-		custom_effect_tooltip = MON_army_modifier_tt
-		add_to_variable = {
-			MON_arm_div_attack = 0.05
-			tooltip = army_attack_factor_tt
-		}
-		add_to_variable = {
-			MON_army_org_factor = 0.015
-			tooltip = army_org_factor_tt
-		}
-	}
-}
-
-	focus = {
-	id = MON_thunder_of_steppe
-	icon = GFX_focus_ITA_ferrea_mole_ferreo_cuore
-	x = 0
-	y = 2
-	cost = 5
-	relative_position_id = MON_steel_goliaths
-
-	prerequisite = {
-		focus = MON_steel_goliaths
-	}
-
-	completion_reward = {
-		add_tech_bonus = {
-			name = MON_goliath_armor_bonus
-			ahead_reduction = 1
-			bonus = 1
+			name = MON_tank_bonus
+			bonus = 1.5
 			uses = 1
 			category = armor
 		}
 
 		custom_effect_tooltip = MON_army_modifier_tt
 		add_to_variable = {
-			MON_arm_div_defense = 0.025
-			tooltip = army_defence_factor_tt
+			MON_armor_attack = 0.05
+			tooltip = army_armor_attack_factor_tt
+		}
+		add_to_variable = {
+			MON_army_fuel_consumption = 0.05
+			tooltip = army_fuel_consumption_factor_tt
 		}
 	}
 }
+
+focus = {
+	id = MON_experimental_designs
+	icon = GFX_focus_generic_tank_assembly
+	x = 1
+	y = 1
+	cost = 10
+	relative_position_id = MON_steel_goliaths
+
+	prerequisite = {
+		focus = MON_steel_goliaths
+		focus = MON_wolves_of_steppe
+	}
+
+	available = {
+			OR = 
+			{
+				has_tech = improved_heavy_tank_chassis
+				has_tech = improved_medium_tank_chassis
+				has_tech = advanced_light_tank_chassis
+			}
+		}
+
+	completion_reward = {
+		add_tech_bonus = {
+			name = MON_armor_bonus
+			ahead_reduction = 1
+			bonus = 1
+			uses = 1
+			category = armor
+		}
+
+		add_ideas = efficient_design
+	}
+}
+
+focus = {
+	id = MON_katyusha_specialization
+	icon = GFX_focus_generic_truck
+	x = 1
+	y = 1
+	cost = 10
+	relative_position_id = MON_wolves_of_steppe
+
+	prerequisite = {
+		focus = MON_wolves_of_steppe
+	}
+
+	completion_reward = {
+		add_ideas = SOV_defense_industry_artillery_bonus
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_to_variable = { 
+			MON_motorized_att = 0.05
+			tooltip = motorized_attack_factor_tt 
+		}
+	}
+}
+
+focus = {
+		id = MON_snowpiercer
+		icon = GFX_goal_continuous_armor_production
+		x = -3
+		y = 1
+		cost = 10
+		relative_position_id = MON_experimental_designs
+		prerequisite = {
+			focus = MON_experimental_designs
+		}
+	
+		completion_reward = {
+				custom_effect_tooltip = MON_special_trait_tt
+		}
+	}
+
+focus = {
+		id = MON_forest_scouting_parties
+		icon = GFX_focus_CHL_expand_the_forestry
+		x = -2
+		y = 2
+		cost = 10
+		relative_position_id = MON_experimental_designs
+		prerequisite = {
+			focus = MON_experimental_designs
+		}
+	
+		completion_reward = {
+				custom_effect_tooltip = forest_scouting_party_tt
+                set_technology = {
+                    forest_scouting_party = 1
+                    popup = yes
+                }
+		}
+	}
+
+	focus = {
+		id = MON_24hour_shifts
+		icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+		x = 3
+		y = 1
+		cost = 10
+		relative_position_id = MON_experimental_designs
+		prerequisite = {
+			focus = MON_experimental_designs
+		}
+	
+		completion_reward = {
+				custom_effect_tooltip = MON_special_trait_tt
+		}
+	}
+
+	focus = {
+		id = MON_centralized_tank_development
+		icon = GFX_focus_generic_university_3
+		x = 2
+		y = 2
+		cost = 5
+		relative_position_id = MON_experimental_designs
+		prerequisite = {
+			focus = MON_experimental_designs
+		}
+	
+		completion_reward = {
+				custom_effect_tooltip = MON_special_trait_tt
+		}
+	}
 
 	####M-CHOICE
 	focus = {
 		id = MON_break
 		icon = GFX_goal_generic_demand_territory
-		x = -3
+		x = -1
 		y = 1
-		cost = 2
-		relative_position_id = MON_thunder_of_steppe
+		cost = 4
+		relative_position_id = MON_experimental_designs
 		prerequisite = {
-			focus = MON_wolves_of_steppe
-			focus = MON_thunder_of_steppe
-			focus = MON_iron_vanguard
+			focus = MON_experimental_designs
 		}
 		mutually_exclusive = {
 			focus = MON_org
 		}
 		completion_reward = {
 			add_to_variable = {
-			MON_breakthrough_factor = 0.05
-			tooltip = breakthrough_factor_tt
-	}	
+				MON_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}	
 		}
 	}
 	focus = {
@@ -2189,13 +2308,11 @@ focus_tree = {
 	icon = GFX_focus_generic_bad_medical
 	x = 2
 	y = 0
-	cost = 2
+	cost = 4
 	relative_position_id = MON_break
 
 	prerequisite = {
-		focus = MON_wolves_of_steppe
-		focus = MON_thunder_of_steppe
-		focus = MON_iron_vanguard
+		focus = MON_experimental_designs
 	}
 	mutually_exclusive = {
 		focus = MON_break
@@ -2215,7 +2332,7 @@ focus_tree = {
 	id = MON_return_of_horse_lords
 	icon = GFX_focus_generic_military_mission
 	x = -1
-	y = 2
+	y = 1
 	cost = 5
 	relative_position_id = MON_echoes_of_the_horde
 
@@ -2227,18 +2344,15 @@ focus_tree = {
 		custom_effect_tooltip = MON_army_modifier_tt
 
 		add_to_variable = { MON_cavalry_attack = 0.05 tooltip = cavalry_attack_factor_tt }
-		add_to_variable = { MON_cavalry_defense = 0.05 tooltip = cavalry_defence_factor_tt }
-		add_to_variable = { MON_army_org_factor = 0.025 tooltip = army_org_factor_tt }
-		add_to_variable = { MON_cold_acclimatization_factor = 0.10 tooltip = acclimatization_cold_climate_gain_factor_tt }
 		add_to_variable = { MON_division_recovery_rate = 0.05 tooltip = army_morale_factor_tt }
 	}
 }
 
 focus = {
-	id = MON_att
-	icon = GFX_focus_generic_strike_at_democracy1
-	x = 2
-	y = 2
+	id = MON_High_command
+	icon = GFX_SOV_great_commander_ccp_2d_sov_compatibility
+	x = 3
+	y = 1
 	cost = 2
 	relative_position_id = MON_return_of_horse_lords
 
@@ -2247,6 +2361,83 @@ focus = {
 		focus = MON_mounted_warriors
 		focus = MON_red_barrage
 		focus = MON_peoples_army
+	}
+
+	completion_reward = {
+		add_ideas = 
+	    		{
+	    			high_command_idea
+	    		}
+	}
+}
+
+focus = {
+	id = MON_loyal_military
+	icon = GFX_focus_ICE_expanding_the_university_of_reykjavik
+	x = 1
+	y = 1
+	cost = 5
+	relative_position_id = MON_return_of_horse_lords
+
+	prerequisite = {
+		focus = MON_return_of_horse_lords
+		focus = MON_mounted_warriors
+	}
+
+	completion_reward = {
+		add_ideas = 
+		{
+			extensive_conscription
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = MON_army_modifier_tt
+		add_to_variable = {
+			MON_training_time = -0.1
+			tooltip = training_time_factor_tt
+		}
+		add_to_variable = { MON_division_recovery_rate = 0.05 tooltip = army_morale_factor_tt }
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		add_war_support = 0.05
+		add_stability = 0.05
+	}
+}
+
+focus = {
+	id = MON_the_unstoppable_horde
+	icon = GFX_focus_generic_horse_studs
+	x = -1
+	y = 1
+	cost = 10
+	relative_position_id = MON_loyal_military
+
+	prerequisite = {
+		focus = MON_loyal_military
+	}
+
+	available = 
+	{
+		MON = 
+		{
+			has_completed_focus = MON_fury_of_the_past
+		}
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = MON_the_unstoppable_horde_tt
+	}
+}
+
+focus = {
+	id = MON_att
+	icon = GFX_focus_generic_strike_at_democracy1
+	x = -1
+	y = 1
+	cost = 2
+	relative_position_id = MON_High_command
+
+	prerequisite = {
+		focus = MON_High_command
 	}
 	mutually_exclusive = {
 		focus = MON_def
@@ -2264,16 +2455,13 @@ focus = {
 focus = {
 	id = MON_def
 	icon = GFX_goal_generic_defence
-	x = 2
-	y = 0
+	x = 1
+	y = 1
 	cost = 2
-	relative_position_id = MON_att
+	relative_position_id = MON_High_command
 
 	prerequisite = {
-		focus = MON_return_of_horse_lords
-		focus = MON_mounted_warriors
-		focus = MON_red_barrage
-		focus = MON_peoples_army
+		focus = MON_High_command
 	}
 	mutually_exclusive = {
 		focus = MON_att
@@ -2291,10 +2479,10 @@ focus = {
 	focus = {
 	id = MON_iron_horde_reborn
 	icon = GFX_SOV_desperate_measures_ccp_2d_sov_compatibility
-	x = 0
-	y = 6
-	cost = 10
-	relative_position_id = MON_way_of_lion
+	x = 1
+	y = 1
+	cost = 5
+	relative_position_id = MON_break
 	prerequisite = {
 		focus = MON_break
 		focus = MON_org
@@ -2304,17 +2492,23 @@ focus = {
 
 		add_to_variable = { MON_experience_gain_army_factor = 0.10 tooltip = experience_gain_army_factor_tt }
 		add_to_variable = { MON_experience_loss_factor = -0.10 tooltip = experience_loss_factor_tt }
-		add_to_variable = { MON_arm_div_attack = 0.05 tooltip = army_attack_factor_tt }
-		add_to_variable = { MON_arm_div_defense = 0.03 tooltip = army_defence_factor_tt }
-		add_to_variable = { MON_planning_speed = 0.10 tooltip = planning_speed_factor_tt }
-		add_to_variable = { MON_armor_speed = 0.025 tooltip = army_armor_speed_factor_tt }
+		add_to_variable = { MON_planning_speed = 0.20 tooltip = planning_speed_factor_tt }
+		add_to_variable = { MON_armor_speed = 0.05 tooltip = army_armor_speed_factor_tt }
 		add_to_variable = { MON_division_recovery_rate = 0.05 tooltip = army_morale_factor_tt}
+		add_to_variable = {
+			MON_army_att_speed = 0.1
+			tooltip = army_attack_speed_factor_tt
+		}
+		add_to_variable = {
+			MON_initiative = 0.1
+			tooltip = initiative_factor_tt
+		}
+
 
 		hidden_effect = {
 			remove_dynamic_modifier = { modifier = mon_army_dyn }
 			add_dynamic_modifier = { modifier = mon_ironhorde_dyn }
 		}
-		add_ideas = embrace_the_future_ideas
 	}
 }
 
@@ -2324,7 +2518,7 @@ focus = {
 	id = MON_mounted_warriors
 	icon = GFX_focus_ITA_comandante_diavolo
 	x = 1
-	y = 2
+	y = 1
 	cost = 5
 	relative_position_id = MON_echoes_of_the_horde
 
@@ -2333,16 +2527,9 @@ focus = {
 	}
 
 	completion_reward = {
-		add_tech_bonus = {
-			name = MON_mounted_warriors_bonus
-			bonus = 0.5
-			uses = 2
-			category = artillery
-		}
 
 		custom_effect_tooltip = MON_army_modifier_tt
 
-		add_to_variable = { MON_cavalry_attack = 0.05 tooltip = cavalry_attack_factor_tt }
 		add_to_variable = { MON_cavalry_defense = 0.05 tooltip = cavalry_defence_factor_tt }
 		add_to_variable = { MON_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt }
 	}
@@ -2352,7 +2539,7 @@ focus = {
 	id = MON_red_barrage
 	icon = GFX_focus_SWE_let_fly_all_guns
 	x = -1
-	y = 2
+	y = 1
 	cost = 5
 	relative_position_id = MON_new_army
 
@@ -2363,16 +2550,21 @@ focus = {
 	completion_reward = {
 		add_tech_bonus = {
 			name = MON_red_barrage_bonus
-			bonus = 1.0
+			bonus = 0.75
 			uses = 2
+			ahead_reduction = 2
 			category = artillery
 		}
-
+		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = MON_army_modifier_tt
-
-		add_to_variable = { MON_breakthrough_factor = 0.025 tooltip = breakthrough_factor_tt }
-		add_to_variable = { MON_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt }
-		add_to_variable = { MON_division_recovery_rate = 0.025 tooltip = army_morale_factor_tt }
+		add_to_variable = { 
+			MON_arty_attack = 0.1
+			tooltip = army_artillery_attack_factor_tt
+		}
+		add_to_variable = { 
+			MON_arty_defense = 0.1
+			tooltip = army_artillery_defence_factor_tt
+		}
 	}
 }
 
@@ -2380,7 +2572,7 @@ focus = {
 	id = MON_peoples_army
 	icon = GFX_SOV_an_adaptable_army_ccp_2d_sov_compatibility
 	x = 1
-	y = 2
+	y = 1
 	cost = 5
 	relative_position_id = MON_new_army
 
@@ -2396,22 +2588,123 @@ focus = {
 			category = support_tech
 		}
 
+		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = MON_army_modifier_tt
 
-		add_to_variable = { MON_cold_acclimatization_factor = 0.10 tooltip = acclimatization_cold_climate_gain_factor_tt }
+		add_to_variable = {
+			MON_reinforce_rate = 0.05
+			tooltip = land_reinforce_rate_tt
+		}
 		add_to_variable = { MON_entrenchment_speed = 0.10 tooltip = dig_in_speed_factor_tt }
-		add_to_variable = { MON_army_org_factor = 0.025 tooltip = army_org_factor_tt }
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		add_potential_special_forces_tree = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_doctrine_cost_reduction = {
+					name = MON_special_forces_bonus
+					cost_reduction = 1
+					uses = 2
+					category = special_forces_doctrine
+				}
 	}
 }
+
+focus = {
+	id = MON_mountaineers
+	icon = GFX_focus_SMB_a_land_of_mountains
+	x = 0
+	y = 1
+	cost = 4
+	relative_position_id = MON_peoples_army
+
+	mutually_exclusive = {focus = MON_river_marines}
+
+	prerequisite = {
+		focus = MON_peoples_army
+	}
+
+	completion_reward = {
+		add_ideas = idea_RAJ_a_tiger_unchained
+
+	}
+
+}
+
+focus = {
+	id = MON_river_marines
+	icon = GFX_focus_generic_naval_discipline
+	x = 2
+	y = 1
+	cost = 4
+	relative_position_id = MON_peoples_army
+
+	mutually_exclusive = {focus = MON_mountaineers}
+
+	prerequisite = {
+		focus = MON_peoples_army
+	}
+
+	completion_reward = {
+		add_ideas = { special_forces_idea }
+		
+    	set_technology = { marines = 1 }
+
+	}
+
+}
+
+focus = {
+	id = MON_mountain_guns
+	icon = GFX_focus_SMB_mountain_guns
+	x = 0
+	y = 1
+	cost = 5
+	relative_position_id = MON_mountaineers
+
+	prerequisite = {
+		focus = MON_mountaineers
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = mountain_guns_tt
+                set_technology = {
+                    mountain_gun = 1
+                    popup = no
+                }
+	}
+
+}
+
+focus = {
+	id = MON_advanced_tactics
+	icon = GFX_focus_generic_naval_invasion
+	x = 0
+	y = 1
+	cost = 5
+	relative_position_id = MON_river_marines
+
+	prerequisite = {
+		focus = MON_river_marines
+	}
+
+	completion_reward = {
+		add_ideas = 
+	    		{
+	    			the_human_wave
+	    		}
+	}
+
+}
+
 
 
 	focus = {
 	id = MON_honor_of_khan_guard
 	icon = GFX_SOV_the_glory_of_the_red_army_ccp_2d_sov_compatibility
-	x = 10
-	y = 0
+	x = 1
+	y = 1
 	cost = 5
-	relative_position_id = MON_iron_horde_reborn
+	relative_position_id = MON_att
 
 	prerequisite = {
 		focus = MON_att
@@ -2421,12 +2714,23 @@ focus = {
 	completion_reward = {
 		custom_effect_tooltip = MON_honorkhan_dyn_tt
 
-		add_to_variable = { MON_max_dig_in_factor = 0.10 tooltip = max_dig_in_factor_tt }
-		add_to_variable = { MON_arm_div_attack = 0.025 tooltip = army_attack_factor_tt }
-		add_to_variable = { MON_arm_div_defense = 0.025 tooltip = army_defence_factor_tt }
-		add_to_variable = { MON_division_recovery_rate = 0.025 tooltip = army_morale_factor_tt }
+		add_to_variable = { MON_max_dig_in_factor = 0.15 tooltip = max_dig_in_factor_tt }
 		add_to_variable = { MON_experience_gain_army_factor = 0.10 tooltip = experience_gain_army_factor_tt }
 		add_to_variable = { MON_planning_speed = 0.10 tooltip = planning_speed_factor_tt }
+		add_to_variable = {
+			MON_army_att_speed = 0.1
+			tooltip = army_attack_speed_factor_tt
+		}
+		add_to_variable = {
+			MON_initiative = 0.1
+			tooltip = initiative_factor_tt
+		}
+		add_to_variable = {
+				MON_breakthrough_factor = 0.1
+				tooltip = breakthrough_factor_tt
+		}
+
+
 
 		hidden_effect = {
 			remove_dynamic_modifier = { modifier = mon_army_dyn }
@@ -2440,7 +2744,7 @@ focus = {
 	focus = {
 		id = MON_consolidate_the_party
 		icon = GFX_SOV_the_stalin_constitutiony_ccp_2d_sov_compatibility
-		x = 16
+		x = 14
 		y = 0
 		cost = 5
 		relative_position_id = MON_rebuilding_peoples_army
@@ -2482,7 +2786,7 @@ focus = {
 			focus = MON_state_reorganization
 		}
 		completion_reward = {
-			add_political_power = 25
+			add_political_power = 75
 			add_war_support = 0.05
 		}
 	}
@@ -2506,7 +2810,7 @@ focus = {
 		icon = GFX_SOV_leningrad_polytechnical_institute_ccp_2d_sov_compatibility
 		x = 3
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = MON_state_reorganization
 		prerequisite = {
 			focus = MON_state_reorganization
@@ -2551,6 +2855,84 @@ focus = {
 			}
 		}
 	}
+
+	focus = {
+		id = MON_fix_the_worker_shortage
+		icon = GFX_focus_generic_public_works
+		x = -3
+		y = 1
+		cost = 4
+		relative_position_id = MON_colectivization_process
+		prerequisite = {
+			focus = MON_colectivization_process
+		}
+		completion_reward = {
+			custom_effect_tooltip = fix_the_worker_shortage_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = MON_soviet_urbanization_aid
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = MON_fix_the_worker_shortage
+		prerequisite = {
+			focus = MON_fix_the_worker_shortage
+		}
+		completion_reward = {
+			custom_effect_tooltip = MON_soviet_urbanization_aid_tt
+			hidden_effect = 
+			{
+				330 = {
+				set_state_category = large_city
+				}
+				819 = {
+				set_state_category = rural
+				}
+				817 = {
+				set_state_category = pastoral
+				}
+				818 = {
+				set_state_category = town
+				}
+				820 = {
+				set_state_category = town
+				}
+				329 = {
+				set_state_category = city
+				}
+				618 = {
+				set_state_category = rural
+				}
+				760 = {
+				set_state_category = rural
+				}
+				617 = {
+				set_state_category = large_town
+				}
+				759 = {
+				set_state_category = pastoral
+				}
+				619 = {
+				set_state_category = large_town
+				}
+				287 = {
+				set_state_category = pastoral
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_industry_modifier_tt
+			add_to_variable = {
+				MON_ind_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+		}
+	}
+
 	focus = {
 		id = MON_state_security_bureau
 		icon = GFX_focus_generic_secret_service_agency
@@ -2572,6 +2954,9 @@ focus = {
 				}
 				upgrade_intelligence_agency = upgrade_passive_defense
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_stability = 0.05
 		}
 	}
 	focus = {
@@ -2582,24 +2967,12 @@ focus = {
 		cost = 5
 		relative_position_id = MON_colectivization_process
 		prerequisite = {
-			focus = MON_soviet_scientific_cooperation
+			focus = MON_colectivization_process
 		}
 		completion_reward = {
-			330 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			820 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			818 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			819 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			817 = {
-				add_extra_state_shared_building_slots = 1
-			}
+			custom_effect_tooltip = revolutionary_reconstruction_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_war_support = 0.05
 		}
 	}
 	focus = {
@@ -2614,14 +2987,9 @@ focus = {
 			focus = MON_revolutionary_reconstruction
 		}
 		completion_reward = {
-			add_political_power = 50
-			add_war_support = 0.05
+			add_political_power = 100
+			add_stability = 0.1
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			329 = {
-				add_extra_state_shared_building_slots = 3
-			}
 		}
 	}
 	focus = {
@@ -2663,8 +3031,8 @@ focus = {
 				}
 				add_ideas = war_economy
 			}
-			# fabricile militare
-			818 = {
+		
+			759 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
@@ -2672,6 +3040,26 @@ focus = {
 					instant_build = yes
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = MON_soviet_experts
+		icon = GFX_SOV_foreign_experts_ccp_2d_sov_compatibility
+		x = 0
+		y = 2
+		cost = 5
+		relative_position_id = MON_war_economy
+		prerequisite = {
+			focus = MON_war_economy
+		}
+		prerequisite = {
+		    focus = MON_soviet_urbanization_aid
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = SOV_gosproyektstroy_1
 		}
 	}
 	focus = {
@@ -2699,6 +3087,7 @@ focus = {
 			}
 		}
 	}
+
 	focus = {
 		id = MON_rewrite_the_constitution
 		icon = GFX_focus_renounce_the_treaty_of_trianon
@@ -2710,14 +3099,27 @@ focus = {
 			focus = MON_purge_political_rivals
 		}
 		completion_reward = {
+			custom_effect_tooltip = MON_industry_modifier_tt
+			add_to_variable = {
+				MON_politicaL_advisor_cost = -0.2
+				tooltip = political_advisor_cost_factor_tt
+			}
+			add_to_variable = {
+				MON_trade_laws_cost = -0.30
+				tooltip = trade_laws_cost_factor_tt
+			}
+			add_to_variable = {
+				MON_economy_cost = -0.30
+				tooltip = economy_cost_factor_tt
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_political_power = 50
-			add_stability = 0.1
 		}
 	}
 	focus = {
 		id = MON_the_new_mongolia
 		icon = GFX_focus_GER_spheres_of_influence
-		x = 1
+		x = 0
 		y = 1
 		cost = 5
 		relative_position_id = MON_rewrite_the_constitution
@@ -2738,51 +3140,17 @@ focus = {
 					autonomy_state = mon_ultra_autonomy
 				}
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			618 = {
-				add_extra_state_shared_building_slots = 3
-			}
-			760 = {
-				add_extra_state_shared_building_slots = 3
-			}
-			617 = {
-				add_extra_state_shared_building_slots = 3
-			}
-			759 = {
-				add_extra_state_shared_building_slots = 3
-			}
-			287 = {
-				add_extra_state_shared_building_slots = 3
-			}
-			619 = {
-				add_extra_state_shared_building_slots = 3
-			}
-		}
-	}
-	###branch2
-	focus = {
-		id = MON_external_affairs
-		icon = GFX_goal_support_communism
-		x = -4
-		y = 1
-		cost = 2
-		relative_position_id = MON_consolidate_the_party
-		prerequisite = {
-			focus = MON_consolidate_the_party
-		}
-		completion_reward = {
-			add_political_power = 50
 		}
 	}
 	focus = {
-	id = MON_china_volunteers
-	icon = GFX_focus_chi_cooperation_with_the_nationalists
-	x = -2
+	id = MON_legion_condor
+	icon = GFX_focus_SWE_refuge_for_revolutionaries
+	x = -3
 	y = 1
 	cost = 2
-	relative_position_id = MON_external_affairs
+	relative_position_id = MON_state_reorganization
 	prerequisite = {
-		focus = MON_external_affairs
+		focus = MON_state_reorganization
 	}
 	completion_reward = {
 		add_timed_idea = {
@@ -2792,123 +3160,123 @@ focus = {
 	}
 }
 
-	focus = {
-	id = MON_anti_fascist_policies
-	icon = GFX_focus_generic_anti_fascist_diplomacy
-	x = 0
-	y = 1
-	cost = 2
-	relative_position_id = MON_external_affairs
-
-	prerequisite = {
-		focus = MON_external_affairs
-	}
-
-	completion_reward = {
-		add_political_power = 25
-	}
-}
-
-	focus = {
-		id = MON_no_place_for_tyranny
-		icon = GFX_focus_attack_germany
-		x = -1
-		y = 1
-		cost = 10
-		relative_position_id = MON_anti_fascist_policies
-		prerequisite = {
-			focus = MON_anti_fascist_policies
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_GER
-				days = 365
-			}
-		}
-	}
-	focus = {
-		id = MON_crack_the_white_shield
-		icon = GFX_focus_generic_attack_finland
+focus = {
+		id = MON_repay_the_soviets
+		icon = GFX_focus_SOV_stalins_cult_of_personality
 		x = 1
 		y = 1
 		cost = 10
-		relative_position_id = MON_anti_fascist_policies
+		relative_position_id = MON_the_new_mongolia
 		prerequisite = {
-			focus = MON_anti_fascist_policies
+			focus = MON_the_new_mongolia
 		}
+		
 		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_FIN
-				days = 365
+			SOV = 
+			{
+				add_political_power = 200
+				add_stability = 0.05
+				add_war_support = 0.05
 			}
 		}
 	}
-	focus = {
-		id = MON_strike_the_traitors
-		icon = GFX_focus_generic_attack_hungary
-		x = 0
-		y = 2
-		cost = 10
-		relative_position_id = MON_anti_fascist_policies
-		prerequisite = {
-			focus = MON_anti_fascist_policies
-		}
-		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_HUN
-				days = 365
-			}
-		}
-	}
-	focus = {
-		id = MON_punish_the_dacians
-		icon = GFX_focus_generic_attack_romania
-		x = -3
+
+focus = {
+		id = MON_under_the_leadership_of_stalin
+		icon = GFX_SOV_father_of_nations_ccp_2d_sov_compatibility
+		x = 1
 		y = 1
 		cost = 10
-		relative_position_id = MON_anti_fascist_policies
+		relative_position_id = MON_repay_the_soviets
 		prerequisite = {
-			focus = MON_anti_fascist_policies
+			focus = MON_repay_the_soviets
 		}
+		
 		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_ROM
-				days = 365
+			swap_ruler_traits = {
+				remove = stalins_pupil
+				add = under_the_leadership_of_stalin
 			}
 		}
 	}
-	focus = {
-		id = MON_no_pity_for_sofia
-		icon = GFX_focus_generic_attack_bulgaria
-		x = -2
-		y = 2
+
+focus = {
+		id = MON_father_of_mongolia
+		icon = GFX_focus_SOV_the_last_purge
+		x = -1
+		y = 1
 		cost = 10
-		relative_position_id = MON_anti_fascist_policies
+		relative_position_id = MON_the_new_mongolia
 		prerequisite = {
-			focus = MON_anti_fascist_policies
+			focus = MON_the_new_mongolia
 		}
+		
 		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_BUL
-				days = 365
-			}
+			add_country_leader_trait = father_of_mongolia
 		}
 	}
+
 	focus = {
-		id = MON_khan_vs_ceaser
-		icon = GFX_focus_attack_italy
-		x = 0
-		y = 2
-		cost = 10
-		relative_position_id = MON_no_place_for_tyranny
+		id = MON_toward_the_stars
+		icon = GFX_focus_generic_socialist_science
+		x = -1
+		y = 1
+		cost = 5
+		relative_position_id = MON_father_of_mongolia
 		prerequisite = {
-			focus = MON_no_place_for_tyranny
+			focus = MON_father_of_mongolia
 		}
+
+		mutually_exclusive = {focus = MON_modern_architect}
+	
 		completion_reward = {
-			add_timed_idea = {
-				idea = MON_bonus_vs_ITA
-				days = 365
-			}
+			add_country_leader_trait = MON_brilliant_genius
 		}
 	}
+
+	focus = {
+		id = MON_modern_architect
+		icon = GFX_focus_DEN_no_regulations
+		x = 1
+		y = 1
+		cost = 5
+		relative_position_id = MON_father_of_mongolia
+		prerequisite = {
+			focus = MON_father_of_mongolia
+		}
+
+		mutually_exclusive = {focus = MON_toward_the_stars}
+
+		completion_reward = {
+			add_country_leader_trait = mongolia_architect_of_communism
+		}
+	}
+
+	focus = {
+		id = MON_fury_of_the_past
+		icon = GFX_focus_generic_total_war
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = MON_toward_the_stars
+
+		available = 
+		{
+			SOV = { has_war_with = GER }
+		}
+
+		prerequisite = {
+			focus = MON_toward_the_stars
+			focus = MON_modern_architect
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = fury_of_the_past_tt
+
+            add_dynamic_modifier = {modifier = mon_fury_dyn }
+
+			set_variable = { fury_level = 0.01 }
+		}
+	}
+	
 }

@@ -8,10 +8,6 @@ MON_tank_refurbishment_plant_organization = {
 		organization_modifier = {
 			military_industrial_organization_research_bonus = 0.05
 		}
-		equipment_bonus = {
-			maximum_speed = 0.1
-			reliability = -0.05
-		}
 	}
 	add_trait = {
 		token = MON_mio_trait_24hour_shifts
@@ -74,7 +70,7 @@ MON_tank_refurbishment_plant_organization = {
 		}
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.10
+			military_industrial_organization_research_bonus = 0.15
 		}
 	}
 
@@ -215,7 +211,7 @@ MON_okmo_organization = {
 		}
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.10
+			military_industrial_organization_research_bonus = 0.15
 		}
 	}
 
@@ -351,9 +347,6 @@ MON_astrov_design_bureau_organization = {
 		organization_modifier = {
 			military_industrial_organization_research_bonus = 0.05
 		}
-		production_bonus = {
-			production_capacity_factor = 0.075
-		}
 	}
 
 	add_trait = {
@@ -417,7 +410,7 @@ MON_astrov_design_bureau_organization = {
 		}
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.10
+			military_industrial_organization_research_bonus = 0.15
 		}
 	}
 
@@ -564,10 +557,6 @@ MON_kirov_organization = {
 		organization_modifier = {
 			military_industrial_organization_research_bonus = 0.05
 		}
-		equipment_bonus = {
-			reliability = 0.05
-			armor_value = 0.05
-		}
 	}
 
 	add_trait = {
@@ -631,7 +620,7 @@ MON_kirov_organization = {
 		}
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.10
+			military_industrial_organization_research_bonus = 0.15
 		}
 	}
 
@@ -1172,5 +1161,301 @@ MON_tupolev_design_bureau_organization = {
 			}
 		}
 	}
+}
 
+MON_tannu_tuva_arms_plant_organization = {
+	include = generic_infantry_equipment_organization	
+	icon = GFX_idea_tula_arms_plant
+	
+	allowed = {	
+		original_tag = MON
+	}
+
+	add_trait = {
+		token = MON_mio_trait_domestic_production
+		name = MON_mio_trait_domestic_production
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 0 y= 0 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_domestic_arms
+					NOT = { has_country_flag = domestic_production_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = domestic_production_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_new_academy_students
+		name = MON_mio_trait_new_academy_students
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 0 y= 1 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_academy_of_sciences
+					NOT = { has_country_flag = academy_students_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = academy_students_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_advanced_materials
+		name = MON_mio_trait_advanced_materials
+		icon = GFX_generic_mio_department_icon_infantry_quality
+		special_trait_background = yes
+
+		position = { x = 0 y= 2 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_infantry_guns_advancements
+				}
+		}
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+			ap_attack = 0.1
+		}
+	}
+}
+
+MON_gaz_organization = {
+	include = generic_motorized_mechanized_organization
+	icon = GFX_idea_gaz
+	
+	allowed = {
+		original_tag = MON	
+	}
+
+	add_trait = {
+		token = MON_mio_trait_domestic_production
+		name = MON_mio_trait_domestic_production
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 9 y= 0 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_domestic_arms
+					NOT = { has_country_flag = domestic_production_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = domestic_production_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_new_academy_students
+		name = MON_mio_trait_new_academy_students
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 9 y= 1 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_academy_of_sciences
+					NOT = { has_country_flag = academy_students_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = academy_students_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_optimized_construction
+		name = MON_mio_trait_optimized_construction
+		icon = GFX_generic_mio_department_icon_mechanized_production
+		special_trait_background = yes
+
+		position = { x = 9 y= 2 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_improved_logistics
+				}
+		}
+
+		equipment_bonus = {
+			defense = 0.02
+			build_cost_ic = -0.03
+		}
+	}
+}
+
+MON_grabin_design_bureau_organization = {
+	include = generic_artillery_organization
+	icon = GFX_idea_grabin_design_bureau
+	
+	allowed = {
+		original_tag = MON	
+	}
+
+	add_trait = {
+		token = MON_mio_trait_domestic_production
+		name = MON_mio_trait_domestic_production
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x = 9 y= 0 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_domestic_arms
+					NOT = { has_country_flag = domestic_production_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = domestic_production_taken_flag
+			}
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_new_academy_students
+		name = MON_mio_trait_new_academy_students
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 9 y= 1 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_academy_of_sciences
+					NOT = { has_country_flag = academy_students_taken_flag }
+				}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = academy_students_taken_flag
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+	}
+
+	add_trait = {
+		token = MON_mio_trait_tungsten_tipped_shells
+		name = MON_mio_trait_tungsten_tipped_shells
+		icon = GFX_generic_mio_department_icon_tank_general_at
+		special_trait_background = yes
+
+		position = { x = 9 y= 2 }  
+		
+		visible = {
+			FROM = { original_tag = MON }
+		}
+
+		available = {
+				MON = 
+				{
+					has_completed_focus = MON_arty_advancements
+				}
+		}
+
+		equipment_bonus = {
+			ap_attack = 0.25
+		}
+	}
 }

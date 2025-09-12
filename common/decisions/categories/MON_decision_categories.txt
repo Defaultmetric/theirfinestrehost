@@ -108,3 +108,27 @@ fury_of_the_past = {
 	visible_when_empty = no
 	
 }
+
+MON_prospect_for_resources = { 
+
+	icon = GFX_decision_category_generic_prospect_for_resources
+	
+	allowed = {
+		original_tag = MON
+	}
+
+	visible = {
+		MON = 
+        {
+			OR = {
+				has_completed_focus = MON_exploit_ulaanbaatar
+				has_completed_focus = MON_oil_exploration
+			}
+        }
+	}
+	
+	priority = 1
+
+	visible_when_empty = no
+	
+}

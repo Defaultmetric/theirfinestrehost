@@ -178,6 +178,9 @@ focus_tree = {
 				MON_ind_research_speed = 0.05
 				tooltip = research_speed_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_special_trait_tt
 		}
 	}
 
@@ -220,6 +223,9 @@ focus_tree = {
 					amount = 18
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_prospect_for_resources_tt
 		}
 	}
 
@@ -247,19 +253,19 @@ focus_tree = {
 			330 = {
 				add_resource = {
 					type = steel
-					amount = 12
+					amount = 18
 				}
 				add_resource = {
 					type = chromium
-					amount = 12
+					amount = 18
 				}
 				add_resource = {
 					type = tungsten
-					amount = 12
+					amount = 18
 				}
 				add_resource = {
 					type = aluminium
-					amount = 12
+					amount = 18
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -392,7 +398,7 @@ focus_tree = {
 			817 = {
 				add_resource = {
 					type = oil
-					amount = 24
+					amount = 18
 				}
 			}
 			add_tech_bonus = {
@@ -407,6 +413,9 @@ focus_tree = {
 				MON_army_fuel_consumption = -0.1
 				tooltip = army_fuel_consumption_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_prospect_for_resources_tt
 
 		}
 	}
@@ -636,7 +645,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
-				MON_ind_factory_output = 0.2
+				MON_ind_factory_output = 0.15
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = {
@@ -644,7 +653,7 @@ focus_tree = {
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = {
-				MON_ind_prod_eff_base = -0.05
+				MON_ind_prod_eff_base = -0.1
 				tooltip = production_factory_start_efficiency_factor_tt
 			}
 			add_to_variable = {
@@ -1027,6 +1036,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_special_trait_tt
 		}
 	}
 	focus = {
@@ -1145,7 +1156,7 @@ focus_tree = {
 	completion_reward = {
 		custom_effect_tooltip = MON_air_modifier_tt
 
-		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.55 tooltip = air_ace_generation_chance_factor_tt }
+		add_to_variable = { MON_airforce_air_ace_generation_chance_factor =  0.50 tooltip = air_ace_generation_chance_factor_tt }
 	}
 }
 
@@ -1861,7 +1872,7 @@ focus = {
 	icon = GFX_focus_SOV_the_road_of_life
 	x = -1
 	y = 1
-	cost = 5
+	cost = 10
 	relative_position_id = MON_new_tech_investors
 
 	prerequisite = {
@@ -1879,9 +1890,11 @@ focus = {
 			name = MON_mech1_bonus
 			ahead_reduction = 2.0
 			bonus = 2.0
-			uses = 2
+			uses = 3
 			category = motorized_equipment
 		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = MON_special_trait_tt
 	}
 }
 
@@ -1974,6 +1987,9 @@ focus = {
 			uses = 2
 			category = infantry_weapons
 		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = MON_special_trait_tt
 	}
 }
 
@@ -1996,6 +2012,9 @@ focus = {
 			uses = 2
 			category = artillery
 		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = MON_special_trait_tt
 	}
 }
 
@@ -2770,76 +2789,8 @@ focus = {
 			add_political_power = 25
 			add_ideas = MON_political_violence
 			remove_ideas = MON_struggle_for_control
-			330 = {
-    add_resource = {
-        type = oil
-        amount = 999
-    }
-    add_resource = {
-        type = aluminium
-        amount = 999
-    }
-    add_resource = {
-        type = steel
-        amount = 999
-    }
-    add_resource = {
-        type = tungsten
-        amount = 999
-    }
-    add_resource = {
-        type = chromium
-        amount = 999
-    }
-    add_resource = {
-        type = rubber
-        amount = 999
-    }
-	MON = {
-    send_embargo = USA
-    send_embargo = SOV
-    send_embargo = ENG
-    send_embargo = FRA
-    send_embargo = BRA
-    send_embargo = CAN
-    send_embargo = SAF
-    send_embargo = AST
-    send_embargo = RAJ
-    send_embargo = GER
-    send_embargo = ITA
-    send_embargo = HOL
-    send_embargo = BEL
-    send_embargo = LUX
-    send_embargo = DEN
-    send_embargo = NOR
-    send_embargo = SWE
-    send_embargo = FIN
-    send_embargo = LIT
-    send_embargo = LAT
-    send_embargo = EST
-    send_embargo = INS
-    send_embargo = SIA
-    send_embargo = ROM
-    send_embargo = YUG
-    send_embargo = ALB
-    send_embargo = GRE
-    send_embargo = BUL
-    send_embargo = HUN
-    send_embargo = AUS
-    send_embargo = CZE
-    send_embargo = POL
-    send_embargo = PER
-    send_embargo = VEN
-    send_embargo = MEX
-    send_embargo = PHI
-    send_embargo = MAN
-    send_embargo = JAP
-    send_embargo = CHI
-	}
-
-}
-
 		}
+
 		ai_will_do = {
 			factor = 20
 		}

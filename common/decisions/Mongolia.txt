@@ -1114,7 +1114,7 @@ fury_of_the_past =
 			always = no
 		}
 
-		days_mission_timeout = 75
+		days_mission_timeout = 105
 
 		timeout_effect = {
             if = 
@@ -1385,6 +1385,227 @@ MON_gosproyektstroy_decision_category =
 			clr_country_flag = MON_gosproyektstroy_upgrade_in_progress_flag
 		}
 	}
+}
+
+MON_prospect_for_resources = 
+{
+    expand_gobi_oil = {
+    icon = GFX_decision_oil
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_oil_exploration
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 817 } }
+
+    remove_effect = {
+        817 = { 
+            add_resource = {
+					type = oil
+					amount = 8
+				} 
+        }
+    }
+    }
+
+    taklamakan_oil = {
+    icon = GFX_decision_oil
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_oil_exploration
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 287 } }
+
+    remove_effect = {
+        287 = { 
+            add_resource = {
+					type = oil
+					amount = 12
+				} 
+        }
+    }
+    }
+
+    kunlun_shan_oil = {
+    icon = GFX_decision_oil
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_oil_exploration
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 30
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 759 } }
+
+    remove_effect = {
+        759 = { 
+            add_resource = {
+					type = oil
+					amount = 12
+				} 
+        }
+    }
+    }
+
+    ulaanbaatar_steel = {
+    icon = GFX_decision_steel
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_exploit_ulaanbaatar
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 90
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 330 } }
+
+    remove_effect = {
+        330 = { 
+            add_resource = {
+					type = steel
+					amount = 16
+				} 
+        }
+    }
+    }
+
+    dzungaria_tungsten = {
+    icon = GFX_decision_tungsten
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_exploit_ulaanbaatar
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 90
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 618 } }
+
+    remove_effect = {
+        618 = { 
+            add_resource = {
+					type = tungsten
+					amount = 16
+				} 
+        }
+    }
+    }
+
+    tannu_tuva_chromium = {
+    icon = GFX_decision_chromium
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_exploit_ulaanbaatar
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 90
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 329 } }
+
+    remove_effect = {
+        329 = { 
+            add_resource = {
+					type = chromium
+					amount = 16
+				} 
+        }
+    }
+    }
+
+    yarkand_alu = {
+    icon = GFX_decision_aluminium
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_exploit_ulaanbaatar
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 90
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 619 } }
+
+    remove_effect = {
+        619 = { 
+            add_resource = {
+					type = aluminium
+					amount = 16
+				} 
+        }
+    }
+    }
+
 }
 
 

@@ -184,9 +184,15 @@ focus_tree = {
 		}
 		x = 0
 		y = 1
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_agrarian_reform
 		completion_reward = {
 			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
 			add_to_variable = {
 				MON_ind_research_speed = 0.05
@@ -364,6 +370,11 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_radio_propaganda
 		}
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		x = 6
 		y = 1
 		ai_will_do = 
@@ -415,6 +426,7 @@ focus_tree = {
 					amount = 18
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				name = excavation_bonus
 				bonus = 1
@@ -477,7 +489,7 @@ focus_tree = {
 	focus = {
 		id = MON_improve_railways
 		icon = GFX_goal_generic_soviet_construction
-		cost = 5
+		cost = 3
 		prerequisite = {
 			focus = MON_stimulate_economy
 		}
@@ -486,6 +498,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 9
+		}
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
 		}
 
 		relative_position_id = MON_stimulate_economy
@@ -613,6 +629,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 8
+		}
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
 		}
 
 		prerequisite = {
@@ -762,6 +782,11 @@ focus_tree = {
 		}
 		x = -1
 		y = 1
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_peoples_industry
 		completion_reward = {
 			817 = {
@@ -797,6 +822,11 @@ focus_tree = {
 		}
 		x = 1
 		y = 1
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_peoples_industry
 		completion_reward = {
 			820 = {
@@ -899,6 +929,11 @@ focus_tree = {
 		}
 		x = 2
 		y = 1
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_industrial_heartbeat
 		completion_reward = {
 			add_research_slot = 1
@@ -1210,6 +1245,11 @@ focus_tree = {
 		}
 		x = -4
 		y = 1
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_analyze_foreign_air_tactics
 		cost = 5
 		completion_reward = {
@@ -1256,6 +1296,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		prerequisite = {
 			focus = MON_experimental_design_facility
 		}
@@ -1302,10 +1347,15 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_a_nimble_air_force
-		icon = GFX_focus_generic_cas_aircraft
+		icon = GFX_focus_PER_the_peoples_airforce
 		x = -1
 		y = 1
 		cost = 10
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_analyze_foreign_air_tactics
 		prerequisite = {
 			focus = MON_analyze_foreign_air_tactics
@@ -1351,6 +1401,11 @@ focus_tree = {
 		x = 1
 		y = 1
 		cost = 10
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		relative_position_id = MON_analyze_foreign_air_tactics
 		prerequisite = {
 			focus = MON_analyze_foreign_air_tactics
@@ -1383,6 +1438,11 @@ focus_tree = {
 			focus = MON_analyze_foreign_air_tactics
 			focus = MON_further_increase_training
 		}
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 		mutually_exclusive = {
 			focus = MON_heavier_crafts
 			focus = MON_a_nimble_air_force
@@ -1406,6 +1466,10 @@ focus = {
 	x = -3
 	y = 1
 	cost = 10
+
+	search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 
 	prerequisite = {
 		focus = MON_lower_material_usage
@@ -1453,6 +1517,9 @@ focus = {
 	}
 	relative_position_id = MON_lower_material_usage
 	
+	search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 
 	completion_reward = {
 		custom_effect_tooltip = MON_special_trait_tt
@@ -1530,6 +1597,10 @@ focus = {
 			}
 	}
 
+	search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
 	prerequisite = {
 		focus = MON_every_factory_a_hangar
 		focus = MON_elite_pilots_program
@@ -1578,6 +1649,10 @@ focus = {
 	prerequisite = {
 		focus = MON_terror_of_the_skies
 	}
+
+	search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 
 	available = {
 			OR = 
@@ -1714,6 +1789,10 @@ focus = {
 	prerequisite = {
 		focus = MON_rebuilding_peoples_army
 	}
+
+	search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 
 	completion_reward = {
 		custom_effect_tooltip = MON_industry_modifier_tt

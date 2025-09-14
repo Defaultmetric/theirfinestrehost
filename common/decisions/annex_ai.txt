@@ -416,5 +416,86 @@ AI_annex = {
     }
 }
 
+    ITA_annex_SPR = {
+    icon = generic_industry
+    fire_only_once = yes
+    available = {
+        date > 1939.01.01
+        country_exists = SPR
+        original_tag = ITA
+        SPR = { has_capitulated = no }
+        SPR = { is_ai = yes }
+        has_global_flag = scw_over
+    
+    }
+    visible = {
+        original_tag = ITA
+        SPR = { is_ai = yes }
+        country_exists = SPR
+    }
+    cost = 0
+    complete_effect = {
+        SPR = 
+	    			{
+	    				790 = { add_core_of = SPR }
+	    				792 = { add_core_of = SPR }
+	    				165 = { add_core_of = SPR }
+	    				794 = { add_core_of = SPR }
+	    				167 = { add_core_of = SPR }
+	    				793 = { add_core_of = SPR }
+	    				41 = { add_core_of = SPR }
+	    				170 = { add_core_of = SPR }
+	    				175 = { add_core_of = SPR }
+	    				168 = { add_core_of = SPR }
+	    				789 = { add_core_of = SPR }
+	    				169 = { add_core_of = SPR }
+	    				173 = { add_core_of = SPR }
+
+	    			}
+        annex_country = { target = SPR transfer_troops = yes }
+        every_state = {
+            limit = {
+                is_core_of = SPR
+                is_controlled_by = ITA
+            }
+            add_core_of = ITA
+        }
+    }
+}
+
+    ITA_annex_POR = {
+    icon = generic_industry
+    fire_only_once = yes
+    available = {
+        date > 1940.01.01
+        country_exists = POR
+        original_tag = ITA
+        POR = { has_capitulated = no }
+        POR = { is_ai = yes }
+        41 = 
+        {
+            is_core_of = ITA
+        }
+    }
+    visible = {
+        original_tag = ITA
+        POR = { is_ai = yes }
+        country_exists = POR
+    }
+    cost = 0
+    complete_effect = {
+        annex_country = { target = POR transfer_troops = yes }
+        every_state = {
+            limit = {
+                is_core_of = POR
+                is_controlled_by = ITA
+            }
+            add_core_of = ITA
+        }
+    }
+}
+
+
+
 
 }

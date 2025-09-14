@@ -10149,6 +10149,32 @@ focus_tree = {
 	}
 
 	focus = {
+		id = wuw_HUN_integrate_slovakian_industry
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = wuw_HUN_claim_overlordship_over_slovakia focus = wuw_HUN_demand_the_return_of_slovakia }
+		x = -2
+		y = 2
+		relative_position_id = wuw_HUN_demand_carpathian_ruthenia
+
+		cost = 5
+
+		available = 
+		{
+			has_full_control_of_state = 73
+			has_full_control_of_state = 71
+			has_full_control_of_state = 664
+			has_full_control_of_state = 70
+		}
+
+		completion_reward = {
+			73 = { set_state_category = city }
+			71 = { set_state_category = city }
+			664 = { set_state_category = city }
+			70 = { set_state_category = city }
+		}
+	}
+
+	focus = {
 		id = wuw_HUN_seek_german_contracts
 		icon = GFX_focus_generic_german_trade
 		prerequisite = { focus = wuw_HUN_act_of_defense  }
@@ -14931,6 +14957,9 @@ focus_tree = {
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			973 = { set_state_category = city }
+			154 = { set_state_category = city }
 		}
 	}
 
@@ -15102,6 +15131,9 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			155 = { set_state_category = city }
+			974 = { set_state_category = city }
 		}
 	}
 

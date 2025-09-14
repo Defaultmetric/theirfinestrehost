@@ -20,9 +20,21 @@ Shared_ALLIES_blitzkrieg_eco =
 
 
 		timeout_effect = {
-
-			set_global_flag = allies_financial_collapse
-			
+			ROOT = 
+			{
+				set_country_flag = allies_fake_collapse
+			}
+			if = 
+			{
+				limit = 
+				{
+					ENG = 
+					{
+						has_country_flag = allies_fake_collapse
+					}
+				}
+				set_global_flag = allies_financial_collapse
+			}
 		}
 	}
 
@@ -75,8 +87,8 @@ Shared_ALLIES_blitzkrieg_eco =
 		}
 
 		available = {
-                46 = { NOT = { is_controlled_by = ROM } }
-                79 = { NOT = { is_controlled_by = ROM } }
+                46 = { is_controlled_by = ENG }
+                79 = { is_controlled_by = ENG }
         }
         cost = 0
         days_remove = 0
@@ -95,7 +107,7 @@ Shared_ALLIES_blitzkrieg_eco =
 		}
 
 		available = {
-                41 = { NOT = { is_controlled_by = SPR } }
+                41 = { is_controlled_by = ENG }
 
         }
         cost = 0
@@ -135,7 +147,7 @@ Shared_ALLIES_blitzkrieg_eco =
 		}
 
 		available = {
-                48 = { NOT = { is_controlled_by = BUL } }
+            48 = { is_controlled_by = ENG } 
 
         }
         cost = 0
@@ -332,8 +344,8 @@ integrate_romania = {
 	}
 
 	available = {
-		46 = { NOT = { is_controlled_by = ROM } }
-		79 = { NOT = { is_controlled_by = ROM } }
+		46 = { is_controlled_by = ENG }
+		79 = { is_controlled_by = ENG }
 	}
 	cost = 0
 	days_remove = 0
@@ -352,7 +364,7 @@ integrate_spain = {
 	}
 
 	available = {
-		41 = { NOT = { is_controlled_by = SPR } }
+		41 = { is_controlled_by = ENG }
 	}
 	cost = 0
 	days_remove = 0
@@ -390,7 +402,7 @@ integrate_bulgaria = {
 	}
 
 	available = {
-		48 = { NOT = { is_controlled_by = BUL } }
+		48 = { is_controlled_by = ENG }
 	}
 	cost = 0
 	days_remove = 0

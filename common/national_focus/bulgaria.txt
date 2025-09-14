@@ -57,6 +57,11 @@ focus_tree = {
 				uses = 1
 				category = industry
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			48 = {
+        		set_state_category = large_city
+    		}
 		}
 	}
 
@@ -101,6 +106,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			212 = {
+        		set_state_category = city
+    		}
 		}
 	}
 
@@ -506,7 +515,14 @@ focus_tree = {
 					level = 2
 					path = { 949 935 907 3882 }
 				}
-			}				
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			801 = {
+        		set_state_category = city
+    		}
+			211 = {
+        		set_state_category = city
+    		}				
 		}
 	}
 	
@@ -6323,7 +6339,7 @@ focus_tree = {
 		relative_position_id = BUL_oppose_the_royal_dictatorship
 		x = 0
 		y = 0
-		cost = 10
+		cost = 5
 		mutually_exclusive = { focus = BUL_oppose_the_royal_dictatorship }
 
 		available = {
@@ -7781,7 +7797,7 @@ focus_tree = {
 		relative_position_id = BUL_power_to_the_tsar
 		x = 0
 		y = 2
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = BUL_the_tsars_regime }
 
@@ -7814,7 +7830,7 @@ focus_tree = {
 		relative_position_id = BUL_appoint_right_wing_ministers
 		x = -2
 		y = 2
-		cost = 10
+		cost = 4
 
 		available = {
 			fascism > 0.3
@@ -8186,7 +8202,7 @@ focus_tree = {
 		relative_position_id = BUL_allow_far_right_organizations
 		x = 0
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -8209,7 +8225,7 @@ focus_tree = {
 		relative_position_id = BUL_appoint_right_wing_ministers
 		x = 1
 		y = 1
-		cost = 10
+		cost = 4
 
 		available = {
 
@@ -8231,7 +8247,7 @@ focus_tree = {
 		relative_position_id = BUL_economic_protectionism
 		x = 2
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 			num_of_factories > 20
@@ -8323,7 +8339,7 @@ focus_tree = {
 		relative_position_id = BUL_bulgarian_irredentism
 		x = 2
 		y = 2
-		cost = 10
+		cost = 5
 
 		bypass = {
 			OR = {
@@ -8479,7 +8495,7 @@ focus_tree = {
 		relative_position_id = BUL_approach_germany
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 
 		bypass = {
 			OR = {
@@ -8584,7 +8600,7 @@ focus_tree = {
 		relative_position_id = BUL_approach_germany
 		x = 0
 		y = 2
-		cost = 5
+		cost = 1
 		mutually_exclusive = { focus = BUL_the_fate_of_the_balkans focus = BUL_join_the_allies }
 
 		bypass = {
@@ -8714,7 +8730,7 @@ focus_tree = {
 		relative_position_id = BUL_join_the_tripartite_pact
 		x = 0
 		y = 1
-		cost = 10
+		cost = 5
 		mutually_exclusive = { focus = BUL_total_war }
 
 		bypass = {
@@ -8753,7 +8769,7 @@ focus_tree = {
 		relative_position_id = BUL_join_the_tripartite_pact
 		x = -2
 		y = 1
-		cost = 10
+		cost = 1
 
 		available = {
 			BUL_is_not_alone_in_faction = yes

@@ -20,9 +20,21 @@ Shared_AXIS_blitzkrieg_eco =
 
 
 		timeout_effect = {
-
-			set_global_flag = axis_financial_collapse
-			
+			ROOT = 
+			{
+				set_country_flag = axis_fake_collapse
+			}
+			if = 
+			{
+				limit = 
+				{
+					GER = 
+					{
+						has_country_flag = axis_fake_collapse
+					}
+				}
+				set_global_flag = axis_financial_collapse
+			}
 		}
 	}
 

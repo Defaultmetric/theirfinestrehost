@@ -178,7 +178,7 @@ focus_tree = {
 	focus = {
 		id = MON_academy_of_sciences
 		icon = GFX_SOV_the_ussr_academy_of_sciences_ccp_2d_sov_compatibility
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = MON_agrarian_reform
 		}
@@ -242,6 +242,10 @@ focus_tree = {
 					type = aluminium
 					amount = 18
 				}
+				add_resource = {
+					type = rubber
+					amount = 12
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -286,6 +290,10 @@ focus_tree = {
 				add_resource = {
 					type = aluminium
 					amount = 18
+				}
+				add_resource = {
+					type = rubber
+					amount = 12
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -388,7 +396,7 @@ focus_tree = {
 				name = industry_bonus
 				category = industry
 				bonus = 1
-				uses = 1
+				uses = 2
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = MON_industry_modifier_tt
@@ -1126,7 +1134,7 @@ focus_tree = {
 	focus = {
 		id = MON_every_last_drop
 		icon = GFX_focus_generic_communist_industry
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = MON_war_production
 		}
@@ -1382,7 +1390,7 @@ focus_tree = {
 	icon = GFX_focus_generic_copy_plane_designs
 	x = 2
 	y = 1
-	cost = 10
+	cost = 5
 
 	prerequisite = {
 		focus = MON_a_nimble_air_force
@@ -1643,7 +1651,7 @@ focus = {
 	icon = GFX_focus_generic_jet_planes
 	x = 2
 	y = 1
-	cost = 10
+	cost = 5
 	relative_position_id = MON_terror_of_the_skies
 
 	prerequisite = {
@@ -1712,7 +1720,7 @@ focus = {
 	icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
 	x = -2
 	y = 1
-	cost = 10
+	cost = 5
 
 	prerequisite = {
 		focus = MON_terror_of_the_skies
@@ -1734,7 +1742,7 @@ focus = {
 	icon = GFX_SOV_military_reorganization_ccp_2d_sov_compatibility
 	x = 30
 	y = 0
-	cost = 5
+	cost = 1
 
 	completion_reward = {
 		custom_effect_tooltip = MON_army_modifier_tt
@@ -1932,7 +1940,7 @@ focus = {
 	icon = GFX_focus_generic_tank_production
 	x = 1
 	y = 1
-	cost = 5
+	cost = 4
 	relative_position_id = MON_establish_a_unified_command
 	prerequisite = {
 		focus = MON_establish_a_unified_command
@@ -2335,7 +2343,7 @@ focus = {
 		icon = GFX_goal_continuous_armor_production
 		x = -3
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = MON_experimental_designs
 		prerequisite = {
 			focus = MON_experimental_designs
@@ -2351,7 +2359,7 @@ focus = {
 		icon = GFX_focus_CHL_expand_the_forestry
 		x = -2
 		y = 2
-		cost = 10
+		cost = 5
 		relative_position_id = MON_experimental_designs
 		prerequisite = {
 			focus = MON_experimental_designs
@@ -2371,7 +2379,7 @@ focus = {
 		icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
 		x = 3
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = MON_experimental_designs
 		prerequisite = {
 			focus = MON_experimental_designs
@@ -2524,7 +2532,7 @@ focus = {
 	icon = GFX_focus_generic_horse_studs
 	x = -1
 	y = 1
-	cost = 10
+	cost = 5
 	relative_position_id = MON_loyal_military
 
 	prerequisite = {
@@ -2549,7 +2557,7 @@ focus = {
 	icon = GFX_focus_generic_strike_at_democracy1
 	x = -1
 	y = 1
-	cost = 2
+	cost = 4
 	relative_position_id = MON_High_command
 
 	prerequisite = {
@@ -2573,7 +2581,7 @@ focus = {
 	icon = GFX_goal_generic_defence
 	x = 1
 	y = 1
-	cost = 2
+	cost = 4
 	relative_position_id = MON_High_command
 
 	prerequisite = {
@@ -2995,7 +3003,7 @@ focus = {
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		x = 0
 		y = 2
-		cost = 5
+		cost = 4
 		relative_position_id = MON_fix_the_worker_shortage
 		prerequisite = {
 			focus = MON_fix_the_worker_shortage
@@ -3257,6 +3265,8 @@ focus = {
 					autonomy_state = mon_ultra_autonomy
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_political_power = 100
 		}
 	}
 	focus = {
@@ -3303,7 +3313,7 @@ focus = {
 		icon = GFX_SOV_father_of_nations_ccp_2d_sov_compatibility
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 		relative_position_id = MON_repay_the_soviets
 		prerequisite = {
 			focus = MON_repay_the_soviets
@@ -3374,7 +3384,7 @@ focus = {
 		icon = GFX_focus_generic_total_war
 		x = 1
 		y = 1
-		cost = 10
+		cost = 1
 		relative_position_id = MON_toward_the_stars
 
 		available = 

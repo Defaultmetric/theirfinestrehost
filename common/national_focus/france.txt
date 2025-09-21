@@ -557,6 +557,11 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
+		available = 
+		{
+			has_completed_focus = FRA_begin_rearmament
+		}
+
 		ai_will_do = {
 			factor = 1
 		}		
@@ -641,6 +646,11 @@ focus_tree = {
 		cost = 10
 
 		available_if_capitulated = yes
+
+		available = 
+		{
+			has_completed_focus = FRA_begin_rearmament
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -2281,7 +2291,7 @@ focus_tree = {
 			add_tech_bonus = {
 			name = FRA_gun_bonus
 			bonus = 1.0
-			uses = 2
+			uses = 1
 			category = infantry_weapons
 			}
 
@@ -2314,7 +2324,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = FRA_artillery_focus
 				bonus = 1.0
-				uses = 3
+				uses = 1
 				category = artillery
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2608,7 +2618,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = FRA_mechanized_focus
 				bonus = 1.0
-				uses = 2
+				uses = 1
 				ahead_reduction = 1
 				category = cat_mechanized_equipment
 			}
@@ -2783,9 +2793,8 @@ focus_tree = {
 			add_tech_bonus = {
 			name = FRA_improved_large_bonus
 			technology = improved_large_airframe
-			bonus = 2
+			bonus = 1
 			uses = 1
-			ahead_reduction = 1.0
 			}
 			air_experience = 50
 		}

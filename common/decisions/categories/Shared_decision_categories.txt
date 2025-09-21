@@ -19,6 +19,7 @@ Shared_AXIS_blitzkrieg_eco = {
 	visible = {
 		has_global_flag = axis_blitzkrieg_eco
 		ROOT = { is_in_faction_with = GER }
+		NOT = {has_global_flag = axis_financial_collapse}
 	}
 	
 	priority = 100
@@ -36,6 +37,7 @@ Shared_AXIS_the_waiting_game = {
 	visible = {
 		has_global_flag = axis_the_waiting_game
 		ROOT = { is_in_faction_with = GER }
+		NOT = {has_global_flag = axis_economy_unbound_timer}
 	}
 
 	allowed = {
@@ -78,6 +80,7 @@ Shared_ALLIES_blitzkrieg_eco = {
 	visible = {
 		has_global_flag = allies_blitzkrieg_eco
 		ROOT = { is_in_faction_with = ENG }
+		NOT = {has_global_flag = allies_financial_collapse}
 	}
 	
 	priority = 100
@@ -108,6 +111,7 @@ Shared_ALLIES_the_waiting_game = {
 	visible = {
 		has_global_flag = allies_the_waiting_game
 		ROOT = { is_in_faction_with = ENG }
+		NOT = {has_global_flag = allies_economy_unbound_timer}
 	}
 	
 	priority = 100

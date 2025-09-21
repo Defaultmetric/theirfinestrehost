@@ -219,38 +219,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -284,20 +252,6 @@ focus_tree = {
 				tooltip = line_change_production_efficiency_factor_tt
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			modify_building_resources = {
-        	   building = synthetic_refinery
-        	   resource = rubber
-        	   amount = 1
-        	}
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			GER_modify_industrial_modifier = yes
-			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = -0.1
-				tooltip = consumer_goods_factor_tt
-			}
 		}
 	}
 	
@@ -839,7 +793,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_agricultural_reforms
-		cost = 10
+		cost = 5
 		available = {
 			OR ={
 				59 = { #Hannover
@@ -876,11 +830,11 @@ focus_tree = {
 			
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_factory = 0.1
+				GER_industrial_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.1
+				GER_industrial_industrial_capacity_dockyard = 0.05
 				tooltip = industrial_capacity_dockyard_tt
 			}
 		}
@@ -1274,7 +1228,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_construct_the_reichsautobahn
-		cost = 5
+		cost = 1
 		available = {
 			is_subject = no
 			AND = {
@@ -1343,10 +1297,10 @@ focus_tree = {
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 3
+						add_extra_state_shared_building_slots = 4
 						add_building_construction = {
 							type = arms_factory
-							level = 3
+							level = 4
 							instant_build = yes
 						}
 					}
@@ -1361,10 +1315,10 @@ focus_tree = {
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 3
+						add_extra_state_shared_building_slots = 4
 						add_building_construction = {
 							type = arms_factory
-							level = 3
+							level = 4
 							instant_build = yes
 						}
 					}
@@ -1383,10 +1337,10 @@ focus_tree = {
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
@@ -1401,10 +1355,10 @@ focus_tree = {
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 2
+						add_extra_state_shared_building_slots = 3
 						add_building_construction = {
 							type = industrial_complex
-							level = 2
+							level = 3
 							instant_build = yes
 						}
 					}
@@ -1456,7 +1410,37 @@ focus_tree = {
 				53 = { 
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+				978 = { #Wurttemberg
+						infrastructure < 5
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				978 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					50 = { #Baden
+						infrastructure < 5
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				50 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -1570,7 +1554,22 @@ focus_tree = {
 				68 = { 
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					65 = { #Sachsen
+						infrastructure < 5
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				65 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -1583,6 +1582,36 @@ focus_tree = {
 					}
 				}
 				63 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					66 = { #Nider
+						infrastructure < 5
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				66 = { 
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					67 = { #Nider
+						infrastructure < 5
+						state_is_fully_controlled_by_ROOT_or_subject = yes
+					}
+				}
+				67 = { 
 					add_building_construction = {
 						type = infrastructure
 						level = 1
@@ -1685,47 +1714,6 @@ focus_tree = {
 				category = electronics
 			}
 
-		}
-	}
-
-	focus = {
-		id = GER_total_france_mobilization
-		icon = GFX_focus_generic_full_social_mobilization
-		prerequisite = { focus = GER_develop_heraeus_facilities }
-
-		allow_branch = 
-		{
-			if = 
-			{
-				has_global_flag = FRA_le_pari_continental_flag
-			}
-		}
-
-		bypass = 
-		{
-			has_completed_focus = GER_totaler_krieg
-		}
-
-		x = 0
-		y = 1
-		relative_position_id = GER_develop_heraeus_facilities
-		cost = 5
-		available = {
-				has_war_support > 0.80
-		}
-
-		continue_if_invalid = yes
-
-		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
-
-		completion_reward = {
-			add_war_support = 0.05
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			add_ideas = totaler_krieg_economy_v2
-
-			
 		}
 	}
 	
@@ -2815,18 +2803,12 @@ focus_tree = {
 	focus = {
 		id = GER_totaler_krieg
 		icon = GFX_focus_generic_total_war
-		prerequisite = { focus = GER_create_rustungsstab }
-		prerequisite = { focus = GER_armament_rationalization }
+		prerequisite = { focus = GER_create_rustungsstab focus = GER_armament_rationalization }
 
 		x = 1
 		y = 1
 		relative_position_id = GER_armament_rationalization
 		cost = 5
-
-		bypass = 
-		{
-			has_completed_focus = GER_total_france_mobilization
-		}
 
 		available = {
 			has_war_with_major = yes
@@ -5459,7 +5441,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_form_the_jagdwaffe
-		cost = 10
+		cost = 5
 		available = {
 			GER_hermann_goring = {
 				is_air_chief = no

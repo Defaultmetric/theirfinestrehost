@@ -2,8 +2,11 @@ ideas = {
 
 	country = {
 
-		ROM_romanian_army = {
-			picture = ROM_dyn_romanian_army
+
+		####Political Corruption######
+
+		ROM_extreme_corruption = {
+			picture = GER_economy_of_conquest
 
 			allowed = {
 				original_tag = ROM
@@ -12,10 +15,60 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				supply_consumption_factor = -0.1
-				supply_node_range = 0.15
+				political_power_gain = -1
+				stability_weekly = -0.0040
+				war_support_weekly = -0.0030
+				production_speed_buildings_factor = -0.2
 			}
 		}
+
+		ROM_high_corruption = {
+			picture = ARG_political_corruption_modifier
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.75
+				stability_weekly = -0.0030
+				war_support_weekly = -0.0020
+			}
+		}
+
+		ROM_medium_corruption = {
+			picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.5
+				stability_weekly = -0.0010
+			}
+		}
+
+		ROM_low_corruption = {
+			picture = DEN_occupation_laws
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = -0.35
+			}
+		}
+
+
+		##############################
 		
 		ROM_revenge_against_soviet = {
 
@@ -1340,6 +1393,24 @@ ideas = {
 			
 			ai_will_do = {
 				factor = 1
+			}
+		}
+
+		romanian_arms_discount = {
+			
+			allowed = {
+				always = no
+			}
+			
+
+			removal_cost = -1
+
+			picture = generic_infantry_bonus
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
 			}
 		}
 	}

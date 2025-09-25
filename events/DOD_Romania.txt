@@ -1,4 +1,4 @@
-﻿###########################
+###########################
 # Hungarian Events
 ###########################
 
@@ -40,7 +40,6 @@ country_event = {
 		}
 		ROM = { country_event = DOD_romania.3 }	
 	}
-
 }
 #Romania wants to strengthen the Romanian-polish alliance - Poland agrees
 country_event = {
@@ -1368,6 +1367,17 @@ country_event = {
 
 		}
 		add_timed_idea = { idea = ROM_king_carol_ii_consumer_penalty days = 90 }
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_2x_lvl_up = yes
+		}
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
 		}
@@ -1399,6 +1409,18 @@ country_event = {
 			}
 		}
 		add_political_power = -90
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_lvl_up = yes	
+		}
+		
 		add_timed_idea = { idea = ROM_king_carol_ii_paid_with_pp days = 90 }
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
@@ -1542,6 +1564,17 @@ country_event = {
 
 		}
 		add_timed_idea = { idea = ROM_king_carol_ii_consumer_penalty days = 90 }
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_2x_lvl_up = yes	
+		}
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
 		}
@@ -1571,6 +1604,17 @@ country_event = {
 				add = 20
 				date > 1937.01.02
 			}
+		}
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_lvl_up = yes	
 		}
 		add_political_power = -90
 		add_timed_idea = { idea = ROM_king_carol_ii_paid_with_pp days = 90 }
@@ -1634,6 +1678,17 @@ country_event = {
 			}
 
 		}
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_2x_lvl_up = yes	
+		}
 		add_timed_idea = { idea = ROM_king_carol_ii_consumer_penalty days = 90 }
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
@@ -1664,6 +1719,17 @@ country_event = {
 				add = 20
 				date > 1937.01.02
 			}
+		}
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_lvl_up = yes	
 		}
 		add_political_power = -90
 		add_timed_idea = { idea = ROM_king_carol_ii_paid_with_pp days = 90 }
@@ -1727,6 +1793,17 @@ country_event = {
 			}
 
 		}
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_lvl_up = yes	
+		}
 		add_timed_idea = { idea = ROM_king_carol_ii_consumer_penalty days = 90 }
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
@@ -1760,6 +1837,17 @@ country_event = {
 		}
 		add_political_power = -90
 		add_timed_idea = { idea = ROM_king_carol_ii_paid_with_pp days = 90 }
+		if = 
+		{
+			limit = 
+			{
+				ROM = 
+				{
+					has_country_flag = corruption_system_active
+				}
+			}
+			ROM_political_corruption_2x_lvl_up = yes
+		}
 		hidden_effect = {
 			country_event = { id = DOD_romania.80 }
 		}
@@ -4147,5 +4235,23 @@ country_event = { #if Codreanu is still in power, kill him and replace with Goga
 		    long_name = ROM_fascism_party2_long
 		    name = ROM_fascism_party2
 		}
+	}
+}
+
+
+##### Corruption
+
+country_event = {
+	id = DOD_romania.200
+	title = DOD_romania.200.t
+	desc = DOD_romania.200.desc
+	picture = GFX_report_event_romania_poland_visit
+	
+	is_triggered_only = yes
+
+	option = { 
+		name = DOD_romania.200.a
+		
+		ROM_political_corruption_lvl_up = yes
 	}
 }

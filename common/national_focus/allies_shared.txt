@@ -6,7 +6,7 @@ shared_focus = {
 	icon = GFX_focus_ARG_join_the_allies
 	
 
-	x = 46
+	x = 32
 	y = 0
 	#Uk
 	offset = {
@@ -23,6 +23,14 @@ shared_focus = {
 		y = 0
 		trigger = {
 			has_focus_tree = french_focus
+		}
+	}
+
+	offset = {
+		x = 20 
+		y = 0
+		trigger = {
+			has_focus_tree = free_french_focus
 		}
 	}
 
@@ -2988,8 +2996,7 @@ joint_focus = {
 joint_focus = {
 	id = allies_dday_force_attack
 	icon = GFX_focus_ITA_corpo_volontari_della_liberta
-	prerequisite = { focus = allies_barbarossa_defense }
-	prerequisite = { focus = allies_afrika_korps }
+	prerequisite = { focus = allies_barbarossa_defense focus = allies_afrika_korps}
 
 	x = 1
 	y = 1

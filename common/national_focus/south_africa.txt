@@ -59,7 +59,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_war_measures_act
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -90,7 +90,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SAF_war_measures_act
 
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -144,7 +144,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SAF_war_measures_act
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -179,7 +179,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = SAF_war_measures_act
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -289,7 +289,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -326,7 +326,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 2
@@ -388,12 +388,12 @@ focus_tree = {
 	focus = {
 		id = SAF_desert_equipment
 		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = SAF_joint_air_training_scheme }
+		prerequisite = { focus = SAF_cape_garrison_artillery }
 		x = -4
 		y = 3
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -419,13 +419,13 @@ focus_tree = {
 	focus = {
 		id = SAF_suppress_the_stormjaers
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = SAF_joint_air_training_scheme }
+
 		prerequisite = { focus = SAF_police_windhoek }
 		x = -2
 		y = 3
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -458,7 +458,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 0
@@ -493,12 +493,12 @@ focus_tree = {
 	focus = {
 		id = SAF_native_laws_amendment_act
 		icon = GFX_goal_generic_forceful_treaty
-		prerequisite = { focus = SAF_police_windhoek focus = SAF_support_the_afrikaner_broederbond }
+		prerequisite = { focus = SAF_police_windhoek }
 		x = 0
 		y = 2
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -530,7 +530,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -740,12 +740,12 @@ focus_tree = {
 	focus = {
 		id = SAF_voortrekker_monument
 		icon = GFX_goal_generic_national_unity
-		prerequisite = { focus = SAF_native_laws_amendment_act focus = SAF_support_ossewabrandwag }
+		prerequisite = { focus = SAF_native_laws_amendment_act }
 		x = -1
 		y = 2
 		relative_position_id = SAF_support_the_afrikaner_broederbond
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -2269,7 +2269,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SAF_south_african_railways
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -2288,19 +2288,6 @@ focus_tree = {
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = SAF_pretoria_arms_AF
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 4
-					instant_build = yes
-				}
-			}
-		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -2323,7 +2310,7 @@ focus_tree = {
             name = infantry_weapons_bonus
             category = infantry_weapons
             bonus = 1
-            uses = 2
+            uses = 1
         }
 		}
 	}
@@ -2654,7 +2641,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2674,7 +2661,7 @@ focus_tree = {
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 10
+			army_experience = 50
 			add_doctrine_cost_reduction = {
 				name = SAF__south_african_military_college
 				cost_reduction = 0.5
@@ -2692,7 +2679,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2729,7 +2716,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -2766,7 +2753,7 @@ focus_tree = {
 		y = 4
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2804,7 +2791,7 @@ focus_tree = {
 		y = 5
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1

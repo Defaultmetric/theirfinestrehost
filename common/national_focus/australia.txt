@@ -68,7 +68,7 @@
 		x = 2
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -88,7 +88,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 25
+			army_experience = 50
 			add_doctrine_cost_reduction = {
 				name = AST_additional_militia_training
 				cost_reduction = 0.5
@@ -106,7 +106,7 @@
 		y = 1
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -151,7 +151,7 @@
 		y = 1
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -223,8 +223,10 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = motorized_bonus
-				bonus = 1.00
+				bonus = 2
 				category = motorized_equipment
+				ahead_reduction = 2
+				uses = 2
 			}
 		}
 	}
@@ -237,7 +239,7 @@
 		y = 2
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -281,7 +283,7 @@
 		y = 2
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -319,7 +321,7 @@
 		y = 3
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -352,7 +354,7 @@
 		y = 4
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -394,7 +396,7 @@
 		y = 3
 		relative_position_id = AST_additional_militia_training
 		
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -431,7 +433,7 @@
 		y = 4
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -457,10 +459,13 @@
 			}
 			add_tech_bonus = {
 				name = AST_sentinel_tank_project
-				bonus = 1.0
+				bonus = 2.0
 				uses = 2
 				category = armor
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = embrace_the_future_ideas
 		}
 	}
 
@@ -518,7 +523,7 @@
 		y = 5
 		relative_position_id = AST_additional_militia_training
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1937,7 +1942,7 @@
 		x = 16
 		y = 0
 
-		cost = 2
+		cost = 1
 
 		ai_will_do = {
 			factor = 4
@@ -2009,7 +2014,7 @@
 		y = 1
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2036,38 +2041,15 @@
 			build_railway = {
 				path = { 1652 2157 10983 1526 10949 8200 10969 2191 12948 5197 8165 10927 8186 }
 			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-					NOT = {state = 674}
-				}
-
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 0
-					}
-					NOT = {state = 674}
-				}
-
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_state = {
+        limit = { is_core_of = AST }
+        add_building_construction = {
+            type = infrastructure
+            level = 1
+            instant_build = yes
+        }
+   			 }
 		}
 	}
 
@@ -2079,7 +2061,7 @@
 		y = 2
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2128,7 +2110,7 @@
 		y = 2
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -2328,7 +2310,7 @@
 		y = 4
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2547,7 +2529,7 @@
 		y = 1
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2677,7 +2659,7 @@
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2709,7 +2691,7 @@
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2852,7 +2834,7 @@
 		y = 4
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -2979,7 +2961,7 @@
 		y = 3
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -3049,7 +3031,7 @@
 		y = 3
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -3120,7 +3102,7 @@
 		y = 4
 		relative_position_id = AST_establish_advisory_war_council
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3155,7 +3137,7 @@
 		x = 30
 		y = 0
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -3215,7 +3197,7 @@
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -3375,7 +3357,7 @@
 		y = 3
 		relative_position_id = AST_support_the_policy_of_appeasement
 
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 10

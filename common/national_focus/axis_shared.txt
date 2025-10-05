@@ -119,18 +119,27 @@ joint_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = GER }
+	completion_reward_joint_originator = {
+    every_country = {
+        limit = {
+            OR = {
+                tag = GER
+				tag = ITA
+                tag = ROM
+				tag = SPR
+				tag = HUN
+                tag = BUL
+            }
+        }
+        add_political_power = 25
+        add_stability = 0.1
+        add_popularity = {
+            ideology = fascism
+            popularity = 0.1
+        }
+    }
+}
 
-	            add_political_power = 25
-	    		add_stability = 0.1
-	    		add_popularity = {
-	    			ideology = fascism
-	    			popularity = 0.1
-	    		}
-		    }
-	}
 }
 
 joint_focus = {
@@ -153,17 +162,25 @@ joint_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = GER }
+	completion_reward_joint_originator = {
+    every_country = {
+        limit = {
+            OR = {
+                tag = GER
+                tag = ITA
+                tag = ROM
+                tag = SPR
+                tag = HUN
+                tag = BUL
+            }
+        }
+        add_timed_idea = { 
+            idea = civ_eco_boost 
+            days = 250 
+        }
+    }
+}
 
-	            add_timed_idea = { 
-	        		idea = civ_eco_boost 
-	        		days = 180 
-	    		}
-		
-		    }
-	}
 }
 
 joint_focus = {
@@ -218,16 +235,25 @@ joint_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = GER }
+	completion_reward_joint_originator = {
+    every_country = {
+        limit = {
+            OR = {
+                tag = GER
+                tag = ITA
+                tag = ROM
+                tag = SPR
+                tag = HUN
+                tag = BUL
+            }
+        }
+        add_timed_idea = { 
+            idea = mill_eco_boost 
+            days = 250 
+        }
+    }
+}
 
-	            add_timed_idea = { 
-	        		idea = mill_eco_boost 
-	        		days = 180 
-	    		}
-		    }
-	}
 }
 
 joint_focus = {
@@ -250,16 +276,25 @@ joint_focus = {
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = GER }
+	completion_reward_joint_originator = {
+    every_country = {
+        limit = {
+            OR = {
+                tag = GER
+                tag = ITA
+                tag = ROM
+                tag = SPR
+                tag = HUN
+                tag = BUL
+            }
+        }
+        add_timed_idea = { 
+            idea = infra_boost
+            days = 450 
+        }
+    }
+}
 
-	            add_timed_idea = { 
-	        		idea = infra_boost
-	        		days = 365 
-	    		}
-		    }
-	}
 }
 
 joint_focus = {

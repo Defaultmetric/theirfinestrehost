@@ -1409,15 +1409,21 @@ leader_traits = {
  		type = corps_commander
 		gain_xp = {
 			OR = {
+				is_fighting_in_terrain = marsh
+				is_fighting_in_terrain = mountain
+				is_fighting_in_terrain = hills
+				is_fighting_in_terrain = jungle
+				is_fighting_in_terrain = desert
+				is_fighting_in_terrain = urban
 				temperature < -15
 				temperature > 27
 				has_combat_modifier = paradrop
 				has_combat_modifier = amphibious_attack
 			}
 		}
-		cost = 500
+		cost = 700
 		modifier = {
-			out_of_supply_factor = -0.2
+			out_of_supply_factor = -0.1
 		}
 		
 		ai_will_do = {

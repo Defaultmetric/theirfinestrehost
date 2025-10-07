@@ -36,12 +36,12 @@ technologies = {
 			heavy_tank_aa_chassis_0
 		}
 		enable_equipment_modules = {
+			tank_log_armor
 			tank_torsion_bar_suspension
 			tank_riveted_armor
 			tank_gasoline_engine
 			tank_diesel_engine
 			tank_petrol_electric_engine
-			tank_cast_armor
 			tank_christie_suspension
 			tank_bogie_suspension
 			tank_interleaved_suspension
@@ -1392,7 +1392,8 @@ technologies = {
 
 	armor_tech_1 = {
 		enable_equipment_modules = {
-			tank_welded_armor
+			tank_hybrid_armor
+			armor_skirts
 		}
 
 		path = {
@@ -1453,7 +1454,8 @@ technologies = {
 	armor_tech_2 = {
 
 		enable_equipment_modules = {
-			armor_skirts
+			tank_welded_armor
+			tank_cast_armor
 		}
 		path = {
 			leads_to_tech = armor_tech_3

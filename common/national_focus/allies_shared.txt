@@ -359,17 +359,17 @@ joint_focus = {
 	bypass_effect = 
 	{
 		add_to_variable = { 
-	        	allies_mill_output = 0.075
+	        	allies_mill_output = 0.025
 	        	
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.075
+	    		allies_dockyard_output  = 0.025
 	    		
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.075
+	    		allies_growth_gain = 0.05
 	    		
 	    	}
 
@@ -391,17 +391,17 @@ joint_focus = {
 		}
 	    
 			add_to_variable = { 
-	        	allies_mill_output = 0.075
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.075
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.075
+	    		allies_growth_gain = 0.05
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
@@ -445,10 +445,6 @@ joint_focus = {
 	            	  	amount = 1
 	            	}
 
-				add_to_variable = { 
-	    			allies_construction_speed = 0.05
-	    	
-	    		}
 	}
 
 	available_if_capitulated = yes
@@ -476,10 +472,6 @@ joint_focus = {
 					technology = rubber_processing
 				}
 
-				add_to_variable = { 
-	    			allies_construction_speed = 0.05
-	    			tooltip = production_speed_buildings_factor_tt 
-	    		}
 		    }
 	}
 }
@@ -500,26 +492,22 @@ joint_focus = {
 	bypass_effect = 
 	{
 		add_to_variable = { 
-	        	allies_mill_output = 0.075
+	        	allies_mill_output = 0.025
 	        	
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.0075
+	    		allies_dockyard_output  = 0.0025
 	    		
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.075
+	    		allies_growth_gain = 0.05
 	    		 
 	    	}
 
 			add_to_variable = { 
-	    		allies_cap = 0.050
-	    		
-	    	}
-			add_to_variable = { 
-	    		allies_consumer = -0.1
+	    		allies_cap = 0.05
 	    		
 	    	}
 	}
@@ -550,27 +538,23 @@ joint_focus = {
 		}
 	    
 			add_to_variable = { 
-	        	allies_mill_output = 0.075
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.075
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.075
+	    		allies_growth_gain = 0.05
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
 			add_to_variable = { 
-	    		allies_cap = 0.050
+	    		allies_cap = 0.05
 	    		tooltip = production_factory_max_efficiency_factor_tt
-	    	}
-			add_to_variable = { 
-	    		allies_consumer = -0.1
-	    		tooltip = consumer_goods_factor_tt
 	    	}
 	}
 }
@@ -738,60 +722,11 @@ joint_focus = {
 
 joint_focus = {
 	id = ALLIES_adaptive_1
-	icon = GFX_focus_generic_reorient_production
+	icon = GFX_focus_generic_rubber
 	prerequisite = { focus = ALLIES_adaptive_economy}
 	mutually_exclusive = {focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_3}
 
 	x = -2
-	y = 1
-	relative_position_id = ALLIES_adaptive_economy
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		is_in_faction_with = ENG
-		
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { is_in_faction_with = ENG }
-
-	        add_to_variable = { 
-	        	allies_mill_output = 0.05
-	        	tooltip = industrial_capacity_factory_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
-	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
-
-		    }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = allies_high_value
-			custom_effect_tooltip = high_value_tt
-	}
-}
-
-joint_focus = {
-	id = ALLIES_adaptive_2
-	icon = GFX_focus_generic_rubber
-	prerequisite = { focus = ALLIES_adaptive_economy}
-	mutually_exclusive = {focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_3}
-
-	x = 0
 	y = 1
 	relative_position_id = ALLIES_adaptive_economy
 	cost = 5
@@ -818,8 +753,57 @@ joint_focus = {
 	            	}
 		    }
 		custom_effect_tooltip = generic_skip_one_line_tt
-		set_global_flag = allies_medium_value
-		custom_effect_tooltip = medium_value_tt
+		set_global_flag = allies_high_value
+		custom_effect_tooltip = high_value_tt
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_2
+	icon = GFX_focus_generic_reorient_production
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_3}
+
+	x = 0
+	y = 1
+	relative_position_id = ALLIES_adaptive_economy
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	        add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+		    }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_global_flag = allies_medium_value
+			custom_effect_tooltip = medium_value_tt
 	}
 }
 
@@ -962,17 +946,17 @@ joint_focus = {
 	bypass_effect = 
 	{
 			add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 	}
@@ -992,17 +976,17 @@ joint_focus = {
 	        limit = { is_in_faction_with = ENG }
 
 	        add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 		}
@@ -1034,10 +1018,7 @@ joint_focus = {
 
 	bypass_effect = 
 	{
-		add_to_variable = { 
-	    			allies_construction_speed = 0.05
-	    			tooltip = production_speed_buildings_factor_tt 
-	    		}
+	
 				add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
@@ -1058,10 +1039,7 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
-	            add_to_variable = { 
-	    			allies_construction_speed = 0.05
-	    			tooltip = production_speed_buildings_factor_tt 
-	    		}
+	        
 				add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
@@ -1094,17 +1072,17 @@ joint_focus = {
 	bypass_effect = 
 	{
 			add_to_variable = { 
-	        	allies_mill_output = 0.1
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.1
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.1
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
@@ -1113,12 +1091,12 @@ joint_focus = {
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
-	    		allies_consumer = -0.15
+	    		allies_consumer = -0.1
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			allies_construction_speed = 0.10
+	    			allies_construction_speed = 0.05
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
@@ -1138,17 +1116,17 @@ joint_focus = {
 		set_global_flag = allies_economy_unbound
 
 	   		add_to_variable = { 
-	        	mill_output = 0.1
+	        	mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		dockyard_output  = 0.1
+	    		dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		growth_gain = 0.1
+	    		growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
@@ -1157,12 +1135,12 @@ joint_focus = {
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
-	    		consumer = -0.15
+	    		consumer = -0.1
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			construction_speed = 0.10
+	    			construction_speed = 0.05
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
@@ -1267,17 +1245,17 @@ joint_focus = {
 	        limit = { is_in_faction_with = ENG }
 
 	            add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
@@ -1285,10 +1263,6 @@ joint_focus = {
 	    		allies_mill_speed = 0.05
 	    		tooltip = production_speed_arms_factory_factor_tt
 	    	}
-			add_to_variable = { 
-					allies_consumer = -0.10
-					tooltip = consumer_goods_factor_tt
-	    		}
 		    }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1327,18 +1301,13 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
-			add_to_variable = { 
-	    			allies_construction_speed = 0.025
-	    			tooltip = production_speed_buildings_factor_tt 
-	    		}
-
 				add_to_variable = { 
 					allies_consumer = -0.10
 					tooltip = consumer_goods_factor_tt
 	    		}
 
 				add_to_variable = { 
-	    			allies_resources_factor = 0.10
+	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
 	    		}
 		    }
@@ -1380,14 +1349,10 @@ joint_focus = {
 	        limit = { is_in_faction_with = ENG }
 
 	            add_to_variable = { 
-	    			allies_construction_speed = 0.025
+	    			allies_construction_speed = 0.035
 	    			tooltip = production_speed_buildings_factor_tt 
 	    		}
 
-				add_to_variable = { 
-					allies_consumer = -0.1
-					tooltip = consumer_goods_factor_tt
-	    		}
 		    }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1516,7 +1481,7 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	    		allies_cap = 0.05
+	    		allies_cap = 0.025
 				tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
@@ -1527,11 +1492,6 @@ joint_focus = {
 	    	add_to_variable = { 
 	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.025
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 		}
 	}
@@ -1590,19 +1550,15 @@ joint_focus = {
 				tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.05
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
 		}
 	}
 }
@@ -1650,22 +1606,17 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	        	allies_mill_output = 0.075
+	        	allies_mill_output = 0.05
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.075
+	    		allies_dockyard_output  = 0.05
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.075
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
-
 			add_to_variable = { 
-	    		allies_cap = 0.075
+	    		allies_cap = 0.05
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 		}
@@ -1703,18 +1654,13 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	        	allies_mill_output = 0.1
+	        	allies_mill_output = 0.05
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.1
+	    		allies_dockyard_output  = 0.05
 	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.1
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
 			add_to_variable = { 

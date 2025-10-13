@@ -1,5 +1,238 @@
 add_namespace = mtg_britain 
 
+
+
+### The Fall of Britain
+
+#hidden pre-event to check before capitulation
+country_event = {
+	id = mtg_britain.500
+	hidden = yes
+	trigger = {
+		tag = ENG
+		has_global_flag = noAsia
+		has_government = democratic
+		has_war_with = GER
+
+		surrender_progress > 0.65
+	}
+
+	mean_time_to_happen = { days = 2 }
+	immediate = {
+		country_event = mtg_britain.501
+	}
+}
+# The Battle is Lost
+country_event = {
+	id = mtg_britain.501
+	title = mtg_britain.501.t
+	desc = mtg_britain.501.d
+	picture = GFX_report_event_german_parade_paris
+
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = achievement_britain_surrender
+
+	}
+	
+	option = { # Become USA
+		name = mtg_britain.501.b
+		
+
+		hidden_effect = 
+		{
+
+			###Economy
+
+			USA = {
+			if = {
+				limit = { date > 1942.12.31 }
+				add_offsite_building = { type = arms_factory level = 320 }
+				add_offsite_building = { type = industrial_complex level = 75 }
+			}
+			else_if = {
+				limit = { date > 1941.12.31 }
+				add_offsite_building = { type = arms_factory level = 270 }
+				add_offsite_building = { type = industrial_complex level = 75 }
+			}
+			else_if = {
+				limit = { date > 1940.12.31 }
+				add_offsite_building = { type = arms_factory level = 220 }
+				add_offsite_building = { type = industrial_complex level = 50 }
+			}
+			else_if = {
+				limit = { date > 1939.12.31 }
+				add_offsite_building = { type = arms_factory level = 170 }
+				add_offsite_building = { type = industrial_complex level = 30 }
+			}
+			else_if = {
+				limit = { date > 1938.12.31 }
+				add_offsite_building = { type = arms_factory level = 120 }
+			}
+			else = {
+				add_offsite_building = { type = arms_factory level = 70 }
+			}
+			}
+
+			USA = 
+			{
+				create_country_leader = {
+				name = "joe_biden"
+				picture = GFX_joe_biden
+				expire = "1952.1.26"
+				ideology = socialism
+
+			}
+			}
+
+			USA = {
+				transfer_state = 357
+				transfer_state = 358
+				transfer_state = 360
+				transfer_state = 359
+				transfer_state = 261
+				transfer_state = 816
+				transfer_state = 362
+				transfer_state = 363
+				transfer_state = 364
+				transfer_state = 365
+				transfer_state = 366
+				transfer_state = 367
+				transfer_state = 368
+				transfer_state = 369
+				transfer_state = 396
+				transfer_state = 395
+				transfer_state = 370
+				transfer_state = 393
+				transfer_state = 394
+				transfer_state = 371
+				transfer_state = 372
+				transfer_state = 373
+				transfer_state = 392
+				transfer_state = 391
+				transfer_state = 361
+    		}
+			ENG = {
+        		add_to_faction = USA
+			}
+			USA = {
+				declare_war_on = { target = GER    type = puppet_wargoal_focus }
+			}
+			USA = {
+        		annex_country = { target = ENG transfer_troops = yes }
+    		}
+			USA = {
+        		add_to_faction = CAN
+				add_to_faction = BRA
+				add_to_faction = SAF
+				add_to_faction = AST
+				add_to_faction = INS
+				add_to_faction = POL
+				add_to_faction = HOL
+				add_to_faction = BEL
+				add_to_faction = LUX
+				add_to_faction = FRA
+			}
+		}
+		USA = { change_tag_from = ENG }
+		hidden_effect = 
+		{
+			369 = {
+				add_resource = {
+					type = aluminium
+					amount = 150
+				}
+			}
+
+			USA = 
+			{
+				add_timed_idea = {
+					idea = the_great_skill_issue
+					days = 30
+				}
+
+				remove_ideas = adt_wasteland_economy
+				remove_ideas = adt_stupid_ai
+				remove_ideas = adt_neutrality_idea2
+				remove_ideas = adt_neutrality_idea
+				remove_ideas = great_depression
+				add_political_power = 1200
+				add_stability = 100
+				add_war_support = 100
+				add_research_slot = 1
+				add_ideas = USA_war_department
+				add_ideas = limited_conscription
+				add_ideas = air_war_plans_division_focus
+				add_ideas = partial_economic_mobilisation
+				army_experience = 999
+				air_experience = 999
+				navy_experience = 999
+				set_technology = 
+				{
+				armor_tech_1 = 1
+				armor_tech_2 = 1
+				engine_tech_1 = 1
+				engine_tech_2 = 1
+				advanced_radio = 1
+				basic_heavy_tank_chassis = 1
+				basic_medium_tank_chassis = 1
+				basic_light_tank_chassis = 1
+				amphibious_tank_chassis = 1
+				improved_heavy_tank_chassis = 1
+				improved_medium_tank_chassis = 1
+				improved_light_tank_chassis = 1
+				amphibious_tank_chassis = 1
+				amphibious_drive = 1
+				antitank3 = 1
+				antitank2 = 1
+				antitank1 = 1
+				interwar_antitank = 1
+				interwar_artillery = 1
+				artillery1 = 1
+				artillery2 = 1
+				artillery3 = 1
+				antiair1 = 1
+				antiair2 = 1
+				electronic_mechanical_engineering = 1
+				mechanical_computing = 1
+				computing_machine = 1
+				radio = 1
+				improved_radio = 1
+				cavity_magnatron = 1
+				centimetric_radar = 1
+				basic_machine_tools = 1
+				improved_machine_tools = 1
+				advanced_machine_tools = 1
+				assembly_line_production = 1
+				concentrated_industry = 1
+				concentrated_industry2 = 1
+				concentrated_industry3 = 1
+				construction1 = 1
+				construction2 = 1
+				construction3 = 1
+				excavation1 = 1
+				excavation2 = 1
+				excavation3 = 1
+				improved_small_airframe = 1
+				improved_medium_airframe = 1
+				engines_3 = 1
+				aa_hmg = 1
+				range_improvements = 1
+				survivability_studies = 1
+				}
+			}
+		}	
+
+		set_global_flag = fall_of_britan
+		
+	}
+}
+
+
+
 # Abdication Crisis Edward VIII
 country_event = {
 	id = mtg_britain.1

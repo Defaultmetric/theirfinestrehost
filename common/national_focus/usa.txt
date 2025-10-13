@@ -77,6 +77,10 @@ focus_tree = {
 					has_completed_focus = ENG_man_with_the_plan
 				}
 			}
+			NOT = 
+			{
+				has_global_flag = fall_of_britan
+			}
 		}
 
 		cost = 1
@@ -111,11 +115,14 @@ focus_tree = {
 		{
 			if = 
 			{
+				OR = {
 				ENG = {
 				NOT = 
 				{
 					has_completed_focus = ENG_man_with_the_plan
 				}
+				}
+				has_global_flag = fall_of_britan
 				}
 			}
 		}
@@ -133,7 +140,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -163,7 +170,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_continue_the_new_deal }
 		relative_position_id = USA_continue_the_new_deal
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -172,11 +179,14 @@ focus_tree = {
 		{
 			if = 
 			{
+				OR = {
 				ENG = {
 				NOT = 
 				{
 					has_completed_focus = ENG_man_with_the_plan
 				}
+				}
+				has_global_flag = fall_of_britan
 				}
 			}
 		}
@@ -185,7 +195,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -204,7 +214,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_suspend_the_presecution }
 		relative_position_id = USA_suspend_the_presecution
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -796,7 +806,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -1250,8 +1260,13 @@ focus_tree = {
 		x = -4
 		y = 1
 
-
 		cost = 10
+
+		bypass = 
+		{
+			has_global_flag = fall_of_britan
+		}
+
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -1273,6 +1288,11 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		bypass = 
+		{
+			has_global_flag = fall_of_britan
 		}
 
 		available = {
@@ -1362,7 +1382,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = no
@@ -1456,7 +1476,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_wpa }
 		relative_position_id = USA_wpa
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1467,7 +1487,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -1489,7 +1509,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		relative_position_id = USA_wpa
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -1504,6 +1524,12 @@ focus_tree = {
 				technology = advanced_rubber_processing
 				technology = modern_rubber_processing
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			modify_building_resources = {
+        	   	building = synthetic_refinery
+        	   	resource = rubber
+        	  	amount = 2
+        	}
 		}
 	}
 #   ### #   # ### ### ### ###      ### #  # ### ### ###  #   # ### #  # ### ###  ##  #  # 
@@ -1847,7 +1873,7 @@ focus_tree = {
 		relative_position_id = USA_black_chamber
 
 
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -1888,13 +1914,14 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = USA_manhattan_project
-					bonus = 0.5
+					bonus = 1
 					uses = 1
+					ahead_reduction = 1
 					category = nuclear
 				}
 				add_breakthrough_progress = {
 					specialization = specialization_nuclear
-					value = 0.5
+					value = 1
 				}
 				add_ideas = USA_manhattan_project_ns
 			}
@@ -1922,16 +1949,19 @@ focus_tree = {
 		{
 			if = 
 			{
+				OR = {
 				ENG = {
 				NOT = 
 				{
 					has_completed_focus = ENG_man_with_the_plan
 				}
 				}
+				has_global_flag = fall_of_britan
+				}
 			}
 		}
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1960,7 +1990,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = no
@@ -2022,7 +2052,7 @@ focus_tree = {
 		relative_position_id = USA_limited_intervention
 
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2056,7 +2086,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = no
@@ -2150,6 +2180,7 @@ focus_tree = {
 			democratic > 0.95
 		}
 		bypass = {
+			OR = {
 			AND = {
 				custom_trigger_tooltip =  {
 					tooltip = production_effort_tt
@@ -2171,6 +2202,9 @@ focus_tree = {
 						}
 					}
 				}			
+			}
+		
+			has_global_flag = fall_of_britan
 			}
 		}
 		complete_tooltip = {
@@ -2287,7 +2321,10 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		bypass = {
+			OR = {
 			has_idea = USA_homeland_defense
+			has_global_flag = fall_of_britan
+			}
 		}
 
 		completion_reward = {
@@ -2333,6 +2370,10 @@ focus_tree = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = USA_general_motors
 		}
+
+		bypass = {
+			has_global_flag = fall_of_britan
+		}
 	}
 	
 
@@ -2377,6 +2418,10 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+		}
+
+		bypass = {
+			has_global_flag = fall_of_britan
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -2660,6 +2705,10 @@ focus_tree = {
 				}
 			}
 			add_ideas = extensive_conscription
+		}
+
+		bypass = {
+			has_global_flag = fall_of_britan
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -4424,7 +4473,7 @@ focus_tree = {
 		x = 41
 		y = 0
 		
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -4434,11 +4483,14 @@ focus_tree = {
 		{
 			if = 
 			{
+				OR = {
 				ENG = {
 				NOT = 
 				{
 					has_completed_focus = ENG_man_with_the_plan
 				}
+				}
+				has_global_flag = fall_of_britan
 				}
 			}
 		}
@@ -4468,7 +4520,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_war_plans_division }
 		relative_position_id = USA_war_plans_division
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -4555,7 +4607,7 @@ focus_tree = {
 		y = 2
 		prerequisite = { focus = USA_intervention_in_the_americas }
 		relative_position_id = USA_intervention_in_the_americas
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 2
 		}
@@ -4698,7 +4750,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_war_plans_division }
 		relative_position_id = USA_war_plans_division
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5220,17 +5272,20 @@ focus_tree = {
 		y = 0
 		relative_position_id = USA_war_plans_division
 		
-		cost = 10
+		cost = 5
 
 		allow_branch = 
 		{
 			if = 
 			{
+				OR = {
 				ENG = {
 				NOT = 
 				{
 					has_completed_focus = ENG_man_with_the_plan
 				}
+				}
+				has_global_flag = fall_of_britan
 				}
 			}
 		}
@@ -5244,7 +5299,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -5262,7 +5317,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_war_department }
 		relative_position_id = USA_war_department
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5282,7 +5337,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = no
@@ -5323,7 +5378,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 3
 		ai_will_do = {
 			factor = 1
 		}
@@ -5331,7 +5386,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			army_experience = 5
+			army_experience = 50
 			add_tech_bonus = {
 				name = special_bonus
 				bonus = 1.0
@@ -5356,7 +5411,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_selective_training_act }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -5375,7 +5430,7 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			army_experience = 20
+			army_experience = 50
 			add_doctrine_cost_reduction = {
 				name = USA_louisiana_maneuvers
 				cost_reduction = 0.5
@@ -5391,7 +5446,7 @@ focus_tree = {
 		y = 2
 		prerequisite = { focus = USA_louisiana_maneuvers }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -5432,7 +5487,7 @@ focus_tree = {
 		y = 2
 		prerequisite = { focus = USA_louisiana_maneuvers }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -5461,7 +5516,7 @@ focus_tree = {
 		y = 3
 		prerequisite = { focus = USA_army_of_the_united_states }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5490,10 +5545,15 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5
 		prerequisite = { focus = USA_selective_training_act }
 		ai_will_do = {
 			factor = 5
+		}
+
+		bypass = 
+		{
+			has_global_flag = fall_of_britan
 		}
 
 		available_if_capitulated = yes
@@ -5526,8 +5586,9 @@ focus_tree = {
 
 		}
 		
-		bypass = {
-
+		bypass = 
+		{
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -5643,7 +5704,7 @@ focus_tree = {
 		y = 4
 		prerequisite = { focus = USA_main_battle_tanks focus = USA_tank_destroyer_doctrine }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5664,8 +5725,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_armored_infantry
-				uses = 2
-				bonus = 1.0
+				uses = 3
+				bonus = 2.0
+				ahead_reduction = 2.0
 				category = motorized_equipment
 			}
 		}
@@ -5677,7 +5739,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_war_department }
 		relative_position_id = USA_war_department
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -5706,7 +5768,7 @@ focus_tree = {
 		y = 2
 		prerequisite = { focus = USA_build_the_pentagon }
 		relative_position_id = USA_war_department
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -5754,8 +5816,13 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 	
+		bypass = 
+		{
+			has_global_flag = fall_of_britan
+		}
+
 		completion_reward = {
-			air_experience = 25
+			air_experience = 50
 			add_doctrine_cost_reduction = {
 				name = USA_air_war_plans_division
 				cost_reduction = 0.5
@@ -5774,7 +5841,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = USA_air_war_plans_division
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -5794,7 +5861,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = USA_air_war_plans_division
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -5814,7 +5881,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = USA_air_support
-		cost = 10
+		cost = 4
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -5914,7 +5981,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-
+			has_global_flag = fall_of_britan
 		}
 
 		cancel_if_invalid = yes
@@ -5938,7 +6005,7 @@ focus_tree = {
 		y = 4
 		prerequisite = { focus = USA_TAC }
 		relative_position_id = USA_air_war_plans_division
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5961,7 +6028,7 @@ focus_tree = {
 			add_doctrine_cost_reduction = {
 				name = USA_us_army_airforce
 				uses = 2
-				cost_reduction = 0.5
+				cost_reduction = 1
 				category = air_doctrine
 			}
 		}
@@ -5973,7 +6040,7 @@ focus_tree = {
 		y = 4
 		prerequisite = { focus = USA_combined_bomber_offensive }
 		relative_position_id = USA_air_war_plans_division
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -6112,7 +6179,7 @@ focus_tree = {
 		y = 1
 		prerequisite = { focus = USA_two_ocean_navy_act }
 		relative_position_id = USA_two_ocean_navy_act
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -6142,7 +6209,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = USA_two_ocean_navy_act
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -6517,7 +6584,7 @@ focus_tree = {
 		x = 7
 		y = 1
 		relative_position_id = USA_two_ocean_navy_act
-		cost = 10
+		cost = 4
 		prerequisite = { focus = USA_two_ocean_navy_act }
 		ai_will_do = {
 			factor = 1
@@ -6543,7 +6610,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_fund_the_navy
-		cost = 10
+		cost = 1
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -6582,7 +6649,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_expand_the_USMC
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}

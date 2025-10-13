@@ -394,7 +394,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_finish_the_five_year_plan
-		cost = 4
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -461,7 +461,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_finish_the_five_year_plan
-		cost = 10
+		cost = 5
 
 		available = {
 			SOV_third_five_year_plan_available = yes
@@ -813,7 +813,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_reorganize_the_pc_of_heavy_industry
-		cost = 5
+		cost = 10
 
 		available = {
 			any_owned_state = {
@@ -989,7 +989,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_steel_casting_industry
-		cost = 3
+		cost = 2
 
 		available = {
 			SOV_third_five_year_plan_available = yes
@@ -6386,7 +6386,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_desperate_measures
-		cost = 5
+		cost = 4
 
 		available = {
 			has_war = yes
@@ -6433,7 +6433,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_lessons_of_war
-		cost = 10
+		cost = 5
 
 		available = {
 			any_owned_state = {
@@ -6509,7 +6509,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_lessons_of_war
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -6595,7 +6595,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_military_reorganization
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_swap_to_political_advisors }
 
@@ -6701,7 +6701,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = SOV_military_reorganization
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = SOV_keep_commissars_organization focus = SOV_adjoined_battle_priests }
 
@@ -6761,7 +6761,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_keep_commissars_organization
-		cost = 10
+		cost = 5
 
 		allow_branch = {
 			NOT = {
@@ -12401,7 +12401,7 @@ focus = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_positive_heroism
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -14299,14 +14299,11 @@ focus = {
 		}
 
 		bypass = {
-			all_state = {
-				OR = {
-					is_core_of = EST
-					is_core_of = LAT
-					is_core_of = LIT
-				}
-				NOT = { state = 188 }
-				is_controlled_by = ROOT
+			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
+			NOT = {
+				country_exists = EST
+				country_exists = LAT
+				country_exists = LIT
 			}
 		}
 		

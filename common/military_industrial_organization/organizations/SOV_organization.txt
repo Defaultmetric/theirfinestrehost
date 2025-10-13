@@ -2607,11 +2607,7 @@ SOV_gaz_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = SOV 
-			AND = {
-				tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
+			tag = SOV
 			AND = {
 				tag = ETH 
 				has_dlc = "By Blood Alone"
@@ -2648,23 +2644,6 @@ SOV_gaz_organization = {
 			FROM = { NOT = { has_war_with = SOV } }
 		}
 
-		IF = {
-			limit = { FROM = { original_tag = BUL } }
-			custom_trigger_tooltip = {
-				tooltip = has_invited_mio_tt
-				FROM = {
-					has_country_flag = has_invited_gaz_mio_flag
-				}
-			}
-			FROM = {
-				OR = {
-					is_subject = no
-					is_subject_of = SOV
-				}
-				#is_in_faction_with = SOV
-				NOT = { has_completed_focus = BUL_nationalization }
-			}
-		}
 		ELSE_IF = {
 			limit = {
 				FROM = { original_tag = NOR }

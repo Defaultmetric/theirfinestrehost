@@ -155,7 +155,6 @@ ENG_vauxhall_organization = {
 		IF = {
 			limit = { 
 				OR = { 
-					FROM = { original_tag = BUL }
 					FROM = { original_tag = ETH }
 				}  
 			}
@@ -164,17 +163,6 @@ ENG_vauxhall_organization = {
 				FROM = {
 					has_country_flag = has_invited_vauxhall_mio_flag 
 				}
-			}
-		}
-		IF = {
-			limit = { FROM = { original_tag = BUL } } 
-			FROM = {
-				OR = {
-					is_subject = no
-					is_subject_of = ENG
-				}
-				#is_in_faction_with = ENG
-				NOT = { has_completed_focus = BUL_nationalization }
 			}
 		}
 		IF = {
@@ -806,10 +794,6 @@ ENG_vauxhall_automotive_organization = {
 				has_dlc = "Death or Dishonor"
 			}
 			AND = {
-				tag = BUL
-				has_dlc = "Battle for the Bosporus"
-			}
-			AND = {
 				tag = ETH 
 				has_dlc = "By Blood Alone"
 			}
@@ -843,7 +827,6 @@ ENG_vauxhall_automotive_organization = {
 		IF = {
 			limit = {
 				OR = { 
-					FROM = { original_tag = BUL }
 					FROM = { original_tag = ETH }
 				}  
 			}
@@ -852,17 +835,6 @@ ENG_vauxhall_automotive_organization = {
 				FROM = {
 					has_country_flag = has_invited_vauxhall_mio_flag 
 				}
-			}
-		}
-		IF = {
-			limit = { FROM = { original_tag = BUL } }
-			FROM = {
-				OR = {
-					is_subject = no
-					is_subject_of = ENG
-				}
-				#is_in_faction_with = ENG
-				NOT = { has_completed_focus = BUL_nationalization }
 			}
 		}
 		IF = {

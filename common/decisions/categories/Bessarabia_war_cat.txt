@@ -1,0 +1,19 @@
+bessarabia_war_decision_cat = {
+    icon = generic_political_actions
+    picture = GFX_decision_cat_picture_soviet_civil_war
+	
+	allowed = {
+		OR = 
+		{
+			original_tag = SOV
+			original_tag = ROM
+		}
+	}
+
+    visible = {
+		has_global_flag = bessarabia_denied
+		
+	}
+
+    priority = 100
+}

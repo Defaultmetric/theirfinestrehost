@@ -93,6 +93,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			48 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -102,7 +103,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -242,7 +243,7 @@ focus_tree = {
 		relative_position_id = BUL_attract_foreign_capitals
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -257,7 +258,6 @@ focus_tree = {
 	focus = {
 		id = BUL_expand_the_tobacco_industry
 
-		prerequisite = { focus = BUL_attract_foreign_capitals }
 		prerequisite = { focus = BUL_expand_sofia_university }
 		icon = GFX_goal_generic_construct_civ_factory
 		relative_position_id = BUL_expand_sofia_university
@@ -319,6 +319,7 @@ focus_tree = {
 		mutually_exclusive = { focus = BUL_utmost_optimization }
 
 		available = {
+			has_completed_focus = BUL_attract_foreign_capitals
 			NOT = { has_government = democratic }
 			NOT = { has_idea = BUL_second_national_catastrophe }
 			any_country = {
@@ -378,7 +379,6 @@ focus_tree = {
 	focus = {
 		id = BUL_increase_industry_investments
 
-		prerequisite = { focus = BUL_invigorate_national_industry }
 		prerequisite = { focus = BUL_expand_sofia_university }
 		icon = GFX_focus_generic_industry_2
 		relative_position_id = BUL_expand_sofia_university
@@ -525,6 +525,36 @@ focus_tree = {
     		}				
 		}
 	}
+
+	focus = {
+		id = BUL_expert_industrial_planning
+
+		prerequisite = { focus = BUL_improve_the_road_system }
+		icon = GFX_focus_GER_rally_the_industrialists
+		relative_position_id = BUL_improve_the_road_system
+		x = 2
+		y = 1
+		cost = 5
+
+		available = {
+
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			custom_effect_tooltip = expert_planning_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_owned_state = {
+				limit = { is_core_of = BUL }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
 	
 	focus = {
 		id = BUL_all_that_glitters
@@ -627,7 +657,7 @@ focus_tree = {
 		relative_position_id = BUL_steel_plant_in_pernik
 		x = 0
 		y = 1
-		cost = 10
+		cost = 4
 
 		available = {
 			has_tech = excavation2
@@ -659,7 +689,7 @@ focus_tree = {
 		relative_position_id = BUL_utmost_optimization
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 			has_tech = excavation3
@@ -855,7 +885,7 @@ focus_tree = {
 		relative_position_id = BUL_negotiate_bulgarian_rearmament
 		x = 0
 		y = 2
-		cost = 10
+		cost = 5
 
 		available = {
 			if = {
@@ -1251,7 +1281,7 @@ focus_tree = {
 		relative_position_id = BUL_reorganize_the_military_industry
 		x = 5
 		y = 1
-		cost = 10
+		cost = 1
 
 		available = {
 		}
@@ -6885,7 +6915,7 @@ focus_tree = {
 		relative_position_id = BUL_promote_bulgarian_nationalism
 		x = 0
 		y = 2
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = BUL_depose_the_tsar }
 
@@ -6908,7 +6938,7 @@ focus_tree = {
 		relative_position_id = BUL_promote_bulgarian_nationalism
 		x = 2
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 
@@ -7884,7 +7914,7 @@ focus_tree = {
 		relative_position_id = BUL_the_path_towards_a_greater_bulgaria
 		x = 0
 		y = 2
-		cost = 10
+		cost = 5
 
 		mutually_exclusive = { focus = BUL_found_the_brannik }
 
@@ -8029,7 +8059,7 @@ focus_tree = {
 		relative_position_id = BUL_depose_the_tsar
 		x = 0
 		y = 1
-		cost = 10
+		cost = 4
 
 		available = {
 
@@ -8063,7 +8093,7 @@ focus_tree = {
 		relative_position_id = BUL_appoint_right_wing_ministers
 		x = -1
 		y = 1
-		cost = 5
+		cost = 1
 
 		available = {
 			has_civil_war = no
@@ -8164,7 +8194,7 @@ focus_tree = {
 		relative_position_id = BUL_appoint_right_wing_ministers
 		x = 0
 		y = 2
-		cost = 10
+		cost = 5
 
 		available = {
 			NOT = { has_country_flag = BUL_nsm_media_banned_flag }
@@ -8202,7 +8232,7 @@ focus_tree = {
 		relative_position_id = BUL_allow_far_right_organizations
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 
 		available = {
 
@@ -8245,12 +8275,12 @@ focus_tree = {
 		prerequisite = { focus = BUL_economic_protectionism }
 		icon = GFX_goal_reichsautobahn
 		relative_position_id = BUL_economic_protectionism
-		x = 2
+		x = 3
 		y = 1
 		cost = 5
 
 		available = {
-			num_of_factories > 20
+			num_of_factories > 15
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
@@ -8272,12 +8302,12 @@ focus_tree = {
 		prerequisite = { focus = BUL_cooperation_with_italy }
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		relative_position_id = BUL_industrial_autarky
-		x = 3
+		x = 0
 		y = 5
 		cost = 10
 
 		available = {
-			num_of_factories > 30
+			num_of_factories > 25
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS}
@@ -8337,9 +8367,9 @@ focus_tree = {
 
 		icon = GFX_focus_chi_mission_to_germany
 		relative_position_id = BUL_bulgarian_irredentism
-		x = 2
+		x = -1
 		y = 2
-		cost = 5
+		cost = 1
 
 		bypass = {
 			OR = {
@@ -8495,7 +8525,7 @@ focus_tree = {
 		relative_position_id = BUL_approach_germany
 		x = 1
 		y = 1
-		cost = 5
+		cost = 1
 
 		bypass = {
 			OR = {
@@ -8806,13 +8836,13 @@ focus_tree = {
 	focus = {
 		id = BUL_bulgarian_administration_of_the_balkans
 
-		prerequisite = { focus = BUL_peaceful_development focus = BUL_nationalist_propaganda }
+		prerequisite = { focus = BUL_peaceful_development  }
 
 		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
 		relative_position_id = BUL_join_the_tripartite_pact
-		x = -4
+		x = 0
 		y = 2
-		cost = 20
+		cost = 1
 
 		available = {
 			any_state = {
@@ -8873,9 +8903,9 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
 		relative_position_id = BUL_bulgarian_administration_of_the_balkans
-		x = 0
+		x = -1
 		y = 1
-		cost = 10
+		cost = 5
 
 		available = {
 			has_stability > 0.50
@@ -8916,6 +8946,11 @@ focus_tree = {
 
 		available = {
 			has_government = fascism
+		}
+
+		allow_branch = 
+		{
+			has_war_support > 200
 		}
 		
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER}
@@ -9000,7 +9035,7 @@ focus_tree = {
 		relative_position_id = BUL_total_war
 		x = 1
 		y = 1
-		cost = 10
+		cost = 4
 
 		available = {
 			any_allied_country = {
@@ -9119,13 +9154,13 @@ focus_tree = {
 			}
 		}
 
-		prerequisite = { focus = BUL_total_war focus = BUL_bulgarian_administration_of_the_balkans }
+		prerequisite = { focus = BUL_bulgarian_administration_of_the_balkans }
 
 		icon = GFX_focus_BUL_the_third_bulgarian_empire
 		relative_position_id = BUL_total_war
 		x = -1
 		y = 2
-		cost = 10
+		cost = 5
 
 		available = {
 			is_subject = no
@@ -9133,9 +9168,7 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
+			
 			random_owned_state = {
 				prioritize = { 48 212 }
 				limit = {
@@ -9172,6 +9205,7 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			if = {
 				limit = {
@@ -9276,16 +9310,6 @@ focus_tree = {
 				custom_effect_tooltip = BUL_the_third_bulgarian_empire_tt
 			}
 
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = TUR }
-					NOT = { is_in_faction_with = TUR }
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = TUR
-				}
-			}
 
 			#Set ideology cosmetic tag to show the appropriate 3D models
 			set_country_flag = BUL_tbe_flag
@@ -9295,11 +9319,6 @@ focus_tree = {
 				news_event = { id = bftb_news.7 hours = 8 random_hours = 4 }
 			}
 
-			add_ai_strategy = {
-				type = declare_war
-				id = TUR
-				value = 100
-			}
 		}
 	}
 }

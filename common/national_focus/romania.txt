@@ -2370,6 +2370,7 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+			custom_effect_tooltip = ROM_ind_tt
 			add_to_variable = {
 				ROM_civ_to_mil = -0.25
 				tooltip = conversion_cost_civ_to_mil_factor_tt
@@ -2556,7 +2557,7 @@ focus_tree = {
 				}
 				set_state_flag = ROM_invest_in_the_iar_AF1
 			}
-
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"

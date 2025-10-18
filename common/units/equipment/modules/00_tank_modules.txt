@@ -300,6 +300,7 @@ equipment_modules = {
 		}
 
 		add_stats = {
+			breakthrough = 3
 			build_cost_ic = 1
 		}
 
@@ -325,6 +326,7 @@ equipment_modules = {
 		}
 
 		add_stats = {
+			breakthrough = 4
 			build_cost_ic = 1.25
 			
 		}
@@ -351,6 +353,7 @@ equipment_modules = {
 		}
 
 		add_stats = {
+			breakthrough = 5
 			build_cost_ic = 1.5
 		}
 		dismantle_cost_ic = 0.5
@@ -417,6 +420,7 @@ equipment_modules = {
 			anti_tank
 		}
 		add_stats = {
+			breakthrough = 5
 			build_cost_ic = 1.25
 			
 		}
@@ -445,6 +449,7 @@ equipment_modules = {
 			anti_tank
 		}
 		add_stats = {
+			breakthrough = 6
 			build_cost_ic = 1.75
 		}
 		dismantle_cost_ic = 1
@@ -474,6 +479,7 @@ equipment_modules = {
 			anti_tank 
 		}
 		add_stats = {
+			breakthrough = 8
 			build_cost_ic = 2.25
 		}
 		dismantle_cost_ic = 1
@@ -516,6 +522,9 @@ equipment_modules = {
 
 		allowed_module_categories = {
 			main_armament_slot = {
+				tank_tiny_main_armament
+				tank_light_main_armament_1
+				tank_light_main_armament_2
 				tank_medium_main_armament_1
 				tank_medium_main_armament_2
 				tank_heavy_main_armament_2
@@ -531,7 +540,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		add_stats = {
 			build_cost_ic = 1.5
-			reliability = 0.2
+			reliability = -0.2
 			defense = 3
 		}
 
@@ -566,6 +575,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 
 		add_stats = {
+			breakthrough = 6
 			build_cost_ic = 5
 		}
 
@@ -598,6 +608,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 2
 		add_stats = {
+			breakthrough = 8
 			build_cost_ic = 5.5
 			maximum_speed = -0.25
 		}
@@ -635,6 +646,7 @@ equipment_modules = {
 		dismantle_cost_ic = 1
 		xp_cost = 2
 		add_stats = {
+			breakthrough = 10
 			build_cost_ic = 5.5
 			maximum_speed = -0.25
 		}
@@ -704,7 +716,7 @@ equipment_modules = {
 		xp_cost = 2
 		add_stats = {
 			build_cost_ic = 10
-			reliability = 0.1
+			reliability = -0.2
 			defense = 2
 		}
 		multiply_stats = {
@@ -736,11 +748,11 @@ equipment_modules = {
 		xp_cost = 2
 		add_stats = {
 			build_cost_ic = 10
-			reliability = 0.1
+			reliability = -0.2
 			defense = 2
 		}
 		multiply_stats = {
-			breakthrough = -0.45
+			breakthrough = -0.55
 		}
 
 		can_convert_from = {
@@ -1580,7 +1592,7 @@ equipment_modules = {
 		}
 		xp_cost = 1
 		multiply_stats = {
-			defense = 0.40
+			defense = 0.30
 			breakthrough = 0.25
 		}
 	}
@@ -1757,8 +1769,8 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			build_cost_ic = 4
-			breakthrough = 8
+			build_cost_ic = 3
+			breakthrough = 6
 			defense = 6
 			reliability = -0.2
 		}
@@ -1989,12 +2001,11 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			reliability = 0.15
 		}
 		dismantle_cost_ic = 1
 		xp_cost = 15
 		multiply_stats = {
-			build_cost_ic = -0.125
+			build_cost_ic = -0.1
 		}
 	}
 

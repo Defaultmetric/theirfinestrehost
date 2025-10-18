@@ -86,10 +86,6 @@ Bessarabia_war_decision_cat =
                 news_event = { id = news.691 }
             }
 
-            hidden_effect = 
-            {
-                ROM = { remove_ideas = bessarabia_war }
-            }
             ROM = { white_peace = SOV }
 		}
 	}
@@ -119,11 +115,103 @@ Bessarabia_war_decision_cat =
             {
                 add_stability = 0.1
                 add_war_support = 0.1
+                add_timed_idea = 
+                {
+                    idea = SOV_expanded_exploitation_of_gold_mines
+                    days = 365
+                }
             }
-            hidden_effect = 
-            {
-                ROM = { remove_ideas = bessarabia_war }
-            }
+    
         }
     }
-}
+    rom_forecefully_end_the_war = 
+    {
+        icon = GFX_decision_SOV_the_workers_dictatorship
+
+		visible = { 
+            tag = ROM
+            ROM = 
+            {
+                has_war_with = SOV
+            }
+            has_global_flag = bessarabia_denied
+        }
+        available = { 
+            OR = {
+                        202 = 
+                        {
+                            NOT = 
+                            {
+                                is_fully_controlled_by = SOV
+                            }
+                        }
+                        226 = 
+                        {
+                            NOT = 
+                            {
+                                is_fully_controlled_by = SOV
+                            }
+                        }
+                    }
+         }
+        fire_only_once = yes
+        priority = 98
+
+        complete_effect = {
+            clr_global_flag = bessarabia_denied
+
+                ROM = 
+                {
+                    country_event = {days = 3 id = romania.69 }
+                }
+
+
+            ROM = { white_peace = SOV }
+    
+        }
+    }
+    sov_forecefully_end_the_war = 
+    {
+        icon = GFX_decision_SOV_the_workers_dictatorship
+
+		visible = { 
+            tag = SOV
+            ROM = 
+            {
+                has_war_with = SOV
+            }
+            has_global_flag = bessarabia_denied
+        }
+        available = { 
+            78 = 
+                    {
+                        NOT = 
+                        {
+                            is_fully_controlled_by = ROM
+                        }
+                    }
+         }
+        fire_only_once = yes
+        priority = 98
+
+        complete_effect = {
+            clr_global_flag = bessarabia_denied
+
+
+                FROM = {
+				    country_event = { days = 3 id = soviet.4 }
+                }
+
+            SOV = 
+            {
+                add_timed_idea = 
+                {
+                    idea = SOV_expanded_exploitation_of_gold_mines
+                    days = 365
+                }
+            }
+
+            ROM = { white_peace = SOV }
+    
+        }
+    }

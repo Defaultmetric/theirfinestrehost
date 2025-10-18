@@ -135,7 +135,7 @@ characters={
 		}
 	}
 	corps_commander = {
-		visible = { has_completed_focus = FRA_the_expert }
+		visible = { has_global_flag = fra_the_expert }
 		skill = 2
 		attack_skill = 5
 		defense_skill = 1
@@ -148,7 +148,7 @@ characters={
 			idea_token = FRA_the_expert
 			ledger = army
 			allowed = { original_tag = FRA }
-			available = { has_completed_focus = FRA_the_expert }
+			available = { has_global_flag = fra_the_expert }
 			traits = { army_armored_2 }
 			cost = 150
 			ai_will_do = { base = 1 }
@@ -165,7 +165,7 @@ rat = {
 		}
 	}
 	corps_commander = {
-		visible = { has_completed_focus = FRA_airland_battle }
+		visible = { has_global_flag = fra_airland_battle }
 		skill = 3
 		attack_skill = 5
 		defense_skill = 5
@@ -178,7 +178,7 @@ rat = {
 			idea_token = FRA_airland_battle
 			ledger = army
 			allowed = { original_tag = FRA }
-			available = { has_completed_focus = FRA_airland_battle }
+			available = { has_global_flag = fra_airland_battle }
 			traits = { army_infantry_2 }
 			cost = 150
 			ai_will_do = { base = 1 }
@@ -256,11 +256,9 @@ iggy = {
 		advisor={
 			slot = army_chief
 			idea_token = maurice_gamelin
-			allowed = {
-				original_tag = FRA
-			}
-			available = {
-				has_completed_focus = FRA_aggressive_focus
+			allowed = { original_tag = FRA }
+			visible = {
+				has_global_flag = attack_guy
 			}
 			cost = 100.000
 			traits = {
@@ -296,11 +294,10 @@ iggy = {
 		advisor={
 			slot = army_chief
 			idea_token = maxime_weygand
-			allowed = {
-				original_tag = FRA
-			}
-			available = {
-				has_completed_focus = FRA_defensive_focus
+			
+			allowed = { original_tag = FRA }
+			visible = {
+				has_global_flag = defense_guy
 			}
 			cost = 100.000
 			traits = {

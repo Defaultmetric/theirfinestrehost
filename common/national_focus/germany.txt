@@ -334,10 +334,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -380,10 +380,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -534,7 +534,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_lower_taxes
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -640,7 +640,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_industrial_expansion
-		cost = 7
+		cost = 5
 		available = {
 			42 = {
 				is_fully_controlled_by = ROOT
@@ -788,11 +788,11 @@ focus_tree = {
 	focus = {
 		id = GER_urbanization
 		icon = GFX_focus_generic_full_employment
-		prerequisite = { focus = GER_agricultural_reforms }
+		prerequisite = { focus = GER_workers_rights }
 
 		x = 1
 		y = 1
-		relative_position_id = GER_agricultural_reforms
+		relative_position_id = GER_workers_rights
 		cost = 5
 		available = {
 			OR ={
@@ -830,11 +830,11 @@ focus_tree = {
 			
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_factory = 0.05
+				GER_industrial_industrial_capacity_factory = 0.1
 				tooltip = industrial_capacity_factory_tt
 			}
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
+				GER_industrial_industrial_capacity_dockyard = 0.1
 				tooltip = industrial_capacity_dockyard_tt
 			}
 		}
@@ -849,7 +849,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_invest_in_vereinigte_stahlwerke
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -920,6 +920,11 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = 
+		{
+			has_war_support > 200
+		}
+
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
@@ -974,6 +979,11 @@ focus_tree = {
 				has_war = yes
 				threat > 0.3
 			}
+		}
+
+		allow_branch = 
+		{
+			has_war_support > 200
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -2433,7 +2443,7 @@ focus_tree = {
 		icon = GFX_focus_generic_combined_arms
 		prerequisite = { focus = GER_the_four_year_plan }
 
-		x = 6
+		x = 7
 		y = 1
 		relative_position_id = GER_the_four_year_plan
 		cost = 5
@@ -2645,7 +2655,7 @@ focus_tree = {
 		prerequisite = { focus = GER_concentrated_armament_program focus = GER_establish_production_targets}
 
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = GER_concentrated_armament_program
 		cost = 5
 		available = {
@@ -2765,7 +2775,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_zentrale_planung
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -17426,7 +17436,7 @@ focus_tree = {
 
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 		x = -17
-		y = 8
+		y = 7
 		relative_position_id = GER_remilitarize_the_rhineland
 		cost = 5
 		available = {

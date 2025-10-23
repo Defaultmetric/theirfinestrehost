@@ -170,19 +170,14 @@ technologies = {
 		xor={
 			armored_spearhead
 		}
-		category_mobile_and_mobile_combat_sup = {
-			maximum_speed = 0.1
+		category_artillery = {
+			fuel_consumption = -0.1
 			default_morale = 0.2
 		}
-		recon = {
-			maximum_speed = 0.15
+		category_vehicle_infantry = {
+			max_organisation = 5
 		}
-		mot_recon = {
-			maximum_speed = 0.1
-		}
-		armored_car_recon = {
-			maximum_speed = 0.1
-		}
+
 
 		path = {
 			leads_to_tech = mass_motorization 
@@ -238,7 +233,11 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_all_infantry = {
-			max_organisation = 10
+			max_organisation = 5
+		}
+		category_artillery = {
+			org_loss_when_moving = -0.1
+			maximum_speed = 0.1
 		}	
 		
 		path = {
@@ -289,23 +288,18 @@ technologies = {
 		xp_unlock_cost = 100
 
 		category_vehicle_infantry = {
-			max_organisation = 15
+			max_organisation = 10
+			battalion_mult = {
+				category = category_vehicle_infantry
+				breakthrough = 0.2
+			}
 		}
+
 		
 		armored_car = {
 			max_organisation = 3	
 		}
 
-		category_tanks = {
-			max_organisation = 3
-		}
-		
-		armored_car_recon = {
-			battalion_mult = {
-				category = category_all_armor
-				breakthrough = 0.10
-			}
-		}
 
 		enable_tactic = tactic_blitz
 		
@@ -419,11 +413,8 @@ technologies = {
 	schwerpunk = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		category_tanks = {
-			max_organisation = 2
-		}
-
 		category_all_armor = {
+			max_organisation = 2
 			default_morale = 0.1
 		}
 		
@@ -475,16 +466,10 @@ technologies = {
 	blitzkrieg = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		category_tanks = {
-			max_organisation = 1
-		}
 
 		category_all_armor = {
+			max_organisation = 1
 			default_morale = 0.1
-		}
-		armored_car = {
-			default_morale = 0.1
-			max_organisation = 7
 		}
 		category_vehicle_infantry = {
 			max_organisation = 5
@@ -2796,7 +2781,7 @@ technologies = {
 		}
 
 		supply_consumption_factor = -0.20
-
+		no_supply_grace = 72
 		additional_brigade_column_size = 1
 
 		enable_tactic = tactic_relentless_assault
@@ -2921,6 +2906,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		max_planning = 0.10
+		no_supply_grace = 36
 		land_reinforce_rate = 0.05
 
 		enable_tactic = tactic_elastic_defense
@@ -2970,7 +2956,7 @@ technologies = {
 	vast_offensives = {
 		xp_research_type = army
 		xp_unlock_cost = 100
-		supply_consumption_factor = -0.10
+		no_supply_grace = 48
 
 		category_light_infantry = {
 			max_organisation = 5
@@ -3029,7 +3015,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_tanks = {
-			max_organisation = 2
+			max_organisation = 3
 			breakthrough = 0.10
 		}
 		category_all_infantry = {
@@ -3090,7 +3076,7 @@ technologies = {
 	
 	mechanized_wave = {
 		category_tanks = {
-			max_organisation = 2
+			max_organisation = 3
 		}
 		xp_research_type = army
 		xp_unlock_cost = 100

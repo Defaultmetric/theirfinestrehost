@@ -137,22 +137,9 @@ Bessarabia_war_decision_cat =
             has_global_flag = bessarabia_denied
         }
         available = { 
-            OR = {
-                        202 = 
-                        {
-                            NOT = 
-                            {
-                                is_fully_controlled_by = SOV
-                            }
-                        }
-                        226 = 
-                        {
-                            NOT = 
-                            {
-                                is_fully_controlled_by = SOV
-                            }
-                        }
-                    }
+            ROM = {
+                has_full_control_of_state = 198
+            }
          }
         fire_only_once = yes
         priority = 98
@@ -183,13 +170,10 @@ Bessarabia_war_decision_cat =
             has_global_flag = bessarabia_denied
         }
         available = { 
-            78 = 
-                    {
-                        NOT = 
-                        {
-                            is_fully_controlled_by = ROM
-                        }
-                    }
+            SOV = 
+            {
+                has_full_control_of_state = 78
+            }
          }
         fire_only_once = yes
         priority = 98
@@ -215,3 +199,4 @@ Bessarabia_war_decision_cat =
     
         }
     }
+}

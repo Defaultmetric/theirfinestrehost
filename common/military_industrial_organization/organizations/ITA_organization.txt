@@ -792,6 +792,32 @@ ITA_fiat_aviazione_organization = {
 		}
 	}
 
+	add_trait = {
+		token = ITA_mio_trait_technical_superiority
+		name = ITA_mio_trait_technical_superiority
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=9 y=1 }  
+
+		available = 
+		{
+			ITA = 
+			{
+				has_completed_focus = ITA_specialization
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		equipment_bonus = {
+			air_agility = 0.05
+			air_attack = 0.02
+			reliability = 0.05
+			air_range = 0.15
+			air_defence = 0.1
+		}
+	}
+
 	add_trait = { 
 		token = ITA_mio_trait_new_industrialization_program
 		name = ITA_new_industrialization_program

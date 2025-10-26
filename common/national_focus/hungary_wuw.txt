@@ -14994,7 +14994,7 @@ focus_tree = {
 
 			add_timed_idea = {
 				idea = HUN_revaluing_the_pengo
-				days = 420
+				days = 365
 			}
 
 			IF = {
@@ -15930,7 +15930,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		cost = 4
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -16022,7 +16022,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		cost = 5
+		cost = 7
 
 		ai_will_do = {
 			factor = 10
@@ -16122,8 +16122,8 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_expand_the_lignite_industry
 		icon = GFX_focus_generic_mining_industry
-		prerequisite = { focus = wuw_HUN_invite_foreign_investors focus = wuw_HUN_expand_the_hungarian_academy_of_sciences }
-		#mutually_exclusive = { focus = wuw_HUN_invite_foreign_investors }
+		prerequisite = { focus = wuw_HUN_invite_foreign_investors }
+		prerequisite = { focus = wuw_HUN_expand_the_hungarian_academy_of_sciences }
 		x = -1
 		y = 1
 		relative_position_id = wuw_HUN_expand_the_hungarian_academy_of_sciences
@@ -16269,8 +16269,9 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_hungarian_autarky
 		icon = GFX_focus_generic_stockpile_fuel
-		prerequisite = { focus = wuw_HUN_hungarian_tradition focus = wuw_HUN_tap_newfound_oil_deposits }
-		#mutually_exclusive = { focus = wuw_HUN_avoid_interventionalist_destablilization }
+		prerequisite = { focus = wuw_HUN_hungarian_tradition }
+		prerequisite = { focus = wuw_HUN_tap_newfound_oil_deposits }
+
 		x = -1
 		y = 1
 		relative_position_id = wuw_HUN_tap_newfound_oil_deposits
@@ -16366,7 +16367,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_expand_the_lignite_industry
 
-		cost = 4
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -16460,7 +16461,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		cost = 1
+		cost = 4
 
 		ai_will_do = {
 			factor = 5

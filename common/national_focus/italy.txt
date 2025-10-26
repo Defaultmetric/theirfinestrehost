@@ -3247,6 +3247,29 @@ focus_tree = {
 			else = {
 				custom_effect_tooltip = ITA_new_industrialization_program_generic_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ITA_agip_improved_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_build_upwards_build_outwards_tt
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			hidden_effect = {
+			if = 
+			{
+				limit = {
+					has_idea = ITA_agip
+				}
+				swap_ideas = {
+					remove_idea = ITA_agip
+					add_idea = ITA_agip_improved
+				}
+			}
+			}
 		}
 	}
 
@@ -4430,11 +4453,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
 		cost = 5
-		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
-		}
 
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
@@ -5107,14 +5125,6 @@ focus_tree = {
 					}
 				}
 			}
-
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				ITA_add_citta_dell_aria_templates = yes
-			}
 		}
 	}
 
@@ -5153,7 +5163,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = ITA_air_innovations_bba
-		cost = 5
+		cost = 4
 		available = {
 			has_full_control_of_state = 161
 		}
@@ -5207,7 +5217,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_reggianes_exports
-				bonus = 0.50
+				bonus = 0.55
 				uses = 1
 				category = air_equipment
 			}
@@ -5250,11 +5260,6 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_citta_dell_aria
 		cost = 5
-		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
-		}
 
 		search_filters = {FOCUS_FILTER_AIR_XP}
 
@@ -5282,19 +5287,7 @@ focus_tree = {
 		relative_position_id = ITA_superaereo
 		cost = 5
 		available = {
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				OR = {
-				has_tech = improved_small_airframe
-				has_tech = improved_medium_airframe
-				}
-			}
-			else = {
-				has_tech = fighter2
-				has_tech = tactical_bomber2
-			}
+	
 		}
 
 		search_filters = {FOCUS_FILTER_AIR_XP}
@@ -5389,6 +5382,15 @@ focus_tree = {
 		relative_position_id = ITA_superaereo
 		cost = 5
 		available = {
+			AND = {
+				OR = 
+				{
+					has_tech = improved_small_airframe 
+					has_tech = improved_medium_airframe 
+				}
+			has_tech = engines_3
+			}
+			
 		}
 
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP}
@@ -5408,10 +5410,19 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 	
 			add_tech_bonus = {
-				name = ITA_specialization
+				name = ITA_specialization_fighter
 				bonus = 1
 				uses = 1
 				category = light_fighter
+				ahead_reduction = 1.0
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = ITA_specialization
+				bonus = 1
+				uses = 1
+				category = air_equipment 
+				ahead_reduction = 1.0
 			}
 
 			#Update NS icon
@@ -6615,8 +6626,6 @@ focus_tree = {
 			add_to_variable = { ITA_rm_naval_strike_agility_factor = 0.05 }
 			custom_effect_tooltip = ITA_naval_air_coordination_rm_tt
 
-			air_experience = 25
-			navy_experience = 25
 
 			add_tech_bonus = {
 				name = ITA_naval_air_coordination
@@ -6625,12 +6634,7 @@ focus_tree = {
 				category = naval_bomber
 			}
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				ITA_naval_air_coordination_templates = yes
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_ace = {
 				type = "support_unique"
@@ -6644,6 +6648,10 @@ focus_tree = {
 				surname = "Faggioni"
 				callsign = "Torpedo Twin"
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			air_experience = 25
+			navy_experience = 25
 		}
 	}
 
@@ -9158,7 +9166,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = ITA_la_battaglia_del_grano
-		cost = 1
+		cost = 5
 		available = {
 		}
 
@@ -9167,6 +9175,15 @@ focus_tree = {
 		completion_reward = {
 			add_timed_idea = { idea = ITA_battaglia_per_la_nascite days = 730 }
 			add_political_power = 25
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = MON_build_upwards_build_outwards_tt
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
 		}
 	}
 
@@ -9398,20 +9415,6 @@ focus_tree = {
 		relative_position_id = ITA_banda_carita
 		cost = 5
 
-		allow_branch = {
-			has_dlc = "La Resistance"
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
-			}
-		}
-
 		available = {
 			agency_upgrade_number > 5
 		}
@@ -9439,10 +9442,6 @@ focus_tree = {
 
 
 		cost = 5
-		available = {
-			has_government = fascism
-			ITA_has_disbanded_blackshirts = no
-		}
 
 		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY}
 
@@ -9476,10 +9475,7 @@ focus_tree = {
 
 
 		cost = 5
-		available = {
-			has_government = fascism
-			ITA_has_disbanded_blackshirts = no
-		}
+		
 
 		search_filters = {}
 
@@ -9500,14 +9496,7 @@ focus_tree = {
 		y = 0
 		relative_position_id = ITA_battaglioni_d_assalto
 		cost = 1
-		available = {
-			has_government = fascism
-			any_owned_state = {
-				is_core_of = ROOT
-				is_fully_controlled_by = ROOT
-			}
-			ITA_has_disbanded_blackshirts = no
-		}
+		
 
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
@@ -9555,11 +9544,8 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_battaglioni_d_assalto
-		cost = 1
-		available = {
-			has_government = fascism
-			ITA_has_disbanded_blackshirts = no
-		}
+		cost = 5
+		
 
 		search_filters = {FOCUS_FILTER_MANPOWER}
 

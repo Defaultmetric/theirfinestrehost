@@ -420,7 +420,7 @@ AI_annex = {
     icon = generic_industry
     fire_only_once = yes
     available = {
-        date > 1939.01.01
+        GER = {has_war_with = SOV}
         country_exists = SPR
         original_tag = ITA
         SPR = { has_capitulated = no }
@@ -450,6 +450,8 @@ AI_annex = {
 	    				789 = { add_core_of = SPR }
 	    				169 = { add_core_of = SPR }
 	    				173 = { add_core_of = SPR }
+                        290 = { add_core_of = SPR }
+                        699 = { add_core_of = SPR }
 
 	    			}
         annex_country = { target = SPR transfer_troops = yes }
@@ -467,7 +469,6 @@ AI_annex = {
     icon = generic_industry
     fire_only_once = yes
     available = {
-        date > 1940.01.01
         country_exists = POR
         original_tag = ITA
         POR = { has_capitulated = no }

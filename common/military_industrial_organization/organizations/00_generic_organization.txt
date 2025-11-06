@@ -404,7 +404,8 @@ generic_infantry_tank_organization = {
 		mutually_exclusive = { generic_mio_trait_overlapped_track_wheels }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
+			defense = 0.1
+			reliability = 0.05
 		}
 	}
 
@@ -460,7 +461,7 @@ generic_infantry_tank_organization = {
 		name = generic_mio_trait_turret_sights
 		icon = GFX_generic_mio_trait_icon_breakthrough
 		
-		position = { x=0 y=2 }
+		position = { x=10 y=2 }
 		relative_position_id = generic_mio_trait_adaptable_turret_ring
 
 		any_parent = { generic_mio_trait_adaptable_turret_ring }
@@ -485,7 +486,12 @@ generic_infantry_tank_organization = {
 		mutually_exclusive = { generic_mio_trait_anti_tank_role }
 		
 		equipment_bonus = {
-			soft_attack = 0.15
+			soft_attack = 0.05
+		}
+
+		available = 
+		{
+			has_mio_size > 8
 		}
 	}
 
@@ -1224,6 +1230,7 @@ generic_medium_tank_organization = {
 		production_bonus = {
 			production_capacity_factor = 0.05
 		}
+		
 	}
 
 	add_trait = { 
@@ -1287,6 +1294,8 @@ generic_medium_tank_organization = {
 			hard_attack = 0.05
 		}
 	}
+
+
 
 	trait = {
 		token = generic_mio_trait_armor_steel_working
@@ -1680,6 +1689,11 @@ generic_heavy_tank_organization = {
 			production_efficiency_gain_factor = 0.05
 			production_resource_penalty_factor = -0.1
 		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_expanded_production_facilities
+		}
 	}
 
 	trait = {
@@ -1695,8 +1709,8 @@ generic_heavy_tank_organization = {
 		mutually_exclusive = { generic_mio_trait_apcr_hvap_shells }
 		
 		equipment_bonus = {
-			soft_attack = 0.10
-			hard_attack = 0.05
+			soft_attack = 0.05
+			hard_attack = 0.02
 
 		}
 	}
@@ -8682,6 +8696,2186 @@ generic_helicopter_organization = {
 			production_efficiency_gain_factor = 0.1
 		}
 	}
+}
+
+
+
+
+
+
+######## CUSTOM MIOS ###########
+
+
+generic_multi_role_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_3
+
+	allowed = {
+		always = no # Archetype only - countries using it have their own verisons
+	}
+
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+
+
+	tree_header_text = {
+		text = mio_header_armament
+		x = 6
+	}
+
+	tree_header_text = {
+		text = mio_header_armor
+		x = 7
+	}
+
+	tree_header_text = {
+		text = mio_header_autocomplete
+		x = 15
+	}
+
+	tree_header_text = {
+		text = mio_header_specialization
+		x = 1
+	}
+
+	initial_trait = {
+		name = generic_mio_initial_trait_multi_role_designer
+		
+		limit_to_equipment_type = { 
+			armor
+		}
+
+	}
+
+	#########################MIO TIERS########################################
+
+	trait = {
+		token = generic_mio_trait_T1_mio
+		name = generic_mio_trait_T1_mio
+		icon = GFX_generic_mio_department_icon_tank_light_tank_weapons
+
+		special_trait_background = yes
+
+		position = { x= 14 y=6 }
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+
+		available = 
+		{
+			always = no
+		}
+		on_complete = 
+		{
+			FROM = {set_country_flag = T1_mio}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_T2_mio
+		name = generic_mio_trait_T2_mio
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_weapons
+
+		
+		special_trait_background = yes
+
+		position = { x= 15 y=6 }
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+			military_industrial_organization_funds_gain = 0.15
+		}
+
+		equipment_bonus = {
+			armor_value = 0.02
+			defense = 0.05
+			soft_attack = 0.05
+			hard_attack = 0.05
+			ap_attack = 0.05
+			breakthrough = 0.05
+		}
+
+		available = 
+		{
+			always = no
+		}
+		on_complete = 
+		{
+			FROM = {set_country_flag = T2_mio}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_T3_mio
+		name = generic_mio_trait_T3_mio
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_weapons
+
+		
+		special_trait_background = yes
+
+		position = { x= 16 y=6 }
+
+		equipment_bonus = {
+			defense = 0.1
+			soft_attack = 0.05
+			hard_attack = 0.05
+			ap_attack = 0.05
+			breakthrough = 0.05
+			hardness = 0.02
+		}
+
+		available = 
+		{
+			always = no
+		}
+		on_complete = 
+		{
+			FROM = {set_country_flag = T3_mio}
+		}
+	}
+
+	#########################################################################
+
+	#####AUTO-COMPLETE
+	trait = {
+		token = generic_mio_trait_shells_beat_armor_philosophy
+		name = generic_mio_trait_shells_beat_armor_philosophy
+		icon = GFX_generic_mio_department_icon_tank_general_at
+
+		mutually_exclusive = { generic_mio_trait_armor_beats_shells_philosophy }
+		
+		position = { x=14 y=0 }
+
+		equipment_bonus = {
+			hard_attack = 0.02
+			ap_attack = 0.05
+		}
+
+		available = 
+		{
+			always = no
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_armor_beats_shells_philosophy
+		name = generic_mio_trait_armor_beats_shells_philosophy
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		
+		position = { x=16 y=0 }
+
+		equipment_bonus = {
+			armor_value = 0.05
+			maximum_speed = -0.05
+		}
+
+		mutually_exclusive = { generic_mio_trait_shells_beat_armor_philosophy }
+
+		available = 
+		{
+			always = no
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_stronger_barrel
+		name = generic_mio_trait_stronger_barrel
+		icon = GFX_generic_mio_trait_icon_hard_attack
+
+		any_parent = {generic_mio_trait_shells_beat_armor_philosophy generic_mio_trait_armor_beats_shells_philosophy}
+		relative_position_id = generic_mio_trait_shells_beat_armor_philosophy
+
+		position = { x=0 y=2 }
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+			reliability = 0.05
+		}
+
+		available = 
+		{
+			always = no
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_thicker_armor
+		name = generic_mio_trait_thicker_armor
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		any_parent = {generic_mio_trait_shells_beat_armor_philosophy generic_mio_trait_armor_beats_shells_philosophy}
+
+		relative_position_id = generic_mio_trait_shells_beat_armor_philosophy
+
+		position = { x=2 y=2 }
+
+		equipment_bonus = {
+			armor_value = 0.1
+			breakthrough = 0.05
+		}
+
+		available = 
+		{
+			always = no
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_expanded_production_facilities
+		name = generic_mio_trait_expanded_production_facilities
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		any_parent = {generic_mio_trait_armor_beats_shells_philosophy generic_mio_trait_shells_beat_armor_philosophy}
+		
+		relative_position_id = generic_mio_trait_shells_beat_armor_philosophy
+
+		position = { x=1 y=2 }
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+
+		available = 
+		{
+			always = no
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_next_gen_shells
+		name = generic_mio_trait_next_gen_shells
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+
+		mutually_exclusive = { generic_mio_trait_next_gen_armor}
+		any_parent = {generic_mio_trait_shells_beat_armor_philosophy generic_mio_trait_thicker_armor generic_mio_trait_expanded_production_facilities}
+		
+		relative_position_id = generic_mio_trait_expanded_production_facilities
+
+		position = { x=-1 y=2 }
+
+		equipment_bonus = {
+			ap_attack = 0.15
+		}
+		
+		special_trait_background = yes
+
+		available = 
+		{
+			always = no
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+		on_complete = {
+				if = 
+				{
+					limit = 
+					{
+						FROM = 
+						{
+							has_country_flag = T2_mio
+						}
+					}
+					complete_mio_trait = generic_mio_trait_T3_mio
+				}
+				else = 
+				{
+					complete_mio_trait = generic_mio_trait_T2_mio
+				}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_next_gen_armor
+		name = generic_mio_trait_next_gen_armor
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+
+		mutually_exclusive = { generic_mio_trait_next_gen_shells}
+		any_parent = {generic_mio_trait_shells_beat_armor_philosophy generic_mio_trait_thicker_armor generic_mio_trait_expanded_production_facilities}
+		
+		relative_position_id = generic_mio_trait_expanded_production_facilities
+		special_trait_background = yes
+
+		position = { x=1 y=2 }
+
+		equipment_bonus = {
+			hardness = 0.15
+		}
+
+		available = 
+		{
+			always = no
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+		on_complete = {
+				if = 
+				{
+					limit = 
+					{
+						FROM = 
+						{
+							has_country_flag = T2_mio
+						}
+					}
+					complete_mio_trait = generic_mio_trait_T3_mio
+				}
+				else = 
+				{
+					complete_mio_trait = generic_mio_trait_T2_mio
+				}
+		}
+	}
+
+	######
+
+	trait = {
+		token = generic_mio_trait_battle_tank_specifications
+		name = generic_mio_trait_battle_tank_specifications
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+
+		mutually_exclusive = {generic_mio_trait_adaptable_turret_ring}
+		
+		position = { x=7 y=0 }
+
+		equipment_bonus = {
+			armor_value = 0.03
+			defense = 0.03
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_armor_beats_shells_philosophy
+				FROM = {
+					set_country_flag = armor_alta
+				}
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				NOT = {
+					has_country_flag = stats_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_adaptable_turret_ring
+		name = generic_mio_trait_adaptable_turret_ring
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		position = { x = 6 y= 0  }
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.03
+		}
+
+		mutually_exclusive = {generic_mio_trait_battle_tank_specifications}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_shells_beat_armor_philosophy
+				FROM = {
+					set_country_flag = stats_alta
+				}
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				NOT = {
+				has_country_flag = armor_alta
+				}
+			}
+		}
+
+	}
+
+
+
+	trait = {
+		token = generic_mio_trait_turret_sights
+		name = generic_mio_trait_turret_sights
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		
+		position = { x=6 y=1 }
+		relative_position_id = generic_mio_trait_adaptable_turret_ring
+
+		all_parents = {generic_mio_trait_adaptable_turret_ring}
+		
+
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_anti_tank_specialization
+		name = generic_mio_trait_anti_tank_specialization
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_at
+
+		all_parents = {generic_mio_trait_turret_sights}
+
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_turret_sights
+		mutually_exclusive = {generic_mio_trait_simplified_turret_design generic_mio_trait_sloping_armor}
+
+
+		equipment_bonus = {
+			hard_attack = 0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_stronger_barrel
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_sloping_armor
+		name = generic_mio_trait_sloping_armor
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+
+		all_parents = {generic_mio_trait_turret_sights}
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_turret_sights
+		mutually_exclusive = {generic_mio_trait_anti_tank_specialization generic_mio_trait_simplified_turret_design}
+
+		equipment_bonus = {
+			armor_value = 0.1
+			defense = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_thicker_armor
+		}
+	}
+
+	add_trait = {
+		token = generic_mio_trait_high_velocity_armament
+		name = generic_mio_trait_high_velocity_armament
+		icon = GFX_generic_mio_department_icon_tank_general_at
+
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_sloping_armor
+
+		any_parent = {generic_mio_trait_anti_tank_specialization generic_mio_trait_sloping_armor generic_mio_trait_simplified_turret_design}
+		
+		available = {
+		}
+
+		equipment_bonus = {
+			ap_attack = 0.05
+			hard_attack = 0.02
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+
+	trait = {
+		token = generic_mio_trait_close_support_role
+		name = generic_mio_trait_close_support_role
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		
+		position = { x=-1 y=2 }
+		relative_position_id = generic_mio_trait_high_velocity_armament
+	
+		
+		all_parents = {generic_mio_trait_high_velocity_armament}
+		mutually_exclusive = { generic_mio_trait_anti_tank_role }
+		
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		available = 
+		{
+			has_mio_size > 8
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_fort_buster
+		name = generic_mio_trait_fort_buster
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+		
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_close_support_role
+	
+		
+		all_parents = {generic_mio_trait_close_support_role}
+
+
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_unstoppable_firepower
+		name = generic_mio_trait_unstoppable_firepower
+		icon = GFX_generic_mio_department_icon_tank_general_at
+		special_trait_background = yes
+		
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_close_support_role
+	
+		
+		any_parent = {generic_mio_trait_close_support_role generic_mio_trait_anti_tank_role}
+
+
+		equipment_bonus = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_next_gen_shells
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_anti_tank_role
+		name = generic_mio_trait_anti_tank_role
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		position = { x=1 y=2 }
+		relative_position_id = generic_mio_trait_high_velocity_armament
+	
+		
+		all_parents = {generic_mio_trait_high_velocity_armament}
+		
+		
+		mutually_exclusive= { generic_mio_trait_close_support_role }
+
+		equipment_bonus = {
+		hard_attack = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		available = 
+		{
+			has_mio_size > 8
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_tank_buster
+		name = generic_mio_trait_tank_buster
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_anti_tank_role
+	
+		
+		all_parents = {generic_mio_trait_anti_tank_role}
+
+
+		equipment_bonus = {
+			hard_attack = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+	trait = {
+		token = generic_mio_trait_adaptable_chassis
+		name = generic_mio_trait_adaptable_chassis
+		icon = GFX_generic_mio_department_icon_tank_general_technology
+		
+		position = { x= 4 y=1 }
+		relative_position_id = generic_mio_trait_adaptable_turret_ring
+		all_parents = {generic_mio_trait_adaptable_turret_ring}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_simplified_turret_design
+		name = generic_mio_trait_simplified_turret_design
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_adaptable_chassis
+		mutually_exclusive = { generic_mio_trait_anti_tank_specialization generic_mio_trait_sloping_armor }
+
+		all_parents = { generic_mio_trait_adaptable_chassis }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+
+		on_complete = {
+			complete_mio_trait = generic_mio_trait_expanded_production_facilities
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_heavy_tank_specialization
+		name = generic_mio_trait_heavy_tank_specialization
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+		
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_battle_tank_specifications
+		all_parents = {generic_mio_trait_battle_tank_specifications}
+		
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_simplified_layout
+		name = generic_mio_trait_simplified_layout
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_line_efficiency
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_heavy_tank_specialization
+	
+
+		all_parents = { generic_mio_trait_heavy_tank_specialization }
+
+		
+		equipment_bonus = 
+		{
+			reliability = 0.05
+		}
+
+		production_bonus = {
+			production_efficiency_gain_factor = 0.05
+			production_resource_penalty_factor = -0.1
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_expanded_production_facilities
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_thick_armor
+		name = generic_mio_trait_thick_armor
+		icon = GFX_generic_mio_trait_icon_armor_value
+		
+		position = { x=3 y=1 }
+		relative_position_id = generic_mio_trait_battle_tank_specifications
+		all_parents = {generic_mio_trait_battle_tank_specifications}
+		
+		
+		equipment_bonus = {
+		armor_value = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_even_thicker_armor
+		name = generic_mio_trait_even_thicker_armor
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_thick_armor
+		mutually_exclusive = {  generic_mio_trait_advanced_shells}
+
+		all_parents = { generic_mio_trait_thick_armor }
+		
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_thicker_armor
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_specialist_shells
+		name = generic_mio_trait_specialist_shells
+		icon = GFX_generic_mio_trait_icon_hard_attack
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_even_thicker_armor
+
+		all_parents = { generic_mio_trait_even_thicker_armor generic_mio_trait_simplified_layout}
+		
+		equipment_bonus = {
+			hard_attack = 0.1
+			ap_attack = 0.15
+			reliability = 0.02
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_high_explosive_shells
+		name = generic_mio_trait_high_explosive_shells
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+
+		position = { x=1 y=2 }
+		relative_position_id = generic_mio_trait_simplified_layout
+
+		all_parents = { generic_mio_trait_even_thicker_armor generic_mio_trait_simplified_layout}
+		
+		equipment_bonus = {
+			soft_attack = 0.10
+			hard_attack = 0.05
+
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_full_track_armor_skirts
+		name = generic_mio_trait_full_track_armor_skirts
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=1 y=2 }
+		relative_position_id = generic_mio_trait_specialist_shells
+
+		any_parent = { generic_mio_trait_specialist_shells generic_mio_trait_advanced_shells}
+		
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		available = 
+		{
+			has_mio_size > 7
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_land_battleship
+		name = generic_mio_trait_land_battleship
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_full_track_armor_skirts
+
+		any_parent = { generic_mio_trait_full_track_armor_skirts}
+		mutually_exclusive = {generic_mio_trait_122mm}
+		special_trait_background = yes
+
+		equipment_bonus = {
+			armor_value = 0.07
+			defense = 0.07
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_next_gen_armor
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_122mm
+		name = generic_mio_trait_122mm
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_full_track_armor_skirts
+
+		mutually_exclusive = {generic_mio_trait_land_battleship}
+		any_parent = { generic_mio_trait_full_track_armor_skirts}
+		special_trait_background = yes
+		
+		equipment_bonus = {
+			hard_attack = 0.1
+			soft_attack = 0.1
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_next_gen_shells
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_advanced_shells
+		name = generic_mio_trait_advanced_shells
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_thick_armor
+
+		mutually_exclusive = {generic_mio_trait_even_thicker_armor}
+		all_parents = { generic_mio_trait_thick_armor  }
+		
+		equipment_bonus = {
+			ap_attack = 0.1
+			hard_attack = 0.1
+			soft_attack = 0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_stronger_barrel
+		}
+	}
+
+	###########RIGHT-BRANCH
+
+	trait = {
+		token = generic_mio_trait_armored_gun_ports_right
+		name = generic_mio_trait_armored_gun_ports_right
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_battle_tank_specifications
+		
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+		
+		any_parent = {generic_mio_trait_battle_tank_specifications}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			reliability = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_streamlined_production_right
+		name = generic_mio_streamlined_production_right
+		icon = GFX_generic_mio_department_icon_tank_general_technology		
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_right
+
+		all_parents = {generic_mio_trait_armored_gun_ports_right }
+		
+
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+	}
+	
+
+	trait = {
+	token = generic_mio_trait_single_engine_right
+	name = generic_mio_trait_single_engine_right
+	icon = GFX_generic_mio_trait_icon_breakthrough
+
+	position = { x=-3 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_right
+
+	any_parent = { generic_mio_trait_main_battle_tanks_right }
+	
+	equipment_bonus = {
+		reliability = 0.1
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+}
+
+
+trait = {
+	token = generic_mio_trait_interleaved_track_wheels_right
+	name = generic_mio_trait_interleaved_track_wheels_right
+	icon = GFX_generic_mio_department_icon_tank_medium_tank_engine
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_right
+
+	any_parent = { generic_mio_trait_multi_role_tanks_right generic_mio_trait_main_battle_tanks_right }
+
+
+	equipment_bonus = {
+		defense = 0.1
+		reliability = 0.05
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+}
+
+trait = {
+	token = generic_mio_trait_supercharger_right
+	name = generic_mio_trait_supercharger_right
+	icon = GFX_generic_mio_department_icon_tank_general_quality
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_interleaved_track_wheels_right
+
+	all_parents = { generic_mio_trait_single_engine_right generic_mio_trait_interleaved_track_wheels_right }
+
+
+	equipment_bonus = {
+		breakthrough = 0.25
+		fuel_consumption = 0.5
+		reliability = -0.20
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+	special_trait_background = yes
+}
+
+trait = {
+	token = generic_mio_trait_turbocharger_right
+	name = generic_mio_trait_turbocharger_right
+	icon = GFX_generic_mio_trait_icon_maximum_speed
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_double_engines_right
+
+	all_parents = { generic_mio_trait_double_engines_right generic_mio_trait_interleaved_track_wheels_right }
+
+
+	equipment_bonus = {
+		maximum_speed = 0.25
+		fuel_consumption = -0.1
+		reliability = -0.05
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+	special_trait_background = yes
+}
+
+trait = {
+	token = generic_mio_trait_double_engines_right
+	name = generic_mio_trait_double_engines_right
+	icon = GFX_generic_mio_trait_icon_defense
+	
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_right
+	
+	any_parent = { generic_mio_trait_multi_role_tanks_right }
+
+	equipment_bonus = {
+		defense = 0.1
+		fuel_consumption = 0.25
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+}
+
+#########################
+
+	trait = {
+		token = generic_mio_trait_armored_gun_ports_left
+		name = generic_mio_trait_armored_gun_ports_left
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		
+		position = { x= 0 y=1 }
+		relative_position_id = generic_mio_trait_adaptable_turret_ring
+		
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+		
+		any_parent = {generic_mio_trait_adaptable_turret_ring}
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			reliability = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_streamlined_production_left
+		name = generic_mio_streamlined_production_left
+		icon = GFX_generic_mio_department_icon_tank_general_technology		
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_left
+
+		all_parents = {generic_mio_trait_armored_gun_ports_left }
+		
+
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+
+	trait = {
+	token = generic_mio_trait_single_engine_left
+	name = generic_mio_trait_single_engine_left
+	icon = GFX_generic_mio_trait_icon_breakthrough
+
+	position = { x=-3 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_left
+
+	any_parent = { generic_mio_trait_main_battle_tanks_left }
+
+	equipment_bonus = {
+		reliability = 0.1
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+	}
+
+	trait = {
+	token = generic_mio_trait_interleaved_track_wheels_left
+	name = generic_mio_trait_interleaved_track_wheels_left
+	icon = GFX_generic_mio_department_icon_tank_medium_tank_engine
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_left
+
+	any_parent = { generic_mio_trait_multi_role_tanks_left generic_mio_trait_main_battle_tanks_left }
+
+	equipment_bonus = {
+		defense = 0.1
+			reliability = 0.05
+	}
+
+	visible = 
+	{
+		FROM = 
+		{
+			has_country_flag = stats_alta
+		}
+	}
+	}
+
+	trait = {
+	token = generic_mio_trait_supercharger_left
+	name = generic_mio_trait_supercharger_left
+	icon = GFX_generic_mio_department_icon_tank_general_quality
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_interleaved_track_wheels_left
+
+	all_parents = { generic_mio_trait_single_engine_left generic_mio_trait_interleaved_track_wheels_left }
+
+	equipment_bonus = {
+		breakthrough = 0.25
+		fuel_consumption = 0.5
+		reliability = -0.15
+	}
+
+	visible = 
+	{
+		FROM = 
+		{
+			has_country_flag = stats_alta
+		}
+	}
+
+	special_trait_background = yes
+	}
+
+	trait = {
+	token = generic_mio_trait_turbocharger_left
+	name = generic_mio_trait_turbocharger_left
+	icon = GFX_generic_mio_trait_icon_maximum_speed
+
+	position = { x=-1 y=1 }
+	relative_position_id = generic_mio_trait_double_engines_left
+
+	all_parents = { generic_mio_trait_double_engines_left generic_mio_trait_interleaved_track_wheels_left }
+
+	equipment_bonus = {
+		maximum_speed = 0.25
+		fuel_consumption = -0.1
+		reliability = -0.05
+	}
+
+	visible = 
+	{
+		FROM = 
+		{
+			has_country_flag = stats_alta
+		}
+	}
+
+	special_trait_background = yes
+	}
+
+	trait = {
+	token = generic_mio_trait_double_engines_left
+	name = generic_mio_trait_double_engines_left
+	icon = GFX_generic_mio_trait_icon_defense
+
+	position = { x=1 y=1 }
+	relative_position_id = generic_mio_trait_multi_role_tanks_left
+
+	any_parent = { generic_mio_trait_multi_role_tanks_left }
+
+	equipment_bonus = {
+		defense = 0.1
+		fuel_consumption = 0.25
+	}
+
+	visible = 
+	{
+		FROM = 
+		{
+			has_country_flag = stats_alta
+		}
+	}
+	}
+
+	####################
+
+	trait = {
+	token = generic_mio_trait_multi_role_specialization
+	name = generic_mio_trait_multi_role_specialization
+	icon = GFX_generic_mio_department_icon_tank_heavy_tank_aa
+
+	position = { x=1 y=0 }
+
+	organization_modifier = {
+			military_industrial_organization_funds_gain = 0.15
+		}
+
+		available = 
+		{
+			always = no
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+		
+	}
+
+	trait = {
+	token = generic_mio_trait_anti_air_specialization
+	name = generic_mio_trait_anti_air_specialization
+	icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+	position = { x=-1 y=1 }
+
+	all_parents = { generic_mio_trait_multi_role_specialization }
+	relative_position_id = generic_mio_trait_multi_role_specialization
+
+	mutually_exclusive = {
+		generic_mio_trait_tank_destroyer_specialization
+		generic_mio_trait_spg_specialization
+	}
+	special_trait_background = yes
+
+	limit_to_equipment_type = { light_tank_aa_chassis medium_tank_aa_chassis heavy_tank_aa_chassis }
+
+
+	production_bonus = {
+		production_cost_factor = -0.1
+	}
+
+	equipment_bonus = {
+		air_attack = 0.25
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+
+}
+
+trait = {
+	token = generic_mio_trait_tank_destroyer_specialization
+	name = generic_mio_trait_tank_destroyer_specialization
+	icon = GFX_generic_mio_trait_icon_ap_attack
+
+	position = { x=0 y=1 }
+
+	all_parents = { generic_mio_trait_multi_role_specialization }
+	relative_position_id = generic_mio_trait_multi_role_specialization
+
+	mutually_exclusive = {
+		generic_mio_trait_anti_air_specialization
+		generic_mio_trait_spg_specialization
+	}
+	special_trait_background = yes
+
+	limit_to_equipment_type = { light_tank_destroyer_chassis medium_tank_destroyer_chassis heavy_tank_destroyer_chassis}
+
+
+	production_bonus = {
+		production_cost_factor = -0.1
+	}
+
+	equipment_bonus = {
+		hard_attack = 0.05
+		ap_attack = 0.05
+		breakthrough = 0.1
+	}
+
+	visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+}
+
+trait = {
+	token = generic_mio_trait_spg_specialization
+	name = generic_mio_trait_spg_specialization
+	icon = GFX_generic_mio_department_icon_tank_medium_tank_weapons
+
+	position = { x=1 y=1 }
+
+	all_parents = { generic_mio_trait_multi_role_specialization }
+	relative_position_id = generic_mio_trait_multi_role_specialization
+	special_trait_background = yes
+
+	mutually_exclusive = {
+		generic_mio_trait_anti_air_specialization
+		generic_mio_trait_tank_destroyer_specialization
+	}
+
+	limit_to_equipment_type = { light_tank_artillery_chassis medium_tank_artillery_chassis heavy_tank_artillery_chassis}
+
+		equipment_bonus = {
+			breakthrough = 0.05
+			soft_attack = 0.1
+		}
+
+		production_bonus = {
+			production_cost_factor = -0.1
+		}
+
+	visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+}
+
+
+	trait = {
+	token = generic_mio_trait_light_materials
+	name = generic_mio_trait_light_materials
+	icon = GFX_generic_mio_trait_icon_resources
+
+	position = { x=1 y=1 }
+
+	any_parent = {generic_mio_trait_anti_air_specialization generic_mio_trait_tank_destroyer_specialization generic_mio_trait_spg_specialization} 
+
+	relative_position_id = generic_mio_trait_anti_air_specialization
+
+	production_bonus = {
+			production_resource_need_factor = -0.1
+			production_resource_penalty_factor = -0.1
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+
+	}
+
+
+	trait = {
+	token = generic_mio_trait_main_battle_tanks_specialization
+	name = generic_mio_trait_main_battle_tanks_specialization
+	icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+
+	position = { x=1 y=4 }
+
+		organization_modifier = {
+			military_industrial_organization_funds_gain = 0.15
+		}
+
+		available = 
+		{
+			always = no
+		}
+		
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+	token = generic_mio_trait_light_tank_specialization
+	name = generic_mio_trait_light_tank_specialization
+	icon = GFX_generic_mio_department_icon_tank_light_tank_production
+
+	position = { x=-1 y=1 }
+
+	all_parents = { generic_mio_trait_main_battle_tanks_specialization }
+	relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+	mutually_exclusive = {
+		generic_mio_trait_medium_tank_specialization
+		generic_mio_trait_heavy_tank_specializations
+	}
+
+	special_trait_background = yes
+
+	limit_to_equipment_type = { mio_cat_eq_all_light_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_medium_tank_specialization
+		name = generic_mio_trait_medium_tank_specialization
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
+
+		position = { x=0 y=1 }
+
+		all_parents = { generic_mio_trait_main_battle_tanks_specialization }
+		relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+		mutually_exclusive = {
+			generic_mio_trait_light_tank_specialization
+			generic_mio_trait_heavy_tank_specializations
+		}
+
+		special_trait_background = yes
+
+		limit_to_equipment_type = { mio_cat_eq_all_medium_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_heavy_tank_specializations
+		name = generic_mio_trait_heavy_tank_specializations
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+
+		position = { x=1 y=1 }
+
+		all_parents = { generic_mio_trait_main_battle_tanks_specialization }
+		relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+		mutually_exclusive = {
+			generic_mio_trait_light_tank_specialization
+			generic_mio_trait_medium_tank_specialization
+		}
+
+		special_trait_background = yes
+
+		limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+	token = generic_mio_trait_infantry_shredder
+	name = generic_mio_trait_infantry_shredder
+	icon = GFX_generic_mio_trait_icon_soft_attack
+
+	position = { x=-1 y=2 }
+
+	all_parents = { generic_mio_trait_light_tank_specialization }
+	relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+	limit_to_equipment_type = { mio_cat_eq_all_light_tank }
+
+	equipment_bonus = {
+			soft_attack = 0.10
+			hard_attack 0.10
+		}
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+	token = generic_mio_trait_future_of_warfare
+	name = generic_mio_trait_future_of_warfare
+	icon = GFX_generic_mio_department_icon_facilities
+
+	position = { x=0 y=2 }
+
+	all_parents = { generic_mio_trait_medium_tank_specialization }
+	relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+		on_complete = 
+		{
+			FROM = 
+			{
+				add_tech_bonus = {
+					name = the_future_of_warfare
+					ahead_reduction = 1
+					bonus = 1
+					uses = 1
+					technology = main_battle_tank_chassis
+				}
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+	token = generic_mio_trait_more_efficient_engines
+	name = generic_mio_trait_more_efficient_engines
+	icon = GFX_generic_mio_trait_icon_fuel_consumption
+
+	position = { x=1 y=2 }
+
+	all_parents = { generic_mio_trait_heavy_tank_specializations }
+	relative_position_id = generic_mio_trait_main_battle_tanks_specialization
+
+		equipment_bonus = {
+			maximum_speed = 0.05
+			fuel_consumption = -0.5
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				OR = 
+				{
+					has_country_flag = stats_alta
+					has_country_flag = armor_alta
+				}
+			}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_multi_role_tanks_left
+		name = generic_mio_trait_multi_role_tanks_left
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_aa
+
+		position = { x= 1 y=2 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_left
+		all_parents = {generic_mio_trait_armored_gun_ports_left}
+		mutually_exclusive = {generic_mio_trait_main_battle_tanks_left}
+
+		equipment_bonus = {
+			soft_attack = 0.02
+			air_attack = 0.1
+			hard_attack = 0.02
+			ap_attack = 0.02
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+
+		available = 
+		{
+			has_mio_size > 5
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_multi_role_specialization
+				FROM = 
+				{
+					set_country_flag = multi_role
+				}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_main_battle_tanks_left
+		name = generic_mio_trait_main_battle_tanks_left
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+
+		position = { x=-1 y=2 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_left
+
+		all_parents = { generic_mio_trait_armored_gun_ports_left }
+		mutually_exclusive = {generic_mio_trait_multi_role_tanks_left}
+		
+		available = 
+		{
+			has_mio_size > 5
+		}
+
+		equipment_bonus = {
+			reliability = 0.05
+			breakthrough = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = stats_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_main_battle_tanks_specialization
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_multi_role_tanks_right
+		name = generic_mio_trait_multi_role_tanks_right
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_aa
+
+		position = { x= 1 y=2 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_right
+		all_parents = {generic_mio_trait_armored_gun_ports_right}
+		mutually_exclusive = {generic_mio_trait_main_battle_tanks_right}
+
+		equipment_bonus = {
+			soft_attack = 0.02
+			air_attack = 0.1
+			hard_attack = 0.02
+			ap_attack = 0.02
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+
+		available = 
+		{
+			has_mio_size > 5
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_multi_role_specialization
+				FROM = 
+				{
+					set_country_flag = multi_role
+				}
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_main_battle_tanks_right
+		name = generic_mio_trait_main_battle_tanks_right
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
+
+		position = { x=-1 y=2 }
+		relative_position_id = generic_mio_trait_armored_gun_ports_right
+
+		all_parents = { generic_mio_trait_armored_gun_ports_right }
+		mutually_exclusive = {generic_mio_trait_multi_role_tanks_right}
+		
+		available = 
+		{
+			has_mio_size > 5
+		}
+
+		equipment_bonus = {
+			reliability = 0.05
+			breakthrough = 0.05
+		}
+
+		visible = 
+		{
+			FROM = 
+			{
+				has_country_flag = armor_alta
+			}
+		}
+
+		on_complete = {
+		
+				complete_mio_trait = generic_mio_trait_main_battle_tanks_specialization
+		}
+	}
+}
+
+
+############## Balanced Tank Designer
+
+generic_balanced_tanks_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_3
+
+	allowed = {
+		always = no # Archetype only - countries using it have their own verisons
+	}
+
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
+
+	tree_header_text = {
+		text = mio_header_armament
+		x = 1
+	}
+
+	tree_header_text = {
+		text = mio_header_chassis
+		x = 5
+	}
+
+	tree_header_text = {
+		text = mio_header_guns_and_turret
+		x = 8
+	}
+
+
+	initial_trait = {
+		name = generic_mio_initial_trait_balanced_tanks_designer
+		
+		limit_to_equipment_type = { 
+			armor
+		}
+		
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_wide_tracks
+		name = generic_mio_trait_wide_tracks
+		icon = GFX_generic_mio_trait_icon_reliability
+
+		position = { x=0 y=0 }
+		
+		equipment_bonus = {
+			reliability = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_heavily_armored
+		name = generic_mio_trait_heavily_armored
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		
+		position = { x=5 y=0 }
+
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_power_traverse
+		name = generic_mio_trait_power_traverse
+		icon = GFX_generic_mio_trait_icon_breakthrough
+
+		position = { x=0 y=1 }
+
+		relative_position_id = generic_mio_trait_heavily_armored
+		all_parents = {generic_mio_trait_heavily_armored}
+		
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_armor_steel_working
+		name = generic_mio_trait_armor_steel_working
+		icon = GFX_generic_mio_trait_icon_production_capacity
+
+		position = { x=-1 y=0 }
+		relative_position_id = generic_mio_trait_power_traverse
+		all_parents = {generic_mio_trait_heavily_armored}
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_spaced_armor
+		name = generic_mio_trait_spaced_armor
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x= 0 y= 1 }
+		relative_position_id = generic_mio_trait_power_traverse
+
+		all_parents = { generic_mio_trait_power_traverse }
+		
+		equipment_bonus = {
+			armor_value = 0.05
+			defense = 0.05
+		}
+	}
+
+	add_trait = { 
+		token = generic_mio_trait_expanded_production_facilities
+		name = generic_mio_trait_expanded_production_facilities
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_technology
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_spaced_armor
+
+		all_parents = { generic_mio_trait_spaced_armor }
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = 0.05
+		}
+		
+	}
+
+	trait = {
+		token = generic_mio_trait_rifled_barrel
+		name = generic_mio_trait_rifled_barrel
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_power_traverse
+
+		all_parents = {generic_mio_trait_power_traverse}
+		
+		equipment_bonus = {
+			ap_attack = 0.1
+			hard_attack = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_heat_shells
+		name = generic_mio_trait_heat_shells
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		position = { x=-1 y=1 }
+		relative_position_id = generic_mio_trait_spaced_armor
+
+		all_parents = {generic_mio_trait_spaced_armor}
+		
+		equipment_bonus = {
+			ap_attack = 0.02
+			hard_attack = 0.05
+			soft_attack = 0.1
+		}
+	}
+
+	trait = {
+		token = generic_mio_trait_reinforced_construction
+		name = generic_mio_trait_reinforced_construction
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+
+		position = { x=1 y=1 }
+		relative_position_id = generic_mio_trait_spaced_armor
+
+		all_parents = {generic_mio_trait_spaced_armor}
+		
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+	}
+
+	trait = {
+		token = generic_mio_armor_hardening_process
+		name = generic_mio_armor_hardening_process
+		icon = GFX_generic_mio_trait_icon_armor_value
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_reinforced_construction
+
+		any_parent = { generic_mio_trait_heat_shells generic_mio_trait_reinforced_construction}
+
+		mutually_exclusive = { generic_mio_enlarged_breech }
+		
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+	}
+
+	trait = {
+		token = generic_mio_enlarged_breech
+		name = generic_mio_enlarged_breech
+		icon = GFX_generic_mio_trait_icon_soft_attack
+
+		position = { x=-2 y=1 }
+		relative_position_id = generic_mio_trait_reinforced_construction
+		mutually_exclusive = { generic_mio_armor_hardening_process }
+
+		any_parent = { generic_mio_trait_heat_shells generic_mio_trait_reinforced_construction}
+		
+		equipment_bonus = {
+			soft_attack = 0.1
+			hard_attack = 0.05
+		}
+	}
+
 }
 
 

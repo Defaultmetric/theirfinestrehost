@@ -3057,39 +3057,6 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					NOT = { has_dlc = "Arms Against Tyranny"}
-				}
-				if = {
-					limit = {
-						has_idea = GER_alkett
-					}
-					swap_ideas = {
-						remove_idea = GER_alkett
-						add_idea = GER_alkett_improved
-					}
-				}
-				else = {
-					effect_tooltip = {
-						swap_ideas = {
-							remove_idea = GER_alkett
-							add_idea = GER_alkett_improved
-						}
-					}
-				}
-			}
-			else = {
-				mio:GER_alkett_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
-
-					#unlock_mio_trait_tooltip = 
-					#unlock_mio_trait_tooltip = 
-				}
-			}
 		}
 	}
 
@@ -3193,51 +3160,6 @@ focus_tree = {
 			add_breakthrough_progress = {
 				specialization = specialization_land
 				value = 0.5
-			}
-
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				create_equipment_variant = {
-					name = "Sturmpanzer"
-					design_team = mio:GER_alkett_organization #We feed on your tears
-					parent_version = 0
-					type = medium_tank_artillery_chassis_1
-					modules = {
-						main_armament_slot = tank_medium_howitzer
-						turret_type_slot = tank_medium_fixed_superstructure_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 2
-					}
-					icon = "GFX_GER_basic_medium_art_medium"
-				}
-
-				create_equipment_variant = {
-					name = "Nashorn"
-					design_team = mio:GER_alkett_organization #We feed on your tears
-					parent_version = 0
-					type = medium_tank_destroyer_chassis_1
-					modules = {
-						main_armament_slot = tank_medium_cannon
-						turret_type_slot = tank_medium_fixed_superstructure_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 2
-					}
-					icon = "GFX_GER_basic_light_td"
-				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4433,18 +4355,13 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			mio:GER_MAN_organization = {
+			mio:GER_daimler_benz_organization = {
 					add_mio_size = 1
 					add_mio_funds_gain_factor = 0.25
 					add_mio_research_bonus = 0.05
-
-					#unlock_mio_trait_tooltip = 
-					#unlock_mio_trait_tooltip = 
 				}
 			mio:GER_Henschel_organization = {
 					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
 				}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
@@ -4550,38 +4467,6 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					NOT = { has_dlc = "Arms Against Tyranny"}
-				}
-				if = {
-					limit = {
-						has_idea = porsche
-					}
-					swap_ideas = {
-						remove_idea = porsche
-						add_idea = GER_porsche_improved
-					}
-				}
-				else = {
-					effect_tooltip = {
-						swap_ideas = {
-							remove_idea = porsche
-							add_idea = GER_porsche_improved
-						}
-					}
-				}
-			}
-			else = {
-				mio:GER_porsche_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
-
-					#unlock_mio_trait_tooltip = 
-					#unlock_mio_trait_tooltip = 
-				}
-			}
 		}
 	}
 	

@@ -1,24 +1,6 @@
-HUN_henshchels_organization = {
-	include = generic_infantry_tank_organization
-	icon = GFX_idea_henschel
-
-	allowed = { tag = HUN }
-	
-	available = {
-		owner = {
-		has_completed_focus = wuw_HUN_seek_german_contracts
-		}
-	}
-
-	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
-	}
-}
 
 Generic_henschels_organization = {
-	include = generic_infantry_tank_organization
+	include = generic_multi_role_organization
 	icon = GFX_idea_henschel
 
 	allowed = {
@@ -26,6 +8,8 @@ Generic_henschels_organization = {
 	 tag = MAN
 	 tag = ROM 
 	 tag = ITA
+	 tag = HUN
+	 tag = SPR
 	 }
 	}
 
@@ -33,28 +17,4 @@ Generic_henschels_organization = {
 		
 	}
 
-	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
-	}
-}
-
-spain_henschels_organization = {
-	include = generic_infantry_tank_organization
-	icon = GFX_idea_henschel
-
-	allowed = { tag = SPR }
-
-	available = {
-		owner = {
-		has_completed_focus = SPA_join_the_axis
-		}
-	}
-
-	initial_trait = {
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.05
-		}
-	}
 }

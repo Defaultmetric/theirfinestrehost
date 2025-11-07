@@ -5627,7 +5627,9 @@ focus_tree = {
 		available = {
 
 		}
-		
+
+		allow_branch = {has_war_support > 200}
+
 		bypass = {
 
 		}
@@ -5637,21 +5639,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}	
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = USA_tank_destroyer_board_organization
-				mio:USA_tank_destroyer_board_organization = {
-					add_mio_size = 2
-				}
-			}
-			ELSE = {
-				custom_effect_tooltip = available_designer
-				show_ideas_tooltip = tank_destroyer_board
-			}
-			
+		
 		}
 	}
 	focus = {
@@ -5689,6 +5677,9 @@ focus_tree = {
 				show_mio_tooltip = USA_detroit_arsenal_organization
 				mio:USA_detroit_arsenal_organization = {
 					add_mio_size = 2
+				}
+				mio:USA_chrysler_organization = {
+					add_mio_size = 1
 				}
 			}
 			ELSE = {

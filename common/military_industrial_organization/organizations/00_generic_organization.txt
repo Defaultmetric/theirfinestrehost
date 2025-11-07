@@ -15,7 +15,7 @@ generic_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = GER original_tag = MON original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
+		NOT = { OR = { original_tag = SPR original_tag = GER original_tag = MON original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -95,8 +95,8 @@ generic_tank_organization = {
 		}
 	}
 
-	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank }
-	research_categories = { mio_cat_tech_light_armor_and_modules mio_cat_tech_medium_armor_and_modules }
+	equipment_type = { armor }
+	research_categories = { mio_cat_tech_all_armor_and_modules }
 
 	tree_header_text = {
 		text = mio_header_tank_construction

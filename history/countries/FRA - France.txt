@@ -1,5 +1,9 @@
 ﻿capital = 16 # Paris/Ile de France
 
+mio:FRA_renault_organization = {
+					complete_mio_trait = generic_mio_trait_T1_mio
+}
+
 if = {
 	limit = {
 		NOT = {
@@ -809,7 +813,7 @@ if = {
 	create_equipment_variant = { #Note: There is a copy of this variant in Finnish National Focus file (FIN_bring_foreign_armor_experts). Any changes here should also be applied there
 		name = "H-35" #due to similar design this also covers R-35
 		type = light_tank_chassis_1
-		design_team = mio:FRA_hotchkiss_organization
+		design_team = mio:FRA_renault_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon

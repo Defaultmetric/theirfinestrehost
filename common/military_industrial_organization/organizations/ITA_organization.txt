@@ -14,65 +14,7 @@ ITA_fiat_organization = {
 	icon = GFX_idea_fiat
 	
 	allowed = {	
-		OR = {
-			tag = ITA 
-			AND = {
-				tag = GRE 
-				has_dlc = "Battle for the Bosporus"
-			}
-			AND = {
-				tag = BUL 
-				has_dlc = "Battle for the Bosporus"
-			}
-			AND = {
-				tag = ETH 
-				has_dlc = "By Blood Alone"
-			}
-			AND = {
-				tag = BRA
-				has_dlc = "Trial of Allegiance"
-			}
-		}
-	}
-
-	visible = {
-		IF = {
-			limit = { FROM = { original_tag = ETH } }
-			FROM = { has_country_flag = ETH_ITA_sends_army_designers }
-		}
-	}
-	
-	available = {
-		# When in a Foreign MIO, countries need to be at peace with original country
-		IF = {
-			limit = {
-				FROM = { NOT = { original_tag = ITA } }
-			}
-			FROM = { NOT = { has_war_with = ITA } }
-		}
-		ELSE = { #original_tag = ITA
-			FROM = {
-				controls_state = 158 #PIEMONT (Torino)
-			}
-			ITA_is_northern_designer = yes
-		}
-
-		IF = {
-			limit = { FROM = { original_tag = GRE } }
-			FROM = {
-				has_completed_focus = GRE_rapprochement_with_the_italians
-			}
-		}
-		IF = {
-			limit = {
-				FROM = {
-					original_tag = BRA
-				}
-			}
-			FROM = {
-				has_completed_focus = BRA_italian_trucks
-			}
-		}
+		tag = ITA
 	}
 	
 	add_trait = { 

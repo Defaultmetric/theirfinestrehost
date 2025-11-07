@@ -4622,10 +4622,6 @@ focus_tree = {
 				custom_effect_tooltip = available_mio_tt
 				show_mio_tooltip = CZE_skoda_armor_organization
 
-				mio:CZE_skoda_armor_organization = {
-					add_mio_size = 1
-				}
-
 				custom_effect_tooltip = generic_skip_one_line_tt
 
 				custom_effect_tooltip = available_mio_tt
@@ -10280,16 +10276,12 @@ focus_tree = {
 				}
 
 				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = HUN_henshchels_organization
+				show_mio_tooltip = Generic_henschels_organization
 
-				mio:HUN_henshchels_organization = {
-					add_mio_size = 2
+				mio:Generic_henschels_organization = {
+					add_mio_size = 1
 				}
 
-			}
-			ELSE = {
-				custom_effect_tooltip = available_designer
-				show_ideas_tooltip = HUN_henschel
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -10345,6 +10337,11 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = 
+		{
+			has_war_support > 200
+		}
+
 		bypass = {
 
 		}
@@ -10356,44 +10353,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-
-			ITA = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = medium_increase
-				}
-			}
-
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 2000
-					equipment_type = light_tank_chassis
-					seller_tags = { ITA }
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = HUN_fiat_tankettes_organization
-
-				mio:HUN_fiat_tankettes_organization = {
-					add_mio_size = 1
-				}
-
-			}
-			ELSE = {
-				custom_effect_tooltip = available_designer
-				show_ideas_tooltip = HUN_fiat
-			}
 
 		}
 	}
@@ -17524,9 +17483,6 @@ focus_tree = {
 				custom_effect_tooltip = available_mio_tt
 				show_mio_tooltip = HUN_mavag_assault_guns_organization
 
-				mio:HUN_mavag_assault_guns_organization = {
-					add_mio_size = 3
-				}
 
 			}
 			ELSE = {
@@ -18141,9 +18097,6 @@ focus_tree = {
 				custom_effect_tooltip = available_mio_tt
 				show_mio_tooltip = HUN_hti_turan_organization
 
-				mio:HUN_hti_turan_organization = {
-					add_mio_size = 3
-				}
 			}
 
 		}

@@ -4751,13 +4751,13 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 				}
 				#TANKS
-				every_military_industrial_organization = {
-					limit = {
-						has_mio_trait = SOV_mio_trait_merge_plant_no_174 #All Tank MIOs have this trait
-					}
-					unlock_mio_trait_tooltip = SOV_mio_trait_merge_plant_no_174
-					unlock_mio_trait_tooltip = SOV_mio_trait_merge_plant_no_112
-					unlock_mio_trait_tooltip = SOV_mio_trait_merge_ural_heavy_machine_building_plant
+				mio:SOV_okmo_organization = {
+					complete_mio_trait = SOV_mio_trait_merge_plant_no_112
+					add_mio_size = 1
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				mio:SOV_mytishchy_machine_building_plant_organization = {
+					complete_mio_trait = SOV_mio_trait_merge_plant_no_112
 				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt

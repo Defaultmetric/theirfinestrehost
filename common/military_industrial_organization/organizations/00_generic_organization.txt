@@ -594,7 +594,7 @@ generic_infantry_tank_organization = {
 		any_parent = { generic_mio_trait_battle_tank_specifications }
 		
 		equipment_bonus = {
-		armor_value = 0.05
+		armor_value = 0.02
 		}
 	}
 
@@ -8780,18 +8780,13 @@ generic_multi_role_organization = {
 
 		position = { x= 15 y=6 }
 
-		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.15
-			military_industrial_organization_funds_gain = 0.15
-		}
-
 		equipment_bonus = {
 			armor_value = 0.02
 			defense = 0.05
-			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.05
-			breakthrough = 0.05
+			soft_attack = 0.03
+			hard_attack = 0.03
+			ap_attack = 0.03
+			breakthrough = 0.03
 		}
 
 		available = 
@@ -8815,7 +8810,7 @@ generic_multi_role_organization = {
 		position = { x= 16 y=6 }
 
 		equipment_bonus = {
-			defense = 0.1
+			defense = 0.05
 			soft_attack = 0.05
 			hard_attack = 0.05
 			ap_attack = 0.05
@@ -8887,7 +8882,6 @@ generic_multi_role_organization = {
 		position = { x=0 y=2 }
 
 		equipment_bonus = {
-			hard_attack = 0.05
 			soft_attack = 0.05
 			reliability = 0.05
 		}
@@ -8955,7 +8949,7 @@ generic_multi_role_organization = {
 		position = { x=1 y=2 }
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.05
+			production_efficiency_cap_factor = 0.1
 		}
 
 		available = 
@@ -9161,7 +9155,7 @@ generic_multi_role_organization = {
 		
 
 		equipment_bonus = {
-			breakthrough = 0.1
+			breakthrough = 0.05
 		}
 
 		visible = 
@@ -9368,7 +9362,8 @@ generic_multi_role_organization = {
 		mutually_exclusive= { generic_mio_trait_close_support_role }
 
 		equipment_bonus = {
-		hard_attack = 0.05
+			hard_attack = 0.02
+			ap_attack = 0.02
 		}
 		visible = 
 		{
@@ -9397,7 +9392,8 @@ generic_multi_role_organization = {
 
 
 		equipment_bonus = {
-			hard_attack = 0.05
+			hard_attack = 0.03
+			ap_attack = 0.03
 		}
 		visible = 
 		{
@@ -9526,7 +9522,7 @@ generic_multi_role_organization = {
 		
 		
 		equipment_bonus = {
-		armor_value = 0.05
+		armor_value = 0.02
 		}
 
 		visible = 
@@ -9550,7 +9546,7 @@ generic_multi_role_organization = {
 		all_parents = { generic_mio_trait_thick_armor }
 		
 		equipment_bonus = {
-			armor_value = 0.05
+			armor_value = 0.03
 		}
 		visible = 
 		{
@@ -9577,8 +9573,7 @@ generic_multi_role_organization = {
 		
 		equipment_bonus = {
 			hard_attack = 0.1
-			ap_attack = 0.15
-			reliability = 0.02
+			ap_attack = 0.1
 		}
 		visible = 
 		{
@@ -9600,8 +9595,8 @@ generic_multi_role_organization = {
 		all_parents = { generic_mio_trait_even_thicker_armor generic_mio_trait_simplified_layout}
 		
 		equipment_bonus = {
-			soft_attack = 0.10
-			hard_attack = 0.05
+			soft_attack = 0.05
+			hard_attack = 0.02
 
 		}
 
@@ -9684,8 +9679,8 @@ generic_multi_role_organization = {
 		special_trait_background = yes
 		
 		equipment_bonus = {
-			hard_attack = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.05
+			soft_attack = 0.05
 		}
 		visible = 
 		{
@@ -9713,8 +9708,7 @@ generic_multi_role_organization = {
 		
 		equipment_bonus = {
 			ap_attack = 0.1
-			hard_attack = 0.1
-			soft_attack = 0.05
+			hard_attack = 0.08
 		}
 		visible = 
 		{
@@ -9792,7 +9786,7 @@ generic_multi_role_organization = {
 	any_parent = { generic_mio_trait_main_battle_tanks_right }
 	
 	equipment_bonus = {
-		reliability = 0.1
+		reliability = 0.05
 	}
 
 	visible = 
@@ -9842,7 +9836,7 @@ trait = {
 
 
 	equipment_bonus = {
-		breakthrough = 0.25
+		breakthrough = 0.2
 		fuel_consumption = 0.5
 		reliability = -0.20
 	}
@@ -9972,7 +9966,7 @@ trait = {
 	any_parent = { generic_mio_trait_main_battle_tanks_left }
 
 	equipment_bonus = {
-		reliability = 0.1
+		reliability = 0.05
 	}
 
 	visible = 
@@ -10019,7 +10013,7 @@ trait = {
 	all_parents = { generic_mio_trait_single_engine_left generic_mio_trait_interleaved_track_wheels_left }
 
 	equipment_bonus = {
-		breakthrough = 0.25
+		breakthrough = 0.2
 		fuel_consumption = 0.5
 		reliability = -0.15
 	}

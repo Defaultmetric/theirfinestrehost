@@ -47,6 +47,10 @@ NDefines.NMilitary.TRAINING_ATTRITION = 0.00
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 999
 NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 999
 NDefines.NMilitary.MAX_AIR_EXPERIENCE = 999
+NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.10
+NDefines.NMilitary.UNIT_EXPERIENCE_PER_COMBAT_HOUR = 0.0002
+NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0,7
+
 NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 3 	--Base cost to unlock a regiment slot
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 2	--Base cost to change a regiment column.
@@ -80,6 +84,8 @@ NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always r
 	0.20,
 	0.10,
 }
+
+
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.9 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT

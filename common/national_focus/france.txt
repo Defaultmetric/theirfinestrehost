@@ -101,6 +101,29 @@ focus_tree = {
 		}
 	}
 
+
+	focus = {
+		id = FRA_ban_communism
+		icon = GFX_focus_BRA_ban_communist_party
+		x = -1
+		y = 1
+		
+		prerequisite = {
+			focus = FRA_form_the_popular_front
+		}
+		relative_position_id = FRA_form_the_popular_front
+		cost = 10
+
+		completion_reward = {
+			add_ideas = { FRA_communism_banned }
+			set_temp_variable = { communism_temp = party_popularity@communism }
+			multiply_temp_variable = { communism_temp = -0.25 }
+			add_stability = communism_temp
+
+			add_political_power = 100
+		}
+	}
+
 	focus = {
 		id = FRA_intervention_in_spain
 		icon = GFX_focus_intervention_spain_republic
@@ -2077,6 +2100,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = FRA_airland_battle_tt
+			set_global_flag = fra_airland_battle
 		}
 	}
 	focus = {
@@ -2145,6 +2169,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = FRA_wwi_tactics_tt
+			set_global_flag = FRA_wwi_tactics
 		}
 	}
 
@@ -6785,44 +6810,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = { FRA_entrepeneurship }
-		}
-	}
-
-	focus = {
-		id = FRA_ban_communism
-		icon = GFX_goal_anti_comintern_pact
-		x = -3
-		y = 1
-		
-		prerequisite = {
-			focus = FRA_revive_the_national_bloc
-		}
-		relative_position_id = FRA_revive_the_national_bloc
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			has_idea = FRA_political_violence
-			NOT = { has_government = communism }
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_FRA_POLITICAL_VIOLENCE }
-		completion_reward = {
-			add_ideas = { FRA_communism_banned }
-			set_temp_variable = { communism_temp = party_popularity@communism }
-			multiply_temp_variable = { communism_temp = -0.25 }
-			add_stability = communism_temp
-			remove_ideas = FRA_political_violence
 		}
 	}	
 

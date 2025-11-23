@@ -4351,11 +4351,12 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = HUN_mobile_focus
-				cost_reduction = 0.25
-				uses = 1
-				category = cat_mobile_warfare
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_mobile_warfare
 			}
 		}
 	}
@@ -4643,11 +4644,12 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = HUN_mobile_corps_doctrine
-				cost_reduction = 0.25
-				uses = 2
-				category = cat_mobile_warfare
+
+			add_mastery_bonus = {
+				name = HUN_mobile_focus
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_mobile_warfare
 			}
 		}
 	}
@@ -4685,12 +4687,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+			
+			add_mastery_bonus = {
 				name = HUN_home_defense
-				cost_reduction = 0.25
-				uses = 1
-				category = cat_grand_battle_plan
+				bonus = 0.2
+				days = 180
+				grand_doctrine = grand_battleplan
 			}
+
 		}
 	}
 
@@ -4982,11 +4986,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			navy_experience = 15
+
+			add_mastery_bonus = {
+				name = HUN_restauration
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_fleet_in_being
+			}
 			add_doctrine_cost_reduction = {
 				name = HUN_restauration
 				cost_reduction = 0.5
 				uses = 1
-				category = cat_fleet_in_being
+				category = naval_doctrine
 			}
 
 		}
@@ -5137,12 +5148,20 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			navy_experience = 15
+
+
+			add_mastery_bonus = {
+				name = HUN_reform
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_convoy_raiding
+			}
+
 			add_doctrine_cost_reduction = {
 				name = HUN_reform
 				cost_reduction = 0.5
-				uses = 2
-				category = cat_trade_interdiction
-				category = cat_base_strike
+				uses = 1
+				category = naval_doctrine
 			}
 
 		}
@@ -5285,7 +5304,6 @@ focus_tree = {
 				name = HUN_cruisers
 				bonus = 1.0
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 

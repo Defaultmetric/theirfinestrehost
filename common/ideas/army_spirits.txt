@@ -130,8 +130,12 @@ ideas = {
 		}
 		mobile_warfare_academy_spirit = {
 			ledger = army
-			available = { has_military_academy = yes }
-			visible = { has_tech = mobile_warfare }
+			available = {
+				AND = {
+				has_military_academy = yes 
+				has_doctrine = new_mobile_warfare	
+				}
+			}
 			modifier = {
 				custom_modifier_tooltip = mobile_warfare_academy_spirit_tt
 				trait_panzer_leader_xp_gain_factor = 0.2
@@ -146,14 +150,19 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
-				}
+					has_doctrine = new_mobile_warfare
+					}
 			}
 		}
 		superior_firepower_academy_spirit = {
 			ledger = army
-			available = { has_military_academy = yes }
-			visible = { has_tech = superior_firepower }
+			available = { 
+				AND = {
+				has_military_academy = yes 
+				has_doctrine = superior_firepower	
+				}
+			}
+
 			modifier = {
 				custom_modifier_tooltip = superior_firepower_academy_spirit_tt
 				trait_engineer_xp_gain_factor = 0.2
@@ -169,14 +178,18 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					has_doctrine = superior_firepower
 				}
 			}
 		}
 		theatre_training_spirit = {
 			ledger = army
-			available = { has_military_academy = yes }
-			visible = { has_tech = trench_warfare }
+			available = {
+				AND = { 
+				has_military_academy = yes 
+				has_doctrine = grand_battleplan
+				}
+			}
 			modifier = {
 				custom_modifier_tooltip = theatre_training_academy_spirit_tt
 				terrain_trait_xp_gain_factor = 0.2
@@ -191,14 +204,18 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = trench_warfare
+					has_doctrine = grand_battleplan
 				}
 			}
 		}
 		mass_assault_academy_spirit = {
 			ledger = army
-			available = { has_military_academy = yes }
-			visible = { has_tech = mass_assault }
+			available = {
+				AND = { 
+				has_military_academy = yes 
+				has_doctrine = mass_assault
+				}
+			}
 			modifier = {
 				custom_modifier_tooltip = mass_assault_academy_spirit_tt
 				trait_infantry_leader_xp_gain_factor = 0.2
@@ -213,7 +230,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+					has_doctrine = mass_assault
 				}
 			}
 		}
@@ -385,7 +402,7 @@ ideas = {
 		}
 
 		mobile_warfare_army_spirit = {
-			visible = { has_tech = mobile_warfare }
+			available = { has_doctrine = new_mobile_warfare }
 			ledger = army
 			modifier = {
 
@@ -412,7 +429,7 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
+						has_doctrine = new_mobile_warfare
 				}
 
 				modifier = {
@@ -430,7 +447,7 @@ ideas = {
 		}
 
 		superior_firepower_army_spirit = {
-			visible = { has_tech = superior_firepower  }
+			available = { has_doctrine = superior_firepower }
 			ledger = army
 			modifier = {
 				experience_gain_artillery_combat_factor = 0.1
@@ -454,18 +471,19 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					has_doctrine = superior_firepower
 				}
 			}
 		}
 
 		grand_battleplan_army_spirit = {
-			visible = { has_tech = trench_warfare }
+			available = { has_doctrine = grand_battleplan }
 			ledger = army
 			modifier = {
 				unit_marine_design_cost_factor = -0.5
 				unit_mountaineers_design_cost_factor = -0.5
 				unit_paratrooper_design_cost_factor = -0.5
+				unit_ranger_battalion_design_cost_factor = -0.5
 				special_forces_cap_flat = 24
 				extra_paratrooper_supply_grace = 24
 				extra_marine_supply_grace = 24
@@ -480,14 +498,15 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = trench_warfare
+
+					has_doctrine = grand_battleplan
 				}
 			}
 		}
 
 		mass_assault_army_spirit = {
 			ledger = army
-			visible = { has_tech = mass_assault }
+			available = { has_doctrine = mass_assault }
 			modifier = {
 				experience_gain_infantry_combat_factor = 0.1
 				unit_infantry_design_cost_factor = -1
@@ -505,7 +524,8 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+
+					has_doctrine = mass_assault				
 				}
 			}
 		}
@@ -619,7 +639,7 @@ ideas = {
 		}
 
 		maneuver_warfare_spirit = {
-			visible = { has_tech = mobile_warfare }
+			available = { has_doctrine = new_mobile_warfare }
 			modifier = {
 				tactic_unexpected_thrust_preferred_weight_factor = 1
 				army_speed_factor = 0.05
@@ -635,7 +655,12 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mobile_warfare
+					OR = {
+					has_doctrine = mobile_infantry
+					has_doctrine = air_cavalry
+					has_doctrine = mission_type_tactics
+					has_doctrine = self_propelled_support
+					}
 				}
 
 			}
@@ -643,10 +668,12 @@ ideas = {
 
 		smoke_and_fire_spirit = {
 			ledger = army
-			visible = { has_tech = superior_firepower }
+			available = { 
+				has_doctrine = superior_firepower
+			}
 			modifier = {
 				tactic_barrage_preferred_weight_factor = 1
-				breakthrough_factor = 0.05
+				breakthrough_factor = 0.06
 			}
 			ai_will_do = {
 				base = 1
@@ -658,14 +685,19 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = superior_firepower
+					OR = {
+						has_doctrine = assault_infantry
+						has_doctrine = flying_batteries
+						has_doctrine = mobile_recon_and_assault
+						has_doctrine = rapid_domination
+					}
 				}
 			}
 		}
 
 		logistical_focus_spirit = {
 			ledger = army
-			visible = { has_tech = trench_warfare }
+			available = { has_doctrine = grand_battleplan }
 			modifier = {
 				tactic_planned_attack_preferred_weight_factor = 1
 				supply_consumption_factor = -0.10
@@ -682,14 +714,20 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = trench_warfare
+					OR = {
+
+					has_doctrine = defensive_postures
+					has_doctrine = fire_concentration
+					has_doctrine = siege_artillery
+					has_doctrine = armored_infantry_support
+					}
 				}
 			}
 		}
 
 		operational_reserve_spirit = {
 			ledger = army
-			visible = { has_tech = mass_assault }
+			available = { has_doctrine = mass_assault }
 			modifier = {
 				tactic_relentless_assault_preferred_weight_factor = 1
 				army_strength_factor = 0.1
@@ -704,7 +742,12 @@ ideas = {
 
 				modifier = {
 					factor = 2
-					has_tech = mass_assault
+					OR = {
+					has_doctrine = large_unit_tactics
+					has_doctrine = streamlined_deployment
+					has_doctrine = deep_battle
+					has_doctrine = grand_assault
+					}
 				}
 			}
 		}

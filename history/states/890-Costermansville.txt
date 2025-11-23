@@ -5,15 +5,23 @@ state = {
 	state_category = pastoral
 	
 	resources = {
-		rubber = 3
+		rubber = 3.000
 	}
 	
-	
 	history = {
-	
-		owner = FRA
 
-		add_core_of = SOK
+		owner = BEL
+		add_core_of = COG
+
+		IF = {
+			limit = {
+				has_dlc = "Gotterdammerung"
+			}
+			transfer_state_to = COG
+			add_dynamic_modifier = {
+				modifier = COG_state_loyal_to_free_congo_modifier
+			}
+		}
 
 		victory_points = {
 			4941 1 # Albertville
@@ -23,7 +31,6 @@ state = {
 			infrastructure = 1
 		}
 
-
 	}
 	
 	provinces = {
@@ -31,5 +38,5 @@ state = {
 	}
 	
 	buildings_max_level_factor = 1.000
-	local_supplies=0.0
+	local_supplies = 0.000
 }

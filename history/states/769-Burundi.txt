@@ -7,9 +7,19 @@ state = {
 
 	history = {
 
-		owner = FRA
+		owner = BEL
 
-		add_core_of = SOK
+		IF = {
+			limit = {
+				has_dlc = "Gotterdammerung"
+			}
+			transfer_state_to = COG
+			add_dynamic_modifier = {
+				modifier = COG_burundian_separatism_modifier
+			}	
+		}
+		
+		add_core_of = BRD
 
 		victory_points = {
 			2220 1
@@ -27,5 +37,5 @@ state = {
 	
 	buildings_max_level_factor = 1.000
 
-	local_supplies=0.0 
+	local_supplies = 0.0 
 }

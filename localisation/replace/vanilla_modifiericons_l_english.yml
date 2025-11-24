@@ -20,10 +20,11 @@
 
 #core_l_english
  NAVAL_COMBAT_SHIP_STRENGTH:0 "£strenght_texticon  Strength: $STR|%Y$"
+ NAVAL_COMBAT_SHIP_ORGANIZATION_FACTOR:0 " - £organization_texticon  Organization: $ORG|%Y$"
  UNIT_ORG:0 "£organization_texticon  Organization: $VALUE|H$"
  ARMY_UNIT_ORG:0 "£organization_texticon  Organization: $VALUE|%H$"
  COMBAT_ATTACK_BUFF:0 "£attack_texticon  Offense"
-
+ COMBAT_DEFENSE_BUFF:0 "£defence_texticon  Defense"
  COMBAT_BREAKTHROUGH_BUFF:0 "£breakthrough_texticon  Breakthrough"
  COMBAT_ENTRENCHMENT_BUFF:0 "£dig_in_texticon  Entrenchment"
  ORG_DAMAGE_MULTIPLIER:0 "£organization_texticon  Organization damage taken"
@@ -67,7 +68,7 @@
  EFFECT_ADD_COMPLIANCE:0 "£compliance_texticon  Compliance: $VALUE$."
  EFFECT_SET_RESISTANCE:0 "£political_violence_texticon  Set Resistance: $VALUE|H$."
  EFFECT_SET_COMPLIANCE:0 "£compliance_texticon  Set Compliance: $VALUE|H$."
-
+ EFFECT_ADD_RESISTANCE_TARGET_WITH_FROM_AND_TARGET:0 "£political_violence_texticon  Resistance Target: $VALUE$ for $OCCUPIED|H$ while under occupation of $OCCUPIER|H$"
  EFFECT_ADD_RESISTANCE_TARGET_WITH_FROM:0 "£political_violence_texticon  Resistance Target: $VALUE$ for $OCCUPIED|H$"
  EFFECT_ADD_RESISTANCE_TARGET_WITH_TARGET:0 "£political_violence_texticon  Resistance Target: $VALUE$ while under occupation of $OCCUPIER|H$"
  EFFECT_ADD_RESISTANCE_TARGET:0 "£political_violence_texticon  Resistance Target: $VALUE$"
@@ -234,7 +235,8 @@
  ship_modules_tech_research:0 "£research_speed_battery_texticon  Ship Modules Research Speed"
  bb_tech_research:0 "£research_speed_texticon  Battleship Research Speed"
  shbb_tech_research:0 "£research_speed_texticon  Superheavy Battleship Research Speed"
- ca_tech_research:0 "£research_speed_texticon  Cruiser Research Speed"
+ ca_tech_research:0 "£research_speed_texticon  Heavy Cruiser Research Speed"
+ cl_tech_research:0 "£research_speed_texticon  Light Cruiser Research Speed"
  bc_tech_research:0 "£research_speed_texticon  Battlecruiser Research Speed"
  tp_tech_research:0 "£research_speed_texticon  Naval Transport Research Speed"
  ss_tech_research:0 "£research_speed_texticon  Submarine Research Speed"
@@ -1536,10 +1538,10 @@
  MODIFIER_ENEMY_LOCAL_SUPPLIES: "£enemy_supply_texticon  Enemy Local Supplies"
  MODIFIER_ENEMY_ATTRITION: "£enemy_attrition_texticon  Enemy Division Attrition"
  MODIFIER_ENEMY_TRUCK_ATTRITION_FACTOR: "£enemy_attrition_supply_truck_texticon  Enemy Supply Truck Attrition"
- modifier_army_sub_unit_marines_attack_factor: "£attack_marines_texticon  Marines Attack"
- modifier_army_sub_unit_marines_defence_factor: "£defence_marines_texticon  Marines Defense"
- modifier_army_sub_unit_marines_speed_factor: "£speed_marines_texticon  Marines Speed"
- modifier_army_sub_unit_marines_max_org_factor: "£organisation_marines_texticon  Marines Organization" 
+ modifier_army_sub_unit_marine_attack_factor: "£attack_marines_texticon  Marines Attack"
+ modifier_army_sub_unit_marine_defence_factor: "£defence_marines_texticon  Marines Defense"
+ modifier_army_sub_unit_marine_speed_factor: "£speed_marines_texticon  Marines Speed"
+ modifier_army_sub_unit_marine_max_org_factor: "£organisation_marines_texticon  Marines Organization" 
  modifier_army_sub_unit_long_range_patrol_support_attack_factor: "£attack_long_range_patrol_texticon  Long-Range Patrol Attack"
  modifier_army_sub_unit_long_range_patrol_support_defence_factor: "£defence_long_range_patrol_texticon  Long-Range Patrol Defense"
  modifier_army_sub_unit_category_special_forces_max_org_factor: "£organisation_specops_texticon  Special Forces Organization"
@@ -1587,6 +1589,7 @@
  modifier_state_rail_way_max_level_terrain_limit: "£railways_texticon  Maximum $rail_way$ level"
  modifier_state_naval_base_max_level_terrain_limit: "£naval_base_texticon  Maximum $naval_base$ level"
  modifier_state_bunker_max_level_terrain_limit: "£fort_texticon  Maximum $bunker$ level"
+ modifier_state_coastal_bunker_max_level_terrain_limit: "£coastal_fort_texticon  Maximum $coastal_bunker$ level"
 
  modifier_state_supply_node_ocean_max_level_terrain_limit: "£supply_hub_texticon  Maximum $supply_node$ level in §Y$ocean$§!"
  modifier_state_rail_way_ocean_max_level_terrain_limit: "£railways_texticon  Maximum $rail_way$ level in §Y$ocean$§!"
@@ -1760,6 +1763,7 @@
 #production_l_english
  BONUS_PRODUCTION_COST_FACTOR: "£mio_production_cost_texticon  Production output cost"
  BONUS_PRODUCTION_CAPACITY_FACTOR: "£mio_production_capacity_texticon  Production output"
+ BONUS_PRODUCTION_EFFICIENCY_CAP_FACTOR: "£mio_efficiency_cap_texticon  Production efficiency cap"
  BONUS_PRODUCTION_EFFICIENCY_GAIN_FACTOR: "£mio_efficiency_gain_texticon  Production efficiency gain"
  BONUS_PRODUCTION_RESOURCE_NEED_FACTOR: "£resources_texticon  Production resource need"
  BONUS_PRODUCTION_RESOURCE_PENALTY_FACTOR: "£sabotaged_resource_texticon  Production resource penalty"

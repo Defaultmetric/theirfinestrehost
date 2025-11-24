@@ -89,7 +89,11 @@ country_event = {
 		
 		date > 1936.10.4
 
+		date < 1939.1.1
+
 		has_government = neutrality
+
+		has_completed_focus = wuw_HUN_strengthen_horthys_reign
 
 		has_dlc = "Gotterdammerung"
 	}
@@ -700,15 +704,6 @@ country_event = {
 				is_in_faction = no
 				HUN = { is_in_faction = yes }
 				factor = 2
-			}
-		}
-
-		FROM = {
-			country_event = {
-				# FROM folds
-				id = WW_hungary.15
-				days = 2
-				random_days = 3
 			}
 		}
 

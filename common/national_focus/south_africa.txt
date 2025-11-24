@@ -12,7 +12,6 @@ focus_tree = {
 	}
 	
 	default = no
-	shared_focus = allies_joint_alliance
 
 	############################
 	#### WAR PREP SECTION ######
@@ -1814,16 +1813,18 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = SAF_soviet_advisers
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = SAF_invite_soviet_advisers
-				cost_reduction = 0.25
-				uses = 2
-				category = cat_mass_assault
+				bonus = 0.1
+				days = 180
+				grand_doctrine = mass_assault
 			}
+			
 			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
 				cost_reduction = 0.5
-				uses = 2
+				uses = 1
 				category = land_doctrine
 			}
 		}

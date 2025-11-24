@@ -3502,7 +3502,6 @@ focus_tree = {
 				bonus = 1.0
 				uses = 1
 				category = ca_tech
-				category = cl_tech
 			}
 
 			#Kronshtadt Class Battlecruiser
@@ -6611,7 +6610,7 @@ focus_tree = {
 
 			#New
 			hidden_effect = {
-				set_technology = { masterful_blitz = 1 popup = no }
+			    unlock_tactic = tactic_masterful_blitz
 			}
 			custom_effect_tooltip = SOV_the_glory_of_the_red_army_masterful_blitz_tactic_tt
 
@@ -6657,7 +6656,7 @@ focus_tree = {
 
 			#New
 			hidden_effect = {
-				set_technology = { masterful_blitz = 1 popup = no }
+			    unlock_tactic = tactic_masterful_blitz
 			}
 			custom_effect_tooltip = SOV_the_glory_of_the_red_army_masterful_blitz_tactic_tt
 		}
@@ -13244,7 +13243,7 @@ focus = {
 					}
 					if = {
 						limit = {
-							has_tech = basic_medium_battery
+							#has_tech = basic_medium_battery
 						}
 						create_equipment_variant = {
 							name = "Hipper Class"
@@ -19179,7 +19178,6 @@ ai_will_do = {
 				bonus = 1.0
 				uses = 4
 				category = dd_tech
-				category = cl_tech
 				category = ca_tech
 				category = bb_tech
 				category = cv_tech

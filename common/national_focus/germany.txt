@@ -281,7 +281,6 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				random_select_amount = 2
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -335,10 +334,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -381,10 +380,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -535,7 +534,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_lower_taxes
-		cost = 5
+		cost = 10
 		available = {
 		}
 
@@ -794,7 +793,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_workers_rights
-		cost = 5
+		cost = 7
 		available = {
 			OR ={
 				59 = { #Hannover
@@ -850,7 +849,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_invest_in_vereinigte_stahlwerke
-		cost = 5
+		cost = 10
 		available = {
 		}
 
@@ -1205,10 +1204,10 @@ focus_tree = {
 					}
 				}
 				51 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -1308,10 +1307,10 @@ focus_tree = {
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 4
+						add_extra_state_shared_building_slots = 2
 						add_building_construction = {
 							type = arms_factory
-							level = 4
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -1326,10 +1325,10 @@ focus_tree = {
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 4
+						add_extra_state_shared_building_slots = 2
 						add_building_construction = {
 							type = arms_factory
-							level = 4
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -1348,10 +1347,10 @@ focus_tree = {
 						}
 					}
 					59 = { #Hannover
-						add_extra_state_shared_building_slots = 3
+						add_extra_state_shared_building_slots = 2
 						add_building_construction = {
 							type = industrial_complex
-							level = 3
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -1366,10 +1365,10 @@ focus_tree = {
 								include_locked = yes
 							}
 						}
-						add_extra_state_shared_building_slots = 3
+						add_extra_state_shared_building_slots = 2
 						add_building_construction = {
 							type = industrial_complex
-							level = 3
+							level = 2
 							instant_build = yes
 						}
 					}
@@ -1806,6 +1805,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+
 			every_core_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
@@ -1845,6 +1845,9 @@ focus_tree = {
 					}
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = expand_german_coal_mines_tt
 		}
 	}
 	
@@ -1916,10 +1919,10 @@ focus_tree = {
 					}
 				}
 				prioritize = { 59 }
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				add_resource = {
@@ -2494,7 +2497,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_accelerate_the_rearmament_program
-		cost = 5
+		cost = 7
 		available = {
 		}
 
@@ -2724,7 +2727,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_zentrale_planung
-		cost = 5
+		cost = 10
 		available = {
 		}
 
@@ -2776,7 +2779,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_zentrale_planung
-		cost = 5
+		cost = 10
 		available = {
 		}
 
@@ -2819,7 +2822,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_armament_rationalization
-		cost = 5
+		cost = 1
 
 		available = {
 			has_war_with_major = yes
@@ -2877,7 +2880,7 @@ focus_tree = {
 		x = 8
 		y = 0
 		#relative_position_id = GER_prioritize_economic_growth
-		cost = 5
+		cost = 4
 		available = {
 		}
 
@@ -2900,37 +2903,11 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					NOT = { has_dlc = "Arms Against Tyranny"}
-				}
-				if = {
-					limit = {
-						has_idea = henschel
-					}
-					swap_ideas = {
-						remove_idea = henschel
-						add_idea = GER_henschel_improved
-					}
-				}
-				else = {
-					effect_tooltip = {
-						swap_ideas = {
-							remove_idea = henschel
-							add_idea = GER_henschel_improved
-						}
-					}
-				}
-			}
-			else = {
-				mio:GER_henschel_organization = {
-					add_mio_size = 1
-					add_mio_funds_gain_factor = 0.25
-					add_mio_research_bonus = 0.05
-
-					#unlock_mio_trait_tooltip = 
-					#unlock_mio_trait_tooltip = 
-				}
+			add_doctrine_cost_reduction = {
+				name = GER_develop_modern_maneuver_warfare_doc
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 			}
 		}
 	}
@@ -2953,7 +2930,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = GER_fortify_the_vaterland
 				bonus = 0.5
-				uses = 2
+				uses = 1
 				category = cat_fortification
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2991,13 +2968,6 @@ focus_tree = {
 			add_mastery = {
 				amount = 150
 				track = infantry
-			}
-
-			add_doctrine_cost_reduction = {
-				name = GER_the_prussian_legacy
-				cost_reduction = 0.25
-				uses = 2
-				category = land_doctrine
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3367,10 +3337,10 @@ focus_tree = {
 					}
 				}
 				54 = { #Franken
-					add_extra_state_shared_building_slots = 3
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = arms_factory
-						level = 3
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -3417,10 +3387,10 @@ focus_tree = {
 				limit = {
 					is_controlled_by = ROOT
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -3672,7 +3642,7 @@ focus_tree = {
 				name = GER_panzergrenadier
 				ahead_reduction = 1
 				bonus = 1
-				uses = 2
+				uses = 1
 				category = cat_mechanized_equipment
 			}
 
@@ -4275,11 +4245,12 @@ focus_tree = {
 				grand_doctrine = new_mobile_warfare
 			}
 
-			add_doctrine_cost_reduction = {
-				name = GER_adopt_new_panzer_doctrine
-				cost_reduction = 0.5
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_tech_bonus = {
+				name = GER_advanced_panzer
+				bonus = 1
 				uses = 1
-				category = land_doctrine
+				category = armor
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4399,17 +4370,16 @@ focus_tree = {
 					add_mio_funds_gain_factor = 0.25
 					add_mio_research_bonus = 0.05
 				}
-			mio:GER_Henschel_organization = {
-					add_mio_size = 2
+			custom_effect_tooltip = generic_skip_one_line_tt
+			mio:GER_henschel_organization = {
+					add_mio_size = 1
+					add_mio_funds_gain_factor = 0.25
+					add_mio_research_bonus = 0.05
+
+					#unlock_mio_trait_tooltip = 
+					#unlock_mio_trait_tooltip = 
 				}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_tech_bonus = {
-				name = GER_advanced_panzer
-				ahead_reduction = 0.5
-				bonus = 0.5
-				uses = 1
-				category = cat_medium_armor
-			}
 		}
 	}
 
@@ -4424,8 +4394,9 @@ focus_tree = {
 		cost = 5
 		available = {
 			OR = {
-			has_tech = advanced_medium_tank_chassis
-			has_tech = advanced_heavy_tank_chassis
+			has_tech = improved_medium_tank_chassis
+			has_tech = improved_heavy_tank_chassis
+			has_tech = advanced_light_tank_chassis
 			}
 		}
 
@@ -4435,7 +4406,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = GER_advanced_panzer
-				ahead_reduction = 2
+				ahead_reduction = 1
 				bonus = 1
 				uses = 1
 				category = cat_anti_tank
@@ -4464,19 +4435,12 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = GER_expand_kummersdorfs_capacity
-				ahead_reduction = 1
-				bonus = 1
+				bonus = 1.5
 				uses = 1
-				category = cat_heavy_armor
+				category = armor
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_tech_bonus = {
-				name = GER_expand_kummersdorfs_capacity
-				ahead_reduction = 1
-				bonus = 1
-				uses = 1
-				category = cat_medium_armor
-			}
+			
 			add_breakthrough_progress = {
 				specialization = specialization_land
 				value = 0.5
@@ -4679,10 +4643,10 @@ focus_tree = {
 					controls_state = 59
 				}
 				59 = { #Hannover
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 1
 						instant_build = yes
 					}
 				}
@@ -10341,7 +10305,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
-		cost = 2
+		cost = 3
 
 		available = {
 			is_subject = no

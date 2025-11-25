@@ -90,20 +90,7 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = CHI_dang_guo
-						has_completed_focus = CHI_strengthening_our_resolve
-					}
-				}
-			}
+			has_war_support > 200
 		}
 	
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -2079,7 +2066,7 @@ focus_tree = {
 		icon = GFX_focus_CHI_dang_guo
 		mutually_exclusive = { focus = CHI_end_military_primacy focus = CHI_strengthening_our_resolve }
 	
-		x = 30
+		x = 10
 		y = 0
 		relative_position_id = CHI_end_military_primacy
 		cost = 5
@@ -7018,20 +7005,7 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					OR = {
-						has_completed_focus = CHI_dang_guo
-						has_completed_focus = CHI_end_military_primacy
-					}
-				}
-			}
+			has_war_support > 200
 		}
 		offset = {
 			x = -61
@@ -9778,7 +9752,7 @@ focus_tree = {
 		icon = GFX_focus_CHI_promote_national_currency
 		#prerequisite = { focus = }
 	
-		x = 12
+		x = 5
 		y = 0
 		relative_position_id = CHI_strengthening_our_resolve
 		offset = {

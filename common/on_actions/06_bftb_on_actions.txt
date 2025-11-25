@@ -5,7 +5,6 @@ on_actions = {
 			if = {
 				limit = {
 					GRE = { has_country_flag = GRE_megali_idea_approved }
-					original_tag = TUR
 					has_war_with = GRE
 				}
 				GRE = { country_event = { id = bftb_greece.208 days = 0 } }
@@ -20,67 +19,6 @@ on_actions = {
 					GRE = { has_idea = GRE_booming_tourism }
 				}
 				GRE = { remove_ideas = GRE_booming_tourism }
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					original_tag = TUR
-					TUR = { 
-						AND = {
-							has_completed_focus = TUR_invite_german_officers_to_izmir
-							NOT = { has_completed_focus = TUR_integrate_german_officers_into_the_army }
-						}
-						has_war_with = GER
-						has_unit_leader = 75
-					}
-				}
-				TUR = { 
-					remove_ideas = TUR_german_advisors 
-					GER_hans_von_luck = { set_nationality = GER }
-				} 
-			}
-			if = {
-				limit = {
-					original_tag = TUR
-					TUR = { 
-						AND = {
-							has_completed_focus = TUR_invite_german_officers_to_izmir
-							NOT = { has_completed_focus = TUR_integrate_german_officers_into_the_army }
-						}
-						has_war_with = GER
-						has_unit_leader = 76
-					}
-				}
-				TUR = {
-					GER_wilhelm_ritter_von_thoma = { set_nationality = GER }
-				} 
-			}
-			if = {
-				limit = {
-					original_tag = TUR
-					TUR = { 
-						has_completed_focus = TUR_the_italo_turkish_naval_academy
-						has_war_with = ITA
-						has_unit_leader = 77
-					}
-				}
-				TUR = { 
-					remove_ideas = TUR_the_antalya_naval_academy
-					ITA_ferdinando_umberto_filippo_adalberto = { set_nationality = ITA }
-				} 
-			}
-			if = {
-				limit = {
-					original_tag = TUR
-					TUR = { 
-						has_country_flag = TUR_the_chester_concession_flag
-						has_war_with = USA
-					}
-				}
-				TUR = {
-					add_offsite_building = {  type = industrial_complex level = -3 }
-				}
 			}
 		}
 	}
@@ -231,12 +169,6 @@ on_actions = {
 						}
 					}
 				}
-				TUR = {  
-					create_wargoal = {
-						type = puppet_wargoal_focus
-						target = IRQ
-					}
-				}
 			}
 			else_if = {
 				limit = {
@@ -251,7 +183,6 @@ on_actions = {
 					remove_resource_rights = 676
 					remove_resource_rights = 291
 				}
-				TUR = { country_event = { id = bftb_turkey.69 hours = 6 } } 
 				GER = { country_event = { id = bftb_turkey.71 hours = 8 } } 
 				ITA = { country_event = { id = bftb_turkey.73 hours = 8 } } 
 				if = {
@@ -799,182 +730,6 @@ on_actions = {
 					}
 				}
 			}
-			else_if = {
-				limit = {
-					original_tag = TUR
-				}
-				if = { #TUR - OTT_UNIFIED
-					limit = {
-						has_country_flag = TUR_ott_unified_flag
-					}
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = OTT_UNIFIED_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = OTT_UNIFIED_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = OTT_UNIFIED_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = OTT_UNIFIED_neutrality
-					}
-				}
-				else_if = { #TUR - OTT_SULTANATE
-					limit = {
-						has_country_flag = TUR_ott_sultanate_flag
-					}
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = OTT_SULTANATE_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = OTT_SULTANATE_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = OTT_SULTANATE_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = OTT_SULTANATE_neutrality
-					}
-				}
-				else_if = { #TUR - TUR_PROVISIONARY
-					limit = {
-						has_country_flag = TUR_PROVISIONARY_flag
-					}
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = TUR_PROVISIONARY_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = TUR_PROVISIONARY_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = TUR_PROVISIONARY_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = TUR_PROVISIONARY_neutrality
-					}
-				}
-				else_if = { #TUR - TUR_GREATER_TURKEY
-					limit = {
-						has_country_flag = TUR_greater_turkey_flag
-					}
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = TUR_GREATER_TURKEY_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = TUR_GREATER_TURKEY_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = TUR_GREATER_TURKEY_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = TUR_GREATER_TURKEY_neutrality
-					}
-				}
-				else_if = { #TRN
-					limit = {
-						has_country_flag = TUR_trn_flag
-					}
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = TRN_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = TRN_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = TRN_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = TRN_neutrality
-					}
-				}
-				else = { #TUR - The real TUR
-					if = {
-						limit = {
-							has_government = communism
-						}
-						set_cosmetic_tag = TUR_communism
-					}
-					else_if = {
-						limit = {
-							has_government = democratic
-						}
-						set_cosmetic_tag = TUR_democratic
-					}
-					else_if = {
-						limit = {
-							has_government = fascism
-						}
-						set_cosmetic_tag = TUR_fascism
-					}
-					else_if = {
-						limit = {
-							has_government = neutrality
-						}
-						set_cosmetic_tag = TUR_neutrality
-					}
-				}
-			}
 		}
 		effect = {
 			if = {
@@ -1370,24 +1125,6 @@ on_actions = {
 					set_cosmetic_tag = YUG_puppet_5
 				}
 			}
-			if = {
-				limit = { 
-					FROM = {
-						original_tag = TUR 
-					}
-					ROOT = {
-						original_tag = TUR
-					}
-					YUG = { has_completed_focus = YUG_recognize_the_soviet_union }
-				}
-				random_country = {
-					limit = {
-						original_tag = TUR
-						has_government = communism
-					}
-					set_cosmetic_tag = YUG_puppet_6
-				}
-			}
 		}
 	}
 
@@ -1555,54 +1292,4 @@ on_actions = {
 		}
 	}
 
-	#ROOT is winner, FROM gets annexed.
-	on_annex = {
-		effect = {
-			if = {
-				limit = {
-					FROM = { tag = KUR}
-					ROOT = { tag = TUR }
-				}
-				TUR = {
-					350 = {
-						if = {
-							limit = {
-								is_owned_and_controlled_by = TUR
-							}
-							add_dynamic_modifier = { modifier = kurdish_agitation }
-						}
-					}
-
-					353 = {
-						if = {
-							limit = {
-								is_owned_and_controlled_by = TUR
-							}
-							add_dynamic_modifier = { modifier = kurdish_agitation }
-						}
-					}
-
-					352 = {
-
-						if = {
-							limit = {
-								is_owned_and_controlled_by = TUR
-							}
-							add_dynamic_modifier = { modifier = kurdish_separatism }
-						}
-					}
-
-					800 = {
-
-						if = {
-							limit = {
-								is_owned_and_controlled_by = TUR
-							}
-							add_dynamic_modifier = { modifier = kurdish_separatism }
-						}
-					}
-				}
-			}
-		}
-	}
 }

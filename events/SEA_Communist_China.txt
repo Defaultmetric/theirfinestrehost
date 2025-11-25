@@ -2162,9 +2162,6 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.5
-				all_controlled_state = {
-					PRC_state_is_infiltrated = yes
-				}
 			}
 			modifier = {
 				factor = 0
@@ -2183,7 +2180,6 @@ country_event = {
 			every_controlled_state = {
 				limit = {
 					is_core_of = FROM
-					PRC_state_is_infiltrated = yes
 				}
 				FROM = {
 					transfer_state = PREV
@@ -2196,7 +2192,6 @@ country_event = {
 					is_core_of = FROM
 					OR = {
 						impassable = yes
-						PRC_state_is_infiltrated = yes
 					}
 				}
 			}
@@ -2265,10 +2260,6 @@ country_event = {
 					all_owned_state = {
 						is_controlled_by = PREV
 						is_core_of = ROOT
-						OR = {
-							PRC_state_is_fully_infiltrated = yes
-							impassable = yes
-						}
 					}
 				}
 			}
@@ -2287,7 +2278,6 @@ country_event = {
 				every_controlled_state = {
 					limit = {
 						is_core_of = ROOT
-						PRC_state_is_fully_infiltrated = yes
 					}
 					ROOT = {
 						transfer_state = PREV
@@ -6983,10 +6973,6 @@ country_event = {
 		SOV_vasily_chuykov = {
 			set_nationality = CHI
 		}
-
-		SOV_aleksandr_cherepanov = {
-			set_nationality = CHI
-		}
 		
 		add_political_power = 25
 	}
@@ -7072,10 +7058,6 @@ country_event = {
 		}
 
 		SOV_vasily_chuykov = {
-			set_nationality = FROM
-		}
-
-		SOV_aleksandr_cherepanov = {
 			set_nationality = FROM
 		}
 

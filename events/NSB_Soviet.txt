@@ -4210,32 +4210,6 @@ country_event = {
 			set_global_flag = SOV_soviet_japanese_reconciliation_flag
 		}
 	}
-
-	option = { # Nope
-		name = NSB_soviet_foreign_politics_events.262.b
-
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value < -50
-				}
-			}
-			modifier = { #Is going commie or historical
-				factor = 0
-				OR = {
-					has_completed_focus = JAP_the_unthinkable_option
-					has_completed_focus = JAP_purge_the_kodoha_faction
-				}
-			}
-		}
-
-		hidden_effect = {
-			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.267 hours = 4 } }
-		}
-	}
 }
 
 # JAP Accepts NAP - Event for SOV

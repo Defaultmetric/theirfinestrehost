@@ -34,15 +34,12 @@ fire_concentration = {
      artillery_brigade = {
         combat_width = -0.8
      }
-     category_line_artillery = {
-        max_organisation = 5
-     }
 
      rewards = {
         standing_barrage = {
         #1
             category_line_artillery = {
-                defense = 0.1
+                max_organisation = 5
             }
         }
         predicted_fire = {
@@ -55,23 +52,18 @@ fire_concentration = {
         #3
             category_line_artillery = {
                 breakthrough = 0.1
-                defense = 0.05
             }
         }
         dedicated_air_support = {
         #4
-            category_anti_air = {
-                air_attack = 0.1
+            category_line_artillery = {
+               soft_attack = 0.1
             }
         }
         weakpoint_studies = {
         #5
-            anti_tank_brigade = {
-                ap_attack = 0.1
-                hard_attack = 0.1
-            }
-            artillery_brigade = {
-                hard_attack = 0.1
+            category_line_artillery = {
+                breakthrough = 0.1
             }
         }
     }
@@ -107,36 +99,32 @@ anti_tank_frontline = {
         pakfront = {
         #1
             anti_tank_brigade = {
-                defense = 0.2
-                ap_attack = 0.1
-                soft_attack = 0.2
+                ap_attack = 0.05
             }
         }
         emplacement_rotation = {
         #2
             anti_tank_brigade = {
-                max_organisation = 10
+                max_organisation = 5
             }
         }
         weakpoint_studies = {
         #3
             anti_tank_brigade = {
-                ap_attack = 0.1
-                hard_attack = 0.1
+                hard_attack = 0.05
             }
         }
         offensive_deployments = {
         #4
             mot_anti_tank_brigade = {
                 breakthrough = 0.2
-                ap_attack = 0.2
+                ap_attack = 0.1
             }
         }
         assault_anti_tank = {
         #5
             mot_anti_tank_brigade = {
-                soft_attack = 0.2
-                hard_attack = 0.2
+                hard_attack = 0.1
             }
         }
     }
@@ -169,36 +157,22 @@ flying_batteries = {
     }
 
      # EFFECTS
-     effect = {
-        add_tech_bonus = {
-            bonus = 0.5
-            uses = 1
-            category = rocketry
-            name = SUBDOCTRINE_FLYING_BATTERIES
-        }
-    }
 
-    category_line_artillery = {
+    motorized_rocket_brigade = {
         soft_attack = 0.1
     }
 
     rewards = {
         deployment_drills = {
             mot_rocket_artillery_brigade = {
-                max_organisation = 10
-            }
-            motorized_rocket_brigade = {
-                max_organisation = 10
-            }
-            mot_artillery_brigade = {
-                max_organisation = 10
+                default_morale = 0.1
             }
         }
         counter_battery_tasks = {
             
             recon = {
                 battalion_mult = {
-                    category = category_line_artillery #there should be a motorized arty only cat
+                    category = motorized_rocket_brigade #there should be a motorized arty only cat
                     soft_attack = 0.05
                     defense = 0.1
                 }
@@ -208,7 +182,7 @@ flying_batteries = {
         ballistics_corrections = {
             armored_signal = {
                 battalion_mult = {
-                    category = category_line_artillery
+                    category = motorized_rocket_brigade
                     initiative = 0.02
                     supply_consumption = -0.01
                 }
@@ -216,21 +190,18 @@ flying_batteries = {
 
         }
         mobile_barrages = {
-            category_line_artillery = {
-                default_morale = 0.05
+            motorized_rocket_brigade = {
+                maximum_speed = 0.05
                 breakthrough = 0.05
+            }
+            category_vehicle_infantry = {
+                maximum_speed = 0.1
             }
 
         }
         wide_dispersal_positions = {
-            mot_rocket_artillery_brigade = {
-                max_organisation = 10
-            }
             motorized_rocket_brigade = {
-                max_organisation = 10
-            }
-            mot_artillery_brigade = {
-                max_organisation = 10
+                breakthrough = 0.1
             }
         }
     }

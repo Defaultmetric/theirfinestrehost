@@ -73,7 +73,7 @@ focus_tree = {
 		relative_position_id = BUL_acquire_modern_tools
 		x = -11
 		y = 1
-		cost = 5
+		cost = 7
 
 		available = {
 
@@ -243,7 +243,7 @@ focus_tree = {
 		relative_position_id = BUL_attract_foreign_capitals
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 
 		available = {
 
@@ -259,6 +259,7 @@ focus_tree = {
 		id = BUL_expand_the_tobacco_industry
 
 		prerequisite = { focus = BUL_expand_sofia_university }
+		prerequisite = { focus = BUL_attract_foreign_capitals }
 		icon = GFX_goal_generic_construct_civ_factory
 		relative_position_id = BUL_expand_sofia_university
 		x = -1
@@ -384,7 +385,7 @@ focus_tree = {
 		relative_position_id = BUL_expand_sofia_university
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 
 
 		available = {
@@ -423,7 +424,7 @@ focus_tree = {
 		relative_position_id = BUL_increase_industry_investments
 		x = 0
 		y = 2
-		cost = 5
+		cost = 10
 		mutually_exclusive = { focus = BUL_nationalization }
 
 		available = {
@@ -565,7 +566,7 @@ focus_tree = {
 		mutually_exclusive = { focus = BUL_light_metal_exploitation }
 		x = -1
 		y = 1
-		cost = 5
+		cost = 4
 
 		available = {
 			controls_state = 48
@@ -575,10 +576,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			48 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -594,7 +595,7 @@ focus_tree = {
 		mutually_exclusive = { focus = BUL_all_that_glitters }
 		x = 1
 		y = 1
-		cost = 5
+		cost = 4
 
 		available = {
 			controls_state = 48
@@ -605,7 +606,7 @@ focus_tree = {
 			48 = {
 				add_resource = {
 					type = aluminium
-					amount = 20 #At least one factory's worth
+					amount = 12 #At least one factory's worth
 				}
 			}
 		}
@@ -637,7 +638,11 @@ focus_tree = {
 			48 = {
 				add_resource = {
 					type = steel
-					amount = 18
+					amount = 14
+				}
+				add_resource = {
+					type = coal
+					amount = 8 
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -9144,7 +9149,7 @@ focus_tree = {
 		relative_position_id = BUL_total_war
 		x = -1
 		y = 2
-		cost = 5
+		cost = 10
 
 		available = {
 			is_subject = no

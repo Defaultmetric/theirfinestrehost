@@ -3015,6 +3015,13 @@ focus_tree = {
 					}
 				}
 			}
+			158 = 
+			{
+				add_resource = {
+						type = coal
+						amount = 8
+					}
+			}
 		}
 	}
 
@@ -3202,6 +3209,10 @@ focus_tree = {
 					add_resource = {
 						type = steel
 						amount = 12
+					}
+					add_resource = {
+						type = coal
+						amount = 24
 					}
 				}
 			}
@@ -3674,7 +3685,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = ITA_redirect_alfa_romeo_production
-		cost = 10
+		cost = 5
 		available = {
 			has_full_control_of_state = 661
 			has_full_control_of_state = 663
@@ -3689,13 +3700,11 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ITA_eco_tt
 			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.10 tooltip = industrial_capacity_factory_tt }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.10 tooltip = production_factory_max_efficiency_factor_tt}
-			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.10 tooltip = production_factory_start_efficiency_factor_tt }
-			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 tooltip = production_factory_efficiency_gain_factor_tt }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 tooltip = production_factory_max_efficiency_factor_tt}
+			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.05 tooltip = production_factory_start_efficiency_factor_tt }
+			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ITA_industriale_tt
-			add_to_variable = { ITA_iri_consumer_goods_factor = -0.1 tooltip = consumer_goods_factor_tt }
-			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+			
 			hidden_effect = 
 			{
 				449 = {
@@ -5454,7 +5463,7 @@ focus_tree = {
 	focus = {
 		id = ITA_bomber_designs
 		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_standardization  }
 
 		x = 2
 		y = 0
@@ -5492,7 +5501,7 @@ focus_tree = {
 	focus = {
 		id = ITA_fighter_designs
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_specialization }
 
 		x = 4
 		y = 0
@@ -14934,6 +14943,10 @@ focus_tree = {
 					type = oil
 					amount = 12
 				}
+				add_resource = {
+					type = coal
+					amount = 8
+				}
 			}
 		}
 	}
@@ -16005,38 +16018,20 @@ focus_tree = {
 		id = ITA_demand_ticino
 		icon = GFX_focus_attack_switzerland
 		prerequisite = { 
-			focus = ITA_war_with_france
-			focus = ITA_request_control_of_french_territories 
-		}
-
-		allow_branch = {
-			has_war_support > 400
+			focus = ITA_italian_irredentism
 		}
 
 		x = -1
 		y = 1
-		relative_position_id = ITA_war_with_france
-		cost = 10
-
-		allow_branch = {
-			has_war_support > 400
-		}
+		relative_position_id = ITA_italian_irredentism
+		cost = 5
 
 		available = {
 
 			846 = {
 				is_owned_and_controlled_by = SWI
 			}
-			is_subject = no
-			159 = { 
-				is_controlled_by = ITA
-			}
-			158 = {
-				is_controlled_by = ITA
-			}
-			735 = {
-				is_controlled_by = ITA
-			}
+		
 		}
 
 		will_lead_to_war_with = SWI

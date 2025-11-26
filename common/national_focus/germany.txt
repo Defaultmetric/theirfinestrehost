@@ -1166,7 +1166,9 @@ focus_tree = {
 						}
 					}
 				}
-			}		
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = expand_german_coal_mines_tt		
 		}
 	}
 	
@@ -1841,9 +1843,6 @@ focus_tree = {
 					}
 				}
 			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = expand_german_coal_mines_tt
 		}
 	}
 	
@@ -12145,19 +12144,77 @@ focus_tree = {
 		}
 	}
 	
+	
+	focus = {
+		id = GER_the_swiss_gold
+		icon = GFX_focus_GER_the_swiss_gold
+		prerequisite = { focus = GER_war_with_france }
+		mutually_exclusive = { focus = GER_operation_tannenbaum }
+		x = 1
+		y = 1
+		relative_position_id = GER_war_with_france
+		cost = 5
+		available = {
+			FRA = 
+			{
+				NOT = 
+				{
+					has_full_control_of_state = 16
+				}
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			if = { #This is so that it shows "Modify NS" by default, since most likely Anschluss will be completed and NS will be there. But if Anschluss is bypassed without getting the DM, the tooltip will be adjusted.
+				limit = {
+					NOT = { has_completed_focus = GER_anschluss }
+				}
+				custom_effect_tooltip = GER_modify_military_intelligence_service_modifier_tt
+			}
+			else = {
+				GER_add_or_modify_military_intelligence_service = yes
+			}
+			add_to_variable = {
+				GER_military_intelligence_service_consumer_goods_factor = -0.1
+				tooltip =  consumer_goods_factor_tt
+			}
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				add_to_variable = { 
+					GER_military_intelligence_service_decryption_power = 0.15
+					tooltip = decryption_factor_tt
+				}
+				add_to_variable = { 
+					GER_military_intelligence_service_intel_network_gain_factor = 0.1
+					tooltip = intel_network_gain_factor_tt
+				}
+			}
+			else = {
+				add_to_variable = { 
+					GER_military_intelligence_service_decryption_factor = 0.1
+					tooltip = decryption_factor_tt
+				}
+				add_to_variable = { 
+					GER_military_intelligence_service_subversive_activites_upkeep = -0.2
+					tooltip = subversive_activites_upkeep_tt
+				}
+			}
+		}
+	}
+
 	focus = {
 		id = GER_operation_tannenbaum
 		icon = GFX_focus_attack_switzerland
 		prerequisite = { focus = GER_war_with_france }
 		mutually_exclusive = { focus = GER_the_swiss_gold }
-		x = 1
-		y = 1
-		relative_position_id = GER_war_with_france
-		cost = 10
-
-		allow_branch = {
-			has_war_support > 400
-		}
+		x = 0
+		y = 2
+		relative_position_id = GER_the_swiss_gold
+		cost = 5
 
 		will_lead_to_war_with = SWI
 		
@@ -12230,67 +12287,6 @@ focus_tree = {
 			add_timed_idea = {
 				idea = GER_operation_tannenbaum_ns
 				days = 180
-			}
-		}
-	}
-	
-	focus = {
-		id = GER_the_swiss_gold
-		icon = GFX_focus_GER_the_swiss_gold
-		prerequisite = { focus = GER_war_with_france }
-		mutually_exclusive = { focus = GER_operation_tannenbaum }
-		x = 1
-		y = 1
-		relative_position_id = GER_war_with_france
-		cost = 5
-		available = {
-			FRA = 
-			{
-				NOT = 
-				{
-					has_full_control_of_state = 16
-				}
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			if = { #This is so that it shows "Modify NS" by default, since most likely Anschluss will be completed and NS will be there. But if Anschluss is bypassed without getting the DM, the tooltip will be adjusted.
-				limit = {
-					NOT = { has_completed_focus = GER_anschluss }
-				}
-				custom_effect_tooltip = GER_modify_military_intelligence_service_modifier_tt
-			}
-			else = {
-				GER_add_or_modify_military_intelligence_service = yes
-			}
-			add_to_variable = {
-				GER_military_intelligence_service_consumer_goods_factor = -0.1
-				tooltip =  consumer_goods_factor_tt
-			}
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				add_to_variable = { 
-					GER_military_intelligence_service_decryption_power = 0.15
-					tooltip = decryption_factor_tt
-				}
-				add_to_variable = { 
-					GER_military_intelligence_service_intel_network_gain_factor = 0.1
-					tooltip = intel_network_gain_factor_tt
-				}
-			}
-			else = {
-				add_to_variable = { 
-					GER_military_intelligence_service_decryption_factor = 0.1
-					tooltip = decryption_factor_tt
-				}
-				add_to_variable = { 
-					GER_military_intelligence_service_subversive_activites_upkeep = -0.2
-					tooltip = subversive_activites_upkeep_tt
-				}
 			}
 		}
 	}

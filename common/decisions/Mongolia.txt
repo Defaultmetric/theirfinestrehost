@@ -1606,6 +1606,36 @@ MON_prospect_for_resources =
         }
     }
     }
+    urumqi_coal = {
+    icon = GFX_decision_coal
+    allowed = { tag = MON }
+
+    available = 
+    {
+        MON = {
+        has_completed_focus = MON_exploit_ulaanbaatar
+        }
+    }
+
+    cost = 25
+
+    modifier = {
+			civilian_factory_use = 3
+		}
+
+    days_remove = 90
+    fire_only_once = yes
+    highlight_states = { highlight_state_targets = { state = 617 } }
+
+    remove_effect = {
+        617 = { 
+            add_resource = {
+					type = coal
+					amount = 12
+				} 
+        }
+    }
+    }
 
 }
 

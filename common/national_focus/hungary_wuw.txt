@@ -8045,7 +8045,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_spur_on_the_trianon_trauma
 
-		cost = 1
+		cost = 4
 
 
 
@@ -10192,7 +10192,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_act_of_defense
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 15
@@ -10568,7 +10568,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = wuw_HUN_invite_german_investors }
 		#mutually_exclusive = { focus = wuw_HUN_renew_the_rome_protocols }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = wuw_HUN_invite_german_investors
 
@@ -10603,7 +10603,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 16
+					amount = 12
 				}
 			}
 
@@ -10613,11 +10613,11 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_join_the_axis
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = wuw_HUN_joint_aluminum_mining_company }
+		prerequisite = { focus = wuw_HUN_invite_german_investors }
 		#mutually_exclusive = { focus = wuw_HUN_renew_the_rome_protocols }
-		x = 0
+		x = -1
 		y = 1
-		relative_position_id = wuw_HUN_joint_aluminum_mining_company
+		relative_position_id = wuw_HUN_invite_german_investors
 
 		cost = 1
 
@@ -16445,7 +16445,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 14
+					amount = 8
 				}
 			}
 		}
@@ -17114,7 +17114,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 20
@@ -18073,33 +18073,15 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_develop_tanks
-				ahead_reduction = 1
-				bonus = 1
+				bonus = 1.5
 				uses = 1
-				category = cat_medium_armor
-			}
-
-			add_tech_bonus = {
-				name = HUN_develop_tanks
-				ahead_reduction = 1
-				bonus = 1
-				uses = 1
-				category = cat_heavy_armor
+				category = armor
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_ideas = embrace_the_future_ideas
 
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = HUN_hti_turan_organization
-
-			}
 
 		}
 	}

@@ -158,9 +158,9 @@ joint_focus = {
 	id = ALLIES_civ_eco_boost
 	icon = GFX_focus_generic_modernize_industry
 	prerequisite = { focus = ALLIES_political_cooperation }
-	mutually_exclusive = {focus = ALLIES_infra }
+	mutually_exclusive = {focus = ALLIES_infra focus = ALLIES_lower_power_usage_policy}
 
-	x = 1
+	x = 0
 	y = 1
 	relative_position_id = ALLIES_political_cooperation
 	cost = 5
@@ -192,9 +192,42 @@ joint_focus = {
 }
 
 joint_focus = {
+	id = ALLIES_lower_power_usage_policy
+	icon = GFX_focus_ARG_develop_the_electricity_sector
+	prerequisite = { focus = ALLIES_political_cooperation }
+	mutually_exclusive = {focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+
+	x = 2
+	y = 1
+	relative_position_id = ALLIES_political_cooperation
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+			if = {
+				limit = { is_in_faction_with = ENG }
+
+					add_to_variable = { 
+						allies_energy_consumption = -0.1
+						tooltip = factory_energy_consumption_tt
+					}
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = faction_warning_tt
+		}
+}
+
+joint_focus = {
 	id = ALLIES_mining_expertise
 	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost focus = ALLIES_lower_power_usage_policy }
 	mutually_exclusive = {focus = ALLIES_mil_eco_boost}
 
 	x = 1
@@ -224,13 +257,15 @@ joint_focus = {
 	    			tooltip = local_resources_factor_tt 
 	    		}
 		    }
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = faction_warning_tt
 	}
 }
 
 joint_focus = {
 	id = ALLIES_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost focus = ALLIES_lower_power_usage_policy}
 	mutually_exclusive = {focus = ALLIES_mining_expertise }
 
 	x = -1
@@ -267,9 +302,9 @@ joint_focus = {
 	id = ALLIES_infra
 	icon = GFX_focus_generic_road_investment
 	prerequisite = { focus = ALLIES_political_cooperation }
-	mutually_exclusive = { focus = ALLIES_civ_eco_boost }
+	mutually_exclusive = { focus = ALLIES_civ_eco_boost focus = ALLIES_lower_power_usage_policy}
 
-	x = -1
+	x = -2
 	y = 1
 	relative_position_id = ALLIES_political_cooperation
 	cost = 5
@@ -293,7 +328,7 @@ joint_focus = {
 
 	            add_timed_idea = { 
 	        		idea = infra_boost
-	        		days = 365 
+	        		days = 280 
 	    		}
 		    }
 	}
@@ -308,7 +343,7 @@ joint_focus = {
 	x = -3
 	y = 1
 	relative_position_id = ALLIES_mil_eco_boost
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -337,8 +372,8 @@ joint_focus = {
 	icon = GFX_focus_GER_prioritize_the_four_year_plan
 	prerequisite = { focus = ALLIES_blitzkrieg_economy }
 
-	x = -1
-	y = 1
+	x = 0
+	y = 2
 	relative_position_id = ALLIES_blitzkrieg_economy
 	cost = 5
 
@@ -562,12 +597,13 @@ joint_focus = {
 joint_focus = {
 	id = ALLIES_blitzkrieg_phase3
 	icon = GFX_focus_generic_workers_and_farmers_rise
+	overlay = GFX_focus_fast_overlay_generic_clock
 	prerequisite = { focus = ALLIES_blitzkrieg_phase2 }
 
 	x = 0
 	y = 2
 	relative_position_id = ALLIES_blitzkrieg_phase2
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -586,36 +622,36 @@ joint_focus = {
 	bypass_effect = 
 	{
 		add_to_variable = { 
-	        	allies_mill_output = -0.35
+	        	allies_mill_output = -0.15
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = -0.35
+	    		allies_dockyard_output  = -0.15
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = -0.2
+	    		allies_growth_gain = -0.15
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
 			add_to_variable = { 
-	    		allies_cap = -0.15
+	    		allies_cap = -0.1
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
-	    		allies_consumer = 0.30
+	    		allies_consumer = 0.20
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    		allies_mill_speed = -0.15
+	    		allies_mill_speed = -0.1
 	    		tooltip = production_speed_arms_factory_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			allies_construction_speed = -0.15
+	    			allies_construction_speed = -0.1
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
@@ -637,37 +673,37 @@ joint_focus = {
 	completion_reward = {
 	    custom_effect_tooltip = blitzkrieg_phase3_tt
 		add_to_variable = { 
-			mill_output = -0.35
+			mill_output = -0.15
 			tooltip = industrial_capacity_factory_tt 
 		}
 
 		add_to_variable = { 
-			dockyard_output = -0.35
+			dockyard_output = -0.15
 			tooltip = industrial_capacity_dockyard_tt 
 		}
 
 		add_to_variable = { 
-			growth_gain = -0.2
+			growth_gain = -0.15
 			tooltip = production_factory_efficiency_gain_factor_tt 
 		}
 
 		add_to_variable = { 
-			cap = -0.15
+			cap = -0.1
 			tooltip = production_factory_max_efficiency_factor_tt
 		}
 
 		add_to_variable = { 
-			consumer = 0.30
+			consumer = 0.20
 			tooltip = consumer_goods_factor_tt
 		}
 
 		add_to_variable = { 
-			mill_speed = -0.15
+			mill_speed = -0.1
 			tooltip = production_speed_arms_factory_factor_tt
 		}
 
 		add_to_variable = { 
-			construction_speed = -0.15
+			construction_speed = -0.1
 			tooltip = production_speed_buildings_factor_tt 
 		}
 
@@ -692,7 +728,7 @@ joint_focus = {
 	x = 1
 	y = 1
 	relative_position_id = ALLIES_mil_eco_boost
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -854,7 +890,7 @@ joint_focus = {
 	x = 5
 	y = 1
 	relative_position_id = ALLIES_mil_eco_boost
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -881,8 +917,8 @@ joint_focus = {
 	icon = GFX_focus_generic_currency_reforms
 	prerequisite = { focus = ALLIES_the_waiting_game }
 
-	x = 1
-	y = 1
+	x = 0
+	y = 2
 	relative_position_id = ALLIES_the_waiting_game
 	cost = 5
 
@@ -1051,12 +1087,13 @@ joint_focus = {
 joint_focus = {
 	id = ALLIES_the_waiting_game_phase3
 	icon = GFX_focus_GER_autarky_achieved
+	overlay = GFX_focus_fast_overlay_generic_clock
 	prerequisite = { focus = ALLIES_the_waiting_game_phase2 }
 
 	x = 0
 	y = 2
 	relative_position_id = ALLIES_the_waiting_game_phase2
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -1072,12 +1109,12 @@ joint_focus = {
 	bypass_effect = 
 	{
 			add_to_variable = { 
-	        	allies_mill_output = 0.025
+	        	allies_mill_output = 0.075
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.025
+	    		allies_dockyard_output  = 0.075
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
@@ -1086,10 +1123,6 @@ joint_focus = {
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
-			add_to_variable = { 
-	    		allies_cap = 0.1
-	    		tooltip = production_factory_max_efficiency_factor_tt
-	    	}
 			add_to_variable = { 
 	    		allies_consumer = -0.1
 	    		tooltip = consumer_goods_factor_tt
@@ -1116,23 +1149,18 @@ joint_focus = {
 		set_global_flag = allies_economy_unbound
 
 	   		add_to_variable = { 
-	        	mill_output = 0.025
+	        	mill_output = 0.075
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		dockyard_output  = 0.025
+	    		dockyard_output  = 0.075
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
 	    	add_to_variable = { 
 	    		growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
-
-			add_to_variable = { 
-	    		cap = 0.1
-	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
 	    		consumer = -0.1
@@ -1369,7 +1397,7 @@ joint_focus = {
 	x = 0
 	y = 2
 	relative_position_id = ALLIES_adaptive_2_phase2
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -1402,7 +1430,7 @@ joint_focus = {
 
 joint_focus = {
 	id = ALLIES_adaptive_phase3_high_high
-	icon = GFX_goal_generic_construct_mil_factory
+	icon = GFX_focus_generic_mining_industry
 	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
@@ -1431,8 +1459,8 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	    		allies_cap = 0.05
-	    		tooltip = production_factory_max_efficiency_factor_tt
+	    		allies_resources_factor = 0.05
+	    		tooltip = local_resources_factor_tt
 	    	}
 		}
 	}
@@ -1480,10 +1508,7 @@ joint_focus = {
 	completion_reward = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
-	        add_to_variable = { 
-	    		allies_cap = 0.025
-				tooltip = production_factory_max_efficiency_factor_tt
-	    	}
+	       
 			add_to_variable = { 
 	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
@@ -1545,17 +1570,14 @@ joint_focus = {
 	completion_reward = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
-	        add_to_variable = { 
-	    		allies_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
-	    	}
+	    
 			add_to_variable = { 
-	        	allies_mill_output = 0.025
+	        	allies_mill_output = 0.05
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.025
+	    		allies_dockyard_output  = 0.05
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
@@ -1606,19 +1628,15 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.075
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.075
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
-			add_to_variable = { 
-	    		allies_cap = 0.05
-	    		tooltip = production_factory_max_efficiency_factor_tt
-	    	}
 		}
 	}
 }
@@ -1654,19 +1672,15 @@ joint_focus = {
 		if = {
 	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	        	allies_mill_output = 0.05
+	        	allies_mill_output = 0.1
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.1
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
-			add_to_variable = { 
-	    		allies_cap = 0.1
-	    		tooltip = production_factory_max_efficiency_factor_tt
-	    	}
 			add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
@@ -1681,7 +1695,7 @@ joint_focus = {
 	icon = GFX_focus_NORDIC_dem_form_alliance
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = 14
+	x = 13
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -2765,7 +2779,7 @@ joint_focus = {
 	icon = GFX_focus_BRA_pact_of_silence_allies
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -17
+	x = -16
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -4875,7 +4889,7 @@ joint_focus = {
 	    		add_tech_bonus = {
 	    		name = truck_bonus
 	    		bonus = 1.0
-	    		ahead_reduction = 3
+	    		ahead_reduction = 2
 	    		uses = 1
 	    		category = motorized_equipment
 	    		}

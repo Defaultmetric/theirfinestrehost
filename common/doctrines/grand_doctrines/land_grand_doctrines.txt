@@ -58,7 +58,6 @@ new_mobile_warfare = {
             #Artillery/Support
 	        planning_speed = 0.1
             org_loss_at_low_org_factor = -0.1
-            enable_tactic = tactic_overwhelming_fire
             effect = {
                 if = {
                     limit = {
@@ -143,7 +142,6 @@ superior_firepower = {
     }
 
     # EFFECTS
-    enable_tactic = tactic_overwhelming_fire
     category_line_artillery = {
         soft_attack = 0.1
     }
@@ -155,7 +153,6 @@ superior_firepower = {
     milestones = {
         {
             #Infantry
-            enable_tactic = tactic_elastic_defense
             supply_consumption_factor = -0.1
 
             effect = {
@@ -198,7 +195,6 @@ superior_firepower = {
         }
         {
             #Armor
-            enable_tactic = tactic_delay
             category_army = {
                 default_morale = 0.2
             }
@@ -277,8 +273,7 @@ grand_battleplan = {
         {
             #Infantry 
             additional_brigade_column_size = 1
-            enable_tactic = tactic_elastic_defense
-            max_dig_in_factor = 0.05
+            max_dig_in_factor = 0.02
 
             effect = {
                 if = {
@@ -296,8 +291,7 @@ grand_battleplan = {
         }
         {
             #Artillery/Support
-            coordination_bonus = 0.1
-            enable_tactic = tactic_overwhelming_fire
+            coordination_bonus = 0.05
 
             effect = {
                 if = {
@@ -316,7 +310,6 @@ grand_battleplan = {
         {
             #Armor
             land_reinforce_rate = 0.02
-            enable_tactic = tactic_breakthrough
             effect = {
                 if = {
                     limit = {
@@ -334,8 +327,8 @@ grand_battleplan = {
         }
         {
             #Operations
-            coordination_bonus = 0.1
-            max_command_power = 30
+            coordination_bonus = 0.05
+            max_command_power = 10
 
             effect = {
                 if = {
@@ -406,7 +399,6 @@ mass_assault = {
         }
         {
             #Artillery/Support
-            enable_tactic = tactic_elastic_defense
             out_of_supply_factor = -0.05
             minimum_training_level = -0.05
 
@@ -427,7 +419,6 @@ mass_assault = {
         {
             #Armor
             land_reinforce_rate = 0.02
-            enable_tactic = tactic_overwhelming_fire
 
             effect = {
                 if = {

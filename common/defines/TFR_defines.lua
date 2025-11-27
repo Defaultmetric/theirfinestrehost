@@ -42,7 +42,7 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
-NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.2
+--NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.2
 NDefines.NMilitary.TRAINING_ATTRITION = 0.00
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 999
 NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 999
@@ -87,7 +87,7 @@ NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always r
 
 
 
-NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 100000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)

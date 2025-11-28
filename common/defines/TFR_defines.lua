@@ -92,9 +92,9 @@ NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipme
 
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 100000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
 NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.5                     -- How much training contributes to doctrine mastery relative to combat/missions
-NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 50.0                        -- Monthly mastery gain will not exceed this value
-NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.1-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
-
+NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 500                        -- Monthly mastery gain will not exceed this value
+NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 1		-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
+NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 50
 
 NDefines.NNavy.NAVAL_INVASION_PREPARE_HOURS = 72
 

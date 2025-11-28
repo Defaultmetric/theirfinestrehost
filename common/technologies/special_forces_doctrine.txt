@@ -14,8 +14,7 @@ technologies = {
 		category_mountaineers = {
 			supply_consumption = -0.02
 		}
-		category_special_forces = {
-			max_organisation = 5
+		category_mountaineers = {
 			soft_attack = 0.05
 		}
 		enable_subunits = {
@@ -313,7 +312,7 @@ technologies = {
 		xp_unlock_cost = 60
 		
 		category_mountaineers = {
-			max_organisation = 10
+			breakthrough = 0.1
 		}
 		
 		force_use_small_tech_layout = yes
@@ -397,7 +396,6 @@ technologies = {
 		
 		special_forces_cap = 0.06
 		special_forces_out_of_supply_factor = -0.1
-		special_forces_attack_factor = 0.10
 		acclimatization_hot_climate_gain_factor = 0.10
 		acclimatization_cold_climate_gain_factor = 0.10
 		
@@ -467,8 +465,7 @@ technologies = {
 		
 		marines_special_forces_contribution_factor = -0.25
 		naval_invasion_division_cap = 2
-		category_special_forces = {
-			max_organisation = 5
+		category_marines = {
 			soft_attack = 0.05
 		}
 		
@@ -617,7 +614,7 @@ technologies = {
 		unit_marine_design_cost_factor = -0.50
 
 		marine = {
-			max_organisation = 5
+			breakthrough = 0.1
 		}
 			
 		doctrine = yes	
@@ -802,7 +799,7 @@ technologies = {
 		}
 		
 		shore_bombardment_bonus = 0.15
-		special_forces_attack_factor = 0.10
+		naval_invasion_penalty = -0.1
 			
 		doctrine = yes	
 		research_cost = 2.25
@@ -838,7 +835,6 @@ technologies = {
 		amphibious_mechanized = {
 			 soft_attack = 0.1
 			 breakthrough = 0.1
-			 max_organisation = 5
 		}
 		
 		pioneer_support = {
@@ -1242,8 +1238,12 @@ technologies = {
 		}
 		
 		category_paratroopers = {
-			max_organisation = 5
-			supply_consumption = -0.02
+			urban = {
+				defence = 0.2
+			}
+			fort = {
+				defence = 0.1
+			}
 		}
 		
 		acclimatization_hot_climate_gain_factor = 0.10
@@ -1285,8 +1285,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		paratrooper_weight_factor = -0.5
-		special_forces_no_supply_grace = 24
+		pocket_penalty = -0.1
+		special_forces_no_supply_grace = 72
 		
 		doctrine = yes	
 		research_cost = 2.25
@@ -1359,7 +1359,6 @@ technologies = {
 		
 		paratroopers_special_forces_contribution_factor = -0.20
 		special_forces_training_time_factor = -0.10
-		special_forces_attack_factor = 0.10
 			
 		doctrine = yes	
 		research_cost = 2.25
@@ -1416,8 +1415,7 @@ technologies = {
 			special_forces_doctrine
 			cat_rangers_doctrine
 		}		
-		category_special_forces = {
-			max_organisation = 5
+		category_rangers = {
 			soft_attack = 0.05
 		}
 		enable_subunits = {
@@ -1459,7 +1457,6 @@ technologies = {
 			acclimatization_cold_climate_gain_factor = 0.25
 			forest = {
 				attack = 0.1
-				defence = 0.1
 				movement = 0.05
 			}
 		}
@@ -1660,7 +1657,6 @@ technologies = {
 		ranger_battalion = {	
 			urban = {
 				attack = 0.1
-				defence = 0.1
 				movement = 0.05
 			}
 		}
@@ -1686,7 +1682,6 @@ technologies = {
 		force_use_small_tech_layout = yes
 
 		ranger_battalion = {
-			max_organisation = 10
 			soft_attack = 0.1
 			breakthrough = 0.1
 		}
@@ -1717,8 +1712,7 @@ technologies = {
 
 		special_forces_cap = 0.06
 		special_forces_no_supply_grace = 24
-		special_forces_training_time_factor = -0.1 
-		special_forces_attack_factor = 0.1
+		special_forces_training_time_factor = -0.1
 		
 
 

@@ -29,7 +29,6 @@ fire_concentration = {
     }
 
      # EFFECTS
-     enable_tactic = tactic_overwhelming_fire
 
      artillery_brigade = {
         combat_width = -0.8
@@ -340,7 +339,7 @@ mobile_recon_and_assault = {
             armored_car_recon = {
                 battalion_mult ={
                     category = category_all_armor
-                    soft_attack = 0.5
+                    soft_attack = 0.05
                 }
             }
 
@@ -426,7 +425,7 @@ mobile_recon_and_assault_no_lar = {
             armored_car_recon = {
                 battalion_mult ={
                     category = category_all_armor
-                    soft_attack = 0.5
+                    soft_attack = 0.05
                 }
             }
 
@@ -478,13 +477,10 @@ self_propelled_support = {
 
 
     category_self_propelled_artillery = {
-        soft_attack = 0.1
+        soft_attack = 0.05
     }
     category_self_propelled_anti_air= {
         air_attack = 0.1
-    }
-    category_tank_destroyers = {
-        hard_attack = 0.05
     }
 
 
@@ -503,7 +499,7 @@ self_propelled_support = {
                 air_attack = 0.1
             }
             category_self_propelled_artillery = {
-                soft_attack = 0.5
+                soft_attack = 0.05
             }
             
         }
@@ -686,6 +682,14 @@ field_engineering = {
             movement = 0.2
         }
     }
+    armored_engineer = {
+        river = {
+            movement = 0.2
+        }
+        forest = {
+            movement = 0.2
+        }
+    }
     pioneer_support = {
         river = {
             movement = 0.2
@@ -700,7 +704,16 @@ field_engineering = {
             engineer = {
                 max_organisation = 5
             }
+            armored_engineer = {
+                max_organisation = 5
+            }
+            assault_engineer = {
+                max_organisation = 5
+            }
             maintenance_company = {
+                max_organisation = 5
+            }
+            armored_maintenance = {
                 max_organisation = 5
             }
             
@@ -709,7 +722,16 @@ field_engineering = {
             engineer = {
                 max_strength = 0.25
             }
+            armored_engineer = {
+                max_strength = 0.25
+            }
+            assault_engineer = {
+                max_strength = 0.25
+            }
             maintenance_company = {
+                max_strength = 0.25
+            }
+            armored_maintenance = {
                 max_strength = 0.25
             }
         }
@@ -723,7 +745,16 @@ field_engineering = {
             engineer = {
                 breakthrough = 0.5 
             }
+            armored_engineer = {
+                breakthrough = 0.5
+            }
+            assault_engineer = {
+                breakthrough = 0.5
+            }
             maintenance_company = {
+                defense = 0.5
+            }
+            armored_maintenance = {
                 defense = 0.5
             }
         }

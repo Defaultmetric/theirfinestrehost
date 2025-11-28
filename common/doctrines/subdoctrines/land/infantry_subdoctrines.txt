@@ -88,12 +88,14 @@ defensive_postures = {
 
     #OTHER BASE REWARDS
     category_light_infantry = {
-        entrenchment = 0.1
+        entrenchment = 0.05
     }
 
     rewards = {
         improvised_fighting_position = {
-            dig_in_speed_factor = 0.05
+            category_light_infantry = {
+                entrenchment = 0.05
+            }
         }
         elastic_operations = {
             category_light_infantry = {
@@ -111,7 +113,9 @@ defensive_postures = {
             }
         }
         field_construction_training = {
-            dig_in_speed_factor = 0.1
+            category_light_infantry = {
+                entrenchment = 0.05
+            }
         }
 
     }
@@ -474,22 +478,25 @@ irregulars = {
             }
         }
     }
-    irregular_infantry = {
-
-        supply_consumption = -0.05
-    }
-    militia = {
-
-        supply_consumption = -0.05
-    }
 
     # EFFECTS
-
+    conscription = 0.1
     rewards = {
         service_by_lot = { 
-            mobilization_speed = 0.1
+            irregular_infantry = {
+                combat_width = -0.4
+            }
+            militia = {
+                combat_width = -0.4
+            }
         }
         partisan_regiments = {
+            irregular_infantry = {
+                supply_consumption = -0.05
+            }
+            militia = {
+                supply_consumption = -0.05
+            }
         }
 
         
@@ -501,13 +508,12 @@ irregulars = {
             
         }
         levee_en_masse = {
-            conscription = 0.01
             mobilization_speed = 0.1
 
         }
         standardization_efforts = {
             category_light_infantry = {
-                max_organisation = 10
+                max_organisation = 5
             }
         }
 

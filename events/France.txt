@@ -443,9 +443,21 @@ country_event = {
 			if = 
 			{
 				limit = {
-				has_global_flag = africa_rise_up_flag
+					has_global_flag = africa_rise_up_flag
+					NOT = 
+					{
+						has_global_flag = FRA_double_strategie_flag
+					}
 				}
 				set_cosmetic_tag = FRA_LONG
+			}
+			else_if = 
+			{
+				limit = {
+					has_global_flag = africa_rise_up_flag
+					has_global_flag = FRA_double_strategie_flag
+				}
+				set_cosmetic_tag = FRA_CYAN
 			}
 			else = 
 			{
@@ -800,9 +812,22 @@ country_event = {
 			if = 
 			{
 				limit = {
-				has_global_flag = africa_rise_up_flag
+					has_global_flag = africa_rise_up_flag
+					NOT = 
+					{
+						has_global_flag = FRA_double_strategie_flag
+					}
 				}
 				set_cosmetic_tag = FRA_LONG
+			}
+			if = 
+			{
+				limit = {
+					has_global_flag = africa_rise_up_flag
+					has_global_flag = FRA_double_strategie_flag
+					
+				}
+				set_cosmetic_tag = FRA_CYAN
 			}
 			else = 
 			{
@@ -1162,9 +1187,22 @@ country_event = {
 			if = 
 			{
 				limit = {
-				has_global_flag = africa_rise_up_flag
+					has_global_flag = africa_rise_up_flag
+					NOT = 
+					{
+						has_global_flag = FRA_double_strategie_flag
+					}
 				}
 				set_cosmetic_tag = FRA_LONG
+				add_ideas = FRA_africa_rise_up_idea
+			}
+			else_if = 
+			{
+				limit = {
+					has_global_flag = africa_rise_up_flag
+					has_global_flag = FRA_double_strategie_flag
+				}
+				set_cosmetic_tag = FRA_CYAN
 				add_ideas = FRA_africa_rise_up_idea
 			}
 			else = 

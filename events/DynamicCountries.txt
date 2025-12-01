@@ -1,0 +1,217 @@
+add_namespace = dynamic.countries
+
+country_event = {
+    id                = dynamic.countries.1
+    title             = "DYNAMIC_COUNTRIES_1_TITLE"
+    desc              = "DYNAMIC_COUNTRIES_1_DESC"
+    picture           = GFX_report_event_generic_usa_treaty
+
+    is_triggered_only = yes
+    fire_only_once    = yes
+
+    option = {
+        name             = "Balright"
+        ENG = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				121 = 
+				{
+					add_resource = {
+            			type = oil
+            			amount = 50
+        			}
+					add_resource = {
+            			type = tungsten
+            			amount = 50
+        			}
+					add_resource = {
+            			type = steel
+            			amount = 50
+        			}
+					add_resource = {
+            			type = chromium
+            			amount = 50
+        			}
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_USA_industrial_merge_tt
+			hidden_effect = {
+			set_technology = 
+			{
+			armor_tech_1 = 1
+			armor_tech_2 = 1
+			engine_tech_1 = 1
+			engine_tech_2 = 1
+			advanced_radio = 1
+			basic_heavy_tank_chassis = 1
+			basic_medium_tank_chassis = 1
+			basic_light_tank_chassis = 1
+			amphibious_tank_chassis = 1
+			improved_heavy_tank_chassis = 1
+			improved_medium_tank_chassis = 1
+			improved_light_tank_chassis = 1
+			amphibious_tank_chassis = 1
+			amphibious_drive = 1
+			antitank4 = 1
+			antitank3 = 1
+			antitank2 = 1
+			antitank1 = 1
+			}
+
+			add_tech_bonus = {
+				name = ENG_armored_divisions
+				bonus = 1
+				uses = 2
+				category = armor	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			}
+    }
+}
+
+country_event = {
+    id                = dynamic.countries.2
+    title             = "DYNAMIC_COUNTRIES_2_TITLE"
+    desc              = "DYNAMIC_COUNTRIES_2_DESC"
+    picture           = GFX_report_event_GER_bombers
+
+    is_triggered_only = yes
+    fire_only_once    = yes
+
+    option = {
+        name             = "Time to lock in"
+        ENG = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

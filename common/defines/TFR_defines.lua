@@ -96,5 +96,7 @@ NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 50                       -- Month
 NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.5		-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
 NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 75
 
-NDefines.NNavy.NAVAL_INVASION_PREPARE_HOURS = 72
+NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 7,								-- base days needed to prepare a naval invasion
+NDefines.NNavy.NAVAL_INVASION_PLAN_CAP = 10,									-- base cap of naval invasions can be planned at the same time
+NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 5,							-- base cap of divisions that can be assigned in a naval invasion
 

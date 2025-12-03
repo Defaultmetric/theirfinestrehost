@@ -28,13 +28,13 @@ new_mobile_warfare = {
     }
 
     # EFFECTS
-	enable_tactic = tactic_unexpected_thrust
+	additional_brigade_column_size = 1
 	
 
     milestones = {
         {
             #Infantry
-            enable_tactic = tactic_delay
+            org_loss_when_moving = -0.15
 
             effect = {
                 if = {
@@ -52,6 +52,7 @@ new_mobile_warfare = {
         }
         {
             #Artillery/Support
+            planning_speed = 0.2
             effect = {
                 if = {
                     limit = {
@@ -68,8 +69,9 @@ new_mobile_warfare = {
         }
         {
             #Armor
-	        additional_brigade_column_size = 1
-            enable_tactic = tactic_unexpected_thrust
+            category_army = {
+                breakthrough = 0.1
+            }
 
             effect = {
                 if = {
@@ -87,7 +89,7 @@ new_mobile_warfare = {
         }
         {
             #Operations
-            enable_tactic = tactic_ambush   
+            planning_speed = 0.2
 
             effect = {
                 if = {
@@ -135,14 +137,14 @@ superior_firepower = {
     }
 
     # EFFECTS
-    enable_tactic = tactic_shock
+    additional_brigade_column_size = 1
 
 
 
     milestones = {
         {
             #Infantry
-            enable_tactic = tactactic_barrage
+            planning_decay_rate_factor = -0.1
 
             effect = {
                 if = {
@@ -160,8 +162,7 @@ superior_firepower = {
         }
         {
             #Artillery/Support
-            additional_brigade_column_size = 1
-            enable_tactic = tactic_overwhelming_fire
+            planning_decay_rate_factor = -0.1
 
             effect = {
                 if = {
@@ -180,7 +181,9 @@ superior_firepower = {
         }
         {
             #Armor
-            enable_tactic = tactic_breakthrough
+            category_army = {
+                default_morale = 0.1
+            }
 
             effect = {
                 if = {
@@ -198,7 +201,7 @@ superior_firepower = {
         }
         {
             #Operations
-            enable_tactic = tactic_tactical_withdrawal
+            planning_decay_rate_factor = -0.1
 
             effect = {
                 if = {
@@ -243,13 +246,12 @@ grand_battleplan = {
     }
 
     # EFFECTS
-    enable_tactic = tactic_planned_attack
+    additional_brigade_column_size = 1
 
     milestones = {
         {
             #Infantry 
-            additional_brigade_column_size = 1
-            enable_tactic = tactic_infantry_charge
+            max_planning = 0.1
 
             effect = {
                 if = {
@@ -267,7 +269,7 @@ grand_battleplan = {
         }
         {
             #Artillery/Support
-            enable_tactic = tactic_assault
+            max_planning = 0.1
 
             effect = {
                 if = {
@@ -285,7 +287,7 @@ grand_battleplan = {
         }
         {
             #Armor
-            enable_tactic = tactic_shock
+            max_planning = 0.1
             effect = {
                 if = {
                     limit = {
@@ -303,7 +305,7 @@ grand_battleplan = {
         }
         {
             #Operations
-            enable_tactic = tactic_ambush
+            command_power_gain = 0.015
 
             effect = {
                 if = {
@@ -347,14 +349,14 @@ mass_assault = {
     }
 
     # EFFECTS
-    enable_tactic = tactic_relentless_assault
+    additional_brigade_column_size = 1
     
 
     milestones = {
         {
             #Infantry
-            enable_tactic = tactic_human_wave_tactics
-            additional_brigade_column_size = 1
+            no_supply_grace = 24
+            pocket_penalty = -0.05
 
             effect = {
                 if = {
@@ -372,7 +374,8 @@ mass_assault = {
         }
         {
             #Artillery/Support
-            enable_tactic = tactic_elastic_defense
+            out_of_supply_factor = -0.1
+            pocket_penalty = -0.05
 
             effect = {
                 if = {
@@ -390,8 +393,8 @@ mass_assault = {
         }
         {
             #Armor
-            enable_tactic = tactic_shock
-
+            no_supply_grace = 48
+            pocket_penalty = -0.05
             effect = {
                 if = {
                     limit = {
@@ -408,7 +411,8 @@ mass_assault = {
         }
         {
             #Operations
-            enable_tactic = tactic_backhand_blow
+            out_of_supply_factor = -0.1
+            pocket_penalty = -0.05
 
             effect = {
                 if = {

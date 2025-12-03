@@ -35,7 +35,7 @@ mission_type_tactics = {
      rewards = {
         low_level_delegation ={
         #1
-            special_forces_cap = 0.10
+            special_forces_cap = 0.05
         }
         flexible_command = {
         #2
@@ -51,7 +51,6 @@ mission_type_tactics = {
         flexible_combat_formations = {
         #4
             category_special_forces_leg_infantry = {
-                breakthrough = 0.1
                 max_organisation = 5
             }
             
@@ -59,7 +58,7 @@ mission_type_tactics = {
         control_zone_responsibilities = {
         #5
         
-            special_forces_attack_factor = 0.1
+            special_forces_attack_factor = 0.05
 
         }
     }
@@ -94,9 +93,7 @@ last_stand = {
         }
         digging_in = {
         #3
-            category_light_infantry = {
-                entrenchment = 0.1
-            }
+            enable_tactic = tactic_guerrilla_tactics
         }
         stocking_up = {
         #4
@@ -132,41 +129,32 @@ infiltration_tactics = {
     }
 
     # EFFECTS
-    max_planning = 0.1
+    land_night_attack = 0.25
 
     ai_will_do = { }
 
-     rewards = {
+    rewards = {
         infiltration_assault = {
         #1
-            category_army = {
-                breakthrough = 0.10
-            }
-
+            enable_tactic = tactic_ambush
         }
         nightly_assaults = {
         #2
-            land_night_attack = 0.25
+            land_reinforce_rate = 0.02
         }
         self_sustaining_infiltration_units = {
         #3
-            command_power_gain = 0.015
+            enable_tactic = tactic_infantry_charge
         }
         terrain_and_situation_assessment = {
         #4
-            
-            max_planning = 0.1
-
             category_recon = {
                 recon = 1
             }
-
         }
         infiltration_in_depth = {
         #5
-            land_reinforce_rate = 0.02
-            coordination_bonus = 0.05
-            
+            enable_tactic = tactic_shock
         }
     }
 }
@@ -206,7 +194,7 @@ grand_assault = {
         central_planning = {
         #1
             
-            max_command_power = 20
+            enable_tactic = breakthrough
 
             logistics_company = {
                 battalion_mult = {
@@ -217,14 +205,11 @@ grand_assault = {
         }
         multiple_attack_directions = {
         #2
-            category_army = {
-                breakthrough = 0.1
-            }
+            max_command_power = 30
         }
         combined_arms_integration = {
         #3
-            coordination_bonus = 0.1
-
+            enable_tactic = tactic_tactical_withdrawal
         }
         forward_command_posts = {
        #4
@@ -234,15 +219,12 @@ grand_assault = {
                     supply_consumption = -0.05
                 }
             }
-            category_recon = {
-               recon = 0.1
-            }
+            coordination_bonus = 0.05
         }
         c3i_theory = {
        #5
-
-            max_planning = 0.2
-       }
+            enable_tactic = tactic_shock
+        }
     }
 }
 
@@ -278,7 +260,7 @@ deep_battle = {
     }
 
     # EFFECTS
-    out_of_supply_factor = -0.20
+    no_supply_grace = 48
 
 
     ai_will_do = { }
@@ -286,32 +268,24 @@ deep_battle = {
     rewards = {
         bounding_overwatch = {
         #1
-            no_supply_grace = 24
-            pocket_penalty = -0.10
-
+            enable_tactic = tactic_elastic_defense
         }
         operational_concentration = {
         #2
             max_planning = 0.05
-            no_supply_grace = 24
         }
         maskirovka = {
         #3
             army_intel_to_others = -10.0
-            airforce_intel_to_others = -5.0
-            army_intel_factor = 0.05
             cas_damage_reduction = 0.05
-            no_supply_grace = 24
         }
         breakthrough_priority = {
         #4
-            org_loss_when_moving = -0.1
-            no_supply_grace = 24
+            land_reinforce_rate = 0.05
         }
         operational_depth_control = {
         #5
-            land_reinforce_rate = 0.05
-            no_supply_grace = 24
+            enable_tactic = tactic_relentless_assault
         }
     }
 }
@@ -348,8 +322,8 @@ deep_battle_no_lar = {
 
     }
 
-     # EFFECTS
-    out_of_supply_factor = -0.20
+    # EFFECTS
+    no_supply_grace = 48
 
 
     ai_will_do = { }
@@ -357,32 +331,24 @@ deep_battle_no_lar = {
     rewards = {
         bounding_overwatch = {
         #1
-            no_supply_grace = 24
-            pocket_penalty = -0.10
-
+            enable_tactic = tactic_elastic_defense
         }
         operational_concentration = {
         #2
             max_planning = 0.05
-            no_supply_grace = 24
         }
         maskirovka = {
         #3
             army_intel_to_others = -10.0
-            airforce_intel_to_others = -5.0
-            army_intel_factor = 0.05
             cas_damage_reduction = 0.05
-            no_supply_grace = 24
         }
         breakthrough_priority = {
         #4
-            org_loss_when_moving = -0.1
-            no_supply_grace = 24
+            land_reinforce_rate = 0.05
         }
         operational_depth_control = {
         #5
-            land_reinforce_rate = 0.05
-            no_supply_grace = 24
+            enable_tactic = tactic_relentless_assault
         }
     }
 }
@@ -467,15 +433,11 @@ guerilla_war = {
                     defence = 0.05
                 }
             }
-
-  
         }
         defense_of_gained_power = {
         #5
             stability_factor = 0.1
-            party_popularity_stability_factor = 0.05
-
-            
+            party_popularity_stability_factor = 0.05    
         }
     }
 }
@@ -510,7 +472,7 @@ rapid_domination = {
     }
 
     # EFFECTS
-    planning_speed = 0.2
+    army_bonus_air_superiority_factor = 0.15
 
 
     ai_will_do = { }
@@ -518,8 +480,7 @@ rapid_domination = {
     rewards = {
         forward_observers = {
         #1
-            planning_speed = 0.2
-
+            enable_tactic = tactic_unexpected_thrust
         }
         advanced_firebases = {
         #2
@@ -527,19 +488,15 @@ rapid_domination = {
         }
         centralized_fire_control = {
         #3
-            org_loss_at_low_org_factor = -0.1
+            enable_tactic = tactic_delay
         }
         regimental_combat_teams = {
         #4
-            planning_speed = 0.2
+            army_bonus_air_superiority_factor = 0.15
         }
         shock_and_awe = {
         #5
-            category_army = {
-                maximum_speed = 0.1
-            }
-           
-            
+            enable_tactic = tactic_relentless_assault
         }
     }
 }
@@ -592,7 +549,6 @@ expeditionary_warfare = {
         breakout_emphasis = {
         #4
             supply_node_range = 0.2
-
         }
         withdrawal_protocols = {
         #5

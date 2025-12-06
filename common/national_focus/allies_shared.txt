@@ -4787,7 +4787,7 @@ joint_focus = {
 	    if = {
 	        limit = { is_in_faction_with = ENG }
 
-	            add_ideas = idea_RAJ_a_tiger_unchained
+	            add_ideas = mountaineer_specialization
 		    }
 	}
 }
@@ -4901,8 +4901,7 @@ joint_focus = {
 joint_focus = {
 	id = allies_bombs_away
 	icon = GFX_SOV_ground_support_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_paratroopers }
-	prerequisite = { focus = allies_air_specialist }
+	prerequisite = { focus = allies_paratroopers focus = allies_air_specialist }
 	mutually_exclusive = { focus = allies_stronger_engines }
 
 	x = 0
@@ -4937,8 +4936,8 @@ joint_focus = {
 joint_focus = {
 	id = allies_stronger_engines
 	icon = GFX_focus_generic_jet_planes
-	prerequisite = { focus = allies_paratroopers }
-	prerequisite = { focus = allies_air_specialist }
+	prerequisite = { focus = allies_paratroopers focus = allies_air_specialist}
+
 	mutually_exclusive = { focus = allies_bombs_away }
 
 	x = 2
@@ -4971,43 +4970,6 @@ joint_focus = {
 	    		category = air_equipment
 	    	}
 
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_mountain_tanks
-	icon = GFX_focus_generic_army_tanks2
-	prerequisite = { focus = allies_mountaineer_forces }
-	prerequisite = { focus = allies_optimized_tank_designs }
-
-	x = 1
-	y = 2
-	relative_position_id = allies_paratroopers
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		is_in_faction_with = ENG
-		
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { is_in_faction_with = ENG }
-
-	            custom_effect_tooltip = mountain_tanks_tt
-	               # hidden_effect = {
-	                    set_technology = {
-	                        mountain_tanks = 1
-	                        popup = yes
-	                    }
-	               # }
 		    }
 	}
 }

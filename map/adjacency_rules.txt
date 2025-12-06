@@ -197,17 +197,17 @@ adjacency_rule =
 
 	contested =
 	{
-		army = no
-		navy = no
-		submarine = no
-		trade = no
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
 	}
 	enemy =
 	{
-		army = no
-		navy = no
-		submarine = no
-		trade = no
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
 	}
 	friend =
 	{
@@ -218,18 +218,14 @@ adjacency_rule =
 	}
 	neutral =
 	{
-		army = no
-		navy = no
-		submarine = no
+		army = yes
+		navy = yes
+		submarine = yes
 		trade = yes
 	}
 	
 	required_provinces = { 9833 11829 }
 
-	is_disabled = {
-		has_country_flag = BOSPHORUS_STRAIT_BLOCKED_FOR_COUNTRY
-		tooltip = bosporus_strait_blocked_tt
-	}
 	
 	icon = 9833
 	offset = { -2 0 -9 }

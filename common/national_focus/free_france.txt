@@ -100,7 +100,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -132,7 +132,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -165,7 +165,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -198,7 +198,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -231,7 +231,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -264,7 +264,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -311,7 +311,7 @@
 		}
 		relative_position_id = FRA_appeal_to_overseas_territories
 		
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 1
 		}
@@ -356,9 +356,6 @@
 			factor = 1
 		}
 		available = {
-			16 = {
-				is_controlled_by = ROOT
-			}
 		}
 		
 		bypass = {
@@ -390,7 +387,7 @@
 		}
 		relative_position_id = FRA_appeal_to_the_french_nation
 		
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -442,7 +439,7 @@
 		}
 		relative_position_id = FRA_continue_the_fight
 		
-		cost = 10
+		cost = 0
 		ai_will_do = {
 			factor = 1
 		}
@@ -483,7 +480,7 @@
 		}
 		relative_position_id = FRA_continue_the_fight
 		
-		cost = 10
+		cost = 0
 		ai_will_do = {
 			factor = 1
 		}
@@ -517,7 +514,7 @@
 		}
 		relative_position_id = FRA_continue_the_fight
 		
-		cost = 10
+		cost = 0
 		ai_will_do = {
 			factor = 1
 		}
@@ -557,7 +554,7 @@
 			
 		}
 		
-		cost = 10
+		cost = 0
 		ai_will_do = {
 			factor = 1
 		}
@@ -885,6 +882,88 @@
 		}
 	}
 
+	#### BLUE
+
+	focus = {
+		id = FRA_colonial_economy_blue
+		icon = GFX_focus_generic_population_growth
+		x = 15
+		y = 0
+	
+		allow_branch = 
+		{
+			has_global_flag = FRA_double_strategie_flag
+		}
+
+		relative_position_id = FRA_appeal_to_the_french_nation
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = eco_tt
+			add_to_variable = {
+				FRA_ind_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = 
+			{
+				FRA_ind_factory_output = 0.15
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = 
+			{
+				FRA_ind_dockyard_output = 0.15
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+
+	focus = {
+		id = FRA_remove_defeatism
+		icon = GFX_goal_tripartite_pact
+		x = 0
+		y = 1
+		prerequisite = { 
+			focus = FRA_colonial_economy_blue
+		}
+		relative_position_id = FRA_colonial_economy_blue
+		
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		
+		bypass = {
+
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			IF = {
+				limit = {
+					has_idea = FRA_defeatism
+				}
+				remove_ideas = { FRA_defeatism }
+			}
+		}
+	}
+
+	#### WHITE
 	focus = {
 		id = FRA_colonial_economy
 		icon = GFX_focus_generic_population_growth
@@ -978,6 +1057,7 @@
 		prerequisite = 
 		{
 			focus = FRA_colonial_economy
+			focus = FRA_colonial_economy_blue
 		}
 
 		relative_position_id = FRA_colonial_economy
@@ -1062,6 +1142,7 @@
 		prerequisite = 
 		{
 			focus = FRA_colonial_economy_3
+			focus = FRA_colonial_economy_blue
 		}
 
 		relative_position_id = FRA_colonial_economy_3
@@ -1257,6 +1338,7 @@
 		prerequisite = 
 		{
 			focus = FRA_colonial_economy_3
+			focus = FRA_colonial_economy_blue
 		}
 
 		available_if_capitulated = yes

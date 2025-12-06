@@ -186,19 +186,17 @@ grand_assault = {
     }
 
     # EFFECTS
-    max_planning = 0.1
-
+    land_reinforce_rate = 0.02
     ai_will_do = { }
 
     rewards = {
         central_planning = {
-        #1
-            
+        #1 
             enable_tactic = breakthrough
         }
         multiple_attack_directions = {
         #2
-            max_command_power = 30
+            coordination_bonus = 0.05
         }
         combined_arms_integration = {
         #3
@@ -206,7 +204,7 @@ grand_assault = {
         }
         forward_command_posts = {
        #4
-            coordination_bonus = 0.05
+            max_command_power = 30
         }
         c3i_theory = {
        #5

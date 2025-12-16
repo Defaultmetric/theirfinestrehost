@@ -42,8 +42,8 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
---NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.2
-NDefines.NMilitary.REINFORCE_CHANCE = 0.05                 	   -- base chance to join combat from back line when empty
+NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
+NDefines.NMilitary.REINFORCE_CHANCE = 0.02                 	   -- base chance to join combat from back line when empty
 NDefines.NMilitary.TRAINING_ATTRITION = 0.00
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 999
 NDefines.NMilitary.MAX_NAVY_EXPERIENCE = 999
@@ -60,8 +60,8 @@ NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.15   -- effect on defense d
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- how many CAS/TAC can enter a combat depending on enemy width there
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.025    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
-NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.062        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
-NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.042        -- global damage modifier
+NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.060        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
+NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier
 NDefines.NMilitary.COMBAT_STACKING_PENALTY = -0.05                -- how much stackign penalty per division
 NDefines.NMilitary.PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 	1.00,
@@ -85,7 +85,6 @@ NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always r
 	0.20,
 	0.10,
 }
-
 
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).

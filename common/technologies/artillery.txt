@@ -1021,6 +1021,7 @@ technologies = {
 			tank_heavy_cannon
 			tank_small_cannon_2
 			tank_buster_1
+			APCR_shells
 			lc_high_velocity_cannon_turret #Module for Land Cruiser
 		}
 
@@ -1111,19 +1112,18 @@ technologies = {
 
 		anti_tank = {
 			hard_attack = 0.1
-			ap_attack = 0.1
+			ap_attack = 0.2
 		}
 		anti_tank_brigade = {
 			hard_attack = 0.1
-			ap_attack = 0.1
+			ap_attack = 0.2
 		}
 		mot_anti_tank_brigade = {
 			hard_attack = 0.1
-			ap_attack = 0.1
+			ap_attack = 0.2
 		}
 
 		enable_equipment_modules = {
-			APCR_shells
 			tank_high_velocity_cannon
 			squeezebore_adaptor
 		}
@@ -1185,7 +1185,10 @@ technologies = {
 
 	antitank2 = {
 
-
+		mot_anti_tank_brigade = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
 		armored_car = {
 			ap_attack = 0.1
 		}	
@@ -1271,12 +1274,12 @@ technologies = {
 			ap_attack = 0.1
 		}
 		anti_tank_brigade = {
-			hard_attack = 0.05
-			ap_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.1
 		}
 		mot_anti_tank_brigade = {
-			hard_attack = 0.05
-			ap_attack = 0.05
+			hard_attack = 0.1
+			ap_attack = 0.1
 		}
 
 		path = {
@@ -1343,19 +1346,22 @@ technologies = {
 
 	antitank4 = {
 		enable_equipment_modules = {
+			tank_heavy_cannon_3
 			tank_medium_cannon_3
+			tank_high_velocity_cannon_3
+			tank_AP_high_velocity_cannon
 		}
 		anti_tank = {
 			hard_attack = 0.1
 			ap_attack = 0.1
 		}
 		anti_tank_brigade = {
-			hard_attack = 0.05
-			ap_attack = 0.06
+			hard_attack = 0.1
+			ap_attack = 0.1
 		}
 		mot_anti_tank_brigade = {
 			hard_attack = 0.05
-			ap_attack = 0.05
+			ap_attack = 0.1
 		}
 
 		path = {
@@ -1417,10 +1423,7 @@ technologies = {
 	antitank5 = {
 
 		enable_equipments = {
-			tank_heavy_cannon_3
 			anti_tank_equipment_3
-			tank_high_velocity_cannon_3
-			tank_AP_high_velocity_cannon
 		}
 		armored_car = {
 			ap_attack = 0.1

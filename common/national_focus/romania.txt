@@ -5041,25 +5041,16 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			random_owned_controlled_state = {
-				prioritize = { 46 }
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-				}
+			46 = {
 				add_resource = {
 					type = oil
 					amount = 16
 				}
 			}
-			GER = {
-				random_owned_controlled_state = {
-					limit = {
-						GER = { has_full_control_of_state = PREV }
-					}
-					add_resource = {
-						type = oil
-						amount = 10
-					}
+			59 = {
+				add_resource = {
+					type = oil
+					amount = 10
 				}
 			}
 		}

@@ -42,7 +42,7 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
-NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
+--NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
 NDefines.NMilitary.REINFORCE_CHANCE = 0.02                 	   -- base chance to join combat from back line when empty
 NDefines.NMilitary.TRAINING_ATTRITION = 0.00
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 999

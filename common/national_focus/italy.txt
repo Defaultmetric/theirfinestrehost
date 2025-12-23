@@ -8224,25 +8224,10 @@ focus_tree = {
 		id = ITA_the_abyssinian_fiasco
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		mutually_exclusive = { focus = ITA_solid_progress focus = ITA_struggle_in_ethiopia }
-		x = 29
+		x = 49
 		y = 0
-		relative_position_id = ITA_naval_power_projection
+	
 		cost = 5
-
-		allow_branch = {
-			has_dlc = "By Blood Alone"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_culto_del_duce }
-				NOT = { has_completed_focus = ITA_convene_the_grand_council }
-			}
-			has_war_support > 400
-		}
 
 
 		available = {
@@ -8257,9 +8242,10 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism 
-				popularity = -0.15
+				popularity = -0.05
 			}
 			add_war_support = -0.03
+			add_political_power = -25
 		}
 	}
 
@@ -8267,10 +8253,8 @@ focus_tree = {
 		id = ITA_solid_progress
 		icon = GFX_focus_generic_attack_ethiopia
 		mutually_exclusive = { focus = ITA_the_abyssinian_fiasco focus = ITA_struggle_in_ethiopia }
-		x = -17
+		x = 51
 		y = 0
-
-		relative_position_id = ITA_the_abyssinian_fiasco
 		cost = 5
 
 		bypass = {
@@ -8310,6 +8294,15 @@ focus_tree = {
 				tooltip = ITA_the_abyssinian_fiasco_completion_tt
 				always = no
 			}
+		}
+
+		bypass = 
+		{
+			has_full_control_of_state = 271
+			has_full_control_of_state = 838
+			has_full_control_of_state = 835
+			has_full_control_of_state = 839
+			has_full_control_of_state = 837
 		}
 
 		search_filters = {}
@@ -8398,7 +8391,7 @@ focus_tree = {
 		icon = GFX_focus_generic_secret_service_agency
 		prerequisite = { focus = ITA_solid_progress focus = ITA_the_abyssinian_fiasco focus = ITA_struggle_in_ethiopia }
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_solid_progress
 		cost = 4

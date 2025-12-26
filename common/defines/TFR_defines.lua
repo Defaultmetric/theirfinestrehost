@@ -42,7 +42,7 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
-NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
+--NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
 NDefines.NMilitary.REINFORCE_CHANCE = 0.02                 	   -- base chance to join combat from back line when empty
 NDefines.NMilitary.TRAINING_ATTRITION = 0.00
 NDefines.NMilitary.MAX_ARMY_EXPERIENCE = 999
@@ -58,7 +58,7 @@ NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 2	--Base cost to change a
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 2 	--Base cost to unlock a support slot
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.15   -- effect on defense due to enemy air superiorty
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- how many CAS/TAC can enter a combat depending on enemy width there
-NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.025    -- global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.035    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.060        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier

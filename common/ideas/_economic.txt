@@ -743,7 +743,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				consumer_goods_expected_value = 0.15
+				consumer_goods_expected_value = 0.05
 				conscription = -0.02
 				production_speed_arms_factory_factor = 0.2
 				production_speed_dockyard_factor = 0.2
@@ -752,6 +752,8 @@ ideas = {
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
 				factory_energy_consumption = 0.4
+				industrial_capacity_factory_powered = 0.05
+				industrial_capacity_dockyard_powered = 0.05
 			}
 			cancel_if_invalid = no
 		}
@@ -1017,6 +1019,13 @@ ideas = {
 
 				if = {
 					limit = {
+						original_tag = FRA
+					}
+					NOT = { has_completed_focus = FRA_le_pari_continental }
+				}
+
+				if = {
+					limit = {
 						original_tag = PRC
 						has_dlc = "No Compromise, No Surrender"
 					}
@@ -1098,6 +1107,13 @@ ideas = {
 						original_tag = GER
 					}
 					NOT = { has_completed_focus = GER_autarky_efforts }
+				}
+
+				if = {
+					limit = {
+						original_tag = FRA
+					}
+					NOT = { has_completed_focus = FRA_le_pari_continental }
 				}
 
 				if = {
@@ -1184,6 +1200,14 @@ ideas = {
 							}
 						}
 					}
+
+					if = {
+					limit = {
+						original_tag = FRA
+						}
+						NOT = { has_completed_focus = FRA_le_pari_continental }
+					}
+
 					if = {
 						limit = {
 							original_tag = RAJ
@@ -1272,6 +1296,31 @@ ideas = {
    			}
 		}
 
+		FRA_autarkic_economy = {
+			picture = autarkic_economy
+			visible = {
+				original_tag = FRA
+				has_completed_focus = FRA_le_pari_continental
+			}
+
+			available = {
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0
+				#industrial_capacity_factory = 0.05
+				#industrial_capacity_dockyard = 0.05
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.1
+				#cic_construction_boost = -0.05
+			}
+
+			cancel_if_invalid = no
+		}
+
 		autarkic_economy = {
 			visible = {
 				original_tag = GER
@@ -1290,7 +1339,7 @@ ideas = {
 				#industrial_capacity_factory = 0.05
 				#industrial_capacity_dockyard = 0.05
 				production_speed_buildings_factor = 0.15
-				research_speed_factor = 0.05
+				research_speed_factor = 0.1
 				lend_lease_tension = 0.20
 				faction_trade_opinion_factor = 0.25
 				#cic_construction_boost = -0.05

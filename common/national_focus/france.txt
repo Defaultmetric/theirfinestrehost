@@ -311,6 +311,7 @@ focus_tree = {
 			}
 			}
 			custom_effect_tooltip = FRA_le_pari_continental_tt
+			add_ideas = FRA_autarkic_economy
 		}
 	}
 
@@ -574,7 +575,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = FRA_prepare_the_africa_defense
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -619,7 +620,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FRA_africa_ready_mbts
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -642,7 +643,7 @@ focus_tree = {
 					tooltip = army_morale_factor_tt
 			}
 			add_to_variable = {
-					FRA_mil_org = 0.1 
+					FRA_mil_org = 0.05 
 					tooltip = army_org_factor_tt
 			}
 
@@ -663,7 +664,7 @@ focus_tree = {
 		x = -2
 		y = 0
 		relative_position_id = FRA_africa_ready_mbts
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -714,7 +715,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FRA_the_fighter_plan
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -738,11 +739,11 @@ focus_tree = {
 				tooltip = air_fuel_consumption_factor_tt
 		}
 		add_to_variable = {
-				FRA_airforce_air_agility = 0.05
+				FRA_airforce_air_agility = 0.1
 				tooltip = air_agility_factor_tt
 		}
 		add_to_variable = {
-				FRA_airforce_air_range = 0.1
+				FRA_airforce_air_range = 0.15
 				tooltip = air_range_factor_tt
 		}
 }
@@ -857,7 +858,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		cost = 10
+		cost = 7
 		ai_will_do = {
 			factor = 1
 		}		
@@ -902,7 +903,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_metropolitan_france
-		cost = 10
+		cost = 7
 		ai_will_do = {
 			factor = 1
 		}
@@ -935,7 +936,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = FRA_industrial_expansion
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -1659,7 +1660,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FRA_industrial_expansion
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -1744,7 +1745,7 @@ focus_tree = {
 			focus = FRA_la_double_strategie
 		}
 		relative_position_id = FRA_la_double_strategie
-		cost = 10
+		cost = 5
 
 
 		available = {
@@ -1919,7 +1920,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FRA_strengthen_government_support
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -1944,7 +1945,7 @@ focus_tree = {
 		x = 0
 		y = 5
 		relative_position_id = FRA_buy_time
-		cost = 1
+		cost = 0
 
 		available_if_capitulated = yes
 
@@ -1982,7 +1983,7 @@ focus_tree = {
 		prerequisite = {focus = FRA_go_with_britain}
 		relative_position_id = FRA_go_with_britain
 		mutually_exclusive = { }
-		cost = 7
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2265,7 +2266,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = FRA_firepower_kills
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -2280,7 +2281,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = FRA_french_army_tt
 		add_to_variable = {
-			FRA_inf_att = 0.1
+			FRA_inf_att = 0.05
 			tooltip = army_infantry_attack_factor_tt
 		}
 		add_to_variable = {
@@ -2297,7 +2298,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = FRA_firepower_kills
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -2316,7 +2317,7 @@ focus_tree = {
 			tooltip = army_artillery_attack_factor_tt
 		}
 		add_to_variable = {
-			FRA_arty_def = 0.1
+			FRA_arty_def = 0.05
 			tooltip = army_artillery_defence_factor_tt
 		}
 		}
@@ -4429,7 +4430,7 @@ focus_tree = {
 			focus = FRA_main_battle_force
 		}
 		relative_position_id = FRA_main_battle_force
-		cost = 3
+		cost = 2
 
 		available = {
 			
@@ -4451,6 +4452,31 @@ focus_tree = {
 	}
 
 	focus = {
+		id = FRA_war_economy
+		icon = GFX_focus_generic_mass_production
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_beyond_the_maginot
+		}
+		relative_position_id = FRA_beyond_the_maginot
+		cost = 5
+
+		available = {
+				has_war_support > 0.49
+		}
+		
+		bypass = {
+
+		}
+
+		completion_reward = {
+			add_ideas = war_economy
+		}
+	}
+
+
+	focus = {
 		id = FRA_the_one_he_fears
 		icon = GFX_focus_GER_loyalty_to_the_fuhrer
 		x = -1
@@ -4459,7 +4485,7 @@ focus_tree = {
 			focus = FRA_beyond_the_maginot
 		}
 		relative_position_id = FRA_beyond_the_maginot
-		cost = 1
+		cost = 0
 
 		available = {
 				HOL = {
@@ -4494,7 +4520,7 @@ focus_tree = {
 			focus = FRA_beyond_the_maginot
 		}
 		relative_position_id = FRA_beyond_the_maginot
-		cost = 5
+		cost = 1
 
 		available = {
 			OR = {
@@ -5095,7 +5121,7 @@ focus_tree = {
 		}
 	
 		relative_position_id = FRA_the_metropolitan_dream
-		cost = 10
+		cost = 5
 
 		available = {
 			
@@ -5298,7 +5324,7 @@ focus_tree = {
 			focus = FRA_general_work_council
 		}
 		relative_position_id = FRA_general_work_council
-		cost = 7
+		cost = 5
 
 		ai_will_do = {
 			factor = 1

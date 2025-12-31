@@ -40,6 +40,9 @@ NDefines.NTechnology.LICENSE_PRODUCTION_TECH_BONUS = 0.5
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP = 4000				-- Funds required to increase the size of the company
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_FACTOR = 0	-- How much each level mutliplies the funds for size up
+NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_POW = 1	-- Scaling factor for size increase cost
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
 --NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01

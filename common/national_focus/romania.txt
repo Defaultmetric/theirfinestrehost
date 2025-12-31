@@ -3665,7 +3665,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_to_variable = {
-				ROM_eq_conversion_speed = 0.4
+				ROM_eq_conversion_speed = 0.2
 				tooltip = equipment_conversion_speed_tt
 			}
 		}
@@ -4394,7 +4394,20 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = {extensive_conscription}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_idea = service_by_requirement
+							has_idea = all_adults_serve
+							has_idea = scraping_the_barrel
+							has_idea = extensive_conscription
+						}
+					}
+				}
+				add_ideas = extensive_conscription
+			}
+
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ROM_army_tt
 			add_to_variable = {
@@ -4442,7 +4455,7 @@ focus_tree = {
 				tooltip = army_artillery_attack_factor_tt
 			}
 			add_to_variable = {
-				ROM_arty_defense = 0.1
+				ROM_arty_defense = 0.05
 				tooltip = army_artillery_defence_factor_tt
 			}
 		}
@@ -4502,10 +4515,7 @@ focus_tree = {
 		
 
 		completion_reward = {
-			add_to_variable = {
-				ROM_equipment_capture_factor = 0.5
-				tooltip = equipment_capture_factor_tt
-			}
+	
 			add_to_variable = {
 				ROM_flat_eq_ratio = 0.2
 				tooltip = equipment_capture_tt

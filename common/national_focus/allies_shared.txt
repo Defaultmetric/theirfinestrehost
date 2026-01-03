@@ -1773,7 +1773,7 @@ joint_focus = {
 	icon = GFX_focus_por_recover_brazil
 	prerequisite = { focus = allies_atlantic_development_plan }
 
-	x = -3
+	x = -2
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -1795,6 +1795,8 @@ joint_focus = {
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	mutually_exclusive = {focus = allies_brazilian_national_development}
 
 	completion_reward_joint_originator = {
 	    if = {
@@ -1820,12 +1822,49 @@ joint_focus = {
 	}
 }
 
+
+joint_focus = { 
+	id = allies_brazilian_national_development
+	icon = GFX_focus_BRA_estado_novo
+	prerequisite = { focus = allies_atlantic_development_plan }
+
+	x = -4
+	y = 1
+	relative_position_id = allies_atlantic_development_plan
+	cost = 1
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+    	original_tag = BRA
+	}
+
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	mutually_exclusive = {focus = allies_accelerate_brazilian_recovery}
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		custom_effect_tooltip = bra_national_development_tt
+
+	    		hidden_effect = {
+	    			set_global_flag = invested_in_brazil
+	    		}
+		    }
+	}
+}
+
 joint_focus = { 
 	id = allies_brazilian_development
 	icon = GFX_focus_BRA_us_of_brazil
-	prerequisite = { focus = allies_accelerate_brazilian_recovery }
+	prerequisite = { focus = allies_accelerate_brazilian_recovery focus = allies_brazilian_national_development }
 
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = allies_accelerate_brazilian_recovery
 	cost = 5
@@ -1878,7 +1917,7 @@ joint_focus = {
 	icon = GFX_goal_generic_production
 	prerequisite = { focus = allies_atlantic_development_plan }
 
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -1977,7 +2016,7 @@ joint_focus = {
 		focus = allies_france_foreign_investors
 	}
 
-	x = 1
+	x = 2
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -2030,7 +2069,7 @@ joint_focus = {
 		focus = allies_france_mainland_development
 	}
 
-	x = 3
+	x = 4
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -2120,7 +2159,7 @@ joint_focus = {
 	icon = GFX_focus_GER_south_east_asian_natural_wealth
 	prerequisite = { focus = allies_allied_researchers }
 
-	x = 4
+	x = 5
 	y = 1
 	relative_position_id = allies_allied_researchers
 	cost = 5

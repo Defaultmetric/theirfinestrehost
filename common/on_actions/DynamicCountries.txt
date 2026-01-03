@@ -40,15 +40,6 @@ on_actions = {
 				add_extra_state_shared_building_slots = 2
 			}
 				set_global_flag = noAsia
-				###remove factories 
-				
-				##BRA
-				277 = { 
-					remove_building = { type = industrial_complex level = 3 }
-				}
-				315 = {
-					remove_building = { type = industrial_complex level = 3 }
-				}
 			
 
 				###USA AND JAPAN 
@@ -407,20 +398,6 @@ on_actions = {
 					}
 					192 = {
 						remove_building = { type = industrial_complex level = 2 }
-					}
-				}
-				if = 
-				{
-					limit = 
-					{
-						MEX = 
-						{
-							is_ai = yes
-						}
-					}
-					BRA = 
-					{
-						annex_country = { target = MEX }
 					}
 				}
 				SOV = 

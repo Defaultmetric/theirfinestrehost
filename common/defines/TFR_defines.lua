@@ -60,9 +60,9 @@ NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 3 	--Base cost to unlock a regiment slot
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 2	--Base cost to change a regiment column.
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 2 	--Base cost to unlock a support slot
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.15   -- effect on defense due to enemy air superiorty
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25   -- effect on defense due to enemy air superiorty
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- how many CAS/TAC can enter a combat depending on enemy width there
-NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.035    -- global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.07    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.060        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier
@@ -95,7 +95,7 @@ NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5				-- Base factory speed multi
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 10000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
-NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 1                     -- How much training contributes to doctrine mastery relative to combat/missions
+NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.5                     -- How much training contributes to doctrine mastery relative to combat/missions
 NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 50                       -- Monthly mastery gain will not exceed this value
 NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.5		-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
 NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 75

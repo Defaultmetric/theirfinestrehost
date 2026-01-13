@@ -1,0 +1,543 @@
+mission_type_tactics = {
+    track = operations
+    name = SUBDOCTRINE_MISSION_TYPE_TACTICS
+    description = SUBDOCTRINE_MISSION_TYPE_TACTICS_DESC
+    icon = GFX_doctrine_mission_type_tactics_medium
+
+    xp_cost = 100
+    xp_type = army
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            original_tag = GER
+        }
+
+        modifier = {
+            factor = 0.5
+            is_major = no 
+        }
+
+    }
+
+    available = {
+        always = yes
+    }
+    # EFFECTS
+    category_special_forces_leg_infantry = {
+       default_morale = 0.2
+    }
+
+    
+
+     rewards = {
+        low_level_delegation ={
+        #1
+            special_forces_cap_flat = 36
+        }
+        flexible_command = {
+        #2
+            org_loss_when_moving = -0.1
+        }
+        maneouver_drills = {
+        #3
+            category_special_forces_leg_infantry = {
+                maximum_speed = 0.1
+            }
+            
+        }
+        flexible_combat_formations = {
+        #4
+            category_special_forces_leg_infantry = {
+                max_organisation = 5
+            }
+            
+        }
+        control_zone_responsibilities = {
+        #5
+        
+            special_forces_attack_factor = 0.05
+
+        }
+    }
+}
+
+last_stand = {
+    track = operations
+    name = SUBDOCTRINE_LAST_STAND
+    description = SUBDOCTRINE_LAST_STAND_DESC
+    icon = GFX_doctrine_last_stand_medium
+    #TODO: Add trigger tag for surrender progress
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+    # EFFECTS
+    conscription = 0.01
+
+    rewards = {
+        werwolf_groups = {
+        #1
+            resistance_damage_to_garrison_on_our_occupied_states = 0.25
+        }
+
+        pocket_consolidation = {
+        #2
+            category_light_infantry = {
+                supply_consumption = -0.1
+            }
+        }
+        digging_in = {
+        #3
+            enable_tactic = tactic_guerrilla_tactics
+        }
+        stocking_up = {
+        #4
+            pocket_penalty = -0.1
+        }
+        breaking_out = {
+        #5
+            conscription = 0.02
+        }
+    }
+}
+
+infiltration_tactics = {
+    track = operations
+    name = SUBDOCTRINE_INFILTRATION_TACTICS
+    description = SUBDOCTRINE_INFILTRATION_TACTICS_DESC
+    icon = GFX_doctrine_infiltration_assault_medium
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            original_tag = JAP
+        }
+
+    }
+
+    # EFFECTS
+    land_night_attack = 0.25
+
+    ai_will_do = { }
+
+    rewards = {
+        infiltration_assault = {
+        #1
+            enable_tactic = tactic_ambush
+        }
+        nightly_assaults = {
+        #2
+            land_reinforce_rate = 0.02
+        }
+        self_sustaining_infiltration_units = {
+        #3
+            enable_tactic = tactic_infantry_charge
+        }
+        terrain_and_situation_assessment = {
+        #4
+            category_recon = {
+                recon = 1
+            }
+        }
+        infiltration_in_depth = {
+        #5
+            enable_tactic = tactic_shock
+        }
+    }
+}
+
+grand_assault = {
+    track = operations
+    name = SUBDOCTRINE_GRAND_ASSAULT
+    description = SUBDOCTRINE_GRAND_ASSAULT_DESC
+    icon = GFX_doctrine_grand_assault_medium
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            OR = {
+                original_tag = ENG
+                original_tag = FRA
+                original_tag = ITA
+            }
+        }
+
+    }
+
+    # EFFECTS
+    land_reinforce_rate = 0.02
+    ai_will_do = { }
+
+    rewards = {
+        central_planning = {
+        #1 
+            enable_tactic = breakthrough
+        }
+        multiple_attack_directions = {
+        #2
+            coordination_bonus = 0.05
+        }
+        combined_arms_integration = {
+        #3
+            enable_tactic = tactic_tactical_withdrawal
+        }
+        forward_command_posts = {
+       #4
+            max_command_power = 30
+        }
+        c3i_theory = {
+       #5
+            enable_tactic = tactic_shock
+        }
+    }
+}
+
+deep_battle = {
+    track = operations
+    name = SUBDOCTRINE_DEEP_BATTLE
+    description = SUBDOCTRINE_DEEP_BATTLE_DESC
+    icon = GFX_doctrine_deep_battle_medium
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    visible = {
+            has_dlc = "La Resistance"
+    }
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            original_tag = SOV
+        }
+
+        modifier = {
+            factor = 0.5
+            is_major = no
+        }
+
+    }
+
+    # EFFECTS
+    no_supply_grace = 48
+
+
+    ai_will_do = { }
+
+    rewards = {
+        bounding_overwatch = {
+        #1
+            enable_tactic = tactic_elastic_defense
+        }
+        operational_concentration = {
+        #2
+            land_reinforce_rate = 0.02
+        }
+        maskirovka = {
+        #3
+            army_intel_to_others = -10.0
+            cas_damage_reduction = 0.05
+        }
+        breakthrough_priority = {
+        #4
+            land_reinforce_rate = 0.02
+        }
+        operational_depth_control = {
+        #5
+            enable_tactic = tactic_relentless_assault
+        }
+    }
+}
+
+deep_battle_no_lar = {
+    track = operations
+    name = SUBDOCTRINE_DEEP_BATTLE
+    description = SUBDOCTRINE_DEEP_BATTLE_DESC
+    icon = GFX_doctrine_deep_battle_medium
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+    visible = {
+        NOT = {
+            has_dlc = "La Resistance"
+        }
+    }
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            original_tag = SOV
+        }
+
+        modifier = {
+            factor = 0.5
+            is_major = no
+        }
+
+    }
+
+    # EFFECTS
+    no_supply_grace = 48
+
+
+    ai_will_do = { }
+
+    rewards = {
+        bounding_overwatch = {
+        #1
+            enable_tactic = tactic_elastic_defense
+        }
+        operational_concentration = {
+        #2
+            land_reinforce_rate = 0.02
+        }
+        maskirovka = {
+        #3
+            army_intel_to_others = -10.0
+            cas_damage_reduction = 0.05
+        }
+        breakthrough_priority = {
+        #4
+            land_reinforce_rate = 0.02
+        }
+        operational_depth_control = {
+        #5
+            enable_tactic = tactic_relentless_assault
+        }
+    }
+}
+guerilla_war = {
+    track = operations
+    name = SUBDOCTRINE_GUERILLA_WAR
+    description = SUBDOCTRINE_GUERILLA_WAR_DESC
+    icon = GFX_doctrine_guerilla_warfare_medium
+    
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+    visible = {
+        has_dlc = "No Compromise, No Surrender"
+    }
+
+    ai_will_do = { 
+        base = 1
+        modifier = {
+            factor = 0
+            is_major = yes
+        }
+        modifier = {
+            factor = 2
+            is_major = no
+        }
+        modifier = {
+            factor = 0
+            NOT = {
+                OR = {
+                has_template_containing_unit = irregular_infantry
+                has_template_containing_unit = militia
+                }
+            }
+        }
+    
+    }
+
+    # EFFECTS
+    stability_factor = 0.1
+
+    rewards = {
+        catch_and_seize = {
+        #1
+            category_cavalry = {
+                equipment_capture_factor = 0.01  
+            }
+            category_light_infantry = { 
+                equipment_capture_factor = 0.01
+            }
+
+
+        }
+        galvanize_support = {
+        #2
+            army_intel_to_others = -10.0
+            army_intel_factor = 0.05
+            war_support_factor = 0.1
+            political_power_factor = 0.1
+            mobilization_speed = 0.15
+
+        }
+        scorched_earth = {
+        #3
+           resistance_damage_to_garrison_on_our_occupied_states = 0.1
+           resistance_target_on_our_occupied_states = 0.1
+        }
+
+        
+        urban_assaults = {
+        #4
+            militia = {
+                urban = {
+                    defence = 0.05
+                }
+            }
+            infantry = {
+                urban = {
+                    defence = 0.05
+                }
+            }
+        }
+        defense_of_gained_power = {
+        #5
+            stability_factor = 0.1
+            party_popularity_stability_factor = 0.05    
+        }
+    }
+}
+
+#shock & awe or airland battle
+rapid_domination = {
+    track = operations
+    name = SUBDOCTRINE_RAPID_DOMINATION
+    description = SUBDOCTRINE_RAPID_DOMINATION_DESC
+    icon = GFX_doctrine_shock_and_awe_medium
+    
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+        always = yes
+    }
+
+    ai_will_do = {
+
+        base = 1
+        modifier = {
+            factor = 50
+            original_tag = USA
+        }
+
+        modifier = {
+            factor = 0.5
+            is_major = no
+        }
+
+    }
+
+    # EFFECTS
+    army_bonus_air_superiority_factor = 0.15
+
+
+    ai_will_do = { }
+
+    rewards = {
+        forward_observers = {
+        #1
+            enable_tactic = tactic_unexpected_thrust
+        }
+        advanced_firebases = {
+        #2
+            org_loss_when_moving = -0.15
+        }
+        centralized_fire_control = {
+        #3
+            enable_tactic = tactic_delay
+        }
+        regimental_combat_teams = {
+        #4
+            army_bonus_air_superiority_factor = 0.15
+        }
+        shock_and_awe = {
+        #5
+            enable_tactic = tactic_relentless_assault
+        }
+    }
+}
+
+expeditionary_warfare = {
+    track = operations
+    name = SUBDOCTRINE_EXPEDITIONARY_WARFARE
+    description = SUBDOCTRINE_EXPEDITIONARY_WARFARE_DESC
+    icon = GFX_doctrine_expeditionary_warfare_medium
+    #TODO: Add trigger tag for surrender progress
+    xp_cost = 100
+    xp_type = army
+
+    available = {
+    
+    }
+    visible = {
+        has_dlc = "No Compromise, No Surrender"
+    }
+
+    ai_will_do = {
+
+        base = 0
+
+    }
+
+    # EFFECTS
+    
+
+    ai_will_do = { }
+
+    rewards = {
+        staging_area_security = {
+        #1
+            dig_in_speed_factor = 0.05
+            shore_bombardment_bonus = 0.10
+
+        }
+        landing_operations = {
+        #2
+            naval_invasion_prep_speed = 0.2
+            naval_invasion_penalty = -0.1
+            naval_invasion_planning_bonus_speed = 0.2
+            
+        }
+        shore_fire_control_parties = {
+        #3
+            shore_bombardment_bonus = 0.15
+        }
+        breakout_emphasis = {
+        #4
+            supply_node_range = 0.2
+        }
+        withdrawal_protocols = {
+        #5
+            org_loss_when_moving = -0.2
+        }
+    }
+}

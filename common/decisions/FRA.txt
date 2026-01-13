@@ -827,59 +827,6 @@ FRA_spanish_intervention_category = {
 		}
 	}
 
-	FRA_allow_non_military_aid = {
-		available = {  }
-
-		visible = { not = { has_country_flag = FRA_non_military_aid_allowed } }
-
-		cancel_trigger = {
-			OR = {
-				has_global_flag = scw_over
-				not = { has_country_flag = FRA_non_military_aid_allowed }
-			}
-		}
-
-		complete_effect = { 
-			set_country_flag = FRA_non_military_aid_allowed 
-			clr_country_flag = FRA_non_intervention
-			custom_effect_tooltip = FRA_non_military_aid_tt
-			unlock_decision_tooltip = FRA_ban_non_military_aid
-		}
-
-		cost = 25
-		ai_will_do = {
-			factor = 1.5
-			modifier = {
-				has_stability < 0.3
-				factor = 0
-			}
-		}
-		days_remove = -1
-		modifier = {
-			stability_factor = -0.05
-		}
-	}
-
-	FRA_ban_non_military_aid = {
-		available = {  }
-
-		visible = { has_country_flag = FRA_non_military_aid_allowed }
-
-		complete_effect = { 
-			clr_country_flag = FRA_non_military_aid_allowed 
-			set_country_flag = FRA_non_intervention
-		}
-
-		cost = 0
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				has_stability < 0.3
-				add = 5
-			}
-		}
-	}
-
 	FRA_send_non_military_aid_to_FROM = {
 		available = { 
 			has_equipment = {
@@ -984,9 +931,7 @@ FRA_spanish_intervention_category = {
 		}
 
 		complete_effect = { 
-			set_country_flag = FRA_sending_weapons_allowed 
-			clr_country_flag = FRA_non_intervention
-			unlock_decision_tooltip = FRA_ban_sending_weapons
+			set_global_flag = FRA_sending_weapons_allowed_fake 
 		}
 
 		cost = 25
@@ -1009,7 +954,7 @@ FRA_spanish_intervention_category = {
 	FRA_ban_sending_weapons = {
 		available = {  }
 
-		visible = { has_country_flag = FRA_sending_weapons_allowed }
+		visible = { has_country_flag = FRA_sending_weapons_allowed_fake }
 
 		complete_effect = { 
 			clr_country_flag = FRA_sending_weapons_allowed 

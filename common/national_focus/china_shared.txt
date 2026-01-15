@@ -188,21 +188,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		IF = {
-			limit = {
-				NOT = {
-					has_character = CHI_alexander_von_falkenhausen
-				}
-			}
-			CHI = {
-				CHI_alexander_von_falkenhausen = {
-					set_nationality = ROOT
-				}
-			}
-			custom_effect_tooltip = available_chief_of_army
-			CHI = { show_ideas_tooltip = CHI_alexander_von_falkenhausen }
-			show_unit_leaders_tooltip = CHI_alexander_von_falkenhausen
-		}
+		
 	}
 }
 
@@ -2249,7 +2235,6 @@ shared_focus = {
 					525 = { is_owned_and_controlled_by = ROOT }
 				}
 			}
-			activate_mission_tooltip = CHI_release_korea
 		}
 		else = {
 			527 = {
@@ -2453,7 +2438,6 @@ shared_focus = {
 					controls_state = 1017
 				}
 			}
-			custom_effect_tooltip = CHI_overlordship_over_indochina_tt
 			hidden_effect = {
 				ROOT = {
 					create_wargoal = {
@@ -2465,7 +2449,6 @@ shared_focus = {
 				}
 			}
 		}
-		activate_mission_tooltip = CHI_overlordship_over_indochina
 		hidden_effect = {
 			news_event = { id = wtt_news.47 days = 3}
 		}
@@ -3444,21 +3427,6 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		IF = {
-			limit = {
-				NOT = {
-					has_character = CHI_claire_lee_chennault
-				}
-			}
-			CHI = {
-				CHI_claire_lee_chennault = {
-					set_nationality = ROOT
-				}
-			}
-		}
-		custom_effect_tooltip = available_theorist
-		custom_effect_tooltip = available_chief_of_airforce
-		CHI = { show_ideas_tooltip = CHI_claire_lee_chennault }
 	}
 }
 
@@ -3656,7 +3624,6 @@ shared_focus = {
 			uses = 2
 			category = cv_tech
 		}
-		activate_mission_tooltip = CHI_build_a_carrier
 	}
 }
 

@@ -1768,10 +1768,6 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = GXC_the_struggle_for_independence
-			activate_mission = CHI_growing_impatience
-			CHI = {
-				activate_mission = CHI_growing_impatience_dummy
-			}
 		}
 	}
 
@@ -1914,10 +1910,6 @@ country_event = {
 			base = 50
 		}
 		name = SEA_warlords.41.a
-
-		effect_tooltip = {
-			activate_mission = CHI_growing_impatience
-		}
 		
 	}
 }
@@ -3253,9 +3245,6 @@ country_event = {
 			CHI_song_zheyuan = {
 				set_nationality = ROOT
 			}
-			CHI_wan_fulin = {
-				set_nationality = ROOT
-			}
 		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -3574,10 +3563,6 @@ country_event = {
 	option = {
 		name = SEA_warlords.68.a
 		
-		CHI_feng_yuxiang = {
-			set_nationality = FROM
-		}
-
 		add_manpower = -5000
 		FROM = {
 			add_manpower = 5000
@@ -3624,15 +3609,6 @@ country_event = {
 					has_character = CHI_song_zheyuan
 				}
 				CHI_song_zheyuan = {
-					set_nationality = ROOT
-				}
-			}
-
-			IF = {
-				limit = {
-					has_character = CHI_wan_fulin
-				}
-				CHI_wan_fulin = {
 					set_nationality = ROOT
 				}
 			}

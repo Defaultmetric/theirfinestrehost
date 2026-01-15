@@ -40,12 +40,6 @@ CHI_unit_production = {
 	
 	ai_strategy = {
 		type = equipment_production_factor
-		id = fighter
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = equipment_production_factor
 		id = infantry
 		value = 35
 	}
@@ -53,7 +47,7 @@ CHI_unit_production = {
 	ai_strategy = {
 		type = equipment_production_factor
 		id = artillery
-		value = 35
+		value = 40
 	}
 	
 	ai_strategy = {
@@ -64,25 +58,33 @@ CHI_unit_production = {
 
 }
 
-CHI_dont_waste_on_offensive_air_early = {
+CHI_early_offensive_air = {
 	allowed = { original_tag = CHI }
 	enable = {
-		date < 1940.1.1
+		date < 1938.7.1
 	}
 	abort = {
-		date > 1940.1.1
+		date > 1938.7.1
 	}
 
 	ai_strategy = {
-		type = equipment_variant_production_factor
-		id = medium_plane_airframe
-		value = -100
+		type = equipment_production_factor
+		id = fighter
+		value = 20
 	}
-	
+}
+
+CHI_no_late_offensive_air = {
+	allowed = { original_tag = CHI }
+	enable = {
+		date > 1938.7.1
+	}
+
+
 	ai_strategy = {
-		type = equipment_variant_production_factor
-		id = large_plane_airframe
-		value = -100
+		type = equipment_production_factor
+		id = fighter
+		value = -200
 	}
 }
 
@@ -96,7 +98,7 @@ CHI_prio_military_even_at_peace = {
 	
 	ai_strategy = {
 		type = added_military_to_civilian_factory_ratio
-		value = 300
+		value = 10000
 	}
 	
 }
@@ -153,7 +155,7 @@ CHI_you_should_be_prepared_for_war = {
 	
 	ai_strategy = {
         type = force_build_armies
-        value = -50
+        value = -500
     }
 }
 

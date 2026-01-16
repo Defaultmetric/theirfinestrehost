@@ -29,10 +29,13 @@ fire_concentration = {
     }
 
      # EFFECTS
-
-     artillery_brigade = {
+    enable_tactic = tactic_overwhelming_fire
+    artillery_brigade = {
         combat_width = -0.4
-     }
+    }
+    rocket_artillery_brigade = {
+        combat_width = -0.4
+    }
 
      rewards = {
         standing_barrage = {
@@ -182,8 +185,7 @@ flying_batteries = {
             armored_signal = {
                 battalion_mult = {
                     category = category_rocket_artillery
-                    initiative = 0.02
-                    supply_consumption = -0.01
+                    supply_consumption = -0.05
                 }
             }
         }
@@ -321,10 +323,10 @@ mobile_recon_and_assault = {
     
 
     armored_car_recon = {
-        max_organisation = 5
+        max_organisation = 3
     }
     light_tank_recon = {
-        max_organisation = 3
+        max_organisation = 2
     }
 
     rewards = {
@@ -658,34 +660,34 @@ field_engineering = {
 
     engineer = {
         river = {
-            movement = 0.2
+            movement = 0.3
         }
         forest = {
-            movement = 0.2
+            movement = 0.4
         }
     }
     assault_engineer = {
         river = {
-            movement = 0.2
+            movement = 0.3
         }
         forest = {
-            movement = 0.2
+            movement = 0.4
         }
     }
     armored_engineer = {
         river = {
-            movement = 0.2
+            movement = 0.3
         }
         forest = {
-            movement = 0.2
+            movement = 0.4
         }
     }
     pioneer_support = {
         river = {
-            movement = 0.2
+            movement = 0.3
         }
         forest = {
-            movement = 0.2
+            movement = 0.4
         }
     }
     #TODO_JBE: replace with category of engineers
@@ -701,28 +703,29 @@ field_engineering = {
         }
         sapper_fieldcraft = {
             engineer = {
-                max_strength = 0.25
+                battalion_mult = {
+                    entrenchment = 0.02
+                }
             }
             armored_engineer = {
-                max_strength = 0.25
-            }
-            assault_engineer = {
-                max_strength = 0.25
-            }
-            maintenance_company = {
-                max_strength = 0.25
-            }
-            armored_maintenance = {
-                max_strength = 0.25
+                battalion_mult = {
+                    entrenchment = 0.02
+                }
             }
         }
         engineerdug_gun_emplacements = {
-            max_dig_in_factor = 0.05
+            signal_company = {
+                battalion_mult ={
+                    category_line_artillery
+                    soft_attack = 0.05
+                }
+                
+            }
         }
         smoke_projector_training = {
             logistics_company = {
                 battalion_mult = {
-                    category = category_army
+                    category = category_all_infantry
                     defense = 0.05
                 }
             }

@@ -43,14 +43,14 @@ mission_type_tactics = {
         }
         maneouver_drills = {
         #3
-            category_special_forces_leg_infantry = {
+            category_army = {
                 maximum_speed = 0.1
             }
             
         }
         flexible_combat_formations = {
         #4
-            category_special_forces_leg_infantry = {
+            category_special_forces = {
                 max_organisation = 5
             }
             
@@ -129,22 +129,26 @@ infiltration_tactics = {
     }
 
     # EFFECTS
-    land_night_attack = 0.25
+    enable_tactic = tactic_infantry_assault
+    max_planning = 0.05
 
     ai_will_do = { }
 
     rewards = {
         infiltration_assault = {
         #1
-            enable_tactic = tactic_ambush
+            category_all_infantry = {
+                breakthrough = 0.1
+                max_organisation = 5
+            }
         }
         nightly_assaults = {
         #2
-            land_reinforce_rate = 0.02
+            land_night_attack = 0.25
         }
         self_sustaining_infiltration_units = {
         #3
-            enable_tactic = tactic_infantry_charge
+            supply_consumption_factor = -0.1
         }
         terrain_and_situation_assessment = {
         #4
@@ -154,7 +158,8 @@ infiltration_tactics = {
         }
         infiltration_in_depth = {
         #5
-            enable_tactic = tactic_shock
+            org_loss_when_moving = -0.1
+            land_reinforce_rate = 0.03
         }
     }
 }
@@ -186,29 +191,35 @@ grand_assault = {
     }
 
     # EFFECTS
-    land_reinforce_rate = 0.02
+    max_planning = 0.1
     ai_will_do = { }
 
     rewards = {
         central_planning = {
         #1 
-            enable_tactic = breakthrough
+            coordination_bonus = 0.05
         }
         multiple_attack_directions = {
         #2
-            coordination_bonus = 0.05
+            category_army = {
+                breakthrough = 0.15
+            }
         }
         combined_arms_integration = {
         #3
-            enable_tactic = tactic_tactical_withdrawal
+            category_tanks = {
+                max_organisation = 2
+            }
         }
         forward_command_posts = {
-       #4
-            max_command_power = 30
+        #4
+            category_all_infantry = {
+                max_organisation = 3
+            }
         }
         c3i_theory = {
        #5
-            enable_tactic = tactic_shock
+            max_command_power = 30
         }
     }
 }
@@ -245,7 +256,9 @@ deep_battle = {
     }
 
     # EFFECTS
-    no_supply_grace = 48
+    category_tanks = {
+        max_organisation = 3
+    }
 
 
     ai_will_do = { }
@@ -253,11 +266,16 @@ deep_battle = {
     rewards = {
         bounding_overwatch = {
         #1
-            enable_tactic = tactic_elastic_defense
+            land_reinforce_rate = 0.02
         }
         operational_concentration = {
         #2
-            land_reinforce_rate = 0.02
+            category_all_infantry = {
+                max_organisation = 4
+            }
+            category_tanks = {
+                max_organisation = 2
+            }
         }
         maskirovka = {
         #3
@@ -266,11 +284,12 @@ deep_battle = {
         }
         breakthrough_priority = {
         #4
-            land_reinforce_rate = 0.02
+            org_loss_when_moving = -0.1
         }
         operational_depth_control = {
         #5
-            enable_tactic = tactic_relentless_assault
+            land_reinforce_rate = 0.03
+            org_loss_when_moving = -0.05
         }
     }
 }
@@ -316,11 +335,16 @@ deep_battle_no_lar = {
     rewards = {
         bounding_overwatch = {
         #1
-            enable_tactic = tactic_elastic_defense
+            land_reinforce_rate = 0.02
         }
         operational_concentration = {
         #2
-            land_reinforce_rate = 0.02
+            category_all_infantry = {
+                max_organisation = 4
+            }
+            category_tanks = {
+                max_organisation = 2
+            }
         }
         maskirovka = {
         #3
@@ -329,11 +353,12 @@ deep_battle_no_lar = {
         }
         breakthrough_priority = {
         #4
-            land_reinforce_rate = 0.02
+            org_loss_when_moving = -0.1
         }
         operational_depth_control = {
         #5
-            enable_tactic = tactic_relentless_assault
+            land_reinforce_rate = 0.03
+            org_loss_when_moving = -0.05
         }
     }
 }
@@ -465,23 +490,36 @@ rapid_domination = {
     rewards = {
         forward_observers = {
         #1
-            enable_tactic = tactic_unexpected_thrust
+            category_recon = {
+                recon = 1
+            }
         }
         advanced_firebases = {
         #2
-            org_loss_when_moving = -0.15
+            category_army = {
+                default_morale = 0.2
+            }
         }
         centralized_fire_control = {
         #3
-            enable_tactic = tactic_delay
+            category_artillery = {
+                soft_attack = 0.05
+            }
         }
         regimental_combat_teams = {
         #4
-            army_bonus_air_superiority_factor = 0.15
+            category_support_battalions = {
+                max_organisation = 3
+            }
         }
         shock_and_awe = {
         #5
-            enable_tactic = tactic_relentless_assault
+            category_all_infantry = {
+                max_organisation = 3
+            }
+            category_artillery = {
+                max_organisation = 2
+            }
         }
     }
 }
@@ -509,7 +547,7 @@ expeditionary_warfare = {
     }
 
     # EFFECTS
-    
+    special_forces_training_time_factor = -0.15
 
     ai_will_do = { }
 
@@ -517,13 +555,13 @@ expeditionary_warfare = {
         staging_area_security = {
         #1
             dig_in_speed_factor = 0.05
-            shore_bombardment_bonus = 0.10
+            out_of_supply_factor = -0.1
 
         }
         landing_operations = {
         #2
             naval_invasion_prep_speed = 0.2
-            naval_invasion_penalty = -0.1
+            naval_invasion_penalty = -0.15
             naval_invasion_planning_bonus_speed = 0.2
             
         }
@@ -533,11 +571,14 @@ expeditionary_warfare = {
         }
         breakout_emphasis = {
         #4
+            category_all_infantry = {
+                max_organisation = 5
+            }
             supply_node_range = 0.2
         }
         withdrawal_protocols = {
         #5
-            org_loss_when_moving = -0.2
+            org_loss_when_moving = -0.15
         }
     }
 }

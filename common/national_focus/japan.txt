@@ -7192,7 +7192,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_stability = 0.1
+			add_stability = 0.15
 			add_political_power = 50
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7309,7 +7309,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -7378,8 +7378,8 @@ focus_tree = {
 
 		completion_reward = {
 
-			army_experience = 25
-			navy_experience = 25
+			army_experience = 50
+			navy_experience = 50
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -7408,6 +7408,11 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		allow_branch = 
+		{
+			has_war_support > 400
 		}
 
 		available = {
@@ -7458,7 +7463,7 @@ focus_tree = {
 		id = JAP_the_harakiri_debate
 		icon = GFX_focus_JAP_the_harakiri_debate
 		mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_promulgate_the_military_ministers_system
 
@@ -7582,12 +7587,12 @@ focus_tree = {
 		icon = GFX_focus_JAP_new_order_in_east_asia
 		#mutually_exclusive = { focus = JAP_reprimand_hamada_kunimatsu }
 		x = 1
-		y = 1
+		y = 3
 		relative_position_id = JAP_konoes_first_cabinet
 
 		prerequisite = { focus = JAP_konoes_first_cabinet }
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -7868,11 +7873,11 @@ focus_tree = {
 		id = JAP_sea_national_spiritual_mobliization_movement
 		icon = GFX_focus_JAP_national_spiritual_mobilization_movement
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 2
+		x = -1
 		y = 1
-		relative_position_id = JAP_reiterate_the_three_principles_of_hirota
+		relative_position_id = JAP_konoes_first_cabinet
 
-		prerequisite = { focus = JAP_reiterate_the_three_principles_of_hirota focus = JAP_konoes_first_cabinet }
+		prerequisite = { focus = JAP_konoes_first_cabinet }
 
 		cost = 5
 
@@ -7898,7 +7903,7 @@ focus_tree = {
 			
 			JAP_add_or_modify_showa_statism = yes
 
-			add_to_variable = { JAP_showa_statism_stability_factor = 0.05 tooltip = stability_factor_tt }
+			add_to_variable = { JAP_showa_statism_stability_factor = 0.1 tooltip = stability_factor_tt }
 			add_to_variable = { JAP_showa_statism_conscription_factor = 0.05 tooltip = conscription_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7927,11 +7932,11 @@ focus_tree = {
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
 		x = 3
 		y = 1
-		relative_position_id = JAP_sea_national_spiritual_mobliization_movement
+		relative_position_id = JAP_promulgate_the_military_ministers_system
 
-		prerequisite = { focus = JAP_sea_national_spiritual_mobliization_movement }
+		prerequisite = { focus = JAP_promulgate_the_military_ministers_system }
 
-		cost = 5
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -8047,7 +8052,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_cabinet_intelligence_bureau }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8093,7 +8098,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_found_the_great_japan_press_association }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8248,6 +8253,8 @@ focus_tree = {
 			add_research_slot = 1
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			air_experience = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
 			
 			IF = {
 				limit = {
@@ -8291,7 +8298,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_the_central_economic_council }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8491,6 +8498,10 @@ focus_tree = {
 			JAP_add_or_modify_showa_statism = yes
 
 			add_to_variable = { JAP_showa_statism_monthly_population = 0.1 tooltip = monthly_population_tt }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_stability = 0.05
 			
 		}
 	}
@@ -8548,13 +8559,14 @@ focus_tree = {
 		id = JAP_new_order_movement
 		icon = GFX_focus_JAP_new_order_movement
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = JAP_enact_religious_organizations_law
 
-		prerequisite = { focus = JAP_enact_religious_organizations_law }
+		prerequisite = { focus = JAP_enact_religious_organizations_law}
+		prerequisite = { focus = JAP_new_order_in_east_asia }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8600,7 +8612,7 @@ focus_tree = {
 		id = JAP_sea_tripartite_pact
 		icon = GFX_focus_JAP_sea_tripartite_pact
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -3
+		x = 0
 		y = 1
 		relative_position_id = JAP_new_order_movement
 
@@ -8728,13 +8740,13 @@ focus_tree = {
 		id = JAP_sea_mil_tech_coop_with_germany
 		icon = GFX_focus_BRA_acquire_german_tanks
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = JAP_sea_tripartite_pact
 
 		prerequisite = { focus = JAP_sea_tripartite_pact }
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -8807,11 +8819,11 @@ focus_tree = {
 		id = JAP_imperial_rule_assistance_association
 		icon = GFX_focus_JAP_imperial_rule_assistance_association
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 0
+		x = 1
 		y = 2
-		relative_position_id = JAP_new_order_movement
+		relative_position_id = JAP_sea_tripartite_pact
 
-		prerequisite = { focus = JAP_new_order_movement }
+		prerequisite = { focus = JAP_sea_tripartite_pact }
 
 		cost = 5
 
@@ -8937,7 +8949,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_imperial_rule_assistance_association }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8978,7 +8990,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_the_yokusan_sonendan }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -9533,7 +9545,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_greater_east_asian_co_properity_sphere }
 
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -10943,7 +10955,7 @@ focus_tree = {
 		id = JAP_revisit_the_thirteen_demands
 		icon = GFX_focus_generic_treaty
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -13
+		x = -8
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -10963,7 +10975,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 3
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -11012,13 +11024,13 @@ focus_tree = {
 		id = JAP_invest_in_senbu
 		icon = GFX_focus_generic_concessions
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = JAP_revisit_the_thirteen_demands
 
 		prerequisite = { focus = JAP_revisit_the_thirteen_demands }
 
-		cost = 5
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -11071,6 +11083,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+
+		allow_branch = {has_war_support > 400}
 
 		available = {
 			MEN = {
@@ -11432,13 +11446,13 @@ focus_tree = {
 		id = JAP_reinforce_the_beijing_garrison
 		icon = GFX_focus_JAP_reinforce_the_east_hebei_garrisons
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_revisit_the_thirteen_demands
 
 		prerequisite = { focus = JAP_revisit_the_thirteen_demands }
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -12015,6 +12029,11 @@ focus_tree = {
 
 		cost = 2
 
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		will_lead_to_war_with = POR
 
 		ai_will_do = {
@@ -12078,12 +12097,12 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civilian
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
 		x = 0
-		y = 3
+		y = 4
 		relative_position_id = JAP_reinforce_the_beijing_garrison
 
 		prerequisite = { focus = JAP_reinforce_the_beijing_garrison }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -12162,7 +12181,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_reinforce_the_beijing_garrison }
 
-		cost = 10
+		cost = 15
 
 		ai_will_do = {
 			factor = 1
@@ -12273,6 +12292,11 @@ focus_tree = {
 		prerequisite = { focus = JAP_reinforce_the_beijing_garrison }
 
 		cost = 10
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -12602,6 +12626,11 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
+
 		available = {
 			is_subject = no
 			is_faction_leader = yes
@@ -12657,6 +12686,11 @@ focus_tree = {
 		prerequisite = { focus = JAP_claim_the_scripech focus = JAP_ally_the_gorkhas }
 
 		cost = 5
+
+		allow_branch = 
+		{
+			has_war_support > 400
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -12718,7 +12752,7 @@ focus_tree = {
 		id = JAP_nanshin_ron
 		icon = GFX_focus_JAP_nanshin_ron
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -21
+		x = -15
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -12738,7 +12772,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -13357,7 +13391,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_nanshin_ron }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -13889,7 +13923,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_demand_tonkinese_bases }
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -13909,8 +13943,14 @@ focus_tree = {
 		}
 
 		bypass = {
+			OR = {
 			SIA = {
 				is_ally_with = ROOT
+			}
+			289 =
+			{
+				is_core_of = JAP
+			}
 			}
 		}
 
@@ -13954,6 +13994,8 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+
+		allow_branch = {has_war_support > 400}
 
 		available = {
 			SIA = {
@@ -14008,13 +14050,13 @@ focus_tree = {
 		id = JAP_strike_the_southern_road
 		icon = GFX_focus_jap_strike_south
 		#mutually_exclusive = { focus = JAP_sea_pressure_siam }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = JAP_occupy_siam
 
-		prerequisite = { focus = JAP_occupy_siam focus = JAP_sea_pressure_siam }
+		prerequisite = { focus = JAP_sea_pressure_siam }
 
-		cost = 10
+		cost = 4
 
 		ai_will_do = {
 			factor = 1
@@ -14401,6 +14443,8 @@ focus_tree = {
 
 		cost = 2
 
+		allow_branch = {has_war_support > 400}
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -14483,7 +14527,7 @@ focus_tree = {
 		id = JAP_hokushin_ron
 		icon = GFX_focus_JAP_hokushin_ron
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -28
+		x = -22
 		y = 1
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 
@@ -14503,7 +14547,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -14843,6 +14887,8 @@ focus_tree = {
 
 		cost = 10
 
+		allow_branch = {has_war_support > 400}
+
 		ai_will_do = {
 			factor = 1
 		}
@@ -14991,7 +15037,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_hokushin_ron }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -15057,7 +15103,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_strenghten_manchukuo_imperial_army }
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -15219,7 +15265,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_utilize_ainu_expertise }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -25106,10 +25152,10 @@ focus_tree = {
 					}
 				}	
 				prioritize = { 531 532 528 }
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}	
@@ -25652,7 +25698,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -25780,7 +25826,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			add_stability = 0.05
+			add_stability = 0.1
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -26011,7 +26057,7 @@ focus_tree = {
 		x = 2
 		y = 1 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -27413,7 +27459,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -27722,7 +27768,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -28299,7 +28345,7 @@ focus_tree = {
 		x = -3
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -28786,7 +28832,7 @@ focus_tree = {
 		x = 3
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -29242,7 +29288,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -29733,7 +29779,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = JAP_ni_go_nuclear_project
-					bonus = 0.25
+					bonus = 1.5
 					uses = 1
 					category = nuclear
 				}
@@ -29899,8 +29945,7 @@ focus_tree = {
 			
 			add_tech_bonus = {
 				name = JAP_develop_new_fighters
-				bonus = 1
-				ahead_reduction = 1
+				bonus = 1.7
 				category = light_air
 			}
 
@@ -32625,7 +32670,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = JAP_f_go_nuclear_project
-					bonus = 0.25
+					bonus = 1.5
 					uses = 1
 					category = nuclear
 				}
@@ -32675,7 +32720,7 @@ focus_tree = {
 		x = -9
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3

@@ -1989,10 +1989,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-
-		available = {
-			has_war_support > 0.12
-		}
 		
 		bypass = {
 
@@ -2021,10 +2017,10 @@ focus_tree = {
 					is_controlled_by = ROOT
 					is_core_of = ROOT
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2055,7 +2051,7 @@ focus_tree = {
 	focus = {
 		id = FRA_airland_battle
 		icon = GFX_focus_generic_armored_air_support
-		x = -2
+		x = -3
 		y = 2
 		
 		prerequisite = { focus = FRA_defensive_focus focus = FRA_aggressive_focus }
@@ -2264,7 +2260,7 @@ focus_tree = {
 		id = FRA_infantry_focus
 		icon = GFX_focus_generic_commonwealth_build_infantry
 		prerequisite = { focus = FRA_firepower_kills focus = FRA_methodical_battle}
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = FRA_firepower_kills
 		cost = 5
@@ -2292,6 +2288,110 @@ focus_tree = {
 
 		}
 	}
+
+	focus = {
+		id = FRA_special_forces
+		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		x = 0
+		y = 1
+		
+		prerequisite = { focus = FRA_infantry_focus }
+		mutually_exclusive = { }
+		relative_position_id = FRA_infantry_focus
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+				add_potential_special_forces_tree = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = FRA_french_army_tt
+				add_to_variable = {
+				FRA_mil_spec_attack = 0.1
+				tooltip = special_forces_attack_factor_tt
+		}
+		add_to_variable = {
+				FRA_mil_spec_defense = 0.1
+				tooltip = special_forces_defence_factor_tt
+		}
+		add_to_variable = {
+				FRA_mil_spec_cap = 0.1
+				tooltip = special_forces_cap_tt
+		}
+				
+		}
+	}
+
+	focus = {
+		id = FRA_fusiliers_marine
+		icon = GFX_goal_generic_amphibious_assault
+		x = 0
+		y = 1
+		
+		prerequisite = { focus = FRA_special_forces }
+		mutually_exclusive = { }
+		relative_position_id = FRA_special_forces
+		cost = 2
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = FRA_fusiliers_marine
+				category = tp_tech
+				category = marine_tech
+				uses = 1
+				bonus = 1
+			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = FRA_navy_tt
+		add_to_variable = {
+				FRA_mil_spec_training_time = -0.3
+				tooltip = special_forces_training_time_factor_tt
+		}
+		add_to_variable = {
+				FRA_mil_spec_marine_grace = 72
+				tooltip = extra_marine_supply_grace_tt
+			}
+		}
+	}
+
 	focus = {
 		id = FRA_artillery_focus
 		icon = GFX_focus_RAJ_mountain_guns
@@ -2347,7 +2447,7 @@ focus_tree = {
 	focus = {
 		id = FRA_mobile_warfare
 		icon = GFX_SOV_superior_war_machines_ccp_2d_sov_compatibility
-		x = 2
+		x = 3
 		y = 2
 		mutually_exclusive = { focus = FRA_airland_battle focus = FRA_wwi_tactics}
 		prerequisite = { focus = FRA_defensive_focus focus = FRA_aggressive_focus }
@@ -2494,7 +2594,7 @@ focus_tree = {
 		icon = GFX_focus_generic_radio_communication
 		prerequisite = { focus = FRA_heavy_armor_focus focus = FRA_medium_armor_focus focus = FRA_fortification_focus}
 
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = FRA_heavy_armor_focus
 		cost = 3
@@ -2517,7 +2617,7 @@ focus_tree = {
 	focus = {
 		id = FRA_the_expert
 		icon = GFX_focus_RAJ_red_in_the_shadows
-		x = 2
+		x = 3
 		y = 1
 		
 		prerequisite = {focus = FRA_APC}
@@ -2794,7 +2894,7 @@ focus_tree = {
 			focus = FRA_extend_the_maginot_line
 			focus = FRA_flying_artillery
 		}
-		x = -4
+		x = -5
 		y = 1
 		relative_position_id = FRA_the_expert
 		cost = 10
@@ -10191,107 +10291,53 @@ focus_tree = {
 		}
 	}
 
-
 	focus = {
-		id = FRA_special_forces
-		icon = GFX_focus_SWE_neither_death_nor_dishonor
+		id = FRA_radar_integration
+		icon = GFX_goal_generic_radar
+
 		x = 0
 		y = 2
-		
-		prerequisite = { focus = FRA_the_old_school }
-		mutually_exclusive = { }
-		relative_position_id = FRA_the_old_school 
-		cost = 5
 
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
+		cost = 2
+		prerequisite = {focus = FRA_the_old_school}
+		relative_position_id = FRA_the_old_school
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-				add_potential_special_forces_tree = yes
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = FRA_french_army_tt
-				add_to_variable = {
-				FRA_mil_spec_attack = 0.1
-				tooltip = special_forces_attack_factor_tt
-		}
-		add_to_variable = {
-				FRA_mil_spec_defense = 0.1
-				tooltip = special_forces_defence_factor_tt
-		}
-		add_to_variable = {
-				FRA_mil_spec_cap = 0.2
-				tooltip = special_forces_cap_tt
-		}
-				
+			
+			add_tech_bonus = {
+	    			name = radar_bonus
+	    			bonus = 1.0
+	    			uses = 2
+	    			category = radar_tech
+	    			ahead_reduction = 1
+	    		}
+			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
 
 	focus = {
-		id = FRA_fusiliers_marine
-		icon = GFX_goal_generic_amphibious_assault
-		x = 0
+		id = FRA_advanced_electronics
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+
+		x = 1
 		y = 2
-		
-		prerequisite = { focus = FRA_special_forces }
-		mutually_exclusive = { }
-		relative_position_id = FRA_special_forces
-		cost = 2
 
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
+		cost = 5
+		prerequisite = {focus = FRA_radar_integration focus = FRA_the_syrian_testing_ground}
+		relative_position_id = FRA_the_syrian_testing_ground
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			
 			add_tech_bonus = {
-				name = FRA_fusiliers_marine
-				category = tp_tech
-				category = marine_tech
-				uses = 1
-				bonus = 1
-			}
-			if = {
-				limit = { has_dlc = "Arms Against Tyranny" }
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.5
-					uses = 2
-					category = special_forces_doctrine
-				}
-			}
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = FRA_navy_tt
-		add_to_variable = {
-				FRA_mil_spec_training_time = -0.3
-				tooltip = special_forces_training_time_factor_tt
-		}
-		add_to_variable = {
-				FRA_mil_spec_marine_grace = 72
-				tooltip = extra_marine_supply_grace_tt
-			}
+	    			name = advanced_electronics
+	    			bonus = 1.0
+	    			uses = 2
+	    			category = electronics
+	    			ahead_reduction = 1
+	    		}
+			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 	}
 

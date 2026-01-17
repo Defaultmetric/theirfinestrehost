@@ -56,13 +56,15 @@
 				uses = 5
 				category = industry
 			}
-			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
 				}
+				create_intelligence_agency = {
+					name = "NBIS"
+				}
+				upgrade_intelligence_agency = upgrade_passive_defense
 			}
 			army_experience = 150
 			navy_experience = 150
@@ -210,7 +212,7 @@
 		y = 1
 		relative_position_id = CHI_rural_reconstruction_movement
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -229,13 +231,11 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			custom_effect_tooltip = available_industrial_concern
-			show_ideas_tooltip = CHI_mining_commission
 			random_owned_controlled_state = {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
-					level = 3
+					level = 4
 					instant_build = yes
 				}
 			}			
@@ -273,7 +273,7 @@
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 3
 					instant_build = yes
 				}
@@ -311,13 +311,46 @@
 			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
-					type = industrial_complex
+					type = arms_factory
 					level = 3
 					instant_build = yes
 				}
 			}
 		}
 	}
+
+	focus = {
+		id = CHI_start_the_war_machine
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = CHI_develop_the_hanyan_arsenal}
+		prerequisite = { focus = CHI_taiyuan_arsenal}
+		x = 1
+		y = 1
+		relative_position_id = CHI_taiyuan_arsenal
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			remove_ideas = CHI_inefficient_war_econonmy
+		}
+	}
+
 
 
 

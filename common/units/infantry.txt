@@ -628,9 +628,11 @@ sub_units = {
 		supply_consumption = 0.04 # reg inf  0.06
 
 		# generally not as drilled in modern warfare as regular troops 
-		soft_attack = -0.05
-		# breakthrough = -0.1  
-		defense = -0.15 # was -0.25 
+		soft_attack = -0.2
+		hard_attack = -0.2
+		ap_attack = -0.2
+		# breakthrough = -0.2  
+		defense = -0.12 # was -0.25 
 
 		# Terrain bonuses
 		# Attack bonuses higher as they thought defending was dishonourable
@@ -683,20 +685,26 @@ sub_units = {
 		combat_width = 2
 		
 		#Size Definitions
-		max_strength = 25
-		max_organisation = 40 #reg infantry 60
-		default_morale = 0.3
+		max_strength = 20
+		max_organisation = 35 #reg infantry 60
+		default_morale = 0.2
 		manpower = 1000
 
 		#Misc Abilities
 		training_time = 80 #reg infantry 90
 		suppression = 1.5
 		weight = 0.5
+
 		
+		breakthrough = -0.2
+		soft_attack = -0.2
+		hard_attack = -0.2
+		ap_attack = -0.2
+		defense = -0.2
 		supply_consumption = 0.06
 	
 		need = {
-			infantry_equipment = 100
+			infantry_equipment = 80
 		}
 	}
 

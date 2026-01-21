@@ -8623,7 +8623,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = GER_reorganize_the_wehrmacht
-		cost = 10
+		cost = 5
 
 		bypass = {
 			OR = {
@@ -8681,18 +8681,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				GER_add_or_modify_military_intelligence_service = yes
-				add_to_variable = { 
-					GER_military_intelligence_service_operative_slot = 1
-					tooltip = operative_slot_tt
-				}
-				GER_create_operative_otto_skorzeny = yes
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
 
 			if = {
 				limit = {
@@ -8896,6 +8884,38 @@ focus_tree = {
 				}
 				add_state_core = 976
 			}
+		}
+	}
+
+	focus = {
+		id = GER_expand_the_abwehr
+		icon = GFX_focus_AFG_work_with_german_inteligence
+		prerequisite = { focus = GER_reorganize_the_wehrmacht}
+
+		x = -0
+		y = 1
+		relative_position_id = GER_reorganize_the_wehrmacht
+		cost = 5
+		available = {
+		}
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				GER_add_or_modify_military_intelligence_service = yes
+				add_to_variable = { 
+					GER_military_intelligence_service_operative_slot = 1
+					tooltip = operative_slot_tt
+				}
+				GER_create_operative_otto_skorzeny = yes
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_faction_initiative = 1
 		}
 	}
 
@@ -11419,6 +11439,8 @@ focus_tree = {
 				}
 				custom_effect_tooltip = GER_danzig_or_war_POL_civil_war
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_faction_initiative = 1
 		}
 	}
 	

@@ -2965,6 +2965,37 @@ joint_focus = {
 }
 
 joint_focus = {
+	id = AXIS_aa_defence
+	icon = GFX_focus_FIN_coastal_defense
+	prerequisite = { focus = AXIS_war_infrastructure }
+
+	x = 3
+	y = 1
+	relative_position_id = AXIS_war_infrastructure
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = GER
+		
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = GER }
+
+	    		add_to_variable = { 
+	    			axis_anti_air_speed = 0.35
+	    			tooltip = production_speed_anti_air_building_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
 	id = AXIS_normandy_airbases
 	icon = GFX_focus_generic_air_bases
 	prerequisite = { focus = AXIS_war_infrastructure }

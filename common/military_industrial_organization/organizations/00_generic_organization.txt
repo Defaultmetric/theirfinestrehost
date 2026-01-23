@@ -6609,21 +6609,27 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_large_rudders_and_flaps
 		icon = GFX_generic_mio_trait_icon_air_agility
 
-		position = { x=3 y=0 }
+		relative_position_id = generic_mio_trait_long_range_fighters
+
+		position = { x= 0 y=2  }
+
+		all_parents = {generic_mio_trait_long_range_fighters}
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
 		equipment_bonus = {
-			air_agility = 0.05
+			air_agility = 0.2
+			air_defence = 0.05
 		}
 	}
+	
 
 	trait = {
 		token = generic_mio_trait_variable_dihedral
 		name = generic_mio_trait_variable_dihedral
 		icon = GFX_generic_mio_department_icon_plane_medium_engine
 
-		position = { x=5 y=0 }
+		position = { x=6 y=0 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }		
 
@@ -6638,12 +6644,18 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_high_capacity_ammunition
 		icon = GFX_generic_mio_trait_icon_anti_air_attack
 
-		position = { x=7 y=0 }
+		position = { x=1 y=1 }
+
+		relative_position_id = generic_mio_trait_large_rudders_and_flaps
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
 		equipment_bonus = {
 			air_attack = 0.10
+		}
+
+		all_parents = { 
+			generic_mio_trait_large_rudders_and_flaps
 		}
 	}
 
@@ -6652,7 +6664,7 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_extra_cargo_doors
 		icon = GFX_generic_mio_department_icon_air_transport_production
 
-		position = { x=9 y=0 }
+		position = { x=0 y=0 }
 
 		limit_to_equipment_type = { transport_plane_equipment }
 
@@ -6666,7 +6678,7 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_improved_air_frame_strength
 		icon = GFX_generic_mio_trait_icon_naval_range
 
-		position = { x=6 y=1 }
+		position = { x=7 y=1 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -6703,14 +6715,16 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_advanced_production_techniques
 		icon = GFX_generic_mio_department_icon_plane_general_production
 
-		position = { x=1 y=2 }
+		position = { x=-1 y=1 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
+		relative_position_id = generic_mio_trait_long_range_fighters
+
+		all_parents = {generic_mio_trait_long_range_fighters}
+
 		available = {
-			owner ={
-				has_tech = advanced_machine_tools
-			}
+		
 		}
 
 		equipment_bonus = {
@@ -6725,19 +6739,22 @@ generic_range_focused_aircraft_organization = {
 	trait = {
 		token = generic_mio_trait_low_drag_wings
 		name = generic_mio_trait_low_drag_wings
-		icon = GFX_generic_mio_trait_icon_maximum_speed
+		icon = GFX_generic_mio_trait_icon_air_agility
 
-		position = { x=5 y=2 }
+		position = { x=6 y=2 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
-		all_parents = { 
+		any_parent = { 
 			generic_mio_trait_variable_dihedral
+			generic_mio_trait_long_range_modifications
 		}
 		
 		equipment_bonus = {
 			air_range = 0.10
 			maximum_speed = 0.10
+			air_attack = 0.05
+			air_agility = 0.03
 		}
 	}
 
@@ -6746,13 +6763,14 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_strafing_techniques
 		icon = GFX_generic_mio_trait_icon_air_ground_attack
 
-		position = { x=7 y=2 }
+		position = { x=-1 y=1 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
+		relative_position_id = generic_mio_trait_large_rudders_and_flaps
+
 		all_parents = { 
-			generic_mio_trait_improved_air_frame_strength
-			generic_mio_trait_high_capacity_ammunition
+			generic_mio_trait_large_rudders_and_flaps
 		}
 		
 		equipment_bonus = {
@@ -6765,12 +6783,14 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_long_range_modifications
 		icon = GFX_generic_mio_trait_icon_naval_range
 
-		position = { x=4 y=3 }
+		relative_position_id = generic_mio_trait_long_range_fighters
+
+		position = { x=1 y=1 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
 		all_parents = { 
-			generic_mio_trait_large_rudders_and_flaps
+			generic_mio_trait_long_range_fighters
 		}
 		
 		equipment_bonus = {
@@ -6806,7 +6826,7 @@ generic_range_focused_aircraft_organization = {
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
 		all_parents = { 
-			generic_mio_trait_strafing_techniques
+			generic_mio_trait_improved_air_frame_strength
 		}
 		
 		equipment_bonus = {
@@ -6820,20 +6840,16 @@ generic_range_focused_aircraft_organization = {
 		name = generic_mio_trait_long_range_fighters
 		icon = GFX_generic_mio_department_icon_plane_light_engine
 
-		position = { x=3 y=4 }
+		position = { x=3 y=0 }
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
 
-		all_parents = { 
-			generic_mio_trait_advanced_production_techniques
-			generic_mio_trait_long_range_modifications
-		}
 		
 		equipment_bonus = {
-			air_range = 0.15
-			air_agility = 0.15
+			air_range = 0.25
 		}
 	}
+
 
 	trait = {
 		token = generic_mio_trait_heavy_fighters
@@ -6846,7 +6862,7 @@ generic_range_focused_aircraft_organization = {
 
 		all_parents = { 
 			generic_mio_trait_anti_interception_tactics
-			generic_mio_trait_long_range_modifications
+
 		}
 		
 		equipment_bonus = {

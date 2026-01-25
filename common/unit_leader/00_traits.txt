@@ -510,7 +510,7 @@ leader_traits = {
 		trait_type = personality_trait
 		
 		trait_xp_factor = {
-			panzer_leader = 1     #+100%
+			cavalry_leader = 1     #+100%
 		}
 		
 		unit_trigger = {
@@ -1128,7 +1128,7 @@ leader_traits = {
 		}
 		trait_type = assignable_trait
 		any_parent = { skilled_staffer }
-		gui_row = 15
+		gui_row = 16
 	}
 
 
@@ -1214,7 +1214,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		gui_row = 6
+		gui_row = 7
 	}
 	skilled_staffer = { 
 		type = corps_commander
@@ -1240,7 +1240,7 @@ leader_traits = {
 		}
 		logistics_skill_factor = 2
 		
-		gui_row = 15
+		gui_row = 16
 		
 		slot = high_command
 		specialist_advisor_trait = army_logistics_1
@@ -1266,7 +1266,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		gui_row = 13
+		gui_row = 14
 	}
 
 
@@ -1374,18 +1374,15 @@ leader_traits = {
 			factor = 1
 		}
 		
-		gui_row = 4
+		gui_row = 5
 	}
 
 
 	panzer_leader = {
  		type = corps_commander
 		gain_xp = {
-			set_temp_variable = { temp = num_units }
-			multiply_temp_variable = { temp = 0.4 }
-			check_variable = { num_armored > temp }
+			always = no # not gainable
 		}
-		custom_gain_xp_trigger_tooltip = armored_ratio_over_40
 		cost = 500
 		modifier = {
 			army_armor_speed_factor = 0.05 
@@ -1394,11 +1391,14 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		
+
+		custom_effect_tooltip = INCREASED_BLITZ_AND_ENCIRCLEMENT_CHANCE
+		any_parent = { cavalry_leader }
 		attack_skill_factor = 2
 		
 		gui_row = 1
 		
+		trait_type = assignable_trait
 		slot = high_command
 		specialist_advisor_trait = army_armored_1
 		expert_advisor_trait = army_armored_2
@@ -1429,7 +1429,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		gui_row = 10
+		gui_row = 11
 		
 		slot = high_command
 		specialist_advisor_trait = army_commando_1
@@ -1612,7 +1612,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		gui_row = 8
+		gui_row = 9
 	}
 	
 ##################################
@@ -1637,12 +1637,9 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		any_parent = { panzer_leader }
+		any_parent = { cavalry_leader }
 		
-		mutually_exclusive = combined_arms_expert
-		mutually_exclusive = cavalry_expert
-		
-		gui_row = 1
+		gui_row = 2
 	}
 	
 	combined_arms_expert = { 
@@ -1668,13 +1665,11 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		any_parent = { cavalry_leader panzer_leader }
-		
-		mutually_exclusive = panzer_expert
-		mutually_exclusive = cavalry_expert
+		any_parent = { cavalry_leader }
 		
 		
-		gui_row = 2
+		
+		gui_row = 3
 	}
 	
 	cavalry_expert = { 
@@ -1695,10 +1690,8 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { cavalry_leader }
 		
-		mutually_exclusive = panzer_expert
-		mutually_exclusive = combined_arms_expert
 		
-		gui_row = 3
+		gui_row = 4
 	}
 	
 	fortress_buster = {
@@ -1726,7 +1719,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		gui_row = 4
+		gui_row = 5
 		
 		trait_type = assignable_trait
 		any_parent = { trait_engineer }
@@ -1749,7 +1742,7 @@ leader_traits = {
 		
 		trait_type = assignable_trait
 		
-		gui_row = 5
+		gui_row = 6
 		any_parent = { trait_engineer }
 		mutually_exclusive = fortress_buster
 	}
@@ -1772,7 +1765,7 @@ leader_traits = {
 		
 		trait_type = assignable_trait
 		any_parent = { infantry_leader }
-		gui_row = 6
+		gui_row = 7
 	}
 	
 	ambusher = { 
@@ -1795,7 +1788,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { infantry_leader }
 		
-		gui_row = 7
+		gui_row = 8
 	}
 	invader_ii = { 
 		type = corps_commander
@@ -1816,7 +1809,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { naval_invader }
 		
-		gui_row = 8
+		gui_row = 9
 	}
 	naval_liason = { 
 		type = corps_commander
@@ -1835,7 +1828,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { naval_invader }
 		
-		gui_row = 9
+		gui_row = 10
 	}
 	
 	skirmisher = { 
@@ -1856,7 +1849,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { commando }
 		
-		gui_row = 10
+		gui_row = 11
 	}
 	
 	paratrooper = { 
@@ -1878,7 +1871,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { commando }
 		
-		gui_row = 11
+		gui_row = 12
 	}
 	
 	
@@ -1905,7 +1898,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { commando }
 		
-		gui_row = 12
+		gui_row = 13
 	}
 	
 	expert_improviser = { 
@@ -1956,7 +1949,7 @@ leader_traits = {
 		}
 		custom_prerequisite_tooltip = needs_at_least_one_terrain
 		
-		gui_row = 13
+		gui_row = 14
 	}
 	
 	guerilla_fighter = { 
@@ -1976,7 +1969,7 @@ leader_traits = {
 		trait_type = assignable_trait
 		any_parent = { trickster }
 		
-		gui_row = 14
+		gui_row = 15
 	}
 
 

@@ -87,6 +87,12 @@ NDefines.NMilitary.PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always r
 	0.20,
 	0.10,
 }
+NDefines.NMilitary.UNIT_LEADER_INITIAL_TRAIT_SLOT = { 				-- trait slot for 0 level leader
+	1.0, -- field marshal
+	1.0, -- corps commander
+	1.0, -- navy general
+	0.0, -- operative
+}
 
 
 NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).

@@ -7601,67 +7601,12 @@ focus = {
 }
 
 focus = {
-    id = SOV_when_africa_falls
-    icon = GFX_focus_ITA_ministry_of_italian_africa
+    id = SOV_the_infinite_227
+    icon = GFX_focus_GER_end_european_communism
     x = 6
     y = 2
 	relative_position_id = SOV_the_path_of_marxism_leninism
 	prerequisite = { focus = SOV_the_path_of_marxism_leninism}
-    cost = 5
-
-	bypass = 
-	{
-		ENG = 
-		{
-			NOT = 
-			{
-				has_full_control_of_state = 126
-			}
-		}
-	}
-
-    available = {
-		ENG = 
-		{
-			NOT = 
-			{
-				has_full_control_of_state = 118
-			}
-			NOT = 
-			{
-				has_full_control_of_state = 907
-			}
-		}
-    }
-
-    completion_reward = {
-
-		add_to_variable = { SOV_the_red_army_army_org_factor = 0.05 }
-			set_variable = { SOV_the_red_army_experience_gain_army_factor = 0 }
-			set_variable = { SOV_the_red_army_experience_loss_factor = 0 }
-
-		custom_effect_tooltip = SOV_lessons_of_war_ns_tt
-
-		add_to_variable = { SOV_the_red_army_cas_damage_reduction = 0.05 }
-		add_to_variable = { SOV_the_red_army_max_dig_in = 5 }
-		add_to_variable = { SOV_the_red_army_dig_in_speed_factor = 0.05 }
-		custom_effect_tooltip = SOV_experts_in_camouflage_ns_tt
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		add_political_power = 150
-		add_stability = 0.1
-		add_war_support = 0.1
-    }
-}
-
-focus = {
-    id = SOV_the_infinite_227
-    icon = GFX_focus_GER_end_european_communism
-    x = 0
-    y = 2
-	relative_position_id = SOV_when_africa_falls
-	prerequisite = { focus = SOV_when_africa_falls}
     cost = 5
 
     available = {

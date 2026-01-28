@@ -1,4 +1,4 @@
-NDefines.NGame.GAME_SPEED_SECONDS = { 1000.0, 0.19, 0.14, 0.10, 0.0 } 
+NDefines.NGame.GAME_SPEED_SECONDS = { 1000.0, 0.19, 0.10, 0.06, 0.0 } 
 NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 999				-- Days of client lag for decrease of gamespeed
 NDefines.NGame.LAG_DAYS_FOR_PAUSE = 999				-- Days of client lag for pause of gamespeed.
 

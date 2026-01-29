@@ -126,29 +126,28 @@ BRA_ddam_organization = {
 	}
 }
 
-	BRA_fnm_organization = {
-		include = generic_motorized_mechanized_organization
-		icon = GFX_idea_BRA_fnm
-		allowed = { 
+BRA_fnm_organization = {
+	include = generic_motorized_mechanized_organization
+	icon = GFX_idea_BRA_fnm
+	allowed = { 
 
-			has_dlc = "Trial of Allegiance"
-			tag = BRA
-		}
-		available = { 
-			IF = {
-				limit = {
-					FROM = { NOT = { original_tag = BRA } }
-				}
-				FROM = { NOT = { has_war_with = BRA } }
+		has_dlc = "Trial of Allegiance"
+		tag = BRA
+	}
+	available = { 
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = BRA } }
 			}
-				ELSE = {
-					FROM = { 
-						OR = { 
-							has_completed_focus = SMB_motorized 
-							has_completed_focus = BRA_fabrica_nacional_de_motores
-						}
-					}
+			FROM = { NOT = { has_war_with = BRA } }
+		}
+		ELSE = {
+			FROM = { 
+				OR = { 
+					has_completed_focus = SMB_motorized 
+					has_completed_focus = BRA_fabrica_nacional_de_motores
 				}
 		}
+	}
 }
 

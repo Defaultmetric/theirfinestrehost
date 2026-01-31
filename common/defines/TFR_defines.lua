@@ -2,7 +2,7 @@ NDefines.NGame.GAME_SPEED_SECONDS = { 1000.0, 0.19, 0.14, 0.10, 0.0 }
 NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 999				-- Days of client lag for decrease of gamespeed
 NDefines.NGame.LAG_DAYS_FOR_PAUSE = 999				-- Days of client lag for pause of gamespeed.
 
-NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 36
+NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 12
 NDefines.NGame.EVENT_TIMEOUT_DEFAULT = 15						-- Default days before an event times out if not scripted
 NDefines.NGame.MISSION_REMOVE_FROM_INTERFACE_DEFAULT = 15		-- Default days before a mission is removed from the interface after having failed or completed
 NDefines.NGame.HANDS_OFF_START_TAG = "VEN"

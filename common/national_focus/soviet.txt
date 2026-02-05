@@ -6265,6 +6265,44 @@ focus_tree = {
 					remove_unit_leader_trait =  trait_SOV_cowed_by_stalin_navy
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+                set_technology = {
+                    t34_85_armament = 1
+                    popup = yes
+                }
+
+			if = 
+			{
+				limit = 
+				{
+					has_tech = improved_medium_tank_chassis
+				}
+				create_equipment_variant = {
+					name = "T-34/85"
+					type = medium_tank_chassis_2
+					parent_version = 0
+					modules = {
+						main_armament_slot = tank_85mm_cannon
+						turret_type_slot = tank_t34_85_turret
+						suspension_type_slot = tank_christie_suspension
+						armor_type_slot = tank_welded_armor
+						engine_type_slot = tank_diesel_engine
+						special_type_slot_1 = tank_radio_1
+						special_type_slot_2 = secondary_turret_hmg
+						special_type_slot_3 = additional_machine_guns
+						special_type_slot_4 = additional_machine_guns
+						special_type_slot_5 = extra_ammo_storage
+					}
+					upgrades = {
+						tank_nsb_armor_upgrade = 0
+						tank_nsb_engine_upgrade = 0
+					}
+					icon = "GFX_SOV_medium_tank_chassis_2"
+					model = "SOV_medium_armor_1_entity"
+				}
+			}
 		}
 	}
 

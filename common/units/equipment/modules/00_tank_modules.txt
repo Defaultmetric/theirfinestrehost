@@ -459,6 +459,33 @@ equipment_modules = {
 
 	}
 
+
+	tank_t34_85_turret = {
+		abbreviation = "t34"
+		category = t34_85_medium_turret
+		sfx = sfx_ui_sd_module_turret
+
+		allowed_module_categories = {
+			main_armament_slot = {
+				tank_t34_main_armament
+			}
+		}
+		forbid_equipment_type = {
+			anti_tank
+			artillery
+		}
+		add_stats = {
+			build_cost_ic = 2
+			reliability = -0.05
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 1
+		multiply_stats = {
+			breakthrough = 0.05
+		}
+
+	}
+
 	tank_medium_three_man_tank_turret = {
 		abbreviation = "m3m"
 		category = tank_medium_turret_tier_3
@@ -1347,7 +1374,7 @@ equipment_modules = {
 			hard_attack = 30
 			ap_attack = 50
 			build_cost_ic = 4.5
-			maximum_speed = -0.16
+			maximum_speed = -0.15
 			reliability = -0.15
 		}
 		dismantle_cost_ic = 1
@@ -1388,6 +1415,34 @@ equipment_modules = {
 			steel = 3
 		}
 	}
+
+	tank_85mm_cannon = {
+		abbreviation = "85m"
+		category = tank_t34_main_armament
+		sfx = sfx_ui_sd_module_turret
+		allow_equipment_type = anti_tank
+
+		add_stats = {
+			soft_attack = 30
+			hard_attack = 32
+			ap_attack = 55
+			build_cost_ic = 4.75
+			maximum_speed = -0.16
+			reliability = -0.2
+		}
+		dismantle_cost_ic = 1
+		xp_cost = 1
+		can_convert_from = {
+			module_category = tank_medium_main_armament_2
+			convert_cost_ic = 4.75
+		}
+		build_cost_resources = {
+			tungsten = 2
+			chromium = 1
+			steel = 3
+		}
+	}
+
 	tank_AP_high_velocity_cannon = {
 		abbreviation = "hv4"
 		category = tank_medium_main_armament_3

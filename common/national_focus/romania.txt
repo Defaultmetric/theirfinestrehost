@@ -1733,86 +1733,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_license_german_equipment
-		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = ROM_trade_treaty_with_germany  }
-		x = -2
-		y = 1
-		relative_position_id = ROM_trade_treaty_with_germany 
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER 
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
-			add_ideas = HUN_license_foreign
-		}
-	}
-
-	focus = {
-		id = ROM_invite_german_advisors
-		icon = GFX_goal_generic_axis_build_infantry
-		prerequisite = { focus = ROM_license_german_equipment }
-		x = 0
-		y = 1
-		relative_position_id = ROM_license_german_equipment
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			NOT = { has_war_with = GER }
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-		
-			air_experience = 75
-			navy_experience = 75
-			army_experience = 75
-		}
-	}
-
-	focus = {
 		id = ROM_oltenia_facility
 		icon = GFX_focus_generic_tank_assembly
-		prerequisite = { focus = ROM_license_german_equipment }
-		x = -1
-		y = 2
-		relative_position_id = ROM_license_german_equipment
+		prerequisite = { focus = ROM_trade_treaty_with_germany }
+		x = -2
+		y = 1
+		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 5
 
@@ -1869,6 +1795,45 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 100
+		}
+	}
+
+	focus = {
+		id = ROM_invite_german_advisors
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = ROM_oltenia_facility }
+		x = 0
+		y = 1
+		relative_position_id = ROM_oltenia_facility
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_war_with = GER }
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+			air_experience = 75
+			navy_experience = 75
+			army_experience = 75
 		}
 	}
 
@@ -3428,7 +3393,7 @@ focus_tree = {
 				tooltip = org_loss_when_moving_tt
 			}
 			add_to_variable = {
-				ROM_breakthrough_factor = 0.1
+				ROM_breakthrough_factor = 0.05
 				tooltip = breakthrough_factor_tt
 			}
 
@@ -3664,6 +3629,41 @@ focus_tree = {
 				ROM_eq_conversion_speed = 0.2
 				tooltip = equipment_conversion_speed_tt
 			}
+		}
+	}
+
+	focus = {
+		id = ROM_license_german_equipment
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = ROM_war_industry }
+		x = -2
+		y = 2
+		relative_position_id = ROM_war_industry
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER 
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = HUN_license_foreign
 		}
 	}
 
@@ -3980,14 +3980,7 @@ focus_tree = {
 				category = marine_tech
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = { has_dlc = "Arms Against Tyranny" }
-				add_doctrine_cost_reduction = {
-					cost_reduction = 1
-					uses = 2
-					category = special_forces_doctrine
-				}
-			}
+			navy_experience = 100
 		}
 	}
 
@@ -4446,14 +4439,28 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			custom_effect_tooltip = ROM_army_tt
-			add_to_variable = {
-				ROM_arty_attack = 0.05
-				tooltip = army_artillery_attack_factor_tt
-			}
-			add_to_variable = {
-				ROM_arty_defense = 0.05
-				tooltip = army_artillery_defence_factor_tt
+			
+			if = 
+			{
+				limit = 
+				{
+					ROM = 
+					{
+						NOT = 
+						{
+							has_completed_focus = AXIS_first_line_of_defense
+						}
+					}
+				}
+				custom_effect_tooltip = ROM_army_tt
+				add_to_variable = {
+					ROM_arty_attack = 0.05
+					tooltip = army_artillery_attack_factor_tt
+				}
+				add_to_variable = {
+					ROM_arty_defense = 0.05
+					tooltip = army_artillery_defence_factor_tt
+				}
 			}
 		}
 	}
@@ -4514,7 +4521,7 @@ focus_tree = {
 		completion_reward = {
 	
 			add_to_variable = {
-				ROM_flat_eq_ratio = 0.2
+				ROM_flat_eq_ratio = 0.1
 				tooltip = equipment_capture_tt
 			}
 		}
@@ -4543,14 +4550,27 @@ focus_tree = {
 				set_technology = { sturmtruppe_battalion_tech = 1 popup = no }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ROM_army_tt
-			add_to_variable = {
-				ROM_inf_att = 0.05
-				tooltip = army_infantry_attack_factor_tt
-			}
-			add_to_variable = {
-				ROM_inf_def = 0.05
-				tooltip = army_infantry_defence_factor_tt
+
+			if = 
+			{
+				limit = 
+				{
+					ROM = {
+						NOT = {
+							has_completed_focus = AXIS_infantry_specialization
+						}
+					}
+				}
+
+				custom_effect_tooltip = ROM_army_tt
+				add_to_variable = {
+					ROM_inf_att = 0.05
+					tooltip = army_infantry_attack_factor_tt
+				}
+				add_to_variable = {
+					ROM_inf_def = 0.05
+					tooltip = army_infantry_defence_factor_tt
+				}
 			}
 		}
 	}
@@ -5167,29 +5187,76 @@ focus_tree = {
 
 
 		completion_reward = {
-			192 = 
+
+			if = 
 			{
-				add_core_of = ROM
+				limit = 
+				{
+					ROM = 
+					{
+						NOT = 
+						{
+							has_full_control_of_state = 76
+							has_full_control_of_state = 83
+							has_full_control_of_state = 84
+							has_full_control_of_state = 82
+						}
+					}
+				}
+
+				192 = 
+				{
+					add_core_of = ROM
+				}
+				834 = 
+				{
+					add_core_of = ROM
+				}
+				198 = 
+				{
+					add_core_of = ROM
+				}
+				199 = 
+				{
+					add_core_of = ROM
+				}
+				hidden_effect = 
+				{
+					192 = { set_state_category = city }
+					834 = { set_state_category = city }
+					198 = { set_state_category = city }
+					199 = { set_state_category = city }
+				}	
 			}
-			834 = 
+			else_if = 
 			{
-				add_core_of = ROM
+				limit = 
+				{
+					ROM = 
+					{
+						NOT = 
+						{
+							has_full_control_of_state = 76
+						}
+					}
+				}
+
+				192 = 
+				{
+					add_core_of = ROM
+				}
+				834 = 
+				{
+					add_core_of = ROM
+				}
+				
+				hidden_effect = 
+				{
+					192 = { set_state_category = city }
+					834 = { set_state_category = city }
+				}
 			}
-			198 = 
-			{
-				add_core_of = ROM
-			}
-			199 = 
-			{
-				add_core_of = ROM
-			}
-			hidden_effect = 
-			{
-				192 = { set_state_category = city }
-				834 = { set_state_category = city }
-				198 = { set_state_category = city }
-				199 = { set_state_category = city }
-			}
+
 		}
 	}
 

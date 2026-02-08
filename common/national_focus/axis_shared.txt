@@ -4502,7 +4502,13 @@ joint_focus = {
 
 	completion_reward_joint_originator = 
 	{
-	    if = {
+		if = 
+		{
+			limit = {is_in_faction_with = GER tag = ROM ROM = {has_completed_focus = ROM_stormtroopers}}
+			
+			add_ideas = infantry_specialist_rom
+		}
+	    else_if = {
 	        limit = { is_in_faction_with = GER }
 
 	    		add_ideas = 
@@ -4924,7 +4930,13 @@ joint_focus = {
 
 	completion_reward_joint_originator = 
 	{
-	    if = {
+		if = 
+		{
+			limit = {is_in_faction_with = GER tag = ROM ROM = {has_completed_focus = ROM_superior_arty}}
+			
+			add_ideas = first_line_of_defense_rom
+		}
+	    else_if = {
 	        limit = { is_in_faction_with = GER }
 
 	    		add_ideas = 

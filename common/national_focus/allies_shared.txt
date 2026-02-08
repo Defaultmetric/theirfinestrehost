@@ -4659,7 +4659,13 @@ joint_focus = {
 
 	completion_reward_joint_originator = 
 	{
-	    if = {
+		if = 
+		{
+			limit = {is_in_faction_with = ENG tag = FRA FRA = {has_completed_focus = FRA_infantry_focus}}
+			
+			add_ideas = infantry_specialist_rom
+		}
+	    else_if = {
 	        limit = { is_in_faction_with = ENG }
 
 	    		add_ideas = 
@@ -5106,7 +5112,13 @@ joint_focus = {
 
 	completion_reward_joint_originator = 
 	{
-	    if = {
+		if = 
+		{
+			limit = {is_in_faction_with = ENG tag = FRA FRA = { has_completed_focus = FRA_firepower_kills}}
+			
+			add_ideas = first_line_of_defense_rom
+		}
+	    else_if = {
 	        limit = { is_in_faction_with = ENG }
 
 	    		add_ideas = 

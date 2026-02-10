@@ -680,7 +680,6 @@ ideas = {
 			available = { 
 				OR = {
 					has_doctrine = new_mobile_warfare
-					has_doctrine = armored_cavalry 
 				}
 			}
 				equipment_bonus = {
@@ -727,7 +726,6 @@ ideas = {
 			available = { 
 				OR = {
 				has_doctrine = new_mobile_warfare 
-				has_doctrine = armored_cavalry 
 				}
 			}
 			
@@ -790,12 +788,6 @@ ideas = {
 		proxy_wars_army_spirit = {
 			ledger = army
 			visible = { has_dlc = "No Compromise, No Surrender" }
-			available = { 
-				OR = {
-					has_doctrine = superior_firepower
-					has_doctrine = expeditionary_warfare
-				}
-			}
 
 			modifier = {
 				army_experience_from_volunteers = 0.5    		  			    			    			 			    			 				
@@ -991,7 +983,7 @@ ideas = {
 		smoke_and_fire_spirit = {
 			ledger = army
 			available = { 
-				has_doctrine = grand_assault
+				has_doctrine = superior_firepower
 			}
 			modifier = {
 				breakthrough_factor = 0.1
@@ -1018,7 +1010,7 @@ ideas = {
 
 		logistical_focus_spirit = {
 			ledger = army
-			available = { has_doctrine = field_engineering }
+			available = { has_doctrine = grand_battleplan }
 			modifier = {
 				tactic_planned_attack_preferred_weight_factor = 1
 				supply_consumption_factor = -0.10
@@ -1231,7 +1223,7 @@ ideas = {
 		quick_improvisation_spirit = {
 			ledger = army
 			available = {
-				has_doctrine = infiltration_tactics
+				has_doctrine = new_mobile_warfare
 			}
 			modifier = {
 				command_abilities_cost_factor = -0.20

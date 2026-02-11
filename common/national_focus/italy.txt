@@ -8258,11 +8258,17 @@ focus_tree = {
 		cost = 5
 
 		bypass = {
-			has_full_control_of_state = 271
-			has_full_control_of_state = 838
-			has_full_control_of_state = 835
-			has_full_control_of_state = 839
-			has_full_control_of_state = 837
+			OR = {
+				AND = 
+				{
+					has_full_control_of_state = 271
+					has_full_control_of_state = 838
+					has_full_control_of_state = 835
+					has_full_control_of_state = 839
+					has_full_control_of_state = 837
+				}
+				date > 1936.5.1
+			}
 		}
 
 		available = {

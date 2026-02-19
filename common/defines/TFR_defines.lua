@@ -111,7 +111,7 @@ NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 5							-- base cap of divisio
 
 --agency
 
-NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0.3 --each percent of collaboration will lower surrender limit by this percentage
+NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0.25 --each percent of collaboration will lower surrender limit by this percentage
 NDefines.NCountry.SURRENDER_RECIPIENT_SCORE_PER_COLLABORATION = 1.0	--countries with collaboration will get bonus while game calculates which country the enemy will capitulate
 NDefines.NCountry.COMPLIANCE_PER_COLLABORATION = 1.0				--each percent of collaboration will be converted to this compliance at capitulation
 

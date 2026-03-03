@@ -33,45 +33,54 @@ fire_concentration = {
     artillery_brigade = {
         combat_width = -0.4
     }
-    rocket_artillery_brigade = {
-        combat_width = -0.4
-    }
     mot_artillery_brigade = {
-        combat_width = -0.4
-    }
-    mot_rocket_artillery_brigade = {
         combat_width = -0.4
     }
 
      rewards = {
         standing_barrage = {
         #1
-            category_line_artillery = {
-                max_organisation = 5
+            artillery_brigade = {
+                max_organisation = 4
+            }
+            mot_artillery_brigade = {
+                max_organisation = 4
             }
         }
         predicted_fire = {
         #2
-            category_line_artillery = {
-                soft_attack = 0.1
+            artillery_brigade = {
+                breakthrough = 0.05
+            }
+            mot_artillery_brigade = {
+                breakthrough = 0.05
             }
         }
         artillery_groups = {
         #3
-            category_line_artillery = {
-                breakthrough = 0.1
+            artillery_brigade = {
+                combat_width = -0.2
+            }
+            mot_artillery_brigade = {
+                combat_width = -0.2
             }
         }
         dedicated_air_support = {
         #4
-            category_line_artillery = {
-               soft_attack = 0.1
+            artillery_brigade = {
+                soft_attack = 0.05
+            }
+            mot_artillery_brigade = {
+                soft_attack = 0.05
             }
         }
         weakpoint_studies = {
         #5
-            category_line_artillery = {
-                breakthrough = 0.1
+            artillery_brigade = {
+                breakthrough = 0.05
+            }
+            mot_artillery_brigade = {
+                breakthrough = 0.05
             }
         }
     }
@@ -107,7 +116,7 @@ anti_tank_frontline = {
         pakfront = {
         #1
             anti_tank_brigade = {
-                ap_attack = 0.05
+                ap_attack = 0.1
             }
         }
         emplacement_rotation = {
@@ -119,20 +128,20 @@ anti_tank_frontline = {
         weakpoint_studies = {
         #3
             anti_tank_brigade = {
-                hard_attack = 0.05
+                hard_attack = 0.10
             }
         }
         offensive_deployments = {
         #4
-            mot_anti_tank_brigade = {
-                breakthrough = 0.2
-                ap_attack = 0.1
+            anti_tank_brigade = {
+                breakthrough = 0.1
             }
         }
         assault_anti_tank = {
         #5
-            mot_anti_tank_brigade = {
-                hard_attack = 0.1
+            anti_tank_brigade = {
+                ap_attack = 0.05
+                hard_attack = 0.05
             }
         }
     }
@@ -167,47 +176,69 @@ flying_batteries = {
      # EFFECTS
 
     motorized_rocket_brigade = {
-        soft_attack = 0.1
+        combat_width = -0.4
+    }
+    mot_rocket_artillery_brigade = {
+        combat_width = -0.4
+    }
+    rocket_artillery_brigade = {
+        combat_width = -0.4
     }
 
     rewards = {
         deployment_drills = {
             motorized_rocket_brigade = {
-                default_morale = 0.1
+                default_morale = 0.05
+            }
+            mot_rocket_artillery_brigade = {
+                default_morale = 0.05
+            }
+            rocket_artillery_brigade = {
+                default_morale = 0.05
             }
         }
         counter_battery_tasks = {
-            
-            recon = {
-                battalion_mult = {
-                    category = category_rocket_artillery #there should be a motorized arty only cat
-                    soft_attack = 0.05
-                    defense = 0.1
-                }
-                recon = 0.25
+            motorized_rocket_brigade = {
+                breakthrough = 0.1
+            }
+            mot_rocket_artillery_brigade = {
+                breakthrough = 0.1
+            }
+            rocket_artillery_brigade = {
+                breakthrough = 0.1
             }
         }
         ballistics_corrections = {
-            armored_signal = {
-                battalion_mult = {
-                    category = category_rocket_artillery
-                    supply_consumption = -0.05
-                }
+            motorized_rocket_brigade = {
+                initiative = 0.01
+            }
+            mot_rocket_artillery_brigade = {
+                initiative = 0.01
+            }
+            rocket_artillery_brigade = {
+                initiative = 0.01
             }
         }
         mobile_barrages = {
             motorized_rocket_brigade = {
-                maximum_speed = 0.05
                 breakthrough = 0.05
             }
-            category_vehicle_infantry = {
-                maximum_speed = 0.1
+            mot_rocket_artillery_brigade = {
+                breakthrough = 0.05
             }
-
+            rocket_artillery_brigade = {
+                breakthrough = 0.05
+            }
         }
         wide_dispersal_positions = {
             motorized_rocket_brigade = {
-                breakthrough = 0.1
+                soft_attack = 0.1
+            }
+            mot_rocket_artillery_brigade = {
+                soft_attack = 0.1
+            }
+            rocket_artillery_brigade = {
+                soft_attack = 0.1
             }
         }
     }

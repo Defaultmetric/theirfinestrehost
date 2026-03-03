@@ -97,7 +97,7 @@ defensive_postures = {
         }
         elastic_operations = {
             category_light_infantry = {
-                max_organisation = 5
+                max_organisation = 4
             }
         }
         developed_trench_networking = {
@@ -107,7 +107,7 @@ defensive_postures = {
         }
         field_emplacements = {
             category_light_infantry = {
-                max_organisation = 5
+                max_organisation = 4
             }
         }
         field_construction_training = {
@@ -163,7 +163,9 @@ large_unit_tactics = {
 
     rewards = {
         wide_trench_networks = {
-            dig_in_speed_factor = 0.05
+            category_all_infantry = {
+                experience_loss_factor = -0.01
+            }
         }
         flexible_division_structures = {
         #2
@@ -238,7 +240,7 @@ assault_infantry = {
             artillery = {
                 battalion_mult = {
                     category = category_light_infantry
-                    breakthrough = 0.15
+                    breakthrough = 0.1
                 }
             }
 
@@ -314,24 +316,22 @@ mounted_infantry = {
         }
     }
     category_cavalry = {
-        soft_attack = 0.1
-        breakthrough = 0.1
+        soft_attack = 0.05
+        breakthrough = 0.05
     }
-
-    unit_cavalry_design_cost_factor = -1
 
     # EFFECTS
 
     rewards = {
         dragoon_traditions = {
             category_cavalry = {
-                breakthrough = 0.20
+                breakthrough = 0.1
                 defense = 0.1
             }
         }
         mounted_skirmish_groups = {
             recon = {
-                max_organisation = 10
+                max_organisation = 5
                 soft_attack = 0.2
             } 
             category_cavalry = {
@@ -340,8 +340,8 @@ mounted_infantry = {
         }
         anti_mechanized_cavalry_groups = {
             category_cavalry = {
-                hard_attack = 0.2
-                ap_attack = 0.2
+                hard_attack = 0.1
+                ap_attack = 0.1
             }
         }
         beasts_of_war = {
@@ -400,11 +400,7 @@ commandos = {
     # EFFECTS
 
     rewards = {
-        isolated_combat_elements = { 
-            category_light_infantry = {
-                supply_consumption = -0.01
-                reliability = 0.05
-            }
+        isolated_combat_elements = {
             field_hospital = {
                 casualty_trickleback = 0.05
             }
@@ -420,26 +416,24 @@ commandos = {
             field_hospital = {
                 battalion_mult = {
                     category = category_light_infantry
-                    max_strength = 3
+                    max_strength = 2
                     add = yes
                 }   
             }
+        }
+        rigorous_training_regimen = {
+            category_light_infantry = {
+                max_organisation = 8
+            }
+        }
+
+        field_intel_retrieval = {
             signal_company = {
                 battalion_mult = {
                     category = category_light_infantry
                     defence = 0.1
                 }
             }  
-            
-        }
-        rigorous_training_regimen = {
-            category_light_infantry = {
-                max_organisation = 5
-            }
-        }
-
-        field_intel_retrieval = {
-            intel_from_combat_factor = 0.15
         }
 
         integrated_assaults = {
@@ -629,7 +623,7 @@ great_war_infantry = {
             engineer = {
                 battalion_mult = {
                     category = category_light_infantry
-                    entrenchment = 0.02
+                    entrenchment = 0.01
                 }
             }   
         }

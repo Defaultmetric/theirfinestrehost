@@ -96,11 +96,15 @@ GER_growing_national_industry_category = {
 		activation = {
 
             has_completed_focus = GER_prioritize_economic_growth
+			NOT = {GER = {has_country_flag = GER_power_restrictions_flag}}
 
 		}
 
 		available = {
+			OR = {
 			always = no
+			GER = {has_country_flag = GER_power_restrictions_flag}
+			}
 		}
 
 		days_mission_timeout = 360
@@ -122,6 +126,44 @@ GER_growing_national_industry_category = {
  
             }
     	}
+		}
+		GER_factory_power_restrictions = 
+		{
+		priority = 99
+		icon = ger_mefo_bills
+
+		allowed = {
+			tag = GER
+		}
+
+		available = 
+		{
+			has_country_flag = eighty_power_usage_flag
+		}
+
+		fire_only_once = yes
+
+		remove_effect = 
+		{
+			GER = 
+			{
+				set_country_flag = GER_power_restrictions_flag
+			}
+
+			custom_effect_tooltip = GER_factory_power_restrictions_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			GER_modify_industrial_modifier = yes
+			set_variable = {GER_factory_energy_consumption = 0.8}
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = 0.3
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = { 
+				GER_industrial_production_speed_buildings_factor = -0.30
+				tooltip = production_speed_buildings_factor_tt
+			}
+		}
+
 		}
 	}
 
@@ -349,12 +391,14 @@ GER_seize_gold_reserves_cat = {
 					has_country_flag = GER_dont_seize_gold_reserves_flag
 				}
 				any_core_state = {
+					
 					is_on_continent = europe
 					is_controlled_by_ROOT_or_ally = yes
 					NOT = { is_core_of = ROOT }
 					NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 					OR = {
 						check_variable = { industrial_complex_level > 0 }
+						check_variable = { arms_factory_level > 0 }
 						#check_variable = { arms_factory_level > 0 }
 						check_variable = { building_level@dockyard > 0 }
 					}

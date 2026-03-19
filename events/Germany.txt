@@ -5,6 +5,32 @@
 add_namespace = germany
 add_namespace = AAT_germany
 
+country_event = {
+	id = germany.670
+	title = germany.670.t
+	desc = germany.670.d
+	picture = GFX_report_event_tur_industry
+
+	is_triggered_only = yes
+
+ 	immediate = {
+ 		hidden_effect = {
+ 			set_variable = {GER_energy_consumption = 0.2}
+ 		}
+ 	}
+
+	option = {
+		name = germany.670.a
+
+		custom_effect_tooltip = GER_growing_national_industry_tt
+		add_to_variable = 
+		{
+			tooltip_var = 0.2
+			tooltip = factory_energy_consumption_tt
+		}
+	}
+}
+
 # Austrian Anschluss Completed
 country_event = {
 	id = germany.4

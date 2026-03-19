@@ -1,0 +1,62 @@
+on_actions = {
+    on_capitulation = {
+       #ethiopia war
+        effect = {
+            if = {
+                limit = {
+                    original_tag = ETH
+                    from = {tag = ITA }
+            }
+                ITA = {
+                    annex_country = {
+					    	target = ETH
+						    transfer_troops = no
+                    }
+	    			add_named_threat = { threat = -0.3 name = ITA_treaty_of_addis }
+                        add_victory_points = {
+			    			province = 5010
+				    		value = 25
+	    				}
+    					add_victory_points = {
+		    				province = 7980
+			    			value = 14
+				    	}
+    					add_victory_points = {
+	    					province = 1984
+		    				value = 14
+			    		}
+				    	add_victory_points = {
+		    				province = 12766
+			    			value = 15
+				    	}
+	    				add_victory_points = {
+		    				province = 12991
+			    			value = 15
+				    	}
+                }
+            }
+        }
+        #denmark
+        effect = {
+            if = {
+                limit = {
+                    original_tag = DEN
+                    from = { TAG = GER }
+                }
+                GER = {
+                    annex_country = {
+                        target = DEN
+                        transfer_troops = no
+                    }
+                }
+                ENG = {
+                    transfer_state = 337
+                }
+            }
+        }
+
+    }
+}
+    
+    
+

@@ -185,3 +185,7 @@ NDefines.NAI.MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.2				-- ai will only activat
 
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2			-- Max width of support in division designer.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 3		-- Max height of support in division designer.
+
+--China
+
+NDefines.NResistance.COMPLIANCE_FACTOR_ON_STATE_CONTROLLER_CHANGE = 0	-- compliance factor that applies when the state controller changes (in between allies, compliance is zeroed if it is taken by original country)

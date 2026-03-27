@@ -10975,7 +10975,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 1
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -11024,7 +11024,7 @@ focus_tree = {
 		id = JAP_invest_in_senbu
 		icon = GFX_focus_generic_concessions
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = -2
+		x = 2
 		y = 1
 		relative_position_id = JAP_revisit_the_thirteen_demands
 
@@ -11452,7 +11452,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_revisit_the_thirteen_demands }
 
-		cost = 4
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -11829,6 +11829,11 @@ focus_tree = {
 			}	
 		}
 
+		allow_branch = 
+		{
+			always = no
+		}
+
 		bypass = {
 			
 		}
@@ -11878,6 +11883,11 @@ focus_tree = {
 			MAN = {
 				has_completed_focus = MAN_tsr_national_cooperation_government
 			}
+		}
+
+		allow_branch = 
+		{
+			always = no
 		}
 
 		cancel_if_invalid = yes
@@ -12097,7 +12107,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_civilian
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
 		x = 0
-		y = 4
+		y = 2
 		relative_position_id = JAP_reinforce_the_beijing_garrison
 
 		prerequisite = { focus = JAP_reinforce_the_beijing_garrison }
@@ -12132,35 +12142,42 @@ focus_tree = {
 			605 = {
 				add_resource = {
 					type = aluminium
-					amount = 8
+					amount = 20
 				}
 			}
 			325 = {
 				add_resource = {
 					type = aluminium
-					amount = 12
+					amount = 26
 				}
 				add_resource = {
 					type = tungsten
-					amount = 8
+					amount = 12
 				}
 			}
 			597 = {
 				add_resource = {
 					type = aluminium
-					amount = 8
+					amount = 18
 				}
 			}
 			614 = {
 				add_resource = {
 					type = coal
-					amount = 12
+					amount = 20
 				}
 			}
 			602 = {
 				add_resource = {
 					type = tungsten
-					amount = 10
+					amount = 20
+				}
+			}
+			1034 = 
+			{
+				add_resource = {
+					type = aluminium
+					amount = 35
 				}
 			}
 			
@@ -12181,7 +12198,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_reinforce_the_beijing_garrison }
 
-		cost = 15
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -12772,7 +12789,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 1
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -12813,15 +12830,15 @@ focus_tree = {
 
 		completion_reward = {
 
-			navy_experience = 10
-			air_experience = 5
+			navy_experience = 25
+			air_experience = 25
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_doctrine_cost_reduction = {
 				name = JAP_strike_south_doctrine
 				cost_reduction = 0.25
-				uses = 1
+				uses = 2
 				category = naval_doctrine	
 			}
 
@@ -13125,7 +13142,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_unsinkable_aircraft_carriers }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -13793,6 +13810,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
+
+			hidden_effect = 
+			{
+				741 = 
+				{
+					add_resource = 
+					{
+						type = rubber
+						amount = 45
+					}
+				}
+			}
 				
 			IF = {
 				limit = {
@@ -13917,7 +13946,7 @@ focus_tree = {
 		id = JAP_sea_pressure_siam
 		icon = GFX_focus_generic_befriend_siam
 		mutually_exclusive = { focus = JAP_occupy_siam }
-		x = -1
+		x = 1
 		y = 2
 		relative_position_id = JAP_demand_tonkinese_bases
 
@@ -14050,7 +14079,7 @@ focus_tree = {
 		id = JAP_strike_the_southern_road
 		icon = GFX_focus_jap_strike_south
 		#mutually_exclusive = { focus = JAP_sea_pressure_siam }
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = JAP_occupy_siam
 
@@ -14547,7 +14576,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction focus = JAP_revere_the_emperor_destroy_the_traitors }
 
-		cost = 1
+		cost = 3
 
 		ai_will_do = {
 			factor = 1
@@ -14587,55 +14616,17 @@ focus_tree = {
 
 		completion_reward = {
 
-			hidden_effect = {
-
-				delete_unit_template_and_units = {
-					division_template = "Asano Brigade"
-					disband = yes #if yes, will refund equipment/manpower.
-				}
-
-				division_template = {
-					name = "Asano Brigade"
-					division_names_group = SOV_CAV_01
-					role = garrison
-					template_counter = 110
-					is_locked = no
-					regiments = {
-						cavalry = { x = 0 y = 0 }
-						cavalry = { x = 0 y = 1 }
-						cavalry = { x = 0 y = 2 }
-						cavalry = { x = 1 y = 0 }
-						cavalry = { x = 1 y = 1 }
-					}
-					support = {
-						recon = { x = 0 y = 0 }
-					}
-				}
-
-			}
-
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-					is_fully_controlled_by = ROOT
-				}
-				create_unit = {
-				    division = "name = \"Asano Brigade\" division_template = \"Asano Brigade\" start_experience_factor = 0.3 start_equipment_factor = 0.9"
-				    owner = ROOT
-				}
-			}
-
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			army_experience = 10
-			air_experience = 5
+			army_experience = 25
+			air_experience = 25
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			add_doctrine_cost_reduction = {
 				name = JAP_strike_north_doctrine
 				cost_reduction = 0.25
-				uses = 1
+				uses = 2
 				category = land_doctrine	
 			}
 
@@ -15041,6 +15032,11 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		allow_branch = 
+		{
+			always = no
 		}
 
 		available = {
@@ -25015,7 +25011,7 @@ focus_tree = {
 		}
 		
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
-		x = 16
+		x = 17
 		y = 0
 
 		offset = {
@@ -25181,7 +25177,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_commerce_and_industry }
 		
 		relative_position_id = JAP_ministry_of_commerce_and_industry
-		x = 3
+		x = 4
 		y = 1
 
 		cost = 5
@@ -25251,7 +25247,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_commerce_and_industry }
 		
 		relative_position_id = JAP_ministry_of_commerce_and_industry
-		x = 5
+		x = 6
 		y = 1
 
 		cost = 5
@@ -26041,6 +26037,13 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			modify_building_resources = {
+        	   building = synthetic_refinery
+        	   resource = rubber
+        	   amount = 1
+        	}
 		}
 	}
 
@@ -26057,7 +26060,7 @@ focus_tree = {
 		x = 2
 		y = 1 
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 3
@@ -26099,7 +26102,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -26207,7 +26210,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -26280,7 +26283,7 @@ focus_tree = {
 		x = 2
 		y = 1
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 3
@@ -26830,7 +26833,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_colonial_affairs }
 
 		relative_position_id = JAP_ministry_of_colonial_affairs
-		x = -4
+		x = -5
 		y = 1
 
 		cost = 5
@@ -26928,6 +26931,24 @@ focus_tree = {
 						}
 					}
 					prioritize = { 716 }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				random_controlled_state = {
+					limit = {
+						is_core_of = MAN
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
 					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = industrial_complex
@@ -27269,7 +27290,7 @@ focus_tree = {
 		x = 2
 		y = 1
 
-		cost = 5
+		cost = 4
 
 		ai_will_do = {
 			factor = 3
@@ -27334,7 +27355,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_colonial_affairs }
 
 		relative_position_id = JAP_ministry_of_colonial_affairs
-		x = -1
+		x = -2
 		y = 1
 
 		cost = 5
@@ -27456,7 +27477,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_colonial_affairs }
 
 		relative_position_id = JAP_ministry_of_colonial_affairs
-		x = 1
+		x = 2
 		y = 1
 
 		cost = 5
@@ -27602,10 +27623,10 @@ focus_tree = {
 		prerequisite = { focus = JAP_increase_crop_yields }
 
 		relative_position_id = JAP_improve_agricultural_output
-		x = 1
+		x = 2
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -27659,7 +27680,7 @@ focus_tree = {
 		prerequisite = { focus = JAP_ministry_of_colonial_affairs }
 
 		relative_position_id = JAP_ministry_of_colonial_affairs
-		x = 4
+		x = 5
 		y = 1
 
 		cost = 5
@@ -27669,13 +27690,7 @@ focus_tree = {
 		}
 		
 		available = {
-			OR = {
-				has_subject = KOR
-				any_controlled_state = {
-					is_core_of = KOR
-					is_fully_controlled_by = ROOT
-				}
-			}
+			
 		}
 
 		bypass = {
@@ -27689,65 +27704,25 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {				
-					add_stability = 0.1
-					add_war_support = 0.1
-					add_political_power = 100
-					add_timed_idea = {
-						idea = JAP_japanese_investments
-						days = 720
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
 			
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR  = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = PREV
-							free_building_slots = {
-								building = industrial_complex
-								size > 1
-								include_locked = yes
-							}
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
+			1031 = 
+			{
+				add_extra_state_shared_building_slots = 1
 						add_building_construction = {
 							type = industrial_complex
 							level = 1
 							instant_build = yes
 						}
-					}
-				}
 			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-						free_building_slots = {
-							building = industrial_complex
-							size > 1
-							include_locked = yes
+
+			527 = 
+			{
+				add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
 						}
-					}
-					random_select_amount = 2
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = industrial_complex
-						level = 1
-						instant_build = yes
-					}
-				}
 			}
 
 		}
@@ -27762,26 +27737,20 @@ focus_tree = {
 		#	focus = 
 		#}
 
-		prerequisite = { focus = JAP_build_up_korean_industries }
+		prerequisite = { focus = JAP_the_shuilikeng_power_plant focus = JAP_develop_the_south_seas_mandate }
 
-		relative_position_id = JAP_build_up_korean_industries
-		x = -1
+		relative_position_id = JAP_the_shuilikeng_power_plant
+		x = 2
 		y = 1
 
-		cost = 5
+		cost = 4
 
 		ai_will_do = {
 			factor = 3
 		}
 
 		available = {
-			OR = {
-				has_subject = KOR
-				any_controlled_state = {
-					is_core_of = KOR
-					is_fully_controlled_by = ROOT
-				}
-			}
+			
 		}
 
 		bypass = {
@@ -27795,33 +27764,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-
-			IF = {
-				limit = {
-					has_subject = KOR
-				}
-				KOR = {
-					every_core_state = {
-						limit = {
-							is_fully_controlled_by = KOR
-						}
-						random_select_amount = 2
-						add_extra_state_shared_building_slots = 1
-					}
-				}
-			}
-			ELSE = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = KOR
-						is_fully_controlled_by = ROOT
-					}
-					random_select_amount = 2
-					add_extra_state_shared_building_slots = 1
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
 
 			JAP_add_or_modify_early_industrialization = yes
 
@@ -27844,7 +27786,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 5
+		cost = 4
 
 		ai_will_do = {
 			factor = 3
@@ -27929,6 +27871,11 @@ focus_tree = {
 					}
 				}
 			}
+		}
+
+		allow_branch = 
+		{
+			always = no
 		}
 
 		bypass = {
@@ -28061,10 +28008,10 @@ focus_tree = {
 		#	focus = 
 		#}
 
-		prerequisite = { focus = JAP_prepare_for_peninsular_warfare }
+		prerequisite = { focus = JAP_build_up_korean_industries }
 
-		relative_position_id = JAP_prepare_for_peninsular_warfare
-		x = 0
+		relative_position_id = JAP_build_up_korean_industries
+		x = -1
 		y = 1
 
 		cost = 5
@@ -28151,7 +28098,7 @@ focus_tree = {
 		}
 		
 		relative_position_id = JAP_ministry_of_commerce_and_industry
-		x = 23
+		x = 25
 		y = 0
 
 		cost = 3 #This times perfect with the Kodoha Coup event
@@ -30300,7 +30247,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -30362,7 +30309,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -30615,7 +30562,7 @@ focus_tree = {
 		x = -1
 		y = 1
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3

@@ -57,18 +57,35 @@
 				category = industry
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
+
 				create_intelligence_agency = {
 					name = "NBIS"
 				}
 				upgrade_intelligence_agency = upgrade_passive_defense
-			}
+			
 			army_experience = 150
 			navy_experience = 150
 			air_experience = 150
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -201,6 +218,14 @@
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+
 		}
 	}
 
@@ -710,47 +735,34 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = CHI_wave_2_tt
+			custom_effect_tooltip = CHI_wave_1_tt
+			division_template = {
+        		name = "Wave 1"
+				priority = 1
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
 
-			if = {
-					limit = {
-						AND = {
-							NOT = {
-								OR = {
-									JAP = {
-										has_full_control_of_state = 608  
-									}
-									MAN = {
-										has_full_control_of_state = 608
-									}
-								}
-							}
-							CHI = {
-								NOT = {
-									has_full_control_of_state = 608  
-								}
-								NOT = {
-									has_full_control_of_state = 613
-								}
-								NOT = {
-									has_full_control_of_state = 597
-								}
-								NOT = {
-									has_full_control_of_state = 614
-								}
-								NOT = {
-									has_full_control_of_state = 615
-								}
-							}
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+
+						artillery_brigade = {x = 3 y = 0}
 						}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						logistics_company = { x = 0 y = 2}
+						anti_air = { x = 0 y = 3 }
+						anti_tank = {x = 0 y = 4}
 					}
-					
-					set_global_flag = bayrem_caught_lacking
-				}
-
+			}
 			hidden_effect = {
-
-
 				if = 
 				{
 					random_owned_controlled_state = {
@@ -769,6 +781,7 @@
 								state_is_fully_controlled_by_ROOT_or_subject = yes
 							}  
 						}
+					
 						create_unit = {
 							division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
 							owner = CHI
@@ -833,6 +846,88 @@
 							division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
 							owner = CHI
 						}
+					}
+				}
+			}
+		}
+    }
+
+	focus = {
+		id = CHI_wave_3
+		icon = GFX_focus_generic_limited_social_mobilization
+		relative_position_id = CHI_wave_2
+		prerequisite = { focus = CHI_wave_2 }
+
+		x = 0
+		y = 2
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			surrender_progress > 0.6
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_wave_1_tt
+			division_template = {
+        		name = "Wave 1"
+				priority = 1
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 2 y = 2 }
+
+						artillery_brigade = {x = 3 y = 0}
+						}
+					support = {
+						artillery = { x = 0 y = 0 }
+						engineer = { x = 0 y = 1 }
+						logistics_company = { x = 0 y = 2}
+						anti_air = { x = 0 y = 3 }
+						anti_tank = {x = 0 y = 4}
+					}
+			}
+			hidden_effect = {
+				if = 
+				{
+					random_owned_controlled_state = {
+						prioritize = { 750 605 }
+						limit = {
+							state_is_fully_controlled_by_ROOT_or_subject = yes
+							is_core_of = CHI
+							NOT = 
+							{
+								state = 591
+								state = 729
+								state = 743
+							}
+							any_neighbor_state = 
+							{
+								state_is_fully_controlled_by_ROOT_or_subject = yes
+							}  
+						}
+					
 						create_unit = {
 							division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
 							owner = CHI
@@ -897,7 +992,6 @@
 							division = "name = \"Wave 1\" division_template = \"Wave 1\" start_experience_factor = 0.1"
 							owner = CHI
 						}
-					 
 					}
 				}
 			}

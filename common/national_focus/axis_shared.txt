@@ -4458,7 +4458,7 @@ joint_focus = {
 	icon = GFX_focus_BEL_flooded_tank_barriers
 	prerequisite = { focus = AXIS_optimized_tank_designs }
 
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = AXIS_optimized_tank_designs
 	cost = 5
@@ -4708,7 +4708,7 @@ joint_focus = {
 	icon = GFX_focus_RAJ_mountain_guns
 	prerequisite = { focus = AXIS_mountaineer_forces}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = AXIS_mountaineer_forces
 	cost = 5
@@ -4807,7 +4807,8 @@ joint_focus = {
 	id = AXIS_bombs_away
 	icon = GFX_SOV_ground_support_ccp_2d_sov_compatibility
 	prerequisite = { focus = AXIS_paratroopers focus = AXIS_air_specialist }
-	mutually_exclusive = { focus = AXIS_stronger_engines }
+
+	allow_branch = {always = no}
 
 	x = 0
 	y = 1
@@ -4840,9 +4841,8 @@ joint_focus = {
 	id = AXIS_stronger_engines
 	icon = GFX_focus_generic_jet_planes
 	prerequisite = { focus = AXIS_paratroopers focus = AXIS_air_specialist}
-	mutually_exclusive = { focus = AXIS_bombs_away }
 
-	x = 2
+	x = 1
 	y = 1
 	relative_position_id = AXIS_paratroopers
 	cost = 10

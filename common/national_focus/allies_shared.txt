@@ -4611,7 +4611,7 @@ joint_focus = {
 	icon = GFX_focus_BEL_flooded_tank_barriers
 	prerequisite = { focus = allies_optimized_tank_designs }
 
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = allies_optimized_tank_designs
 	cost = 5
@@ -4876,7 +4876,7 @@ joint_focus = {
 	icon = GFX_focus_RAJ_mountain_guns
 	prerequisite = { focus = allies_mountaineer_forces}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = allies_mountaineer_forces
 	cost = 5
@@ -4981,7 +4981,11 @@ joint_focus = {
 	id = allies_bombs_away
 	icon = GFX_SOV_ground_support_ccp_2d_sov_compatibility
 	prerequisite = { focus = allies_paratroopers focus = allies_air_specialist }
-	mutually_exclusive = { focus = allies_stronger_engines }
+
+	allow_branch = 
+	{
+		always = no
+	}
 
 	x = 0
 	y = 1
@@ -5017,9 +5021,7 @@ joint_focus = {
 	icon = GFX_focus_generic_jet_planes
 	prerequisite = { focus = allies_paratroopers focus = allies_air_specialist}
 
-	mutually_exclusive = { focus = allies_bombs_away }
-
-	x = 2
+	x = 1
 	y = 1
 	relative_position_id = allies_paratroopers
 	cost = 10

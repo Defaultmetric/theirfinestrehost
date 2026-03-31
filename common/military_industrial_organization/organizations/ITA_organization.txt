@@ -740,17 +740,39 @@ ITA_fiat_aviazione_organization = {
 		{
 			ITA = 
 			{
-				has_completed_focus = ITA_specialization
+				has_country_flag = air_stats_flag
 			}
 		}
 		
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
 		equipment_bonus = {
-			air_agility = 0.05
-			air_attack = 0.02
 			reliability = 0.05
-			air_range = 0.15
+			air_range = 0.05
 			air_defence = 0.1
+		}
+	}
+
+	add_trait = {
+		token = ITA_mio_trait_cheap_parts
+		name = ITA_mio_trait_cheap_parts
+		icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+		special_trait_background = yes
+		
+		position = { x=10 y=0 }  
+
+		available = 
+		{
+			ITA = 
+			{
+				has_country_flag = air_cost_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
 		}
 	}
 

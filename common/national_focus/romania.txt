@@ -34,8 +34,12 @@ focus_tree = {
 			factor = 9
 		}
 
-		available = {
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
+		}
 
+		available = {
+			
 		}
 
 		bypass = {
@@ -4429,18 +4433,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			
-			if = 
-			{
-				limit = 
-				{
-					ROM = 
-					{
-						NOT = 
-						{
-							has_completed_focus = AXIS_first_line_of_defense
-						}
-					}
-				}
 				custom_effect_tooltip = ROM_army_tt
 				add_to_variable = {
 					ROM_arty_attack = 0.05
@@ -4450,7 +4442,7 @@ focus_tree = {
 					ROM_arty_defense = 0.05
 					tooltip = army_artillery_defence_factor_tt
 				}
-			}
+			
 		}
 	}
 
@@ -4540,17 +4532,6 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = 
-			{
-				limit = 
-				{
-					ROM = {
-						NOT = {
-							has_completed_focus = AXIS_infantry_specialization
-						}
-					}
-				}
-
 				custom_effect_tooltip = ROM_army_tt
 				add_to_variable = {
 					ROM_inf_att = 0.05
@@ -4560,7 +4541,7 @@ focus_tree = {
 					ROM_inf_def = 0.05
 					tooltip = army_infantry_defence_factor_tt
 				}
-			}
+			
 		}
 	}
 
@@ -5726,6 +5707,10 @@ focus_tree = {
 
 		available = {
 
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		bypass = {

@@ -48,7 +48,7 @@ ideas = {
             
 
             modifier = {
-              production_speed_buildings_factor = 0.075
+              production_speed_buildings_factor = 0.1
             }
       }
       emergency_gold_reserves = {
@@ -58,7 +58,7 @@ ideas = {
             
 
             modifier = {
-              consumer_goods_factor = -0.15
+              consumer_goods_factor = -0.1
             }
       }
 
@@ -417,7 +417,66 @@ ideas = {
 
         }
       }
+
+      capital_fleet_specialization = {
+      
+        picture = NORDIC_navy_communist
+        allowed_civil_war = {
+          always = yes
+        }
+
+        removal_cost = -1
+
+        modifier = 
+        {
+          navy_capital_ship_attack_factor = 0.05
+        }
+
+        equipment_bonus = { 
+          capital_ship = {
+            instant = yes
+            armor_value = 0.05
+            anti_air_attack = 0.05
+          }
+			}
+
     }
+
+    light_fleet_specialization = {
+      
+        picture = NORDIC_navy_democratic
+        allowed_civil_war = {
+          always = yes
+        }
+
+        removal_cost = -1
+
+        modifier = 
+        {
+          navy_submarine_attack_factor = 0.05
+          navy_screen_defence_factor  = 0.05
+          naval_light_gun_hit_chance_factor = 0.05
+        }
+
+    }
+
+    efficient_gun_assembly = {
+			
+			allowed = {
+				always = no
+			}
+			
+
+			removal_cost = -1
+
+			picture = generic_infantry_bonus
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
 }
 
        

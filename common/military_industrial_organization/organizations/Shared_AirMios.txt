@@ -299,3 +299,425 @@ SPR_junkers_organization = {
 		}
 	}
 }
+
+#### ALLIES ####
+
+AST_supermarine_organization = 
+{
+	include = generic_high_agility_fighter_aircraft_organization
+	icon = GFX_idea_supermarine
+
+	allowed = {	
+		tag = AST
+	}
+
+	available = {
+		AST = {
+			has_country_flag = air_mio1_chosen_flag
+		}
+	}
+
+	add_trait = {
+		token = AST_mio_trait_technical_superiority
+		name = AST_mio_trait_technical_superiority
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=9 y=0 }  
+
+		available = 
+		{
+			AST = 
+			{
+				has_country_flag = air_stats_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		equipment_bonus = {
+			reliability = 0.05
+			air_range = 0.05
+			air_defence = 0.1
+		}
+	}
+
+	add_trait = {
+		token = AST_mio_trait_cheap_parts
+		name = AST_mio_trait_cheap_parts
+		icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+		special_trait_background = yes
+		
+		position = { x=9 y=1 }  
+
+		available = 
+		{
+			AST = 
+			{
+				has_country_flag = air_cost_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = AST_mio_trait_naval_targeting
+		name = AST_mio_trait_naval_targeting
+		icon = GFX_generic_mio_trait_icon_detection
+		special_trait_background = yes
+		
+		position = { x=9 y=2 }  
+
+		available = 
+		{
+			AST = 
+			{
+				has_country_flag = air_radar_flag
+			}
+		}
+		
+		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_small_plane  mio_cat_eq_all_medium_plane }
+		
+		equipment_bonus = {
+			surface_detection = 0.1
+			sub_detection = 0.1
+			naval_strike_attack = 0.1
+			naval_strike_targetting = 0.1
+		}
+	}
+}
+
+AST_hawker_organization = {
+	include = generic_cas_aircraft_organization
+	icon = GFX_idea_hawker
+
+	allowed = {	
+		tag = AST
+	}
+
+	available = {
+		AST = {
+			has_country_flag = gsp_ac_flag
+		}
+	}
+}
+
+CAN_supermarine_organization = 
+{
+	include = generic_high_agility_fighter_aircraft_organization
+	icon = GFX_idea_supermarine
+
+	allowed = {	
+		tag = CAN
+	}
+
+	available = {
+		CAN = {
+			has_country_flag = air_mio1_chosen_flag
+		}
+	}
+
+	add_trait = {
+		token = CAN_mio_trait_technical_superiority
+		name = CAN_mio_trait_technical_superiority
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=9 y=0 }  
+
+		available = 
+		{
+			CAN = 
+			{
+				has_country_flag = air_stats_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		equipment_bonus = {
+			reliability = 0.05
+			air_range = 0.05
+			air_defence = 0.1
+		}
+	}
+
+	add_trait = {
+		token = CAN_mio_trait_cheap_parts
+		name = CAN_mio_trait_cheap_parts
+		icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+		special_trait_background = yes
+		
+		position = { x=9 y=1 }  
+
+		available = 
+		{
+			CAN = 
+			{
+				has_country_flag = air_cost_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = CAN_mio_trait_naval_targeting
+		name = CAN_mio_trait_naval_targeting
+		icon = GFX_generic_mio_trait_icon_detection
+		special_trait_background = yes
+		
+		position = { x=9 y=2 }  
+
+		available = 
+		{
+			CAN = 
+			{
+				has_country_flag = air_radar_flag
+			}
+		}
+		
+		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_small_plane  mio_cat_eq_all_medium_plane }
+		
+		equipment_bonus = {
+			surface_detection = 0.1
+			sub_detection = 0.1
+			naval_strike_attack = 0.1
+			naval_strike_targetting = 0.1
+		}
+	}
+}
+
+CAN_hawker_organization = {
+	include = generic_cas_aircraft_organization
+	icon = GFX_idea_hawker
+
+	allowed = {	
+		tag = CAN
+	}
+
+	available = {
+		CAN = {
+			has_country_flag = gsp_ac_flag
+		}
+	}
+}
+
+BRA_supermarine_organization = 
+{
+	include = generic_high_agility_fighter_aircraft_organization
+	icon = GFX_idea_supermarine
+
+	allowed = {	
+		tag = BRA
+	}
+
+	available = {
+		BRA = {
+			has_country_flag = air_mio1_chosen_flag
+		}
+	}
+
+	add_trait = {
+		token = BRA_mio_trait_technical_superiority
+		name = BRA_mio_trait_technical_superiority
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=9 y=0 }  
+
+		available = 
+		{
+			BRA = 
+			{
+				has_country_flag = air_stats_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		equipment_bonus = {
+			reliability = 0.05
+			air_range = 0.05
+			air_defence = 0.1
+		}
+	}
+
+	add_trait = {
+		token = BRA_mio_trait_cheap_parts
+		name = BRA_mio_trait_cheap_parts
+		icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+		special_trait_background = yes
+		
+		position = { x=9 y=1 }  
+
+		available = 
+		{
+			BRA = 
+			{
+				has_country_flag = air_cost_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = BRA_mio_trait_naval_targeting
+		name = BRA_mio_trait_naval_targeting
+		icon = GFX_generic_mio_trait_icon_detection
+		special_trait_background = yes
+		
+		position = { x=9 y=2 }  
+
+		available = 
+		{
+			BRA = 
+			{
+				has_country_flag = air_radar_flag
+			}
+		}
+		
+		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_small_plane  mio_cat_eq_all_medium_plane }
+		
+		equipment_bonus = {
+			surface_detection = 0.1
+			sub_detection = 0.1
+			naval_strike_attack = 0.1
+			naval_strike_targetting = 0.1
+		}
+	}
+}
+
+BRA_hawker_organization = {
+	include = generic_cas_aircraft_organization
+	icon = GFX_idea_hawker
+
+	allowed = {	
+		tag = BRA
+	}
+
+	available = {
+		BRA = {
+			has_country_flag = gsp_ac_flag
+		}
+	}
+}
+
+SAF_supermarine_organization = 
+{
+	include = generic_high_agility_fighter_aircraft_organization
+	icon = GFX_idea_supermarine
+
+	allowed = {	
+		tag = SAF
+	}
+
+	available = {
+		SAF = {
+			has_country_flag = air_mio1_chosen_flag
+		}
+	}
+
+	add_trait = {
+		token = SAF_mio_trait_technical_superiority
+		name = SAF_mio_trait_technical_superiority
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=9 y=0 }  
+
+		available = 
+		{
+			SAF = 
+			{
+				has_country_flag = air_stats_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		equipment_bonus = {
+			reliability = 0.05
+			air_range = 0.05
+			air_defence = 0.1
+		}
+	}
+
+	add_trait = {
+		token = SAF_mio_trait_cheap_parts
+		name = SAF_mio_trait_cheap_parts
+		icon = GFX_generic_mio_department_icon_plane_fighter_line_efficiency
+		special_trait_background = yes
+		
+		position = { x=9 y=1 }  
+
+		available = 
+		{
+			SAF = 
+			{
+				has_country_flag = air_cost_flag
+			}
+		}
+		
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+		
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	add_trait = {
+		token = SAF_mio_trait_naval_targeting
+		name = SAF_mio_trait_naval_targeting
+		icon = GFX_generic_mio_trait_icon_detection
+		special_trait_background = yes
+		
+		position = { x=9 y=2 }  
+
+		available = 
+		{
+			SAF = 
+			{
+				has_country_flag = air_radar_flag
+			}
+		}
+		
+		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_small_plane  mio_cat_eq_all_medium_plane }
+		
+		equipment_bonus = {
+			surface_detection = 0.1
+			sub_detection = 0.1
+			naval_strike_attack = 0.1
+			naval_strike_targetting = 0.1
+		}
+	}
+}
+
+SAF_hawker_organization = {
+	include = generic_cas_aircraft_organization
+	icon = GFX_idea_hawker
+
+	allowed = {	
+		tag = SAF
+	}
+
+	available = {
+		SAF = {
+			has_country_flag = gsp_ac_flag
+		}
+	}
+}

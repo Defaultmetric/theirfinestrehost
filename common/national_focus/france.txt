@@ -2104,18 +2104,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = 
-			{
-				limit = 
-				{
-					FRA = 
-					{
-						NOT = 
-						{
-							has_completed_focus = allies_first_line_of_defense
-						}
-					}
-				}
+		
 				custom_effect_tooltip = FRA_french_army_tt
 				add_to_variable = {
 					FRA_arty_att = 0.05
@@ -2125,8 +2114,7 @@ focus_tree = {
 					FRA_arty_def = 0.05
 					tooltip = army_artillery_defence_factor_tt
 				}
-			}	
-		}
+		}	
 	}
 
 	focus = {
@@ -2288,16 +2276,7 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-		if = 
-			{
-				limit = 
-				{
-					FRA = {
-						NOT = {
-							has_completed_focus = allies_infantry_specialization
-						}
-					}
-				}
+		
 				custom_effect_tooltip = FRA_french_army_tt
 				add_to_variable = {
 					FRA_inf_att = 0.05
@@ -2307,7 +2286,6 @@ focus_tree = {
 					FRA_army_def = 0.05
 					tooltip = army_infantry_defence_factor_tt
 				}
-			}
 		}
 	}
 

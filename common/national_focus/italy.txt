@@ -85,6 +85,10 @@ focus_tree = {
 		available = {
 		}
 
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
+		}
+
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
@@ -158,6 +162,10 @@ focus_tree = {
 				controls_state = 162
 				controls_state = 158
 			}
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -3906,6 +3914,10 @@ focus_tree = {
 		available = {
 		}
 
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
+		}
+
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
@@ -4948,6 +4960,10 @@ focus_tree = {
 		available = {
 		}
 
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
+		}
+
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
@@ -5651,6 +5667,10 @@ focus_tree = {
 		relative_position_id = ITA_air_innovations_bba
 		cost = 5
 		available = {
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
@@ -8237,6 +8257,10 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
+		}
+
 		search_filters = {}
 
 		completion_reward = {
@@ -8269,6 +8293,10 @@ focus_tree = {
 				}
 				date > 1936.5.1
 			}
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		available = {
@@ -8304,6 +8332,10 @@ focus_tree = {
 				tooltip = ITA_the_abyssinian_fiasco_completion_tt
 				always = no
 			}
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		search_filters = {}
@@ -8902,17 +8934,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ITA_convene_the_grand_council focus = ITA_defy_the_duce }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
-				NOT = { has_completed_focus = ITA_convene_the_grand_council }
-			}
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		x = 0
@@ -9369,20 +9391,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			OR = {
-				has_dlc = "La Resistance"
-				has_dlc = "Waking the Tiger"
-			}
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
-			}
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		available = {
@@ -14664,6 +14673,10 @@ focus_tree = {
 				}
 				NOT = { has_completed_focus = ITA_defy_the_duce }
 			}
+		}
+
+		allow_branch = {
+			NOT = { has_country_flag = shared_tree_clicked }
 		}
 
 		x = 14

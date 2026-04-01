@@ -53,6 +53,10 @@ focus_tree = {
 			set_country_flag = { flag = FRA_popular_front_cooldown value = 1 days = 360 } #fires strike event if labour laws not reformed in time
 
 		}
+
+		allow_branch = {
+			NOT = {has_country_flag = shared_tree_clicked}
+		}
 	}
 
 	focus = {
@@ -728,23 +732,20 @@ focus_tree = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		custom_effect_tooltip = FRA_air_tt
 		add_to_variable = {
-				FRA_airforce_air_mission_efficiency = 0.1
+				FRA_airforce_air_mission_efficiency = 0.05
 				tooltip = air_mission_efficiency_tt
 		}
 		add_to_variable = {
-				FRA_airforce_ground_attack_factor = 0.05
+				FRA_airforce_ground_attack_factor = 0.1
 				tooltip = air_cas_present_factor_tt
 		}
 		add_to_variable = {
 				FRA_airforce_air_fuel_consumption_factor = -0.2
 				tooltip = air_fuel_consumption_factor_tt
 		}
+
 		add_to_variable = {
-				FRA_airforce_air_agility = 0.1
-				tooltip = air_agility_factor_tt
-		}
-		add_to_variable = {
-				FRA_airforce_air_range = 0.15
+				FRA_airforce_air_range = 0.1
 				tooltip = air_range_factor_tt
 		}
 }
@@ -6461,18 +6462,7 @@ focus_tree = {
 		relative_position_id = FRA_form_the_popular_front
 		cost = 10
 		allow_branch = {
-			NOT = { has_dlc = "La Resistance" }
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = FRA_revive_the_national_bloc
-				}
-			}
+			always = no
 		}
 		available_if_capitulated = yes
 

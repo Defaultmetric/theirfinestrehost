@@ -56,18 +56,8 @@ focus_tree = {
 		available = {
 		}
 		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
+				NOT = {has_country_flag = shared_tree_clicked}
 			}
-
-		}
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
@@ -1083,6 +1073,10 @@ focus_tree = {
 		ai_will_do = {
 			factor = 15
 		}
+
+		allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 
 		available = {
@@ -5218,17 +5212,7 @@ focus_tree = {
 	focus = {
 		id = BRA_invite_foreign_companies
 		icon = GFX_focus_generic_american_investments
-		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-			}
-		}
+		
 		x = 4
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas

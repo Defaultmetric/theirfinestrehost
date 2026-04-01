@@ -189,6 +189,10 @@ shared_focus = {
 
 	cost = 4
 
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
+
 	available = {
 
 	}
@@ -454,11 +458,9 @@ shared_focus = {
 	#	}
 	#}
 
-	allow_branch = { 
-		NOT = {
-			original_tag = CHL
-		}
-	}
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	available = {
 		#OR = {
@@ -592,8 +594,8 @@ shared_focus = {
 	}
 
 	allow_branch = {
-		has_dlc = "La Resistance"
-	}
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	bypass = {
 		
@@ -1814,15 +1816,8 @@ shared_focus = {
 	cost = 5
 
 	allow_branch = {
-		NOT = {
-			OR = {
-				original_tag = CHL
-				original_tag = URG
-				original_tag = PAR
-				original_tag = BOL
+				NOT = {has_country_flag = shared_tree_clicked}
 			}
-		}
-	}
 
 	offset = {
 		x = -1
@@ -1889,6 +1884,10 @@ shared_focus = {
 	available = {
 
 	}
+
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	bypass = {
 		 
@@ -2392,6 +2391,10 @@ shared_focus = {
 		}
 		value = GFX_goal_generic_build_airforce
 	}
+
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	cost = 4
 
@@ -3787,6 +3790,10 @@ shared_focus = {
 		value = GFX_goal_generic_build_navy
 	}
 
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
+
 	cost = 4
 
 	ai_will_do = {
@@ -4280,9 +4287,9 @@ shared_focus = {
 		}
 	}
 
-	allow_branch = { 
-		has_dlc = "Man the Guns"
-	}
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	completion_reward = {
 		add_tech_bonus = {
@@ -4597,9 +4604,9 @@ shared_focus = {
 shared_focus = {
 	id = SMB_carrier_conversion
 	icon = GFX_focus_BRA_converted_carriers
-	allow_branch = { 
-		original_tag = BRA
-	}
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 	prerequisite = {focus = SMB_expand_repair_yards  }
 	relative_position_id = SMB_expand_repair_yards
 	x = 0
@@ -4886,9 +4893,9 @@ shared_focus = {
 
 	cost = 5
 
-	allow_branch = { 
-		original_tag = BRA
-	}
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	available = {
 		495 = {
@@ -4942,7 +4949,9 @@ shared_focus = {
 
 	cost = 4
 
-	allow_branch = { tag = BRA }
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	available = {
 		
@@ -4983,7 +4992,9 @@ shared_focus = {
 
 	cost = 4
 
-	allow_branch = { tag = BRA }
+	allow_branch = {
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 
 	available = {
 		

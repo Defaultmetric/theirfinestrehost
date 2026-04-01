@@ -6,77 +6,11 @@ shared_focus = {
 	icon = GFX_focus_ARG_join_the_allies
 	
 
-	x = 50
+	x = 30
 	y = 0
-	#Uk
-	offset = {
-		x = 34
-		y = 0
-		trigger = {
-			has_focus_tree = british_focus
-		}
-	}
-
-	#france
-	offset = {
-		x = 39 
-		y = 0
-		trigger = {
-			has_focus_tree = french_focus
-		}
-	}
-
-	offset = {
-		x = 20 
-		y = 0
-		trigger = {
-			has_focus_tree = free_french_focus
-		}
-	}
-
-	#SAF
-	offset = {
-		x = 26 
-		y = 0
-		trigger = {
-			has_focus_tree = south_african_focus
-		}
-	}
-
-	#Brazil
-	offset = {
-		x = 4 
-		y = 10
-		trigger = {
-			has_focus_tree = brazil_tree
-		}
-	}
-
-	#Canada
-	offset = {
-		x = 30 
-		y = 0
-		trigger = {
-			has_focus_tree = canadian_focus
-		}
-	}
-
-	#RAJ
-	offset = {
-		x = -13
-		y = 5
-		trigger = {
-			has_focus_tree = indian_focus_goe
-		}
-	}
-
-	#Australia
-	offset = {
-		x = 31
-		y = 0
-		trigger = {
-			has_focus_tree = australian_focus
-		}
+	
+	allow_branch = {
+		has_country_flag = shared_tree_clicked
 	}
 
 	cost = 0
@@ -2802,6 +2736,1603 @@ joint_focus = {
 	}
 
 }
+
+#### MASSMOB - ENGLAND ####
+
+joint_focus = {
+	id = allies_england_massmob_mobilization
+	icon = GFX_focus_AUS_frontmiliz_focus
+	prerequisite = { focus = allies_english_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_pop1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_mobilization_speed = 0.2
+						tooltip = mobilization_speed_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_pop1
+	icon = GFX_focus_generic_limited_social_mobilization
+	prerequisite = { focus = allies_english_specialization }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_mobilization}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.005
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_noncore
+	icon = GFX_focus_generic_manpower
+	prerequisite = { focus = allies_england_massmob_mobilization focus = allies_england_massmob_pop1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_reinforce}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_noncore = 0.2
+						tooltip = non_core_manpower_tt
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_reinforce
+	icon = GFX_focus_generic_radio_communication
+	prerequisite = { focus = allies_england_massmob_mobilization focus = allies_england_massmob_pop1}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_england_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_noncore}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						land_reinforce_rate = 0.02
+						tooltip = shared_reinforce_rate
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_training
+	icon = GFX_focus_PER_desert_training
+	prerequisite = { focus = allies_england_massmob_noncore focus = allies_england_massmob_reinforce}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_massmob_noncore
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{	
+					add_to_variable = { 
+						allies_training = -0.2
+						tooltip = training_time_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_pocket_penalty = -0.1
+						tooltip = pocket_penalty_tt 
+					}
+				}
+		}
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_recrate
+	icon = GFX_focus_ITA_corpo_volontari_della_liberta
+	prerequisite = { focus = allies_england_massmob_training}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_england_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_entrench}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.05
+						tooltip = army_morale_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_entrench
+	icon = GFX_focus_generic_land_reclamation
+	prerequisite = { focus = allies_england_massmob_training}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_supply
+	icon = GFX_focus_generic_supply_line
+	prerequisite = { focus = allies_england_massmob_entrench focus = allies_england_massmob_recrate}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_pop2}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_supply_efficiency_factor = -0.05
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_attrition = -0.05
+						tooltip = attrition_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_out_of_supply_factor = -0.1
+						tooltip = out_of_supply_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_massmob_pop2
+	icon = GFX_focus_generic_full_social_mobilization
+	prerequisite = { focus = allies_england_massmob_entrench focus = allies_england_massmob_recrate}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_england_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_massmob_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.03
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+#### SPECIAL FORCES - ENGLAND ####
+
+joint_focus = {
+	id = allies_england_spforces_attack
+	icon = GFX_focus_SWE_neither_death_nor_dishonor
+	prerequisite = { focus = allies_english_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_army_div_attack = 0.05
+						tooltip = army_infantry_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_defense
+	icon = GFX_focus_AFG_royal_guard
+	prerequisite = { focus = allies_english_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_army_div_defense = 0.05
+						tooltip = army_infantry_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_airsup
+	icon = GFX_focus_GER_combined_arms_historical
+	prerequisite = { focus = allies_england_spforces_attack focus = allies_england_spforces_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_anticas}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_air_sup_bonus = 0.1
+						tooltip = air_superiority_bonus_in_combat_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_anticas
+	icon = GFX_focus_FIN_coastal_defense
+	prerequisite = { focus = allies_england_spforces_attack focus = allies_england_spforces_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_england_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_airsup}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_cas_reduction = 0.1
+						tooltip = cas_damage_reduction_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_cap
+	icon = GFX_focus_ETH_peacekeeping_forces
+	prerequisite = { focus = allies_england_spforces_airsup focus = allies_england_spforces_anticas}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_spforces_airsup
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_sp_cap = 0.1
+						tooltip = special_forces_cap_tt 
+					}
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_arty_attack
+	icon = GFX_focus_SWE_let_fly_all_guns
+	prerequisite = { focus = allies_england_spforces_cap}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_england_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_arty_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_arty_attack = 0.05
+						tooltip = army_artillery_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_arty_defense
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_england_spforces_cap}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_arty_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_arty_defense = 0.05
+						tooltip = army_artillery_defence_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_recrate
+	icon = GFX_focus_NORDIC_mon_selector_army
+	prerequisite = { focus = allies_england_spforces_arty_attack focus = allies_england_spforces_arty_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.1
+						tooltip = army_morale_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_reinforce_rate = 0.05
+						tooltip = land_reinforce_rate_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.1
+						tooltip = max_planning_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_efficiency_factor = 0.25
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_coordination = 0.05
+						tooltip = coordination_bonus_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_spforces_supply
+	icon = GFX_focus_FIN_motti_tactics
+	prerequisite = { focus = allies_england_spforces_arty_attack focus = allies_england_spforces_arty_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_england_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_spforces_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.1
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_range = 0.1
+						tooltip = supply_node_range_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### TANKS - ENGLAND ####
+
+joint_focus = {
+	id = allies_england_tank_cost
+	icon = GFX_focus_generic_tank_assembly
+	prerequisite = { focus = allies_english_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_tank_stats1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_ideas = efficient_design
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_cost2
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = allies_england_tank_cost}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_tank_cost
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_growth_gain = 0.05
+						tooltip = production_factory_efficiency_gain_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_retention = 0.05
+						tooltip = line_change_production_efficiency_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_stats1
+	icon = GFX_focus_generic_tank_assault
+	prerequisite = { focus = allies_english_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_tank_cost}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_armor_att = 0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+					set_country_flag = stats1_chosen_flag
+					mark_focus_tree_layout_dirty = yes
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_stats2
+	icon = GFX_focus_BEL_flooded_tank_barriers
+	prerequisite = { focus = allies_england_tank_stats1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_tank_stats1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.05
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_speed = 0.05
+						tooltip = army_armor_speed_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_mio
+	icon = GFX_focus_SOV_organize_wreckers
+	prerequisite = { focus = allies_england_tank_cost2 focus = allies_england_tank_stats2}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_tank_cost2
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					mio:ENG_vauxhall_organization = {
+						add_mio_size = 2
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_mech_att
+	icon = GFX_focus_generic_mechanized
+	prerequisite = { focus = allies_england_tank_mio}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_england_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_tank_mech_def}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_mech_att = 0.05
+						tooltip = mechanized_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_att = 0.05
+						tooltip = motorized_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_mech_def
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_england_tank_mio}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_tank_mech_att}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_mech_defense = 0.05
+						tooltip = mechanized_defence_factor_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_defense = 0.05
+						tooltip = motorized_defence_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_research
+	icon = GFX_focus_generic_university_3
+	prerequisite = { focus = allies_england_tank_mech_att focus = allies_england_tank_mech_def}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_tank_mech_att
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_tech_bonus = {
+						name = shared_tank_bonus
+						bonus = 1
+						uses = 1
+						ahead_reduction = 1
+						category = armor
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_tank_def
+	icon = GFX_focus_SWE_defense_act
+	prerequisite = { focus = allies_england_tank_mech_def}
+
+	x = 0
+	y = 2
+	relative_position_id = allies_england_tank_mech_def
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = tank_specialization_flag
+				has_country_flag = stats1_chosen_flag}
+		
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_armor_att = -0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_def = 0.05
+						tooltip = army_armor_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### ENGLAND - NAVY ####
+
+joint_focus = {
+	id = allies_england_navy_docks
+	icon = GFX_goal_generic_construct_naval_dockyard
+	prerequisite = { focus = allies_english_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_output}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+						every_core_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								is_coastal = yes
+							}
+							random_select_amount = 2
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+								type = dockyard
+								level = 2
+								instant_build = yes
+							}
+						}
+							
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_output
+	icon = GFX_goal_continuous_naval_production
+	prerequisite = { focus = allies_english_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_english_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_docks}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_dockyard_output = 0.1
+						tooltip = industrial_capacity_dockyard_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_dock_conc = 0.1
+						tooltip = production_speed_dockyard_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_sub
+	icon = GFX_goal_generic_navy_anti_submarine
+	prerequisite = { focus = allies_england_navy_docks focus = allies_england_navy_output}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_england_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_dd}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_tech_bonus = {
+	    				name = undersea_combat
+	    				bonus = 2
+	    				uses = 1
+	    				category = ss_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_dd
+	icon = GFX_focus_generic_destroyer
+	prerequisite = { focus = allies_england_navy_docks focus = allies_england_navy_output}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_england_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_sub}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_tech_bonus = {
+	        			name = dd_bonus
+	        			bonus = 2
+	       			 	uses = 1
+	        			category = dd_tech
+	    				category = asw_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_repair
+	icon = GFX_focus_NORDIC_dem_capstone_navy
+	prerequisite = { focus = allies_england_navy_sub focus = allies_england_navy_dd}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_navy_sub
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						navy_repair_speed = 0.2
+						tooltip = repair_speed_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_capitals
+	icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
+	prerequisite = { focus = allies_england_navy_repair}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_england_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_lights}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_ideas = capital_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_lights
+	icon = GFX_goal_generic_navy_submarine
+	prerequisite = { focus = allies_england_navy_repair}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_england_navy_capitals}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_ideas = light_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_england_navy_marines
+	icon = GFX_focus_generic_naval_discipline
+	prerequisite = { focus = allies_england_navy_capitals focus = allies_england_navy_lights}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_england_navy_capitals
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		ENG = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				ENG = 
+				{
+					add_to_variable = { 
+						allies_marine_attack = 0.05
+						tooltip = modifier_army_sub_unit_marine_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_sp_cap = 0.05
+						tooltip = special_forces_cap_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+
 
 joint_focus = {
 	id = allies_brazil_specialization
@@ -6757,6 +8288,1926 @@ joint_focus = {
 	}
 }
 
+#### MASSMOB - SOUTH AFRICA ####
+
+joint_focus = {
+	id = allies_south_africa_massmob_mobilization
+	icon = GFX_focus_AUS_frontmiliz_focus
+	prerequisite = { focus = allies_south_african_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_pop1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_mobilization_speed = 0.2
+						tooltip = mobilization_speed_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_pop1
+	icon = GFX_focus_generic_limited_social_mobilization
+	prerequisite = { focus = allies_south_african_specialization }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_mobilization}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.005
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_noncore
+	icon = GFX_focus_generic_manpower
+	prerequisite = { focus = allies_south_africa_massmob_mobilization focus = allies_south_africa_massmob_pop1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_reinforce}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_noncore = 0.2
+						tooltip = non_core_manpower_tt
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_reinforce
+	icon = GFX_focus_generic_radio_communication
+	prerequisite = { focus = allies_south_africa_massmob_mobilization focus = allies_south_africa_massmob_pop1}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_south_africa_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_noncore}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						land_reinforce_rate = 0.02
+						tooltip = shared_reinforce_rate
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_training
+	icon = GFX_focus_PER_desert_training
+	prerequisite = { focus = allies_south_africa_massmob_noncore focus = allies_south_africa_massmob_reinforce}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_massmob_noncore
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{	
+					add_to_variable = { 
+						allies_training = -0.2
+						tooltip = training_time_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_pocket_penalty = -0.1
+						tooltip = pocket_penalty_tt 
+					}
+				}
+		}
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_recrate
+	icon = GFX_focus_ITA_corpo_volontari_della_liberta
+	prerequisite = { focus = allies_south_africa_massmob_training}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_entrench}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.05
+						tooltip = army_morale_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_entrench
+	icon = GFX_focus_generic_land_reclamation
+	prerequisite = { focus = allies_south_africa_massmob_training}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_supply
+	icon = GFX_focus_generic_supply_line
+	prerequisite = { focus = allies_south_africa_massmob_entrench focus = allies_south_africa_massmob_recrate}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_pop2}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_supply_efficiency_factor = -0.05
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_attrition = -0.05
+						tooltip = attrition_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_out_of_supply_factor = -0.1
+						tooltip = out_of_supply_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_massmob_pop2
+	icon = GFX_focus_generic_full_social_mobilization
+	prerequisite = { focus = allies_south_africa_massmob_entrench focus = allies_south_africa_massmob_recrate}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_south_africa_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_massmob_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.03
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+#### SPECIAL FORCES - SOUTH AFRICA ####
+
+joint_focus = {
+	id = allies_south_africa_spforces_attack
+	icon = GFX_focus_SWE_neither_death_nor_dishonor
+	prerequisite = { focus = allies_south_african_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_army_div_attack = 0.05
+						tooltip = army_infantry_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_defense
+	icon = GFX_focus_AFG_royal_guard
+	prerequisite = { focus = allies_south_african_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_army_div_defense = 0.05
+						tooltip = army_infantry_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_airsup
+	icon = GFX_focus_GER_combined_arms_historical
+	prerequisite = { focus = allies_south_africa_spforces_attack focus = allies_south_africa_spforces_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_anticas}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_air_sup_bonus = 0.1
+						tooltip = air_superiority_bonus_in_combat_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_anticas
+	icon = GFX_focus_FIN_coastal_defense
+	prerequisite = { focus = allies_south_africa_spforces_attack focus = allies_south_africa_spforces_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_south_africa_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_airsup}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_cas_reduction = 0.1
+						tooltip = cas_damage_reduction_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_cap
+	icon = GFX_focus_ETH_peacekeeping_forces
+	prerequisite = { focus = allies_south_africa_spforces_airsup focus = allies_south_africa_spforces_anticas}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_spforces_airsup
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_sp_cap = 0.1
+						tooltip = special_forces_cap_tt 
+					}
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_arty_attack
+	icon = GFX_focus_SWE_let_fly_all_guns
+	prerequisite = { focus = allies_south_africa_spforces_cap}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_arty_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_arty_attack = 0.05
+						tooltip = army_artillery_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_arty_defense
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_south_africa_spforces_cap}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_arty_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_arty_defense = 0.05
+						tooltip = army_artillery_defence_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_recrate
+	icon = GFX_focus_NORDIC_mon_selector_army
+	prerequisite = { focus = allies_south_africa_spforces_arty_attack focus = allies_south_africa_spforces_arty_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.1
+						tooltip = army_morale_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_reinforce_rate = 0.05
+						tooltip = land_reinforce_rate_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.1
+						tooltip = max_planning_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_efficiency_factor = 0.25
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_coordination = 0.05
+						tooltip = coordination_bonus_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_spforces_supply
+	icon = GFX_focus_FIN_motti_tactics
+	prerequisite = { focus = allies_south_africa_spforces_arty_attack focus = allies_south_africa_spforces_arty_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_south_africa_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_spforces_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.1
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_range = 0.1
+						tooltip = supply_node_range_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### TANKS - SOUTH AFRICA ####
+
+joint_focus = {
+	id = allies_south_africa_tank_cost
+	icon = GFX_focus_generic_tank_assembly
+	prerequisite = { focus = allies_south_african_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_tank_stats1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_ideas = efficient_design
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_cost2
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = allies_south_africa_tank_cost}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_tank_cost
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_growth_gain = 0.05
+						tooltip = production_factory_efficiency_gain_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_retention = 0.05
+						tooltip = line_change_production_efficiency_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_stats1
+	icon = GFX_focus_generic_tank_assault
+	prerequisite = { focus = allies_south_african_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_tank_cost}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_armor_att = 0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+					set_country_flag = stats1_chosen_flag
+					mark_focus_tree_layout_dirty = yes
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_stats2
+	icon = GFX_focus_BEL_flooded_tank_barriers
+	prerequisite = { focus = allies_south_africa_tank_stats1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_tank_stats1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.05
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_speed = 0.05
+						tooltip = army_armor_speed_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_mio
+	icon = GFX_focus_SOV_organize_wreckers
+	prerequisite = { focus = allies_south_africa_tank_cost2 focus = allies_south_africa_tank_stats2}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_tank_cost2
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					mio:ENG_vauxhall_organization = {
+						add_mio_size = 2
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_mech_att
+	icon = GFX_focus_generic_mechanized
+	prerequisite = { focus = allies_south_africa_tank_mio}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_tank_mech_def}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_mech_att = 0.05
+						tooltip = mechanized_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_att = 0.05
+						tooltip = motorized_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_mech_def
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_south_africa_tank_mio}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_tank_mech_att}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_mech_defense = 0.05
+						tooltip = mechanized_defence_factor_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_defense = 0.05
+						tooltip = motorized_defence_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_research
+	icon = GFX_focus_generic_university_3
+	prerequisite = { focus = allies_south_africa_tank_mech_att focus = allies_south_africa_tank_mech_def}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_tank_mech_att
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_tech_bonus = {
+						name = shared_tank_bonus
+						bonus = 1
+						uses = 1
+						ahead_reduction = 1
+						category = armor
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_tank_def
+	icon = GFX_focus_SWE_defense_act
+	prerequisite = { focus = allies_south_africa_tank_mech_def}
+
+	x = 0
+	y = 2
+	relative_position_id = allies_south_africa_tank_mech_def
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = tank_specialization_flag
+				has_country_flag = stats1_chosen_flag}
+		
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_armor_att = -0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_def = 0.05
+						tooltip = army_armor_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### SOUTH AFRICA - NAVY ####
+
+joint_focus = {
+	id = allies_south_africa_navy_docks
+	icon = GFX_goal_generic_construct_naval_dockyard
+	prerequisite = { focus = allies_south_african_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_output}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+						every_core_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								is_coastal = yes
+							}
+							random_select_amount = 2
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+								type = dockyard
+								level = 2
+								instant_build = yes
+							}
+						}
+							
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_output
+	icon = GFX_goal_continuous_naval_production
+	prerequisite = { focus = allies_south_african_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_docks}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_dockyard_output = 0.1
+						tooltip = industrial_capacity_dockyard_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_dock_conc = 0.1
+						tooltip = production_speed_dockyard_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_sub
+	icon = GFX_goal_generic_navy_anti_submarine
+	prerequisite = { focus = allies_south_africa_navy_docks focus = allies_south_africa_navy_output}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_africa_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_dd}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_tech_bonus = {
+	    				name = undersea_combat
+	    				bonus = 2
+	    				uses = 1
+	    				category = ss_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_dd
+	icon = GFX_focus_generic_destroyer
+	prerequisite = { focus = allies_south_africa_navy_docks focus = allies_south_africa_navy_output}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_south_africa_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_sub}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_tech_bonus = {
+	        			name = dd_bonus
+	        			bonus = 2
+	       			 	uses = 1
+	        			category = dd_tech
+	    				category = asw_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_repair
+	icon = GFX_focus_NORDIC_dem_capstone_navy
+	prerequisite = { focus = allies_south_africa_navy_sub focus = allies_south_africa_navy_dd}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_navy_sub
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						navy_repair_speed = 0.2
+						tooltip = repair_speed_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_capitals
+	icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
+	prerequisite = { focus = allies_south_africa_navy_repair}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_lights}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_ideas = capital_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_lights
+	icon = GFX_goal_generic_navy_submarine
+	prerequisite = { focus = allies_south_africa_navy_repair}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_navy_capitals}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_ideas = light_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_navy_marines
+	icon = GFX_focus_generic_naval_discipline
+	prerequisite = { focus = allies_south_africa_navy_capitals focus = allies_south_africa_navy_lights}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_navy_capitals
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+					add_to_variable = { 
+						allies_marine_attack = 0.05
+						tooltip = modifier_army_sub_unit_marine_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_sp_cap = 0.05
+						tooltip = special_forces_cap_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+#### SOUTH AFRICA - AIR ####
+
+joint_focus = {
+	id = allies_south_africa_air_mio1
+	icon = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+	prerequisite = { focus = allies_south_african_specialization }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_south_african_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{
+						custom_effect_tooltip = available_mio_tt
+						show_mio_tooltip = SAF_supermarine_organization
+						set_country_flag = air_mio1_chosen_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_air_cost
+	icon = GFX_goal_continuous_air_production
+	prerequisite = { focus = allies_south_africa_air_mio1 }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_air_mio1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_air_stats}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{		mio:SAF_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = SAF_mio_trait_cheap_parts
+						}
+						set_country_flag = air_cost_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_air_stats
+	icon = GFX_focus_PER_raf_planes
+	prerequisite = { focus = allies_south_africa_air_mio1 }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_air_mio1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_air_cost}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{		mio:SAF_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = SAF_mio_trait_technical_superiority
+						}
+						set_country_flag = air_stats_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_air_lvl
+	icon = GFX_focus_generic_air_research_boost
+	prerequisite = { focus = allies_south_africa_air_stats focus = allies_south_africa_air_cost }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_air_cost
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{		mio:SAF_supermarine_organization = 
+						{	
+							add_mio_size = 2
+						}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_air_radar
+	icon = GFX_goal_generic_radar
+	prerequisite = { focus = allies_south_africa_air_lvl }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_south_africa_air_lvl
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_air_jets}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{	
+					set_country_flag = air_radar_flag
+					add_tech_bonus = {
+						name = radar_bonus
+						bonus = 1.0
+						uses = 1
+						category = radar_tech
+						ahead_reduction = 1
+	    			}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					mio:SAF_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = SAF_mio_trait_naval_targeting
+						}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_tech_bonus = {
+						name = allies_torp_bonus
+						bonus = 1
+						uses = 1
+						category = cat_air_bombs
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_south_africa_air_jets
+	icon = GFX_focus_generic_jet_planes
+	prerequisite = { focus = allies_south_africa_air_lvl }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_air_lvl
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_south_africa_air_radar}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{		add_tech_bonus = {
+							name = aircraft_bonus
+							bonus = 1
+							uses = 1
+							category = air_equipment
+						}
+
+						custom_effect_tooltip = generic_skip_one_line_tt
+
+						add_breakthrough_progress = {
+							specialization = specialization_air
+							value = 1
+						}
+
+						custom_effect_tooltip = generic_skip_one_line_tt
+
+						add_to_variable = { 
+							allies_jet_speed = 0.1
+							tooltip = sp_tag_jet_speed_factor_tt 
+						}
+				}
+		    }
+	}
+}
+
+
+joint_focus = {
+	id = allies_south_africa_air_gsp
+	icon = GFX_focus_SWE_marauder_bombers
+	prerequisite = { focus = allies_south_africa_air_radar focus = allies_south_africa_air_jets }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_south_africa_air_radar
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		SAF = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				SAF = 
+				{	
+					custom_effect_tooltip = available_mio_tt
+					show_mio_tooltip = SAF_hawker_organization
+					set_country_flag = gsp_ac_flag
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_cas = 0.1
+						tooltip = air_cas_efficiency_tt 
+					}
+				}
+		    }
+	}
+}
+
 
 joint_focus = {
 	id = allies_french_specialization
@@ -6791,6 +10242,1926 @@ joint_focus = {
 	bypass_effect = 
 	{
 		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+#### MASSMOB - FRAADA ####
+
+joint_focus = {
+	id = allies_france_massmob_mobilization
+	icon = GFX_focus_AUS_frontmiliz_focus
+	prerequisite = { focus = allies_french_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_pop1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_mobilization_speed = 0.2
+						tooltip = mobilization_speed_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_pop1
+	icon = GFX_focus_generic_limited_social_mobilization
+	prerequisite = { focus = allies_french_specialization }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_mobilization}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.005
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_noncore
+	icon = GFX_focus_generic_manpower
+	prerequisite = { focus = allies_france_massmob_mobilization focus = allies_france_massmob_pop1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_reinforce}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_noncore = 0.2
+						tooltip = non_core_manpower_tt
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_reinforce
+	icon = GFX_focus_generic_radio_communication
+	prerequisite = { focus = allies_france_massmob_mobilization focus = allies_france_massmob_pop1}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_france_massmob_mobilization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_noncore}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						land_reinforce_rate = 0.02
+						tooltip = shared_reinforce_rate
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_training
+	icon = GFX_focus_PER_desert_training
+	prerequisite = { focus = allies_france_massmob_noncore focus = allies_france_massmob_reinforce}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_massmob_noncore
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{	
+					add_to_variable = { 
+						allies_training = -0.2
+						tooltip = training_time_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_pocket_penalty = -0.1
+						tooltip = pocket_penalty_tt 
+					}
+				}
+		}
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_recrate
+	icon = GFX_focus_ITA_corpo_volontari_della_liberta
+	prerequisite = { focus = allies_france_massmob_training}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_entrench}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.05
+						tooltip = army_morale_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_entrench
+	icon = GFX_focus_generic_land_reclamation
+	prerequisite = { focus = allies_france_massmob_training}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_massmob_training
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_supply
+	icon = GFX_focus_generic_supply_line
+	prerequisite = { focus = allies_france_massmob_entrench focus = allies_france_massmob_recrate}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_pop2}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_supply_efficiency_factor = -0.05
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_attrition = -0.05
+						tooltip = attrition_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_out_of_supply_factor = -0.1
+						tooltip = out_of_supply_factor_tt 
+					}
+				}
+	    		
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_massmob_pop2
+	icon = GFX_focus_generic_full_social_mobilization
+	prerequisite = { focus = allies_france_massmob_entrench focus = allies_france_massmob_recrate}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_france_massmob_recrate
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = massmob_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_massmob_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_conscription = 0.03
+						tooltip = conscription_tt 
+					}	
+				}
+	    		
+		    }
+	}
+}
+
+#### SPECIAL FORCES - FRAADA ####
+
+joint_focus = {
+	id = allies_france_spforces_attack
+	icon = GFX_focus_SWE_neither_death_nor_dishonor
+	prerequisite = { focus = allies_french_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_army_div_attack = 0.05
+						tooltip = army_infantry_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_defense
+	icon = GFX_focus_AFG_royal_guard
+	prerequisite = { focus = allies_french_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_army_div_defense = 0.05
+						tooltip = army_infantry_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_airsup
+	icon = GFX_focus_GER_combined_arms_historical
+	prerequisite = { focus = allies_france_spforces_attack focus = allies_france_spforces_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_anticas}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_air_sup_bonus = 0.1
+						tooltip = air_superiority_bonus_in_combat_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_anticas
+	icon = GFX_focus_FIN_coastal_defense
+	prerequisite = { focus = allies_france_spforces_attack focus = allies_france_spforces_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_france_spforces_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_airsup}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_cas_reduction = 0.1
+						tooltip = cas_damage_reduction_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_cap
+	icon = GFX_focus_ETH_peacekeeping_forces
+	prerequisite = { focus = allies_france_spforces_airsup focus = allies_france_spforces_anticas}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_spforces_airsup
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_sp_cap = 0.1
+						tooltip = special_forces_cap_tt 
+					}
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_arty_attack
+	icon = GFX_focus_SWE_let_fly_all_guns
+	prerequisite = { focus = allies_france_spforces_cap}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_arty_defense}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_arty_attack = 0.05
+						tooltip = army_artillery_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_arty_defense
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_france_spforces_cap}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_spforces_cap
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_arty_attack}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_arty_defense = 0.05
+						tooltip = army_artillery_defence_factor_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_recrate
+	icon = GFX_focus_NORDIC_mon_selector_army
+	prerequisite = { focus = allies_france_spforces_arty_attack focus = allies_france_spforces_arty_defense}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_supply}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_division_recovery_rate = 0.1
+						tooltip = army_morale_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_reinforce_rate = 0.05
+						tooltip = land_reinforce_rate_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.1
+						tooltip = max_planning_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_efficiency_factor = 0.25
+						tooltip = supply_consumption_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_coordination = 0.05
+						tooltip = coordination_bonus_tt 
+					}	
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_spforces_supply
+	icon = GFX_focus_FIN_motti_tactics
+	prerequisite = { focus = allies_france_spforces_arty_attack focus = allies_france_spforces_arty_defense}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_france_spforces_arty_attack
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = spforces_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_spforces_recrate}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.1
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_supply_range = 0.1
+						tooltip = supply_node_range_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### TANKS - FRAADA ####
+
+joint_focus = {
+	id = allies_france_tank_cost
+	icon = GFX_focus_generic_tank_assembly
+	prerequisite = { focus = allies_french_specialization}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_tank_stats1}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_ideas = efficient_design
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_cost2
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = allies_france_tank_cost}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_tank_cost
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_growth_gain = 0.05
+						tooltip = production_factory_efficiency_gain_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_retention = 0.05
+						tooltip = line_change_production_efficiency_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_stats1
+	icon = GFX_focus_generic_tank_assault
+	prerequisite = { focus = allies_french_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_tank_cost}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_armor_att = 0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_breakthrough_factor = 0.05
+						tooltip = breakthrough_factor_tt 
+					}
+					set_country_flag = stats1_chosen_flag
+					mark_focus_tree_layout_dirty = yes
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_stats2
+	icon = GFX_focus_BEL_flooded_tank_barriers
+	prerequisite = { focus = allies_france_tank_stats1}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_tank_stats1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_org_loss = -0.05
+						tooltip = org_loss_when_moving_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_speed = 0.05
+						tooltip = army_armor_speed_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_mio
+	icon = GFX_focus_SOV_organize_wreckers
+	prerequisite = { focus = allies_france_tank_cost2 focus = allies_france_tank_stats2}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_tank_cost2
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					mio:ENG_vauxhall_organization = {
+						add_mio_size = 2
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_mech_att
+	icon = GFX_focus_generic_mechanized
+	prerequisite = { focus = allies_france_tank_mio}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_tank_mech_def}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_mech_att = 0.05
+						tooltip = mechanized_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_att = 0.05
+						tooltip = motorized_attack_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_mech_def
+	icon = GFX_goal_generic_defence
+	prerequisite = { focus = allies_france_tank_mio}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_tank_mio
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_tank_mech_att}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_mech_defense = 0.05
+						tooltip = mechanized_defence_factor_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_mot_defense = 0.05
+						tooltip = motorized_defence_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_research
+	icon = GFX_focus_generic_university_3
+	prerequisite = { focus = allies_france_tank_mech_att focus = allies_france_tank_mech_def}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_tank_mech_att
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_tech_bonus = {
+						name = shared_tank_bonus
+						bonus = 1
+						uses = 1
+						ahead_reduction = 1
+						category = armor
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_tank_def
+	icon = GFX_focus_SWE_defense_act
+	prerequisite = { focus = allies_france_tank_mech_def}
+
+	x = 0
+	y = 2
+	relative_position_id = allies_france_tank_mech_def
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = tank_specialization_flag
+				has_country_flag = stats1_chosen_flag}
+		
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_armor_att = -0.05
+						tooltip = army_armor_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_armor_def = 0.05
+						tooltip = army_armor_defence_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_entrenchment_speed = 0.05
+						tooltip = dig_in_speed_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_entrench = 0.05
+						tooltip = max_dig_in_factor_tt 
+					}
+				}
+		    }
+	}
+}
+
+#### FRAADA - NAVY ####
+
+joint_focus = {
+	id = allies_france_navy_docks
+	icon = GFX_goal_generic_construct_naval_dockyard
+	prerequisite = { focus = allies_french_specialization }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_output}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+						every_core_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								is_coastal = yes
+							}
+							random_select_amount = 2
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+								type = dockyard
+								level = 2
+								instant_build = yes
+							}
+						}
+							
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_output
+	icon = GFX_goal_continuous_naval_production
+	prerequisite = { focus = allies_french_specialization}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_docks}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_dockyard_output = 0.1
+						tooltip = industrial_capacity_dockyard_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_dock_conc = 0.1
+						tooltip = production_speed_dockyard_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_sub
+	icon = GFX_goal_generic_navy_anti_submarine
+	prerequisite = { focus = allies_france_navy_docks focus = allies_france_navy_output}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_france_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_dd}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_tech_bonus = {
+	    				name = undersea_combat
+	    				bonus = 2
+	    				uses = 1
+	    				category = ss_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_dd
+	icon = GFX_focus_generic_destroyer
+	prerequisite = { focus = allies_france_navy_docks focus = allies_france_navy_output}
+
+	x = 2
+	y = 1
+	relative_position_id = allies_france_navy_docks
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_sub}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_tech_bonus = {
+	        			name = dd_bonus
+	        			bonus = 2
+	       			 	uses = 1
+	        			category = dd_tech
+	    				category = asw_tech
+	    			}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_repair
+	icon = GFX_focus_NORDIC_dem_capstone_navy
+	prerequisite = { focus = allies_france_navy_sub focus = allies_france_navy_dd}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_navy_sub
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						navy_repair_speed = 0.2
+						tooltip = repair_speed_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_capitals
+	icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
+	prerequisite = { focus = allies_france_navy_repair}
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_lights}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_ideas = capital_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_lights
+	icon = GFX_goal_generic_navy_submarine
+	prerequisite = { focus = allies_france_navy_repair}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_navy_repair
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_navy_capitals}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_ideas = light_fleet_specialization		
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_navy_marines
+	icon = GFX_focus_generic_naval_discipline
+	prerequisite = { focus = allies_france_navy_capitals focus = allies_france_navy_lights}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_navy_capitals
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = navy_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+					add_to_variable = { 
+						allies_marine_attack = 0.05
+						tooltip = modifier_army_sub_unit_marine_attack_factor_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_sp_cap = 0.05
+						tooltip = special_forces_cap_tt 
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_max_planning = 0.05
+						tooltip = max_planning_factor_tt 
+					}		
+				}
+		    }
+	}
+}
+
+#### FRAADA - AIR ####
+
+joint_focus = {
+	id = allies_france_air_mio1
+	icon = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+	prerequisite = { focus = allies_french_specialization }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_french_specialization
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{
+						custom_effect_tooltip = available_mio_tt
+						show_mio_tooltip = FRA_supermarine_organization
+						set_country_flag = air_mio1_chosen_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_air_cost
+	icon = GFX_goal_continuous_air_production
+	prerequisite = { focus = allies_france_air_mio1 }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_air_mio1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	mutually_exclusive = {focus = allies_france_air_stats}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{		mio:FRA_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = FRA_mio_trait_cheap_parts
+						}
+						set_country_flag = air_cost_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_air_stats
+	icon = GFX_focus_PER_raf_planes
+	prerequisite = { focus = allies_france_air_mio1 }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_air_mio1
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_france_air_cost}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{		mio:FRA_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = FRA_mio_trait_technical_superiority
+						}
+						set_country_flag = air_stats_flag
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_air_lvl
+	icon = GFX_focus_generic_air_research_boost
+	prerequisite = { focus = allies_france_air_stats focus = allies_france_air_cost }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_air_cost
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{		mio:FRA_supermarine_organization = 
+						{	
+							add_mio_size = 2
+						}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_air_radar
+	icon = GFX_goal_generic_radar
+	prerequisite = { focus = allies_france_air_lvl }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_france_air_lvl
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_france_air_jets}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{	
+					set_country_flag = air_radar_flag
+					add_tech_bonus = {
+						name = radar_bonus
+						bonus = 1.0
+						uses = 1
+						category = radar_tech
+						ahead_reduction = 1
+	    			}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					mio:FRA_supermarine_organization = 
+						{	
+							unlock_mio_trait_tooltip = FRA_mio_trait_naval_targeting
+						}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_tech_bonus = {
+						name = allies_torp_bonus
+						bonus = 1
+						uses = 1
+						category = cat_air_bombs
+					}
+				}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_france_air_jets
+	icon = GFX_focus_generic_jet_planes
+	prerequisite = { focus = allies_france_air_lvl }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_air_lvl
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	mutually_exclusive = {focus = allies_france_air_radar}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{		add_tech_bonus = {
+							name = aircraft_bonus
+							bonus = 1
+							uses = 1
+							category = air_equipment
+						}
+
+						custom_effect_tooltip = generic_skip_one_line_tt
+
+						add_breakthrough_progress = {
+							specialization = specialization_air
+							value = 1
+						}
+
+						custom_effect_tooltip = generic_skip_one_line_tt
+
+						add_to_variable = { 
+							allies_jet_speed = 0.1
+							tooltip = sp_tag_jet_speed_factor_tt 
+						}
+				}
+		    }
+	}
+}
+
+
+joint_focus = {
+	id = allies_france_air_gsp
+	icon = GFX_focus_SWE_marauder_bombers
+	prerequisite = { focus = allies_france_air_radar focus = allies_france_air_jets }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_france_air_radar
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+	}
+
+	allow_branch = 
+	{
+		FRA = {has_country_flag = air_specialization_flag}
+	ROOT = {has_country_flag = shared_tree_clicked}
+	}
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+				FRA = 
+				{	
+					custom_effect_tooltip = available_mio_tt
+					show_mio_tooltip = FRA_hawker_organization
+					set_country_flag = gsp_ac_flag
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = generic_skip_one_line_tt
+					add_to_variable = { 
+						allies_cas = 0.1
+						tooltip = air_cas_efficiency_tt 
+					}
+				}
+		    }
 	}
 }
 

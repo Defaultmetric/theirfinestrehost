@@ -2823,7 +2823,6 @@ focus_tree = {
 				ahead_reduction = 0.5
 				category = armor
 			}
-			add_ideas = embrace_the_future_ideas
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
@@ -2926,15 +2925,15 @@ focus_tree = {
 		x = 7
 		y = 1
 		relative_position_id = SPA_the_national_syndicalist_state
-		cost = 5
+		cost = 10
 
 		available_if_capitulated = yes
 
 		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = POR
-    		}
+			ROOT = 
+			{
+				annex_country = {target = POR}
+			}
 		}
 	}
 
@@ -2962,7 +2961,7 @@ focus_tree = {
 		
 		icon = GFX_focus_ARG_strengthening_the_concordancia
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = SPA_attack_portugal
 		cost = 5
 

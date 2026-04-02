@@ -5133,8 +5133,8 @@ focus_tree = {
 		id = ENG_parachute_regiments
 		prerequisite = { focus = ENG_special_air_service }
 		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-		}
+				NOT = {has_country_flag = shared_tree_clicked}
+			}
 		continue_if_invalid = yes
 
 		icon = GFX_focus_generic_paratrooper

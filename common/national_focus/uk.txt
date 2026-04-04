@@ -28,10 +28,6 @@ focus_tree = {
 
 		x = 25
 		y = 0
-		
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
 
 		cost = 5
 		ai_will_do = {
@@ -752,10 +748,6 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
 
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}	
 
@@ -5132,9 +5124,7 @@ focus_tree = {
 	focus = {
 		id = ENG_parachute_regiments
 		prerequisite = { focus = ENG_special_air_service }
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 		continue_if_invalid = yes
 
 		icon = GFX_focus_generic_paratrooper
@@ -5452,9 +5442,7 @@ focus_tree = {
 			factor = 1
 		}
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
@@ -5534,9 +5522,7 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			add_tech_bonus = {
@@ -5711,9 +5697,7 @@ focus_tree = {
 			factor = 1
 		}
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 
 		available_if_capitulated = yes
 
@@ -5755,10 +5739,7 @@ focus_tree = {
 			factor = 1
 		}
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
-
+	
 		available = {
 			date > 1944.1.1
 			has_tech = advanced_ship_hull_heavy
@@ -6619,9 +6600,7 @@ focus_tree = {
 		y = 0
 		cost = 5
 		
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -11972,9 +11951,7 @@ focus_tree = {
 		prerequisite = { focus = uk_india_focus }
 		mutually_exclusive = { focus = uk_free_india_focus }
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 
 		available = { 	
 			RAJ = {
@@ -12014,9 +11991,7 @@ focus_tree = {
 		prerequisite = { focus = uk_australia_focus }
 		prerequisite = { focus = uk_south_africa_focus }
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+	
 
 		available = {
 			CAN = {

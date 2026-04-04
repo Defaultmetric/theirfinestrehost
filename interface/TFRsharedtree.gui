@@ -2,8 +2,8 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "shared_tree_window"
-		position = { x= 250 y= 8 }
-		size = { width = 260 height = 50 }
+		position = { x= 10 y= 8 }
+		size = { width = 340 height = 50 }
 		clipping = yes
 					
 		###  OPEN SHARED WINDOW BUTTON  ###
@@ -12,24 +12,8 @@ guiTypes = {
 			position = { x = 0 y = 0 }
 			quadTextureSprite ="GFX_button_open_shared_tree"
 			buttonFont = "Main_14_black"
-			clicksound = click_default
-		}
-	}
-
-	containerWindowType = {
-		name = "close_shared_tree_window"
-		position = { x= 10 y= 8 }
-		size = { width = 260 height = 50 }
-		clipping = no
-	
-		
-		###  CLOSE SHARED WINDOW BUTTON  ###
-		buttonType = {
-			name = "close_shared_tree_button"
-			position = { x = 0 y = 0 }
-			quadTextureSprite ="GFX_button_open_focus_tree"
-			buttonFont = "Main_14_black"
-			clicksound = click_default
+			clicksound = select_focus
+			shortcut = "s"
 		}
 	}
 

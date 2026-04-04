@@ -8,31 +8,19 @@ scripted_gui = {
 		
 		effects = {
 			open_shared_tree_button_click={
-				ROOT = { set_country_flag = shared_tree_clicked mark_focus_tree_layout_dirty = yes }
+				if = {
+					limit = {ROOT  = {NOT = {has_country_flag = shared_tree_clicked}}}
+					ROOT = { set_country_flag = shared_tree_clicked mark_focus_tree_layout_dirty = yes }
+				}
+				else = 
+				{
+					ROOT = { clr_country_flag = shared_tree_clicked mark_focus_tree_layout_dirty = yes }
+				}
 			}
 		}
 
 		triggers = {
 			open_shared_tree_button_click = {
-				always = yes
-			}
-		}
-	}
-
-	close_shared_tree_button = {
-		context_type = player_context
-
-		window_name = "close_shared_tree_window"
-		parent_window_name = nationalfocusview
-		
-		effects = {
-			close_shared_tree_button_click={
-				ROOT = { clr_country_flag = shared_tree_clicked mark_focus_tree_layout_dirty = yes }
-			}
-		}
-
-		triggers = {
-			close_shared_tree_button_click = {
 				always = yes
 			}
 		}

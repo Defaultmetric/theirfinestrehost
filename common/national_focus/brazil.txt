@@ -45,7 +45,7 @@ focus_tree = {
 		id = BRA_tribunal_de_seguranca_nacional
 		icon = GFX_focus_BRA_tribunal
 		#prerequisite = { focus = }
-		x = 0
+		x = 10
 		y = 0
 		#relative_position_id =
 		mutually_exclusive = { focus = BRA_end_the_state_of_emergency focus = BRA_prepare_for_second_intentona }
@@ -55,9 +55,7 @@ focus_tree = {
 		}
 		available = {
 		}
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+		
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
@@ -1066,7 +1064,7 @@ focus_tree = {
 		id = BRA_coffee_crisis_aftermath
 		icon = GFX_focus_BRA_coffee_crisis
 		#prerequisite = { focus =  }
-		x = 10
+		x = -12
 		y = 0
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 5
@@ -1074,9 +1072,7 @@ focus_tree = {
 			factor = 15
 		}
 
-		allow_branch = {
-				NOT = {has_country_flag = shared_tree_clicked}
-			}
+
 
 
 		available = {

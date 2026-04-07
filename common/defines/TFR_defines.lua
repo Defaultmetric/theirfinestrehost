@@ -118,6 +118,7 @@ NDefines.NCountry.COMPLIANCE_PER_COLLABORATION = 1.0				--each percent of collab
 
 -- some optimization stuff
 
+NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0						-- 30 This many divisons are required for the country to be able to send volunteers.
 NDefines.NDiplomacy.DIPLOMACY_HOURS_BETWEEN_REQUESTS = 12
 NDefines.NDiplomacy.GUARANTEE_COST = 12
 NDefines.NDiplomacy.TRUCE_PERIOD_AFTER_KICKING_FROM_FACTION = 0

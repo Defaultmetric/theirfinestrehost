@@ -413,8 +413,8 @@ AI_annex = {
             }
             add_core_of = BRA
         }
+      }
     }
-}
 
     ITA_annex_SPR = {
     icon = generic_industry
@@ -492,6 +492,87 @@ AI_annex = {
                 is_controlled_by = ITA
             }
             add_core_of = ITA
+        }
+    }
+}
+
+USA_annex_PHI = {
+    icon = generic_industry
+
+    fire_only_once = yes
+
+    available = {
+        date > 1940.06.01
+        country_exists = PHI
+        original_tag = USA
+        PHI = { has_capitulated = no }
+        PHI = { is_ai = yes }
+    }
+    visible = {
+        original_tag = USA
+        PHI = { is_ai = yes }
+        country_exists = PHI
+    }
+    cost = 0
+
+    complete_effect = {
+        annex_country = { target = PHI transfer_troops = yes }
+        every_state = {
+            limit = {
+                is_core_of = PHI
+                is_controlled_by = USA
+            }
+            add_core_of = USA
+        }
+    }
+}
+
+ENG_annex_MAL_INS = {
+    icon = generic_industry
+
+    fire_only_once = yes
+
+    available = {
+        date > 1940.06.01
+        country_exists = MAL
+        country_exists = INS
+        original_tag = ENG
+        MAL = { has_capitulated = no }
+        MAL = { is_ai = yes }
+        INS = { has_capitulated = no }
+        INS = { is_ai = yes }
+    }
+    visible = {
+        original_tag = ENG
+        MAL = { is_ai = yes }
+        country_exists = MAL
+        INS = { is_ai = yes }
+        country_exists = INS
+    }
+    cost = 0
+
+    complete_effect = {
+        annex_country = { target = MAL }
+        annex_country = { target = INS }
+        every_state = {
+            limit = {
+                is_core_of = MAL
+                is_controlled_by = ENG
+            }
+            add_core_of = ENG
+            add_dynamic_modifier = {
+                modifier = pacific_islands
+            }
+        }
+        every_state = {
+            limit = {
+                is_core_of = INS
+                is_controlled_by = ENG
+            }
+            add_core_of = ENG
+            add_dynamic_modifier = {
+                modifier = pacific_islands
+            }
         }
     }
 }

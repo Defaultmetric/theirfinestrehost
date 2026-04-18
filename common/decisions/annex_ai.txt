@@ -527,7 +527,7 @@ USA_annex_PHI = {
     }
 }
 
-ENG_annex_MAL_INS = {
+AST_annex_MAL_INS = {
     icon = generic_industry
 
     fire_only_once = yes
@@ -536,14 +536,14 @@ ENG_annex_MAL_INS = {
         date > 1940.06.01
         country_exists = MAL
         country_exists = INS
-        original_tag = ENG
+        original_tag = AST
         MAL = { has_capitulated = no }
         MAL = { is_ai = yes }
         INS = { has_capitulated = no }
         INS = { is_ai = yes }
     }
     visible = {
-        original_tag = ENG
+        original_tag = AST
         MAL = { is_ai = yes }
         country_exists = MAL
         INS = { is_ai = yes }
@@ -557,9 +557,9 @@ ENG_annex_MAL_INS = {
         every_state = {
             limit = {
                 is_core_of = MAL
-                is_controlled_by = ENG
+                is_controlled_by = AST
             }
-            add_core_of = ENG
+            add_core_of = AST
             add_dynamic_modifier = {
                 modifier = pacific_islands
             }
@@ -567,9 +567,9 @@ ENG_annex_MAL_INS = {
         every_state = {
             limit = {
                 is_core_of = INS
-                is_controlled_by = ENG
+                is_controlled_by = AST
             }
-            add_core_of = ENG
+            add_core_of = AST
             add_dynamic_modifier = {
                 modifier = pacific_islands
             }

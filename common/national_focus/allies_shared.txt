@@ -2663,7 +2663,11 @@ joint_focus = {
 	available = {
 		
 			has_country_flag = accessible_shared_tree
-}
+			ROOT = 
+		{
+			amount_research_slots < 6
+		}
+	}
 
 	available_if_capitulated = yes
 
@@ -4398,7 +4402,7 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		ENG = 
+		BRA = 
 		{
 			has_country_flag = specialization_chosen_flag
 		}
@@ -4410,7 +4414,7 @@ joint_focus = {
 
 	bypass = 
 	{
-		ENG = 
+		BRA = 
 		{
 			has_country_flag = specialization_chosen_flag
 		}
@@ -15313,10 +15317,7 @@ joint_focus = {
 		has_country_flag = accessible_shared_tree
 		ROOT = 
 		{
-			NOT = 
-			{
-				has_completed_focus = allies_research_library
-			}
+			amount_research_slots < 6
 		}
 		
 	}

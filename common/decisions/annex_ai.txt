@@ -534,6 +534,7 @@ AST_annex_MAL_INS = {
 
     available = {
         date > 1940.06.01
+        NOT = {has_global_flag = noAsia}
         country_exists = MAL
         country_exists = INS
         original_tag = AST
@@ -573,6 +574,10 @@ AST_annex_MAL_INS = {
             add_dynamic_modifier = {
                 modifier = pacific_islands
             }
+        }
+        AST = 
+        {
+            set_technology = { radio_detection = 1 cavity_magnatron = 1 centimetric_radar = 1 phased_array = 1 }
         }
     }
 }

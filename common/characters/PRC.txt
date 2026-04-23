@@ -3150,65 +3150,6 @@ PRC_zhang_wentian = {
 		}
 	}
 
-	PRC_luo_ruiqing = {
-		instance = {
-			allowed = {
-				has_dlc = "No Compromise, No Surrender"
-			}
-			name=PRC_luo_ruiqing
-			portraits={
-				army={
-					large = GFX_portrait_PRC_luo_ruiqing
-					small = GFX_portrait_PRC_luo_ruiqing_small
-				}
-			}
-			
-			corps_commander={
-				traits={ politically_connected PRC_survivor_of_the_long_march }
-				skill=2
-				attack_skill=2
-				defense_skill=1
-				planning_skill=2
-				logistics_skill=2
-				legacy_id=-1
-			}
-		}
-
-		instance = {
-			allowed = {
-				NOT = {
-					has_dlc = "No Compromise, No Surrender"
-				}
-				has_dlc = "La Resistance"
-			}
-			name=PRC_luo_ruiqing
-			portraits={
-				army={
-					small="GFX_idea_china_luo_ruiqing"
-				}
-			}
-
-			advisor={
-				slot = political_advisor
-				allowed = {
-					OR = {
-						original_tag = PRC
-						is_chinese_warlord = yes
-					}
-					NOT = { original_tag = MAN }
-				}
-				available  = {
-					has_intelligence_agency  = yes 
-					has_focus_tree  = china_communist_focus
-				}
-				idea_token = PRC_luo_ruiqing
-				traits  = {
-					head_of_intelligence 
-				}
-			}
-		}
-	}
-
 	PRC_zhang_dingcheng={
 		name=PRC_zhang_dingcheng
 		portraits={

@@ -106,14 +106,281 @@ on_actions = {
                 set_global_flag = fall_of_france
                 FRA = 
                 {
-                    country_event = {
-                        id = GOE_generic_events.1
-                        hours = 4
-				    }
                     save_global_event_target_as = free_france
-                    set_country_flag = GER_dont_seize_gold_reserves_flag #Can't allow Germany to seize out gold reserves just yet
                 }
-                GER = { country_event = france.14 }
+
+                FRA = { 
+                    load_focus_tree = free_french_focus
+                    if = {
+                        limit = {
+                            capital_scope = {
+                                NOT = {
+                                    state = 16
+                                    state = 539
+                                }
+                            }
+                            controls_state = 539
+                        }
+                        set_capital = { state = 539 }
+                    }
+                    country_event = france.20
+                    every_owned_state = {
+                        limit = { 
+                            is_controlled_by = ITA 
+                            is_core_of = FRA
+                        }
+                        set_state_flag = vichy_italian_conquest
+                    }
+
+                    
+                }
+                create_dynamic_country = {
+                    original_tag = FRA
+                    save_event_target_as = vichy_france
+                    set_country_flag = vichy_france
+
+                    if = {
+                        limit = {
+                            FRA = {
+                                NOT = {
+                                    has_global_flag = africa_rise_up_flag
+                                }
+                            }
+                        }
+
+                        every_state = { #transfer French colonial empire
+                            limit = {
+                                is_controlled_by = FRA
+                                is_owned_by = FRA
+                                OR = {
+                                    is_on_continent = africa
+                                }
+                                NOT = {
+                                    state = 774
+                                    state = 773
+                                    state = 660
+                                    state = 539
+                                    state = 772
+                                    state = 538
+                                    state = 718
+                                    state = 295
+                                    state = 888
+                                    state = 890
+                                    state = 768
+                                    state = 769
+                                    state = 889
+                                }
+                            }
+
+                            event_target:vichy_france = {
+                                transfer_state = PREV
+                            }
+                        }
+                    }
+
+                    every_state = {
+                        limit = { #set up Vichy continental holdings
+                            OR = {
+                                state = 735
+                                state = 21
+                                state = 851
+                                state = 32
+                                state = 20
+                                state = 26
+                                state = 22
+                                state = 31
+                                state = 25
+                                state = 33
+                                state = 1
+
+                                state = 671
+                                state = 670
+                                state = 741
+                                state = 286
+                            }
+
+                            CONTROLLER = {
+                                OR = {
+                                    original_tag = FRA
+                                    has_war_with = FRA
+                                }
+                            } #failsafe for weird shit (tm)
+                        }
+
+                        add_core_of = PREV
+
+                        event_target:vichy_france = {
+                            transfer_state = PREV
+                        }
+                    }
+
+                    every_state = { #set up cores for French cores
+                        limit = {
+                            is_core_of = FRA
+                            NOT = {
+                                is_controlled_by = event_target:vichy_france
+                            }
+                        }
+
+                        add_core_of = PREV
+                    }
+
+                    if = {
+                        limit = {
+                            ITA = {
+                                has_war_with = FRA
+                            }
+                        }
+
+                        every_owned_state = {
+                            limit = {
+                                OR = {
+                                    state = 21
+                                    state = 1
+                                    state = 735
+                                    state = 851
+                                }
+                                has_state_flag = vichy_italian_conquest
+                            }
+
+                            ITA = {
+                                transfer_state = PREV
+                            }
+                        }
+
+                        if = {
+                            limit = {
+                                21 = {
+                                    is_controlled_by = ITA
+                                }
+                                851 = {
+                                    is_controlled_by = ITA
+                                }
+                                735 = {
+                                    is_controlled_by = ITA
+                                }
+                            }
+
+                            ITA = {
+                                transfer_state = 32
+                            }
+                        }
+                    }
+
+                    every_owned_state = {
+                        limit = {
+                            NOT = {
+                                is_core_of = FRA
+                            }
+                        }
+
+                        FRA = {
+                            add_state_claim = PREV
+                        } #Free France gets claims on all of Vichy, primarily so they can demand that shit back in a peacedeal
+                    }
+
+                    set_rule = {
+                        can_join_factions = no
+                        can_create_factions = no
+                        can_not_declare_war = yes
+                    }
+
+                    set_capital = {
+                        state = 26
+                    }
+
+                    set_politics = {
+                        ruling_party = fascism
+                        elections_allowed = no
+                    }
+
+                    set_popularities = {
+                        democratic = 22
+                        fascism = 46
+                        neutrality = 30
+                        communism = 2
+                    }
+
+                    set_cosmetic_tag = FRA_VICHY
+
+                    FRA = {
+                        FRA_philippe_petain = {
+                            set_nationality = event_target:vichy_france
+                        }
+                    }
+
+                    add_ideas = FRA_occupation_costs_4
+                    load_focus_tree = vichy_french_focus
+
+                    FRA = {
+                        transfer_units_fraction = {
+                            target = event_target:vichy_france
+                            size = 0.9
+                            stockpile_ratio = 0.7
+                            army_ratio = 0.5
+                            navy_ratio = 0.85
+                            air_ratio = 1.0
+                        }
+                    }
+
+                    if = {
+                        limit = {
+                            FRA = {
+                                has_country_flag = become_vichy
+                            }
+                        }
+
+                        change_tag_from = FRA
+                    }
+                }
+                random_country = {
+                    limit = {
+                        has_focus_tree = vichy_french_focus
+                    }
+                    add_country_leader_role = {
+                        character = FRA_philippe_petain
+                        country_leader = {
+                            ideology = fascism_ideology
+                            traits = { }
+                            expire = "1965.1.1.1"
+                            id = -1
+                        }
+				        promote_leader = yes				
+			        }
+                    GER = {
+                        give_guarantee = PREV
+                    }
+                    every_unit_leader = {
+                        limit = {
+                            has_id = 101 #de Gaulle
+                        }
+                        set_nationality = FRA
+                    }
+                    every_army_leader = {
+                        limit = {
+                            NOT = { has_trait = old_guard }
+                        }
+                        set_nationality = FRA
+                    }
+                    FRA = {
+                        every_unit_leader = {
+                            limit = {
+                                OR = {
+                                    has_trait = old_guard
+                                    has_trait = old_guard_navy
+                                }
+                            }
+                            set_nationality = PREV.PREV
+                        }
+                        every_navy_leader = {
+                            limit = {
+                                has_id = 102 #Darlan
+                            }
+                            set_nationality = PREV.PREV
+                        }
+                    }
+                }
+              
             }
         }
 

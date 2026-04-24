@@ -177,298 +177,6 @@ news_event = {
     }
 }
 
-# France wants Armistice (Germany)
-country_event = {
-	id = france.14
-	title = france.14.t
-	desc = france.14.d
-	picture = GFX_report_event_german_parade_paris
-	
-	is_triggered_only = yes
-	
-	option = { # Agree - Fascism - LaR
-		name = france.14.a
-		ai_chance = { 
-			factor = 50 
-		}
-		trigger = {
-			has_government = fascism
-			has_dlc = "La Resistance"
-		}
-		FRA = { 
-			if = 
-			{
-				limit = {
-					has_global_flag = africa_rise_up_flag
-					NOT = 
-					{
-						has_global_flag = FRA_double_strategie_flag
-					}
-				}
-				set_cosmetic_tag = FRA_LONG
-				add_ideas = FRA_africa_rise_up_idea
-			}
-			else_if = 
-			{
-				limit = {
-					has_global_flag = africa_rise_up_flag
-					has_global_flag = FRA_double_strategie_flag
-				}
-				set_cosmetic_tag = FRA_CYAN
-				add_ideas = FRA_africa_rise_up_idea
-			}
-			else = 
-			{
-				set_cosmetic_tag = FRA_FREE
-				add_ideas = FRA_defeatism
-			}
-			load_focus_tree = free_french_focus
-			if = {
-				limit = {
-					capital_scope = {
-						NOT = {
-							state = 16
-							state = 539
-						}
-					}
-					controls_state = 539
-				}
-				set_capital = { state = 539 }
-			}
-			country_event = france.20
-			every_owned_state = {
-				limit = { 
-					is_controlled_by = ITA 
-					is_core_of = FRA
-				}
-				set_state_flag = vichy_italian_conquest
-			}
-		}
-		custom_effect_tooltip = establishing_vichy_tt
-
-		GER_set_consumer_goods_war_reparations = yes
-
-		hidden_effect = {
-			create_dynamic_country = {
-				original_tag = FRA
-				save_event_target_as = vichy_france
-				set_country_flag = vichy_france
-				if = {
-					limit = {
-						FRA = {
-							NOT = {
-								has_global_flag = africa_rise_up_flag
-							}
-						}
-					}
-				every_state = { #transfer French colonial empire
-					limit = {
-						is_controlled_by = FRA
-						is_owned_by = FRA
-						OR = {
-							is_on_continent = africa
-						}
-						NOT = 
-						{
-							state = 774
-							state = 773
-							state = 660
-							state = 539
-							state = 772
-							state = 538
-							state = 718
-							state = 295
-							state = 888
-							state = 890
-							state = 768
-							state = 769
-							state = 889
-						}
-					}
-					event_target:vichy_france = { transfer_state = PREV }
-				}
-				}
-				
-					every_state = {
-						limit = { #set up Vichy continental holdings
-							OR = {
-								state = 735
-								state = 21
-								state = 851
-								state = 32
-								state = 20
-								state = 26
-								state = 22
-								state = 31
-								state = 25
-								state = 33
-								state = 1
-								
-								state = 671
-								state = 670
-								state = 741
-								state = 286
-							}
-						CONTROLLER = { 
-							OR = {
-							original_tag = FRA
-							has_war_with = FRA
-							} 
-						} #failsafe for weird shit (tm)
-					}
-					add_core_of = PREV
-					event_target:vichy_france = { transfer_state = PREV }
-			}
-				every_state = { #set up cores for French cores
-					limit = {
-						is_core_of = FRA
-						NOT = {
-							is_controlled_by = event_target:vichy_france
-						}
-					}
-					add_core_of = PREV
-				}
-				if = { 
-					limit = { ITA = { has_war_with = FRA } }
-					every_owned_state = {
-						limit = {
-							OR = {
-								state = 21
-								state = 1
-								state = 735
-								state = 851
-							}
-							has_state_flag = vichy_italian_conquest
-						}
-						ITA = { transfer_state = PREV }
-					}
-					
-					if = {
-						limit = {
-							21 = { is_controlled_by = ITA }
-							851 = { is_controlled_by = ITA }
-							735 = { is_controlled_by = ITA } 
-						}
-						ITA = { transfer_state = 32 }
-					}
-					
-				}
-				every_owned_state = {
-					limit = {
-						NOT = {
-							is_core_of = FRA
-						}
-					}
-					FRA = { add_state_claim = PREV } #Free France gets claims on all of Vichy, primarily so they can demand that shit back in a peacedeal
-				}
-				set_rule = { 
-					can_join_factions = no 
-					can_create_factions = no
-					can_not_declare_war = yes
-				}
-				set_capital = { state = 26 }
-				set_politics = {
-					ruling_party = fascism
-					elections_allowed = no
-				}
-				set_popularities = {
-					democratic = 22
-					fascism = 46
-					neutrality = 30
-					communism = 2
-				}
-				FRA_philippe_petain= {
-					add_country_leader_role = {
-					character = FRA_philippe_petain
-						country_leader = {
-							expire = "1965.1.1"
-							ideology = fascism_ideology
-							traits = {
-								
-							}
-						}
-						promote_leader = yes
-					}
-				}
-				set_cosmetic_tag = FRA_VICHY
-				FRA = {
-					FRA_philippe_petain= {
-						set_nationality = event_target:vichy_france	
-					}
-				}
-				
-				add_ideas = FRA_occupation_costs_4
-				load_focus_tree = vichy_french_focus
-				FRA = {
-					transfer_units_fraction = {
-						target = event_target:vichy_france
-						size = 0.9
-						stockpile_ratio = 0.7
-						army_ratio = 0.5
-						navy_ratio = 0.85
-						air_ratio = 1.0
-					}
-				}
-				if = {
-					limit = { FRA = { has_country_flag = become_vichy } }
-					change_tag_from = FRA
-				}
-			}
-		}
-		random_country = {
-			limit = {
-				has_focus_tree = vichy_french_focus
-			}
-			GER = {
-				give_guarantee = PREV
-			}
-			every_unit_leader = {
-				limit = {
-					has_id = 101 #de Gaulle
-				}
-				set_nationality = FRA
-			}
-			every_army_leader = {
-				limit = {
-					NOT = { has_trait = old_guard }
-				}
-				set_nationality = FRA
-			}
-			FRA = {
-				every_unit_leader = {
-					limit = {
-						OR = {
-							has_trait = old_guard
-							has_trait = old_guard_navy
-						}
-					}
-					set_nationality = PREV.PREV
-				}
-				every_navy_leader = {
-					limit = {
-						has_id = 102 #Darlan
-					}
-					set_nationality = PREV.PREV
-				}
-			}
-		}
-		FRA = 
-		{
-			if = 
-			{
-				limit = 
-				{
-					has_idea = FRA_disjointed_government
-				}
-				remove_ideas = FRA_disjointed_government
-			}
-		}
-		FROM = {
-			clr_country_flag = GER_dont_seize_gold_reserves_flag
-		}
-	}	
-}
-
 # De Gaulle becomes leader
 country_event = {
 	id = france.20
@@ -493,6 +201,45 @@ country_event = {
 				promote_leader = yes				
 			}		
 		}
+
+			FRA = 
+                {
+                    if = 
+                    {
+                        limit = 
+                        {
+                            has_idea = FRA_disjointed_government
+                        }
+                        remove_ideas = FRA_disjointed_government
+                    }
+                    if = 
+                    {
+                        limit = {
+                            has_global_flag = africa_rise_up_flag
+                            NOT = 
+                            {
+                                has_global_flag = FRA_double_strategie_flag
+                            }
+                        }
+                        set_cosmetic_tag = FRA_LONG
+                        add_ideas = FRA_africa_rise_up_idea
+                    }
+                    else_if = 
+                    {
+                        limit = {
+                            has_global_flag = africa_rise_up_flag
+                            has_global_flag = FRA_double_strategie_flag
+                        }
+                        set_cosmetic_tag = FRA_CYAN
+                        add_ideas = FRA_africa_rise_up_idea
+                    }
+                    else = 
+                    {
+                        set_cosmetic_tag = FRA_FREE
+                        add_ideas = FRA_defeatism
+                    }
+                }
+
 		name = france.20.a
 	}
 }

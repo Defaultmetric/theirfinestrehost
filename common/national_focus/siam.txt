@@ -59,6 +59,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_political_power = 35
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_war_stab = 0.15
 				tooltip = war_stability_factor_tt
@@ -81,7 +83,17 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
-			add_political_power = 125
+			add_political_power = 100
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
+			add_to_variable = {
+				SIA_adm_stab = 0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				SIA_adm_pp_gain = 0.05
+				tooltip = political_power_factor_tt
+			}
 		}
 	}
 
@@ -100,6 +112,8 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_war_support = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_recruitable_population = 0.005
 				tooltip = conscription_tt
@@ -123,6 +137,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_political_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_pp_gain = 0.05
 				tooltip = political_power_factor_tt
@@ -141,10 +157,13 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_research_speed = 0.025
 				tooltip = research_speed_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 1
 				bonus = 0.5
@@ -164,6 +183,8 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = 0.025
 				tooltip = stability_factor_tt
@@ -190,6 +211,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = 0.05
 				tooltip = stability_factor_tt
@@ -213,6 +235,8 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_political_power = 35
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_pol_advisor_cost = -0.15
 				tooltip = political_advisor_cost_factor_tt
@@ -232,6 +256,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_cap = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
@@ -255,10 +280,11 @@ focus_tree = {
 		relative_position_id = increase_the_retirement_age
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
-				SIA_adm_consumer_goods = -0.15
+				SIA_adm_consumer_goods = -0.05
 				tooltip = consumer_goods_factor_tt
 			}
 		}
@@ -275,10 +301,14 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
-				SIA_adm_consumer_goods = -0.20
+				SIA_adm_consumer_goods = -0.15
 				tooltip = consumer_goods_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = -0.05
 				tooltip = stability_factor_tt
@@ -303,10 +333,12 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_research_speed = 0.025
 				tooltip = research_speed_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 1
 				bonus = 0.5
@@ -324,17 +356,12 @@ focus_tree = {
 		relative_position_id = improve_bureaucracy
 		x = 4
 		y = 1
-		cost = 10
+		cost = 5
 		completion_reward = {
-			add_political_power = 50
-			add_to_variable = {
-				SIA_adm_stab = 0.05
-				tooltip = stability_factor_tt
-			}
-			add_to_variable = {
-				SIA_adm_pp_gain = 0.05
-				tooltip = political_power_factor_tt
-			}
+			create_intelligence_agency = {
+					name = "National Intelligence Bureau"
+				}
+				upgrade_intelligence_agency = upgrade_passive_defense
 		}
 	}
 
@@ -353,6 +380,12 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 			add_political_power = 35
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = 0.10
 				tooltip = stability_factor_tt
@@ -377,6 +410,8 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = -0.05
 				tooltip = stability_factor_tt
@@ -405,6 +440,8 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.1
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_stab = -0.05
 				tooltip = stability_factor_tt
@@ -422,6 +459,10 @@ focus_tree = {
 		prerequisite = { focus = fascist_advisors }
 		prerequisite = { focus = allow_fascist_militias }
 		relative_position_id = fascist_advisors
+		available = 
+		{
+			fascism > 0.6
+		}
 		bypass = {
 			has_government = fascism
 		}
@@ -430,6 +471,7 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_war_support = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
@@ -468,6 +510,7 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_party_popularity_stab = 0.30
 				tooltip = party_popularity_stability_factor_tt
@@ -487,7 +530,7 @@ focus_tree = {
 		relative_position_id = fascist_fervor
 		x = 1
 		y = 1
-		cost = 5
+		cost = 0
 
 		available = 
 		{
@@ -504,6 +547,7 @@ focus_tree = {
 				country = JAP
 				relation = non_aggression_pact
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = { add_to_faction = SIA }
 		}
 	}
@@ -519,8 +563,10 @@ focus_tree = {
 		cost = 5
 		completion_reward = {
 			add_war_support = 0.10
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
-				SIA_mil_max_planning = 0.075
+				SIA_mil_max_planning = 0.05
 				tooltip = max_planning_factor_tt
 			}
 		}
@@ -550,6 +596,7 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = admin_tt
 			add_to_variable = {
 				SIA_adm_research_speed = 0.07
 				tooltip = research_speed_factor_tt
@@ -584,6 +631,7 @@ focus_tree = {
 		y = 0
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_construction_speed = 0.05
 				tooltip = production_speed_buildings_factor_tt
@@ -596,12 +644,13 @@ focus_tree = {
 				SIA_ind_output = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			869 = {
-				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 				}
+				set_state_category = large_town
 			}
 		}
 	}
@@ -631,13 +680,14 @@ focus_tree = {
 		relative_position_id = young_workers
 		x = 0
 		y = 1
-		completion_reward = { 
+		completion_reward = {
+			custom_effect_tooltip = industry_tt 
 			add_to_variable = {
 				SIA_ind_growth = 0.05
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 			add_to_variable = {
-				SIA_ind_global_slots = 0.25
+				SIA_ind_global_slots = 0.2
 				tooltip = global_building_slots_factor_tt
 			}
 		}
@@ -654,10 +704,12 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_construction_speed = 0.1
 				tooltip = production_speed_buildings_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 1
 				bonus = 1
@@ -677,6 +729,7 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_construction_speed = 0.1
 				tooltip = production_speed_buildings_factor_tt
@@ -709,6 +762,7 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_consumer_goods = -0.10
 				tooltip = consumer_goods_factor_tt
@@ -787,12 +841,14 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_construction_speed = 0.05
 				tooltip = production_speed_buildings_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			289 = { #Siam
-				add_extra_state_shared_building_slots = 5
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -820,10 +876,11 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_tech_bonus = {
-				uses = 2
-				bonus = 0.85
+				uses = 1
+				bonus = 1
 				category = construction_tech
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			869 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -856,6 +913,7 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 2
 				bonus = 0.75
@@ -921,6 +979,7 @@ focus_tree = {
 		relative_position_id = industrial_titans
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_mil_speed = 0.05
 				tooltip = production_speed_arms_factory_factor_tt
@@ -929,6 +988,7 @@ focus_tree = {
 				SIA_ind_cap = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			869 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -962,13 +1022,14 @@ focus_tree = {
 					amount = 24
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			868 = {
-				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
+				set_state_category = city
 			}
 		}
 	}
@@ -984,10 +1045,12 @@ focus_tree = {
 		y = 1
 		cost = 5
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_rail_speed = 0.15
 				tooltip = production_speed_rail_way_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_equipment_to_stockpile = {
 				type = train_equipment
 				amount = 10
@@ -1015,10 +1078,10 @@ focus_tree = {
 					type = steel
 					amount = 10
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -1042,10 +1105,10 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			724 = { #Northern Malaya
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 				add_building_construction = {
@@ -1067,10 +1130,12 @@ focus_tree = {
 		y = 1
 		cost = 10
 		completion_reward = {
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_local_resources = 0.15
 				tooltip = local_resources_factor_tt
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 2
 				bonus = 0.35
@@ -1122,17 +1187,20 @@ focus_tree = {
 		cost = 10
 		completion_reward = {
 			869 = {
-				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
-					type = infrastructure
-					level = 2
+					type = dam
+					province = 7492
+					level = 1
+					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			868 = {
-				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
-					type = infrastructure
-					level = 2
+					type = dam
+					province = 12388
+					level = 1
+					instant_build = yes
 				}
 			}
 
@@ -1238,6 +1306,8 @@ focus_tree = {
 		cost = 3
 		completion_reward = {
 			add_political_power = 25
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_max_cp = 0.10
 				tooltip = max_command_power_mult_tt
@@ -1256,13 +1326,14 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_max_cp = 0.05
 				tooltip = max_command_power_mult_tt
 			}
 			add_to_variable = {
 				SIA_mil_planning_speed = 0.05
-				tooltip = planning_speed_tt
+				tooltip = planning_speed_factor_tt
 			}
 
 		}
@@ -1279,11 +1350,8 @@ focus_tree = {
 		y = 1
 		cost = 3
 		completion_reward = {
-			add_tech_bonus = {
-				uses = 1
-				bonus = 1
-				category = land_doctrine
-			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_max_planning = 0.05
 				tooltip = max_planning_factor_tt
@@ -1298,6 +1366,7 @@ focus_tree = {
 		x = 27
 		y = 0
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_training = -0.1
 				tooltip = training_time_factor_tt
@@ -1320,6 +1389,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_exp = 0.05
 				tooltip = experience_gain_army_factor_tt
@@ -1342,6 +1412,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = {
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_cp_gain = 0.10
 				tooltip = command_power_gain_mult_tt
@@ -1382,9 +1453,10 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_planning_speed = 0.05
-				tooltip = planning_speed_tt
+				tooltip = planning_speed_factor_tt
 			}
 			add_to_variable = {
 				SIA_mil_exp = 0.05
@@ -1408,6 +1480,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_leader_cp_cost = -0.20
 				tooltip = unit_leader_as_advisor_cp_cost_factor_tt
@@ -1448,6 +1521,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_ind_mil_speed = 0.10
 				tooltip = production_speed_arms_factory_factor_tt
@@ -1466,6 +1540,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_fuel_gain = 0.10
 				tooltip = fuel_gain_factor_tt
@@ -1507,6 +1582,7 @@ focus_tree = {
 		x = 2
 		y = 2
 		completion_reward = {
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_spec_training_time = -0.10
 				tooltip = special_forces_training_time_factor_tt
@@ -1529,6 +1605,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = {
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_spec_attack = 0.10
 				tooltip = special_forces_attack_factor_tt
@@ -1578,6 +1655,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = industry_tt
 			add_to_variable = {
 				SIA_ind_mil_speed = 0.10
 				tooltip = production_speed_arms_factory_factor_tt
@@ -1598,6 +1676,7 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
 				uses = 1
 				bonus = 1
@@ -1609,7 +1688,7 @@ focus_tree = {
 	focus = {
 		id = increased_funds
 		icon = GFX_focus_generic_mechanized
-		cost = 10
+		cost = 5
 		prerequisite = {
 			focus = manufacturing_research
 		}
@@ -1620,6 +1699,7 @@ focus_tree = {
 			add_tech_bonus = {
 				uses = 2
 				bonus = 1
+				ahead_reduction = 2.0
 				category = cat_mechanized_equipment
 			}
 		}
@@ -1637,13 +1717,9 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_tech_bonus = {
-				uses = 1
+				uses = 2
 				bonus = 1
-				category = artillery
-			}
-			add_tech_bonus = {
-				uses = 1
-				bonus = 0.5
+				ahead_reduction = 2.0
 				category = artillery
 			}
 		}
@@ -1681,6 +1757,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_attack = 0.05
 				tooltip = army_attack_factor_tt
@@ -1744,6 +1821,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_reinforce_rate = 0.10
 				tooltip = land_reinforce_rate_tt
@@ -1762,9 +1840,10 @@ focus_tree = {
 		x = -1
 		y = 2
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
-				SIA_mil_planning_speed = 0.075
-				tooltip = planning_speed_tt
+				SIA_mil_planning_speed = 0.1
+				tooltip = planning_speed_factor_tt
 			}
 		}
 	}
@@ -1780,6 +1859,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_organization = 0.05
 				tooltip = army_org_factor_tt
@@ -1798,6 +1878,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		completion_reward = { 
+			custom_effect_tooltip = military_tt
 			add_to_variable = {
 				SIA_mil_hot = 0.35
 				tooltip = acclimatization_hot_climate_gain_factor_tt
@@ -1821,7 +1902,7 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
-				SIA_mil_attack = 0.10
+				SIA_mil_attack = 0.075
 				tooltip = army_attack_factor_tt
 			}
 			add_to_variable = {
@@ -1851,15 +1932,15 @@ focus_tree = {
 		y = 1
 		completion_reward = { 
 			add_to_variable = {
-				SIA_mil_max_planning = 0.01
+				SIA_mil_max_planning = 0.05
 				tooltip = max_planning_factor_tt
 			}
 			add_to_variable = {
-				SIA_mil_supply_node_range = 0.01
+				SIA_mil_supply_node_range = 0.1
 				tooltip = supply_node_range_tt
 			}
 			add_to_variable = {
-				SIA_mil_org = 0.01
+				SIA_mil_org = 0.05
 				tooltip = army_org_factor_tt
 			}
 		}
@@ -2118,6 +2199,8 @@ focus = {
 		y = 1
 		completion_reward = { 
 			add_political_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = new_ambitions_tt
 			add_to_variable = {
 				SIA_new_core_attack = 0.05
 				tooltip = army_core_attack_factor_tt
@@ -2140,6 +2223,7 @@ focus = {
 		x = 0
 		y = 2
 		completion_reward = {
+			custom_effect_tooltip = new_ambitions_tt
 			add_to_variable = {
 				SIA_new_pp_gain = 0.4
 				tooltip = political_power_gain_tt
@@ -2181,6 +2265,8 @@ focus = {
 					level = 4
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = new_ambitions_tt
 			add_to_variable = {
 				SIA_new_research = 0.05
 				tooltip = research_speed_factor_tt
@@ -2345,7 +2431,8 @@ focus = {
 		completion_reward = {
 			add_stability = 0.15
 			add_war_support = 0.15
-			add_political_power = 200
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = new_ambitions_tt
 			add_to_variable = {
 				SIA_new_core_attack = 0.10
 				tooltip = army_core_attack_factor_tt

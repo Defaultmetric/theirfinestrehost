@@ -2972,10 +2972,16 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_unlock_operational_planning_bewegungskrieg_tt
-			effect_tooltip = { #This is done for tooltip purposes
-				add_dynamic_modifier = { modifier = GER_bewegungskrieg_modifier }
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_army_infantry_attack_factor = 0.05
+				tooltip = army_infantry_attack_factor_tt
 			}
+			add_to_variable = { 
+				GER_military_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}
+			
 			IF = {
 				limit = { 
 					has_dlc = "No Compromise, No Surrender"
@@ -3084,19 +3090,11 @@ focus_tree = {
 
 			GER_modify_army_modifier = yes
 			add_to_variable = { 
-				GER_military_max_dig_in_factor = 0.1
+				GER_military_max_dig_in_factor = 0.2
 				tooltip = max_dig_in_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = GER_modify_bewegungskrieg_modifier_tt
-			effect_tooltip = {
-				add_to_variable = { 
-					GER_bewegungskrieg_army_infantry_attack_factor = 0.05
-					tooltip = army_infantry_attack_factor_tt
-				}
-			}
 		}
 	}			
 
@@ -3158,6 +3156,10 @@ focus_tree = {
 				GER_military_army_artillery_defence_factor = 0.1
 				tooltip = army_artillery_defence_factor_tt
 			}
+			add_to_variable = { 
+				GER_military_army_artillery_attack_factor = 0.1
+				tooltip = army_artillery_attack_factor_tt
+			}
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -3172,15 +3174,6 @@ focus_tree = {
 				add_to_variable = { 
 					GER_wunderwaffen_sp_tag_artillery_speed_factor = GER_wunderwaffe_research_speed_bonus
 					tooltip = sp_tag_artillery_speed_factor_tt
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			custom_effect_tooltip = GER_modify_bewegungskrieg_modifier_tt
-			effect_tooltip = {
-				add_to_variable = { 
-					GER_bewegungskrieg_army_artillery_attack_factor = 0.1
-					tooltip = army_artillery_attack_factor_tt
 				}
 			}
 		}
@@ -3220,16 +3213,14 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_modify_bewegungskrieg_modifier_tt
-			effect_tooltip = {
-				add_to_variable = { 
-					GER_bewegungskrieg_army_infantry_attack_factor = 0.05
-					tooltip = army_infantry_attack_factor_tt
-				}
-				add_to_variable = { 
-					GER_bewegungskrieg_breakthrough_factor = 0.05
-					tooltip = breakthrough_factor_tt
-				}
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_army_infantry_attack_factor = 0.05
+				tooltip = army_infantry_attack_factor_tt
+			}
+			add_to_variable = { 
+				GER_military_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3499,7 +3490,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_instill_auftragstaktik
-		cost = 3
+		cost = 5
 		available = {
 			OR = {
 				AND = {
@@ -3569,10 +3560,12 @@ focus_tree = {
 				GER_military_acclimatization_hot_climate_gain_factor = 0.1
 				tooltip = acclimatization_hot_climate_gain_factor_tt
 			}
+			add_to_variable = { 
+				GER_military_cas_damage_reduction = 0.1
+				tooltip = cas_damage_reduction_tt
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = GER_unlock_operational_planning_in_africa_tt
 		}
 	}
 
@@ -3584,7 +3577,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_instill_auftragstaktik
-		cost = 3
+		cost = 5
 		available = {
 		}
 
@@ -3593,7 +3586,7 @@ focus_tree = {
 		completion_reward = {
 			GER_modify_army_modifier = yes
 			add_to_variable = { 
-				GER_military_special_forces_cap = 0.05
+				GER_military_special_forces_cap = 0.1
 				tooltip = special_forces_cap_tt
 			}
 			add_to_variable = { 
@@ -3648,54 +3641,15 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					NOT = { has_completed_focus = GER_the_prussian_legacy }
-					NOT = { has_completed_focus = GER_adopt_new_panzer_doctrine }
-				}
-				custom_effect_tooltip = GER_modify_bewegungskrieg_or_blitzkrieg_tt
-				effect_tooltip = {
-					add_to_variable = { 
-						GER_motor_and_mech_attack_motorized_attack_factor = 0.05
-						tooltip = motorized_attack_factor_tt
-					}
-					add_to_variable = { 
-						GER_motor_and_mech_attack_mechanized_attack_factor = 0.05
-						tooltip = mechanized_attack_factor_tt
-					}
-				}
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_motorized_attack_factor = 0.05
+				tooltip = motorized_attack_factor_tt
 			}
-			if = {
-				limit = {
-					has_completed_focus = GER_adopt_new_panzer_doctrine
-				}
-				custom_effect_tooltip = GER_modify_blitzkrieg_modifier_tt
-				effect_tooltip = {
-					add_to_variable = { 
-						GER_motor_and_mech_attack_motorized_attack_factor = 0.1
-						tooltip = motorized_attack_factor_tt
-					}
-					add_to_variable = {
-						GER_motor_and_mech_attack_mechanized_attack_factor = 0.1
-						tooltip = mechanized_attack_factor_tt
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = GER_the_prussian_legacy
-				}
-				custom_effect_tooltip = GER_modify_bewegungskrieg_modifier_tt
-				effect_tooltip = {
-					add_to_variable = { 
-						GER_motor_and_mech_attack_motorized_attack_factor = 0.1
-						tooltip = motorized_attack_factor_tt
-					}
-					add_to_variable = {
-						GER_motor_and_mech_attack_mechanized_attack_factor = 0.1
-						tooltip = mechanized_attack_factor_tt
-					}
-				}
+
+			add_to_variable = { 
+				GER_military_mechanized_attack_factor = 0.05
+				tooltip = mechanized_attack_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3939,7 +3893,6 @@ focus_tree = {
 	focus = {
 		id = GER_improve_the_logistics_system
 		icon = GFX_focus_generic_reinforcing_the_supply_network
-		mutually_exclusive = { focus = GER_defend_the_vaterland }
 		prerequisite = { focus = GER_panzergrenadier }
 
 		x = -1
@@ -3969,7 +3922,6 @@ focus_tree = {
 	focus = {
 		id = GER_defend_the_vaterland
 		icon = GFX_goal_generic_defence
-		mutually_exclusive = { focus = GER_improve_the_logistics_system }
 		prerequisite = { focus = GER_panzergrenadier }
 
 		x = 1
@@ -4264,10 +4216,17 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_unlock_operational_planning_blitzkrieg_tt
-			effect_tooltip = { #This is done for tooltip purposes
-				add_dynamic_modifier = { modifier = GER_blitzkrieg_modifier }
+
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_army_armor_attack_factor = 0.05
+				tooltip = army_armor_attack_factor_tt
 			}
+			add_to_variable = { 
+				GER_military_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}
+
 			IF = {
 				limit = { 
 					has_dlc = "No Compromise, No Surrender"
@@ -4316,7 +4275,12 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			GER_modify_army_modifier = yes			
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_army_armor_speed_factor = 0.05
+				tooltip = army_armor_speed_factor_tt
+			}
+
 			add_to_variable = { 
 				GER_military_org_loss_when_moving = -0.1
 				tooltip = org_loss_when_moving_tt
@@ -4347,20 +4311,6 @@ focus_tree = {
 			add_to_variable = { 
 				GER_military_coordination_bonus = 0.05
 				tooltip = coordination_bonus_tt
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = GER_modify_blitzkrieg_modifier_tt
-			effect_tooltip = {
-				add_to_variable = { 
-					GER_blitzkrieg_army_armor_speed_factor = 0.05
-					tooltip = army_armor_speed_factor_tt
-				}
-				add_to_variable = { 
-					GER_blitzkrieg_army_armor_attack_factor = 0.05
-					tooltip = army_armor_attack_factor_tt
-				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4457,16 +4407,14 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_modify_blitzkrieg_modifier_tt
-			effect_tooltip = {
-				add_to_variable = { 
-					GER_blitzkrieg_army_armor_attack_factor = 0.05
-					tooltip = army_armor_attack_factor_tt
-				}
-				add_to_variable = { 
-					GER_blitzkrieg_breakthrough_factor = 0.05
-					tooltip = breakthrough_factor_tt
-				}
+			GER_modify_army_modifier = yes
+			add_to_variable = { 
+				GER_military_army_armor_attack_factor = 0.05
+				tooltip = army_armor_attack_factor_tt
+			}
+			add_to_variable = { 
+				GER_military_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

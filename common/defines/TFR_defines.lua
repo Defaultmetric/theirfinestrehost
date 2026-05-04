@@ -35,6 +35,8 @@ NDefines.NTechnology.LICENSE_PRODUCTION_TECH_BONUS = 0.5
 
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 
+NDefines.NOperatives.AGENCY_CREATION_FACTORIES = 5						-- Number of factories used to create an intelligence agency
+
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP = 1500				-- Funds required to increase the size of the company
 NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_FACTOR = 100	-- How much each level mutliplies the funds for size up
@@ -207,6 +209,8 @@ NDefines.NAI.MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.2				-- ai will only activat
 
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_WIDTH = 2			-- Max width of support in division designer.
 NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 3		-- Max height of support in division designer.
+NDefines.NMilitary.UNIT_DIGIN_SPEED = 0.5						   -- how "deep" you can dig a day.
+NDefines.NMilitary.UNIT_DIGIN_CAP = 4.25                          -- how "deep" you can dig you can dig in until hitting max bonus
 
 --China
 

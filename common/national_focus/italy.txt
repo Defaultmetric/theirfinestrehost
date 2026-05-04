@@ -4008,11 +4008,10 @@ focus_tree = {
 		id = ITA_preserve_army_traditions
 		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = ITA_army_primacy_bba }
-		mutually_exclusive = { focus = ITA_a_bandits_war }
 		x = -3
 		y = 1
 		relative_position_id = ITA_army_primacy_bba
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4271,9 +4270,9 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_army_core_defence_factor = 0.05 }
-			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 }
-			custom_effect_tooltip = ITA_moschettieri_del_duce_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
+			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 tooltip = modifier_army_sub_unit_militia_max_org_factor_tt }
 		}
 	}
 
@@ -4281,11 +4280,10 @@ focus_tree = {
 		id = ITA_a_bandits_war
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = ITA_army_primacy_bba }
-		mutually_exclusive = { focus = ITA_preserve_army_traditions }
 		x = 3
 		y = 1
 		relative_position_id = ITA_army_primacy_bba
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4371,12 +4369,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_speed_factor = 0.03 }
-			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_attack_factor = 0.03 }
-			add_to_variable = { ITA_re_unit_cavalry_design_cost_factor = -0.25 }
-			add_to_variable = { ITA_re_unit_camelry_design_cost_factor = -0.25 }
-			custom_effect_tooltip = ITA_carica_di_isbuscenskij_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_speed_factor = 0.1 tooltip =  modifier_army_sub_unit_cavalry_speed_factor_tt}
+			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_attack_factor = 0.1 tooltip = modifier_army_sub_unit_cavalry_attack_factor_tt}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 25
 		}
 	}
@@ -4389,7 +4386,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
-		cost = 10
+		cost = 4
 		available = {
 			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 			#NTH_Manu: Should probably also require a completed focus in any of the ME political paths, so that it can unlock appropriate generals
@@ -4522,18 +4519,19 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_army_leaders
-		cost = 10
+		cost = 5
 		available = {
 		}
 
 		search_filters = {FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_special_forces_cap = 0.05 }
-			add_to_variable = { ITA_re_special_forces_attack_factor = 0.03 }
-			add_to_variable = { ITA_re_special_forces_defence_factor = 0.03 }
-			custom_effect_tooltip = ITA_bersaglieri_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_special_forces_cap = 0.05 tooltip = special_forces_cap_tt}
+			add_to_variable = { ITA_re_special_forces_attack_factor = 0.05 tooltip = special_forces_attack_factor_tt }
+			add_to_variable = { ITA_re_special_forces_defence_factor = 0.05 tooltip = special_forces_defence_factor_tt }
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 15
 
 			add_tech_bonus = {
@@ -4545,28 +4543,6 @@ focus_tree = {
 
 			set_technology = { bicycle_infantry = 1 popup = no }
 
-			division_template = { 
-				name = "Reggimento Bersaglieri" 
-				division_names_group = ITA_INF_01
-				regiments = { 
-					bicycle_battalion = { x = 0 y = 0 }
-					bicycle_battalion = { x = 0 y = 1 }
-					bicycle_battalion = { x = 1 y = 0 }
-					bicycle_battalion = { x = 1 y = 1 }
-				}
-				support = { 
-					engineer = { x = 0 y = 0 }
-					artillery = { x = 0 y = 1 }
-					#anti_tank = { x = 0 y = 2 }
-				}
-			}
-			capital_scope = {
-				create_unit = {
-					division = "division_template = \"Reggimento Bersaglieri\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 3
-				}
-			}
 		}
 	}
 
@@ -4578,7 +4554,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ITA_bersaglieri
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4610,7 +4586,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ITA_bersaglieri
-		cost = 10
+		cost = 5
 		available = {
 			has_tech = paratroopers
 		}
@@ -4724,7 +4700,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_superesercito
-		cost = 10
+		cost = 5
 		available = {
 			if = {
 				limit = {

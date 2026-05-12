@@ -15,7 +15,7 @@ generic_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_1
 
 	allowed = {
-		NOT = { OR = { original_tag = SPR  original_tag = MON original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
+		NOT = { OR = { original_tag = SPR  original_tag = GER original_tag = MON original_tag = ENG original_tag = SOV original_tag = FRA original_tag = ITA original_tag = JAP original_tag = USA original_tag = BEL original_tag = CZE original_tag = ROM  original_tag = HUN } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -320,7 +320,7 @@ generic_infantry_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_3
 
 	allowed = {
-		always = yes # Archetype only - countries using it have their own verisons
+		always = no # Archetype only - countries using it have their own verisons
 	}
 
 	equipment_type = { armor }
@@ -621,7 +621,7 @@ axis_assault_tank_organization = {
 	icon = GFX_idea_henschel
 
 	allowed = {
-		always = yes # Archetype only - countries using it have their own verisons
+		always = no # Archetype only - countries using it have their own verisons
 	}
 
 	initial_trait = {
@@ -1111,7 +1111,7 @@ axis_armored_tank_organization = {
 	icon = GFX_idea_porsche
 
 	allowed = {
-		always = yes # Archetype only - countries using it have their own verisons
+		always = no # Archetype only - countries using it have their own verisons
 	}
 
 	initial_trait = {
@@ -1359,7 +1359,7 @@ axis_armored_tank_organization = {
 
 			equipment_bonus = 
 			{
-				build_cost_ic = -0.07
+				build_cost_ic = -0.06
 			}	
 	}
 
@@ -1382,7 +1382,7 @@ axis_armored_tank_organization = {
 
 		production_bonus = {
 			production_efficiency_cap_factor = 0.05
-			production_efficiency_gain_factor = -0.05
+			production_efficiency_gain_factor = -0.075
 		}	
 	}
 
@@ -1491,11 +1491,10 @@ axis_armored_tank_organization = {
 		relative_position_id = axis_armored_mio_trait_breakthrough_spec
 		position = { x=1 y=2 }
 
-		special_trait_background = yes
 
 		production_bonus = {
-			production_resource_need_factor = -0.25
-			production_resource_penalty_factor = -0.25
+			production_resource_need_factor = -0.2
+			production_resource_penalty_factor = -0.2
 		}
 	}
 

@@ -176,6 +176,10 @@ technologies = {
 			light_armor
 		}
 
+		enable_equipment_modules = {
+			tank_small_cannon
+		}
+
 		on_research_complete_limit = {
 			NOT = {	has_template_containing_unit = light_armor }
 			NOT = {	has_template_containing_unit = heavy_armor }
@@ -262,6 +266,10 @@ technologies = {
 			light_tank_destroyer_chassis_2
 			light_tank_artillery_chassis_2
 			light_tank_aa_chassis_2
+		}
+
+		enable_equipment_modules = {
+			tank_small_cannon_2
 		}
 
 		path = {
@@ -510,6 +518,10 @@ technologies = {
 			light_tank_aa_chassis_3
 		}
 
+		enable_equipment_modules = {
+			tank_small_cannon_3
+		}
+
 		research_cost = 2
 		start_year = 1941
 
@@ -567,6 +579,10 @@ technologies = {
 
 		enable_subunits = {
 			medium_armor
+		}
+
+		enable_equipment_modules = {
+			tank_medium_cannon
 		}
 
 		on_research_complete_limit = {
@@ -710,6 +726,10 @@ technologies = {
 		folder = {
 			name = nsb_armour_folder
 			position = { x = 2 y = @1940 }
+		}
+
+		enable_equipment_modules = {
+			tank_medium_cannon_2
 		}
 
 		on_research_complete = {
@@ -859,6 +879,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+		enable_equipment_modules = {
+			tank_medium_cannon_3
+		}
+
 		research_cost = 2
 		start_year = 1943
 
@@ -866,67 +890,6 @@ technologies = {
 			name = nsb_armour_folder
 			position = { x = 2 y = @1943 }
 		}
-
-		on_research_complete = {
-			if = { #Italian templates
-				limit = {
-					original_tag = ITA
-					has_completed_focus = ITA_ferrea_mole_ferreo_cuore
-				}
-				ITA_add_advanced_medium_tank_templates = yes
-			}
-			IF = { #Hungarian templates
-				limit = {
-					original_tag = HUN
-					has_completed_focus = wuw_HUN_the_turan
-				}
-				#43M Turán III
-				create_equipment_variant = {
-					name = "43M Turán III"
-					type = medium_tank_chassis_3
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_medium_cannon_2
-						turret_type_slot = tank_medium_two_man_tank_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = additional_machine_guns
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					#icon = "GFX_ITA_basic_medium_tank_medium"
-				}
-			}
-			IF = { #Hungarian templates
-				limit = {
-					original_tag = HUN
-					has_completed_focus = wuw_HUN_assault_gun_focus
-				}
-				# 43M Zrínyi
-				create_equipment_variant = {
-					name = "43M Zrínyi"
-					type = medium_tank_artillery_chassis_3
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_medium_howitzer_2
-						turret_type_slot = tank_medium_fixed_superstructure_turret
-						suspension_type_slot = tank_torsion_bar_suspension
-						armor_type_slot = tank_riveted_armor
-						engine_type_slot = tank_gasoline_engine
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 0
-						tank_nsb_armor_upgrade = 0
-					}
-					#icon = "GFX_ITA_advanced_medium_art_medium"
-				}
-			}
-		}
-
 		ai_will_do = {
 			factor = 1
 
@@ -1040,6 +1003,10 @@ technologies = {
 			heavy_armor
 		}
 
+		enable_equipment_modules = {
+			tank_heavy_cannon
+		}
+
 		on_research_complete_limit = {
 			NOT = {	has_template_containing_unit = light_armor }
 			NOT = {	has_template_containing_unit = heavy_armor }
@@ -1129,6 +1096,10 @@ technologies = {
 			heavy_tank_aa_chassis_2
 		}
 
+		enable_equipment_modules = {
+			tank_heavy_cannon_2
+		}
+
 		path = {
 			leads_to_tech = advanced_heavy_tank_chassis
 			research_cost_coeff = 1
@@ -1212,6 +1183,10 @@ technologies = {
 			heavy_tank_destroyer_chassis_3
 			heavy_tank_artillery_chassis_3
 			heavy_tank_aa_chassis_3
+		}
+
+		enable_equipment_modules = {
+			tank_heavy_cannon_3
 		}
 
 		path = {

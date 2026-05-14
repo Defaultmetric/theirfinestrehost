@@ -28,14 +28,15 @@ new_mobile_warfare = {
     }
 
     # EFFECTS
-	additional_brigade_column_size = 1
+	army_speed_factor = 0.05
+	enable_tactic = tactic_unexpected_thrust
 	
 
     milestones = {
         {
             #Infantry
+	        org_loss_when_moving = -0.1
             land_reinforce_rate = 0.02
-            org_loss_when_moving = -0.1
             enable_tactic = tactic_delay
 
             effect = {
@@ -54,7 +55,8 @@ new_mobile_warfare = {
         }
         {
             #Artillery/Support
-            planning_speed = 0.2
+	        planning_speed = 0.1
+            org_loss_at_low_org_factor = -0.1
             enable_tactic = tactic_overwhelming_fire
             effect = {
                 if = {
@@ -72,11 +74,13 @@ new_mobile_warfare = {
         }
         {
             #Armor
-            org_loss_at_low_org_factor = -0.1
-            enable_tactic = tactic_unexpected_thrust
+	        additional_brigade_column_size = 1
+            enable_tactic = tactic_blitz
+
             category_all_armor = {
                 breakthrough = 0.1
             }
+
             effect = {
                 if = {
                     limit = {
@@ -93,11 +97,8 @@ new_mobile_warfare = {
         }
         {
             #Operations
-            planning_speed = 0.2
-            category_army = {
-                maximum_speed = 0.1
-            }
-            enable_tactic = tactic_backhand_blow
+	        planning_speed = 0.1
+            enable_tactic = tactic_backhand_blow   
 
             effect = {
                 if = {
@@ -145,18 +146,20 @@ superior_firepower = {
     }
 
     # EFFECTS
-    additional_brigade_column_size = 1
-
+    enable_tactic = tactic_overwhelming_fire
+    category_line_artillery = {
+        soft_attack = 0.1
+    }
+    category_support_artillery = {
+        soft_attack = 0.05
+    }
 
 
     milestones = {
         {
             #Infantry
-            category_support_battalions = {
-                max_organisation = 5
-            }
-            enable_tactic = elastic_defence
-
+            enable_tactic = tactic_elastic_defense
+            supply_consumption_factor = -0.1
 
             effect = {
                 if = {
@@ -174,9 +177,11 @@ superior_firepower = {
         }
         {
             #Artillery/Support
-            category_line_artillery = {
-                soft_attack = 0.1
+            additional_brigade_column_size = 1
+            category_support_battalions = {
+                max_organisation = 10
             }
+            planning_decay_rate_factor = -0.1
             enable_tactic = tactic_barrage
 
             effect = {
@@ -196,10 +201,10 @@ superior_firepower = {
         }
         {
             #Armor
+            enable_tactic = tactic_delay
             category_army = {
                 default_morale = 0.1
             }
-            enable_tactic = tactic_delay
 
             effect = {
                 if = {
@@ -217,8 +222,11 @@ superior_firepower = {
         }
         {
             #Operations
+            enable_tactic = tactic_tactical_withdrawal
+            category_army = {
+                default_morale = 0.2
+            }
             planning_decay_rate_factor = -0.1
-            enable_tactic = tactical_withdrawal
 
             effect = {
                 if = {
@@ -263,13 +271,17 @@ grand_battleplan = {
     }
 
     # EFFECTS
-    additional_brigade_column_size = 1
+    enable_tactic = tactic_planned_attack
+    
+    max_planning = 0.1
+    command_power_gain = 0.25
 
     milestones = {
         {
             #Infantry 
-            max_dig_in_factor = 0.1
-            enable_tactic = elastic_defence
+            additional_brigade_column_size = 1
+            enable_tactic = tactic_elastic_defense
+            max_dig_in_factor = 0.05
 
             effect = {
                 if = {
@@ -306,8 +318,7 @@ grand_battleplan = {
         }
         {
             #Armor
-            land_reinforce_rate = 0.02
-            enable_tactic = breakthrough
+            enable_tactic = tactic_breakthrough
             effect = {
                 if = {
                     limit = {
@@ -325,8 +336,8 @@ grand_battleplan = {
         }
         {
             #Operations
-            command_power_gain = 0.1
-            max_planning = 0.05
+            coordination_bonus = 0.05
+            max_command_power = 30
 
             effect = {
                 if = {
@@ -360,11 +371,6 @@ mass_assault = {
 
     ai_will_do = {
         base = 1
-
-        modifier = {
-            factor = 100
-            tag = CHI
-        }
     }
 
     tracks = {
@@ -375,15 +381,16 @@ mass_assault = {
     }
 
     # EFFECTS
-    additional_brigade_column_size = 1
+    no_supply_grace = 48
+    out_of_supply_factor = -0.10
+    enable_tactic = tactic_relentless_assault
     
 
     milestones = {
         {
             #Infantry
-            no_supply_grace = 48
-            pocket_penalty = -0.05
             enable_tactic = tactic_human_wave_tactics
+            additional_brigade_column_size = 1
 
             effect = {
                 if = {
@@ -401,9 +408,9 @@ mass_assault = {
         }
         {
             #Artillery/Support
-            out_of_supply_factor = -0.2
-            pocket_penalty = -0.05
-            enable_tactic = elastic_defence
+            enable_tactic = tactic_elastic_defense
+            out_of_supply_factor = -0.05
+            minimum_training_level = -0.05
 
             effect = {
                 if = {
@@ -421,9 +428,9 @@ mass_assault = {
         }
         {
             #Armor
-            no_supply_grace = 48
-            pocket_penalty = -0.05
+            land_reinforce_rate = 0.02
             enable_tactic = tactic_overwhelming_fire
+
             effect = {
                 if = {
                     limit = {
@@ -440,9 +447,11 @@ mass_assault = {
         }
         {
             #Operations
-            weekly_casualties_war_support = 0.001
-            minimum_training_level = -0.1
             enable_tactic = tactic_backhand_blow
+            weekly_casualties_war_support = 0.001
+            minimum_training_level = -0.05
+            dig_in_speed_factor = 0.05
+
             effect = {
                 if = {
                     limit = {

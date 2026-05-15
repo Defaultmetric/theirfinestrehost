@@ -546,126 +546,204 @@ Shared_AXIS_the_waiting_game =
 Shared_axis_army_specializations = 
 {
 	AXIS_massmob_specialization = {
-		icon = GFX_decision_SWE_set_army_budget
+    icon = GFX_decision_SWE_set_army_budget
 
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = preview_flag}}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
-        }
+    visible = {
+        is_in_faction_with = GER
+        has_global_flag = AXIS_high_command_flag
+        NOT = { has_country_flag = specialization_chosen_flag }
+        NOT = { has_country_flag = specialization_in_progress_flag }
+    }
 
-        complete_effect = {
-            ROOT = {
-                set_country_flag = specialization_in_progress_flag
+    complete_effect = {
+        set_country_flag = specialization_in_progress_flag
+    }
+
+    priority = 100
+    days_remove = 30
+
+    remove_effect = {
+        set_country_flag = specialization_chosen_flag
+        set_country_flag = axis_massmob_chosen_flag
+        set_country_flag = massmob_specialization_flag
+
+        clr_country_flag = spforces_specialization_flag
+        clr_country_flag = tank_specialization_flag
+        clr_country_flag = navy_specialization_flag
+        clr_country_flag = air_specialization_flag
+        clr_country_flag = preview_flag
+        clr_country_flag = specialization_in_progress_flag
+
+        hidden_effect = { #Not needed but a safety measure to prevent bugs
+            remove_ideas = {
+                massmob_mobilization_1
+                massmob_mobilization_2
+                massmob_mobilization_3
             }
         }
-        
-        available = { }
 
-        priority = 100
-        days_remove = 5
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = specialization_chosen_flag
+        if = {
+            limit = {
+                has_completed_focus = AXIS_massmob_mobilization_3
             }
-            ROOT = 
-            {
-                set_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                clr_country_flag = preview_flag
-                clr_country_flag = specialization_in_progress_flag
+            add_ideas = {
+                massmob_mobilization_3
             }
-		}
-	}
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_massmob_mobilization_2
+            }
+            add_ideas = {
+                massmob_mobilization_2
+            }
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_massmob_mobilization_1
+            }
+            add_ideas = {
+                massmob_mobilization_1
+            }
+        }
+    }
+}
 
     AXIS_special_forces_specialization = {
-		icon = GFX_decision_SWI_guisan_speech
+    icon = GFX_decision_SWI_guisan_speech
 
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = preview_flag}}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
-        }
+    visible = {
+        is_in_faction_with = GER
+        has_global_flag = AXIS_high_command_flag
+        NOT = { has_country_flag = specialization_chosen_flag }
+        NOT = { has_country_flag = specialization_in_progress_flag }
+    }
 
-        complete_effect = {
-            ROOT = {
-                set_country_flag = specialization_in_progress_flag
+    complete_effect = {
+        set_country_flag = specialization_in_progress_flag
+    }
+
+    priority = 100
+    days_remove = 30
+
+    remove_effect = {
+        set_country_flag = specialization_chosen_flag
+        set_country_flag = axis_special_forces_chosen_flag
+        set_country_flag = spforces_specialization_flag
+
+        clr_country_flag = massmob_specialization_flag
+        clr_country_flag = tank_specialization_flag
+        clr_country_flag = navy_specialization_flag
+        clr_country_flag = air_specialization_flag
+        clr_country_flag = preview_flag
+        clr_country_flag = specialization_in_progress_flag
+
+        if = {
+            limit = {
+                has_completed_focus = AXIS_special_forces_3
+            }
+            add_ideas = {
+                special_forces_3
             }
         }
-        
-        available = { }
-
-        priority = 100
-        days_remove = 5
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = specialization_chosen_flag
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_special_forces_2
             }
-            ROOT = 
-            {
-                set_country_flag = spforces_specialization_flag
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                clr_country_flag = preview_flag
-                clr_country_flag = specialization_in_progress_flag
+            add_ideas = {
+                special_forces_2
             }
-		}
-	}
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_special_forces_1
+            }
+            add_ideas = {
+                special_forces_1
+            }
+        }
+    }
+}
 
     AXIS_armored_warfare_specialization = {
-		icon = GFX_decision_generic_tank
+    icon = GFX_decision_generic_tank
 
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = preview_flag}}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
+    visible = {
+        is_in_faction_with = GER
+        has_global_flag = AXIS_high_command_flag
+        NOT = { has_country_flag = specialization_chosen_flag }
+        NOT = { has_country_flag = specialization_in_progress_flag }
+    }
+
+    priority = 100
+    days_remove = 30
+
+    complete_effect = {
+        set_country_flag = specialization_in_progress_flag
+    }
+
+    remove_effect = {
+        set_country_flag = specialization_chosen_flag
+        set_country_flag = axis_tank_chosen_flag
+        set_country_flag = tank_specialization_flag
+
+        clr_country_flag = massmob_specialization_flag
+        clr_country_flag = spforces_specialization_flag
+        clr_country_flag = navy_specialization_flag
+        clr_country_flag = air_specialization_flag
+        clr_country_flag = preview_flag
+        clr_country_flag = specialization_in_progress_flag
+
+        if = {
+            limit = {
+                has_completed_focus = AXIS_tank_specialization_3
+            }
+            add_ideas = {
+                tank_specialization_3
+            }
+
+            add_tech_bonus = {
+						name = shared_tank_bonus
+						bonus = 1
+						uses = 1
+						ahead_reduction = 1
+						category = armor
+					}
+
+            mio:axis_assault_tank_organization_generic = {
+						add_mio_size = 2
+					}
+
+			mio:axis_armored_tank_organization_generic = {
+						add_mio_size = 2
+					}
         }
-        
-        available = { }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_tank_specialization_2
+            }
+            add_ideas = {
+                tank_specialization_2
+            }
 
-        priority = 100
-        days_remove = 5
+            mio:axis_assault_tank_organization_generic = {
+						add_mio_size = 2
+					}
 
-        complete_effect = {
-            ROOT = {
-                set_country_flag = specialization_in_progress_flag
+			mio:axis_armored_tank_organization_generic = {
+						add_mio_size = 2
+					}
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_tank_specialization_1
+            }
+            add_ideas = {
+                tank_specialization_1
             }
         }
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = specialization_chosen_flag
-            }
-            ROOT = 
-            {
-                set_country_flag = tank_specialization_flag
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                clr_country_flag = preview_flag
-                clr_country_flag = specialization_in_progress_flag
-            }
-		}
-	}
+    }
+}
 
     AXIS_navy_specialization = {
 		icon = GFX_decision_SWE_set_navy_budget
@@ -674,14 +752,13 @@ Shared_axis_army_specializations =
             is_in_faction_with = GER
             has_global_flag = AXIS_high_command_flag
             NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = preview_flag}}
             NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
         }
         
         available = { }
 
         priority = 100
-        days_remove = 5
+        days_remove = 30
 
         complete_effect = {
             ROOT = {
@@ -715,14 +792,13 @@ Shared_axis_army_specializations =
             is_in_faction_with = GER
             has_global_flag = AXIS_high_command_flag
             NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = preview_flag}}
             NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
         }
         
         available = { }
 
         priority = 100
-        days_remove = 5
+        days_remove = 30
 
         complete_effect = {
             ROOT = {
@@ -749,206 +825,6 @@ Shared_axis_army_specializations =
 		}
     }
     
-    ####PREVIEW
-
-    AXIS_preview_specializations = {
-		icon = GFX_decision_generic_decision
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {has_country_flag = preview_flag}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = preview_flag
-            }
-		}
-    }
-
-
-    ### PREVIEW - BRANCHES 
-
-    AXIS_massmob_specialization_preview = {
-		icon = GFX_decision_SWE_set_army_budget
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-	}
-
-    AXIS_special_forces_specialization_preview = {
-		icon = GFX_decision_SWI_guisan_speech
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                clr_country_flag = massmob_specialization_flag
-                set_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-	}
-
-    AXIS_armored_warfare_specialization_preview = {
-		icon = GFX_decision_generic_tank
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                set_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-	}
-
-    AXIS_navy_specialization_preview = {
-		icon = GFX_decision_SWE_set_navy_budget
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                set_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-	}
-
-    AXIS_air_specialization_preview = {
-		icon = GFX_decision_generic_merge_plant_aircraft
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                set_country_flag = air_specialization_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-    }
-
-
-    #########
-
-    AXIS_end_preview = {
-		icon = GFX_decision_generic_decision
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            ROOT = {has_country_flag = preview_flag}
-        }
-        
-        available = { }
-
-        priority = 100
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = air_specialization_flag
-                clr_country_flag = preview_flag
-                mark_focus_tree_layout_dirty = yes
-            }
-		}
-    }
 }
 
 

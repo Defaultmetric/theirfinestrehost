@@ -5583,6 +5583,117 @@ joint_focus = {
 }
 
 
+### NAVY SPECIALIZATION 
+
+joint_focus = {
+    id = AXIS_navy_specialization_1
+    icon = GFX_goal_generic_construct_naval_dockyard
+    prerequisite = { focus = AXIS_unlock_army_specializations }
+
+    x = -6
+    y = 1
+    relative_position_id = AXIS_unlock_army_specializations
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_NAVY }
+
+    completion_reward_joint_originator = {
+        show_ideas_tooltip = navy_specialization_1
+        custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_navy_chosen_flag
+            }
+
+            add_ideas = {
+                navy_specialization_1
+            }
+        }
+    }
+}
+
+joint_focus = {
+    id = AXIS_navy_specialization_2
+    icon = GFX_focus_NORDIC_dem_capstone_navy
+    prerequisite = { focus = AXIS_navy_specialization_1 }
+
+    x = 0
+    y = 1
+    relative_position_id = AXIS_navy_specialization_1
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_NAVY }
+
+    completion_reward_joint_originator = {
+        show_ideas_tooltip = navy_specialization_2_fake
+        custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_navy_chosen_flag
+            }
+
+            remove_ideas = {
+                navy_specialization_1
+            }
+
+            add_ideas = {
+                navy_specialization_2
+            }
+        }
+    }
+}
+
+joint_focus = {
+    id = AXIS_navy_specialization_3
+    icon = GFX_focus_generic_navy_doctrine
+    prerequisite = { focus = AXIS_navy_specialization_2 }
+
+    x = 0
+    y = 1
+    relative_position_id = AXIS_navy_specialization_2
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_NAVY }
+
+    completion_reward_joint_originator = {
+        show_ideas_tooltip = navy_specialization_3_fake
+        custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_navy_chosen_flag
+            }
+
+            remove_ideas = {
+                navy_specialization_2
+            }
+
+            add_ideas = {
+                navy_specialization_3
+            }
+        }
+    }
+}
 
 
 

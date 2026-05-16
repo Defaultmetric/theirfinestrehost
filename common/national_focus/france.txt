@@ -2507,8 +2507,11 @@ focus_tree = {
 		completion_reward = {
 			IF = {
 				limit = { has_dlc = "Arms Against Tyranny" }
-				mio:FRA_renault_organization = {
-					add_mio_funds = 2000
+				mio:allies_assault_tank_organization_generic = {
+					add_mio_size = 1
+				}
+				mio:allies_armored_tank_organization_generic = {
+					add_mio_size = 1
 				}
 			}
 			ELSE = {

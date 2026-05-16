@@ -21,20 +21,11 @@ GER_henschel_organization = {
 	icon = GFX_idea_henschel
 	
 	allowed = {	
-		OR = {
-			original_tag = GER 
-			AND = {
-				original_tag = ETH
-				has_dlc = "By Blood Alone"
-			}
-		}
+		always = no
 	}
 	
 	visible = {
-		IF = {
-			limit = { FROM = { original_tag = ETH } }
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
+		always = no
 	}
 
 	available = {

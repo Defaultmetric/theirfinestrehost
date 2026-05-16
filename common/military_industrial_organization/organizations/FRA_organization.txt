@@ -13,22 +13,11 @@ FRA_renault_organization = {
 	include = generic_multi_role_organization
 	icon = GFX_idea_renault
 	allowed = {	
-		OR = {
-			tag = FRA 
-			AND = {
-				tag = ETH 
-				has_dlc = "By Blood Alone"
-			}
-		}
+		always = no
 	}
 
 	visible = {
-		IF = {
-			limit = {
-				FROM = { original_tag = ETH }
-			}
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
+	
 	}
 
 	available = {

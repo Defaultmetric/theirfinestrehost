@@ -5600,8 +5600,6 @@ joint_focus = {
     available = {
     }
 
-    search_filters = { FOCUS_FILTER_NAVY }
-
     completion_reward_joint_originator = {
         show_ideas_tooltip = navy_specialization_1
         custom_effect_tooltip = generic_skip_one_line_tt
@@ -5615,6 +5613,20 @@ joint_focus = {
             add_ideas = {
                 navy_specialization_1
             }
+
+			every_core_state = {
+							limit = {
+								is_fully_controlled_by = ROOT
+								is_coastal = yes
+							}
+							random_select_amount = 2
+							add_extra_state_shared_building_slots = 2
+							add_building_construction = {
+								type = dockyard
+								level = 2
+								instant_build = yes
+							}
+						}
         }
     }
 }
@@ -5633,8 +5645,6 @@ joint_focus = {
 
     available = {
     }
-
-    search_filters = { FOCUS_FILTER_NAVY }
 
     completion_reward_joint_originator = {
         show_ideas_tooltip = navy_specialization_2_fake
@@ -5659,7 +5669,7 @@ joint_focus = {
 
 joint_focus = {
     id = AXIS_navy_specialization_3
-    icon = GFX_focus_generic_navy_doctrine
+    icon = GFX_focus_generic_navy_research_bonus
     prerequisite = { focus = AXIS_navy_specialization_2 }
 
     x = 0
@@ -5672,10 +5682,8 @@ joint_focus = {
     available = {
     }
 
-    search_filters = { FOCUS_FILTER_NAVY }
-
     completion_reward_joint_originator = {
-        show_ideas_tooltip = navy_specialization_3_fake
+		custom_effect_tooltip = shared_navy_bonus_tt
         custom_effect_tooltip = generic_skip_one_line_tt
         custom_effect_tooltip = current_effects_tt
 
@@ -5683,14 +5691,123 @@ joint_focus = {
             limit = {
                 has_country_flag = axis_navy_chosen_flag
             }
+			
+			add_tech_bonus = {
+	        			name = shared_navy_bonus
+	        			bonus = 1
+	       			 	uses = 1
+						ahead_reduction = 2.0
+	        			category = naval_equipment
+	    			}
 
-            remove_ideas = {
-                navy_specialization_2
+        }
+    }
+}
+
+### AIR SPECIALIZATION
+
+joint_focus = {
+    id = AXIS_air_specialization_1
+    icon = GFX_focus_HUN_establish_the_mavag_aircraft_factory
+    prerequisite = { focus = AXIS_unlock_army_specializations }
+
+    x = 6
+    y = 1
+    relative_position_id = AXIS_unlock_army_specializations
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward_joint_originator = {
+        custom_effect_tooltip = available_mio_tt
+		show_mio_tooltip = ROM_wulf_organization
+		show_mio_tooltip = ROM_junkers_organization
+		custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_air_chosen_flag
+            }
+			
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = ROM_wulf_organization
+			show_mio_tooltip = ROM_junkers_organization
+			set_country_flag = air_mio1_chosen_flag
+			set_country_flag = gsp_ac_flag
+
+        }
+    }
+}
+
+joint_focus = {
+    id = AXIS_air_specialization_2
+    icon = GFX_focus_PER_luftwaffe_planes
+    prerequisite = { focus = AXIS_air_specialization_1 }
+
+    x = 0
+    y = 1
+    relative_position_id = AXIS_air_specialization_1
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward_joint_originator = {
+		custom_effect_tooltip = trait_unlocks_tt
+        custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_air_chosen_flag
+            }
+			set_country_flag = air_stats_flag
+			custom_effect_tooltip = trait_unlocks_tt
+        }
+    }
+}
+
+joint_focus = {
+    id = AXIS_air_specialization_3
+    icon = GFX_focus_FIN_expand_air_force_academy
+    prerequisite = { focus = AXIS_air_specialization_2 }
+
+    x = 0
+    y = 1
+    relative_position_id = AXIS_air_specialization_2
+    cost = 10
+
+    text_icon = NORDIC_focus_style
+
+    available = {
+    }
+
+    search_filters = { FOCUS_FILTER_POLITICAL }
+
+    completion_reward_joint_originator = {
+        show_ideas_tooltip = air_specialization_3_fake
+        custom_effect_tooltip = generic_skip_one_line_tt
+        custom_effect_tooltip = current_effects_tt
+
+        every_country = {
+            limit = {
+                has_country_flag = axis_air_chosen_flag
             }
 
-            add_ideas = {
-                navy_specialization_3
+			add_ideas = {
+                air_specialization_1
             }
+
         }
     }
 }

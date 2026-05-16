@@ -786,16 +786,72 @@ ideas = {
 				always = no
 			}
 			
+      picture = generic_coastal_navy
 
 			removal_cost = -1
-
-			picture = NORDIC_navy_democratic
 			
 			modifier = {
         industrial_capacity_dockyard = 0.1
         production_speed_dockyard_factor = 0.1
       }
 		}
+
+    navy_specialization_2 = {
+			
+			allowed = {
+				always = no
+			}
+			
+      picture = generic_coastal_navy
+
+			removal_cost = -1
+			
+			modifier = {
+        industrial_capacity_dockyard = 0.1
+        production_speed_dockyard_factor = 0.1
+        refit_ic_cost = -0.1
+				refit_speed = 0.1
+				repair_speed_factor = 0.1
+      }
+		}
+
+    navy_specialization_2_fake = {
+			
+			allowed = {
+				always = no
+			}
+			
+      picture = generic_coastal_navy
+
+			removal_cost = -1
+			
+			modifier = {
+        refit_ic_cost = -0.1
+				refit_speed = 0.1
+				repair_speed_factor = 0.1
+      }
+		}
+
+    #### AIR SPEC
+
+    air_specialization_1 = {
+			
+			allowed = {
+				always = no
+			}
+			
+      picture = NORDIC_airforce_communist
+
+			removal_cost = -1
+			
+			modifier = {
+        air_range_factor = 0.15
+        air_agility_factor = 0.1
+        air_ace_generation_chance_factor = 0.1
+        air_fuel_consumption_factor = -0.1
+      }
+		}
+
 }
 }
 

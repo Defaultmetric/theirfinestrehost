@@ -545,7 +545,7 @@ Shared_AXIS_the_waiting_game =
 
 Shared_axis_army_specializations = 
 {
-	AXIS_massmob_specialization = {
+AXIS_massmob_specialization = {
     icon = GFX_decision_SWE_set_army_budget
 
     visible = {
@@ -609,7 +609,7 @@ Shared_axis_army_specializations =
     }
 }
 
-    AXIS_special_forces_specialization = {
+AXIS_special_forces_specialization = {
     icon = GFX_decision_SWI_guisan_speech
 
     visible = {
@@ -665,7 +665,7 @@ Shared_axis_army_specializations =
     }
 }
 
-    AXIS_armored_warfare_specialization = {
+AXIS_armored_warfare_specialization = {
     icon = GFX_decision_generic_tank
 
     visible = {
@@ -745,85 +745,195 @@ Shared_axis_army_specializations =
     }
 }
 
-    AXIS_navy_specialization = {
-		icon = GFX_decision_SWE_set_navy_budget
+AXIS_navy_specialization = {
+    icon = GFX_decision_SWE_set_navy_budget
 
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
-        }
-        
-        available = { }
-
-        priority = 100
-        days_remove = 30
-
-        complete_effect = {
-            ROOT = {
-                set_country_flag = specialization_in_progress_flag
-            }
-        }
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = specialization_chosen_flag
-            }
-            ROOT = 
-            {
-                set_country_flag = navy_specialization_flag
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = air_specialization_flag
-                clr_country_flag = preview_flag
-                clr_country_flag = specialization_in_progress_flag
-            }
-		}
-	}
-
-    AXIS_air_specialization = {
-		icon = GFX_decision_generic_merge_plant_aircraft
-
-		visible = { 
-            is_in_faction_with = GER
-            has_global_flag = AXIS_high_command_flag
-            NOT = {ROOT = {has_country_flag = specialization_chosen_flag}}
-            NOT = {ROOT = {has_country_flag = specialization_in_progress_flag}}
-        }
-        
-        available = { }
-
-        priority = 100
-        days_remove = 30
-
-        complete_effect = {
-            ROOT = {
-                set_country_flag = specialization_in_progress_flag
-            }
-        }
-
-
-		remove_effect = {
-			ROOT = 
-            {
-                set_country_flag = specialization_chosen_flag
-            }
-            ROOT = 
-            {
-                set_country_flag = air_specialization_flag
-                clr_country_flag = massmob_specialization_flag
-                clr_country_flag = spforces_specialization_flag
-                clr_country_flag = tank_specialization_flag
-                clr_country_flag = navy_specialization_flag
-                clr_country_flag = preview_flag
-                clr_country_flag = specialization_in_progress_flag
-            }
-		}
+    visible = {
+        is_in_faction_with = GER
+        has_global_flag = AXIS_high_command_flag
+        NOT = { has_country_flag = specialization_chosen_flag }
+        NOT = { has_country_flag = specialization_in_progress_flag }
     }
+
+    priority = 100
+    days_remove = 30
+
+    complete_effect = {
+        set_country_flag = specialization_in_progress_flag
+    }
+
+    remove_effect = {
+        set_country_flag = specialization_chosen_flag
+        set_country_flag = axis_navy_chosen_flag
+        set_country_flag = navy_specialization_flag
+
+        clr_country_flag = massmob_specialization_flag
+        clr_country_flag = spforces_specialization_flag
+        clr_country_flag = tank_specialization_flag
+        clr_country_flag = air_specialization_flag
+        clr_country_flag = preview_flag
+        clr_country_flag = specialization_in_progress_flag
+
+        if = {
+            limit = {
+                has_completed_focus = AXIS_navy_specialization_3
+            }
+
+            add_ideas = {
+                navy_specialization_2
+            }
+
+            every_core_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_coastal = yes
+                }
+                random_select_amount = 2
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+
+            add_tech_bonus = {
+                name = shared_navy_bonus
+                bonus = 1
+                uses = 1
+                ahead_reduction = 2.0
+                category = naval_equipment
+            }
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_navy_specialization_2
+            }
+
+            add_ideas = {
+                navy_specialization_2
+            }
+
+            every_core_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_coastal = yes
+                }
+                random_select_amount = 2
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_navy_specialization_1
+            }
+
+            add_ideas = {
+                navy_specialization_1
+            }
+
+            every_core_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    is_coastal = yes
+                }
+                random_select_amount = 2
+                add_extra_state_shared_building_slots = 2
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+}
+
+AXIS_air_specialization = {
+    icon = GFX_decision_generic_merge_plant_aircraft
+
+    visible = {
+        is_in_faction_with = GER
+        has_global_flag = AXIS_high_command_flag
+        NOT = { has_country_flag = specialization_chosen_flag }
+        NOT = { has_country_flag = specialization_in_progress_flag }
+    }
+
+    available = 
+    {
+        if = 
+        {
+            limit = 
+            {
+                original_tag = ROM
+            }
+            ROM = 
+            {
+                OR = 
+                {
+                    has_completed_focus = ROM_mass_mobilization
+                    has_completed_focus = ROM_national_christian_party
+                }
+            }
+        }
+    }
+
+    priority = 100
+    days_remove = 30
+
+    complete_effect = {
+        set_country_flag = specialization_in_progress_flag
+    }
+
+    remove_effect = {
+        set_country_flag = specialization_chosen_flag
+        set_country_flag = axis_air_chosen_flag
+        set_country_flag = air_specialization_flag
+
+        clr_country_flag = massmob_specialization_flag
+        clr_country_flag = spforces_specialization_flag
+        clr_country_flag = tank_specialization_flag
+        clr_country_flag = navy_specialization_flag
+        clr_country_flag = preview_flag
+        clr_country_flag = specialization_in_progress_flag
+
+        if = {
+            limit = {
+                has_completed_focus = AXIS_air_specialization_3
+            }
+
+            set_country_flag = air_mio1_chosen_flag
+            set_country_flag = gsp_ac_flag
+            set_country_flag = air_stats_flag
+
+            add_ideas = {
+                air_specialization_1
+            }
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_air_specialization_2
+            }
+
+            set_country_flag = air_mio1_chosen_flag
+            set_country_flag = gsp_ac_flag
+            set_country_flag = air_stats_flag
+        }
+        else_if = {
+            limit = {
+                has_completed_focus = AXIS_air_specialization_1
+            }
+
+            set_country_flag = air_mio1_chosen_flag
+            set_country_flag = gsp_ac_flag
+        }
+    }
+}
     
 }
 

@@ -38,10 +38,6 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NOperatives.AGENCY_CREATION_FACTORIES = 5						-- Number of factories used to create an intelligence agency
 
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
-NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP = 1500				-- Funds required to increase the size of the company
-NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_FACTOR = 100	-- How much each level mutliplies the funds for size up
-NDefines.NIndustrialOrganisation.FUNDS_FOR_SIZE_UP_LEVEL_POW = 1.5	-- Scaling factor for size increase cost
-NDefines.NIndustrialOrganisation.FUNDS_FOR_RESEARCH_COMPLETION_PER_RESEARCH_COST = 300     	-- Funds added to MIO when the Design Team has completed a research, multiplied by research_cost in technology template
 NDefines.NIndustrialOrganisation.FUNDS_FROM_MANUFACTURER_PER_IC_PER_DAY = 0.2				-- Funds added to MIO when a manufacturer is attached to a production line. Added every day proportional to IC produced.
 NDefines.NIndustrialOrganisation.MAX_FUNDS_FROM_MANUFACTURER_PER_DAY = 200					-- Max funds generated per manufacturer per day. Set to 0 for no Maximum.
 

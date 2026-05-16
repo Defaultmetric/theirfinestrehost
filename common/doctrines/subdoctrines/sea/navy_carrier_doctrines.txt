@@ -4,7 +4,7 @@ carrier_battlegroups = {
     description = SUBDOCTRINE_CARRIER_BATTLEGROUPS_DESC
     icon = GFX_doctrine_carrier_battlegroups_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     ai_will_do = { 
@@ -55,7 +55,7 @@ floating_airfields = {
     description = SUBDOCTRINE_CARRIER_AIRFIELDS_DESC
     icon = GFX_doctrine_floating_airfield_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     available = {
@@ -115,7 +115,7 @@ escort_carrier_support = {
     description = SUBDOCTRINE_ESCORT_CARRIER_SUPPORT_DESC
     icon = GFX_doctrine_escort_carriers_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     available = {
@@ -185,7 +185,7 @@ broad_naval_support = {
     description = SUBDOCTRINE_BROAD_NAVAL_SUPPORT_DESC
     icon = GFX_doctrine_carrier_task_forces_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     available = {
@@ -216,7 +216,7 @@ broad_naval_support = {
     	}
     	escorts_in_battle = {
             equipment_bonus = {
-                escort_carrier = {
+                ship_hull_escort_carrier = {
                     lg_attack = 0.15
                     anti_air_attack = 0.1
                     lg_armor_piercing = 0.15
@@ -243,7 +243,7 @@ massed_carrier_fleet = {
     description = SUBDOCTRINE_MASSED_CARRIER_FLEET_DESC
     icon = GFX_doctrine_carrier_primacy_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     ai_will_do = { 
@@ -267,17 +267,17 @@ massed_carrier_fleet = {
     		}
     	}
     	carrier_independence = {
-    		carrier = {
-    			supply_consumption = -0.2
-    			fuel_consumption = -0.1
-    		}
+    		screening_without_screens = 0.3
     	}
     	crew_shifts = {
     		sortie_efficiency = 0.3
     		carrier_sortie_hours_delay = -2
     	}
     	efficient_rearming = {
-    		carrier_sortie_hours_delay = -2
+    		carrier = {
+    			supply_consumption = -0.2
+    			fuel_consumption = -0.1
+    		}
     	}
     	unceasing_airpower = {
     		carrier_traffic = 0.3
@@ -296,7 +296,7 @@ light_task_forces = {
     description = SUBDOCTRINE_LIGHT_TASK_FORCES_DESC
     icon = GFX_doctrine_subsidiary_carrier_role_medium
 
-    xp_cost = 125
+    xp_cost = 100
     xp_type = navy
 
     ai_will_do = { 
@@ -344,7 +344,7 @@ light_task_forces = {
                 surface_visibility = -0.10
 			}
 			destroyer = {
-                surface_visibility = -0.10
+                surface_visibility = -0.05
 			}
     	}
     	screen_raiders = {

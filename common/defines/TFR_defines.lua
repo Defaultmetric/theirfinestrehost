@@ -27,6 +27,11 @@ NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 1.0				-- XP cost for co
 NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 1.0
 NDefines.NProduction.MINIMUM_NUMBER_OF_FACTORIES_TAKEN_BY_CONSUMER_GOODS_PERCENT = 0.00 -- 0.05	-- The minimum number of factories we have to put on consumer goods, in percent. (Vanilla is 0.1)
 
+NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0					-- XP cost for adding a new equipment module in an empty slot when creating an equipment variant.
+NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0				-- XP cost for replacing one equipment module with an unrelated module when creating an equipment variant.
+NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0				-- XP cost for converting one equipment module to a related module when creating an equipment variant.
+NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 0				-- XP cost for removing an equipment module and leaving the slot empty when creating an equipment variant.
+
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 3
 NDefines.NTechnology.BASE_TECH_COST = 90

@@ -2,7 +2,7 @@ NDefines.NGame.GAME_SPEED_SECONDS = { 1000.0, 0.19, 0.14, 0.10, 0.0 }
 NDefines.NGame.LAG_DAYS_FOR_LOWER_SPEED = 999				-- Days of client lag for decrease of gamespeed
 NDefines.NGame.LAG_DAYS_FOR_PAUSE = 999				-- Days of client lag for pause of gamespeed.
 
-NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 12
+NDefines.NGame.COMBAT_LOG_MAX_MONTHS = 14
 NDefines.NGame.EVENT_TIMEOUT_DEFAULT = 15						-- Default days before an event times out if not scripted
 NDefines.NGame.MISSION_REMOVE_FROM_INTERFACE_DEFAULT = 15		-- Default days before a mission is removed from the interface after having failed or completed
 NDefines.NGame.HANDS_OFF_START_TAG = "VEN"
@@ -31,6 +31,14 @@ NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0					-- XP cost for adding 
 NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0				-- XP cost for replacing one equipment module with an unrelated module when creating an equipment variant.
 NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0				-- XP cost for converting one equipment module to a related module when creating an equipment variant.
 NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 0				-- XP cost for removing an equipment module and leaving the slot empty when creating an equipment variant.
+
+NDefines_CareerProfile.NCareerProfile.MOD_STATISTICS_GROUP = "TFR"
+NDefines_CareerProfile.NCareerProfile.MOD_STATISTICS_GROUP_NAME = "TFR"
+
+NDefines.NCountry.POPULATION_YEARLY_GROWTH_BASE = 0                     -- Removed for game stability/reducing chance of desync
+NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1.0	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
+
+NDefines.NGame.MESSAGE_TIMEOUT_DAYS = 14					     	    -- WAS 60 | less messages lying around at the top of your screen
 
 NDefines.NTechnology.BASE_RESEARCH_POINTS_SAVED = 50.0
 NDefines.NTechnology.BASE_YEAR_AHEAD_PENALTY_FACTOR = 3
@@ -216,3 +224,10 @@ NDefines.NMilitary.UNIT_DIGIN_CAP = 4.25                          -- how "deep" 
 --China
 
 NDefines.NResistance.COMPLIANCE_FACTOR_ON_STATE_CONTROLLER_CHANGE = 0	-- compliance factor that applies when the state controller changes (in between allies, compliance is zeroed if it is taken by original country)
+
+--AI no lend lease
+NDefines.NAI.LENDLEASE_FRACTION_OF_PRODUCTION = 0
+NDefines.NAI.LENDLEASE_FRACTION_OF_STOCKPILE = 0
+NDefines.NAI.MINIMUM_EQUIPMENT_TO_ASK_LEND_LEASE = -100000
+NDefines.NAI.MINIMUM_CONVOY_TO_ASK_LEND_LEASE = 0
+NDefines.NAI.TENSION_MIN_FOR_GUARANTEE_VS_MINOR = 2000

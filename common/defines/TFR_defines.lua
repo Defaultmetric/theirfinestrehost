@@ -231,3 +231,15 @@ NDefines.NAI.LENDLEASE_FRACTION_OF_STOCKPILE = 0
 NDefines.NAI.MINIMUM_EQUIPMENT_TO_ASK_LEND_LEASE = -100000
 NDefines.NAI.MINIMUM_CONVOY_TO_ASK_LEND_LEASE = 0
 NDefines.NAI.TENSION_MIN_FOR_GUARANTEE_VS_MINOR = 2000
+
+-- Increased General Size Limit
+NDefines.NMilitary.CORPS_COMMANDER_DIVISIONS_CAP = 72
+NDefines.NMilitary.FIELD_MARSHAL_DIVISIONS_CAP = 72
+NDefines.NMilitary.FIELD_MARSHAL_ARMIES_CAP = 7
+
+NDefines.NCountry.FUEL_LEASE_CONVOY_RATIO = 0.0001 -- Fuel takes less convoys
+NDefines.NCountry.CONVOY_LENDLEASE_RANGE_FACTOR = 0.01 -- How much range affects convoy need for lend lease
+NDefines.NAir.AIR_WING_ATTACK_LOGISTICS_RAILWAY_DAMAGE_SPILL_FACTOR = 0 -- Portion of train damage to additionally deal to railways
+
+-- Mastery
+NDefines.NDoctrines.MASTERY_BANK_MAX = 500.0 	-- Vanilla value 200

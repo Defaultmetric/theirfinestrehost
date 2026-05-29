@@ -528,7 +528,6 @@ Shared_allies_army_specializations = {
                 tag = CAN
                 tag = SAF
                 tag = FRA
-                tag = BRA
             }
             NOT = { has_country_flag = specialization_chosen_flag }
             NOT = { has_country_flag = specialization_in_progress_flag }
@@ -600,10 +599,21 @@ Shared_allies_army_specializations = {
                 tag = CAN
                 tag = SAF
                 tag = FRA
-                tag = BRA
             }
             NOT = { has_country_flag = specialization_chosen_flag }
             NOT = { has_country_flag = specialization_in_progress_flag }
+        }
+
+        available = 
+        {
+            if = 
+            {
+                limit = 
+                {
+                    tag = FRA
+                }
+                has_global_flag = fall_of_france
+            }
         }
 
         complete_effect = {
@@ -668,6 +678,18 @@ Shared_allies_army_specializations = {
             }
             NOT = { has_country_flag = specialization_chosen_flag }
             NOT = { has_country_flag = specialization_in_progress_flag }
+        }
+
+        available = 
+        {
+            if = 
+            {
+                limit = 
+                {
+                    tag = FRA
+                }
+                has_global_flag = fall_of_france
+            }
         }
 
         priority = 100
@@ -756,6 +778,18 @@ Shared_allies_army_specializations = {
             }
             NOT = { has_country_flag = specialization_chosen_flag }
             NOT = { has_country_flag = specialization_in_progress_flag }
+        }
+
+        available = 
+        {
+            if = 
+            {
+                limit = 
+                {
+                    tag = FRA
+                }
+                has_global_flag = fall_of_france
+            }
         }
 
         priority = 100
@@ -874,6 +908,18 @@ Shared_allies_army_specializations = {
             NOT = { has_country_flag = specialization_in_progress_flag }
         }
 
+        available = 
+        {
+            if = 
+            {
+                limit = 
+                {
+                    tag = FRA
+                }
+                has_global_flag = fall_of_france
+            }
+        }
+
         priority = 100
         days_remove = 30
 
@@ -903,7 +949,7 @@ Shared_allies_army_specializations = {
                 set_country_flag = air_stats_flag
 
                 add_ideas = {
-                    air_specialization_1
+                    allies_air_specialization_new
                 }
             }
             else_if = {

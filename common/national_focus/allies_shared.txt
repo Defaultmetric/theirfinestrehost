@@ -1336,7 +1336,6 @@ joint_focus = {
 				has_global_flag = allies_high_value_2
 			}
 		}
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	available = {
@@ -1367,7 +1366,6 @@ joint_focus = {
 	{
 		has_global_flag = allies_high_value
 		has_global_flag = allies_high_value_2
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	text_icon = NORDIC_focus_style
@@ -1420,7 +1418,6 @@ joint_focus = {
 				has_global_flag = allies_medium_value_2
 			}
 		}
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	text_icon = NORDIC_focus_style
@@ -1482,7 +1479,6 @@ joint_focus = {
 				has_global_flag = allies_low_value_2
 			}
 		}
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	text_icon = NORDIC_focus_style
@@ -1540,7 +1536,6 @@ joint_focus = {
 				has_global_flag = allies_low_value_2
 			}
 		}
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	text_icon = NORDIC_focus_style
@@ -1585,7 +1580,6 @@ joint_focus = {
 	{
 		has_global_flag = allies_low_value
 		has_global_flag = allies_low_value_2
-		ROOT = {has_country_flag = shared_tree_clicked}
 	}
 
 	text_icon = NORDIC_focus_style
@@ -3461,6 +3455,8 @@ joint_focus = {
     search_filters = { FOCUS_FILTER_POLITICAL }
 
     completion_reward_joint_originator = {
+		show_ideas_tooltip = allies_air_specialization_new
+        custom_effect_tooltip = generic_skip_one_line_tt
         custom_effect_tooltip = current_effects_tt
 
         every_country = {
@@ -3469,7 +3465,7 @@ joint_focus = {
             }
 
             add_ideas = {
-                air_specialization_1
+                allies_air_specialization_new
             }
         }
     }

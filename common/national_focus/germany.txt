@@ -492,7 +492,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_housing_developments
-		cost = 5
+		cost = 10
 		available = {
 		}
 
@@ -508,19 +508,19 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.1
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_efficiency_gain_factor = 0.05
+				GER_industrial_production_factory_efficiency_gain_factor = 0.1
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_start_efficiency_factor = 0.05
+				GER_industrial_production_factory_start_efficiency_factor = 0.1
 				tooltip = production_factory_start_efficiency_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_line_change_production_efficiency_factor = 0.05
+				GER_industrial_line_change_production_efficiency_factor = 0.1
 				tooltip = line_change_production_efficiency_factor_tt
 			}
 		}
@@ -1725,6 +1725,13 @@ focus_tree = {
 				category = electronics
 			}
 
+			add_tech_bonus = {
+				name = GER_the_four_year_plan_2
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+
 		}
 	}
 	
@@ -1768,8 +1775,8 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = GER_the_four_year_plan
-				bonus = 1
-				uses = 1
+				bonus = 0.5
+				uses = 2
 				category = industry
 			}
 		}

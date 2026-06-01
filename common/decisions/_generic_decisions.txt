@@ -150,6 +150,106 @@ political_actions = {
         }
     }
 
+	give_romania_vojvodina_banat_major_only = {
+		priority = -1
+        icon = GFX_decision_eng_trade_unions_support
+        allowed = {
+ 		}
+		visible = {
+			is_ai = no
+			tag = ITA
+			has_global_flag = majors_only_flag
+			ITA = 
+			{
+				has_full_control_of_state = 45
+				has_full_control_of_state = 764
+			}
+			ROM = 
+			{
+				exists = yes
+			}
+		}
+        cost = 0
+
+        complete_effect = {
+            ROM = 
+			{
+				transfer_state = 45
+				transfer_state = 764
+			}
+
+			45 = 
+			{
+				add_core_of = ROM
+			}
+			764 = 
+			{
+				add_core_of = ROM
+			}
+        }
+    }
+
+	give_romania_slovakia_major_only = {
+		priority = -1
+        icon = GFX_decision_eng_trade_unions_support
+        allowed = {
+ 		}
+		visible = {
+			is_ai = no
+			tag = GER
+			has_global_flag = majors_only_flag
+			OR = {
+				GER = 
+				{
+					has_full_control_of_state = 73
+					has_full_control_of_state = 71
+					has_full_control_of_state = 664
+					has_full_control_of_state = 70
+				}
+				SLO = 
+				{
+					has_full_control_of_state = 73
+					has_full_control_of_state = 71
+					has_full_control_of_state = 664
+					has_full_control_of_state = 70
+				}
+			}
+			ROM = 
+			{
+				exists = yes
+			}
+		}
+        cost = 0
+
+        complete_effect = {
+            ROM = 
+			{
+				transfer_state = 73
+				transfer_state = 71
+				transfer_state = 664
+				transfer_state = 70
+			}
+
+			73 = 
+			{
+				add_core_of = ROM
+			}
+			71 = 
+			{
+				add_core_of = ROM
+			}
+			664 = 
+			{
+				add_core_of = ROM
+			}
+			70 = 
+			{
+				add_core_of = ROM
+			}
+        }
+    }
+	
+
 	improved_worker_conditions = {
 
 		icon = generic_industry

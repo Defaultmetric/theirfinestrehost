@@ -2,8 +2,74 @@ on_actions = {
 	on_startup = {
     effect = {
 
-		### noAsia
+		### Majors Only ###
 		if = 
+		{
+			limit =
+			{
+				
+				USA = 
+				{
+					is_ai = no
+				}
+				HUN = 
+				{
+					is_ai = yes
+				}
+				BRA = 
+				{
+					is_ai = yes
+				}
+			}
+
+			set_global_flag = majors_only_flag
+
+			### Day1 annexes
+
+			ROM = 
+			{
+				annex_country = { target = HUN }
+				every_owned_state = {
+        				add_core_of = ROM
+    				}
+			}
+			
+			CAN = 
+			{
+				annex_country = {target = SAF}
+				every_owned_state = {
+        				add_core_of = CAN
+    				}
+			}
+
+			RAJ = 
+			{
+				annex_country = {target = AST}
+				every_owned_state = 
+				{
+					if = 
+					{
+						limit = 
+						{
+							is_core_of = AST
+						}
+						add_core_of = RAJ
+					}
+				}
+			}
+
+			### Startup event 
+
+			USA = {
+				news_event = {id = dynamic.countries.3}
+			}
+		
+			####
+
+		}
+
+		### noAsia
+		else_if = 
 		{
 			limit = 
 			{
@@ -289,7 +355,6 @@ on_actions = {
 		717 = {add_core_of = JAP}
 		328 = {add_core_of = JAP}
 		716 = {add_core_of = JAP}
-		934 = {add_core_of = JAP}
 		611 = {add_core_of = JAP}
 		1043 = {add_core_of = JAP}
 		612 = {add_core_of = JAP}

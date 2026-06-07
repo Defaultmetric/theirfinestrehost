@@ -2403,12 +2403,6 @@ focus_tree = {
 				}
 				set_state_flag = ROM_national_defense_industry_AF2
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ROM_ind_tt
-			add_to_variable = {
-				ROM_ind_factory_output = 0.05
-				tooltip = industrial_capacity_factory_tt
-			}
 			ROM_malaxa_increment = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = malaxa_tt
@@ -2980,7 +2974,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = ROM_expand_ploiesti_oil_production
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -3004,13 +2998,12 @@ focus_tree = {
 				category = industry
 				bonus = 1.0
 				uses = 1
-				ahead_reduction = 2
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ROM_ind_tt
 			add_to_variable = {
-				ROM_ind_prod_eff_cap = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
+				ROM_ind_factory_output = 0.05
+				tooltip = industrial_capacity_factory_tt
 			}
 			ROM_malaxa_increment = yes
 			custom_effect_tooltip = generic_skip_one_line_tt

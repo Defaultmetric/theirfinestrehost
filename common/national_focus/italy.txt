@@ -19,6 +19,8 @@
 focus_tree = {
 	id = italian_focus
 
+	shared_focus = AXIS_joint_alliance
+
 	country = {
 		factor = 0
 		
@@ -33,7 +35,6 @@ focus_tree = {
 	}
 	
 	default = no
-	shared_focus = AXIS_joint_alliance
 
 	continuous_focus_position = { x = 1500 y = 1500 }
 
@@ -3014,6 +3015,13 @@ focus_tree = {
 					}
 				}
 			}
+			158 = 
+			{
+				add_resource = {
+						type = coal
+						amount = 8
+					}
+			}
 		}
 	}
 
@@ -3201,6 +3209,10 @@ focus_tree = {
 					add_resource = {
 						type = steel
 						amount = 12
+					}
+					add_resource = {
+						type = coal
+						amount = 24
 					}
 				}
 			}
@@ -3673,7 +3685,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = ITA_redirect_alfa_romeo_production
-		cost = 10
+		cost = 5
 		available = {
 			has_full_control_of_state = 661
 			has_full_control_of_state = 663
@@ -3688,13 +3700,11 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ITA_eco_tt
 			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.10 tooltip = industrial_capacity_factory_tt }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.10 tooltip = production_factory_max_efficiency_factor_tt}
-			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.10 tooltip = production_factory_start_efficiency_factor_tt }
-			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.1 tooltip = production_factory_efficiency_gain_factor_tt }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 tooltip = production_factory_max_efficiency_factor_tt}
+			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.05 tooltip = production_factory_start_efficiency_factor_tt }
+			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = ITA_industriale_tt
-			add_to_variable = { ITA_iri_consumer_goods_factor = -0.1 tooltip = consumer_goods_factor_tt }
-			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+			
 			hidden_effect = 
 			{
 				449 = {
@@ -3729,19 +3739,13 @@ focus_tree = {
 					}
 					add_building_construction = {
 						type = supply_node
-						province = 10754
+						province = 10037
 						level = 1
 						instant_build = yes
 					}
 				}
 
 				451 = {
-					add_building_construction = {
-						type = bunker
-						province = 9992
-						level = 4
-						instant_build = yes
-					}
 					add_building_construction = {
 						type = bunker
 						province = 10120
@@ -3764,8 +3768,14 @@ focus_tree = {
 						instant_build = yes
 					}
 					add_building_construction = {
+						type = bunker
+						province = 13404
+						level = 4
+						instant_build = yes
+					}
+					add_building_construction = {
 						type = supply_node
-						province = 10731
+						province = 1060
 						level = 1
 						instant_build = yes
 					}
@@ -3773,11 +3783,11 @@ focus_tree = {
 
 				#left-side supply hub
 				build_railway = {
-				path = { 1149 12711 10758 10754 }
+				path = { 1149 4051 10037 }
 				}
 				#right-side supply hub
 				build_railway = {
-				path = { 12079 1186 10731 }
+				path = { 1130 7206 1060 }
 				}
 			}
 		}
@@ -3896,6 +3906,7 @@ focus_tree = {
 		available = {
 		}
 
+
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
@@ -3997,11 +4008,10 @@ focus_tree = {
 		id = ITA_preserve_army_traditions
 		icon = GFX_focus_generic_little_entente
 		prerequisite = { focus = ITA_army_primacy_bba }
-		mutually_exclusive = { focus = ITA_a_bandits_war }
 		x = -3
 		y = 1
 		relative_position_id = ITA_army_primacy_bba
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4015,11 +4025,17 @@ focus_tree = {
 
 			army_experience = 25
 
+			add_mastery= {
+				amount = 150
+				grand_doctrine = grand_battleplan
+				track = infantry
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_preserve_army_traditions
-				cost_reduction = 0.75
+				cost_reduction = 0.5
 				uses = 1
-				category = cat_grand_battle_plan
+				category = land_doctrine
 			}
 		}
 	}
@@ -4129,7 +4145,7 @@ focus_tree = {
 					159 = { is_fully_controlled_by = ROOT }
 				}
 				159 = {
-					add_building_construction = { #Two separate effects for stupid tt reasons :)
+					add_building_construction = { #Two separate effects for stupid tt reasons :
 						type = bunker
 						level = 2
 						province = {
@@ -4254,9 +4270,9 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_army_core_defence_factor = 0.05 }
-			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 }
-			custom_effect_tooltip = ITA_moschettieri_del_duce_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_army_core_defence_factor = 0.1 tooltip = army_core_defence_factor_tt }
+			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 tooltip = modifier_army_sub_unit_militia_max_org_factor_tt }
 		}
 	}
 
@@ -4264,11 +4280,10 @@ focus_tree = {
 		id = ITA_a_bandits_war
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = ITA_army_primacy_bba }
-		mutually_exclusive = { focus = ITA_preserve_army_traditions }
 		x = 3
 		y = 1
 		relative_position_id = ITA_army_primacy_bba
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4282,11 +4297,19 @@ focus_tree = {
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = ITA_alberto_pariani
 
+
+			add_mastery_bonus = {
+				name = ITA_a_bandits_war
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_mobile_warfare
+				track = infantry
+			}
 			add_doctrine_cost_reduction = {
 				name = ITA_a_bandits_war
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_mobile_warfare
+				cost_reduction = 0.25
+				uses = 1
+				category = land_doctrine
 			}
 
 			add_tech_bonus = {
@@ -4319,47 +4342,12 @@ focus_tree = {
 					limit = {
 						is_ai = yes
 					}
-					set_technology = {
-						trench_warfare = 0
-						mobile_warfare = 1
-					}
 					if = {
 						limit = {
-							has_tech = grand_battle_plan
+							has_doctrine = grand_battleplan
 						}
-						set_technology = {
-							grand_battle_plan = 0
-							delay = 1
-						}
-					}
-					if = {
-						limit = {
-							has_tech = prepared_defense
-						}
-						set_technology = {
-							prepared_defense = 0
-							elastic_defence = 1
-						}
-					}
-					if = {
-						limit = {
-							has_tech = grand_assault
-						}
-						set_technology = {
-							grand_assault = 0
-							infantry_offensive = 0
-							armored_operations = 0
-							infiltration_assault = 0
-							night_assault_tactics = 0
-							attritional_containment = 0
-							infiltration_in_depth = 0
-							grand_mechanized_offensive = 0
-							assault_concentration = 0
-							branch_interoperation = 0
-							assault_breakthrough = 0
-							central_planning = 0
-							c3i_theory = 0
-						}
+
+						set_grand_doctrine = new_mobile_warfare
 					}
 				}
 			}
@@ -4381,12 +4369,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_speed_factor = 0.03 }
-			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_attack_factor = 0.03 }
-			add_to_variable = { ITA_re_unit_cavalry_design_cost_factor = -0.25 }
-			add_to_variable = { ITA_re_unit_camelry_design_cost_factor = -0.25 }
-			custom_effect_tooltip = ITA_carica_di_isbuscenskij_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_speed_factor = 0.1 tooltip =  modifier_army_sub_unit_cavalry_speed_factor_tt}
+			add_to_variable = { ITA_re_modifier_army_sub_unit_cavalry_attack_factor = 0.1 tooltip = modifier_army_sub_unit_cavalry_attack_factor_tt}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 25
 		}
 	}
@@ -4399,7 +4386,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
-		cost = 10
+		cost = 4
 		available = {
 			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 			#NTH_Manu: Should probably also require a completed focus in any of the ME political paths, so that it can unlock appropriate generals
@@ -4492,7 +4479,14 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_italian_tankettes
-				bonus = 2
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+
+			add_tech_bonus = {
+				name = ITA_italian_tankettes
+				bonus = 0.45
 				uses = 2
 				category = armor
 			}
@@ -4525,18 +4519,19 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_army_leaders
-		cost = 10
+		cost = 5
 		available = {
 		}
 
 		search_filters = {FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			add_to_variable = { ITA_re_special_forces_cap = 0.05 }
-			add_to_variable = { ITA_re_special_forces_attack_factor = 0.03 }
-			add_to_variable = { ITA_re_special_forces_defence_factor = 0.03 }
-			custom_effect_tooltip = ITA_bersaglieri_re_tt
+			custom_effect_tooltip = regio_esercito_tt
+			add_to_variable = { ITA_re_special_forces_cap = 0.05 tooltip = special_forces_cap_tt}
+			add_to_variable = { ITA_re_special_forces_attack_factor = 0.05 tooltip = special_forces_attack_factor_tt }
+			add_to_variable = { ITA_re_special_forces_defence_factor = 0.05 tooltip = special_forces_defence_factor_tt }
 
+			custom_effect_tooltip = generic_skip_one_line_tt
 			army_experience = 15
 
 			add_tech_bonus = {
@@ -4548,28 +4543,6 @@ focus_tree = {
 
 			set_technology = { bicycle_infantry = 1 popup = no }
 
-			division_template = { 
-				name = "Reggimento Bersaglieri" 
-				division_names_group = ITA_INF_01
-				regiments = { 
-					bicycle_battalion = { x = 0 y = 0 }
-					bicycle_battalion = { x = 0 y = 1 }
-					bicycle_battalion = { x = 1 y = 0 }
-					bicycle_battalion = { x = 1 y = 1 }
-				}
-				support = { 
-					engineer = { x = 0 y = 0 }
-					artillery = { x = 0 y = 1 }
-					#anti_tank = { x = 0 y = 2 }
-				}
-			}
-			capital_scope = {
-				create_unit = {
-					division = "division_template = \"Reggimento Bersaglieri\" start_experience_factor = 0.5 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 3
-				}
-			}
 		}
 	}
 
@@ -4581,7 +4554,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ITA_bersaglieri
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -4613,7 +4586,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ITA_bersaglieri
-		cost = 10
+		cost = 5
 		available = {
 			has_tech = paratroopers
 		}
@@ -4727,7 +4700,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_superesercito
-		cost = 10
+		cost = 5
 		available = {
 			if = {
 				limit = {
@@ -4907,8 +4880,8 @@ focus_tree = {
 			
 			add_tech_bonus = {
 				name = ITA_ferrea_mole_ferreo_cuore
-				bonus = 1
-				uses = 2
+				bonus = 1.5
+				uses = 1
 				category = armor
 			}
 
@@ -4951,6 +4924,7 @@ focus_tree = {
 		cost = 5
 		available = {
 		}
+
 
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
 
@@ -5414,7 +5388,7 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				category = light_fighter
-				ahead_reduction = 1.0
+				ahead_reduction = 0.5
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
@@ -5422,7 +5396,7 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				category = air_equipment 
-				ahead_reduction = 1.0
+				ahead_reduction = 0.5
 			}
 
 			#Update NS icon
@@ -5474,7 +5448,7 @@ focus_tree = {
 	focus = {
 		id = ITA_bomber_designs
 		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_standardization  }
 
 		x = 2
 		y = 0
@@ -5512,7 +5486,7 @@ focus_tree = {
 	focus = {
 		id = ITA_fighter_designs
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_specialization }
 
 		x = 4
 		y = 0
@@ -5653,9 +5627,10 @@ focus_tree = {
 		x = 11
 		y = 0
 		relative_position_id = ITA_air_innovations_bba
-		cost = 3
+		cost = 5
 		available = {
 		}
+
 
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
 
@@ -5780,11 +5755,21 @@ focus_tree = {
 				}
 			}
 			else = {
+
+
+
+				add_mastery_bonus = {
+					name = ITA_intensify_torpedo_manufacturing
+					bonus = 0.1
+					days = 180
+					grand_doctrine = new_convoy_raiding
+					track = submarines
+				}
 				add_doctrine_cost_reduction = {
 					name = ITA_intensify_torpedo_manufacturing
 					cost_reduction = 0.5
-					uses = 2
-					category = cat_trade_interdiction
+					uses = 1
+					category = naval_doctrine
 				}
 			}
 		}
@@ -5798,7 +5783,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ITA_naval_power_projection
-		cost = 4
+		cost = 5
 		available = {
 			OR = {
 				has_full_control_of_state = 162
@@ -6719,7 +6704,7 @@ focus_tree = {
 				name = ITA_incrociatori_leggeri
 				bonus = 1
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 
 			#Update NS icon
@@ -6753,11 +6738,20 @@ focus_tree = {
 
 			navy_experience = 25
 
+
+			add_mastery_bonus = {
+				name = ITA_incrociatori_pesanti
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_fleet_in_being
+				track = capital_ships
+			}
+
 			add_doctrine_cost_reduction = {
 				name = ITA_incrociatori_pesanti
-				cost_reduction = 0.75
-				uses = 2
-				category = cat_fleet_in_being
+				cost_reduction = 0.50
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -7283,11 +7277,18 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
+			add_mastery_bonus = {
+				name = ITA_navi_da_battaglia
+				bonus = 0.2
+				days = 180
+				grand_doctrine = new_fleet_in_being
+				track = capital_ships
+			}
 			add_doctrine_cost_reduction = {
 				name = ITA_navi_da_battaglia
-				cost_reduction = 0.50
-				uses = 2
-				category = fleet_in_being_tree
+				cost_reduction = 0.25
+				uses = 1
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -8202,25 +8203,10 @@ focus_tree = {
 		id = ITA_the_abyssinian_fiasco
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		mutually_exclusive = { focus = ITA_solid_progress focus = ITA_struggle_in_ethiopia }
-		x = 29
+		x = 49
 		y = 0
-		relative_position_id = ITA_naval_power_projection
+	
 		cost = 5
-
-		allow_branch = {
-			has_dlc = "By Blood Alone"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_culto_del_duce }
-				NOT = { has_completed_focus = ITA_convene_the_grand_council }
-			}
-			has_war_support > 400
-		}
 
 
 		available = {
@@ -8230,14 +8216,16 @@ focus_tree = {
 			}
 		}
 
+
 		search_filters = {}
 
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism 
-				popularity = -0.15
+				popularity = -0.05
 			}
 			add_war_support = -0.03
+			add_political_power = -25
 		}
 	}
 
@@ -8245,15 +8233,24 @@ focus_tree = {
 		id = ITA_solid_progress
 		icon = GFX_focus_generic_attack_ethiopia
 		mutually_exclusive = { focus = ITA_the_abyssinian_fiasco focus = ITA_struggle_in_ethiopia }
-		x = -17
+		x = 51
 		y = 0
-
-		relative_position_id = ITA_the_abyssinian_fiasco
 		cost = 5
 
 		bypass = {
-			ITA_has_peaced_out_eth_on_startup = yes
+			OR = {
+				AND = 
+				{
+					has_full_control_of_state = 271
+					has_full_control_of_state = 838
+					has_full_control_of_state = 835
+					has_full_control_of_state = 839
+					has_full_control_of_state = 837
+				}
+				date > 1936.5.1
+			}
 		}
+
 
 		available = {
 			custom_trigger_tooltip = {
@@ -8290,6 +8287,7 @@ focus_tree = {
 			}
 		}
 
+
 		search_filters = {}
 
 		completion_reward = {
@@ -8324,7 +8322,7 @@ focus_tree = {
 				}
 				NOT = { has_completed_focus = ITA_defy_the_duce }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -8376,7 +8374,7 @@ focus_tree = {
 		icon = GFX_focus_generic_secret_service_agency
 		prerequisite = { focus = ITA_solid_progress focus = ITA_the_abyssinian_fiasco focus = ITA_struggle_in_ethiopia }
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_solid_progress
 		cost = 4
@@ -8544,7 +8542,7 @@ focus_tree = {
 				}
 				NOT = { has_completed_focus = ITA_defy_the_duce	}
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 20
@@ -8885,19 +8883,6 @@ focus_tree = {
 
 		mutually_exclusive = { focus = ITA_convene_the_grand_council focus = ITA_defy_the_duce }
 
-		allow_branch = {
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
-				NOT = { has_completed_focus = ITA_convene_the_grand_council }
-			}
-		}
 
 		x = 0
 		y = 2
@@ -9012,7 +8997,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -9352,22 +9337,6 @@ focus_tree = {
 		relative_position_id = ITA_culto_del_duce
 		cost = 5
 
-		allow_branch = {
-			OR = {
-				has_dlc = "La Resistance"
-				has_dlc = "Waking the Tiger"
-			}
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
-			}
-		}
 
 		available = {
 			if = {
@@ -10033,7 +10002,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 0
@@ -10373,7 +10342,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 2
@@ -10456,7 +10425,7 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_defy_the_duce }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 0
@@ -12448,7 +12417,7 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_defy_the_duce }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -14100,7 +14069,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_mare_nostrum_bba focus = ITA_deus_vult }
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 4
@@ -14650,6 +14619,7 @@ focus_tree = {
 			}
 		}
 
+
 		x = 14
 		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
@@ -14743,7 +14713,7 @@ focus_tree = {
 		mutually_exclusive = { focus = ITA_balkan_ambition }
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 1
@@ -14928,6 +14898,10 @@ focus_tree = {
 					type = oil
 					amount = 12
 				}
+				add_resource = {
+					type = coal
+					amount = 8
+				}
 			}
 		}
 	}
@@ -14938,7 +14912,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_albanian_occupation }
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 0
@@ -15104,7 +15078,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		bypass = {
@@ -15736,7 +15710,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -15928,7 +15902,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_italian_irredentism }
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = -1
@@ -15999,38 +15973,20 @@ focus_tree = {
 		id = ITA_demand_ticino
 		icon = GFX_focus_attack_switzerland
 		prerequisite = { 
-			focus = ITA_war_with_france
-			focus = ITA_request_control_of_french_territories 
-		}
-
-		allow_branch = {
-			has_war_support > 400
+			focus = ITA_italian_irredentism
 		}
 
 		x = -1
 		y = 1
-		relative_position_id = ITA_war_with_france
-		cost = 10
-
-		allow_branch = {
-			has_war_support > 400
-		}
+		relative_position_id = ITA_italian_irredentism
+		cost = 5
 
 		available = {
 
 			846 = {
 				is_owned_and_controlled_by = SWI
 			}
-			is_subject = no
-			159 = { 
-				is_controlled_by = ITA
-			}
-			158 = {
-				is_controlled_by = ITA
-			}
-			735 = {
-				is_controlled_by = ITA
-			}
+		
 		}
 
 		will_lead_to_war_with = SWI
@@ -16240,7 +16196,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		
 		will_lead_to_war_with = TUR
@@ -16287,7 +16243,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		search_filters = {}
@@ -16553,7 +16509,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -18323,7 +18279,7 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_convene_the_grand_council }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 
@@ -18383,7 +18339,7 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_convene_the_grand_council }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -18501,7 +18457,7 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_convene_the_grand_council }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		
 		available = {
@@ -22794,7 +22750,4 @@ focus_tree = {
 			}
 		}
 	}
-
-
-
 }

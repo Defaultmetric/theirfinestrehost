@@ -43,10 +43,7 @@ focus_tree = {
 		{
 			if = 
 			{
-				ENG = 
-				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+				has_global_flag = noAsia
 			}
 		}
 
@@ -95,11 +92,9 @@ focus_tree = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -168,7 +163,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         cost = 5
@@ -258,7 +253,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -337,7 +332,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -561,8 +556,8 @@ focus_tree = {
                     type = light_tank_chassis_2
 
                    upgrades = {       
-                       tank_nsb_engine_upgrade = 10
-                       tank_nsb_armor_upgrade = 2 
+                       tank_nsb_engine_upgrade = 0
+                       tank_nsb_armor_upgrade = 0
                    }
                     modules={
                         main_armament_slot=tank_small_cannon_2
@@ -7072,11 +7067,9 @@ focus_tree = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -7556,11 +7549,10 @@ focus_tree = {
 		{
 			if = 
 			{
-				ENG = {
+
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -7637,7 +7629,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -8882,7 +8874,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
         x = 0
         y = 2
@@ -9074,7 +9066,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -9128,7 +9120,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -11918,8 +11910,8 @@ focus_tree = {
                                 type = medium_tank_chassis_1 # equipment type id, example: ship_hull_carrier_2 
 
                                 upgrades = {
-                                    tank_nsb_engine_upgrade = 7
-                                    tank_nsb_armor_upgrade = 3
+                                    tank_nsb_engine_upgrade = 0
+                                    tank_nsb_armor_upgrade = 0
                                 }
                                 
                                 modules = {      
@@ -15556,7 +15548,7 @@ focus_tree = {
 
         allow_branch = 
         {
-            has_war_support > 400
+            has_completed_focus = SOV_the_fourth_international
         }
 
         ai_will_do = {
@@ -16945,13 +16937,8 @@ focus_tree = {
 focus = {
 	id = RAJ_his_majestys_loyal_government
 	icon = GFX_focus_RAJ_his_majestys_loyal_government
-	
-    allow_branch = 
-        {
-            has_war_support > 400
-        }
 
-	x = 44
+	x = 20
 	y = 0
 	relative_position_id = RAJ_great_depression_price_controls 
 	cost = 5
@@ -16972,6 +16959,14 @@ focus = {
 			}
 		}
 	}
+
+     offset = {
+        x = 20
+        y = 0
+        trigger = {
+            RAJ = {has_completed_focus = RAJ_his_majestys_loyal_government}
+        }
+    }
 
 
 	available = {
@@ -19135,6 +19130,11 @@ focus = {
 		}
 	}
 
+    allow_branch = 
+    {
+        always = no
+    }
+
 	search_filters = {  }
 
 	completion_reward = {
@@ -20914,11 +20914,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -21166,10 +21164,6 @@ focus = {
         relative_position_id = RAJ_colonial_cadet_exchange
 
         cost = 5
-
-        allow_branch = {
-            has_dlc = "La Resistance"
-        }
 
         bypass = {
 
@@ -21497,11 +21491,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -21755,13 +21747,12 @@ focus = {
 
         allow_branch = 
 		{
+
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -22149,11 +22140,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -22229,11 +22218,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -22277,11 +22264,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -22319,11 +22304,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -24117,11 +24100,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -25027,11 +25008,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}
@@ -25079,11 +25058,9 @@ focus = {
 		{
 			if = 
 			{
-				ENG = {
 				NOT = 
 				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
+					has_global_flag = noAsia
 				}
 			}
 		}

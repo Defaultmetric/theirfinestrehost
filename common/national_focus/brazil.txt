@@ -22,6 +22,7 @@ focus_tree = {
 
 	continuous_focus_position = { x = 0 y = 2500 }
 	
+	
 
 	initial_show_position = {
 		x = 27
@@ -44,7 +45,7 @@ focus_tree = {
 		id = BRA_tribunal_de_seguranca_nacional
 		icon = GFX_focus_BRA_tribunal
 		#prerequisite = { focus = }
-		x = 0
+		x = 10
 		y = 0
 		#relative_position_id =
 		mutually_exclusive = { focus = BRA_end_the_state_of_emergency focus = BRA_prepare_for_second_intentona }
@@ -54,19 +55,7 @@ focus_tree = {
 		}
 		available = {
 		}
-		allow_branch = {
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
-				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
-			}
-
-		}
+		
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
@@ -145,7 +134,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		available = {
 			NOT = {
@@ -184,7 +173,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -316,7 +305,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
-		cost = 10
+		cost = 5
 		available = {
 			OR = {
 				fascism > 0.50
@@ -341,7 +330,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_estado_novo
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -518,7 +507,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_autarky
-		cost = 5
+		cost = 4
 		available = {
 		}
 
@@ -536,7 +525,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_corporatism
-		cost = 5
+		cost = 4
 		ai_will_do = {
 			factor = 10
 		}
@@ -571,7 +560,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = BRA_departamendo_de_propaganda
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
@@ -719,7 +708,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_establish_psad
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -772,7 +761,7 @@ focus_tree = {
 		x = 1
 		y = 2
 		relative_position_id = BRA_decree_no_37
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -826,7 +815,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = BRA_reward_army_loyalty
-		cost = 5
+		cost = 0
 		ai_will_do = {
 			factor = 20
 		}
@@ -1075,13 +1064,15 @@ focus_tree = {
 		id = BRA_coffee_crisis_aftermath
 		icon = GFX_focus_BRA_coffee_crisis
 		#prerequisite = { focus =  }
-		x = 10
+		x = -12
 		y = 0
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
 		cost = 5
 		ai_will_do = {
 			factor = 15
 		}
+
+
 
 
 		available = {
@@ -1115,7 +1106,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = BRA_coffee_crisis_aftermath
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -1140,7 +1131,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = BRA_coffee_crisis_aftermath
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -1176,7 +1167,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_radio_nacional
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -1214,7 +1205,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_desenvolvimentismo
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
@@ -1247,7 +1238,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = BRA_desenvolvimentismo
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 18
 		}
@@ -1299,7 +1290,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_stimulate_the_civilian_economy
-		cost = 10
+		cost = 4
 		ai_will_do = {
 			factor = 16
 		}
@@ -1531,7 +1522,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_invest_in_railways
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 19
 		}
@@ -1576,7 +1567,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = BRA_companhia_siderurgica_nacional
-		cost = 10
+		cost = 5
 		available = {
 		}
 
@@ -1617,7 +1608,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = BRA_invest_in_railways
-		cost = 5
+		cost = 4
 		ai_will_do = {
 			factor = 8
 		}
@@ -1705,7 +1696,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = BRA_invest_in_road_infrastructure
 		mutually_exclusive = { focus = BRA_expand_fordlandia }
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 4
 		}
@@ -1750,7 +1741,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = BRA_invest_in_road_infrastructure
 		mutually_exclusive = { focus = BRA_fabrica_nacional_de_motores }
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 4
 		}
@@ -1816,7 +1807,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_invest_in_road_infrastructure
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 4
 		}
@@ -2049,7 +2040,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
@@ -2205,7 +2196,7 @@ focus_tree = {
 		cost = 5
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		ai_will_do = {
 			factor = 5
@@ -2503,7 +2494,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		
-		cost = 10
+		cost = 5
 		available = {
 			any_country = {
 				original_tag = GER
@@ -2796,7 +2787,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -2927,7 +2918,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		available = {
 			NOT = {
@@ -3032,7 +3023,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -3281,8 +3272,8 @@ focus_tree = {
 						special_type_slot_2 = smoke_launchers
 					}
 					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 2
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
 					}
 					icon = "GFX_GER_basic_medium_tank_medium"
 				}
@@ -3824,7 +3815,7 @@ focus_tree = {
 		y = 1
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		relative_position_id = BRA_anaue
 		cost = 5
@@ -4588,7 +4579,7 @@ focus_tree = {
 				NOT = { has_completed_focus = BRA_prepare_for_second_intentona }
 				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -5217,17 +5208,7 @@ focus_tree = {
 	focus = {
 		id = BRA_invite_foreign_companies
 		icon = GFX_focus_generic_american_investments
-		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-			IF = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-			}
-		}
+		
 		x = 4
 		y = 1
 		relative_position_id = BRA_cooperation_in_the_americas
@@ -5272,7 +5253,6 @@ focus_tree = {
 			# France
 			show_mio_tooltip = FRA_acf_organization
 			show_mio_tooltip = FRA_bloch_organization
-			show_mio_tooltip = FRA_renault_organization
 			# Sweden
 			show_mio_tooltip = SWE_saab_organization			
 			show_mio_tooltip = SWE_landsverk_organization
@@ -5342,7 +5322,7 @@ focus_tree = {
 				NOT = { has_completed_focus = BRA_end_the_state_of_emergency }
 				NOT = { has_completed_focus = BRA_tribunal_de_seguranca_nacional }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 
 		}
 		completion_reward = {
@@ -6813,7 +6793,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 			
 		}
 		ai_will_do = {
@@ -7631,7 +7611,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BRA_reward_army_loyalty
 		mutually_exclusive = { focus = BRA_support_rural_folk }
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}
@@ -7658,7 +7638,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = BRA_reward_army_loyalty
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}
@@ -7707,7 +7687,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = BRA_reward_army_loyalty
 		mutually_exclusive = { focus = BRA_consolidation_of_labor_laws }
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}
@@ -7717,6 +7697,47 @@ focus_tree = {
 		search_filters = { }
 
 		completion_reward = {
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					is_owned_and_controlled_by = ROOT
+					NOT = { 
+						OR = {
+							has_dynamic_modifier = {
+								modifier = BRA_neglected_state_dynamic_modifier
+							}
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
+						OR = {
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			random_core_state = {
 				limit = {
 					free_building_slots = {
@@ -7769,7 +7790,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = BRA_reward_army_loyalty
 		mutually_exclusive = { focus = BRA_support_industrialists }
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 10
 		}

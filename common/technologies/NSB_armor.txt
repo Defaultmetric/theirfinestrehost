@@ -69,7 +69,6 @@ technologies = {
 			tank_super_heavy_four_man_tank_turret
 			tank_super_heavy_three_man_tank_turret
 			tank_modern_tank_turret
-			sloped_armor
 			extra_ammo_storage
 			smoke_launchers
 			expanded_fuel_tank
@@ -177,6 +176,10 @@ technologies = {
 			light_armor
 		}
 
+		enable_equipment_modules = {
+			tank_small_cannon
+		}
+
 		on_research_complete_limit = {
 			NOT = {	has_template_containing_unit = light_armor }
 			NOT = {	has_template_containing_unit = heavy_armor }
@@ -265,13 +268,17 @@ technologies = {
 			light_tank_aa_chassis_2
 		}
 
+		enable_equipment_modules = {
+			tank_small_cannon_2
+		}
+
 		path = {
 			leads_to_tech = advanced_light_tank_chassis
 			research_cost_coeff = 1
 		}
 
 		path = {
-			leads_to_tech = amphibious_tank_chassis
+			leads_to_tech = amphibious_drive
 			research_cost_coeff = 1
 		}
 
@@ -355,15 +362,15 @@ technologies = {
 					parent_version = 0
 					modules = {
 						main_armament_slot = tank_small_cannon_2
-						turret_type_slot = tank_light_fixed_superstructure_turret
+						turret_type_slot = tank_light_two_man_tank_turret
 						suspension_type_slot = tank_torsion_bar_suspension
 						armor_type_slot = tank_riveted_armor
 						engine_type_slot = tank_gasoline_engine
-						special_type_slot_2 = tank_radio_1
+						special_type_slot_1 = tank_radio_1
 					}
 					upgrades = {
-						tank_nsb_engine_upgrade = 3
-						tank_nsb_armor_upgrade = 2
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
 					}
 					#icon = "GFX_ITA_improved_light_tank_medium"
 				}
@@ -391,13 +398,8 @@ technologies = {
 			amphibious_armor
 		}
 
-		path = {
-			leads_to_tech = amphibious_drive
-			research_cost_coeff = 1
-		}
-
 		allow_branch = {
-			has_dlc = "Man the Guns"
+			always = no
 		}
 
 		research_cost = 2
@@ -466,12 +468,12 @@ technologies = {
 			heavy_tank_amphibious_chassis_3
 		}
 
-		research_cost = 2
-		start_year = 1941
+		research_cost = 1
+		start_year = 1939
 
 		folder = {
 			name = nsb_armour_folder
-			position = { x = -4 y = 8 }
+			position = { x = -4 y = 6 }
 		}
 
 		ai_will_do = {
@@ -516,12 +518,22 @@ technologies = {
 			light_tank_aa_chassis_3
 		}
 
+		enable_equipment_modules = {
+			tank_small_cannon_3
+		}
+
+		path = {
+			leads_to_tech = advanced_medium_tank_chassis
+			research_cost_coeff = 1
+		}
+
+
 		research_cost = 2
-		start_year = 1941
+		start_year = 1942
 
 		folder = {
 			name = nsb_armour_folder
-			position = { x = -1 y = 8 }
+			position = { x = -1 y = 8.5 }
 		}
 
 		ai_will_do = {
@@ -575,6 +587,10 @@ technologies = {
 			medium_armor
 		}
 
+		enable_equipment_modules = {
+			tank_medium_cannon
+		}
+
 		on_research_complete_limit = {
 			NOT = {	has_template_containing_unit = light_armor }
 			NOT = {	has_template_containing_unit = heavy_armor }
@@ -607,7 +623,7 @@ technologies = {
 		}
 
 		research_cost = 2
-		start_year = 1938
+		start_year = 1937
 
 		folder = {
 			name = nsb_armour_folder
@@ -718,6 +734,10 @@ technologies = {
 			position = { x = 2 y = @1940 }
 		}
 
+		enable_equipment_modules = {
+			tank_medium_cannon_2
+		}
+
 		on_research_complete = {
 			if = { #Italian templates
 				limit = {
@@ -745,12 +765,12 @@ technologies = {
 						suspension_type_slot = tank_bogie_suspension
 						armor_type_slot = tank_welded_armor
 						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = additional_machine_guns
+						special_type_slot_1 = tank_radio_1
 						special_type_slot_2 = additional_machine_guns
 					}
 					upgrades = {
-						tank_nsb_engine_upgrade = 3
-						tank_nsb_armor_upgrade = 3
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
 					}
 					#icon = "GFX_ITA_basic_medium_tank_medium"
 				}
@@ -767,7 +787,7 @@ technologies = {
 					parent_version = 0
 					modules = {
 						main_armament_slot = tank_anti_air_cannon_2
-						turret_type_slot = tank_medium_one_man_tank_turret
+						turret_type_slot = tank_medium_two_man_tank_turret
 						suspension_type_slot = tank_torsion_bar_suspension
 						armor_type_slot = tank_riveted_armor
 						engine_type_slot = tank_gasoline_engine
@@ -775,8 +795,8 @@ technologies = {
 						special_type_slot_2 = additional_machine_guns
 					}
 					upgrades = {
-						tank_nsb_engine_upgrade = 6
-						tank_nsb_armor_upgrade = 2
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
 					}
 					#icon = "GFX_ITA_advanced_medium_spaa_medium"
 				}
@@ -865,6 +885,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+		enable_equipment_modules = {
+			tank_medium_cannon_3
+		}
+
 		research_cost = 2
 		start_year = 1943
 
@@ -872,67 +896,6 @@ technologies = {
 			name = nsb_armour_folder
 			position = { x = 2 y = @1943 }
 		}
-
-		on_research_complete = {
-			if = { #Italian templates
-				limit = {
-					original_tag = ITA
-					has_completed_focus = ITA_ferrea_mole_ferreo_cuore
-				}
-				ITA_add_advanced_medium_tank_templates = yes
-			}
-			IF = { #Hungarian templates
-				limit = {
-					original_tag = HUN
-					has_completed_focus = wuw_HUN_the_turan
-				}
-				#43M Turán III
-				create_equipment_variant = {
-					name = "43M Turán III"
-					type = medium_tank_chassis_3
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_medium_cannon_2
-						turret_type_slot = tank_medium_two_man_tank_turret
-						suspension_type_slot = tank_bogie_suspension
-						armor_type_slot = tank_welded_armor
-						engine_type_slot = tank_gasoline_engine
-						special_type_slot_1 = tank_radio_1
-						special_type_slot_2 = additional_machine_guns
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 3
-						tank_nsb_armor_upgrade = 7
-					}
-					#icon = "GFX_ITA_basic_medium_tank_medium"
-				}
-			}
-			IF = { #Hungarian templates
-				limit = {
-					original_tag = HUN
-					has_completed_focus = wuw_HUN_assault_gun_focus
-				}
-				# 43M Zrínyi
-				create_equipment_variant = {
-					name = "43M Zrínyi"
-					type = medium_tank_artillery_chassis_3
-					parent_version = 0
-					modules = {
-						main_armament_slot = tank_medium_howitzer_2
-						turret_type_slot = tank_medium_two_man_tank_turret
-						suspension_type_slot = tank_torsion_bar_suspension
-						armor_type_slot = tank_riveted_armor
-						engine_type_slot = tank_gasoline_engine
-					}
-					upgrades = {
-						tank_nsb_engine_upgrade = 3
-						tank_nsb_armor_upgrade = 3
-					}
-					#icon = "GFX_ITA_advanced_medium_art_medium"
-				}
-			}
-		}
-
 		ai_will_do = {
 			factor = 1
 
@@ -1046,6 +1009,10 @@ technologies = {
 			heavy_armor
 		}
 
+		enable_equipment_modules = {
+			tank_heavy_cannon
+		}
+
 		on_research_complete_limit = {
 			NOT = {	has_template_containing_unit = light_armor }
 			NOT = {	has_template_containing_unit = heavy_armor }
@@ -1135,6 +1102,10 @@ technologies = {
 			heavy_tank_aa_chassis_2
 		}
 
+		enable_equipment_modules = {
+			tank_heavy_cannon_2
+		}
+
 		path = {
 			leads_to_tech = advanced_heavy_tank_chassis
 			research_cost_coeff = 1
@@ -1218,6 +1189,10 @@ technologies = {
 			heavy_tank_destroyer_chassis_3
 			heavy_tank_artillery_chassis_3
 			heavy_tank_aa_chassis_3
+		}
+
+		enable_equipment_modules = {
+			tank_heavy_cannon_3
 		}
 
 		path = {
@@ -1388,6 +1363,13 @@ technologies = {
 			mio_cat_tech_heavy_armor_and_modules
 		}
 		special_project_specialization = { specialization_land }
+	}
+
+	sloped_armor_tech = {
+		enable_equipment_modules = {
+			front_sloped_armor
+			full_sloped_armor
+		}
 	}
 
 	armor_tech_1 = {
@@ -1575,6 +1557,8 @@ technologies = {
 
 	armor_tech_4 = {
 
+		allow_branch = { always = no}
+
 		research_cost = 1
 		start_year = 1944
 		folder = {
@@ -1627,6 +1611,7 @@ technologies = {
 
 	engine_tech_1 = {
 
+		allow_branch = { always = no}
 
 		path = {
 			leads_to_tech = engine_tech_2
@@ -1907,6 +1892,9 @@ technologies = {
 				attack = 0.05
 			}
 			jungle = {
+				attack = 0.06
+			}
+			marsh = {
 				attack = 0.05
 			}
 			urban = {
@@ -1927,6 +1915,9 @@ technologies = {
 			jungle = {
 				attack = 0.05
 			}
+			marsh = {
+				attack = 0.05
+			}
 			urban = {
 				attack = 0.05
 			}
@@ -1943,6 +1934,9 @@ technologies = {
 				attack = 0.05
 			}
 			jungle = {
+				attack = 0.05
+			}
+			marsh = {
 				attack = 0.05
 			}
 			urban = {

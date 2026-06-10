@@ -2109,7 +2109,7 @@ characters = {
 				original_tag = GER
 			}
 			available = {
-				has_completed_focus = GER_tactical_bombers
+				has_completed_focus = GER_uralbomber_program
 			}
 			traits = {
 				air_tactical_bombing_2
@@ -2469,6 +2469,7 @@ characters = {
 				original_tag = GER
 			}
 			available = {
+				NOT = {GER = {has_completed_focus = GER_prioritize_economic_growth}}
 				has_government = fascism
 				GER_hjalmar_schacht = {
 					is_hired_as_advisor  = no 
@@ -3946,9 +3947,6 @@ characters = {
 					if = { #AAT
 						limit = {
 							has_dlc = "Arms Against Tyranny"
-						}
-						mio:GER_henschel_organization = {
-							is_mio_trait_completed = GER_mio_trait_involve_henschel_in_special_projects
 						}
 					}
 					else = { #NO-AAT

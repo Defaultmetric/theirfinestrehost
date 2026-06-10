@@ -39,7 +39,7 @@ shared_focus = {
 	x = 0
 	y = 0
 	offset = {
-		x = 24
+		x = 22
 		y = 0
 		trigger = {
 			tag = BRA
@@ -187,7 +187,7 @@ shared_focus = {
 			}
 		}
 
-	cost = 5
+	cost = 4
 
 	available = {
 
@@ -291,8 +291,7 @@ shared_focus = {
 	cost = 5
 
 	available = {
-		any_state = {
-			is_owned_by = ROOT
+		any_owned_state = {
 			is_controlled_by = ROOT
 			free_building_slots = {
 			    building = arms_factory
@@ -303,22 +302,21 @@ shared_focus = {
 	}
 
 	bypass = {
-		NOT = {
-			any_state = {
-				is_owned_by = ROOT
-				is_controlled_by = ROOT
+		all_owned_state = {
+			OR = {
+				NOT = { is_controlled_by = ROOT }
 				free_building_slots = {
-				    building = arms_factory
-				    size > 1
-				    include_locked = yes
+					building = arms_factory
+					size < 1
+					include_locked = no
 				}
 			}
 		}
 	}
 
 	ai_will_do = {
-			factor = 20
-		}
+		factor = 20
+	}
 
 	completion_reward = {
 
@@ -401,7 +399,7 @@ shared_focus = {
 	x = -4
 	y = 1
 
-	cost = 10
+	cost = 4
 
 	available = {
 		OR = {
@@ -446,7 +444,7 @@ shared_focus = {
 	x = -6
 	y = 1
 
-	cost = 10
+	cost = 2
 
 	#offset = {
 	#	x = 3
@@ -456,11 +454,6 @@ shared_focus = {
 	#	}
 	#}
 
-	allow_branch = { 
-		NOT = {
-			original_tag = CHL
-		}
-	}
 
 	available = {
 		#OR = {
@@ -588,14 +581,12 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 	}
 
-	allow_branch = {
-		has_dlc = "La Resistance"
-	}
+
 
 	bypass = {
 		
@@ -666,7 +657,7 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 3
 
 	available = {
 
@@ -735,7 +726,7 @@ shared_focus = {
 	completion_reward = {
 		add_tech_bonus = {
 			name = JUNO_armor_modernization_initiative
-			bonus = 0.5
+			bonus = 1
 			uses = 2
 			category = armor
 		}
@@ -989,7 +980,7 @@ shared_focus = {
 	x = -2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -1040,7 +1031,7 @@ shared_focus = {
 	x = 1
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 			factor = 20
@@ -1125,7 +1116,7 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 			factor = 20
@@ -1189,7 +1180,7 @@ shared_focus = {
 
 		add_tech_bonus = {
 			name = JUNO_army_modernization_initiative
-			bonus = 0.35	
+			bonus = 1	
 			uses = 1
 			category = infantry_weapons
 		}
@@ -1222,8 +1213,8 @@ shared_focus = {
 
 		add_tech_bonus = {
 			name = JUNO_artilery_modernization_initiative
-			bonus = 0.5
-			uses = 1
+			bonus = 0.75
+			uses = 2
 			category = artillery
 		}
 
@@ -1305,7 +1296,7 @@ shared_focus = {
 	x = 1
 	y = 1
 
-	cost = 5
+	cost = 1
 
 	ai_will_do = {
 			factor = 20
@@ -1333,7 +1324,7 @@ shared_focus = {
 	x = -2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 			factor = 20
@@ -1411,7 +1402,7 @@ shared_focus = {
 	x = 2
 	y = 1
  
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -1484,7 +1475,7 @@ shared_focus = {
 	x = 0
 	y = 2
 
-	cost = 10
+	cost = 4
 
 	available = {
 
@@ -1530,7 +1521,7 @@ shared_focus = {
 	x = 3
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -1815,16 +1806,6 @@ shared_focus = {
 
 	cost = 5
 
-	allow_branch = {
-		NOT = {
-			OR = {
-				original_tag = CHL
-				original_tag = URG
-				original_tag = PAR
-				original_tag = BOL
-			}
-		}
-	}
 
 	offset = {
 		x = -1
@@ -1891,6 +1872,7 @@ shared_focus = {
 	available = {
 
 	}
+
 
 	bypass = {
 		 
@@ -2395,7 +2377,9 @@ shared_focus = {
 		value = GFX_goal_generic_build_airforce
 	}
 
-	cost = 5
+
+
+	cost = 4
 
 	ai_will_do = {
 		factor = 20
@@ -2491,7 +2475,7 @@ shared_focus = {
 	x = -2
 	y = 1
 
-	cost = 5
+	cost = 3
 
 	ai_will_do = {
 			factor = 20
@@ -2563,7 +2547,7 @@ shared_focus = {
 	x = 2
 	y = 1
 
-	cost = 5
+	cost = 1
 
 	ai_will_do = {
 			factor = 20
@@ -2827,7 +2811,7 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 			factor = 20
@@ -2893,7 +2877,7 @@ shared_focus = {
 	x = -2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -2926,7 +2910,7 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -2943,7 +2927,7 @@ shared_focus = {
 	completion_reward = {
 		add_tech_bonus = {
 			name = JUNO_medium_airframe_initiative 
-			bonus = 0.75
+			bonus = 1
 			uses = 2
 			category = medium_air
 		}
@@ -2959,7 +2943,7 @@ shared_focus = {
 	x = 2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 			factor = 20
@@ -2976,7 +2960,7 @@ shared_focus = {
 	completion_reward = {
 		add_tech_bonus = {
 			name = JUNO_light_airframe_initiative
-			bonus = 0.75
+			bonus = 1
 			uses = 2
 			category = light_air
 		}
@@ -3174,7 +3158,7 @@ shared_focus = {
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
 			add_to_variable = { JUNO_airforce_modifier_air_superiority_efficiency = 0.1 tooltip = air_superiority_efficiency_tt }
 			add_to_variable = { JUNO_airforce_modifier_air_intercept_efficiency = 0.05 tooltip = air_intercept_efficiency_tt }
-			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.1 tooltip = air_agility_factor_tt }
+			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.05 tooltip = air_agility_factor_tt }
 		}
 		ELSE_IF = {
 			limit = {
@@ -3250,7 +3234,7 @@ shared_focus = {
 			}
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
 			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.05 tooltip = air_range_factor_tt }
-			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.1 tooltip = air_agility_factor_tt }
+			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.05 tooltip = air_agility_factor_tt }
 		}
 		ELSE_IF = {
 			limit = {
@@ -3323,7 +3307,7 @@ shared_focus = {
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
 			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.05 tooltip = air_range_factor_tt }
 			add_to_variable = { JUNO_airforce_modifier_ground_attack_factor = 0.1 tooltip = ground_attack_factor_tt }
-			add_to_variable = { JUNO_airforce_modifier_air_defence_factor = 0.15 tooltip = air_defence_factor_tt }
+			add_to_variable = { JUNO_airforce_modifier_air_defence_factor = 0.1 tooltip = air_defence_factor_tt }
 		}
 		ELSE_IF = {
 			limit = {
@@ -3399,7 +3383,6 @@ shared_focus = {
 			}
 			custom_effect_tooltip = BRA_modify_brazilian_airforce_ns_intro
 			add_to_variable = { JUNO_airforce_modifier_air_range_factor = 0.1 tooltip = air_range_factor_tt }
-			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.05 tooltip = air_agility_factor_tt }
 			add_to_variable = { JUNO_airforce_modifier_air_defence_factor = 0.1 tooltip = air_defence_factor_tt }
 		}
 		ELSE_IF = {
@@ -3536,7 +3519,7 @@ shared_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 2
 
 	available = {
 
@@ -3607,7 +3590,7 @@ shared_focus = {
 	x = -1
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 
@@ -3683,7 +3666,7 @@ shared_focus = {
 	x = 1
 	y = 1
 
-	cost = 10
+	cost = 1
 
 	available = {
 		OR = {
@@ -3790,7 +3773,8 @@ shared_focus = {
 		value = GFX_goal_generic_build_navy
 	}
 
-	cost = 5
+
+	cost = 4
 
 	ai_will_do = {
 		factor = 20
@@ -3884,7 +3868,7 @@ shared_focus = {
 	x = -1
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 20
@@ -3946,7 +3930,7 @@ shared_focus = {
 	x = 1
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 20
@@ -4215,7 +4199,7 @@ shared_focus = {
 			name = SMB_coastal_fleet
 			bonus = 1.0
 			uses = 2
-			category = cl_tech
+			category = ca_tech
 			category = dd_tech
 		}
 	}
@@ -4283,9 +4267,6 @@ shared_focus = {
 		}
 	}
 
-	allow_branch = { 
-		has_dlc = "Man the Guns"
-	}
 
 	completion_reward = {
 		add_tech_bonus = {
@@ -4331,11 +4312,13 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
+
+		add_mastery_bonus = {
 			name = SMB_escort_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = fleet_in_being_tree
+			bonus = 0.2
+			days = 180
+			track = screens
+			grand_doctrine = new_fleet_in_being
 		}
 	}
 }
@@ -4365,12 +4348,14 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
+		add_mastery_bonus = {
 			name = SMB_raiding_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = trade_interdiction_tree
+			bonus = 0.2
+			days = 180
+			track = submarines
+			grand_doctrine = new_convoy_raiding
 		}
+
 	}
 }
 
@@ -4596,9 +4581,7 @@ shared_focus = {
 shared_focus = {
 	id = SMB_carrier_conversion
 	icon = GFX_focus_BRA_converted_carriers
-	allow_branch = { 
-		original_tag = BRA
-	}
+
 	prerequisite = {focus = SMB_expand_repair_yards  }
 	relative_position_id = SMB_expand_repair_yards
 	x = 0
@@ -4883,11 +4866,9 @@ shared_focus = {
 	x = 2
 	y = 2
 
-	cost = 10
+	cost = 5
 
-	allow_branch = { 
-		original_tag = BRA
-	}
+
 
 	available = {
 		495 = {
@@ -4939,9 +4920,9 @@ shared_focus = {
 	x = 1
 	y = 1
 
-	cost = 10
+	cost = 4
 
-	allow_branch = { tag = BRA }
+
 
 	available = {
 		
@@ -4980,9 +4961,9 @@ shared_focus = {
 	x = -1
 	y = 1
 
-	cost = 10
+	cost = 4
 
-	allow_branch = { tag = BRA }
+
 
 	available = {
 		

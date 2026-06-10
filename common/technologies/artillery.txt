@@ -18,21 +18,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = interwar_antitank
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = interwar_antiair
-			research_cost_coeff = 1
-		}
-
 		enable_equipment_modules = {
 			ship_anti_air_1
-			tank_small_cannon
+			tank_close_support_gun
 			secondary_turret_small_cannon
-			HE_shells
 		}
 
 		on_research_complete = {
@@ -47,7 +36,7 @@ technologies = {
 			}
 		}
 
-		research_cost = 1.5
+		research_cost = 2
 
 		folder = {
 			name = artillery_folder
@@ -97,8 +86,7 @@ technologies = {
 		}
 
 		enable_equipment_modules = {
-			tank_small_cannon_2
-			tank_close_support_gun
+			HE_shells
 			#secondary_turret_close_support_gun #MM: Has art and loc but no module definition
 		}
 
@@ -107,7 +95,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.5
+		research_cost = 1
 
 		start_year = 1936
 
@@ -166,7 +154,7 @@ technologies = {
 
 		enable_equipment_modules = {
 			tank_medium_howitzer
-			tank_medium_cannon
+			tank_heavy_howitzer
 			lc_medium_cannon_turret #Module for Land Cruiser
 			lc_assault_gun #Module for Land Cruiser
 		}
@@ -186,7 +174,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1
+		research_cost = 2
 
 		start_year = 1939
 
@@ -240,8 +228,13 @@ technologies = {
 			soft_attack = 0.1
 		}
 
+		enable_equipment_modules = {
+			tank_medium_howitzer_2
+			tank_heavy_howitzer_2
+		}
+
 		path = {
-			leads_to_tech = artillery3
+			leads_to_tech = artillery4
 			research_cost_coeff = 1
 		}
 
@@ -302,21 +295,18 @@ technologies = {
 			soft_attack = 0.05
 		}
 
-		enable_equipment_modules = {
-			tank_medium_howitzer_2
-		}
 		path = {
-			leads_to_tech = artillery4
+			leads_to_tech = artillery5
 			research_cost_coeff = 1
 		}
 
 		research_cost = 1
 
-		start_year = 1941
+		start_year = 1942
 
 		folder = {
 			name = artillery_folder
-			position = { x = 0 y = 8 }
+			position = { x = 0 y = 10 }
 		}
 
 		categories = {
@@ -352,21 +342,23 @@ technologies = {
 		}
 
 		enable_equipment_modules = {
-			tank_medium_cannon_2
+			auto_loader
+			tank_heavy_howitzer_3
+			tank_medium_howitzer_3
 		}
 
 		path = {
-			leads_to_tech = artillery5
+			leads_to_tech = artillery3
 			research_cost_coeff = 1
 		}
 
 		research_cost = 2
 
-		start_year = 1942
+		start_year = 1941
 
 		folder = {
 			name = artillery_folder
-			position = { x = 0 y = 10 }
+			position = { x = 0 y = 8 }
 		}
 
 		categories = {
@@ -409,11 +401,6 @@ technologies = {
 		}
 		category_self_propelled_artillery = {
 			soft_attack = 0.05
-		}
-
-		enable_equipment_modules = {
-			auto_loader
-			tank_heavy_howitzer
 		}
 
 		research_cost = 1
@@ -662,7 +649,7 @@ technologies = {
 			ship_anti_air_2
 			tank_auto_cannon
 			tank_anti_air_cannon
-			tank_heavy_cannon
+
 			lc_light_anti_air_battery #Module for Land Cruiser
 		}
 
@@ -676,13 +663,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.5
+		research_cost = 2
 
-		start_year = 1936
+		start_year = 1934
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_air y = 2 }
+			position = { x = @anti_air y = 0 }
 		}
 
 		ai_will_do = {
@@ -748,11 +735,11 @@ technologies = {
 
 		research_cost = 1
 
-		start_year = 1939
+		start_year = 1936
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_air y = 4 }
+			position = { x = @anti_air y = 2 }
 		}
 
 		ai_will_do = {
@@ -807,13 +794,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1
+		research_cost = 2
 
-		start_year = 1940
+		start_year = 1939
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_air y = 6 }
+			position = { x = @anti_air y = 4 }
 		}
 
 		ai_will_do = {
@@ -830,6 +817,11 @@ technologies = {
 					has_war_with = ENG
 				}
 				factor = 5
+			}
+
+			modifier = {
+				factor = 100
+				tag = CHI
 			}
 		}
 
@@ -855,9 +847,6 @@ technologies = {
 		category_self_propelled_anti_air = {
 			air_attack = 0.1
 		}
-		enable_equipment_modules = {
-			tank_heavy_cannon_2
-		}
 
 		tech_air_damage_factor = -0.02
 
@@ -867,6 +856,67 @@ technologies = {
 		}
 
 		research_cost = 1
+
+		start_year = 1940
+
+		folder = {
+			name = artillery_folder
+			position = { x = @anti_air y = 6 }
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = ENG
+					tag = USA
+				}
+				OR = {
+					has_war_with = JAP
+					has_war_with = USA
+					has_war_with = ENG
+				}
+				factor = 5
+			}
+
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
+		}
+
+		categories = {
+			artillery
+			cat_anti_air
+			mio_cat_all_artillery_equipment
+		}
+		special_project_specialization = { specialization_land specialization_air }
+	}
+
+	antiair4 = {
+
+		enable_equipments = {
+			anti_air_equipment_3
+		}
+		armored_car = {
+			hard_attack = 0.1
+		}
+		static_anti_air_damage_factor = 0.1
+
+		enable_equipment_modules = {
+			ship_anti_air_4
+			tank_anti_air_cannon_3
+			auto_loader
+			lc_heavy_anti_air_platform #Module for Land Cruiser
+		}
+
+		path = {
+			leads_to_tech = antiair5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
 
 		start_year = 1941
 
@@ -890,6 +940,10 @@ technologies = {
 				}
 				factor = 5
 			}
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
 		}
 
 		categories = {
@@ -900,7 +954,7 @@ technologies = {
 		special_project_specialization = { specialization_land specialization_air }
 	}
 
-	antiair4 = {
+	antiair5 = {
 
 		anti_air = {
 			air_attack = 0.1
@@ -918,7 +972,7 @@ technologies = {
 		tech_air_damage_factor = -0.02
 
 		path = {
-			leads_to_tech = antiair5
+			leads_to_tech = antiair6
 			research_cost_coeff = 1
 		}
 
@@ -946,6 +1000,10 @@ technologies = {
 				}
 				factor = 5
 			}
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
 		}
 
 		categories = {
@@ -956,22 +1014,26 @@ technologies = {
 		special_project_specialization = { specialization_land specialization_air }
 	}
 
-	antiair5 = {
+	antiair6 = {
 
-		enable_equipments = {
-			anti_air_equipment_3
+		anti_air = {
+			air_attack = 0.1
 		}
-		armored_car = {
-			hard_attack = 0.1
+		anti_air_brigade = {
+			air_attack = 0.1
 		}
-		static_anti_air_damage_factor = 0.1
+		mot_anti_air_brigade = {
+			air_attack = 0.1
+		}
+		category_self_propelled_anti_air = {
+			air_attack = 0.05
+		}
 
-		enable_equipment_modules = {
-			ship_anti_air_4
-			tank_heavy_cannon_3
-			tank_anti_air_cannon_3
-			auto_loader
-			lc_heavy_anti_air_platform #Module for Land Cruiser
+		tech_air_damage_factor = -0.02
+
+		path = {
+			leads_to_tech = antiair5
+			research_cost_coeff = 1
 		}
 
 		research_cost = 1
@@ -1017,11 +1079,9 @@ technologies = {
 			ap_attack = 0.1
 		}		
 		enable_equipment_modules = {
-			tank_medium_cannon
-			tank_heavy_cannon
-			tank_small_cannon_2
-			tank_buster_1
-			APCR_shells
+			tank_s_high_velocity_cannon_1
+			tank_high_velocity_cannon
+			tank_h_high_velocity_cannon_1
 			lc_high_velocity_cannon_turret #Module for Land Cruiser
 		}
 
@@ -1030,70 +1090,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.5
+		research_cost = 2
 
-		start_year = 1936
+		start_year = 1934
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 2 }
-		}
-
-		ai_will_do = {
-			base = 1
-
-			modifier = {
-				factor = 0.2
-
-				OR = {
-					tag = CHI
-					tag = PRC
-					tag = XSM
-					tag = SIK
-					tag = GXC
-					tag = SHX
-					tag = YUN
-				}
-			}
-			modifier = {
-				tag = JAP
-				not = {
-					OR = {
-						has_war_with = SOV
-						has_war_with = USA
-					}
-				}
-				factor = 0.5
-			}
-			modifier = { #This is needed for a lot of tank designs
-				factor = 4.0
-				is_major = yes
-			}
-			modifier = {
-				factor = 2
-				date > "1937.1.1"
-			}
-
-			modifier = {
-				factor = 5
-				date > "1938.1.1"
-			}
-
-			modifier = {
-				factor = 5
-				date > "1939.1.1"
-			}
-			modifier = {
-				factor = 10
-				any_enemy_country = {
-					ROOT = {
-						estimated_intel_max_armor = {
-							tag = PREV
-							value > 30
-						}
-					}
-				}
-			}
+			position = { x = 2 y = 0 }
 		}
 
 		categories = {
@@ -1105,10 +1108,6 @@ technologies = {
 	}
 
 	antitank1 = {
-
-		category_tank_destroyers = {
-			hard_attack = 0.5
-		}
 
 		anti_tank = {
 			hard_attack = 0.1
@@ -1124,8 +1123,9 @@ technologies = {
 		}
 
 		enable_equipment_modules = {
-			tank_high_velocity_cannon
 			squeezebore_adaptor
+			tank_buster_1
+			APCR_shells
 		}
 		path = {
 			leads_to_tech = antitank2
@@ -1134,11 +1134,11 @@ technologies = {
 
 		research_cost = 1
 
-		start_year = 1939
+		start_year = 1936
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 4 }
+			position = { x = 2 y = 2 }
 		}
 
 		ai_will_do = {
@@ -1173,6 +1173,10 @@ technologies = {
 				factor = 5
 				date > "1940.1.1"
 			}
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
 		}
 
 		categories = {
@@ -1196,10 +1200,9 @@ technologies = {
 			anti_tank_equipment_2
 		}
 		enable_equipment_modules = {
+			tank_s_high_velocity_cannon_2
 			tank_high_velocity_cannon_2
-			tank_medium_cannon_2
-			tank_heavy_cannon_2
-			tank_small_cannon_3
+			tank_h_high_velocity_cannon_2
 			tank_buster_2
 		}
 		path = {
@@ -1207,13 +1210,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1
+		research_cost = 2
 
-		start_year = 1940
+		start_year = 1939
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 6 }
+			position = { x = 2 y = 4 }
 		}
 
 		ai_will_do = {
@@ -1257,6 +1260,11 @@ technologies = {
 					}
 				}
 			}
+
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
 		}
 
 		categories = {
@@ -1289,11 +1297,11 @@ technologies = {
 
 		research_cost = 1
 
-		start_year = 1941
+		start_year = 1940
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 8 }
+			position = { x = 2 y = 6 }
 		}
 
 		categories = {
@@ -1341,15 +1349,94 @@ technologies = {
 					}
 				}
 			}
+			modifier = {
+				factor = 100
+				tag = CHI
+			}
 		}
 	}
 
 	antitank4 = {
+
+		enable_equipments = {
+			anti_tank_equipment_3
+		}
+		armored_car = {
+			ap_attack = 0.1
+		}	
+
 		enable_equipment_modules = {
-			tank_heavy_cannon_3
-			tank_medium_cannon_3
-			tank_high_velocity_cannon_3
+			tank_s_high_velocity_cannon_3
 			tank_AP_high_velocity_cannon
+			tank_high_velocity_cannon_3
+			auto_loader
+		}
+		
+		path = {
+			leads_to_tech = antitank5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+
+		start_year = 1941
+
+		folder = {
+			name = artillery_folder
+			position = { x = 2 y = 8 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 2
+				date > "1942.1.9"
+			}
+			modifier = {
+				tag = JAP
+				not = {
+					OR = {
+						has_War_with = SOV
+						has_war_with = USA
+					}
+				}
+				factor = 0.5
+			}
+			modifier = {
+				factor = 2
+				date > "1943.1.1"
+			}
+
+			modifier = {
+				factor = 5
+				date > "1943.1.6"
+			}
+			modifier = {
+				factor = 10
+				any_enemy_country = {
+					ROOT = {
+						estimated_intel_max_armor = {
+							tag = PREV
+							value > 35
+						}
+					}
+				}
+			}
+		}
+
+		categories = {
+			artillery
+			cat_anti_tank
+			mio_cat_all_artillery_equipment
+		}
+		special_project_specialization = { specialization_land }
+	}
+
+	antitank5 = {
+		enable_equipment_modules = {
+			tank_super_heavy_cannon
+			lc_heavy_high_velocity_cannons #Module for Land Cruiser
 		}
 		anti_tank = {
 			hard_attack = 0.1
@@ -1365,7 +1452,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = antitank5
+			leads_to_tech = antitank6
 			research_cost_coeff = 1
 		}
 
@@ -1375,7 +1462,7 @@ technologies = {
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 10 }
+			position = { x = 2 y = 10 }
 		}
 
 		ai_will_do = {
@@ -1420,18 +1507,20 @@ technologies = {
 		special_project_specialization = { specialization_land }
 	}
 
-	antitank5 = {
-
-		enable_equipments = {
-			anti_tank_equipment_3
-		}
-		armored_car = {
-			ap_attack = 0.1
-		}	
+	antitank6 = {
 		enable_equipment_modules = {
-			tank_super_heavy_cannon
-			auto_loader
-			lc_heavy_high_velocity_cannons #Module for Land Cruiser
+		}
+		anti_tank = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
+		anti_tank_brigade = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
+		mot_anti_tank_brigade = {
+			hard_attack = 0.05
+			ap_attack = 0.1
 		}
 
 		research_cost = 1
@@ -1440,46 +1529,7 @@ technologies = {
 
 		folder = {
 			name = artillery_folder
-			position = { x = @anti_tank y = 12 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-			modifier = {
-				factor = 2
-				date > "1942.1.9"
-			}
-			modifier = {
-				tag = JAP
-				not = {
-					OR = {
-						has_War_with = SOV
-						has_war_with = USA
-					}
-				}
-				factor = 0.5
-			}
-			modifier = {
-				factor = 2
-				date > "1943.1.1"
-			}
-
-			modifier = {
-				factor = 5
-				date > "1943.1.6"
-			}
-			modifier = {
-				factor = 10
-				any_enemy_country = {
-					ROOT = {
-						estimated_intel_max_armor = {
-							tag = PREV
-							value > 35
-						}
-					}
-				}
-			}
+			position = { x = 2 y = 12 }
 		}
 
 		categories = {
@@ -1674,7 +1724,7 @@ technologies = {
 		start_year = 1941
 		folder = {
 			name = artillery_folder
-			position = { x = -9 y = 8 }
+			position = { x = -10 y = 8 }
 		}
 
 		categories = {
@@ -1717,7 +1767,7 @@ technologies = {
 			
 		folder = {
 			name = artillery_folder
-			position = { x = -9 y = 10 }
+			position = { x = -10 y = 10 }
 		}
 
 		categories = {
@@ -1727,6 +1777,13 @@ technologies = {
 		}
 
 		special_project_specialization = { specialization_land specialization_air }
+	}
+
+	t34_85_armament = {
+		enable_equipment_modules = {
+				tank_t34_85_turret
+				tank_85mm_cannon
+		}
 	}
 
 }

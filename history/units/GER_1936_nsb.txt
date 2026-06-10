@@ -4,20 +4,60 @@
 	division_names_group = GER_Inf_01
 
 	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
-		infantry = { x = 0 y = 2 }
-        infantry = { x = 1 y = 0 }
-		infantry = { x = 1 y = 1 }
-		infantry = { x = 1 y = 2 }
-        infantry = { x = 2 y = 0 }
-		infantry = { x = 2 y = 1 }
-		infantry = { x = 2 y = 2 }
+		infantry = { x = 0 y = 0}
+		infantry = { x = 1 y = 0}
+		infantry = { x = 2 y = 0}
+
+		infantry = { x = 0 y = 1}
+		infantry = { x = 1 y = 1}
+		infantry = { x = 2 y = 1}
+
+		infantry = { x = 0 y = 2}
+		infantry = { x = 1 y = 2}
+		infantry = { x = 2 y = 2}
+
 	}
-	
 	support = {
-        engineer = { x = 0 y = 0 }
-        artillery = { x = 0 y = 1 }
+		artillery = {x = 0 y = 0}
+		engineer = {x = 0 y = 1 }
+		anti_tank = { x = 0 y = 2 }
+	}
+	template_counter = 119
+}
+
+division_template = {
+	name = "50w MP"
+
+	regiments = {
+		cavalry = { x = 0 y = 0}
+		cavalry = { x = 0 y = 1}
+		cavalry = { x = 0 y = 2}
+		cavalry = { x = 0 y = 3}
+		cavalry = { x = 0 y = 4}
+
+		cavalry = { x = 1 y = 0}
+		cavalry = { x = 1 y = 1}
+		cavalry = { x = 1 y = 2}
+		cavalry = { x = 1 y = 3}
+		cavalry = { x = 1 y = 4}
+
+		cavalry = { x = 2 y = 0}
+		cavalry = { x = 2 y = 1}
+		cavalry = { x = 2 y = 2}
+		cavalry = { x = 2 y = 3}
+		cavalry = { x = 2 y = 4}
+
+		cavalry = { x = 3 y = 0}
+		cavalry = { x = 3 y = 1}
+		cavalry = { x = 3 y = 2}
+		cavalry = { x = 3 y = 3}
+		cavalry = { x = 3 y = 4}
+
+		cavalry = { x = 4 y = 0}
+		cavalry = { x = 4 y = 1}
+		cavalry = { x = 4 y = 2}
+		cavalry = { x = 4 y = 3}
+		cavalry = { x = 4 y = 4}
 	}
 }
 
@@ -29,10 +69,23 @@ division_template = {
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-        light_armor = { x = 1 y = 0 }
+		light_armor = { x = 0 y = 2 }
+		light_armor = { x = 0 y = 3}
+
+		light_armor = { x = 1 y = 0 }
 		light_armor = { x = 1 y = 1 }
+		light_armor = { x = 1 y = 2 }
+		light_armor = { x = 1 y = 3 }
+
 		motorized = { x = 2 y = 0 }
-        motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+		motorized = { x = 2 y = 3}
+
+		motorized = { x = 3 y = 0 }
+		motorized = { x = 3 y = 1 }
+		motorized = { x = 3 y = 2 }
+		motorized = { x = 2 y = 3}
 	}
 	support = {
         mot_recon = { x = 0 y = 0 }
@@ -42,62 +95,107 @@ division_template = {
 }
 
 division_template = {
-	name = "Infanterie-Division (mot.)" 			# Used to be SS division -> New system for SS. Also messed up the civil war by refusing to move to the fascists, and immersion-breaking to have them around as royalists
-
-	division_names_group = GER_MOT_02
-
-	role = motorized
-
-	regiments = {
-		motorized = { x = 0 y = 0 }
-	    motorized = { x = 0 y = 1 }
-		motorized = { x = 0 y = 2 }
-		
-		motorized = { x = 1 y = 0 }
-		motorized = { x = 1 y = 1 }
-		motorized = { x = 1 y = 2 }
-		
-		motorized = { x = 2 y = 0 }
-	    motorized = { x = 2 y = 1 }
-		motorized = { x = 2 y = 2 }
-	}
-	support = {
-        mot_recon = { x = 0 y = 0 }
-	 	engineer = { x = 0 y = 1 }
-        artillery = { x = 0 y = 2 }
-	}
-}
-
-division_template = {
-	name = "Gebirgs-Brigade"		# Gebirgsbrigade
+	name = "Gebirgs-Divisions"	
 	#Note: precursor to Gebirgs-Divisions
 	division_names_group = GER_Mnt_01
 
 	regiments = {
-		mountaineers = { x = 0 y = 0 }
-	    mountaineers = { x = 0 y = 1 }
-		mountaineers = { x = 0 y = 2 }
-		mountaineers = { x = 1 y = 0 }
-		mountaineers = { x = 1 y = 1 }
-		mountaineers = { x = 1 y = 2 }
+		mountaineers = { x = 0 y = 0}
+		mountaineers = { x = 0 y = 1}
+		mountaineers = { x = 0 y = 2}
+
+		mountaineers = { x = 1 y = 0}
+		mountaineers = { x = 1 y = 1}
+		mountaineers = { x = 1 y = 2}
+
+		mountaineers = { x = 2 y = 0}
+		mountaineers = { x = 2 y = 1}
+		mountaineers = { x = 2 y = 2}
+
+		mountaineers = { x = 3 y = 0}
+		mountaineers = { x = 3 y = 1}
+		mountaineers = { x = 3 y = 2}
+
+	}
+
+	support = {
+		artillery = {x = 0 y = 0}
+		engineer = {x = 0 y = 1 }
 	}
 }
 
 division_template = {
-	name = "Kavallerie-Brigade"
+	name = "24w Cavalry"
 
-	division_names_group = GER_Cav_01
+	division_names_group = GER_CAV_01
 
 	regiments = {
-		cavalry = { x = 0 y = 0 }
-        cavalry = { x = 0 y = 1 }
-        cavalry = { x = 1 y = 0 }
-		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 0 y = 0}
+		cavalry = { x = 0 y = 1}
+		cavalry = { x = 0 y = 2}
+		cavalry = { x = 0 y = 3}
+
+		cavalry = { x = 1 y = 0}
+		cavalry = { x = 1 y = 1}
+		cavalry = { x = 1 y = 2}
+		cavalry = { x = 1 y = 3}
+
+		cavalry = { x = 2 y = 0}
+		cavalry = { x = 2 y = 1}
+		cavalry = { x = 2 y = 2}
+		cavalry = { x = 2 y = 3}
 	}
+
 	support = {
-	    recon = { x = 0 y = 0 }
-	    artillery = { x = 0 y = 1 }
+		artillery = {x = 0 y = 0}
+		engineer = {x = 0 y = 1 }
+		mot_recon = {x = 0 y = 2}
 	}
+
+	template_counter = 5
+}
+
+division_template = {
+	name = "1 Div Training"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 4 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 4 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 2 }
+		infantry = { x = 4 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 3 }
+		infantry = { x = 3 y = 3 }
+		infantry = { x = 4 y = 3 }
+		infantry = { x = 0 y = 4 }
+		infantry = { x = 1 y = 4 }
+		infantry = { x = 2 y = 4 }
+		infantry = { x = 3 y = 4 }
+		infantry = { x = 4 y = 4 }
+	}
+
+	template_counter = 1
+}
+
+division_template = {
+	name = "2w"
+	regiments = {
+		infantry = { x = 0 y = 0}
+		
+	}
+	template_counter = 0
+	priority = 0
 }
 
 units = {
@@ -157,7 +255,7 @@ units = {
 		location = 6521
 		division_template = "Panzer-Division"
 		start_experience_factor = 0.3
-		force_equipment_variants = { light_tank_chassis_1 = { owner = "GER" version_name = "Panzer I Ausf. A" } }
+		force_equipment_variants = { light_tank_chassis_2 = { owner = "GER" version_name = "Panzer II" } }
 	}
 	division = {	
 		division_name = {
@@ -176,7 +274,7 @@ units = {
 		location = 6521
 		division_template = "Panzer-Division"
 		start_experience_factor = 0.3
-		force_equipment_variants = { light_tank_chassis_1 = { owner = "GER" version_name = "Panzer I Ausf. A" } }
+		force_equipment_variants = { light_tank_chassis_2 = { owner = "GER" version_name = "Panzer II" } }
 	}
 	division = {	
 		division_name = {
@@ -189,102 +287,59 @@ units = {
 		location = 6521
 		division_template = "Panzer-Division"
 		start_experience_factor = 0.3
-		force_equipment_variants = { light_tank_chassis_1 = { owner = "GER" version_name = "Panzer I Ausf. A" } }
+		force_equipment_variants = { light_tank_chassis_2 = { owner = "GER" version_name = "Panzer II" } }
 	}
 	division = {	
 		division_name = {
 			is_name_ordered = yes
-			name_order = 1
+			name_order = 3
 		}
-		location = 11505
-		division_template = "Infanterie-Division (mot.)"
+		officer = {
+			name = "Ernst Fessmann"
+		}
+		location = 6521
+		division_template = "Panzer-Division"
 		start_experience_factor = 0.3
+		force_equipment_variants = { light_tank_chassis_2 = { owner = "GER" version_name = "Panzer II" } }
 	}
 
-	### 3. Armee (Wehrmacht-Gruppenkommando) ###
-	# IV. Armeekorps
 	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 4
-		}
-		location = 6462
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 14
-		}
-		location = 6462
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 24
-		}
-		location = 6462
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-
-	# VIII. Armeekorps
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 8
-		}
-		location = 11467
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 18
-		}
-		location = 11467
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-
-	# I. Armeekorps
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 1
-		}
-		location = 6402
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 11
-		}
-		location = 266
-		division_template = "Infanterie-Division"
-		start_experience_factor = 0.3
-	}
-	division = {	
-		division_name = {
-			is_name_ordered = yes
-			name_order = 21
-		}
-		location = 3384
-		division_template = "Infanterie-Division"
+		name = "Kavallerie-Kommando Insterburg" 
+		location = 281
+		division_template = "24w Cavalry"
 		start_experience_factor = 0.3
 	}
 	division = {	
 		name = "Kavallerie-Kommando Insterburg" 
 		location = 281
-		division_template = "Kavallerie-Brigade"
+		division_template = "24w Cavalry"
 		start_experience_factor = 0.3
 	}
+	division = {	
+		name = "Kavallerie-Kommando Insterburg" 
+		location = 281
+		division_template = "24w Cavalry"
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Kavallerie-Kommando Insterburg" 
+		location = 281
+		division_template = "24w Cavalry"
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Kavallerie-Kommando Insterburg" 
+		location = 281
+		division_template = "24w Cavalry"
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Kavallerie-Kommando Insterburg" 
+		location = 281
+		division_template = "24w Cavalry"
+		start_experience_factor = 0.3
+	}
+	
 
 	### 2. Armee (Wehrmacht-Gruppenkommando) ###
 	division = {	
@@ -406,9 +461,39 @@ units = {
 		start_experience_factor = 0.3
 	}			
 	division = {	
-		name = "Gebirgs-Brigade" 
+		name = "Gebirgs-Divisions" 
 		location = 692
-		division_template = "Gebirgs-Brigade" 
+		division_template = "Gebirgs-Divisions" 
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Gebirgs-Divisions" 
+		location = 692
+		division_template = "Gebirgs-Divisions" 
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Gebirgs-Divisions" 
+		location = 692
+		division_template = "Gebirgs-Divisions" 
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Gebirgs-Divisions" 
+		location = 692
+		division_template = "Gebirgs-Divisions" 
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Gebirgs-Divisions" 
+		location = 692
+		division_template = "Gebirgs-Divisions" 
+		start_experience_factor = 0.3
+	}
+	division = {	
+		name = "Gebirgs-Divisions" 
+		location = 692
+		division_template = "Gebirgs-Divisions" 
 		start_experience_factor = 0.3
 	}
 	
@@ -466,7 +551,7 @@ instant_effect = {
 		requested_factories = 2
 		progress = 0.4
 		efficiency = 50
-		industrial_manufacturer = mio:GER_henschel_organization
+		industrial_manufacturer = mio:axis_assault_tank_organization_generic
 	}
 
 	add_equipment_production = {

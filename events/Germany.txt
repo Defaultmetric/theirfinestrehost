@@ -5,6 +5,32 @@
 add_namespace = germany
 add_namespace = AAT_germany
 
+country_event = {
+	id = germany.670
+	title = germany.670.t
+	desc = germany.670.d
+	picture = GFX_report_event_tur_industry
+
+	is_triggered_only = yes
+
+ 	immediate = {
+ 		hidden_effect = {
+ 			set_variable = {GER_energy_consumption = 0.2}
+ 		}
+ 	}
+
+	option = {
+		name = germany.670.a
+
+		custom_effect_tooltip = GER_growing_national_industry_tt
+		add_to_variable = 
+		{
+			tooltip_var = 0.2
+			tooltip = factory_energy_consumption_tt
+		}
+	}
+}
+
 # Austrian Anschluss Completed
 country_event = {
 	id = germany.4
@@ -161,22 +187,7 @@ country_event = {
 					}
 				}
 			}
-			modifier = {
-				factor = 0
-				tag = JAP
-				has_completed_focus = JAP_the_unthinkable_option
-			}
-			modifier = {
-				factor = 0
-				is_literally_china = yes
-				JAP = { has_completed_focus = JAP_purge_the_kodoha_faction }
-			}
-			modifier = {
-				factor = 0
-				tag = JAP
-				has_completed_focus = JAP_purge_the_kodoha_faction
-				date > 1938.1.1
-			}
+			
 		}
 		set_country_flag = anti_comintern_member
 		GER = { add_opinion_modifier = { target = ROOT modifier = anti_comintern_pact_opinion } }
@@ -4275,81 +4286,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	option = { # This means war!
-		name = germany.60.a
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 20
-				strength_ratio = {
-					tag = GER
-					ratio > 0.7
-				}
-				NOT = { has_idea = FRA_disjointed_government }
-			}
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-				NOT = {
-					strength_ratio = { tag = GER ratio > 10 }
-				}
-			}
-			modifier = {
-				factor = 10
-				strength_ratio = { 
-					tag = GER 
-					ratio > 10 
-				}
-			}
-		}
-
-		add_political_power = -150
-		add_stability = -0.1
-
-		if = {
-			limit = {
-				ENG = {
-					is_subject = no
-					NOT = { has_war_with = FRA }
-				}
-			}
-			ENG = {
-				country_event = {
-					id = germany.61 
-					hours = 2
-				}
-				custom_effect_tooltip = needs_approval
-				effect_tooltip = { add_to_faction = FRA }
-			}
-		}
-		if = {
-			limit = {
-				has_idea = FRA_disjointed_government
-				NOT = { has_government = communism }
-			}
-			custom_effect_tooltip = germany.60.a.tt
-			effect_tooltip = {
-				start_civil_war = {
-					ideology = communism
-					size = 0.2
-				}
-			}
-		}
-		if = { #you're not getting around that, comrade
-			limit = {
-				has_idea = FRA_disjointed_government
-				has_government = communism
-			}
-			custom_effect_tooltip = germany.60.a.tt
-			effect_tooltip = {
-				start_civil_war = {
-					ideology = democratic
-					size = 0.3
-				}
-			}
-		}
-	}
-
 	option = { # Diplomatic response
 		name = germany.60.b
 		ai_chance = {
@@ -6974,9 +6910,12 @@ country_event = {
 				has_global_flag = czech_denied_flag
 			}
 		}
-		add_timed_idea = {
-			idea = factory_overdrive_1
-			days = 120
+		FRA = 
+		{
+			add_timed_idea = {
+				idea = factory_overdrive_1
+				days = 120
+			}
 		}
 	}
 	if = 

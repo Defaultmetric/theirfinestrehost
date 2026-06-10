@@ -1,9 +1,5 @@
 ﻿capital = 2 # Rome
 
-mio:Generic_henschels_organization = {
-					complete_mio_trait = generic_mio_trait_T1_mio
-}
-
 ETH_set_up_lon_arms_resolution_effect = yes 
 
 if = {
@@ -229,7 +225,7 @@ add_ideas = ITA_hidden_research_penalties_ns # Hidden NS to apply research penal
 
 #REGIO ESERCITO
 #set_variable = { ITA_re_army_experience_loss_factor = -0.1 }
-set_variable = { ITA_re_army_max_dig_in_factor = 0.1 }
+set_variable = { ITA_re_army_max_dig_in_factor = 0.2 }
 set_variable = { ITA_re_land_doctrine_cost_factor = 0.1 }
 #set_variable = { ITA_re_land_reinforce_rate = -0.05 }
 set_variable = { ITA_re_army_speed_factor = -0.1 }
@@ -356,6 +352,7 @@ add_breakthrough_progress = {
 
 # Starting tech
 set_technology = {
+	militia_tech = 1
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_support = 1		
@@ -365,8 +362,7 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	trench_warfare = 1
-	fleet_in_being = 1
+	interwar_antitank = 1
 	fuel_silos = 1
 	fuel_refining = 1
 	basic_train = 1
@@ -427,7 +423,7 @@ if = {
 		basic_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_battery = 1
-		basic_medium_battery = 1
+		#basic_medium_battery = 1
 		basic_light_battery = 1
 		basic_heavy_armor_scheme = 1
 		early_ship_hull_submarine = 1
@@ -440,7 +436,6 @@ if = {
 		basic_ship_hull_heavy = 1
 		mtg_transport = 1
 		coastal_defense_ships = 1
-		improved_airplane_launcher = 1
 		panzerschiffe = 1
 		pre_dreadnoughts = 1
 		improved_ship_torpedo_launcher = 1
@@ -633,16 +628,6 @@ if = {
 		tech_recon = 1
 
 		#doctrines
-		grand_battle_plan = 1
-		prepared_defense = 1
-		battlefleet_concentration = 1
-		submarine_operations = 1
-		
-		#Air
-		force_rotation = 1
-		fighter_baiting = 1
-		low_echelon_support = 1
-		dispersed_fighting = 1
 
 
 		#electronics
@@ -731,10 +716,6 @@ if = {
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
-		}
-		set_technology = {
-			improved_airplane_launcher = 1
-			
 		}
 		set_naval_oob = "ITA_1939_naval_mtg"
 	}
@@ -1076,8 +1057,8 @@ if = {
 			engine_type_slot = tank_gasoline_engine
 		}
 		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
 		}
 		icon = "GFX_gwtank_medium"
 	}
@@ -1101,8 +1082,8 @@ if = {
 			engine_type_slot = tank_gasoline_engine
 		}
 		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
 		}
 		icon = "GFX_gwtank_medium"
 	}
@@ -1125,8 +1106,8 @@ if = {
 			engine_type_slot = tank_gasoline_engine
 		}
 		upgrades = {
-			tank_nsb_engine_upgrade = 1
-			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 0
 		}
 		icon = "GFX_ITA_basic_light_tank_medium"
 	}
@@ -1730,8 +1711,8 @@ if = {
 				engine_type_slot = tank_gasoline_engine
 			}
 			upgrades = {
-				tank_nsb_engine_upgrade = 2
-				tank_nsb_armor_upgrade = 4
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
 			}
 			icon = "GFX_ITA_improved_light_tank_medium"
 		}
@@ -1749,8 +1730,8 @@ if = {
 				special_type_slot_1 = secondary_turret_hmg
 			}
 			upgrades = {
-				tank_nsb_engine_upgrade = 2
-				tank_nsb_armor_upgrade = 3
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
 			}
 			icon = "GFX_ITA_basic_medium_tank_medium"
 		}

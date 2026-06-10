@@ -1,6 +1,16 @@
 focus_tree = {
 	id = ADT_focus
 
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = ADT
+		}
+	}
+	
+	default = no
+
 	focus = { 
 		id = ADT_embargo_focus
 		icon = GFX_focus_ITA_corpo_volontari_della_liberta
@@ -50,18 +60,6 @@ focus_tree = {
 		
 		x = 0
 		y = 4
-		
-		allow_branch = 
-		{
-			if = 
-			{
-				ENG = 
-				{
-					has_completed_focus = ENG_man_with_the_plan
-				}
-			}
-			tag = ADT
-		}
 
 		cost = 1
 
@@ -70,7 +68,13 @@ focus_tree = {
 		}
 
 		available = {
+			531 = { NOT = { is_controlled_by = JAP } }
 			date > 1937.7.7
+			OR = 
+			{
+				threat > 0.15
+				GER = {has_completed_focus = GER_anschluss}
+			}
 		}
 
 		

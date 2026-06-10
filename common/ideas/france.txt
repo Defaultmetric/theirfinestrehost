@@ -31,8 +31,8 @@ ideas = {
 	
 		modifier = 
 		{
-			army_core_attack_factor = 0.15
-			army_core_defence_factor = 0.15
+			army_core_attack_factor = 0.05
+			army_core_defence_factor = 0.05
 		}
 		}
 
@@ -1187,8 +1187,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				compliance_gain = 0.5
-				resistance_target = -1
+				compliance_gain = 0.1
 			}
 		}
 
@@ -1886,6 +1885,32 @@ ideas = {
 	}
 	
 	industrial_concern = {	
+
+		schneider_et_cie = {
+
+			picture = GER_vereinigte_stahlwerke
+			
+			allowed = {
+				original_tag = FRA
+			}
+
+			available = {
+				has_completed_focus = FRA_schneider_et_cie
+			}
+			
+			cost = 150
+
+			research_bonus = {
+				excavation_tech = 0.15
+			}
+			
+			traits = { mining_company }
+
+			modifier = {
+				global_building_slots = 1
+				production_speed_infrastructure_factor = 0.2
+			}
+		}
 		
 		famh = {
 						

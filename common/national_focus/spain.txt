@@ -54,26 +54,6 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = SPR_the_popular_front }
 
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR = {
-					NOT = {
-						has_global_flag = spanish_civil_war
-					}
-					AND = {
-						NOT = { has_completed_focus = SPR_the_popular_front }
-						has_global_flag = spanish_civil_war
-					}
-				}
-			}
-		}
-		
 		
 		icon = GFX_goal_generic_demand_territory
 		x = 5
@@ -285,7 +265,7 @@ focus_tree = {
 		cost = 4
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available_if_capitulated = yes
@@ -362,7 +342,7 @@ focus_tree = {
 					}
 				}
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		
 		icon = GFX_goal_generic_national_unity
@@ -600,7 +580,7 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_unify_the_nationalist_front focus = SPA_supremacy_of_the_communion }
 		
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		icon = GFX_focus_spa_the_phalanx_ascendant
@@ -1714,7 +1694,6 @@ focus_tree = {
 				name = SPA_glory_and_wealth_on_the_sea_lanes
 				bonus = 1
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 			add_tech_bonus = {
@@ -1865,7 +1844,6 @@ focus_tree = {
 				name = SPA_commerce_protection
 				bonus = 1
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 			add_doctrine_cost_reduction = {
@@ -2570,17 +2548,8 @@ focus_tree = {
 		cost = 5
 
 		available_if_capitulated = yes
-		complete_tooltip = {
-			every_state = {
-				limit	= {	has_state_flag = SPA_the_national_and_popular_army_of_spain_2mil }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
+
+
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
 			army_experience = 50
@@ -2593,10 +2562,10 @@ focus_tree = {
 					is_core_of = ROOT
 				}
 				set_state_flag = SPA_the_national_and_popular_army_of_spain_2mil
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -2814,9 +2783,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SPA_equipment_modernization
-				bonus = 2.0
+				bonus = 1
 				uses = 1
-				ahead_reduction = 2
+				ahead_reduction = 1
 				category = motorized_equipment
 			}
 		}
@@ -2842,12 +2811,11 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SPA_an_armored_corps
-				bonus = 1.0
+				bonus = 1.5
 				uses = 1
-				ahead_reduction = 1.0
+				ahead_reduction = 0.5
 				category = armor
 			}
-			add_ideas = embrace_the_future_ideas
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
@@ -2885,6 +2853,7 @@ focus_tree = {
 				is_in_faction_with = ITA
 			}
 		}
+
 		
 
 		ai_will_do = {
@@ -2951,10 +2920,13 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			create_wargoal = {
-				type = annex_everything
-				target = POR
-    		}
+			ROOT = 
+			{
+				create_wargoal = {
+					type = annex_everything
+					target = POR
+				}
+			}
 		}
 	}
 
@@ -2982,7 +2954,7 @@ focus_tree = {
 		
 		icon = GFX_focus_ARG_strengthening_the_concordancia
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = SPA_attack_portugal
 		cost = 5
 
@@ -3004,29 +2976,31 @@ focus_tree = {
 			179 = {
 				add_core_of = ROOT
 			}
+			hidden_effect = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = ESU_POR_unified
+			}
 		}
 	}
 
 	focus = {
 		id = SPA_the_skill_issue
-		available = {
-			date > 1940.1.1
-		}
+	
 		bypass = {
 			
 		}
 		allow_branch = 
 		{
 			has_global_flag = spanish_civil_war
-			date > 1939.9.1
+			date > 1939.1.1
 		}
 		
 		
 		icon = GFX_focus_fra_loyalty_trotzky
-		x = 0
-		y = 0
+		x = 70
+		y = 20
 		
-		cost = 1
+		cost = 10
 
 		available_if_capitulated = yes
 
@@ -3457,6 +3431,8 @@ focus_tree = {
 				}
 			}
 		}
+
+
 		completion_reward = {
 			add_timed_idea = { idea = SPA_national_recovery_1 days = 1825 }
 			random_owned_controlled_state = {
@@ -4177,7 +4153,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		
 		icon = GFX_goal_generic_major_alliance
@@ -4388,7 +4364,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 		bypass = {
 			OR = {
@@ -5284,7 +5260,6 @@ focus_tree = {
 				name = SPA_restart_small_scale_shipbuilding
 				bonus = 1
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 			add_tech_bonus = {
@@ -5451,7 +5426,7 @@ focus_tree = {
 		
 		allow_branch = 
 		{
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
@@ -5631,7 +5606,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = 
-		{has_war_support > 400}
+		{has_completed_focus = SOV_the_fourth_international}
 
 		available_if_capitulated = yes
 
@@ -5756,7 +5731,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available_if_capitulated = yes
@@ -7271,7 +7246,6 @@ focus_tree = {
 				name = SPA_imperial_security
 				bonus = 1
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 			add_doctrine_cost_reduction = {
@@ -9793,7 +9767,6 @@ focus_tree = {
 				name = SPR_the_peoples_fleet
 				bonus = 1
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 			add_tech_bonus = {
@@ -11810,7 +11783,6 @@ focus_tree = {
 				name = SPR_a_red_fleet
 				bonus = 1
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 			add_tech_bonus = {
@@ -13201,7 +13173,6 @@ focus_tree = {
 				name = SPR_navy_modernization
 				bonus = 1
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 		}

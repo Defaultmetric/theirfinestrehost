@@ -1,0 +1,331 @@
+on_actions = {
+    on_weekly_USA = {
+        effect = {
+
+            ##Hawaii
+            if = {
+                limit = {
+                    629 = 
+                    {
+                        NOT = {is_fully_controlled_by = USA}
+                        NOT = {USA = {has_country_flag = hawaii_lost_flag}}
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 10
+                    }
+                    set_country_flag = hawaii_lost_flag
+                }
+            }
+            if = 
+            {
+                limit = 
+                {
+                    USA = {has_country_flag = hawaii_lost_flag}
+                    629 = 
+                    {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                add_to_variable = {
+                        second_awakening_days = -10
+                }
+
+                clr_country_flag = hawaii_lost_flag
+            }
+
+            ##Midway Island
+            if = {
+                limit = {
+                    631 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = midway_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = midway_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = midway_lost_flag }
+                    631 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = midway_lost_flag
+                }
+            }
+
+            ##Wake Island
+            if = {
+                limit = {
+                    632 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = wake_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = wake_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = wake_lost_flag }
+                    632 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = wake_lost_flag
+                }
+            }
+
+            ##Johnston Atoll
+            if = {
+                limit = {
+                    630 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = johnston_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = johnston_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = johnston_lost_flag }
+                    630 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = johnston_lost_flag
+                }
+            }
+
+            ##Line Islands
+            if = {
+                limit = {
+                    727 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = line_islands_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = line_islands_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = line_islands_lost_flag }
+                    727 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = line_islands_lost_flag
+                }
+            }
+            
+            ##Phoenix Island
+            if = {
+                limit = {
+                    642 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = phoenix_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = phoenix_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = phoenix_lost_flag }
+                    642 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = phoenix_lost_flag
+                }
+            }
+
+            ##Guam
+            if = {
+                limit = {
+                    638 = {
+                        NOT = { is_fully_controlled_by = USA }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = guam_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 2
+                    }
+                    set_country_flag = guam_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = guam_lost_flag }
+                    638 = {
+                        is_fully_controlled_by = USA
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -2
+                    }
+                    clr_country_flag = guam_lost_flag
+                }
+            }
+
+            ##Manila
+            if = {
+                limit = {
+                    327 = {
+                        NOT = { OR = { is_fully_controlled_by = USA is_fully_controlled_by = PHI} }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = manila_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 5
+                    }
+                    set_country_flag = manila_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = manila_lost_flag }
+                    327 = {
+                        OR = {
+                        is_fully_controlled_by = USA
+                        is_fully_controlled_by = PHI
+                        }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -5
+                    }
+                    clr_country_flag = manila_lost_flag
+                }
+            }
+
+            ##Mayala
+            if = {
+                limit = {
+                    336 = {
+                        NOT = { OR = { is_fully_controlled_by = MAL  is_fully_controlled_by = ENG is_fully_controlled_by = USA} }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = mayala_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 3
+                    }
+                    set_country_flag = mayala_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = mayala_lost_flag }
+                    336 = {
+                        OR = { is_fully_controlled_by = MAL  is_fully_controlled_by = ENG is_fully_controlled_by = USA}
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -3
+                    }
+                    clr_country_flag = mayala_lost_flag
+                }
+            }
+
+            ##Sumatra
+            if = {
+                limit = {
+                    672 = {
+                        NOT = { OR = { is_fully_controlled_by = INS  is_fully_controlled_by = ENG is_fully_controlled_by = USA} }
+                    }
+                    USA = {
+                        NOT = { has_country_flag = sumatra_lost_flag }
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = 5
+                    }
+                    set_country_flag = sumatra_lost_flag
+                }
+            }
+            if = {
+                limit = {
+                    USA = { has_country_flag = sumatra_lost_flag }
+                    672 = {
+                        OR = { is_fully_controlled_by = INS  is_fully_controlled_by = ENG is_fully_controlled_by = USA}
+                    }
+                }
+                USA = {
+                    add_to_variable = {
+                        second_awakening_days = -5
+                    }
+                    clr_country_flag = sumatra_lost_flag
+                }
+}
+
+        }
+    }
+}

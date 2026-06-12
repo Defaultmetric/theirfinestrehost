@@ -2801,7 +2801,6 @@ country_event = {
 				custom_effect_tooltip = JUNO_brazil_events_160_tt
 				show_mio_tooltip = FRA_acf_organization
 				show_mio_tooltip = FRA_bloch_organization
-				show_mio_tooltip = FRA_renault_organization
 			}
 			IF = {
 				limit = {
@@ -2882,10 +2881,12 @@ country_event = {
 				set_country_flag = BRA_already_sent_mio
 			}
 			set_country_flag = has_renault_mio_flag
-			show_mio_tooltip = FRA_renault_organization
-			mio:FRA_renault_organization = {
-				add_mio_size = 2
-			}
+			mio:allies_assault_tank_organization_generic = {
+					add_mio_size = 1
+				}
+			mio:allies_armored_tank_organization_generic = {
+					add_mio_size = 1
+				}
 		}
 		IF ={
 			limit = {

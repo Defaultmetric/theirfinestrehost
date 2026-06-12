@@ -37,7 +37,6 @@ focus_tree = {
 
 	continuous_focus_position = { x = 45 y = 1500 }
 
-	shared_focus = NORDIC_form_joint_alliance
 
 
 
@@ -76,7 +75,7 @@ focus_tree = {
 				NOT = { has_completed_focus = FIN_finnish_neutrality }
 				NOT = { has_completed_focus = FIN_right_wing_policies }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		mutually_exclusive = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
@@ -5353,7 +5352,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		available = {
@@ -5515,7 +5514,7 @@ focus_tree = {
 
 
 		allow_branch = {
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		search_filters = {}
@@ -6674,7 +6673,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			has_war_support > 200
+			always = no
 		}
 
 
@@ -7121,7 +7120,7 @@ focus_tree = {
 				NOT = { has_completed_focus = FIN_finnish_neutrality }
 				NOT = { has_completed_focus = FIN_suomalainen_sosialismi }
 			}
-			has_war_support > 400
+			has_completed_focus = SOV_the_fourth_international
 		}
 
 		x = 13
@@ -7891,8 +7890,8 @@ focus_tree = {
 							special_type_slot_1 = tank_radio_1
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 5
-							tank_nsb_armor_upgrade = 1
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_GER_basic_light_tank_medium"
 						model = "GER_light_armor_0_entity"
@@ -7924,8 +7923,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 1
-							tank_nsb_armor_upgrade = 1
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_ITA_basic_light_tank_medium"
 						model = "ITA_light_armor_entity"
@@ -7956,8 +7955,8 @@ focus_tree = {
 							engine_type_slot = tank_diesel_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 2
-							tank_nsb_armor_upgrade = 2
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_JAP_improved_light_tank_medium"
 						model = "JAP_light_armor_entity"
@@ -7988,8 +7987,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 2
-							tank_nsb_armor_upgrade = 4
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_FRA_basic_light_tank_medium"
 						model = "FRA_light_armor_0_entity"
@@ -8020,8 +8019,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 2
-							tank_nsb_armor_upgrade = 1
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_ENG_basic_light_tank_medium"
 						model = "commonwealth_gfx_light_armor_entity"
@@ -8054,8 +8053,8 @@ focus_tree = {
 							special_type_slot_2 = tank_radio_1
 						}
 						upgrades = {
-							tank_nsb_armor_upgrade = 2
-							tank_nsb_engine_upgrade = 5
+							tank_nsb_armor_upgrade = 0
+							tank_nsb_engine_upgrade = 0
 						}
 						icon = "GFX_USA_basic_light_tank_medium"
 						model = "USA_light_armor_0_entity"
@@ -8086,8 +8085,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 8
-							tank_nsb_armor_upgrade = 1
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_SOV_improved_light_tank_medium" #More similar to BT-7 than to T-26
 						model = "SOV_light_armor_entity" #More similar to BT-7 than to T-26
@@ -8119,8 +8118,8 @@ focus_tree = {
 							special_type_slot_1 = tank_radio_1
 						}
 						upgrades = {
-							tank_nsb_armor_upgrade = 2
-							tank_nsb_engine_upgrade = 3
+							tank_nsb_armor_upgrade = 0
+							tank_nsb_engine_upgrade = 0
 						}
 						icon = "GFX_SWE_basic_light_tank_alt_medium"
 						model = "SWE_light_armor_0_entity"
@@ -11295,8 +11294,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 10
-							tank_nsb_armor_upgrade = 2
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_FIN_improved_light_art_medium"
 						design_team = mio:FIN_valtion_panssaritehdas_organization
@@ -11315,8 +11314,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 10
-							tank_nsb_armor_upgrade = 2
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						icon = "GFX_FIN_improved_light_art_medium"
 					}
@@ -11671,8 +11670,8 @@ focus_tree = {
 								engine_type_slot = tank_diesel_engine
 						    	}
 							upgrades = {
-								tank_nsb_engine_upgrade = 3
-								tank_nsb_armor_upgrade = 2
+								tank_nsb_engine_upgrade = 0
+								tank_nsb_armor_upgrade = 0
 							}
 							model = "FIN_light_sp_anti_air_brigade_entity"
 							icon = "GFX_SWE_basic_light_spaa_medium"
@@ -11983,8 +11982,8 @@ focus_tree = {
 							special_type_slot_4 = additional_machine_guns
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 10
-							tank_nsb_armor_upgrade = 8
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						design_team = mio:FIN_valtion_panssaritehdas_organization
 					}
@@ -12005,8 +12004,8 @@ focus_tree = {
 							special_type_slot_4 = additional_machine_guns
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 9
-							tank_nsb_armor_upgrade = 6
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 						design_team = mio:FIN_valtion_panssaritehdas_organization
 					}
@@ -12028,8 +12027,8 @@ focus_tree = {
 							special_type_slot_4 = additional_machine_guns
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 10
-							tank_nsb_armor_upgrade = 8
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 					}
 					
@@ -12049,8 +12048,8 @@ focus_tree = {
 							special_type_slot_4 = additional_machine_guns
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 9
-							tank_nsb_armor_upgrade = 6
+							tank_nsb_engine_upgrade = 0
+							tank_nsb_armor_upgrade = 0
 						}
 					}
 				}
@@ -12125,8 +12124,8 @@ focus_tree = {
 						special_type_slot_4 = empty
 					}
 					upgrades = {
-						tank_nsb_engine_upgrade = 18
-						tank_nsb_armor_upgrade = 7
+						tank_nsb_engine_upgrade = 0
+						tank_nsb_armor_upgrade = 0
 					}
 					icon = "GFX_FIN_super_heavy_tank_2_medium"
 				}
@@ -14957,7 +14956,7 @@ focus_tree = {
 					bonus = 0.5
 					uses = 2
 					category = dd_tech
-					category = cl_tech
+					category = ca_tech
 				}
 			}
 

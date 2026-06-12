@@ -1,0 +1,536 @@
+
+axis_assault_tank_organization_generic = {
+	include = axis_assault_tank_organization
+	icon = GFX_idea_henschel
+
+	allowed = {
+		OR = {
+			tag = ROM 
+			tag = ITA
+			tag = HUN
+			tag = SPR
+			tag = BUL
+			tag = GER
+			tag = FIN
+			tag = JAP
+			tag = SIA
+		}
+	}
+
+	### JAP 
+
+	add_trait = {
+		token = JAP_mio_trait_special_government_contracts_mitsubishi_trait
+		name = JAP_mio_trait_special_government_contracts_mitsubishi_trait
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		special_trait_background = yes
+
+		position = { x = 12 y = 6 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			has_mio_size > 5
+			FROM = {
+				original_tag = JAP
+				NOT = { has_country_flag = JAP_mio_trait_special_government_contracts_taken_flag }
+			}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = JAP_mio_trait_special_government_contracts_taken_flag 
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			FROM = {
+				remove_trait = {
+				    character = JAP_koyata_iwasaki
+				    slot = political_advisor
+				    trait = JAP_mitsubishi_president
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_trait = {
+				    character = JAP_koyata_iwasaki
+				    slot = political_advisor
+				    trait = JAP_mitsubishi_president_2
+				}
+			}
+		}
+
+		organization_modifier = {
+		    military_industrial_organization_research_bonus = 0.02
+		}
+
+		production_bonus = {
+			
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	add_trait = {
+		token = JAP_mio_trait_zaibatsu_production_capabilities_trait
+		name = JAP_mio_trait_zaibatsu_production_capabilities_trait
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+
+		position = { x = 14 y = 6 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			FROM = {
+				original_tag = JAP
+				JAP_zaibatsu_faction_is_at_least_influential = yes
+			}
+		}
+
+		on_complete = {
+			
+		}
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+
+	add_trait = {
+		token = JAP_mio_trait_foreign_research_and_development_cooperation
+		name = JAP_mio_trait_foreign_research_and_development_cooperation
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 16 y = 6 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			FROM = {
+				original_tag = JAP
+				has_completed_focus = JAP_foreign_tank_modernization_cooperation
+				NOT = { has_country_flag = JAP_mio_trait_foreign_research_and_development_cooperation_taken_flag }
+			}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = JAP_mio_trait_foreign_research_and_development_cooperation_taken_flag
+			}
+		}
+
+		organization_modifier = {
+		    military_industrial_organization_research_bonus = 0.15
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	####
+}
+
+axis_armored_tank_organization_generic = {
+	include = axis_armored_tank_organization
+	icon = GFX_idea_porsche
+
+	allowed = {
+		OR = {
+			tag = ROM 
+			tag = ITA
+			tag = HUN
+			tag = SPR
+			tag = BUL
+			tag = GER
+			tag = FIN
+			tag = JAP
+			tag = SIA
+		}
+	}
+
+	### JAP 
+
+	add_trait = {
+		token = JAP_mio_trait_special_government_contracts_mitsubishi_trait
+		name = JAP_mio_trait_special_government_contracts_mitsubishi_trait
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		special_trait_background = yes
+
+		position = { x = 6 y = 0 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			has_mio_size > 5
+			FROM = {
+				original_tag = JAP
+				NOT = { has_country_flag = JAP_mio_trait_special_government_contracts_taken_flag }
+			}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = JAP_mio_trait_special_government_contracts_taken_flag 
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			FROM = {
+				remove_trait = {
+				    character = JAP_koyata_iwasaki
+				    slot = political_advisor
+				    trait = JAP_mitsubishi_president
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_trait = {
+				    character = JAP_koyata_iwasaki
+				    slot = political_advisor
+				    trait = JAP_mitsubishi_president_2
+				}
+			}
+		}
+
+		organization_modifier = {
+		    military_industrial_organization_research_bonus = 0.02
+		}
+
+		production_bonus = {
+			
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	add_trait = {
+		token = JAP_mio_trait_zaibatsu_production_capabilities_trait
+		name = JAP_mio_trait_zaibatsu_production_capabilities_trait
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		special_trait_background = yes
+
+		position = { x = 8 y = 0 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			FROM = {
+				original_tag = JAP
+				JAP_zaibatsu_faction_is_at_least_influential = yes
+			}
+		}
+
+		on_complete = {
+			
+		}
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+
+	add_trait = {
+		token = JAP_mio_trait_foreign_research_and_development_cooperation
+		name = JAP_mio_trait_foreign_research_and_development_cooperation
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+
+		position = { x = 10 y = 0 }  
+		
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			FROM = {
+				original_tag = JAP
+				has_completed_focus = JAP_foreign_tank_modernization_cooperation
+				NOT = { has_country_flag = JAP_mio_trait_foreign_research_and_development_cooperation_taken_flag }
+			}
+		}
+
+		on_complete = {
+			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
+			FROM = {
+				set_country_flag = JAP_mio_trait_foreign_research_and_development_cooperation_taken_flag
+			}
+		}
+
+		organization_modifier = {
+		    military_industrial_organization_research_bonus = 0.15
+		}
+
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	add_trait = { 
+		token = JAP_mio_trait_oi
+		name = JAP_mio_trait_oi
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_weapons
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = JAP }
+		}
+
+		available = {
+			FROM = { original_tag = JAP }
+		}
+
+		limit_to_equipment_type = {super_heavy_tank_chassis}
+
+		equipment_bonus = 
+		{
+			armor_value = 0.1
+			soft_attack = 0.05
+			hard_attack = 0.05
+			maximum_speed = 0.05
+			build_cost_ic = -0.2
+		}
+
+		production_bonus = {
+		}
+	}
+
+	####
+
+	### GER 
+	add_trait = { 
+		token = GER_mio_trait_tiger
+		name = GER_mio_trait_tiger
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_weapons
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = GER }
+		}
+
+		available = {
+			FROM = { original_tag = GER }
+		}
+
+		limit_to_equipment_type = {heavy_tank_chassis}
+
+		equipment_bonus = 
+		{
+			armor_value = 0.1
+			soft_attack = 0.05
+			hard_attack = 0.05
+			maximum_speed = 0.05
+			build_cost_ic = 0.05
+		}
+
+		production_bonus = {
+		}
+	}
+
+	### ITA 
+	add_trait = { 
+		token = ITA_mio_trait_cutting_corners
+		name = ITA_mio_trait_cutting_corners
+		icon = GFX_generic_mio_department_icon_tank_light_tank_production
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = ITA }
+		}
+
+		available = {
+			FROM = { original_tag = ITA }
+		}
+
+		equipment_bonus = 
+		{
+			build_cost_ic = -0.15
+			reliability = -0.1
+			defense = -0.05
+			hardness = -0.05
+			armor_value = -0.15
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+
+	### SPR 
+	add_trait = { 
+		token = SPR_mio_trait_new_tank_industry
+		name = SPR_mio_trait_new_tank_industry
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = SPR }
+		}
+
+		available = {
+			FROM = { original_tag = SPR }
+		}
+
+
+		equipment_bonus = 
+		{
+			anti_air_attack = 0.15
+			build_cost_ic = -0.02
+		}
+
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = -0.05
+		}
+	}
+
+	### ROM 
+	add_trait = { 
+		token = ROM_mio_trait_tank_destoyer_primacy
+		name = ROM_mio_trait_tank_destoyer_primacy
+		icon = GFX_generic_mio_trait_icon_ap_attack
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = ROM }
+		}
+
+		available = {
+			FROM = { original_tag = ROM }
+		}
+
+
+		limit_to_equipment_type = { light_tank_destroyer_chassis medium_tank_destroyer_chassis heavy_tank_destroyer_chassis}
+
+
+		equipment_bonus = {
+			build_cost_ic = -0.03
+			hard_attack = 0.08
+			ap_attack = 0.08
+			breakthrough = 0.12
+		}
+
+		production_bonus = {
+			production_conversion_speed_factor = 0.1
+		}
+	}
+
+	### BUL 
+	add_trait = { 
+		token = BUL_mio_trait_dday_defender
+		name = BUL_mio_trait_dday_defender
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = BUL }
+		}
+
+		available = {
+			FROM = { original_tag = BUL }
+		}
+
+		equipment_bonus = {
+			defense = 0.15
+			soft_attack = 0.05
+			anti_air_attack = 0.25
+			maximum_speed = 0.1
+		}
+	}
+
+	### HUN 
+	add_trait = { 
+		token = HUN_mio_trait_the_turan
+		name = HUN_mio_trait_the_turan
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_engine
+
+		special_trait_background = yes
+		position = { x = 5 y= 2 }
+		relative_position_id = axis_armored_mio_trait_thick_armor
+		any_parent = {axis_armored_mio_trait_thick_armor axis_armored_mio_trait_new_armor_types}
+
+
+		visible = {
+			FROM = { original_tag = HUN }
+		}
+
+		available = {
+			FROM = { original_tag = HUN }
+		}
+
+		equipment_bonus = {
+			soft_attack = 0.12
+			breakthrough = 0.05
+			hardness = -0.1
+			maximum_speed = 0.1
+		}
+	}
+}

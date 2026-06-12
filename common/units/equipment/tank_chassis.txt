@@ -213,15 +213,15 @@ equipments = {
 			armor_type_slot = inherit
 			engine_type_slot = inherit
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+		#}
 		maximum_speed = 5.0
 		breakthrough = 3
-		defense = 2
-		build_cost_ic = 2.6
-		reliability = 0.8
+		defense = 1
+		build_cost_ic = 4
+		reliability = 0.7
 		armor_value = 10
 	}
 
@@ -263,15 +263,15 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		maximum_speed = 5.0
-		breakthrough = 3
-		defense = 2
-		build_cost_ic = 3.25
-		reliability = 0.95
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 7
+		breakthrough = 28
+		defense = 8
+		build_cost_ic = 9
+		reliability = 0.8
 		armor_value = 15
 	}
 
@@ -288,7 +288,6 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_1
 					tank_light_turret_tier_2
 					tank_light_turret_tier_f
 				}
@@ -303,6 +302,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 			special_type_slot_4 = {
@@ -310,19 +310,20 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 
-		build_cost_ic = 4
-		maximum_speed = 5.0
-		breakthrough = 4
-		defense = 2
-		reliability = 1.1
+		build_cost_ic = 10
+		maximum_speed = 7
+		breakthrough = 28
+		defense = 8
+		reliability = 0.85
 		armor_value = 20
 		resources = {
 			steel = 1
@@ -342,10 +343,8 @@ equipments = {
 			turret_type_slot = { #Turrets must go at the top
 				required = yes
 				allowed_module_categories = {
-					tank_light_turret_tier_1
-					tank_light_turret_tier_2
 					tank_light_turret_tier_3
-					tank_light_turret_tier_f
+					tank_medium_turret_tier_f
 				}
 			}
 			
@@ -359,6 +358,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 			special_type_slot_4 = {
@@ -366,6 +366,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -376,16 +377,16 @@ equipments = {
 				}
 			}
 		}	
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		build_cost_ic = 5.2
-		maximum_speed = 5.0
-		breakthrough = 5
-		defense = 2
-		reliability = 1.3
-		armor_value = 20
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		build_cost_ic = 15
+		maximum_speed = 8
+		breakthrough = 30
+		defense = 10
+		reliability = 1
+		armor_value = 25
 		resources = {
 			steel = 1
 		}
@@ -432,7 +433,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tank_tiny_main_armament
-					tank_light_main_armament_1
 				}
 			}
 
@@ -477,6 +477,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 
@@ -485,6 +486,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			
@@ -579,7 +581,7 @@ equipments = {
 
 		fuel_consumption = -0.5
 		maximum_speed = 4.0
-		build_cost_ic = 6.5
+		build_cost_ic = 10
 		reliability = 0.5
 		armor_value = 20
 		hardness = 0.8
@@ -619,15 +621,15 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 		maximum_speed = 4.0
 		breakthrough = 6
-		defense = 3
-		build_cost_ic = 6.5
-		reliability = 0.75
+		defense = 2
+		build_cost_ic = 10
+		reliability = 0.60
 		armor_value = 10
 		resources = {
 			steel = 1
@@ -667,6 +669,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 			special_type_slot_4 = {
@@ -674,19 +677,20 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		armor_value = 20
-		breakthrough = 5
-		defense = 3
-		build_cost_ic = 6.5
-		reliability = 0.8
-		maximum_speed = 4.5
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		breakthrough = 36
+		defense = 10
+		armor_value = 30
+		build_cost_ic = 13
+		reliability = 0.7
+		maximum_speed = 5.5
 	}
 	medium_tank_chassis_2 = {
 		abbreviation = "mt2"
@@ -700,9 +704,9 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_medium_turret_tier_1
 					tank_medium_turret_tier_2
 					tank_medium_turret_tier_f
+					t34_85_medium_turret
 				}
 			}
 			main_armament_slot = inherit
@@ -717,6 +721,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -727,16 +732,16 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		maximum_speed = 4.5
-		breakthrough = 6
-		defense = 3
-		build_cost_ic = 7.8
-		reliability = 1.1
-		armor_value = 30
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 6
+		breakthrough = 40
+		defense = 14
+		build_cost_ic = 17.5
+		reliability = 0.85
+		armor_value = 35
 		resources = {
 			steel = 1
 		}
@@ -755,11 +760,8 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_medium_turret_tier_1
-					tank_medium_turret_tier_2
 					tank_medium_turret_tier_3
-					tank_medium_turret_tier_f
-					tank_large_superstructure_m
+					tank_large_superstructure_m_cat
 				}
 			}
 			main_armament_slot = inherit
@@ -779,16 +781,16 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		maximum_speed = 4.5
-		breakthrough = 8
-		defense = 3
-		build_cost_ic = 9.1
-		reliability = 1.3
-		armor_value = 35
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 6.5
+		breakthrough = 45
+		defense = 16
+		build_cost_ic = 20
+		reliability = 1
+		armor_value = 40
 		resources = {
 			steel = 1
 		}
@@ -833,7 +835,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tank_tiny_main_armament
-					tank_light_main_armament_1
 				}
 			}
 
@@ -880,6 +881,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_type
 				}
 			}
 
@@ -888,6 +890,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 
@@ -962,8 +965,8 @@ equipments = {
 		}
 
 		fuel_consumption = 0.5
-		maximum_speed = 3.0
-		build_cost_ic = 13
+		maximum_speed = 4.0
+		build_cost_ic = 18
 		reliability = 0.75
 		armor_value = 30
 		hardness = 0.85
@@ -1006,15 +1009,15 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		maximum_speed = 3.0
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 4.0
 		breakthrough = 6
-		defense = 3
-		build_cost_ic = 13
-		reliability = 0.75
+		defense = 2
+		build_cost_ic = 18
+		reliability = 0.6
 		armor_value = 10
 	}
 
@@ -1053,6 +1056,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 			special_type_slot_4 = {
@@ -1060,19 +1064,20 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		maximum_speed = 4.0
-		breakthrough = 6
-		defense = 4
-		build_cost_ic = 15.6
-		armor_value = 25
-		reliability = 0.8
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 4.5
+		breakthrough = 38
+		defense = 14
+		build_cost_ic = 21
+		armor_value = 35
+		reliability = 0.7
 	}
 
 	heavy_tank_chassis_2 = {
@@ -1088,10 +1093,8 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_heavy_turret_tier_1
 					tank_heavy_turret_tier_f
 					tank_heavy_turret_tier_2
-					tank_large_superstructure_m
 				}
 			}
 			
@@ -1107,6 +1110,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -1117,16 +1121,16 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		build_cost_ic = 18.2
-		maximum_speed = 4.0
-		breakthrough = 8
-		defense = 4
-		reliability = 1.1
-		armor_value = 35
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		build_cost_ic = 26
+		maximum_speed = 5
+		breakthrough = 42
+		defense = 16
+		reliability = 0.85
+		armor_value = 45
 		resources = {
 			steel = 1
 		}
@@ -1145,11 +1149,8 @@ equipments = {
 			turret_type_slot = {
 				required = yes
 				allowed_module_categories = {
-					tank_heavy_turret_tier_1
-					tank_heavy_turret_tier_f
-					tank_heavy_turret_tier_2
 					tank_heavy_turret_tier_3
-					tank_large_superstructure_h
+					tank_large_superstructure_h_cat
 				}
 			}
 			
@@ -1171,16 +1172,16 @@ equipments = {
 				}
 			}
 		}
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
-		build_cost_ic = 18.2
-		maximum_speed = 4.0
-		breakthrough = 10
-		defense = 4
-		reliability = 1.3
-		armor_value = 40
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		build_cost_ic = 30
+		maximum_speed = 5
+		breakthrough = 48
+		defense = 16
+		reliability = 1
+		armor_value = 50
 		resources = {
 			steel = 1
 		}
@@ -1267,6 +1268,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 
@@ -1275,6 +1277,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -1358,10 +1361,12 @@ equipments = {
 		}
 
 		fuel_consumption = -1
-		maximum_speed = 5.0
-		build_cost_ic = 7
-		reliability = 1.4
-		armor_value = 40
+		maximum_speed = 6
+		defense = 14
+		breakthrough = 45
+		build_cost_ic = 18
+		reliability = 1.2
+		armor_value = 50
 		hardness = 0.9
 		resources = {
 			steel = 1
@@ -1382,10 +1387,10 @@ equipments = {
 		priority = 2000
 		module_slots = inherit
 
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 	}
 
 	super_heavy_tank_chassis = {
@@ -1462,8 +1467,8 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_secondary_turret
 					tank_secondary_turret_0
-					tank_radio_module
 				}
 			}
 
@@ -1471,6 +1476,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 
@@ -1479,6 +1485,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -1584,10 +1591,10 @@ equipments = {
 		archetype = super_heavy_tank_chassis
 		priority = 2000
 		module_slots = inherit
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 	}
 
 	amphibious_tank_chassis = {
@@ -1630,7 +1637,6 @@ equipments = {
 				required = yes
 				allowed_module_categories = {
 					tank_tiny_main_armament
-					tank_light_main_armament_1
 				}
 			}
 
@@ -1675,6 +1681,7 @@ equipments = {
 				required = no
 				allowed_module_categories = {
 					tank_special_module
+					tank_armor_protection_type
 				}
 			}
 			special_type_slot_4 = {
@@ -1682,6 +1689,7 @@ equipments = {
 				allowed_module_categories = {
 					tank_special_module
 					tank_reliability_module
+					tank_stabilizers
 				}
 			}
 			special_type_slot_5 = {
@@ -1798,10 +1806,10 @@ equipments = {
 		year = 1940
 		archetype = amphibious_tank_chassis
 		priority = 2000
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 		module_slots = inherit
 	}
 
@@ -2005,10 +2013,10 @@ equipments = {
 		archetype = land_cruiser_chassis
 		priority = 2000
 		module_slots = inherit
-		upgrades = {
-			tank_nsb_engine_upgrade
-			tank_nsb_armor_upgrade
-		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
 	}
 
 }

@@ -2189,23 +2189,6 @@ ideas = {
 			}
 		}
 
-		GER_early_fighter_production = {
-		 	picture = generic_aircraft_support
-		 
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			equipment_bonus = {
-				small_plane_airframe = {
-					build_cost_ic = -0.05 
-					instant = yes
-				}
-			}
-		}
-
 		GER_defense_of_the_reich_ns = {
 			name = GER_defense_of_the_reich
 		 	picture = generic_anti_air
@@ -2223,7 +2206,7 @@ ideas = {
 
 			equipment_bonus = {
 				small_plane_airframe = {
-					build_cost_ic = -0.05 
+					build_cost_ic = -0.15 
 					instant = yes
 				}
 			}
@@ -5216,7 +5199,7 @@ ideas = {
 			}
 
 			visible = {
-				NOT = { has_completed_focus = GER_uralbomber_program }
+				NOT = { has_completed_focus = GER_tactical_bombers }
 			}	
 				
 			research_bonus = {
@@ -5238,7 +5221,7 @@ ideas = {
 			}
 
 			visible = {
-				has_completed_focus = GER_uralbomber_program
+				has_completed_focus = GER_tactical_bombers
 			}	
 				
 			research_bonus = {

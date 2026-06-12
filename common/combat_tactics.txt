@@ -422,7 +422,7 @@ tactic_blitz = {
 			has_trait = panzer_leader
 			skill_advantage > 1
 		}
-		OWNER = { NOT = { has_tactic = tactic_masterful_blitz } } #Soviet improved version of blitz will replace this
+		OWNER = { NOT = { has_tech = masterful_blitz } } #Soviet improved version of blitz will replace this
 	}
 	
 	active = no
@@ -476,10 +476,10 @@ tactic_backhand_blow = { #counters breakthrough
 		is_attacker = no
 		phase = no
 		OR = {
-			skill > 3
+			skill > 4
 			AND = {
 				has_trait = defensive_doctrine
-				skill > 2
+				skill > 3
 			}
 		}
 	}
@@ -730,8 +730,8 @@ tactic_guerrilla_tactics = { #People's army defender tactic. also for German vol
 	picture = tactic_guerrilla_tactics
 	
 	combat_width = -0.5
-	attacker = -0.4
-	defender = -0.4
+	attacker = -0.5
+	defender = -0.6
 }
 
 tactic_human_wave_tactics = { #People's army attacker tactic

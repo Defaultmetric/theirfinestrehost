@@ -6,67 +6,87 @@ shared_focus = {
 	icon = GFX_focus_ARG_join_the_allies
 	
 
-	x = 0
+	x = 32
 	y = 0
+	#Uk
+	offset = {
+		x = 34
+		y = 0
+		trigger = {
+			has_focus_tree = british_focus
+		}
+	}
 
-	#ENG
-	offset = 
-	{
-		x = 68
-		trigger = {has_focus_tree = british_focus}
+	#france
+	offset = {
+		x = 39 
+		y = 0
+		trigger = {
+			has_focus_tree = french_focus
+		}
 	}
-	#CAN
-	offset = 
-	{
-		x = 64
-		trigger = {has_focus_tree = canadian_focus}
+
+	offset = {
+		x = 20 
+		y = 0
+		trigger = {
+			has_focus_tree = free_french_focus
+		}
 	}
-	#BRA
-	offset = 
-	{
-		x = 80
-		trigger = {has_focus_tree = brazil_tree}
-	}
+
 	#SAF
-	offset = 
-	{
-		x = 58
-		trigger = {has_focus_tree = south_african_focus}
+	offset = {
+		x = 26 
+		y = 0
+		trigger = {
+			has_focus_tree = south_african_focus
+		}
 	}
 
-	#AST
-	offset = 
-	{
-		x = 64
-		trigger = {has_focus_tree = australian_focus}
+	#Brazil
+	offset = {
+		x = 4 
+		y = 10
+		trigger = {
+			has_focus_tree = brazil_tree
+		}
 	}
+
+	#Canada
+	offset = {
+		x = 30 
+		y = 0
+		trigger = {
+			has_focus_tree = canadian_focus
+		}
+	}
+
 	#RAJ
-	offset = 
-	{
-		x = 15
-		y = 8
-		trigger = {has_focus_tree = indian_focus_goe}
-	}
-	#FRA
-	offset = 
-	{
-		x = 75
-		trigger = {has_focus_tree = french_focus}
-	}
-	#FFRA
-	offset = 
-	{
-		x = 60
-		trigger = {has_focus_tree = free_french_focus}
+	offset = {
+		x = -13
+		y = 5
+		trigger = {
+			has_focus_tree = indian_focus_goe
+		}
 	}
 
-	cost = 0
+	#Australia
+	offset = {
+		x = 31
+		y = 0
+		trigger = {
+			has_focus_tree = australian_focus
+		}
+	}
+
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		is_subject = no
+		is_ai = no
 	}
     bypass = 
     {
@@ -92,7 +112,7 @@ shared_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 		
 		    }
@@ -100,11 +120,11 @@ shared_focus = {
 }
 
 joint_focus = {
-	id = allies_political_cooperation
+	id = ALLIES_political_cooperation
 	icon = GFX_focus_generic_improve_the_administration
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -7
+	x = 0
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -112,137 +132,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = ENG
-				tag = CAN
-                tag = SAF
-				tag = BRA
-				tag = FRA
-                tag = AST
-            }
-        }
-        add_political_power = 25
-        add_stability = 0.1
-        add_popularity = {
-            ideology = democratic
-            popularity = 0.1
-        }
-    }
-}
-
-}
-
-joint_focus = {
-	id = allies_civ_eco_boost
-	icon = GFX_focus_generic_modernize_industry
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_infra focus = allies_lower_power_usage_policy}
-
-	x = 0
-	y = 1
-	relative_position_id = allies_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = ENG
-                tag = CAN
-                tag = SAF
-                tag = BRA
-                tag = FRA
-                tag = AST
-				tag = RAJ
-            }
-        }
-		custom_effect_tooltip = generic_skip_one_line_tt
-        add_timed_idea = { 
-            idea = civ_eco_boost 
-            days = 180 
-        }
-    }
-}
-
-}
-
-joint_focus = {
-	id = allies_lower_power_usage_policy
-	icon = GFX_focus_ARG_develop_the_electricity_sector
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_infra focus = allies_civ_eco_boost }
-
-	x = 2
-	y = 1
-	relative_position_id = allies_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-			if = {
-				limit = { has_country_flag = accessible_shared_tree }
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = allies_shared_tt
-					add_to_variable = { 
-						allies_energy_consumption = -0.15
-						tooltip = factory_energy_consumption_tt
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = faction_warning_tt
-		}
-}
-
-
-joint_focus = {
-	id = allies_mining_expertise
-	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = allies_infra focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
-	mutually_exclusive = {focus = allies_mil_eco_boost}
-
-	x = 1
-	y = 2
-	relative_position_id = allies_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -250,128 +142,182 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
-	            add_to_variable = { 
-	    			allies_resources_factor = 0.13
-	    			tooltip = local_resources_factor_tt 
+	        limit = { is_in_faction_with = ENG }
+
+	            add_political_power = 25
+	    		add_stability = 0.1
+	    		add_popularity = {
+	    			ideology = democratic
+	    			popularity = 0.1
 	    		}
 		    }
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = faction_warning_tt
 	}
 }
 
 joint_focus = {
-	id = allies_mil_eco_boost
+	id = ALLIES_civ_eco_boost
+	icon = GFX_focus_generic_modernize_industry
+	prerequisite = { focus = ALLIES_political_cooperation }
+	mutually_exclusive = {focus = ALLIES_infra }
+
+	x = 1
+	y = 1
+	relative_position_id = ALLIES_political_cooperation
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_timed_idea = { 
+	        		idea = civ_eco_boost 
+	        		days = 180 
+	    		}
+		
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_mining_expertise
+	icon = GFX_focus_generic_mining_industry
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	mutually_exclusive = {focus = ALLIES_mil_eco_boost}
+
+	x = 1
+	y = 2
+	relative_position_id = ALLIES_political_cooperation
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_to_variable = { 
+	    			allies_resources_factor = 0.1
+	    			tooltip = local_resources_factor_tt 
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = ALLIES_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = allies_infra focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
-	mutually_exclusive = {focus = allies_mining_expertise }
+	prerequisite = { focus = ALLIES_infra focus = ALLIES_civ_eco_boost }
+	mutually_exclusive = {focus = ALLIES_mining_expertise }
 
 	x = -1
 	y = 2
-	relative_position_id = allies_political_cooperation
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
+
+	available_if_capitulated = yes
 
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = ENG
-                tag = CAN
-                tag = SAF
-                tag = BRA
-                tag = FRA
-                tag = AST
-				tag = RAJ
-            }
-        }
-		custom_effect_tooltip = generic_skip_one_line_tt
-        add_timed_idea = { 
-            idea = mill_eco_boost 
-            days = 180 
-        }
-    }
-}
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
 
+	            add_timed_idea = { 
+	        		idea = mill_eco_boost 
+	        		days = 180 
+	    		}
+		    }
+	}
 }
 
 joint_focus = {
-	id = allies_infra
+	id = ALLIES_infra
 	icon = GFX_focus_generic_road_investment
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = { focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
+	prerequisite = { focus = ALLIES_political_cooperation }
+	mutually_exclusive = { focus = ALLIES_civ_eco_boost }
 
-	x = -2
+	x = -1
 	y = 1
-	relative_position_id = allies_political_cooperation
+	relative_position_id = ALLIES_political_cooperation
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-			has_country_flag = accessible_shared_tree
-}
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
 
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = ENG
-                tag = CAN
-                tag = SAF
-                tag = BRA
-                tag = FRA
-                tag = AST
-				tag = RAJ
-            }
-        }
-		custom_effect_tooltip = generic_skip_one_line_tt
-        add_timed_idea = { 
-            idea = infra_boost
-            days = 365 
-        }
-    }
-}
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
 
+	            add_timed_idea = { 
+	        		idea = infra_boost
+	        		days = 365 
+	    		}
+		    }
+	}
 }
 
 joint_focus = {
-	id = allies_blitzkrieg_economy
+	id = ALLIES_blitzkrieg_economy
 	icon = GFX_focus_generic_annex_country_2
-	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise}
-	mutually_exclusive = {focus = allies_adaptive_economy focus = allies_the_waiting_game}
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_adaptive_economy focus = ALLIES_the_waiting_game}
 
 	x = -3
 	y = 1
-	relative_position_id = allies_mil_eco_boost
-	cost = 0
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		GER = 
 		{
 			has_completed_focus = GER_anschluss
 		}
-		date < 1938.1.1
 	}
 
 	available_if_capitulated = yes
@@ -387,20 +333,21 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_blitzkrieg_phase1
+	id = ALLIES_blitzkrieg_phase1
 	icon = GFX_focus_GER_prioritize_the_four_year_plan
-	prerequisite = { focus = allies_blitzkrieg_economy }
+	prerequisite = { focus = ALLIES_blitzkrieg_economy }
 
-	x = 0
+	x = -1
 	y = 1
-	relative_position_id = allies_blitzkrieg_economy
+	relative_position_id = ALLIES_blitzkrieg_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-			has_country_flag = accessible_shared_tree
-}
+		is_in_faction_with = ENG
+		
+	}
 
 	available_if_capitulated = yes
 
@@ -411,6 +358,15 @@ joint_focus = {
 
 	bypass_effect = 
 	{
+		add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		
+	    	}
 
 	    	add_to_variable = { 
 	    		allies_growth_gain = 0.05
@@ -423,6 +379,8 @@ joint_focus = {
 	    	}
 	}
 
+	available_if_capitulated = yes
+
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward = {
@@ -431,11 +389,16 @@ joint_focus = {
 		{
 			add_days_mission_timeout = { mission = blitzkrieg_timer days = -120 } 
 		}
-		if = {			
-	    	limit = { has_country_flag = accessible_shared_tree }
+	    
+			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
 
 	    	add_to_variable = { 
 	    		allies_growth_gain = 0.05
@@ -446,34 +409,45 @@ joint_focus = {
 	    		allies_mill_speed = 0.05
 	    		tooltip = production_speed_arms_factory_factor_tt
 	    	}
-		}
 	}
 }
 
 
 joint_focus = {
-	id = allies_blitzkrieg_phase1_rubber
+	id = ALLIES_blitzkrieg_phase1_rubber
 	icon = GFX_focus_BRA_rubber_war
-	prerequisite = { focus = allies_blitzkrieg_phase1 }
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 }
 
 	x = -1
 	y = 1
-	relative_position_id = allies_blitzkrieg_phase1
+	relative_position_id = ALLIES_blitzkrieg_phase1
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
+	}
 
 	bypass = 
 	{
 		has_global_flag = allies_financial_collapse
 	}
+
+	available_if_capitulated = yes
+
+	bypass_effect = 
+	{
+		modify_building_resources = {
+	            	   	building = synthetic_refinery
+	            	   	resource = rubber
+	            	  	amount = 1
+	            	}
+
+	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -485,53 +459,72 @@ joint_focus = {
 		}
 
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            modify_building_resources = {
 	            	   	building = synthetic_refinery
 	            	   	resource = rubber
 	            	  	amount = 1
 	            	}
-				custom_effect_tooltip = generic_skip_one_line_tt
 				add_tech_bonus = {
 					bonus = 1.0
 					uses = 1
 					technology = rubber_processing
 				}
+
 		    }
 	}
 }
 
 joint_focus = {
-	id = allies_blitzkrieg_phase2
+	id = ALLIES_blitzkrieg_phase2
 	icon = GFX_focus_generic_central_planning
-	prerequisite = { focus = allies_blitzkrieg_phase1 }
-	prerequisite = { focus = allies_war_economy }
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 }
+	prerequisite = { focus = ALLIES_war_economy }
 
 	bypass = 
 	{
 		has_global_flag = allies_financial_collapse
 	}
 
+	available_if_capitulated = yes
+
 	bypass_effect = 
 	{
+		add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.0025
+	    		
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		 
+	    	}
+
 			add_to_variable = { 
-	    		allies_cap = 0.1
-	    		tooltip = production_factory_max_efficiency_factor_tt
+	    		allies_cap = 0.05
+	    		
 	    	}
 	}
 
-	x = 0
+	x = 1
 	y = 2
-	relative_position_id = allies_blitzkrieg_phase1
+	relative_position_id = ALLIES_blitzkrieg_phase1
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
+
+	available_if_capitulated = yes
 
 	available_if_capitulated = yes
 
@@ -544,36 +537,44 @@ joint_focus = {
 			add_days_mission_timeout = { mission = blitzkrieg_timer days = -120 }
 		}
 	    
-		if = {			
-	    	limit = { has_country_flag = accessible_shared_tree }
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = allies_shared_tt
-				add_to_variable = { 
-					allies_cap = 0.1
-					tooltip = production_factory_max_efficiency_factor_tt
-				}
-		}
+			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.05
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_cap = 0.05
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
 	}
 }
 
 joint_focus = {
-	id = allies_blitzkrieg_phase3
+	id = ALLIES_blitzkrieg_phase3
 	icon = GFX_focus_generic_workers_and_farmers_rise
-	overlay = GFX_focus_fast_overlay_generic_clock
-	prerequisite = { focus = allies_blitzkrieg_phase2 }
+	prerequisite = { focus = ALLIES_blitzkrieg_phase2 }
 
 	x = 0
 	y = 2
-	relative_position_id = allies_blitzkrieg_phase2
-	cost = 0
+	relative_position_id = ALLIES_blitzkrieg_phase2
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		always = no
+		has_war_support > 2
 		
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -584,101 +585,119 @@ joint_focus = {
 
 	bypass_effect = 
 	{
+		add_to_variable = { 
+	        	allies_mill_output = -0.35
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = -0.1
+	    		allies_dockyard_output  = -0.35
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = -0.2
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
 			add_to_variable = { 
-	    		allies_cap = -0.2
+	    		allies_cap = -0.15
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 			add_to_variable = { 
-	    		allies_consumer = 0.20
+	    		allies_consumer = 0.30
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    		allies_mill_speed = -0.1
+	    		allies_mill_speed = -0.15
 	    		tooltip = production_speed_arms_factory_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			allies_construction_speed = -0.1
+	    			allies_construction_speed = -0.15
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
 			add_to_variable = { 
-	        		allies_base = -0.05
+	        		allies_base = -0.2
 	        		tooltip = production_factory_start_efficiency_factor_tt 
 	    		}
 
-	        add_to_variable = { 
+	            add_to_variable = { 
 	        		allies_conversion = 0.25
 	        		tooltip = conversion_cost_civ_to_mil_factor_tt
-	    	}
+	    		}
 	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward = {
 	    custom_effect_tooltip = blitzkrieg_phase3_tt
-
-		
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = allies_shared_tt
 		add_to_variable = { 
-	    		allies_growth_gain = -0.1
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
+			mill_output = -0.35
+			tooltip = industrial_capacity_factory_tt 
+		}
 
-			add_to_variable = { 
-	    		allies_cap = -0.2
-	    		tooltip = production_factory_max_efficiency_factor_tt
-	    	}
-			add_to_variable = { 
-	    		allies_consumer = 0.20
-	    		tooltip = consumer_goods_factor_tt
-	    	}
+		add_to_variable = { 
+			dockyard_output = -0.35
+			tooltip = industrial_capacity_dockyard_tt 
+		}
 
-			add_to_variable = { 
-	    		allies_mill_speed = -0.1
-	    		tooltip = production_speed_arms_factory_factor_tt
-	    	}
+		add_to_variable = { 
+			growth_gain = -0.2
+			tooltip = production_factory_efficiency_gain_factor_tt 
+		}
 
-			add_to_variable = { 
-	    			allies_construction_speed = -0.1
-	    			tooltip = production_speed_buildings_factor_tt 
-	    	}
+		add_to_variable = { 
+			cap = -0.15
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
 
-			add_to_variable = { 
-	        		allies_base = -0.05
-	        		tooltip = production_factory_start_efficiency_factor_tt 
-	    		}
+		add_to_variable = { 
+			consumer = 0.30
+			tooltip = consumer_goods_factor_tt
+		}
 
-	        add_to_variable = { 
-	        		allies_conversion = 0.25
-	        		tooltip = conversion_cost_civ_to_mil_factor_tt
-	    	}
+		add_to_variable = { 
+			mill_speed = -0.15
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+
+		add_to_variable = { 
+			construction_speed = -0.15
+			tooltip = production_speed_buildings_factor_tt 
+		}
+
+		add_to_variable = { 
+			base = -0.2
+			tooltip = production_factory_start_efficiency_factor_tt 
+		}
+
+		add_to_variable = { 
+			conversion = 0.25
+			tooltip = conversion_cost_civ_to_mil_factor_tt
+		}
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_economy
+	id = ALLIES_adaptive_economy
 	icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise}
-	mutually_exclusive = {focus = allies_blitzkrieg_economy focus = allies_the_waiting_game}
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_blitzkrieg_economy focus = ALLIES_the_waiting_game}
 
 	x = 1
 	y = 1
-	relative_position_id = allies_mil_eco_boost
-	cost = 0
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		GER = 
 		{
 			has_completed_focus = GER_anschluss
@@ -687,11 +706,13 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
+	available_if_capitulated = yes
+
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	        custom_effect_tooltip = adaptive_eco_tt
 
@@ -700,22 +721,22 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_adaptive_1
+	id = ALLIES_adaptive_1
 	icon = GFX_focus_generic_rubber
-	prerequisite = { focus = allies_adaptive_economy}
-	mutually_exclusive = {focus = allies_adaptive_2 focus = allies_adaptive_3}
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_3}
 
 	x = -2
 	y = 1
-	relative_position_id = allies_adaptive_economy
+	relative_position_id = ALLIES_adaptive_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -723,7 +744,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            modify_building_resources = {
 	            	   	building = synthetic_refinery
@@ -738,22 +759,22 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_adaptive_2
+	id = ALLIES_adaptive_2
 	icon = GFX_focus_generic_reorient_production
-	prerequisite = { focus = allies_adaptive_economy}
-	mutually_exclusive = {focus = allies_adaptive_1 focus = allies_adaptive_3}
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_3}
 
 	x = 0
 	y = 1
-	relative_position_id = allies_adaptive_economy
+	relative_position_id = ALLIES_adaptive_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -761,40 +782,48 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	        add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.035
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 
+		    }
+
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_global_flag = allies_medium_value
-		    custom_effect_tooltip = medium_value_tt
-		}
+			custom_effect_tooltip = medium_value_tt
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_3
+	id = ALLIES_adaptive_3
 	icon = GFX_focus_GER_kdf_wagen
-	prerequisite = { focus = allies_adaptive_economy}
-	mutually_exclusive = {focus = allies_adaptive_2 focus = allies_adaptive_1}
+	prerequisite = { focus = ALLIES_adaptive_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_1}
 
 	x = 2
 	y = 1
-	relative_position_id = allies_adaptive_economy
+	relative_position_id = ALLIES_adaptive_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -802,7 +831,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            add_offsite_building = {
 					type = industrial_complex
@@ -817,21 +846,20 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_the_waiting_game
+	id = ALLIES_the_waiting_game
 	icon = GFX_focus_DEN_limited_regulations
-	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise}
-	mutually_exclusive = {focus = allies_blitzkrieg_economy focus = allies_adaptive_economy}
-
+	prerequisite = { focus = ALLIES_mil_eco_boost focus = ALLIES_mining_expertise}
+	mutually_exclusive = {focus = ALLIES_blitzkrieg_economy focus = ALLIES_adaptive_economy}
 
 	x = 5
 	y = 1
-	relative_position_id = allies_mil_eco_boost
-	cost = 0
+	relative_position_id = ALLIES_mil_eco_boost
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		GER = 
 		{
 			has_completed_focus = GER_anschluss
@@ -849,28 +877,28 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_the_waiting_game_phase1
+	id = ALLIES_the_waiting_game_phase1
 	icon = GFX_focus_generic_currency_reforms
-	prerequisite = { focus = allies_the_waiting_game }
+	prerequisite = { focus = ALLIES_the_waiting_game }
 
-	x = 0
+	x = 1
 	y = 1
-	relative_position_id = allies_the_waiting_game
+	relative_position_id = ALLIES_the_waiting_game
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
+	}
 
 	bypass = 
 	{
 		has_global_flag = allies_economy_unbound_timer
 	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -881,10 +909,8 @@ joint_focus = {
 			add_days_mission_timeout = { mission = waiting_game_timer days = -50 }
 		}
 
-		custom_effect_tooltip = generic_skip_one_line_tt
-
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 				
 				add_tech_bonus = {
 					bonus = 0.35
@@ -896,23 +922,21 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_the_waiting_game_phase1_emergency
+	id = ALLIES_the_waiting_game_phase1_emergency
 	icon = GFX_focus_GER_integrated_economies
-	prerequisite = { focus = allies_the_waiting_game_phase1 }
+	prerequisite = { focus = ALLIES_the_waiting_game_phase1 }
 
 	x = 1
 	y = 1
-	relative_position_id = allies_the_waiting_game_phase1
+	relative_position_id = ALLIES_the_waiting_game_phase1
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
+	}
 
 	bypass = 
 	{
@@ -921,12 +945,23 @@ joint_focus = {
 
 	bypass_effect = 
 	{
+			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
 
 	    	add_to_variable = { 
-	    		allies_growth_gain = 0.1
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
 	    		tooltip = production_factory_efficiency_gain_factor_tt 
 	    	}
 	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -938,40 +973,43 @@ joint_focus = {
 		}
 
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	        limit = { is_in_faction_with = ENG }
 
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.1
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	        add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = emergency_measures_warining_tt
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
 		}
 	}
 }
 
 joint_focus = {
-	id = allies_the_waiting_game_phase2
+	id = ALLIES_the_waiting_game_phase2
 	icon = GFX_focus_generic_economic_recovery
-	prerequisite = { focus = allies_war_economy }
-	prerequisite = { focus = allies_the_waiting_game_phase1 }
+	prerequisite = { focus = ALLIES_war_economy }
+	prerequisite = { focus = ALLIES_the_waiting_game_phase1 }
 
-	x = 0
+	x = -1
 	y = 2
-	relative_position_id = allies_the_waiting_game_phase1
+	relative_position_id = ALLIES_the_waiting_game_phase1
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
+	}
 
 	bypass = 
 	{
@@ -980,11 +1018,14 @@ joint_focus = {
 
 	bypass_effect = 
 	{
+	
 				add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
 	    		}
 	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -996,10 +1037,9 @@ joint_focus = {
 		}
 
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-	    	custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	        
 				add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
@@ -1009,24 +1049,20 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_the_waiting_game_phase3
+	id = ALLIES_the_waiting_game_phase3
 	icon = GFX_focus_GER_autarky_achieved
-	overlay = GFX_focus_fast_overlay_generic_clock
-	prerequisite = { focus = allies_the_waiting_game_phase2 }
+	prerequisite = { focus = ALLIES_the_waiting_game_phase2 }
 
 	x = 0
 	y = 2
-	relative_position_id = allies_the_waiting_game_phase2
-	cost = 0
+	relative_position_id = ALLIES_the_waiting_game_phase2
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		always = no
-	
-		has_country_flag = accessible_shared_tree}
-
-	available_if_capitulated = yes
+		has_war_support > 2
+	}
 
 	bypass = 
 	{
@@ -1036,17 +1072,31 @@ joint_focus = {
 	bypass_effect = 
 	{
 			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
 	    		allies_cap = 0.1
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
-
 			add_to_variable = { 
 	    		allies_consumer = -0.1
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			allies_construction_speed = 0.1
+	    			allies_construction_speed = 0.05
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
@@ -1057,70 +1107,67 @@ joint_focus = {
 	            	}
 	}
 
+	available_if_capitulated = yes
+
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward = {
 
 		set_global_flag = allies_economy_unbound
 
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = waiting_game_eco_allies_tt
 	   		add_to_variable = { 
-	    		allies_cap = 0.1
+	        	mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		cap = 0.1
 	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
-
 			add_to_variable = { 
-	    		allies_growth_gain = 0.1
-	    		tooltip = production_factory_efficiency_gain_factor_tt
-	    	}
-
-			add_to_variable = { 
-	    		allies_consumer = -0.1
+	    		consumer = -0.1
 	    		tooltip = consumer_goods_factor_tt
 	    	}
 
 			add_to_variable = { 
-	    			allies_construction_speed = 0.1
+	    			construction_speed = 0.05
 	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
-			add_to_variable = { 
-	    		allies_resources_factor = 0.05
-	    		tooltip = local_resources_factor_tt
-	    	}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			modify_building_resources = {
-	            	   	building = synthetic_refinery
-	            	   	resource = rubber
-	            	  	amount = 1
-	        }
-
+			custom_effect_tooltip = rubber_tt
 	}
 }
 
 joint_focus = {
-	id = allies_war_economy
+	id = ALLIES_war_economy
 	icon = GFX_focus_SWI_issue_war_bonds
-	prerequisite = { focus = allies_blitzkrieg_phase1 focus = allies_adaptive_1 focus = allies_adaptive_2 focus = allies_adaptive_3 focus = allies_the_waiting_game_phase1}
+	prerequisite = { focus = ALLIES_blitzkrieg_phase1 focus = ALLIES_adaptive_1 focus = ALLIES_adaptive_2 focus = ALLIES_adaptive_3 focus = ALLIES_the_waiting_game_phase1}
 
 	x = 0
 	y = 1
-	relative_position_id = allies_adaptive_2
+	relative_position_id = ALLIES_adaptive_2
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-		has_country_flag = accessible_shared_tree
 		GER = 
 		{
 			has_war_with = ENG
 		}
 	}
-
-	available_if_capitulated = yes
 
 	bypass = 
 	{
@@ -1134,7 +1181,7 @@ joint_focus = {
 	bypass_effect = 
 	{
 		add_to_variable = { 
-	        		allies_base = 0.05
+	        		allies_base = 0.1
 	        		tooltip = production_factory_start_efficiency_factor_tt 
 	    		}
 
@@ -1144,14 +1191,16 @@ joint_focus = {
 	    		}
 	}
 
+	available_if_capitulated = yes
+
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 				add_to_variable = { 
-	        		allies_base = 0.05
+	        		allies_base = 0.1
 	        		tooltip = production_factory_start_efficiency_factor_tt 
 	    		}
 
@@ -1166,20 +1215,20 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_adaptive_1_phase2
+	id = ALLIES_adaptive_1_phase2
 	icon = GFX_focus_generic_mass_production
-	prerequisite = { focus = allies_war_economy}
-	mutually_exclusive = {focus = allies_adaptive_2_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = -2
 	y = 1
-	relative_position_id = allies_war_economy
+	relative_position_id = ALLIES_war_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 				has_global_flag = allies_the_waiting_game
@@ -1193,45 +1242,50 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
-
-	        add_to_variable = { 
-	        	allies_mill_output = 0.05
+	            add_to_variable = { 
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
+	    	add_to_variable = { 
+	    		allies_growth_gain = 0.025
+	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	    	}
+
+			add_to_variable = { 
+	    		allies_mill_speed = 0.05
+	    		tooltip = production_speed_arms_factory_factor_tt
+	    	}
 		    }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_global_flag = allies_high_value_2
 			custom_effect_tooltip = high_value_tt
-			mark_focus_tree_layout_dirty = yes
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_2_phase2
+	id = ALLIES_adaptive_2_phase2
 	icon = GFX_focus_GER_customs_union
-	prerequisite = { focus = allies_war_economy}
-	mutually_exclusive = {focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 1
-	relative_position_id = allies_war_economy
+	relative_position_id = ALLIES_war_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 				has_global_flag = allies_the_waiting_game
@@ -1245,13 +1299,10 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	        limit = { is_in_faction_with = ENG }
 
 				add_to_variable = { 
-					allies_consumer = -0.05
+					allies_consumer = -0.10
 					tooltip = consumer_goods_factor_tt
 	    		}
 
@@ -1263,26 +1314,25 @@ joint_focus = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_global_flag = allies_medium_value_2
-			custom_effect_tooltip = medium_value_tt
-			mark_focus_tree_layout_dirty = yes	
+			custom_effect_tooltip = medium_value_tt	
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_3_phase2
+	id = ALLIES_adaptive_3_phase2
 	icon = GFX_focus_usa_reestablish_the_gold_standard
-	prerequisite = { focus = allies_war_economy}
-	mutually_exclusive = {focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2}
+	prerequisite = { focus = ALLIES_war_economy}
+	mutually_exclusive = {focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2}
 
 	x = 2
 	y = 1
-	relative_position_id = allies_war_economy
+	relative_position_id = ALLIES_war_economy
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 				has_global_flag = allies_the_waiting_game
@@ -1296,32 +1346,30 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
 	            add_to_variable = { 
 	    			allies_construction_speed = 0.035
 	    			tooltip = production_speed_buildings_factor_tt 
 	    		}
+
 		    }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			set_global_flag = allies_low_value_2
 			custom_effect_tooltip = low_value_tt
-			mark_focus_tree_layout_dirty = yes
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_phase3
+	id = ALLIES_adaptive_phase3
 	icon = GFX_goal_unknown
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 2
-	relative_position_id = allies_adaptive_2_phase2
-	cost = 0
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 1
 
 	text_icon = NORDIC_focus_style
 
@@ -1330,7 +1378,7 @@ joint_focus = {
 		NOT = 
 		{
 			OR = 
-			{	
+			{
 				has_global_flag = allies_low_value_2
 				has_global_flag = allies_medium_value_2
 				has_global_flag = allies_high_value_2
@@ -1339,8 +1387,8 @@ joint_focus = {
 	}
 
 	available = {
-		has_country_flag = accessible_shared_tree
-		always = no
+		is_in_faction_with = ENG
+		has_war_support > 2
 	}
 
 	available_if_capitulated = yes
@@ -1353,13 +1401,13 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_adaptive_phase3_high_high
-	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	id = ALLIES_adaptive_phase3_high_high
+	icon = GFX_goal_generic_construct_mil_factory
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 2
-	relative_position_id = allies_adaptive_2_phase2
+	relative_position_id = ALLIES_adaptive_2_phase2
 	cost = 5
 
 	allow_branch = 
@@ -1371,8 +1419,8 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1941.1.1
+		is_in_faction_with = ENG
+		date > 1940.1.1
 	}
 
 	available_if_capitulated = yes
@@ -1381,25 +1429,23 @@ joint_focus = {
 
 	completion_reward = {
 		if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
+	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	    		allies_resources_factor = 0.03
-	    		tooltip = local_resources_factor_tt
+	    		allies_cap = 0.05
+	    		tooltip = production_factory_max_efficiency_factor_tt
 	    	}
 		}
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_phase3_med_high
+	id = ALLIES_adaptive_phase3_med_high
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 2
-	relative_position_id = allies_adaptive_2_phase2
+	relative_position_id = ALLIES_adaptive_2_phase2
 	cost = 5
 
 	allow_branch = 
@@ -1423,8 +1469,8 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1941.1.1
+		is_in_faction_with = ENG
+		date > 1940.1.1
 	}
 
 	available_if_capitulated = yes
@@ -1433,28 +1479,32 @@ joint_focus = {
 
 	completion_reward = {
 		if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-	       
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = allies_shared_tt
-
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	    		allies_cap = 0.025
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
 			add_to_variable = { 
-	        	allies_growth_gain = 0.025
-	        	tooltip = production_factory_efficiency_gain_factor_tt
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
 		}
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_phase3_med_med
+	id = ALLIES_adaptive_phase3_med_med
 	icon = GFX_focus_generic_reorient_production
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 2
-	relative_position_id = allies_adaptive_2_phase2
+	relative_position_id = ALLIES_adaptive_2_phase2
 	cost = 5
 
 	allow_branch = 
@@ -1484,8 +1534,8 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1941.1.1
+		is_in_faction_with = ENG
+		date > 1940.1.1
 	}
 
 	available_if_capitulated = yes
@@ -1494,9 +1544,68 @@ joint_focus = {
 
 	completion_reward = {
 		if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-	      
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
+	    		allies_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+	    	}
 			add_to_variable = { 
+	        	allies_mill_output = 0.025
+	        	tooltip = industrial_capacity_factory_tt 
+	    	}
+
+	    	add_to_variable = { 
+	    		allies_dockyard_output  = 0.025
+	    		tooltip = industrial_capacity_dockyard_tt 
+	    	}
+
+		}
+	}
+}
+
+joint_focus = {
+	id = ALLIES_adaptive_phase3_low_med
+	icon = GFX_focus_generic_mass_production
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
+
+	x = 0
+	y = 2
+	relative_position_id = ALLIES_adaptive_2_phase2
+	cost = 5
+
+	allow_branch = 
+	{
+		OR = 
+		{
+			AND = 
+			{
+				has_global_flag = allies_low_value
+				has_global_flag = allies_medium_value_2
+			}
+
+			AND = 
+			{
+				has_global_flag = allies_medium_value
+				has_global_flag = allies_low_value_2
+			}
+		}
+	}
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		date > 1940.1.1
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		if = {
+	        limit = { is_in_faction_with = ENG }
+	        add_to_variable = { 
 	        	allies_mill_output = 0.05
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
@@ -1506,74 +1615,22 @@ joint_focus = {
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
+			add_to_variable = { 
+	    		allies_cap = 0.05
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
 		}
 	}
 }
 
 joint_focus = {
-	id = allies_adaptive_phase3_low_med
-	icon = GFX_focus_generic_mass_production
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
-
-	x = 0
-	y = 2
-	relative_position_id = allies_adaptive_2_phase2
-	cost = 5
-
-	allow_branch = 
-	{
-		OR = 
-		{
-			AND = 
-			{
-				has_global_flag = allies_low_value
-				has_global_flag = allies_medium_value_2
-			}
-
-			AND = 
-			{
-				has_global_flag = allies_medium_value
-				has_global_flag = allies_low_value_2
-			}
-		}
-	}
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1941.1.1
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-		if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-	        add_to_variable = { 
-	        	allies_mill_output = 0.075
-	        	tooltip = industrial_capacity_factory_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.075
-	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
-		}
-	}
-}
-
-joint_focus = {
-	id = allies_adaptive_phase3_low_low
+	id = ALLIES_adaptive_phase3_low_low
 	icon = GFX_focus_RAJ_special_economic_zones
-	prerequisite = { focus = allies_adaptive_2_phase2 focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
+	prerequisite = { focus = ALLIES_adaptive_2_phase2 focus = ALLIES_adaptive_1_phase2 focus = ALLIES_adaptive_3_phase2}
 
 	x = 0
 	y = 2
-	relative_position_id = allies_adaptive_2_phase2
+	relative_position_id = ALLIES_adaptive_2_phase2
 	cost = 5
 
 	allow_branch = 
@@ -1585,8 +1642,8 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1941.1.1
+		is_in_faction_with = ENG
+		date > 1940.1.1
 	}
 
 	available_if_capitulated = yes
@@ -1595,17 +1652,21 @@ joint_focus = {
 
 	completion_reward = {
 		if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 	        add_to_variable = { 
-	        	allies_mill_output = 0.1
+	        	allies_mill_output = 0.05
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.1
+	    		allies_dockyard_output  = 0.05
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
+			add_to_variable = { 
+	    		allies_cap = 0.1
+	    		tooltip = production_factory_max_efficiency_factor_tt
+	    	}
 			add_to_variable = { 
 	    			allies_resources_factor = 0.05
 	    			tooltip = local_resources_factor_tt 
@@ -1620,7 +1681,7 @@ joint_focus = {
 	icon = GFX_focus_NORDIC_dem_form_alliance
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = 7
+	x = 14
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -1628,9 +1689,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -1638,7 +1699,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            add_to_variable = { 
 	        		allies_research_speed = 0.025
@@ -1661,7 +1722,7 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 			OR = 
@@ -1679,7 +1740,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		add_political_power = 50
 	    		add_tech_bonus = { 
@@ -1697,7 +1758,7 @@ joint_focus = {
 	icon = GFX_focus_por_recover_brazil
 	prerequisite = { focus = allies_atlantic_development_plan }
 
-	x = -2
+	x = -3
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -1714,18 +1775,15 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = BRA
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	mutually_exclusive = {focus = allies_brazilian_national_development}
-
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		custom_effect_tooltip = brazil_removed_neglected_tt 
 	    		hidden_effect = {
@@ -1747,50 +1805,12 @@ joint_focus = {
 	}
 }
 
-
-joint_focus = { 
-	id = allies_brazilian_national_development
-	icon = GFX_focus_BRA_estado_novo
-	prerequisite = { focus = allies_atlantic_development_plan }
-
-	x = -4
-	y = 1
-	relative_position_id = allies_atlantic_development_plan
-	cost = 1
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-    	original_tag = BRA
-	
-		has_country_flag = accessible_shared_tree}
-
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	mutually_exclusive = {focus = allies_accelerate_brazilian_recovery}
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		custom_effect_tooltip = bra_national_development_tt
-
-	    		hidden_effect = {
-	    			set_global_flag = invested_in_brazil
-	    		}
-		    }
-	}
-}
-
 joint_focus = { 
 	id = allies_brazilian_development
 	icon = GFX_focus_BRA_us_of_brazil
-	prerequisite = { focus = allies_accelerate_brazilian_recovery focus = allies_brazilian_national_development }
+	prerequisite = { focus = allies_accelerate_brazilian_recovery }
 
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = allies_accelerate_brazilian_recovery
 	cost = 5
@@ -1807,8 +1827,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = BRA
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 
 	available_if_capitulated = yes
@@ -1817,7 +1836,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		BRA = 
 	    		{
@@ -1844,7 +1863,7 @@ joint_focus = {
 	icon = GFX_goal_generic_production
 	prerequisite = { focus = allies_atlantic_development_plan }
 
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -1861,8 +1880,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = CAN
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -1870,7 +1888,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		CAN = 
 	    		{
@@ -1910,8 +1928,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = CAN
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -1919,7 +1936,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		CAN = 
 	    		{
@@ -1945,7 +1962,7 @@ joint_focus = {
 		focus = allies_france_foreign_investors
 	}
 
-	x = 2
+	x = 1
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -1962,8 +1979,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = FRA
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -1971,7 +1987,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		FRA = 
 	    		{
@@ -1999,7 +2015,7 @@ joint_focus = {
 		focus = allies_france_mainland_development
 	}
 
-	x = 4
+	x = 3
 	y = 1
 	relative_position_id = allies_atlantic_development_plan
 	cost = 5
@@ -2016,8 +2032,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = FRA
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -2025,7 +2040,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		FRA = 
 	    		{
@@ -2063,8 +2078,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = FRA
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -2072,7 +2086,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		FRA = 
 	    		{
@@ -2091,7 +2105,7 @@ joint_focus = {
 	icon = GFX_focus_GER_south_east_asian_natural_wealth
 	prerequisite = { focus = allies_allied_researchers }
 
-	x = 5
+	x = 4
 	y = 1
 	relative_position_id = allies_allied_researchers
 	cost = 5
@@ -2099,7 +2113,7 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 			OR = 
@@ -2117,7 +2131,7 @@ joint_focus = {
 
         completion_reward_joint_originator = {
             if = {
-                limit = { has_country_flag = accessible_shared_tree }
+                limit = { is_in_faction_with = ENG }
  
             		add_political_power = 50
             		add_tech_bonus = { 
@@ -2153,8 +2167,7 @@ joint_focus = {
 		}
 		country_exists = SAF
 		
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -2162,7 +2175,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		SAF = 
 	    		{
@@ -2204,8 +2217,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = RAJ
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -2213,7 +2225,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		RAJ = 
 	    		{
@@ -2255,8 +2267,7 @@ joint_focus = {
 			is_in_faction_with = ENG
 		}
 		country_exists = AST
-	
-		has_country_flag = accessible_shared_tree}
+	}
 
 	available_if_capitulated = yes
 
@@ -2264,7 +2275,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
  
 	    		AST = 
 	    		{
@@ -2297,7 +2308,7 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 			OR = 
@@ -2315,7 +2326,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 			custom_effect_tooltip = expanded_slots_tt
 
 					if = 
@@ -2377,7 +2388,7 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
 		NOT = 
 		{
 			OR = 
@@ -2395,7 +2406,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		custom_effect_tooltip = expanded_infra_tt
 
@@ -2470,9 +2481,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -2480,7 +2491,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 			custom_effect_tooltip = allies_factionwide_development_tt
 			
@@ -2593,56 +2604,11 @@ joint_focus = {
 }
 
 joint_focus = { 
-	id = allies_all_for_one
-	icon = GFX_focus_NOR_the_lone_wolf_norway
-	prerequisite = { focus = allies_factionwide_development}
-	mutually_exclusive = {focus = allies_one_for_all}
-
-	x = -1
-	y = 1
-	relative_position_id = allies_factionwide_development
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_to_variable = { 
-	    			allies_construction_speed = 0.1
-	    			tooltip = production_speed_buildings_factor_tt 
-	    		}
-				add_to_variable = { 
-	        	allies_mill_output = 0.1
-	        	tooltip = industrial_capacity_factory_tt 
-	    	}
-
-	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.1
-	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
-		    }
-	}
-}
-
-joint_focus = { 
-	id = allies_one_for_all
+	id = allies_integrated_economies
 	icon = GFX_focus_RAJ_special_economic_zones
 	prerequisite = { focus = allies_factionwide_development}
-	mutually_exclusive = {focus = allies_all_for_one}
 
-	x = 1
+	x = 0
 	y = 1
 	relative_position_id = allies_factionwide_development
 	cost = 5
@@ -2650,9 +2616,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -2660,19 +2626,19 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            add_to_variable = { 
-	    			allies_construction_speed = 0.03
+	    			allies_construction_speed = 0.025
 	    			tooltip = production_speed_buildings_factor_tt 
 	    		}
 				add_to_variable = { 
-	        	allies_mill_output = 0.03
+	        	allies_mill_output = 0.025
 	        	tooltip = industrial_capacity_factory_tt 
 	    	}
 
 	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.03
+	    		allies_dockyard_output  = 0.025
 	    		tooltip = industrial_capacity_dockyard_tt 
 	    	}
 
@@ -2683,19 +2649,19 @@ joint_focus = {
 joint_focus = { 
 	id = allies_emergency_gold_reserves
 	icon = GFX_focus_hol_abandon_the_gold_standard
-	prerequisite = { focus = allies_factionwide_development }
+	prerequisite = { focus = allies_integrated_economies }
 
-	x = -3
-	y = 2
-	relative_position_id = allies_factionwide_development
+	x = -2
+	y = 1
+	relative_position_id = allies_integrated_economies
 	cost = 10
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -2703,7 +2669,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            add_timed_idea = { 
 	    			idea = emergency_gold_reserves 
@@ -2714,24 +2680,20 @@ joint_focus = {
 }
 
 joint_focus = { 
-	id = allies_research_library
-	icon = GFX_goal_continuous_research
-	prerequisite = { focus = allies_factionwide_development }
+	id = allies_atomic_nuclear_fund
+	icon = GFX_focus_generic_nuclear_development
+	prerequisite = { focus = allies_integrated_economies }
 
-	x = 3
-	y = 2
-	relative_position_id = allies_factionwide_development
+	x = 0
+	y = 1
+	relative_position_id = allies_integrated_economies
 	cost = 10
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-			ROOT = 
-		{
-			amount_research_slots < 6
-		}
 	}
 
 	available_if_capitulated = yes
@@ -2740,7 +2702,47 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
+
+	            add_tech_bonus = {
+	    				name = shared_nuclear_bonus
+	    				bonus = 1
+	    				uses = 1
+	    				ahead_reduction = 1
+	    				category = nuclear
+	    			}
+	    		add_breakthrough_progress = {
+	    				specialization = specialization_nuclear
+	    				value = 1
+	    			}
+		    }
+	}
+}
+
+joint_focus = { 
+	id = allies_research_library
+	icon = GFX_goal_continuous_research
+	prerequisite = { focus = allies_integrated_economies }
+
+	x = 2
+	y = 1
+	relative_position_id = allies_integrated_economies
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
  
 	    		add_research_slot = 1
 		    }
@@ -2748,7 +2750,7 @@ joint_focus = {
 
 	completion_reward_joint_member = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		add_to_variable = { 
 	    			allies_research_speed = 0.05
@@ -2763,7 +2765,7 @@ joint_focus = {
 	icon = GFX_focus_BRA_pact_of_silence_allies
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -20
+	x = -17
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -2771,8 +2773,8 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
 	}
 
 	available_if_capitulated = yes
@@ -2781,7 +2783,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		add_command_power = 25
 	    		add_ideas = 
@@ -2792,12 +2794,13 @@ joint_focus = {
 	}
 }
 
+
 joint_focus = {
-	id = allies_unlock_army_specializations
-	icon = GFX_goal_generic_allies_build_infantry	
+	id = allies_war_readiness_program
+	icon = GFX_focus_generic_mass_production	
 	prerequisite = { focus = allies_high_command}
 
-	x = 0
+	x = 3
 	y = 1
 	relative_position_id = allies_high_command
 	cost = 5
@@ -2805,690 +2808,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    custom_effect_tooltip = unlock_specialization_tt
-		custom_effect_tooltip = generic_skip_one_line_tt
-		add_political_power = 50
-		set_global_flag = allies_high_command_flag
 	}
-}
-### SPECIALIZATIONS 
-
-#### Army Specializations 
-
-joint_focus = {
-    id = allies_massmob_mobilization_1
-    icon = GFX_focus_AUS_frontmiliz_focus
-    prerequisite = { focus = allies_unlock_army_specializations }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_unlock_army_specializations
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = massmob_mobilization_1
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_massmob_chosen_flag
-            }
-
-            remove_ideas = {
-                massmob_mobilization_2
-                massmob_mobilization_3
-            }
-
-            add_ideas = {
-                massmob_mobilization_1
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_massmob_mobilization_2
-    icon = GFX_focus_generic_radio_communication
-    prerequisite = { focus = allies_massmob_mobilization_1 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_massmob_mobilization_1
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = massmob_mobilization_2_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_massmob_chosen_flag
-            }
-
-            remove_ideas = {
-                massmob_mobilization_1
-                massmob_mobilization_3
-            }
-
-            add_ideas = {
-                massmob_mobilization_2
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_massmob_mobilization_3
-    icon = GFX_focus_CZE_army_reform
-    prerequisite = { focus = allies_massmob_mobilization_2 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_massmob_mobilization_2
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = massmob_mobilization_3_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_massmob_chosen_flag
-            }
-
-            remove_ideas = {
-                massmob_mobilization_1
-                massmob_mobilization_2
-            }
-
-            add_ideas = {
-                massmob_mobilization_3
-            }
-        }
-    }
-}
-
-### Special Forces
-
-joint_focus = {
-    id = allies_special_forces_1
-    icon = GFX_focus_SWE_neither_death_nor_dishonor
-    prerequisite = { focus = allies_unlock_army_specializations }
-
-    x = -3
-    y = 1
-    relative_position_id = allies_unlock_army_specializations
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = special_forces_1
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_special_forces_chosen_flag
-            }
-
-            remove_ideas = {
-                special_forces_2
-                special_forces_3
-            }
-
-            add_ideas = {
-                special_forces_1
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_special_forces_2
-    icon = GFX_focus_generic_tank_air_support
-    prerequisite = { focus = allies_special_forces_1 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_special_forces_1
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = special_forces_2_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_special_forces_chosen_flag
-            }
-
-            remove_ideas = {
-                special_forces_1
-                special_forces_3
-            }
-
-            add_ideas = {
-                special_forces_2
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_special_forces_3
-    icon = GFX_focus_SWE_let_fly_all_guns
-    prerequisite = { focus = allies_special_forces_2 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_special_forces_2
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = special_forces_3_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_special_forces_chosen_flag
-            }
-
-            remove_ideas = {
-                special_forces_1
-                special_forces_2
-            }
-
-            add_ideas = {
-                special_forces_3
-            }
-        }
-    }
-}
-
-### TANK SPECIALIZATION
-
-joint_focus = {
-    id = allies_tank_specialization_1
-    icon = GFX_focus_generic_tank_assembly
-    prerequisite = { focus = allies_unlock_army_specializations }
-
-    x = 3
-    y = 1
-    relative_position_id = allies_unlock_army_specializations
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = tank_specialization_1
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_tank_chosen_flag
-            }
-
-            remove_ideas = {
-                tank_specialization_2
-                tank_specialization_3
-            }
-
-            add_ideas = {
-                tank_specialization_1
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_tank_specialization_2
-    icon = GFX_focus_generic_mass_production
-    prerequisite = { focus = allies_tank_specialization_1 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_tank_specialization_1
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = tank_specialization_2_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = mio_bonus_tt
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_tank_chosen_flag
-            }
-
-            remove_ideas = {
-                tank_specialization_1
-                tank_specialization_3
-            }
-
-            add_ideas = {
-                tank_specialization_2
-            }
-
-            mio:allies_assault_tank_organization_generic = {
-                add_mio_size = 2
-            }
-
-            mio:allies_armored_tank_organization_generic = {
-                add_mio_size = 2
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_tank_specialization_3
-    icon = GFX_focus_generic_university_3
-    prerequisite = { focus = allies_tank_specialization_2 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_tank_specialization_2
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = tank_specialization_3_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = shared_tank_bonus_tt
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_tank_chosen_flag
-            }
-
-            remove_ideas = {
-                tank_specialization_2
-                tank_specialization_1
-            }
-
-            add_ideas = {
-                tank_specialization_3
-            }
-
-            add_tech_bonus = {
-                name = shared_tank_bonus
-                bonus = 1
-                uses = 1
-                ahead_reduction = 1
-                category = armor
-            }
-        }
-    }
-}
-
-### NAVY SPECIALIZATION 
-
-joint_focus = {
-    id = allies_navy_specialization_1
-    icon = GFX_goal_generic_construct_naval_dockyard
-    prerequisite = { focus = allies_unlock_army_specializations }
-
-    x = -6
-    y = 1
-    relative_position_id = allies_unlock_army_specializations
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = navy_specialization_1
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_navy_chosen_flag
-            }
-
-            add_ideas = {
-                navy_specialization_1
-            }
-
-            every_core_state = {
-                limit = {
-                    is_fully_controlled_by = ROOT
-                    is_coastal = yes
-                }
-                random_select_amount = 2
-                add_extra_state_shared_building_slots = 2
-                add_building_construction = {
-                    type = dockyard
-                    level = 2
-                    instant_build = yes
-                }
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_navy_specialization_2
-    icon = GFX_focus_NORDIC_dem_capstone_navy
-    prerequisite = { focus = allies_navy_specialization_1 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_navy_specialization_1
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    completion_reward_joint_originator = {
-        show_ideas_tooltip = navy_specialization_2_fake
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_navy_chosen_flag
-            }
-
-            remove_ideas = {
-                navy_specialization_1
-            }
-
-            add_ideas = {
-                navy_specialization_2
-            }
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_navy_specialization_3
-    icon = GFX_focus_generic_navy_research_bonus
-    prerequisite = { focus = allies_navy_specialization_2 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_navy_specialization_2
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    completion_reward_joint_originator = {
-        custom_effect_tooltip = shared_navy_bonus_tt
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_navy_chosen_flag
-            }
-
-            add_tech_bonus = {
-                name = shared_navy_bonus
-                bonus = 1
-                uses = 1
-                ahead_reduction = 2.0
-                category = naval_equipment
-            }
-        }
-    }
-}
-
-### AIR SPECIALIZATION
-
-joint_focus = {
-    id = allies_air_specialization_1
-    icon = GFX_focus_HUN_establish_the_mavag_aircraft_factory
-    prerequisite = { focus = allies_unlock_army_specializations }
-
-    x = 6
-    y = 1
-    relative_position_id = allies_unlock_army_specializations
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        custom_effect_tooltip = available_mio_tt
-        show_mio_tooltip = BRA_supermarine_organization
-        show_mio_tooltip = BRA_hawker_organization
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_air_chosen_flag
-            }
-
-            custom_effect_tooltip = available_mio_tt
-            show_mio_tooltip = BRA_supermarine_organization
-            show_mio_tooltip = BRA_hawker_organization
-            set_country_flag = air_mio1_chosen_flag
-            set_country_flag = gsp_ac_flag
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_air_specialization_2
-    icon = GFX_focus_PER_raf_planes
-    prerequisite = { focus = allies_air_specialization_1 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_air_specialization_1
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-        custom_effect_tooltip = trait_unlocks_tt
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_air_chosen_flag
-            }
-
-            set_country_flag = air_stats_flag
-            custom_effect_tooltip = trait_unlocks_tt
-        }
-    }
-}
-
-joint_focus = {
-    id = allies_air_specialization_3
-    icon = GFX_focus_FIN_expand_air_force_academy
-    prerequisite = { focus = allies_air_specialization_2 }
-
-    x = 0
-    y = 1
-    relative_position_id = allies_air_specialization_2
-    cost = 10
-
-    text_icon = NORDIC_focus_style
-
-    available = {
-    
-    	has_country_flag = accessible_shared_tree}
-
-    available_if_capitulated = yes
-
-    search_filters = { FOCUS_FILTER_POLITICAL }
-
-    completion_reward_joint_originator = {
-		show_ideas_tooltip = allies_air_specialization_new
-        custom_effect_tooltip = generic_skip_one_line_tt
-        custom_effect_tooltip = current_effects_tt
-
-        every_country = {
-            limit = {
-                has_country_flag = allies_air_chosen_flag
-            }
-
-            add_ideas = {
-                allies_air_specialization_new
-            }
-        }
-    }
-}
-
-### war readiness branch
-
-joint_focus = {
-	id = allies_war_readiness_program
-	icon = GFX_focus_generic_mass_production	
-	prerequisite = { focus = allies_joint_alliance}
-
-	x = -27
-	y = 6
-	relative_position_id = allies_joint_alliance
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
 
 	available_if_capitulated = yes
 
@@ -3496,177 +2818,11 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	            add_timed_idea = { 
 	       			idea = war_readiness_industrial_push
 	        		days = 365
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_joint_military_exercices
-	icon = GFX_focus_generic_army_doctrines_2
-	prerequisite = { focus = allies_war_readiness_program }
-
-	x = 0
-	y = 1
-	relative_position_id = allies_war_readiness_program
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		army_experience = 75
-	    		air_experience = 75
-	    		navy_experience = 75
-	    		
-		    }
-	}
-
-	completion_reward_joint_member = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		army_experience = 35
-	    		air_experience = 35
-	    		navy_experience = 35
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_war_infrastructure
-	icon = GFX_focus_generic_africa_infrastructure
-	prerequisite = { focus = allies_war_readiness_program }
-
-	x = 3
-	y = 1
-	relative_position_id = allies_war_readiness_program
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_to_variable = { 
-	        		allies_bunker_speed = 0.15
-	        		tooltip = production_speed_bunker_factor_tt 
-	    		}
-
-	    		add_to_variable = { 
-	    			allies_coastal_bunker_speed = 0.15
-	    			tooltip = production_speed_coastal_bunker_factor_tt 
-	    		}
-
-	    		add_to_variable = { 
-	    			allies_fuel_silo_speed = 0.15
-	    			tooltip = production_speed_fuel_silo_factor_tt 
-	    		}
-
-	    		add_to_variable = { 
-	    			allies_air_base_speed = 0.15
-	    			tooltip = production_speed_air_base_factor_tt 
-	    		}
-
-
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_supply_constructor
-	icon = GFX_focus_generic_supply_line
-	prerequisite = { focus = allies_war_infrastructure }
-
-	x = 1
-	y = 1
-	relative_position_id = allies_war_infrastructure
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	        
-	    		add_to_variable = { 
-	    			allies_rail_way_speed = 0.25
-	    			tooltip = production_speed_rail_way_factor_tt 
-	    		}
-	    	
-	    		add_to_variable = { 
-	    			allies_supply_node_speed = 0.35
-	    			tooltip = production_speed_supply_node_factor_tt 
-	    		}
-
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_aa_defence
-	icon = GFX_focus_FIN_coastal_defense
-	prerequisite = { focus = allies_war_infrastructure }
-
-	x = -1
-	y = 1
-	relative_position_id = allies_war_infrastructure
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_to_variable = { 
-	    			allies_anti_air_speed = 0.45
-	    			tooltip = production_speed_anti_air_building_factor_tt 
 	    		}
 		    }
 	}
@@ -3678,7 +2834,7 @@ joint_focus = {
 	icon = GFX_focus_generic_stockpile_fuel
 	prerequisite = { focus = allies_war_readiness_program}
 
-	x = -3
+	x = 0
 	y = 1
 	relative_position_id = allies_war_readiness_program
 	cost = 5
@@ -3686,9 +2842,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -3696,7 +2852,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 			add_timed_idea = { idea = ITA_stockpiling_fuel days = 365 }    
 	    }
@@ -3718,9 +2874,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -3728,7 +2884,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
     
 	            add_timed_idea = {
@@ -3752,9 +2908,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -3796,9 +2952,9 @@ joint_focus = {
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -3806,7 +2962,7 @@ joint_focus = {
 
 	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		ROOT = {
 	            add_timed_idea = {
@@ -3818,24 +2974,86 @@ joint_focus = {
 	}
 }
 
-
 joint_focus = {
-	id = allies_homeland_airbases
-	icon = GFX_focus_generic_air_bases
+	id = allies_war_infrastructure
+	icon = GFX_focus_generic_africa_infrastructure
+	prerequisite = { focus = allies_high_command }
 
-	prerequisite = { focus = allies_stockpile_fuel }
-	prerequisite = { focus = allies_war_infrastructure }
-
-
-	x = 3
-	y = 2
-	relative_position_id = allies_stockpile_fuel
+	x = 8
+	y = 1
+	relative_position_id = allies_high_command
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_to_variable = { 
+	        		allies_bunker_speed = 0.15
+	        		tooltip = production_speed_bunker_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_coastal_bunker_speed = 0.15
+	    			tooltip = production_speed_coastal_bunker_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_rail_way_speed = 0.15
+	    			tooltip = production_speed_rail_way_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_fuel_silo_speed = 0.15
+	    			tooltip = production_speed_fuel_silo_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_air_base_speed = 0.15
+	    			tooltip = production_speed_air_base_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_anti_air_speed = 0.15
+	    			tooltip = production_speed_anti_air_building_factor_tt 
+	    		}
+
+	    		add_to_variable = { 
+	    			allies_supply_node_speed = 0.25
+	    			tooltip = production_speed_supply_node_factor_tt 
+	    		}
+
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_homeland_airbases
+	icon = GFX_focus_generic_air_bases
+	prerequisite = { focus = allies_war_infrastructure }
+	prerequisite = { focus = allies_stockpile_fuel }
+
+
+	x = -2
+	y = 2
+	relative_position_id = allies_war_infrastructure
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
 		if = 
 		{
 			tag = ENG
@@ -3853,7 +3071,7 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
 	    		123 = {
 	    		add_building_construction = {
@@ -3887,548 +3105,22 @@ joint_focus = {
 	}
 }
 
-
-#### RND BRANCH ####
-
-joint_focus = {
-	id = allies_rnd_department
-	icon = GFX_focus_NORDIC_dem_capstone_research
-	prerequisite = { focus = allies_joint_alliance }
-
-	x = 23
-	y = 4
-	relative_position_id = allies_joint_alliance
-	cost = 3
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_to_variable = { 
-	        		allies_research_speed = 0.025
-	        		tooltip = research_speed_factor_tt 
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_technological_warfare
-	icon = GFX_focus_GER_support_the_proletarian_uprising
-	prerequisite = { focus = allies_rnd_department }
-
-	x = 5
-	y = 1
-	relative_position_id = allies_rnd_department
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_tech_bonus = {
-	    			name = the_electronics_bonus
-	    			bonus = 0.75
-	    			uses = 1
-	    			category = electronics
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_better_radios
-	icon = GFX_focus_generic_radio_communication
-	prerequisite = { focus = allies_technological_warfare}
-
-	x = 3
-	y = 2
-	relative_position_id = allies_technological_warfare
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            set_technology = {
-					radio = 1
-				}
-				if = 
-				{
-					limit = 
-					{
-						ROOT = {has_tech = improved_radio}
-					}
-					add_tech_bonus = {
-						name = allies_radio_bonus
-						bonus = 1.0
-						uses = 1
-						technology = advanced_radio
-					}
-				}
-				else = {
-				add_tech_bonus = {
-					name = allies_radio_bonus
-					bonus = 1.0
-					uses = 1
-					technology = improved_radio
-				}
-				}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_radars
-	icon = GFX_goal_generic_radar
-	prerequisite = { focus = allies_better_radios}
-
-	x = 0
-	y = 1
-	relative_position_id = allies_better_radios
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_tech_bonus = {
-	    			name = radar_bonus
-	    			bonus = 1.0
-	    			uses = 1
-	    			category = radar_tech
-	    			ahead_reduction = 1
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_small_arms_expertise
-	icon = GFX_goal_generic_small_arms
-	prerequisite = { focus = allies_technological_warfare }
-
-	x = 0
-	y = 2
-	relative_position_id = allies_technological_warfare
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-	    			name = guns_bonus
-	    			bonus = 1.0
-	    			uses = 1
-	    			category = infantry_weapons
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_continue_the_development_of_small_arms
-	icon = GFX_focus_AFG_scavenging
-	prerequisite = { focus = allies_small_arms_expertise }
-
-	x = -1
-	y = 1
-	relative_position_id = allies_small_arms_expertise
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	mutually_exclusive = {focus = allies_efficient_gun_assembly}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-	    			name = guns_bonus
-	    			bonus = 1.0
-					ahead_reduction = 0.5
-	    			uses = 1
-	    			category = infantry_weapons
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_efficient_gun_assembly
-	icon = GFX_focus_IRQ_attempted_assasination_of_sidqi
-	prerequisite = { focus = allies_small_arms_expertise }
-
-	x = 1
-	y = 1
-	relative_position_id = allies_small_arms_expertise
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	mutually_exclusive = {focus = allies_continue_the_development_of_small_arms}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_ideas = efficient_gun_assembly
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_support_eq_bonus
-	icon = GFX_focus_generic_reinforcing_the_supply_network
-	prerequisite = { focus = allies_technological_warfare }
-
-	x = -3
-	y = 2
-	relative_position_id = allies_technological_warfare
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-					name = artillery_advancements_bonus
-					bonus = 1
-					uses = 1
-					category = support_tech
-				}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_artillery_advancements
-	icon = GFX_SOV_soviet_artillery_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_support_eq_bonus }
-
-	x = 0
-	y = 1
-	relative_position_id = allies_support_eq_bonus
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-					name = artillery_advancements_bonus
-					bonus = 1
-					uses = 1
-					category = artillery
-				}
-		    }
-	}
-}
-
-
-joint_focus = {
-	id = allies_armored_trucks
-	icon = GFX_focus_generic_purchase_mechanized_equipment
-	prerequisite = { focus = allies_technological_warfare }
-
-	x = -2
-	y = 1
-	relative_position_id = allies_technological_warfare
-	cost = 10
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-	    		name = truck_bonus
-	    		bonus = 1.0
-	    		ahead_reduction = 2
-	    		uses = 1
-	    		category = motorized_equipment
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_specialized_forces
-	icon = GFX_goal_generic_special_forces
-	prerequisite = { focus = allies_technological_warfare }
-
-	x = 2
-	y = 1
-	relative_position_id = allies_technological_warfare
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-					name = sf_tech_bonus
-					bonus = 1.0
-					uses = 2
-					category = cat_special_forces_generic
-	    		}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_secret_project_facilities
-	icon = GFX_goal_generic_secret_weapon
-	prerequisite = { focus = allies_rnd_department }
-
-	x = -6
-	y = 1
-	relative_position_id = allies_rnd_department
-	cost = 3
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-				add_to_variable = { 
-					allies_special_project_speed = 0.05
-					tooltip = special_project_speed_factor_tt
-				}
-
-				add_to_variable = { 
-					allies_facility_conc = 0.1
-					tooltip = production_speed_facility_factor_tt 
-				}
-
-		    }
-	}
-}
-
-joint_focus = { 
-	id = allies_atomic_nuclear_fund
-	icon = GFX_focus_generic_nuclear_development
-	prerequisite = { focus = allies_secret_project_facilities }
-
-	x = -1
-	y = 1
-	relative_position_id = allies_secret_project_facilities
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		has_country_flag = accessible_shared_tree
-		date > 1939.1.1
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	            add_tech_bonus = {
-	    				name = shared_nuclear_bonus
-	    				bonus = 1
-	    				uses = 1
-	    				ahead_reduction = 1
-	    				category = nuclear
-	    			}
-	    		add_breakthrough_progress = {
-	    				specialization = specialization_nuclear
-	    				value = 0.5
-	    			}
-		    }
-	}
-}
-
-joint_focus = {  
-	id = allies_superweapon_research
-	icon = GFX_focus_NORDIC_com_capstone_research
-	prerequisite = { focus = allies_secret_project_facilities }
-
-	x = 1
-	y = 1
-	relative_position_id = allies_secret_project_facilities
-	cost = 10
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		has_country_flag = accessible_shared_tree
-		ROOT = 
-		{
-			amount_research_slots < 6
-		}
-		
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
- 
-	    		add_research_slot = 1
-				custom_effect_tooltip = generic_skip_one_line_tt
-				add_to_variable = { 
-					allies_special_project_speed = 0.05
-					tooltip = special_project_speed_factor_tt
-				}
-		    }
-	}
-}
-
-### LAND FACILITY 
-
 joint_focus = {
 	id = allies_land_warfare_facility
 	icon = GFX_focus_generic_tank_assembly
-	prerequisite = { focus = allies_secret_project_facilities }
+	prerequisite = { focus = allies_war_infrastructure }
 
 	x = 0
-	y = 2
-	relative_position_id = allies_secret_project_facilities
+	y = 1
+	relative_position_id = allies_war_infrastructure
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -4437,10 +3129,23 @@ joint_focus = {
 	completion_reward_joint_originator = 
 	{
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-	    	custom_effect_tooltip = generic_skip_one_line_tt
-	    	custom_effect_tooltip = facility_tt
+	    		add_breakthrough_progress = {
+	    				specialization = specialization_land
+	    				value = 1
+	    			}
+	    			custom_effect_tooltip = generic_skip_one_line_tt
+	    			add_tech_bonus = {
+	    				name = the_armor_bonus
+	    				bonus = 0.5
+	    				ahead_reduction = 0.5
+	    				uses = 1
+	    				category = armor
+	    			}
+
+	    			custom_effect_tooltip = generic_skip_one_line_tt
+	    		custom_effect_tooltip = facility_tt
 	        hidden_effect = {
 
         
@@ -4746,40 +3451,53 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_land_warfare_facility_two
-	icon = GFX_focus_generic_tank_production
-	prerequisite = { focus = allies_land_warfare_facility }
+	id = allies_naval_warfare_facility
+	icon = GFX_focus_generic_naval_invasion_tank
+	prerequisite = { focus = allies_war_infrastructure }
 
-	x = 0
-	y = 1
-	relative_position_id = allies_land_warfare_facility
+	x = 2
+	y = 2
+	relative_position_id = allies_war_infrastructure
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_tank_design_improvements focus = allies_continue_the_land_research}
-
 	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
+		is_in_faction_with = ENG
+		NOT = 
+		{
+			OR = 
+			{
+				tag = ENG
+				tag = HUN
+			}
+		}
+	}
 
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward_joint_originator = 
-	{
+	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-	    	custom_effect_tooltip = facility_tt
+	        add_breakthrough_progress = {
+	            specialization = specialization_naval
+	            value = 1
+	        }
+	        custom_effect_tooltip = generic_skip_one_line_tt
+	    	navy_experience = 150
+	    	custom_effect_tooltip = generic_skip_one_line_tt
+	        custom_effect_tooltip = facility_tt
+
 	        hidden_effect = {
 
-        
+	            if = { # GER
+	                limit = { tag = GER }
 	                if = {
 	                    limit = {
-	                        59 = {
+	                        61 = {
 	                            is_fully_controlled_by = ROOT
 	                            air_facility < 1
 	                            land_facility < 1
@@ -4787,22 +3505,114 @@ joint_focus = {
 	                            nuclear_facility < 1
 	                        }
 	                    }
-	                    59 = {
+	                    61 = {
 	                        add_building_construction = {
-	                            type = land_facility
+	                            type = naval_facility
 	                            level = 1
 	                            instant_build = yes
-	                            province = 3395
+	                            province = 321
 	                        }
 	                    }
 	                }
-        
+	            }
+
+	            if = { # ITA
+	                limit = { tag = ITA }
+	                if = {
+	                    limit = {
+	                        158 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    158 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 6788
+	                        }
+	                    }
+	                }
+	            }
+
+	            if = { # ROM
+	                limit = { tag = ROM }
+	                if = {
+	                    limit = {
+	                        971 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    971 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 657
+	                        }
+	                    }
+	                }
+	            }
+
+	            if = { # BUL
+	                limit = { tag = BUL }
+	                if = {
+	                    limit = {
+	                        211 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    211 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 9783
+	                        }
+	                    }
+	                }
+	            }
+
+	            if = { # SPR
+	                limit = { tag = SPR }
+	                if = {
+	                    limit = {
+	                        177 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    177 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 9793
+	                        }
+	                    }
+	                }
+	            }
 
 	            if = { # FRA
 	                limit = { tag = FRA }
 	                if = {
 	                    limit = {
-	                        24 = {
+	                        21 = {
 	                            is_fully_controlled_by = ROOT
 	                            air_facility < 1
 	                            land_facility < 1
@@ -4810,81 +3620,12 @@ joint_focus = {
 	                            nuclear_facility < 1
 	                        }
 	                    }
-	                    24 = {
+	                    21 = {
 	                        add_building_construction = {
-	                            type = land_facility
+	                            type = naval_facility
 	                            level = 1
 	                            instant_build = yes
-	                            province = 512
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # ENG
-	                limit = { tag = ENG }
-	                if = {
-	                    limit = {
-	                        123 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    123 = {
-	                        add_building_construction = {
-	                            type = land_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 540
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # BRA
-	                limit = { tag = BRA }
-	                if = {
-	                    limit = {
-	                        500 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    500 = {
-	                        add_building_construction = {
-	                            type = land_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 10980
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # SAF
-	                limit = { tag = SAF }
-	                if = {
-	                    limit = {
-	                        275 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    275 = {
-	                        add_building_construction = {
-	                            type = land_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 10400
+	                            province = 11834
 	                        }
 	                    }
 	                }
@@ -4894,7 +3635,7 @@ joint_focus = {
 	                limit = { tag = CAN }
 	                if = {
 	                    limit = {
-	                        276 = {
+	                        464 = {
 	                            is_fully_controlled_by = ROOT
 	                            air_facility < 1
 	                            land_facility < 1
@@ -4902,12 +3643,58 @@ joint_focus = {
 	                            nuclear_facility < 1
 	                        }
 	                    }
-	                    276 = {
+	                    464 = {
 	                        add_building_construction = {
-	                            type = land_facility
+	                            type = naval_facility
 	                            level = 1
 	                            instant_build = yes
-	                            province = 3778
+	                            province = 7361
+	                        }
+	                    }
+	                }
+	            }
+
+	            if = { # BRA
+	                limit = { tag = BRA }
+	                if = {
+	                    limit = {
+	                        502 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    502 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 10447
+	                        }
+	                    }
+	                }
+	            }
+
+	            if = { # SAF
+	                limit = { tag = SAF }
+	                if = {
+	                    limit = {
+	                        681 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    681 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 12589
 	                        }
 	                    }
 	                }
@@ -4917,7 +3704,7 @@ joint_focus = {
 	                limit = { tag = AST }
 	                if = {
 	                    limit = {
-	                        285 = {
+	                        284 = {
 	                            is_fully_controlled_by = ROOT
 	                            air_facility < 1
 	                            land_facility < 1
@@ -4925,112 +3712,62 @@ joint_focus = {
 	                            nuclear_facility < 1
 	                        }
 	                    }
-	                    285 = {
+	                    284 = {
 	                        add_building_construction = {
-	                            type = land_facility
+	                            type = naval_facility
 	                            level = 1
 	                            instant_build = yes
-	                            province = 12406
+	                            province = 1814
 	                        }
 	                    }
 	                }
 	            }
+
+	            if = { # RAJ
+	                limit = { tag = RAJ }
+	                if = {
+	                    limit = {
+	                        429 = {
+	                            is_fully_controlled_by = ROOT
+	                            air_facility < 1
+	                            land_facility < 1
+	                            naval_facility < 1
+	                            nuclear_facility < 1
+	                        }
+	                    }
+	                    429 = {
+	                        add_building_construction = {
+	                            type = naval_facility
+	                            level = 1
+	                            instant_build = yes
+	                            province = 1349
+	                        }
+	                    }
+	                }
+	            }
+
 	        }
 	    }
 	}
+
 }
-
-joint_focus = {
-	id = allies_tank_design_improvements
-	icon = GFX_focus_PER_czech_tanks
-	prerequisite = { focus = allies_land_warfare_facility }
-
-	x = -2
-	y = 1
-	relative_position_id = allies_land_warfare_facility
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	mutually_exclusive = {focus = allies_land_warfare_facility_two focus = allies_continue_the_land_research}
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-	    		add_tech_bonus = {
-	    				name = the_armor_bonus
-	    				bonus = 0.5
-	    				ahead_reduction = 0.5
-	    				uses = 1
-	    				category = armor
-	    			}
-		    }
-	}
-}
-
-joint_focus = {
-	id = allies_continue_the_land_research
-	icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_land_warfare_facility}
-
-	x = 2
-	y = 1
-	relative_position_id = allies_land_warfare_facility
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	mutually_exclusive = {focus = allies_tank_design_improvements focus = allies_land_warfare_facility_two}
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
-
-				add_breakthrough_progress = {
-	    				specialization = specialization_land
-	    				value = 0.75
-	    			}
-		    }
-	}
-}
-
-#### AIR FACILITY
 
 joint_focus = {
 	id = allies_air_warfare_facility
 	icon = GFX_focus_BRA_air_force
-	prerequisite = { focus = allies_secret_project_facilities }
+	prerequisite = { focus = allies_land_warfare_facility }
 
-	x = -4
+	x = 0
 	y = 1
-	relative_position_id = allies_secret_project_facilities
+	relative_position_id = allies_land_warfare_facility
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -5038,8 +3775,19 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
+	    	add_breakthrough_progress = {
+	    		specialization = specialization_air
+	    		value = 1
+	    	}
+	    	custom_effect_tooltip = generic_skip_one_line_tt
+	    	add_tech_bonus = {
+	    		name = aircraft_bonus
+	    		bonus = 0.5
+	    		uses = 1
+	    		category = air_equipment
+	    	}
 	    	custom_effect_tooltip = generic_skip_one_line_tt
 	    	custom_effect_tooltip = facility_tt
 	    	hidden_effect = {
@@ -5345,103 +4093,521 @@ joint_focus = {
 	    	}
 	    }
 	}
+
 }
 
 joint_focus = {
-	id = allies_fighter_design_improvements
-	icon = GFX_goal_generic_air_fighter2
-	prerequisite = { focus = allies_air_warfare_facility }
+	id = allies_radars
+	icon = GFX_goal_generic_radar
+	prerequisite = { focus = allies_naval_warfare_facility focus = allies_homeland_airbases focus = allies_air_warfare_facility }
 
-	x = -1
+	x = -2
 	y = 1
-	relative_position_id = allies_air_warfare_facility
+	relative_position_id = allies_naval_warfare_facility
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = allies_continue_the_air_research}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_tech_bonus = {
+	    			name = radar_bonus
+	    			bonus = 1.0
+	    			uses = 1
+	    			category = radar_tech
+	    			ahead_reduction = 1
+	    		}
+		    }
+	}
+}
+
+
+joint_focus = {
+	id = allies_rnd_department
+	icon = GFX_focus_NORDIC_dem_capstone_research
+	prerequisite = { focus = allies_high_command }
+
+	x = -4
+	y = 1
+	relative_position_id = allies_high_command
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
-	completion_reward_joint_originator = {
+	completion_reward = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
+	            add_to_variable = { 
+	        		allies_research_speed = 0.025
+	        		tooltip = research_speed_factor_tt 
+	    		}
+	    		custom_effect_tooltip = generic_skip_one_line_tt
 	    		add_tech_bonus = {
-					name = aircraft_bonus
-					bonus = 1.2
-					uses = 1
-					category = air_equipment
+	    			name = the_electronics_bonus
+	    			bonus = 0.35
+	    			uses = 1
+	    			category = electronics
 	    		}
 		    }
 	}
 }
 
 joint_focus = {
-	id = allies_continue_the_air_research
-	icon = GFX_focus_generic_university_2
-	prerequisite = { focus = allies_air_warfare_facility}
+	id = allies_naval_superiority
+	icon = GFX_focus_NORDIC_dem_navy
+	prerequisite = { focus = allies_high_command }
+
+	x = -10
+	y = 1
+	relative_position_id = allies_high_command
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = {
+	            	naval_superiority
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_asw
+	icon = GFX_focus_generic_destroyer
+	prerequisite = { focus = allies_naval_superiority }
 
 	x = 1
 	y = 1
-	relative_position_id = allies_air_warfare_facility
+	relative_position_id = allies_naval_superiority
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = allies_fighter_design_improvements}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    			add_tech_bonus = {
+	        			name = dd_bonus
+	        			bonus = 1.0
+	       			 	uses = 1
+	        			category = dd_tech
+	    				category = asw_tech
+	        			ahead_reduction = 1
+	    			}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_submarines
+	icon = GFX_goal_generic_navy_anti_submarine
+	prerequisite = { focus = allies_naval_superiority }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_naval_superiority
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    			add_tech_bonus = {
+	    				name = undersea_combat
+	    				bonus = 1.5
+	    				uses = 2
+	    				category = ss_tech
+	    			}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_naval_expert
+	icon = GFX_focus_generic_navy_research_bonus
+	prerequisite = { focus = allies_naval_superiority }
+
+	x = 0
+	y = 2
+	relative_position_id = allies_naval_superiority
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-				add_breakthrough_progress = {
-					specialization = specialization_air
-					value = 0.75
+	    		add_ideas = {
+	            	domestic_ship_designs
 	    		}
-	    	
 		    }
 	}
 }
 
-#### NAVY FACILITY
+joint_focus = {
+	id = allies_naval_powerhouse
+	icon = GFX_goal_generic_construct_naval_dockyard
+	prerequisite = { focus = allies_naval_expert }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_naval_expert
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	        random_owned_state = {
+	            limit = {
+	                is_coastal = yes
+	                is_controlled_by = ROOT
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
+	            }
+	            add_extra_state_shared_building_slots = 3
+	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
+	            set_state_flag = ALLIES_naval_powerhouse_used
+	        }
+	        random_owned_state = {
+	            limit = {
+	                is_coastal = yes
+	                is_controlled_by = ROOT
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
+	            }
+	            add_extra_state_shared_building_slots = 3
+	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
+	            set_state_flag = ALLIES_naval_powerhouse_used
+	        }
+	        random_owned_state = {
+	            limit = {
+	                is_coastal = yes
+	                is_controlled_by = ROOT
+	                NOT = { has_state_flag = ALLIES_naval_powerhouse_used }
+	            }
+	            add_extra_state_shared_building_slots = 3
+	            add_building_construction = { type = dockyard level = 3 instant_build = yes }
+	            set_state_flag = ALLIES_naval_powerhouse_used
+	        }
+		    }
+	}
+}
 
 joint_focus = {
-	id = allies_naval_warfare_facility
-	icon = GFX_focus_generic_naval_invasion_tank
-	prerequisite = { focus = allies_secret_project_facilities }
+	id = allies_the_force_attack
+	icon = GFX_focus_generic_naval_discipline
+	prerequisite = { focus = allies_naval_powerhouse }
+	prerequisite = { focus = allies_naval_invasion_specialist }
+	mutually_exclusive = {focus = allies_the_human_wave focus = allies_first_line_of_defense}
 
-	x = 4
+	x = 0
+	y = 2
+	relative_position_id = allies_naval_powerhouse
+	cost = 15
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = 
+	    		{
+	    			the_force_attack
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_main_battle_force
+	icon = GFX_SOV_barrier_troops_ccp_2d_sov_compatibility
+	prerequisite = { focus = allies_rnd_department }
+
+	x = 3
 	y = 1
-	relative_position_id = allies_secret_project_facilities
+	relative_position_id = allies_rnd_department
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = 
+	    		{
+	    			main_battle_force
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_small_arms_expertise
+	icon = GFX_goal_generic_small_arms
+	prerequisite = { focus = allies_main_battle_force }
+
+	x = 1
+	y = 1
+	relative_position_id = allies_main_battle_force
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            random_owned_controlled_state = {
+	    			add_building_construction = {
+	    				type = arms_factory
+	    				level = 2
+	    				instant_build = yes
+	    			}
+	        	add_extra_state_shared_building_slots = 2
+	    		}
+
+	    		add_tech_bonus = {
+	    			name = guns_bonus
+	    			bonus = 1.0
+	    			ahead_reduction = 1
+	    			uses = 1
+	    			category = infantry_weapons
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_optimized_tank_designs
+	icon = GFX_focus_generic_tank_production
+	prerequisite = { focus = allies_main_battle_force }
+
+	x = 0
+	y = 2
+	relative_position_id = allies_main_battle_force
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		NOT = 
+		{
+			tag = GER
+		}
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_ideas = efficient_design
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_trained_crews
+	icon = GFX_focus_BEL_flooded_tank_barriers
+	prerequisite = { focus = allies_optimized_tank_designs }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_optimized_tank_designs
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
 	available = {
-		has_country_flag = accessible_shared_tree
+		is_in_faction_with = ENG
+		NOT = 
+		{
+			tag = GER
+		}
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_ideas = {trained_crews}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_infantry_specialization
+	icon = GFX_focus_chi_army_reform
+	prerequisite = { focus = allies_main_battle_force }
+
+	x = 2
+	y = 3
+	relative_position_id = allies_main_battle_force
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = 
+	    		{
+	    			infantry_specialist
+	    		}
+		    }
+	}
+}
+
+
+
+joint_focus = {
+	id = allies_air_specialist
+	icon = GFX_focus_NORDIC_dem_selector_airforce
+	prerequisite = { focus = allies_main_battle_force }
+
+	x = -2
+	y = 1
+	relative_position_id = allies_main_battle_force
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
 		NOT = 
 		{
 			OR = 
 			{
+				tag = GER
 				tag = ENG
-				tag = HUN
+				tag = ITA
 			}
 		}
 	}
@@ -5452,290 +4618,29 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-	        
-	    	custom_effect_tooltip = generic_skip_one_line_tt
-	        custom_effect_tooltip = facility_tt
-
-	        hidden_effect = {
-
-	            if = { # GER
-	                limit = { tag = GER }
-	                if = {
-	                    limit = {
-	                        61 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    61 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 321
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # ITA
-	                limit = { tag = ITA }
-	                if = {
-	                    limit = {
-	                        158 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    158 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 6788
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # ROM
-	                limit = { tag = ROM }
-	                if = {
-	                    limit = {
-	                        971 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    971 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 657
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # BUL
-	                limit = { tag = BUL }
-	                if = {
-	                    limit = {
-	                        211 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    211 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 9783
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # SPR
-	                limit = { tag = SPR }
-	                if = {
-	                    limit = {
-	                        177 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    177 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 9793
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # FRA
-	                limit = { tag = FRA }
-	                if = {
-	                    limit = {
-	                        21 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    21 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 11834
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # CAN
-	                limit = { tag = CAN }
-	                if = {
-	                    limit = {
-	                        464 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    464 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 7361
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # BRA
-	                limit = { tag = BRA }
-	                if = {
-	                    limit = {
-	                        502 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    502 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 10447
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # SAF
-	                limit = { tag = SAF }
-	                if = {
-	                    limit = {
-	                        681 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    681 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 12589
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # AST
-	                limit = { tag = AST }
-	                if = {
-	                    limit = {
-	                        284 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    284 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 1814
-	                        }
-	                    }
-	                }
-	            }
-
-	            if = { # RAJ
-	                limit = { tag = RAJ }
-	                if = {
-	                    limit = {
-	                        429 = {
-	                            is_fully_controlled_by = ROOT
-	                            air_facility < 1
-	                            land_facility < 1
-	                            naval_facility < 1
-	                            nuclear_facility < 1
-	                        }
-	                    }
-	                    429 = {
-	                        add_building_construction = {
-	                            type = naval_facility
-	                            level = 1
-	                            instant_build = yes
-	                            province = 1349
-	                        }
-	                    }
-	                }
-	            }
-
-	        }
-	    }
+	            add_ideas = optimized_aircraft_assembly
+		    }
 	}
 }
 
 joint_focus = {
-	id = allies_continue_the_navy_research
-	icon = GFX_focus_generic_navy_research_bonus
-	prerequisite = { focus = allies_naval_warfare_facility}
+	id = allies_special_forces
+	icon = GFX_focus_SMB_special_forces_option_1
+	prerequisite = { focus = allies_rnd_department }
 
-	x = 1
+	x = -3
 	y = 1
-	relative_position_id = allies_naval_warfare_facility
+	relative_position_id = allies_rnd_department
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_naval_expertise}
-
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -5743,34 +4648,34 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-				add_breakthrough_progress = {
-	    				specialization = specialization_naval
-	    				value = 0.75
+	            add_ideas = { special_forces_idea }
+	    		add_doctrine_cost_reduction = {
+	    			cost_reduction = 0.75
+	    			uses = 2
+	    			category = special_forces_doctrine
 	    		}
 		    }
 	}
 }
 
 joint_focus = {
-	id = allies_naval_expertise
-	icon = GFX_goal_generic_navy_doctrines_tactics
-	prerequisite = { focus = allies_naval_warfare_facility}
+	id = allies_naval_invasion_specialist
+	icon = GFX_focus_generic_naval_invasion 
+	prerequisite = { focus = allies_special_forces }
 
-	x = -1
-	y = 1
-	relative_position_id = allies_naval_warfare_facility
+	x = -2
+	y = 3
+	relative_position_id = allies_special_forces
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_continue_the_navy_research}
-
 	available = {
+		is_in_faction_with = ENG
 		
-			has_country_flag = accessible_shared_tree
-}
+	}
 
 	available_if_capitulated = yes
 
@@ -5778,17 +4683,390 @@ joint_focus = {
 
 	completion_reward_joint_originator = {
 	    if = {
-	        limit = { has_country_flag = accessible_shared_tree }
+	        limit = { is_in_faction_with = ENG }
 
-				navy_experience = 200
+	            add_ideas = 
+	    		{
+	    			naval_invasion_specialist
+	    		}
 		    }
 	}
 }
 
+joint_focus = {
+	id = allies_joint_military_exercices
+	icon = GFX_focus_generic_army_doctrines_2
+	prerequisite = { focus = allies_special_forces }
+
+	x = -1
+	y = 1
+	relative_position_id = allies_special_forces
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		army_experience = 50
+	    		air_experience = 50
+	    		navy_experience = 50
+	    		add_doctrine_cost_reduction = {
+	    			name = joint_military_exercises
+	    			cost_reduction = 0.50
+	    			uses = 2
+	    			category = land_doctrine 
+	    		}
+		    }
+	}
+
+	completion_reward_joint_member = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		army_experience = 25
+	    		air_experience = 25
+	    		navy_experience = 25
+	    		add_doctrine_cost_reduction = {
+	    			name = joint_military_exercises
+	    			cost_reduction = 0.35
+	    			uses = 2
+	    			category = land_doctrine 
+	    		}	
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_mountaineer_forces
+	icon = GFX_focus_GRE_a_land_of_mountains
+	prerequisite = { focus = allies_special_forces}
+
+	x = 0
+	y = 2
+	relative_position_id = allies_special_forces
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            add_ideas = idea_RAJ_a_tiger_unchained
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_mountaineer_arty
+	icon = GFX_focus_RAJ_mountain_guns
+	prerequisite = { focus = allies_mountaineer_forces}
+
+	x = 0
+	y = 1
+	relative_position_id = allies_mountaineer_forces
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            custom_effect_tooltip = mountain_guns_tt
+	                hidden_effect = {
+	                    set_technology = {
+	                        mountain_gun = 1
+	                        popup = no
+	                    }
+	                }
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_paratroopers
+	icon = GFX_focus_generic_paratrooper
+	prerequisite = { focus = allies_special_forces }
+
+	x = 2
+	y = 1
+	relative_position_id = allies_special_forces
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            set_technology = {
+	                        paratroopers = 1
+	                        popup = no
+	                    }
+	    		add_ideas = air_assault_brigade
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_armored_trucks
+	icon = GFX_focus_generic_purchase_mechanized_equipment
+	prerequisite = { focus = allies_rnd_department }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_rnd_department
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_tech_bonus = {
+	    		name = truck_bonus
+	    		bonus = 1.0
+	    		ahead_reduction = 3
+	    		uses = 1
+	    		category = motorized_equipment
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_bombs_away
+	icon = GFX_SOV_ground_support_ccp_2d_sov_compatibility
+	prerequisite = { focus = allies_paratroopers }
+	prerequisite = { focus = allies_air_specialist }
+	mutually_exclusive = { focus = allies_stronger_engines }
+
+	x = 0
+	y = 1
+	relative_position_id = allies_paratroopers
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		NOT = 
+		{
+			tag = FRA
+		}
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
 
 
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = { bombs_away }
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_stronger_engines
+	icon = GFX_focus_generic_jet_planes
+	prerequisite = { focus = allies_paratroopers }
+	prerequisite = { focus = allies_air_specialist }
+	mutually_exclusive = { focus = allies_bombs_away }
+
+	x = 2
+	y = 1
+	relative_position_id = allies_paratroopers
+	cost = 10
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
 
 
+	    		add_ideas = { stronger_engines }
+        
+	    		add_tech_bonus = {
+	    		name = aircraft_bonus
+	    		bonus = 1
+	    		uses = 1
+	    		category = air_equipment
+	    	}
+
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_mountain_tanks
+	icon = GFX_focus_generic_army_tanks2
+	prerequisite = { focus = allies_mountaineer_forces }
+	prerequisite = { focus = allies_optimized_tank_designs }
+
+	x = 1
+	y = 2
+	relative_position_id = allies_paratroopers
+	cost = 5
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = {
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	            custom_effect_tooltip = mountain_tanks_tt
+	               # hidden_effect = {
+	                    set_technology = {
+	                        mountain_tanks = 1
+	                        popup = yes
+	                    }
+	               # }
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_the_human_wave
+	icon = GFX_SOV_an_adaptable_army_ccp_2d_sov_compatibility
+	prerequisite = { focus = allies_infantry_specialization }
+	prerequisite = { focus = allies_naval_invasion_specialist }
+	mutually_exclusive = {focus = allies_the_force_attack focus = allies_first_line_of_defense}
 
 
+	x = 1
+	y = 3
+	relative_position_id = allies_paratroopers
+	cost = 15
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = 
+	    		{
+	    			the_human_wave
+	    		}
+		    }
+	}
+}
+
+joint_focus = {
+	id = allies_first_line_of_defense
+	icon = GFX_focus_generic_full_social_mobilization
+	prerequisite = { focus = allies_infantry_specialization }
+	prerequisite = { focus = allies_naval_invasion_specialist }
+	mutually_exclusive = {focus = allies_the_force_attack focus = allies_the_human_wave}
+
+	x = 1
+	y = 1
+	relative_position_id = allies_infantry_specialization
+	cost = 15
+
+	text_icon = NORDIC_focus_style
+
+	available = {
+		is_in_faction_with = ENG
+		
+	}
+
+	available_if_capitulated = yes
+
+	search_filters = { FOCUS_FILTER_POLITICAL }
+
+	completion_reward_joint_originator = 
+	{
+	    if = {
+	        limit = { is_in_faction_with = ENG }
+
+	    		add_ideas = 
+	    		{
+	    			first_line_of_defense
+	    		}
+		    }
+	}
+}
 

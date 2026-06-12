@@ -1,4 +1,4 @@
-version="2.0"
+version="1"
 tags={
 	"Historical"
 	"Fixes"
@@ -6,5 +6,5 @@ tags={
 	"National Focuses"
 }
 name="Their Finest Rehost(TFR)"
-supported_version="1.18.*"
+supported_version="1.16.10"
 remote_file_id="3513811852"

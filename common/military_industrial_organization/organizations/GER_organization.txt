@@ -21,11 +21,20 @@ GER_henschel_organization = {
 	icon = GFX_idea_henschel
 	
 	allowed = {	
-		always = no
+		OR = {
+			original_tag = GER 
+			AND = {
+				original_tag = ETH
+				has_dlc = "By Blood Alone"
+			}
+		}
 	}
 	
 	visible = {
-		always = no
+		IF = {
+			limit = { FROM = { original_tag = ETH } }
+			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
 	}
 
 	available = {
@@ -1428,6 +1437,43 @@ GER_focke_wulf_organization = {
 		}
 	}
 
+	add_trait = {
+		token = GER_mio_trait_bomber_destroyer
+		name = GER_mio_trait_bomber_destroyer
+
+		icon = GFX_generic_mio_department_icon_plane_light_combat
+		special_trait_background = yes
+		
+		position = { x=-0 y=1 }
+		relative_position_id = generic_mio_trait_strafing_techniques
+		all_parents = { generic_mio_trait_strafing_techniques }
+
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
+
+		equipment_bonus = {
+			air_attack = 0.05
+			air_agility = 0.03
+		}
+	}
+
+	add_trait = {
+		token = GER_mio_trait_radial_engine
+		name = GER_mio_trait_radial_engine
+
+		icon = GFX_generic_mio_trait_icon_air_agility
+		special_trait_background = yes
+		
+		position = { x=-0 y=1 }
+		relative_position_id = GER_mio_trait_long_nose_design
+		all_parents = { GER_mio_trait_long_nose_design }
+
+		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
+
+		equipment_bonus = {
+			air_defence = 0.05
+			air_agility = 0.05
+		}
+	}
 
 	add_trait = {
 		token = GER_mio_trait_long_nose_design
@@ -2721,56 +2767,6 @@ GER_auto_union_organization = {
 		equipment_bonus = {
 			breakthrough = 0.03
 			armor_value = 0.05
-		}
-
-		ai_will_do = {
-			base = 2
-		}
-	}
-}
-
-GER_henschel_kassel_organization = {
-	include = generic_train_organization
-	icon = GFX_idea_GER_henschel_civilian
-	allowed = {
-		original_tag = GER
-	}
-
-	# available = {
-	# 	FROM = {
-	# 		controls_state = 55
-	# 	}
-	# }
-
-	add_trait = {
-		token = GER_mio_trait_lokomotivfabrik_floridsdorf
-		name = GER_mio_trait_lokomotivfabrik_floridsdorf
-		icon = GFX_generic_mio_department_icon_facilities
-		special_trait_background = yes
-
-		position = { x=9 y=0 }
-
-		visible = {
-			FROM = { 
-				original_tag = GER
-			}
-		}
-
-		limit_to_equipment_type = { train_equipment }
-
-		available = {
-			FROM = {
-				OR = {
-					controls_state = 4
-					any_subject_country = {
-						controls_state = 4
-					}	
-				}
-			}
-		}
-
-		production_bonus = {
-			production_capacity_factor = 0.05
 		}
 
 		ai_will_do = {

@@ -1,10 +1,8 @@
 ﻿capital = 361 # Washington DC
 
-if = {
-    limit = {
-        has_dlc = "No Compromise, No Surrender"
-    }
-    create_faction_from_template = faction_template_usa_commonwealth
+mio:USA_chrysler_organization = {
+			complete_mio_trait = generic_mio_trait_T1_mio
+			complete_mio_trait = generic_mio_trait_T2_mio
 }
 
 oob = "USA_1936"
@@ -70,7 +68,6 @@ USA = {
 
 # Starting tech
 set_technology = {
-	militia_tech = 1
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	tech_trucks = 1
@@ -79,6 +76,8 @@ set_technology = {
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
+	superior_firepower = 1
+	base_strike = 1
 	motorised_infantry = 1
 	fuel_silos = 1
 	fuel_refining = 1
@@ -154,7 +153,7 @@ if = {
 		basic_ship_hull_carrier = 1
 		basic_battery = 1
 		basic_light_battery = 1
-		#basic_medium_battery = 1
+		basic_medium_battery = 1
 		basic_heavy_battery = 1
 		basic_torpedo = 1
 		sonar = 1
@@ -162,6 +161,7 @@ if = {
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_armor_scheme = 1
 		mtg_transport = 1
+		improved_airplane_launcher = 1
 		basic_dp_light_battery = 1
 	}
 	add_ideas = MTG_naval_treaty_adherent
@@ -307,6 +307,13 @@ if = {
 
 		#doctrines
 		#Air
+		air_superiority = 1
+		infrastructure_destruction = 1
+		naval_strike_tactics = 1
+
+		sup_delay = 1
+		submarine_operations_bs = 1
+		carrier_primacy = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -410,6 +417,7 @@ recruit_character = USA_douglas_macarthur
 recruit_character = USA_walter_krueger
 recruit_character = USA_lloyd_fredendall
 recruit_character = USA_leslie_mcnair
+recruit_character = USA_jonathan_wainwright
 recruit_character = USA_russell_hartle
 recruit_character = USA_leonard_gerow
 recruit_character = USA_edward_brooks
@@ -774,8 +782,8 @@ if = {
 			special_type_slot_1 = tank_radio_1
 		}
 		upgrades = {
-			tank_nsb_armor_upgrade = 0
-			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 5
 		}
 		icon = "GFX_USA_basic_light_tank_medium"
 	}
@@ -792,8 +800,8 @@ if = {
 			special_type_slot_1 = empty
 		}
 		upgrades = {
-			tank_nsb_armor_upgrade = 0
-			tank_nsb_engine_upgrade = 0
+			tank_nsb_armor_upgrade = 2
+			tank_nsb_engine_upgrade = 4
 		}
 		icon = "GFX_USA_basic_light_tank_medium"
 	}
@@ -1000,12 +1008,6 @@ if = {
 				mid_2_custom_slot = ship_anti_air_1
 				rear_1_custom_slot = ship_medium_battery_2
 			}
-			optional_assets = {
-				{
-					icon = "GFX_USA_heavy_cruiser_wichita"
-					model = "USA_heavy_cruiser_4_entity"
-				}
-			}
 		}
 	# Battleships #
 	create_equipment_variant = {
@@ -1029,7 +1031,7 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Pennsylvania Class"				# represents Pennsylvania, and New Mexico classes
+		name = "Pennsylvania Class"				# represents Pennsylvania, Nevada, Tennessee, and New Mexico classes
 		type = ship_hull_heavy_1
 		name_group = USA_BB_HISTORICAL
 		parent_version = 0
@@ -1045,58 +1047,6 @@ if = {
 			mid_1_custom_slot = ship_airplane_launcher_1
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Nevada Class"				
-		type = ship_hull_heavy_1
-		name_group = USA_BB_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_1
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = ship_airplane_launcher_1
-			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_heavy_battery_1
-		}
-		optional_assets = {
-			{
-				icon = "GFX_USA_battleship_nevada"
-				model = "USA_battleship_4_entity"
-			}
-		}
-		obsolete = yes
-	}
-		create_equipment_variant = {
-		name = "Tennessee Class"				
-		type = ship_hull_heavy_1
-		name_group = USA_BB_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_2
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = ship_airplane_launcher_1
-			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_heavy_battery_1
-		}
-		optional_assets = {
-			{
-				icon = "GFX_USA_battleship_tennessee"
-				model = "USA_battleship_5_entity"
-			}
 		}
 		obsolete = yes
 	}
@@ -1119,38 +1069,8 @@ if = {
 			rear_1_custom_slot = ship_heavy_battery_2
 		}
 		obsolete = yes
-		optional_assets = {
-			{
-				icon = "GFX_USA_battleship_colorado"
-				model = "USA_battleship_3_entity"
-			}
-		}
 	}
 	# Carriers #
-
-	create_equipment_variant = {
-		name = "Langley Class"
-		type = ship_hull_carrier_conversion_bb
-		name_group = USA_CV_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_deck_slot_1 = ship_deck_space
-			fixed_ship_deck_slot_2 = ship_deck_space
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			mid_1_custom_slot = ship_deck_space
-		}
-		optional_assets = {
-			{
-				icon = "GFX_USA_carrier_langley"
-				model = "USA_carrier_0_entity"
-			}
-		}
-		obsolete = yes
-	}
-
 	create_equipment_variant = {
 		name = "Lexington Class"
 		type = ship_hull_carrier_conversion_bb

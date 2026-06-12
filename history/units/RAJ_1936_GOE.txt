@@ -1,120 +1,54 @@
 ﻿division_template = {
-	name = "District Militia"	
-
+	name = "Infantry Division"
 	division_names_group = RAJ_GAR_01
 
 	regiments = {
-		infantry = { x = 0 y = 0}
-		infantry = { x = 1 y = 0}
-		infantry = { x = 2 y = 0}
-
-		infantry = { x = 0 y = 1}
-		infantry = { x = 1 y = 1}
-		infantry = { x = 2 y = 1}
-
-		artillery_brigade = { x = 3 y = 0}
-
-	}
-	support = {
-		artillery = {x = 0 y = 0}
-		engineer = {x = 0 y = 1 }
-	}
-	template_counter = 119
-}
-
-division_template = {
-	name = "50w MP"
-
-	regiments = {
-		cavalry = { x = 0 y = 0}
-		cavalry = { x = 0 y = 1}
-		cavalry = { x = 0 y = 2}
-		cavalry = { x = 0 y = 3}
-		cavalry = { x = 0 y = 4}
-
-		cavalry = { x = 1 y = 0}
-		cavalry = { x = 1 y = 1}
-		cavalry = { x = 1 y = 2}
-		cavalry = { x = 1 y = 3}
-		cavalry = { x = 1 y = 4}
-
-		cavalry = { x = 2 y = 0}
-		cavalry = { x = 2 y = 1}
-		cavalry = { x = 2 y = 2}
-		cavalry = { x = 2 y = 3}
-		cavalry = { x = 2 y = 4}
-
-		cavalry = { x = 3 y = 0}
-		cavalry = { x = 3 y = 1}
-		cavalry = { x = 3 y = 2}
-		cavalry = { x = 3 y = 3}
-		cavalry = { x = 3 y = 4}
-
-		cavalry = { x = 4 y = 0}
-		cavalry = { x = 4 y = 1}
-		cavalry = { x = 4 y = 2}
-		cavalry = { x = 4 y = 3}
-		cavalry = { x = 4 y = 4}
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+        infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
 	}
 }
 
 division_template = {
-	name = "24w Cavalry"
-
-	division_names_group = RAJ_CAV_01
-
+	name = "Rajput Regiment"
+	division_names_group = RAJ_GAR_01
+	override_model = RAJ_militia_entity
 	regiments = {
-		cavalry = { x = 0 y = 0}
-		cavalry = { x = 0 y = 1}
-		cavalry = { x = 0 y = 2}
-		cavalry = { x = 0 y = 3}
-
-		cavalry = { x = 1 y = 0}
-		cavalry = { x = 1 y = 1}
-		cavalry = { x = 1 y = 2}
-		cavalry = { x = 1 y = 3}
-
-		cavalry = { x = 2 y = 0}
-		cavalry = { x = 2 y = 1}
-		cavalry = { x = 2 y = 2}
-		cavalry = { x = 2 y = 3}
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
 	}
-
-	support = {
-		artillery = {x = 0 y = 0}
-		engineer = {x = 0 y = 1 }
-	}
-
-	template_counter = 5
 }
 
 division_template = {
-	name = "Armored-Division"
-
-	division_names_group = RAJ_ARM_01
-
+	name = "District Garrison"			# Represents precursors to Indian Infantry Divisions (district divisions) #GOE: Remade to cav for garrison since its just duplicated
+	division_names_group = RAJ_GAR_01
+										# Has older equipment, lower experience
 	regiments = {
-		light_armor = { x = 0 y = 0 }
-		light_armor = { x = 0 y = 1 }
-		light_armor = { x = 0 y = 2 }
-
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2 }
-
-		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+        cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+        cavalry = { x = 2 y = 0 }
 		cavalry = { x = 2 y = 1 }
 		cavalry = { x = 2 y = 2 }
-
-		cavalry = { x = 3 y = 0 }
-		cavalry = { x = 3 y = 1 }
-		cavalry = { x = 3 y = 2 }
 	}
 }
 
 
 division_template = {
-	name = "1 Div Training"
+	name = "1 Div Training"			
+
 	regiments = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 1 y = 0 }
@@ -142,59 +76,207 @@ division_template = {
 		infantry = { x = 3 y = 4 }
 		infantry = { x = 4 y = 4 }
 	}
-
-	template_counter = 1
 }
 
 division_template = {
-	name = "2w"
+	name = "Armored-Division"
+	division_names_group = RAJ_ARM_01
+
 	regiments = {
-		infantry = { x = 0 y = 0}
-		
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
 	}
-	template_counter = 0
-	priority = 0
 }
 
+
+####### OOB #######
 units = {
+	#India Command
+	
+	#Northern Command
+	
+	division= {	# "Pashawar District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 101
+		}
+		location = 12717
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Kohat District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 102
+		}
+		location = 4998
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Rawalpindi District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 103
+		}
+		location = 12005
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Lahore District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 104
+		}
+		location = 10843
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Waziristan District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 105
+		}
+		location = 1978
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	
+	#Eastern Command
+	division= {	# "Meerut District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 106
+		}
+		location = 11955
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Lucknow District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 107
+		}
+		location = 12137
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	
+		name = "Presidency & Assam District"
+		location = 1497
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	
+	#Southern Command
+	division= {	# "Deccan District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 109
+		}
+		location = 12781
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Bombay District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 110
+		}
+		location = 1349
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division= {	# "Madras District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 10278
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
 
-	## 15x District Militia ##
-	division = { division_name = { is_name_ordered = yes name_order = 1 }  location = 12717 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 2 }  location = 4998  division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 3 }  location = 12005 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 4 }  location = 10843 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 5 }  location = 12717 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 6 }  location = 4998  division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 7 }  location = 12005 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 8 }  location = 10843 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 9 }  location = 12717 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 10 } location = 4998  division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 11 } location = 12005 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 12 } location = 10843 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 13 } location = 12717 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 14 } location = 4998  division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 15 } location = 12005 division_template = "District Militia" start_experience_factor = 0 start_equipment_factor = 0 }
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 10278
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
 
-	## 15x 2w ##
-	division = { division_name = { is_name_ordered = yes name_order = 16 } location = 10843 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 17 } location = 12717 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 18 } location = 4998  division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 19 } location = 12005 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 20 } location = 10843 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 21 } location = 4998  division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 22 } location = 12717 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 23 } location = 12005 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 24 } location = 10843 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 25 } location = 12717 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 26 } location = 4998  division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 27 } location = 12005 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 28 } location = 10843 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 29 } location = 12717 division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
-	division = { division_name = { is_name_ordered = yes name_order = 30 } location = 4998  division_template = "2w" start_experience_factor = 0 start_equipment_factor = 0 }
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 2086
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
 
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 1908
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
 
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 3456
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 1321
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+
+	division= {	# "Rajpuit District"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 1553
+		division_template = "Rajput Regiment"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+
+	
 }
-
 
 
 ##### Starting Production #####

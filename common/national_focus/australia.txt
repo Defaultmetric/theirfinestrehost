@@ -20,7 +20,7 @@
 	default = no
 	shared_focus = allies_joint_alliance
 	
-	continuous_focus_position = { x = 50 y = 1500 }
+	continuous_focus_position = { x = 50 y = 1000 }
 
 #	focus = {
 #		id = AST_
@@ -77,8 +77,6 @@
 		available = {
 
 		}
-
-
 		
 		bypass = {
 
@@ -225,9 +223,9 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = motorized_bonus
-				bonus = 1
+				bonus = 2
 				category = motorized_equipment
-				ahead_reduction = 1
+				ahead_reduction = 2
 				uses = 2
 			}
 		}
@@ -461,12 +459,13 @@
 			}
 			add_tech_bonus = {
 				name = AST_sentinel_tank_project
-				bonus = 1.5
+				bonus = 2.0
 				uses = 2
 				category = armor
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = embrace_the_future_ideas
 		}
 	}
 
@@ -734,8 +733,6 @@
 		available = {
 
 		}
-
-
 		
 		bypass = {
 
@@ -1256,9 +1253,10 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_naval_bombers
-				bonus = 1.2
+				bonus = 1.0
+				ahead_reduction = 2
 				uses = 1
-				category = air_equipment
+				category = naval_bomber
 			}
 		}
 	}
@@ -1546,8 +1544,6 @@
 				is_controlled_by = ROOT
 			}
 		}
-
-
 		
 		bypass = {
 
@@ -1624,7 +1620,6 @@
 		bypass = {
 
 		}
-
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1703,19 +1698,12 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
-			
-			add_mastery_bonus = {
-				name = AST_protect_overseas_commerce
-				bonus = 0.1
-				days = 120
-				track = screens
-			}
-
 			add_doctrine_cost_reduction = {
 				name = AST_protect_overseas_commerce
 				cost_reduction = 0.25
 				uses = 2
-				category = naval_doctrine
+				category = fleet_in_being_tree
+				category = convoy_defense_tree
 			}
 		}
 	}
@@ -1899,6 +1887,7 @@
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
+				category = cl_tech
 				category = ca_tech
 			}
 		}
@@ -1967,7 +1956,6 @@
 
 		}
 
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -2001,8 +1989,6 @@
 		bypass = {
 
 		}
-
-	
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2485,8 +2471,7 @@
 				has_war = yes
 			}
 		}
-
-
+		
 		bypass = {
 
 		}
@@ -2907,8 +2892,16 @@
 		}
 
 		available = {
+			is_subject = no
 			has_war = yes
 			is_in_faction = yes
+			OR = {
+				num_of_factories > 50
+				any_other_country = {
+					is_in_faction_with = ROOT
+					num_of_factories > 50
+				}
+			}
 		}
 
 		bypass = {
@@ -3116,7 +3109,7 @@
 		}
 
 		available = {
-			
+			is_subject = no
 		}
 		
 		bypass = {
@@ -3171,8 +3164,6 @@
 			}
 			ENG = { has_war = no }
 		}
-
-
 		
 		bypass = {
 			is_subject_of = ENG
@@ -3649,7 +3640,7 @@
 		cost = 10
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 

@@ -1,5 +1,8 @@
 capital = 126
 
+mio:ENG_vauxhall_organization = {
+					complete_mio_trait = generic_mio_trait_T1_mio
+}
 
 if = {
 	limit = {
@@ -85,7 +88,6 @@ add_command_power = 20
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	militia_tech = 1
 	infantry_weapons1 = 1
 	tech_support = 1
 	tech_engineers = 1
@@ -94,8 +96,9 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	interwar_antitank = 1
 	basic_train = 1
+	trench_warfare = 1
+	fleet_in_being = 1
 	electronic_mechanical_engineering = 1
 	radio = 1
 	fuel_silos = 1
@@ -175,7 +178,7 @@ if = {
 		basic_ship_hull_carrier = 1
 		basic_battery = 1
 		basic_light_battery = 1
-		#basic_medium_battery = 1
+		basic_medium_battery = 1
 		basic_heavy_battery = 1
 		basic_torpedo = 1
 		sonar = 1
@@ -432,6 +435,18 @@ if = {
 
 		#doctrines
 		#Air
+		air_superiority = 1
+		home_defence = 1
+		naval_strike_tactics = 1
+
+			grand_battle_plan = 1
+
+		prepared_defense = 1
+		battlefleet_concentration = 1
+		subsidiary_carrier_role = 1
+		convoy_sailing = 1
+		convoy_escorts = 1
+		submarine_operations = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -552,7 +567,6 @@ add_to_faction = MAL
 #give_guarantee = CZE
 
 # Order matters - here Chamberlain becomes starting leader
-recruit_character = ENG_hugh_dalton
 recruit_character = ENG_oswald_mosley
 recruit_character = ENG_stanley_baldwin
 recruit_character = ENG_winston_churchill
@@ -829,6 +843,111 @@ if = {
 }
 
 if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = { #Note: There is a copy of this variant in Finnish National Focus file (FIN_bring_foreign_armor_experts). Any changes here should also be applied there
+		name = "Light Tank Mk. IV"
+		type = light_tank_chassis_1
+		parent_version = 0
+		design_team = mio:ENG_vauxhall_organization
+		show_position = no
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 1
+		}
+		icon = "GFX_ENG_basic_light_tank_medium"
+		obsolete = yes #used for oob
+	}
+	create_equipment_variant = {
+		name = "Light Tank Mk. VI"
+		type = light_tank_chassis_1
+		parent_version = 1
+		design_team = mio:ENG_vauxhall_organization
+		show_position = no
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		icon = "GFX_ENG_basic_light_tank_medium"
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 2
+		}
+	}
+
+	create_equipment_variant = {
+		name = "Medium Mk. II"
+		type = medium_tank_chassis_0
+		design_team = mio:ENG_vauxhall_organization
+		parent_version = 0
+		show_position = no
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 1
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_ENG_basic_light_tank_medium"
+	}
+
+	create_equipment_variant = {
+		name = "Vickers 6 ton A"
+		type = light_tank_chassis_0
+		parent_version = 0
+		design_team = mio:ENG_vauxhall_organization
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_ENG_light_BAB_camo"
+		obsolete = yes #export only
+	}
+
+	create_equipment_variant = {
+		name = "Vickers 6 ton B"
+		type = light_tank_chassis_0
+		parent_version = 1
+		design_team = mio:ENG_vauxhall_organization
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_armor_upgrade = 3
+			tank_nsb_engine_upgrade = 2
+		}
+		icon = "GFX_ENG_light_BAB_camo"
+		obsolete = yes #export only
+	}
+}
+if = {
 	limit = { has_dlc = "Man the Guns" }
 	### Variants ###
 	# Submarines #
@@ -907,12 +1026,6 @@ if = {
 			fixed_ship_torpedo_slot = ship_torpedo_1
 			mid_1_custom_slot = empty
 			rear_1_custom_slot = ship_depth_charge_1
-		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_destroyer_vampire"
-				model = "commonwealth_gfx_destroyer_1_entity"
-			}
 		}
 		obsolete = yes
 	}
@@ -1012,12 +1125,6 @@ if = {
 			mid_2_custom_slot = ship_airplane_launcher_1
 			rear_1_custom_slot = ship_light_medium_battery_2
 		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_light_cruiser_hobart"
-				model = "commonwealth_gfx_light_cruiser_entity"
-			}
-		}
 	}
 	create_equipment_variant = {
 		name = "Adventure Class"						# cruiser minelayer
@@ -1039,25 +1146,25 @@ if = {
 		}
 	}
 	create_equipment_variant = {
-		name = "Town Class"
-		type = ship_hull_cruiser_2
-		name_group = ENG_CL_HISTORICAL
-		parent_version = 0
-		design_team = mio:ENG_harland_wolff_organization
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			fixed_ship_secondaries_slot = dp_ship_secondaries_2
-			front_1_custom_slot = ship_anti_air_2
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_secondaries_2
-			rear_1_custom_slot = ship_light_medium_battery_2
+			name = "Town Class"
+			type = ship_hull_cruiser_2
+			name_group = ENG_CL_HISTORICAL
+			parent_version = 0
+			design_team = mio:ENG_harland_wolff_organization
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery_2
+				fixed_ship_anti_air_slot = ship_anti_air_2
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = cruiser_ship_engine_2
+				fixed_ship_armor_slot = ship_armor_cruiser_2
+				fixed_ship_secondaries_slot = dp_ship_secondaries_2
+				front_1_custom_slot = ship_anti_air_2
+				mid_1_custom_slot = ship_torpedo_1
+				mid_2_custom_slot = ship_secondaries_2
+				rear_1_custom_slot = ship_light_medium_battery_2
+			}
 		}
-	}
 	# Heavy Cruisers #
 	create_equipment_variant = {
 		name = "County Class"
@@ -1076,12 +1183,6 @@ if = {
 			mid_1_custom_slot = ship_airplane_launcher_1
 			mid_2_custom_slot = ship_torpedo_1
 			rear_1_custom_slot = ship_medium_battery_2
-		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_heavy_cruiser_australia"
-				model = "commonwealth_gfx_heavy_cruiser_entity"
-			}
 		}
 	}
 	create_equipment_variant = {
@@ -1186,35 +1287,6 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
-
-	# Monitors
-	create_equipment_variant = {
-		name = "Erebus Class"
-		type = ship_hull_cruiser_coastal_defense_ship
-		name_group = ENG_BM_HISTORICAL
-		parent_version = 0
-		design_team = mio:ENG_harland_wolff_organization
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_secondaries_slot = empty
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_heavy_cruiser_erebus"
-				model = "commonwealth_gfx_heavy_cruiser_2_entity"
-			}
-		}
-		obsolete = yes
-	}
-
 	# Battleships #
 	create_equipment_variant = {
 		name = "Nelson Class"
@@ -1255,12 +1327,6 @@ if = {
 			mid_1_custom_slot = ship_airplane_launcher_1
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
-		}
-		optional_assets = {
-			{
-				icon = "GFX_commonwealth_battleship_warspite"
-				model = "commonwealth_gfx_battleship_entity"
-			}
 		}
 		obsolete = yes
 	}
@@ -1498,12 +1564,6 @@ if = {
 				front_1_custom_slot = ship_deck_space
 				mid_1_custom_slot = ship_armor_carrier_deck
 			}
-			optional_assets = {
-				{
-					icon = "GFX_commonwealth_carrier_illustrious"
-					model = "commonwealth_gfx_carrier_entity"
-				}
-			}
 		}
 		create_equipment_variant = {
 			name = "Dido Class"
@@ -1523,12 +1583,6 @@ if = {
 				mid_1_custom_slot = ship_anti_air_1
 				mid_2_custom_slot = ship_torpedo_1
 				rear_1_custom_slot = dp_light_battery_3
-			}
-			optional_assets = {
-				{
-					icon = "GFX_commonwealth_light_cruiser_dido"
-					model = "commonwealth_gfx_light_cruiser_1_entity"
-				}
 			}
 		}
 		create_equipment_variant = {
@@ -1624,34 +1678,6 @@ if = {
 				rear_1_custom_slot = ship_heavy_battery_3
 			}
 		}
-		# Monitors
-		create_equipment_variant = {
-			name = "Erebus Class"
-			type = ship_hull_cruiser_coastal_defense_ship
-			name_group = ENG_BM_HISTORICAL
-			parent_version = 0
-			design_team = mio:ENG_harland_wolff_organization
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_1
-				fixed_ship_secondaries_slot = ship_secondaries_1
-				fixed_ship_armor_slot = ship_armor_cruiser_2
-				mid_1_custom_slot = empty
-				mid_2_custom_slot = empty
-				rear_1_custom_slot = empty
-			}
-			optional_assets = {
-				{
-					icon = "GFX_commonwealth_heavy_cruiser_erebus"
-					model = "commonwealth_gfx_heavy_cruiser_2_entity"
-				}
-			}
-			obsolete = yes
-		}
-
 		create_equipment_variant = {
 			name = "T Class"
 			type = ship_hull_submarine_2
@@ -1662,12 +1688,6 @@ if = {
 				fixed_ship_torpedo_slot = ship_torpedo_sub_2
 				fixed_ship_engine_slot = sub_ship_engine_2
 				rear_1_custom_slot = empty
-			}
-			optional_assets = {
-				{
-					icon = "GFX_commonwealth_submarine_trenchant"
-					model = "commonwealth_gfx_submarine_entity"
-				}
 			}
 		}
 		create_equipment_variant = {
@@ -1695,6 +1715,251 @@ if = {
 			}
 		}
 	}
+	if = {
+		limit = {
+			has_dlc = "No Step Back"
+		}
+		create_equipment_variant = {
+			name = "Matilda I"
+			type = light_tank_chassis_2
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_heavy_machine_gun
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 2
+				tank_nsb_armor_upgrade = 6
+			}
+			icon = "GFX_ENG_improved_light_tank_medium"
+			obsolete = yes
+		}
+
+		create_equipment_variant = {
+			name = "Matilda II"
+			type = heavy_tank_chassis_1
+			parent_version = 0
+			design_team = mio:ENG_vauxhall_organization
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_heavy_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = tank_radio_1
+				special_type_slot_2 = smoke_launchers
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 4
+				tank_nsb_armor_upgrade = 8
+			}
+			icon = "GFX_ENG_improved_light_tank_medium"
+		}
+
+		create_equipment_variant = {
+			name = "Cruiser Mk. I"
+			type = medium_tank_chassis_1
+			parent_version = 0
+			design_team = mio:ENG_vauxhall_organization
+			show_position = no
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_1
+				special_type_slot_2 = secondary_turret_hmg
+				special_type_slot_3 = secondary_turret_hmg
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 3
+				tank_nsb_armor_upgrade = 1
+			}
+			obsolete = yes
+			icon = "GFX_ENG_light_CCA_camo"
+		}
+
+		create_equipment_variant = {
+			name = "Cruiser Mk. IV"
+			type = medium_tank_chassis_1
+			parent_version = 1
+			design_team = mio:ENG_vauxhall_organization
+			show_position = no
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = tank_radio_1
+				special_type_slot_2 = smoke_launchers
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 7
+				tank_nsb_armor_upgrade = 3
+			}
+			icon = "GFX_ENG_light_CCA_camo"
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "By Blood Alone"
+		}
+		create_equipment_variant = {
+			name = "Sea Gladiator" 
+			type = cv_small_plane_airframe_0
+			design_team = mio:ENG_fairey_aviation_organization
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+			}
+		}
+		create_equipment_variant = {
+			name = "Blackburn Skua" 
+			type = cv_small_plane_cas_airframe_1
+			design_team = mio:ENG_fairey_aviation_organization
+			modules = {
+				fixed_main_weapon_slot = bomb_locks
+				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = dive_brakes_small
+				special_type_slot_2 = fuel_tanks_small
+			}
+			icon = "GFX_ENG_CAS1_medium"
+		}
+		create_equipment_variant = {
+			name = "Fairey Swordfish" 
+			type = cv_small_plane_naval_bomber_airframe_1
+			design_team = mio:ENG_fairey_aviation_organization
+			modules = {
+				fixed_main_weapon_slot = torpedo_mounting
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_nav_bomber1_medium"
+		}
+		create_equipment_variant = {
+			name = "Hawker Hurricane" 
+			type = small_plane_airframe_1
+			design_team = mio:ENG_hawker_organization
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_fighter1_medium"
+		}
+		create_equipment_variant = {
+			name = "Supermarine Spitfire" 
+			type = small_plane_airframe_2
+			design_team = mio:ENG_supermarine_organization
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				fixed_auxiliary_weapon_slot_1 = light_mg_4x
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_fighter2_medium"
+		}
+		create_equipment_variant = {
+			name = "Fairey Battle" 
+			type = small_plane_cas_airframe_1
+			design_team = mio:ENG_hawker_organization
+			modules = {
+				fixed_main_weapon_slot = small_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = bomb_locks
+				engine_type_slot = engine_2_1x
+				special_type_slot_1 = empty
+			}
+			icon = "GFX_ENG_light_plane_1_medium"
+		}
+		create_equipment_variant = {
+			name = "Bristol Blenheim IF" 
+			type = medium_plane_fighter_airframe_1
+			design_team = mio:ENG_de_havilland_organization
+			modules = {
+				fixed_main_weapon_slot = light_mg_4x
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+			}
+			icon = "GFX_ENG_heavy_fighter1_medium"
+		}
+		create_equipment_variant = {
+			name = "HP Hampden" 
+			type = medium_plane_airframe_1
+			design_team = mio:ENG_de_havilland_organization
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret
+			}
+		}
+		create_equipment_variant = {
+			name = "Vickers Wellington" 
+			type = medium_plane_airframe_1
+			design_team = mio:ENG_de_havilland_organization
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret_2x
+				special_type_slot_2 = lmg_defense_turret
+
+			}
+			icon = "GFX_ENG_tactical_bomber1_medium"
+		}
+		create_equipment_variant = {
+			name = "Short Sunderland" 
+			type = large_plane_maritime_patrol_plane_airframe_1
+			design_team = mio:ENG_avro_organization
+			modules = {
+				fixed_main_weapon_slot = torpedo_mounting 
+				fixed_auxiliary_weapon_slot_1 = empty
+				engine_type_slot = engine_2_4x
+				special_type_slot_1 = lmg_defense_turret_2x
+				special_type_slot_2 = lmg_defense_turret_2x
+				special_type_slot_3 = lmg_defense_turret_2x
+				special_type_slot_4 = flying_boat_large
+				special_type_slot_5 = self_sealing_fuel_tanks_large
+
+			}
+			icon = "GFX_ENG_heavy_plane_1_medium"
+		}
+		create_equipment_variant = {
+			name = "HP Halifax" 
+			type = large_plane_airframe_1
+			design_team = mio:ENG_avro_organization
+			modules = {
+				fixed_main_weapon_slot = large_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+				engine_type_slot = engine_3_4x #Increased tier due to thrust/weight issues
+				special_type_slot_1 = lmg_defense_turret_2x
+				special_type_slot_2 = lmg_defense_turret
+				special_type_slot_3 = empty
+				special_type_slot_4 = empty
+				special_type_slot_5 = self_sealing_fuel_tanks_large
+
+			}
+			icon = "GFX_ENG_strategic_bomber1_medium"
+		}
+		create_equipment_variant = {
+			name = "Whitley" 
+			type = medium_plane_airframe_0
+			design_team = mio:ENG_de_havilland_organization
+			modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				engine_type_slot = engine_2_2x
+				special_type_slot_1 = lmg_defense_turret_2x
+			}
+		}
+	}
 }
-
-

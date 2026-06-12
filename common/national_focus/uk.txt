@@ -18,7 +18,6 @@ focus_tree = {
 		}
 	}
 	default = no
-
 	shared_focus = allies_joint_alliance
 
 	focus = {
@@ -28,6 +27,8 @@ focus_tree = {
 
 		x = 25
 		y = 0
+		
+
 
 		cost = 5
 		ai_will_do = {
@@ -87,7 +88,7 @@ focus_tree = {
 					}
 				}
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -749,6 +750,23 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					OR = {
+						has_completed_focus = ENG_global_defense
+						has_completed_focus = ENG_a_change_in_course
+					}
+				}
+			}
+		}
+
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}	
 
 		completion_reward = {
@@ -924,7 +942,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		bypass = {
@@ -1032,7 +1050,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				has_completed_focus = SOV_the_fourth_international
+				has_war_support > 400
 				NOT = {
 					has_completed_focus = ENG_a_change_in_course
 				}
@@ -1103,7 +1121,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 		bypass = {
 			has_war_with = GER
@@ -1164,7 +1182,7 @@ focus_tree = {
 		id = uk_scandinavian_focus
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 		available = {
 			OR = {
@@ -1378,7 +1396,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -1514,7 +1532,7 @@ focus_tree = {
 					has_completed_focus = ENG_steady_as_she_goes
 				}
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -1711,7 +1729,7 @@ focus_tree = {
 					}
 				}
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 
@@ -2002,7 +2020,7 @@ focus_tree = {
 					}
 				}
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 
@@ -3254,6 +3272,7 @@ focus_tree = {
 				bonus = 1.0
 				uses = 1
 				category = dd_tech
+				category = cl_tech
 				category = ca_tech
 				category = bb_tech
 				category = cv_tech
@@ -3327,7 +3346,7 @@ focus_tree = {
 					}
 				}
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 
@@ -4555,6 +4574,693 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ENG_man_with_the_plan
+		icon = GFX_focus_ARG_accept_german_advisors
+		x = -8
+		y = 0
+		cost = 1
+		relative_position_id = ENG_steady_as_she_goes
+		allow_branch = {
+			USA = { is_ai = yes }
+		}
+		available = {
+			USA = { is_ai = yes }
+			JAP = { is_ai = yes }
+		}
+
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_man_with_the_plan_tt
+			ENG = {
+            	add_to_faction = BRA
+        	}
+			hidden_effect = {
+			
+			every_state = {
+				limit = {
+					is_core_of = ENG
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			hidden_effect = 
+			{
+				set_global_flag = noAsia
+				###remove factories 
+				
+				##BRA
+				277 = { 
+					remove_building = { type = industrial_complex level = 3 }
+				}
+				315 = {
+					remove_building = { type = industrial_complex level = 3 }
+				}
+			
+
+				###USA AND JAPAN 
+
+						USA = 
+						{
+							add_ideas = adt_neutrality_idea
+							add_ideas = adt_neutrality_idea2
+							add_ideas = adt_stupid_ai
+							add_ideas = adt_wasteland_economy
+						}
+
+						JAP = 
+						{
+							add_ideas = adt_neutrality_idea
+							add_ideas = adt_neutrality_idea2
+							add_ideas = adt_stupid_ai
+							add_ideas = adt_wasteland_economy
+						}
+
+						ENG = 
+						{
+							transfer_state = 685
+						}
+
+						ADT = {
+						transfer_state = 463
+						transfer_state = 609
+						transfer_state = 745
+						transfer_state = 527
+						transfer_state = 525
+						transfer_state = 528
+						transfer_state = 529
+						transfer_state = 530
+						transfer_state = 531
+						transfer_state = 532
+						transfer_state = 535
+						transfer_state = 282
+						transfer_state = 534
+						transfer_state = 533
+						transfer_state = 536
+						transfer_state = 537
+						transfer_state = 555
+						transfer_state = 524
+						transfer_state = 526
+						transfer_state = 436
+						transfer_state = 386
+						transfer_state = 388
+						transfer_state = 389
+						transfer_state = 391
+						transfer_state = 394
+						transfer_state = 393
+						transfer_state = 261
+						transfer_state = 358
+						transfer_state = 357
+						transfer_state = 360
+						transfer_state = 396
+						transfer_state = 395
+						transfer_state = 392
+						transfer_state = 384
+						transfer_state = 381
+						transfer_state = 387
+						transfer_state = 385
+						transfer_state = 378
+						transfer_state = 379
+						transfer_state = 377
+						transfer_state = 380
+						transfer_state = 382
+						transfer_state = 376
+						transfer_state = 375
+						transfer_state = 383
+						transfer_state = 373
+						transfer_state = 362
+						transfer_state = 363
+						transfer_state = 364
+						transfer_state = 365
+						transfer_state = 366
+						transfer_state = 370
+						transfer_state = 371
+						transfer_state = 390
+						transfer_state = 372
+						transfer_state = 374
+						transfer_state = 367
+						transfer_state = 368
+						transfer_state = 369
+						transfer_state = 816
+						transfer_state = 361
+						transfer_state = 359
+
+						add_state_core = 609
+						add_state_core = 745
+						add_state_core = 527
+						add_state_core = 525
+						add_state_core = 528
+						add_state_core = 529
+						add_state_core = 530
+						add_state_core = 531
+						add_state_core = 532
+						add_state_core = 535
+						add_state_core = 282
+						add_state_core = 534
+						add_state_core = 533
+						add_state_core = 536
+						add_state_core = 537
+						add_state_core = 555
+						add_state_core = 524
+						add_state_core = 526
+						add_state_core = 436
+						add_state_core = 386
+						add_state_core = 388
+						add_state_core = 389
+						add_state_core = 391
+						add_state_core = 394
+						add_state_core = 393
+						add_state_core = 261
+						add_state_core = 358
+						add_state_core = 357
+						add_state_core = 360
+						add_state_core = 396
+						add_state_core = 395
+						add_state_core = 392
+						add_state_core = 384
+						add_state_core = 381
+						add_state_core = 387
+						add_state_core = 385
+						add_state_core = 378
+						add_state_core = 379
+						add_state_core = 377
+						add_state_core = 380
+						add_state_core = 382
+						add_state_core = 376
+						add_state_core = 375
+						add_state_core = 383
+						add_state_core = 373
+						add_state_core = 362
+						add_state_core = 363
+						add_state_core = 364
+						add_state_core = 365
+						add_state_core = 366
+						add_state_core = 370
+						add_state_core = 371
+						add_state_core = 390
+						add_state_core = 372
+						add_state_core = 374
+						add_state_core = 367
+						add_state_core = 368
+						add_state_core = 369
+						add_state_core = 816
+						add_state_core = 361
+						add_state_core = 359
+						add_state_core = 463
+						}
+
+
+				ADT = 
+				{
+					annex_country = { target = RAJ }
+					annex_country = { target = CHI }
+					annex_country = { target = MAN }
+
+					annex_country = { target = PHI }
+					annex_country = { target = SIA }
+					transfer_state = 671
+					transfer_state = 670
+					transfer_state = 741
+					transfer_state = 286
+				}
+				671 = 
+				{
+					add_core_of = ADT
+				}
+				670 = 
+				{
+					add_core_of = ADT
+				}
+				741 = 
+				{
+					add_core_of = ADT
+				}
+				286 = 
+				{
+					add_core_of = ADT
+				}
+
+				119 = 
+				{
+					add_resource = {
+            			type = oil
+            			amount = 20
+        			}
+					add_resource = {
+            			type = aluminium
+            			amount = 50
+        			}
+					add_resource = {
+            			type = steel
+            			amount = 30
+        			}
+				}
+
+				132 = 
+				{
+					add_resource = {
+            			type = aluminium
+            			amount = 50
+        			}
+				}
+				MON = 
+				{
+					transfer_state = 650
+				}
+				650 = { add_core_of = MON }
+				MON = { add_offsite_building = { type = dockyard level = 5 } }
+				if = 
+				{
+					limit = 
+					{
+						FIN = 
+						{
+							is_ai = yes
+						}
+						MON = 
+						{
+							is_ai = yes
+						}
+					}
+					ADT = 
+					{
+						annex_country = { target = FIN }
+					}
+					SOV = 
+					{
+						annex_country = { target = MON }
+					}
+					SOV = 
+					{
+						transfer_state = 146
+						transfer_state = 147
+						transfer_state = 722
+					}
+
+					### Delete the extra factories
+
+					146 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					330 = {
+						remove_building = { type = industrial_complex level = 3 }
+						remove_building = { type = arms_factory level = 1 }
+					}
+					329 = {
+						remove_building = { type = industrial_complex level = 1 }
+						remove_building = { type = arms_factory level = 1 }
+					}
+					618 = {
+						remove_building = { type = industrial_complex level = 1 }
+					}
+					617 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					760 = {
+						remove_building = { type = arms_factory level = 1 }
+					}
+					619 = {
+						remove_building = { type = industrial_complex level = 1 }
+					}
+				}
+				if = 
+				{
+					limit = 
+					{
+						FIN = 
+						{
+							is_ai = yes
+						}
+						MON = 
+						{
+							is_ai = no
+						}
+					}
+					ADT = 
+					{
+						annex_country = { target = FIN }
+					}
+					SOV = 
+						{
+							transfer_state = 146
+							transfer_state = 147
+							transfer_state = 722
+						}
+
+					#Remove Factories if Mongolia and no Finland -3 mill -14 civs
+					146 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+
+					219 = {
+    					remove_building = { type = arms_factory level = 3 }
+					}
+					226 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					242 = {
+						remove_building = { type = industrial_complex level = 1 }
+					}
+					206 = {
+						remove_building = { type = industrial_complex level = 5 }
+					}
+					405 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					198 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+					192 = {
+						remove_building = { type = industrial_complex level = 2 }
+					}
+				}
+				if = 
+				{
+					limit = 
+					{
+						MEX = 
+						{
+							is_ai = yes
+						}
+					}
+					BRA = 
+					{
+						annex_country = { target = MEX }
+					}
+				}
+				SOV = 
+				{
+					every_owned_state = {
+        				add_core_of = SOV
+    				}
+				}
+				BRA = {
+    				every_owned_state = {
+       		 			add_core_of = BRA
+    				}	
+				}
+				ADT = 
+				{
+					every_owned_state = {
+        				add_core_of = ADT
+    				}
+				}
+
+				#######RESOURCE DISTRIBUTION########
+				    473 = {
+					add_resource = {
+						type = oil
+						amount = 100
+					}
+					add_resource = {
+						type = tungsten
+						amount = 50
+					}
+    			}
+   				 681 = {
+					add_resource = {
+						type = oil
+						amount = 50
+					}
+					add_resource = {
+						type = steel
+						amount = 50
+					}
+				}
+				586 = {
+					add_resource = {
+						type = oil
+						amount = 50
+					}
+				}
+				481 = {
+					add_resource = {
+						type = rubber
+						amount = 40
+					}
+				}
+				468 = {
+					add_resource = {
+						type = steel
+						amount = 50
+					}
+				}
+					573 = {
+						add_resource = {
+						type = tungsten
+						amount = 80
+					}
+				}
+				219 = {
+					add_resource = {
+						type = rubber
+						amount = 14
+					}
+				}
+				195 = {
+					add_resource = {
+						type = tungsten
+						amount = 30
+					}
+				}
+			}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			CAN = {
+					add_offsite_building = { type = dockyard level = 4}
+				}
+			SAF = {
+					add_offsite_building = { type = dockyard level = 4}
+				}
+			BRA = {
+					add_offsite_building = { type = dockyard level = 4}
+				}
+			AST = {
+					add_offsite_building = { type = dockyard level = 4}
+				}
+			FRA = {
+					add_offsite_building = { type = dockyard level = 4}
+				}
+		}
+	}
+
+	focus = {
+		id = ENG_USA_industrial_merge
+		icon = GFX_focus_generic_american_investments
+		relative_position_id = ENG_man_with_the_plan
+		allow_branch = {
+			USA = { is_ai = yes }
+		}
+		available = {
+			date > 1941.1.1
+		}
+		x = 2
+		y = 0
+		cost = 1
+
+		available_if_capitulated = yes
+		completion_reward = {
+				ENG = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				121 = 
+				{
+					add_resource = {
+            			type = oil
+            			amount = 50
+        			}
+					add_resource = {
+            			type = tungsten
+            			amount = 50
+        			}
+					add_resource = {
+            			type = steel
+            			amount = 50
+        			}
+					add_resource = {
+            			type = chromium
+            			amount = 50
+        			}
+				}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ENG_USA_industrial_merge_tt
+			hidden_effect = {
+			set_technology = 
+			{
+			armor_tech_1 = 1
+			armor_tech_2 = 1
+			engine_tech_1 = 1
+			engine_tech_2 = 1
+			advanced_radio = 1
+			basic_heavy_tank_chassis = 1
+			basic_medium_tank_chassis = 1
+			basic_light_tank_chassis = 1
+			amphibious_tank_chassis = 1
+			improved_heavy_tank_chassis = 1
+			improved_medium_tank_chassis = 1
+			improved_light_tank_chassis = 1
+			amphibious_tank_chassis = 1
+			amphibious_drive = 1
+			antitank4 = 1
+			antitank3 = 1
+			antitank2 = 1
+			antitank1 = 1
+			}
+
+			add_tech_bonus = {
+				name = ENG_armored_divisions
+				bonus = 1
+				uses = 2
+				category = armor	
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			}
+		}
+	}
+
+
+	focus = {
+		id = ENG_their_finest_rehost
+		icon = GFX_focus_GER_the_peoples_victory
+		relative_position_id = ENG_USA_industrial_merge
+		allow_branch = {
+			USA = { is_ai = yes }
+		}
+		available = {
+			date > 1942.5.22
+		}
+		x = 2
+		y = 0
+		cost = 1
+
+		available_if_capitulated = yes
+		completion_reward = {
+			ENG = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				BRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				AST = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+					
+				}
+
+				if = {
+					limit = { country_exists = CAN }
+					if = {
+						limit = { NOT = { country_exists = SAF } }
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						CAN = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+
+				if = {
+					limit = { country_exists = SAF }
+					if = {
+						limit = { NOT = { country_exists = CAN } }
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 10 }
+							add_offsite_building = { type = arms_factory level = 10 }
+							
+						}
+					}
+					else = {
+						SAF = {
+							add_offsite_building = { type = industrial_complex level = 5 }
+							add_offsite_building = { type = arms_factory level = 5 }
+							
+						}
+					}
+				}
+	}	
+	}
+
+	focus = {
 		id = crypto_bomb_focus
 		available = {
 				has_war_with = GER
@@ -5124,7 +5830,9 @@ focus_tree = {
 	focus = {
 		id = ENG_parachute_regiments
 		prerequisite = { focus = ENG_special_air_service }
-	
+		allow_branch = {
+			has_dlc = "Arms Against Tyranny"
+		}
 		continue_if_invalid = yes
 
 		icon = GFX_focus_generic_paratrooper
@@ -5277,6 +5985,7 @@ focus_tree = {
 				bonus = 1
 				uses = 1
 				technology = homing_torpedo
+				technology = electric_torpedo
 			}
 		}
 	}
@@ -5287,7 +5996,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = fighter_command_focus
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 3
 		}
@@ -5442,7 +6151,9 @@ focus_tree = {
 			factor = 1
 		}
 
-	
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
@@ -5476,7 +6187,7 @@ focus_tree = {
 				name = ENG_secure_the_imperial_shipping_routes
 				bonus = 1.0
 				uses = 2
-				category = ca_tech
+				category = cl_tech
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ideas = ENG_secure_the_imperial_shipping_routes
@@ -5522,7 +6233,9 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
-	
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			add_tech_bonus = {
@@ -5697,11 +6410,23 @@ focus_tree = {
 			factor = 1
 		}
 
-	
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
 
 		available_if_capitulated = yes
 
-		
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = ENG_expand_the_repair_yards_2dockyard }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -5739,7 +6464,10 @@ focus_tree = {
 			factor = 1
 		}
 
-	
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
+
 		available = {
 			date > 1944.1.1
 			has_tech = advanced_ship_hull_heavy
@@ -6300,9 +7028,6 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 1
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = ENG_the_bevin_boys_1
 		}
 	}
 
@@ -6373,7 +7098,23 @@ focus_tree = {
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = royal_ordinance_focus_2AF
+			}
 			random_owned_controlled_state = {
 				limit = {
 					is_in_home_area = yes
@@ -6599,8 +7340,13 @@ focus_tree = {
 		x = 13
 		y = 0
 		cost = 5
-		
-	
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_completed_focus = ENG_concessions_to_the_trade_unions
+			}
+		}	
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -6875,7 +7621,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -7105,7 +7851,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 		bypass = {
 			NOT = {
@@ -7239,7 +7985,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		mutually_exclusive = { focus = uk_greece_focus }
@@ -7330,7 +8076,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -7465,7 +8211,7 @@ focus_tree = {
 		
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = { 
@@ -10147,7 +10893,7 @@ focus_tree = {
 		
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -10401,6 +11147,7 @@ focus_tree = {
 				limit = {
 					has_dlc = "Waking the Tiger"
 				}
+				unlock_decision_tooltip = CHI_expand_the_burma_road
 			}
 			CHI = {
 				add_opinion_modifier = { target = ENG modifier = burma_road_good } 
@@ -11309,7 +12056,22 @@ focus_tree = {
 					}
 					set_state_flag = ENG_uk_india_focus_2IC
 				}
-
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = ENG_uk_india_focus_1IC
+				}
 				ENG_viceroy_reduce_autonomy_effect = yes
 			}
 		}
@@ -11421,6 +12183,43 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
+		complete_tooltip = {
+			random_country = {
+				limit = {
+					original_tag = AST
+					is_in_faction_with = ROOT
+				}
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_1IC }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_2dockyards }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = dockyard
+						level = 2
+						instant_build = yes
+					}
+				}
+				every_state = { limit = { has_state_flag = ENG_uk_australia_focus_1dockyard }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_australia_focus
+				}
+			}
+		}
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
 			AST = {
@@ -11433,10 +12232,10 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 					set_state_flag = ENG_uk_australia_focus_1IC
@@ -11511,7 +12310,7 @@ focus_tree = {
 		}
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 		bypass = {
 			OR = {
@@ -11757,10 +12556,10 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 					set_state_flag = ENG_uk_canada_focus_2IC
@@ -11867,7 +12666,43 @@ focus_tree = {
 
 		available_if_capitulated = yes
 
-
+		complete_tooltip = {
+			random_country = {
+				limit = {
+					original_tag = SAF
+					is_in_faction_with = ROOT
+				}
+				add_opinion_modifier = { target = ENG modifier = aided_industry }
+				every_state = { limit = { has_state_flag = ENG_uk_south_africa_focus_2IC }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				every_state = { limit = { has_state_flag = ENG_uk_south_africa_focus_1IC }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				every_state = { limit = { has_state_flag = ENG_uk_south_africa_focus_1dockyard }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = uk_south_africa_focus
+				}
+			}
+		}
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
 			SAF = {
@@ -11880,10 +12715,10 @@ focus_tree = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 					set_state_flag = ENG_uk_south_africa_focus_2IC
@@ -11951,7 +12786,20 @@ focus_tree = {
 		prerequisite = { focus = uk_india_focus }
 		mutually_exclusive = { focus = uk_free_india_focus }
 
-	
+		allow_branch = {
+			has_dlc = "Man the Guns"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = ENG_revisit_colonial_policy
+				}
+			}
+		}
 
 		available = { 	
 			RAJ = {
@@ -11990,6 +12838,84 @@ focus_tree = {
 		prerequisite = { focus = uk_canada_focus }
 		prerequisite = { focus = uk_australia_focus }
 		prerequisite = { focus = uk_south_africa_focus }
+
+		allow_branch = {
+			has_dlc = "Man the Guns"
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = ENG_revisit_colonial_policy
+				}
+			}
+		}
+
+		available = {
+			CAN = {
+				OR = {
+					AND = {
+						is_subject_of = ENG
+						has_government = ROOT
+					}
+					exists = no
+				}
+			}
+			SAF = {
+				OR = {
+					AND = {
+						is_subject_of = ENG
+						has_government = ROOT
+					}
+					exists = no
+				}
+			}
+			AST = {
+				OR = {
+					AND = {
+						is_subject_of = ENG
+						has_government = ROOT
+					}
+					exists = no
+				}
+			}
+			NZL = {
+				OR = {
+					AND = {
+						is_subject_of = ENG
+						has_government = ROOT
+					}
+					exists = no
+				}
+			}
+			NOT = {
+				any_state = {
+					OR = {
+						is_core_of = ENG
+						is_core_of = CAN
+						is_core_of = SAF
+						is_core_of = AST
+						is_core_of = NZL
+					}
+					NOT = { state = 331 }
+					OWNER = {
+						NOT = {
+							OR = {
+								tag = ENG
+								tag = CAN
+								tag = SAF
+								tag = AST
+								tag = NZL
+							}
+						}
+					}
+				}
+			}
+
+		}
 
 		bypass = {
 			CAN = {
@@ -12075,9 +13001,6 @@ focus_tree = {
 			hidden_effect = { news_event = { id = mtg_news.13 days = 1 } }
 			custom_effect_tooltip = ENG_imperial_conference_tt
 			custom_effect_tooltip = ENG_indian_autonomy_tt
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_faction_initiative = 1
-			
 		}
 	}
 

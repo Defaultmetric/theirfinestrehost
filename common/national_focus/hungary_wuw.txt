@@ -26,6 +26,7 @@ focus_tree = {
 
 	continuous_focus_position = { x = 50 y = 1850 }
 
+	shared_focus = HABSBURG_part_of_something_bigger
 
 	initial_show_position = {
 	    focus = wuw_HUN_continue_the_regency
@@ -58,7 +59,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
 				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 
@@ -130,6 +131,18 @@ focus_tree = {
 			factor = 15
 		}
 
+		allow_branch = {
+			IF = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = wuw_HUN_end_the_regency }
+				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
+			}
+		}
 
 
 
@@ -202,7 +215,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
 				NOT = { has_completed_focus = wuw_HUN_end_the_regency }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 
@@ -415,7 +428,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
 				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 
@@ -546,7 +559,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_continue_the_regency }
 				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -685,7 +698,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
 				NOT = { has_completed_focus = wuw_HUN_abide_by_the_little_ententes_stipulations }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -772,7 +785,7 @@ focus_tree = {
 
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 		ai_will_do = {
@@ -862,7 +875,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 
@@ -5333,7 +5346,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_elect_a_fascist_king }
 				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -5416,7 +5429,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_elect_a_fascist_king }
 				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -5641,7 +5654,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_elect_a_democratic_king }
 				NOT = { has_completed_focus = wuw_HUN_reinstate_the_pragmatic_sanction }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -6101,17 +6114,10 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_mastery_bonus = {
-				name = wuw_HUN_a_mobile_army
-				bonus = 0.1
-				days = 180
-				grand_doctrine = new_mobile_warfare
-			}
-
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.25
+				cost_reduction = 0.5
 				uses = 1
-				category = land_doctrine
+				category = cat_mobile_warfare
 				name = wuw_HUN_a_mobile_army
 			}
 
@@ -6151,17 +6157,10 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_mastery_bonus = {
-				name = wuw_HUN_an_airforce_to_be_reckoned_with
-				bonus = 0.15
-				days = 180
-				grand_doctrine = superior_firepower
-			}
-
 			add_doctrine_cost_reduction = {
-				cost_reduction = 0.25
+				cost_reduction = 0.5
 				uses = 1
-				category = land_doctrine
+				category = cat_superior_firepower
 				name = wuw_HUN_an_airforce_to_be_reckoned_with
 			}
 
@@ -7456,6 +7455,19 @@ focus_tree = {
 			factor = 15
 		}
 
+		allow_branch = {
+			IF = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = { has_completed_focus = wuw_HUN_end_the_regency }
+				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
+				NOT = { has_completed_focus = wuw_HUN_undermine_the_admiral }
+			}
+		}
 
 
 		available = {
@@ -7543,7 +7555,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_end_the_white_terror }
 				NOT = { has_completed_focus = wuw_HUN_strengthen_horthys_reign }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -8020,7 +8032,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_spur_on_the_trianon_trauma
 
-		cost = 4
+		cost = 1
 
 
 
@@ -10167,7 +10179,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_act_of_defense
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -10263,11 +10275,10 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 				}
 
-				mio:axis_assault_tank_organization_generic = {
-					add_mio_size = 1
-				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = Generic_henschels_organization
 
-				mio:axis_armored_tank_organization_generic = {
+				mio:Generic_henschels_organization = {
 					add_mio_size = 1
 				}
 
@@ -10328,7 +10339,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			always = no
+			has_war_support > 200
 		}
 
 		bypass = {
@@ -10362,7 +10373,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 
@@ -10458,7 +10469,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_seek_german_contracts
 
-		cost = 7
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -10544,7 +10555,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = wuw_HUN_invite_german_investors }
 		#mutually_exclusive = { focus = wuw_HUN_renew_the_rome_protocols }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = wuw_HUN_invite_german_investors
 
@@ -10579,7 +10590,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 12
+					amount = 16
 				}
 			}
 
@@ -10589,11 +10600,11 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_join_the_axis
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = wuw_HUN_invite_german_investors }
+		prerequisite = { focus = wuw_HUN_joint_aluminum_mining_company }
 		#mutually_exclusive = { focus = wuw_HUN_renew_the_rome_protocols }
-		x = -1
+		x = 0
 		y = 1
-		relative_position_id = wuw_HUN_invite_german_investors
+		relative_position_id = wuw_HUN_joint_aluminum_mining_company
 
 		cost = 1
 
@@ -10862,7 +10873,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 			
 		}
 
@@ -11652,7 +11663,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_restore_the_socialist_federative_republic }
 				NOT = { has_completed_focus = wuw_HUN_establish_the_second_republic }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -11764,7 +11775,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_join_the_comintern }
 				NOT = { has_completed_focus = wuw_HUN_establish_the_second_republic }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -11860,7 +11871,7 @@ focus_tree = {
 				NOT = { has_completed_focus = wuw_HUN_restore_the_socialist_federative_republic }
 				NOT = { has_completed_focus = wuw_HUN_join_the_comintern }
 			}
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 
 		}
 
@@ -14357,7 +14368,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 
-		cost = 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		cost = 2
 
 		ai_will_do = {
 			factor = 10
@@ -14403,6 +14428,17 @@ focus_tree = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 		cost = 5
 
 		ai_will_do = {
@@ -14442,6 +14478,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
+
+
+
 
 
 
@@ -14892,7 +14931,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = wuw_HUN_reintigrate_the_imperial_railroads
 
-		cost = 7
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -16087,19 +16126,15 @@ focus_tree = {
 					}
 				}
 				155 = {
-					add_extra_state_shared_building_slots = 1
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = industrial_complex
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 					add_resource = {
 						type = steel
 						amount = 2
-					}
-					add_resource = {
-						type = coal
-						amount = 5
 					}
 				}
 			}
@@ -16291,7 +16326,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_expand_the_lignite_industry
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 5
@@ -16407,7 +16442,7 @@ focus_tree = {
 			43 = {
 				add_resource = {
 					type = aluminium
-					amount = 8
+					amount = 14
 				}
 			}
 		}
@@ -16537,7 +16572,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
-		cost = 5
+		cost = 4
 
 		ai_will_do = {
 			factor = 3
@@ -16558,8 +16593,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = wuw_HUN_expand_on_the_weiss_wm_16
-				bonus = 2
-				uses = 1
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
 				category = medium_air
 			}
 		}
@@ -16772,7 +16808,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = HUN_light_fighter_effort
 				bonus = 1.0
-				ahead_reduction = 0.5
+				ahead_reduction = 2
 				uses = 1
 				category = light_fighter
 			}
@@ -16847,8 +16883,9 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_laszlo_varga_design
-				bonus = 1.5
-				uses = 1
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 2
 				category = light_fighter
 				category = cas_bomber
 			}
@@ -17075,7 +17112,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 20
@@ -17197,6 +17234,10 @@ focus_tree = {
 				show_ideas_tooltip = HUN_danuvia_inf
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = HUN_pal_kiraly
 		}
 	}
 
@@ -17884,7 +17925,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = wuw_HUN_quantity_over_quality
-				bonus = 1
+				bonus = 1.5
 				uses = 1
 				category = armor
 			}
@@ -17966,9 +18007,9 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_the_botond
-				bonus = 1
-				ahead_reduction = 1
-				uses = 1
+				bonus = 2
+				ahead_reduction = 2.0
+				uses = 2
 				category = motorized_equipment
 			}
 
@@ -18030,14 +18071,33 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_develop_tanks
-				bonus = 1.5
+				ahead_reduction = 1
+				bonus = 1
 				uses = 1
-				ahead_reduction = 0.5
-				category = armor
+				category = cat_medium_armor
+			}
+
+			add_tech_bonus = {
+				name = HUN_develop_tanks
+				ahead_reduction = 1
+				bonus = 1
+				uses = 1
+				category = cat_heavy_armor
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			add_ideas = embrace_the_future_ideas
+
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = HUN_hti_turan_organization
+
+			}
 
 		}
 	}
@@ -18108,8 +18168,8 @@ focus_tree = {
 							engine_type_slot = tank_gasoline_engine
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
+							tank_nsb_engine_upgrade = 3
+							tank_nsb_armor_upgrade = 3
 						}
 						#icon = "GFX_ITA_advanced_medium_art_medium"
 					}
@@ -18130,8 +18190,8 @@ focus_tree = {
 								engine_type_slot = tank_gasoline_engine
 							}
 							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
+								tank_nsb_engine_upgrade = 3
+								tank_nsb_armor_upgrade = 3
 							}
 							#icon = "GFX_ITA_advanced_medium_art_medium"
 						}
@@ -18156,8 +18216,8 @@ focus_tree = {
 							special_type_slot_2 = secondary_turret_small_cannon
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
+							tank_nsb_engine_upgrade = 6
+							tank_nsb_armor_upgrade = 2
 						}
 						#icon = "GFX_ITA_advanced_medium_spaa_medium"
 					}
@@ -18180,8 +18240,8 @@ focus_tree = {
 								special_type_slot_2 = secondary_turret_small_cannon
 							}
 							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
+								tank_nsb_engine_upgrade = 6
+								tank_nsb_armor_upgrade = 2
 							}
 							#icon = "GFX_ITA_advanced_medium_spaa_medium"
 						}
@@ -18252,15 +18312,15 @@ focus_tree = {
 						parent_version = 0
 						modules = {
 							main_armament_slot = tank_small_cannon_2
-							turret_type_slot = tank_light_two_man_tank_turret
+							turret_type_slot = tank_light_fixed_superstructure_turret
 							suspension_type_slot = tank_torsion_bar_suspension
 							armor_type_slot = tank_riveted_armor
 							engine_type_slot = tank_gasoline_engine
 							special_type_slot_2 = tank_radio_1
 						}
 						upgrades = {
-							tank_nsb_engine_upgrade = 0
-							tank_nsb_armor_upgrade = 0
+							tank_nsb_engine_upgrade = 3
+							tank_nsb_armor_upgrade = 2
 						}
 						#icon = "GFX_ITA_improved_light_tank_medium"
 					}
@@ -18282,8 +18342,8 @@ focus_tree = {
 								special_type_slot_2 = tank_radio_1
 							}
 							upgrades = {
-								tank_nsb_engine_upgrade = 0
-								tank_nsb_armor_upgrade = 0
+								tank_nsb_engine_upgrade = 3
+								tank_nsb_armor_upgrade = 2
 							}
 							#icon = "GFX_ITA_improved_light_tank_medium"
 						}
@@ -19306,25 +19366,12 @@ focus_tree = {
 
 		completion_reward = {
 			navy_experience = 15
-			
-			add_mastery_bonus = {
-				name = wuw_HUN_a_reformed_navy
-				bonus = 0.15
-				days = 240
-				grand_doctrine = new_convoy_raiding
-			}
-			add_mastery_bonus = {
-				name = wuw_HUN_a_reformed_navy
-				bonus = 0.15
-				days = 240
-				grand_doctrine = new_base_strike
-			}
-
 			add_doctrine_cost_reduction = {
 				name = wuw_HUN_a_reformed_navy
-				cost_reduction = 0.25
+				cost_reduction = 0.5
 				uses = 2
-				category = naval_doctrine
+				category = cat_trade_interdiction
+				category = cat_base_strike
 			}
 		}
 	}
@@ -19409,6 +19456,7 @@ focus_tree = {
 				name = wuw_HUN_cruiser_investments
 				bonus = 1.0
 				uses = 2
+				category = cl_tech
 				category = ca_tech
 			}
 
@@ -19560,6 +19608,9 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = {
+			has_dlc = "Man the Guns"
+		}
 
 		available = {
 			has_tech = basic_ship_hull_heavy

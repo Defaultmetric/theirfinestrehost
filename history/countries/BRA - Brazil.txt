@@ -1,5 +1,9 @@
 ﻿capital = 500
 
+mio:ENG_vauxhall_organization = {
+					complete_mio_trait = generic_mio_trait_T1_mio
+}
+
 oob = "BRA_1936"
 every_core_state = {
 	ROOT = {
@@ -21,13 +25,6 @@ recruit_character = BRA_getulio_vargas
 ###############################################################################
 # ToA
 ###############################################################################
-
-set_technology = {
-		infantry_weapons1 = 1
-		basic_light_tank_chassis = 1
-		motorised_infantry = 1
-	}
-
 IF = {
 	limit = {
 		has_dlc = "Trial of Allegiance"
@@ -257,13 +254,11 @@ IF = {
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	tech_support = 1
-	militia_tech = 1		
+	tech_support = 1		
 	tech_engineers = 1
 	tech_trucks = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	interwar_antitank = 1
 	basic_train = 1	
 }
 
@@ -402,6 +397,12 @@ recruit_character = BRA_random_army_chief
 		
 
 		#doctrines
+		air_superiority = 1
+		grand_battle_plan = 1
+		trench_warfare = 1
+		fleet_in_being = 1
+		battlefleet_concentration = 1
+		convoy_sailing = 1
 
 
 		#electronics

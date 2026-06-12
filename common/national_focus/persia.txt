@@ -1322,8 +1322,8 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 				}
 				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = axis_assault_tank_organization_generic
-				mio:axis_assault_tank_organization_generic = {
+				show_mio_tooltip = GER_henschel_organization
+				mio:GER_henschel_organization = {
 					add_mio_size = 1
 				}
 			}
@@ -3189,18 +3189,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
-			add_mastery_bonus = {
-				name = PER_sea_specialization
-				bonus = 0.2
-				days = 180
-				grand_doctrine = new_base_strike
-			}
 			add_doctrine_cost_reduction = {
 				name = PER_sea_specialization
 				cost_reduction = 0.5
 				uses = 1
-				category = naval_doctrine
+				category = cat_base_strike
 			}
 		}
 	}
@@ -4593,6 +4586,7 @@ focus_tree = {
 	######## SAADABAD PACT #########
 	################################
 
+	shared_focus = SSB_the_saadabad_pact
 
 	################################
 	####### DEFENCE OF IRAN ########

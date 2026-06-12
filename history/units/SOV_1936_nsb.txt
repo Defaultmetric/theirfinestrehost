@@ -22,42 +22,6 @@ division_template = {
 }
 
 division_template = {
-	name = "50w MP"
-
-	regiments = {
-		cavalry = { x = 0 y = 0}
-		cavalry = { x = 0 y = 1}
-		cavalry = { x = 0 y = 2}
-		cavalry = { x = 0 y = 3}
-		cavalry = { x = 0 y = 4}
-
-		cavalry = { x = 1 y = 0}
-		cavalry = { x = 1 y = 1}
-		cavalry = { x = 1 y = 2}
-		cavalry = { x = 1 y = 3}
-		cavalry = { x = 1 y = 4}
-
-		cavalry = { x = 2 y = 0}
-		cavalry = { x = 2 y = 1}
-		cavalry = { x = 2 y = 2}
-		cavalry = { x = 2 y = 3}
-		cavalry = { x = 2 y = 4}
-
-		cavalry = { x = 3 y = 0}
-		cavalry = { x = 3 y = 1}
-		cavalry = { x = 3 y = 2}
-		cavalry = { x = 3 y = 3}
-		cavalry = { x = 3 y = 4}
-
-		cavalry = { x = 4 y = 0}
-		cavalry = { x = 4 y = 1}
-		cavalry = { x = 4 y = 2}
-		cavalry = { x = 4 y = 3}
-		cavalry = { x = 4 y = 4}
-	}
-}
-
-division_template = {
 	name = "Gornostrelkovaya Diviziya"		# Mountain Division
 	division_names_group = SOV_MNT_01
 
@@ -127,8 +91,8 @@ division_template = {
 	}
 	support = 	{
 		military_police = { x = 0 y = 0 }
-		anti_tank = { x = 0 y = 1 }
 	}
+	is_locked = yes
 	priority = 0
 }
 division_template = {
@@ -139,25 +103,13 @@ division_template = {
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-		light_armor = { x = 0 y = 2 }
-
-		light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-		light_armor = { x = 1 y = 2 }
-
-		motorized = { x = 2 y = 0 }
-		motorized = { x = 2 y = 1 }
-		motorized = { x = 2 y = 2 }
-
-		motorized = { x = 3 y = 0 }
-		motorized = { x = 3 y = 1 }
-		motorized = { x = 3 y = 2 }
-	}
-
-	support = {
-		artillery = {x = 0 y = 0}
-		engineer = {x = 0 y = 1 }
-		mot_recon = {x = 0 y = 2}
+		light_armor = { x = 1 y = 0 }		
+		light_armor = { x = 1 y = 1 }		
+		light_armor = { x = 1 y = 2 }		
+		motorized = { x = 2 y = 0 }		
+		motorized = { x = 2 y = 1 }	
+		motorized = { x = 2 y = 2 }		
+		motorized = { x = 2 y = 3 }		
 	}
 }
 
@@ -265,6 +217,16 @@ units = {
 		start_equipment_factor = 0.85
 
 	}
+	division= {			
+		name = "LVO Mekhanizirovanaya Gruppa"		
+		location = 3151
+		division_template = "Mekhanizirovaniy Korpus"		# 1x Tank Bge, 2x Mekh Bge
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 150 }
+		}
+	}
 
 	### Leningraskaya Gruppa Armiya (Leningrad Army Group) -- Leningrad ###
 	#  NKVD Leningradksii Korpus -- NKVD Border Guard and RR units	
@@ -297,7 +259,7 @@ units = {
 		location = 6174
 		division_template = "Mekhanizirovaniy Korpus"		# 2x Mekh Bge, 1x Mot Bge
 		start_experience_factor = 0.3
-
+		force_equipment_variants = { light_tank_chassis_1 = { owner = SOV version_name = "BT-5" amount = 200 } }
 	}
 	# Subordinate to AG
 	division= {			
@@ -305,6 +267,9 @@ units = {
 		location = 149
 		division_template = "Mekhanizirovaniy Korpus"		# 2x Mekh Bge
 		start_experience_factor = 0.3
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 150 }
+		}
 	}
 	
 		
@@ -343,6 +308,16 @@ units = {
 		start_equipment_factor = 0.85
 
 	}			
+	division= {			
+		name = "1ya BVO Mekhanizirovanaya Gruppa"		
+		location = 126
+		division_template = "Mekhanizirovaniy Korpus"		# 3x Mekh Bge
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "BT-5" amount = 250 }
+		}
+	}
 
 	# 5ya Strelkoviy Korpus
 	division= {	# "5ya 'Vitebskaya' Strelk. Div."		
@@ -384,7 +359,9 @@ units = {
 		division_template = "Mekhanizirovaniy Korpus"		# 1x Tank Bge, 2x Mekh Bge
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
-	
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 250 }
+		}
 
 	}
 
@@ -549,7 +526,9 @@ units = {
 		division_template = "Mekhanizirovaniy Korpus"		# 3x Mekh Bge
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
-		
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "BT-5" amount = 150 }
+		}
 	}
 
 	# 3ya Strelkoviy Korpus		
@@ -614,6 +593,16 @@ units = {
 		start_equipment_factor = 0.5
 
 	}			
+	# Subordinate to AG
+	division= {			
+		name = "5ya Mekhanizirovaniy Korpus"		
+		location = 6380
+		division_template = "Mekhanizirovaniy Korpus"		# 2x Mekh Bge, 1x Mot Bge
+		start_experience_factor = 0.3
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 250 }
+		}
+	}
 
 
 	#### Ural'skii Voennyii Okrug (Urals Military District) -- Smolensk ####
@@ -967,6 +956,16 @@ units = {
 	}			
 
 	# Subordinate to VO
+	division= {			
+		name = "2ya KiVO Mekhanizirovanaya Gruppa"		
+		location = 525
+		division_template = "Mekhanizirovaniy Korpus"		# 1x Tank Bge, 2x Mekh Bge
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "BT-5" amount = 150 }
+		}
+	}
 
 	# 6ya Strelkoviy Korpus		
 	division= {	# "7ya 'Chernigovskaya' Strelk. Div."		
@@ -1001,6 +1000,16 @@ units = {
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
 
+	}
+	division= {			
+		name = "1ya KiVO Mekhanizirovanaya Gruppa"		
+		location = 11670
+		division_template = "Mekhanizirovaniy Korpus"		# 1x H Tank Bge, 2x Mekh Bge
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.85
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 250 }
+		}
 	}
 
 	# 17ya Strelkoviy Korpus		
@@ -1063,6 +1072,15 @@ units = {
 	}
 
 	# Subordinate to VO
+	division= {			
+		name = "45ya Mekhanizirovaniy Korpus"		
+		location = 11437
+		division_template = "Mekhanizirovaniy Korpus"		# 2x Mekh Bge, 1x Mot Bge
+		start_experience_factor = 0.3
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "BT-5" amount = 250 }
+		}
+	}
 
 
 	#### Kharkov Voenniy Okrug (Kharkov Military District) -- Kharkov ####
@@ -1658,7 +1676,9 @@ units = {
 		division_template = "Mekhanizirovaniy Korpus"		# 3x Mekh Bge
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.85
-		
+		force_equipment_variants = {
+			light_tank_chassis_1 = { owner = SOV version_name = "T-26TU mod. 1933" amount = 250 }
+		}
 	}
 
 	# Subordinate to VO
@@ -1844,7 +1864,7 @@ instant_effect = {
 		requested_factories = 3
 		progress = 0.4
 		efficiency = 50
-		industrial_manufacturer = mio:soviet_assault_tank_organization_generic
+		industrial_manufacturer = mio:SOV_okmo_organization
 	}
 
 	add_equipment_production = {

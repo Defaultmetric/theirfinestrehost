@@ -1219,7 +1219,7 @@ sp_land_super_heavy_railway_gun = {
 		}
 	}
 
-	prototype_time = sp_time.prototype.medium
+	prototype_time = sp_time.prototype.long
 
 	complexity = sp_complexity.medium
 
@@ -1256,25 +1256,14 @@ sp_land_super_heavy_railway_gun = {
 				limit = {
 					original_tag = GER
 				}
-				add_equipment_production = {
-						equipment = {
-							type = super_heavy_railway_gun_equipment_1
-							creator = "GER"
-						}
-						name = "Dora" 
-						requested_factories = 1
-						progress = 0.75
-						amount = 1
+				create_railway_gun = {
+					equipment = super_heavy_railway_gun_equipment_1
+					name = "Dora"
 				}
 			}
 			else = {
-				add_equipment_production = {
-					equipment = {
-						type = super_heavy_railway_gun_equipment_1
-					}
-					requested_factories = 1
-					progress = 0.75
-					amount = 1
+				create_railway_gun = {
+					equipment = super_heavy_railway_gun_equipment_1
 				}
 			}
 		}

@@ -4210,6 +4210,32 @@ country_event = {
 			set_global_flag = SOV_soviet_japanese_reconciliation_flag
 		}
 	}
+
+	option = { # Nope
+		name = NSB_soviet_foreign_politics_events.262.b
+
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = FROM
+					value < -50
+				}
+			}
+			modifier = { #Is going commie or historical
+				factor = 0
+				OR = {
+					has_completed_focus = JAP_the_unthinkable_option
+					has_completed_focus = JAP_purge_the_kodoha_faction
+				}
+			}
+		}
+
+		hidden_effect = {
+			FROM = { country_event = { id = NSB_soviet_foreign_politics_events.267 hours = 4 } }
+		}
+	}
 }
 
 # JAP Accepts NAP - Event for SOV
@@ -6484,7 +6510,7 @@ country_event = {
 					}
 					if = {
 						limit = {
-							 #has_tech = basic_medium_battery
+							has_tech = basic_medium_battery
 						}
 						create_equipment_variant = {
 							name = "Hipper Class"
@@ -6673,7 +6699,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					#has_tech = basic_medium_battery
+					has_tech = basic_medium_battery
 				}
 				create_equipment_variant = {
 					name = "Hipper Class"
@@ -6798,8 +6824,8 @@ country_event = {
 					special_type_slot_1 = sloped_armor
 				}
 				upgrades = {
-					tank_nsb_engine_upgrade = 0
-					tank_nsb_armor_upgrade = 0
+					tank_nsb_engine_upgrade = 8
+					tank_nsb_armor_upgrade = 2
 				}
 				icon = "GFX_SOV_basic_medium_tank_medium"
 			}
@@ -6815,8 +6841,8 @@ country_event = {
 					engine_type_slot = tank_diesel_engine		
 				}
 				upgrades = {
-					tank_nsb_engine_upgrade = 0
-					tank_nsb_armor_upgrade = 0
+					tank_nsb_engine_upgrade = 10
+					tank_nsb_armor_upgrade = 9
 				}
 				icon = "GFX_SOV_improved_heavy_tank_medium"
 			}

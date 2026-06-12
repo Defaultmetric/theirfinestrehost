@@ -14,6 +14,7 @@ focus_tree = {
 	default = no
 
 	continuous_focus_position = { x = 50 y = 2500 }
+	shared_focus = NORDIC_form_joint_alliance
 
 	continuous_focus_position = { x = 20 y = 1000 }  
 	initial_show_position = {
@@ -2834,8 +2835,8 @@ focus_tree = {
 						engine_type_slot = tank_diesel_engine
 				    }
 				    upgrades = {
-				        tank_nsb_engine_upgrade = 0
-				        tank_nsb_armor_upgrade = 0
+				        tank_nsb_engine_upgrade = 3
+				        tank_nsb_armor_upgrade = 2
 				    }
 				}
 
@@ -4087,6 +4088,25 @@ focus_tree = {
 				}
 
 				YUG = { YUG_josip_broz_tito = { set_nationality = ROOT } }
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Battle for the Bosporus"
+					TUR = {
+						OR = {
+							has_completed_focus = TUR_fully_integrate_the_is_bank
+							has_completed_focus = TUR_peace_at_home
+							has_completed_focus = TUR_reinvigorate_turkish_nationalism
+							has_completed_focus = TUR_kemalism_and_the_modern_movement
+						}
+					}
+				}
+
+				TUR = {
+					TUR_nazim_hikmet = { set_nationality = ROOT }
+					TUR_sevket_sureyya_aydemir = { set_nationality = ROOT }
+				}
 			}
 
 
@@ -8932,8 +8952,8 @@ focus_tree = {
 						armor_type_slot=tank_welded_armor
 				    }
 				    upgrades = {
-				        tank_nsb_engine_upgrade = 0
-				        tank_nsb_armor_upgrade = 0
+				        tank_nsb_engine_upgrade = 9
+				        tank_nsb_armor_upgrade = 12
 				    }
 				}
 

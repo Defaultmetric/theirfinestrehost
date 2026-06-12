@@ -126,79 +126,6 @@ AI_annex = {
         }
     }
 
-    ITA_annex_BUL = {
-        icon = generic_industry
-
-        fire_only_once = yes
-
-        available = {
-            date > 1940.01.01
-            country_exists = BUL
-            original_tag = ITA
-            BUL = { has_capitulated = no }
-            BUL = { is_ai = yes }
-        }
-        visible = {
-            original_tag = ITA
-            BUL = { is_ai = yes }
-            country_exists = BUL
-        }
-        cost = 0
-
-        complete_effect = {
-            annex_country = { target = BUL transfer_troops = yes }
-            every_state = {
-                limit = {
-                    is_core_of = BUL
-                    is_controlled_by = ITA
-                }
-                add_core_of = ITA
-            }
-
-            803 = 
-            {
-                add_core_of = ITA
-            }
-            106 = 
-            {
-                add_core_of = ITA
-            }
-            184 = 
-            {
-                add_core_of = ITA
-            }
-            731 = 
-            {
-                add_core_of = ITA
-            }
-            47 = 
-            {
-                add_core_of = ITA
-            }
-
-            ITA = 
-            {
-                add_ideas = mech_ic_reduction_idea
-                mio:ITA_lancia_organization = 
-                {
-                    add_mio_size = 5
-                }
-                set_technology = {
-				    mechanised_infantry = 1
-			    }
-                add_tech_bonus = {
-                    name = truck_bonus
-                    bonus = 2.0
-                    ahead_reduction = 2
-                    uses = 2
-                    category = motorized_equipment
-	    		}
-            }
-
-
-        }
-    }
-
     JAP_annex_SIA = {
         icon = generic_industry
 
@@ -402,7 +329,7 @@ AI_annex = {
         fire_only_once = yes
 
         available = {
-            date > 1940.01.01
+            date > 1939.01.01
             country_exists = BRA
             original_tag = USA
             BRA = { has_capitulated = no }
@@ -486,8 +413,8 @@ AI_annex = {
             }
             add_core_of = BRA
         }
-      }
     }
+}
 
     ITA_annex_SPR = {
     icon = generic_industry
@@ -565,92 +492,6 @@ AI_annex = {
                 is_controlled_by = ITA
             }
             add_core_of = ITA
-        }
-    }
-}
-
-USA_annex_PHI = {
-    icon = generic_industry
-
-    fire_only_once = yes
-
-    available = {
-        date > 1940.06.01
-        country_exists = PHI
-        original_tag = USA
-        PHI = { has_capitulated = no }
-        PHI = { is_ai = yes }
-    }
-    visible = {
-        original_tag = USA
-        PHI = { is_ai = yes }
-        country_exists = PHI
-    }
-    cost = 0
-
-    complete_effect = {
-        annex_country = { target = PHI transfer_troops = yes }
-        every_state = {
-            limit = {
-                is_core_of = PHI
-                is_controlled_by = USA
-            }
-            add_core_of = USA
-        }
-    }
-}
-
-AST_annex_MAL_INS = {
-    icon = generic_industry
-
-    fire_only_once = yes
-
-    available = {
-        date > 1940.06.01
-        NOT = {has_global_flag = noAsia}
-        country_exists = MAL
-        country_exists = INS
-        original_tag = AST
-        MAL = { has_capitulated = no }
-        MAL = { is_ai = yes }
-        INS = { has_capitulated = no }
-        INS = { is_ai = yes }
-    }
-    visible = {
-        original_tag = AST
-        MAL = { is_ai = yes }
-        country_exists = MAL
-        INS = { is_ai = yes }
-        country_exists = INS
-    }
-    cost = 0
-
-    complete_effect = {
-        annex_country = { target = MAL }
-        annex_country = { target = INS }
-        every_state = {
-            limit = {
-                is_core_of = MAL
-                is_controlled_by = AST
-            }
-            add_core_of = AST
-            add_dynamic_modifier = {
-                modifier = pacific_islands
-            }
-        }
-        every_state = {
-            limit = {
-                is_core_of = INS
-                is_controlled_by = AST
-            }
-            add_core_of = AST
-            add_dynamic_modifier = {
-                modifier = pacific_islands
-            }
-        }
-        AST = 
-        {
-            set_technology = { radio_detection = 1 cavity_magnatron = 1 centimetric_radar = 1 phased_array = 1 }
         }
     }
 }

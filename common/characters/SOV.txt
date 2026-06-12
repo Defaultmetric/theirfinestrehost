@@ -178,21 +178,28 @@ characters = {
 			planning_skill = 4
 			logistics_skill = 5
 			legacy_id = 410
+			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
 		}
 
 		advisor = {
 			cost = 150
-			slot = army_chief
+			slot = theorist
 			idea_token = georgy_zhukov
 			ledger = army
 			allowed = {
 				original_tag = SOV
 			}
 			available = {
-				has_completed_focus = SOV_lessons_of_war
+				has_completed_focus = SOV_positive_heroism
+				if = {
+					limit = {
+						has_character_flag = SOV_exiled_flag
+					}
+					NOT = { has_character_flag = SOV_exiled_flag }
+				}
 			}
 			traits = {
-				army_chief_offensive_2
+				mass_assault_expert
 			}
 			ai_will_do = {
 				base = 2
@@ -1730,52 +1737,9 @@ characters = {
 			planning_skill = 4
 			logistics_skill = 2
 			legacy_id = 0
+			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
 		}	
 	}
-
-	SOV_en ={
-		name=SOV_en
-	
-		advisor={	
-			slot = high_command
-			idea_token = SOV_en
-			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
-			traits = {
-				army_artillery_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-	}
-
-	SOV_tunisian_child ={
-		name=SOV_tunisian_child
-	
-		advisor={	
-			slot = high_command
-			idea_token = SOV_tunisian_child
-			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
-			available = {
-				has_completed_focus = SOV_lessons_of_war
-			}
-			traits = {
-				army_infantry_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-	}
-
 
 	SOV_vasily_blyukher = {
 		name = SOV_vasily_blyukher
@@ -2262,6 +2226,11 @@ characters = {
 				original_tag = SOV
 			}
 			
+			visible = {
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
+			}
 			traits = {
 				captain_of_industry 
 			}
@@ -4217,22 +4186,6 @@ characters = {
 			traits = { scientist_trait_electronics_specialist }
 			skills = {
 				specialization_air = 2
-			}
-		}
-	}
-
-	SOV_mikhail_koshkin = {
-		name = SOV_mikhail_koshkin
-		portraits = {
-			army = {
-				large = GFX_portrait_SOV_vladimir_kotelnikov
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_armored_specialist }
-			skills = {
-				specialization_land = 2
 			}
 		}
 	}

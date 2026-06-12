@@ -30,7 +30,6 @@ focus_tree = {
 			factor = 1
 		}
 
-
 		available = {
 			OR = {
 				threat > 0.2
@@ -267,8 +266,7 @@ focus_tree = {
 			}
 			ENG = { has_war = no }
 		}
-
-
+		
 		bypass = {
 			ENG = { has_war = yes }
 		}
@@ -589,7 +587,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -1816,18 +1814,16 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = SAF_soviet_advisers
-
-			add_mastery_bonus = {
+			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
-				bonus = 0.1
-				days = 180
-				grand_doctrine = mass_assault
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_mass_assault
 			}
-			
 			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = land_doctrine
 			}
 		}
@@ -1957,7 +1953,6 @@ focus_tree = {
 		available = {
 
 		}
-
 		
 		bypass = {
 
@@ -2401,7 +2396,7 @@ focus_tree = {
 		y = 6
 		relative_position_id = SAF_south_african_railways
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 5
@@ -2429,7 +2424,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = SAF_establish_the_atomics_energy_board
-					bonus = 1
+					bonus = 0.5
 					uses = 1
 					category = nuclear
 				}
@@ -2539,8 +2534,6 @@ focus_tree = {
 		available = {
 
 		}
-
-
 		
 		bypass = {
 
@@ -2631,9 +2624,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SAF_q_services_corps
-				bonus = 1.0
+				bonus = 2.0
 				uses = 2
-				ahead_reduction = 1
+				ahead_reduction = 2
 				category = motorized_equipment
 			}
 			
@@ -2908,6 +2901,7 @@ focus_tree = {
 				uses = 2
 				category = armor
 			}
+			add_ideas = embrace_the_future_ideas
 		}
 	}
 
@@ -2935,7 +2929,6 @@ focus_tree = {
 		bypass = {
 
 		}
-
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -3226,7 +3219,7 @@ focus_tree = {
 		x = 25
 		y = 0		
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3240,12 +3233,25 @@ focus_tree = {
 
 		}
 
-	
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
         search_filters = { FOCUS_FILTER_RESEARCH }
+
+		complete_tooltip = {
+			navy_experience = 25
+			random_state = {
+				limit = {
+					has_state_flag = SAF_seaward_defence_force_DY
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
 
 		completion_reward = {
 			navy_experience = 25
@@ -3285,7 +3291,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_seaward_defence_force
 
-		cost = 2
+		cost = 10
 
 		ai_will_do = {
 			factor = 0.8
@@ -3323,7 +3329,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SAF_seaward_defence_force
 
-		cost = 2
+		cost = 10
 
 		ai_will_do = {
 			factor = 0.2
@@ -3364,7 +3370,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SAF_seaward_defence_force
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1

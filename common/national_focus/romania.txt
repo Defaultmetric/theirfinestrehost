@@ -35,7 +35,7 @@ focus_tree = {
 		}
 
 		available = {
-			
+
 		}
 
 		bypass = {
@@ -96,7 +96,7 @@ focus_tree = {
 		y = 2
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		cost = 10
@@ -222,7 +222,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international			
+			has_war_support > 400			
 		}
 
 		available = {
@@ -534,7 +534,7 @@ focus_tree = {
 			factor = 1
 		}
 
-		allow_branch = {has_completed_focus = SOV_the_fourth_international}
+		allow_branch = {has_war_support > 400}
 
 		available = {
 			is_subject = no
@@ -646,7 +646,7 @@ focus_tree = {
 		icon = GFX_goal_support_democracy
 		prerequisite = { focus = ROM_demand_a_western_guarantee }
 
-		allow_branch = {has_completed_focus = SOV_the_fourth_international}
+		allow_branch = {has_war_support > 400}
 
 		x = 0
 		y = 4
@@ -761,7 +761,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		ai_will_do = {
@@ -1278,7 +1278,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ROM_begin_industrialization
-				bonus = 0.5
+				bonus = 1.0
 				uses = 1
 				category = industry
 			}
@@ -1406,7 +1406,6 @@ focus_tree = {
 			79  = { set_state_category = large_city }
 			81  = { set_state_category = city }
 
-			ROM_malaxa_increment = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = malaxa_tt
 		}		
@@ -1641,10 +1640,6 @@ focus_tree = {
 				ROM_extra_trade = 1
 				tooltip = resource_trade_cost_bonus_per_factory_tt
 			}
-
-			ROM_malaxa_increment = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = malaxa_tt
 		}
 	}
 
@@ -1678,6 +1673,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ROM_modern_tanks
 				bonus = 1.0
+				ahead_reduction = 1
 				uses = 1
 				category = armor
 			}
@@ -1725,11 +1721,7 @@ focus_tree = {
 					has_dlc = "Arms Against Tyranny"
 				}
 				
-				mio:axis_assault_tank_organization_generic = {
-					add_mio_size = 1
-				}
-
-				mio:axis_armored_tank_organization_generic = {
+				mio:Generic_henschels_organization = {
 					add_mio_size = 1
 				}
 			}
@@ -1737,12 +1729,86 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_oltenia_facility
-		icon = GFX_focus_generic_tank_assembly
-		prerequisite = { focus = ROM_trade_treaty_with_germany }
+		id = ROM_license_german_equipment
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = ROM_trade_treaty_with_germany  }
 		x = -2
 		y = 1
-		relative_position_id = ROM_trade_treaty_with_germany
+		relative_position_id = ROM_trade_treaty_with_germany 
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER 
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = HUN_license_foreign
+		}
+	}
+
+	focus = {
+		id = ROM_invite_german_advisors
+		icon = GFX_goal_generic_axis_build_infantry
+		prerequisite = { focus = ROM_license_german_equipment }
+		x = 0
+		y = 1
+		relative_position_id = ROM_license_german_equipment
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_war_with = GER }
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+		
+			air_experience = 75
+			navy_experience = 75
+			army_experience = 75
+		}
+	}
+
+	focus = {
+		id = ROM_oltenia_facility
+		icon = GFX_focus_generic_tank_assembly
+		prerequisite = { focus = ROM_license_german_equipment }
+		x = -1
+		y = 2
+		relative_position_id = ROM_license_german_equipment
 
 		cost = 5
 
@@ -1803,45 +1869,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ROM_invite_german_advisors
-		icon = GFX_goal_generic_axis_build_infantry
-		prerequisite = { focus = ROM_oltenia_facility }
-		x = 0
-		y = 1
-		relative_position_id = ROM_oltenia_facility
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			NOT = { has_war_with = GER }
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-		
-			air_experience = 75
-			navy_experience = 75
-			army_experience = 75
-		}
-	}
-
-	focus = {
 		id = ROM_military_trucks
 		icon = GFX_focus_generic_mechanized
 		prerequisite = { focus = ROM_acquire_modern_tanks }
@@ -1849,7 +1876,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = ROM_acquire_modern_tanks
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -1867,9 +1894,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_military_trucks
-				bonus = 1
-				ahead_reduction = 1
-				uses = 1
+				bonus = 2
+				ahead_reduction = 2.0
+				uses = 2
 				category = motorized_equipment
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -1984,7 +2011,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		available = {
@@ -2255,9 +2282,6 @@ focus_tree = {
 				ROM_ind_consumer_goods = -0.15
 				tooltip = consumer_goods_factor_tt
 			}
-			ROM_malaxa_increment = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = malaxa_tt
 		}		
 	}
 
@@ -2290,9 +2314,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_research_slot = 1
-			ROM_malaxa_increment = yes
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = malaxa_tt
 		}
 	}
 
@@ -2403,6 +2424,12 @@ focus_tree = {
 				}
 				set_state_flag = ROM_national_defense_industry_AF2
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ROM_ind_tt
+			add_to_variable = {
+				ROM_ind_factory_output = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
 			ROM_malaxa_increment = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = malaxa_tt
@@ -2493,10 +2520,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = ROM_invest_in_the_iar_AF1
@@ -2551,6 +2578,30 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			if = {
+				limit = { NOT = { has_dlc = "By Blood Alone" } }
+				if = {
+					limit = {
+						has_tech = fighter2
+					}
+					add_tech_bonus = {
+						name = ROM_iar_80
+						bonus = 1.0
+						ahead_reduction = 2
+						uses = 1
+						category = light_fighter
+					}
+					else = {
+						add_tech_bonus = {
+							name = ROM_iar_80
+							bonus = 1.0
+							ahead_reduction = 2
+							uses = 1
+							technology = fighter2
+						}
+					}
+				}
+			}
+			if = {
 				limit = { has_dlc = "By Blood Alone" }
 				if = {
 					limit = {
@@ -2558,7 +2609,8 @@ focus_tree = {
 					}
 					add_tech_bonus = {
 						name = ROM_iar_80
-						bonus = 1.2
+						bonus = 1.0
+						ahead_reduction = 2
 						uses = 1
 						technology = improved_small_airframe
 					}
@@ -2789,7 +2841,7 @@ focus_tree = {
 		y = 1
 
 
-		cost = 7
+		cost = 10
 
 		ai_will_do = {
 			factor = 9
@@ -2837,10 +2889,10 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = ROM_malaxa_IC
@@ -2861,7 +2913,7 @@ focus_tree = {
 		prerequisite = {focus = ROM_malaxa}
 		relative_position_id = ROM_malaxa
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2901,10 +2953,6 @@ focus_tree = {
 				add_resource = {
 					type = steel
 					amount = 24
-				}
-				add_resource = {
-					type = coal
-					amount = 14
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -2998,12 +3046,13 @@ focus_tree = {
 				category = industry
 				bonus = 1.0
 				uses = 1
+				ahead_reduction = 2
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ROM_ind_tt
 			add_to_variable = {
-				ROM_ind_factory_output = 0.05
-				tooltip = industrial_capacity_factory_tt
+				ROM_ind_prod_eff_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			ROM_malaxa_increment = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3022,7 +3071,7 @@ focus_tree = {
 
 		allow_branch = 
 		{
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		cost = 1
@@ -3057,7 +3106,7 @@ focus_tree = {
 		relative_position_id = ROM_flexible_foreign_policy
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		cost = 10
@@ -3390,7 +3439,7 @@ focus_tree = {
 				tooltip = org_loss_when_moving_tt
 			}
 			add_to_variable = {
-				ROM_breakthrough_factor = 0.05
+				ROM_breakthrough_factor = 0.1
 				tooltip = breakthrough_factor_tt
 			}
 
@@ -3606,6 +3655,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = ROM_ind_tt
 			add_to_variable = {
+				ROM_ind_factory_output = 0.1
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
 				ROM_ind_prod_eff_cap = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
@@ -3614,7 +3667,7 @@ focus_tree = {
 				tooltip = production_factory_start_efficiency_factor_tt
 			}
 			add_to_variable = {
-				ROM_ind_prod_eff_retention = 0.05
+				ROM_ind_prod_eff_retention = 0.1
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 			add_to_variable = {
@@ -3623,44 +3676,9 @@ focus_tree = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_to_variable = {
-				ROM_eq_conversion_speed = 0.2
+				ROM_eq_conversion_speed = 0.4
 				tooltip = equipment_conversion_speed_tt
 			}
-		}
-	}
-
-	focus = {
-		id = ROM_license_german_equipment
-		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = ROM_war_industry }
-		x = -2
-		y = 2
-		relative_position_id = ROM_war_industry
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER 
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
-			add_ideas = HUN_license_foreign
 		}
 	}
 
@@ -3696,6 +3714,17 @@ focus_tree = {
 
 		completion_reward = {
 			add_country_leader_trait = GER_supreme_commander_armed_forces
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = ROM_army_tt
+			add_to_variable = {
+				ROM_arm_div_attack = 0.05
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				ROM_arm_div_defense = 0.05
+				tooltip = army_defence_factor_tt
+			}
 
 		}
 	}
@@ -3736,9 +3765,9 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_the_maresal
-				bonus = 1.5
+				bonus = 1.0
+				ahead_reduction = 2
 				uses = 1
-				ahead_reduction = 0.5
 				category = cat_heavy_armor
 				category = cat_medium_armor
 			}
@@ -3966,7 +3995,14 @@ focus_tree = {
 				category = marine_tech
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			navy_experience = 100
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 1
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
 		}
 	}
 
@@ -4370,20 +4406,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						OR = {
-							has_idea = service_by_requirement
-							has_idea = all_adults_serve
-							has_idea = scraping_the_barrel
-							has_idea = extensive_conscription
-						}
-					}
-				}
-				add_ideas = extensive_conscription
-			}
-
+			add_ideas = {extensive_conscription}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ROM_army_tt
 			add_to_variable = {
@@ -4425,17 +4448,15 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			
-				custom_effect_tooltip = ROM_army_tt
-				add_to_variable = {
-					ROM_arty_attack = 0.05
-					tooltip = army_artillery_attack_factor_tt
-				}
-				add_to_variable = {
-					ROM_arty_defense = 0.05
-					tooltip = army_artillery_defence_factor_tt
-				}
-			
+			custom_effect_tooltip = ROM_army_tt
+			add_to_variable = {
+				ROM_arty_attack = 0.05
+				tooltip = army_artillery_attack_factor_tt
+			}
+			add_to_variable = {
+				ROM_arty_defense = 0.1
+				tooltip = army_artillery_defence_factor_tt
+			}
 		}
 	}
 
@@ -4465,7 +4486,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = ROM_army_tt
 			add_to_variable = {
-				ROM_supply_range = 0.1
+				ROM_supply_range = 0.15
 				tooltip = supply_node_range_tt
 			}
 			add_to_variable = {
@@ -4493,9 +4514,12 @@ focus_tree = {
 		
 
 		completion_reward = {
-	
 			add_to_variable = {
-				ROM_flat_eq_ratio = 0.1
+				ROM_equipment_capture_factor = 0.5
+				tooltip = equipment_capture_factor_tt
+			}
+			add_to_variable = {
+				ROM_flat_eq_ratio = 0.2
 				tooltip = equipment_capture_tt
 			}
 		}
@@ -4524,17 +4548,15 @@ focus_tree = {
 				set_technology = { sturmtruppe_battalion_tech = 1 popup = no }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
-
-				custom_effect_tooltip = ROM_army_tt
-				add_to_variable = {
-					ROM_inf_att = 0.05
-					tooltip = army_infantry_attack_factor_tt
-				}
-				add_to_variable = {
-					ROM_inf_def = 0.05
-					tooltip = army_infantry_defence_factor_tt
-				}
-			
+			custom_effect_tooltip = ROM_army_tt
+			add_to_variable = {
+				ROM_inf_att = 0.05
+				tooltip = army_infantry_attack_factor_tt
+			}
+			add_to_variable = {
+				ROM_inf_def = 0.05
+				tooltip = army_infantry_defence_factor_tt
+			}
 		}
 	}
 
@@ -4595,13 +4617,6 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			if = {
-				limit = { 
-					check_variable = { corruption_eco > 7 }
-				}
-				set_variable = { corruption_eco = 8 }
-			}
-
-			if = {
 				limit = {
 					has_full_control_of_state = 78
 					has_full_control_of_state = 76
@@ -4609,8 +4624,6 @@ focus_tree = {
 				}
 				multiply_variable = { corruption_eco = 2 }
 			}
-			
-
 			add_offsite_building = {
 				type = industrial_complex
 				level = var:corruption_eco
@@ -5031,16 +5044,25 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			46 = {
+			random_owned_controlled_state = {
+				prioritize = { 46 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}
 				add_resource = {
 					type = oil
 					amount = 16
 				}
 			}
-			59 = {
-				add_resource = {
-					type = oil
-					amount = 10
+			GER = {
+				random_owned_controlled_state = {
+					limit = {
+						GER = { has_full_control_of_state = PREV }
+					}
+					add_resource = {
+						type = oil
+						amount = 10
+					}
 				}
 			}
 		}
@@ -5150,76 +5172,29 @@ focus_tree = {
 
 
 		completion_reward = {
-
-			if = 
+			192 = 
 			{
-				limit = 
-				{
-					ROM = 
-					{
-						NOT = 
-						{
-							has_full_control_of_state = 76
-							has_full_control_of_state = 83
-							has_full_control_of_state = 84
-							has_full_control_of_state = 82
-						}
-					}
-				}
-
-				192 = 
-				{
-					add_core_of = ROM
-				}
-				834 = 
-				{
-					add_core_of = ROM
-				}
-				198 = 
-				{
-					add_core_of = ROM
-				}
-				199 = 
-				{
-					add_core_of = ROM
-				}
-				hidden_effect = 
-				{
-					192 = { set_state_category = city }
-					834 = { set_state_category = city }
-					198 = { set_state_category = city }
-					199 = { set_state_category = city }
-				}	
+				add_core_of = ROM
 			}
-			else_if = 
+			834 = 
 			{
-				limit = 
-				{
-					ROM = 
-					{
-						NOT = 
-						{
-							has_full_control_of_state = 76
-						}
-					}
-				}
-
-				192 = 
-				{
-					add_core_of = ROM
-				}
-				834 = 
-				{
-					add_core_of = ROM
-				}
-				
-				hidden_effect = 
-				{
-					192 = { set_state_category = city }
-					834 = { set_state_category = city }
-				}
+				add_core_of = ROM
 			}
-
+			198 = 
+			{
+				add_core_of = ROM
+			}
+			199 = 
+			{
+				add_core_of = ROM
+			}
+			hidden_effect = 
+			{
+				192 = { set_state_category = city }
+				834 = { set_state_category = city }
+				198 = { set_state_category = city }
+				199 = { set_state_category = city }
+			}
 		}
 	}
 
@@ -5325,7 +5300,7 @@ focus_tree = {
 		relative_position_id = ROM_flexible_foreign_policy
 
 		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
+			has_war_support > 400
 		}
 
 		cost = 10

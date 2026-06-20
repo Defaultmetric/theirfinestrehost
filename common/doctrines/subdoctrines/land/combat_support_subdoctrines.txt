@@ -59,6 +59,11 @@ fire_concentration = {
         }
         artillery_groups = {
         #3
+
+            category_regimental_support_artillery = {
+                soft_attack = 0.05			   
+                breakthrough = 0.1			   
+		    }
             category_line_artillery = {
                 breakthrough = 0.1
             }
@@ -425,10 +430,6 @@ mobile_recon_and_assault = {
                 air_attack = 0.15
                 soft_attack = 0.05
             }
-            armored_car = {
-                breakthrough = 0.2
-                default_morale = 0.2
-            }
         }
         deep_reconnaissance_focus = {
             category_recon = {
@@ -436,6 +437,12 @@ mobile_recon_and_assault = {
                 hard_attack = 0.05
                 breakthrough = 0.1
             }
+            category_tank_destroyer_regimental_support = {
+                breakthrough = 0.1			
+			}
+			category_self_propelled_anti_air_regimental_support = {
+                breakthrough = 0.1		
+			}
         }
     }
 }
@@ -609,29 +616,29 @@ self_propelled_support = {
             }
         }
         multirole_support_vehicles = {
-            category_self_propelled_artillery = {
+            category_tank_destroyer_regimental_support = {
+                max_organisation = 10
                 hard_attack = 0.05
-            }
-            category_self_propelled_anti_air = {
-                soft_attack = 0.05
-                hard_attack = 0.05
-            }
-            category_tank_destroyers = {
-                soft_attack = 0.05
-            }
+                breakthrough = 0.1				
+			}
+			category_self_propelled_anti_air_regimental_support = {
+                max_organisation = 10
+				air_attack = 0.05
+                breakthrough = 0.1		
+			}
         }
         shoot_and_scoot = {
             category_self_propelled_artillery = {
                 max_organisation = 10
-                default_morale = 0.2
+                default_morale = 0.15
             }
             category_self_propelled_anti_air = {
                 max_organisation = 10
-                default_morale = 0.2
+                default_morale = 0.15
             }
             category_tank_destroyers = {
                 max_organisation = 10
-                default_morale = 0.2
+                default_morale = 0.15
             }
         }
 
@@ -665,11 +672,11 @@ siege_artillery = {
 
     equipment_bonus = {
         railway_gun_equipment = {
-            railway_gun_attack = 0.15
+            railway_gun_attack = 0.1
             instant = yes
         }
         super_heavy_railway_gun_equipment = {
-            railway_gun_attack = 0.15
+            railway_gun_attack = 0.1
             instant = yes
         }
     }
@@ -679,12 +686,12 @@ siege_artillery = {
         fortress_busters = {
             super_heavy_artillery = {
                 fort = {
-                    attack = 0.25
+                    attack = 0.15
                 }
             }
             self_propelled_super_heavy_artillery = {
                 fort = {
-                    attack = 0.25
+                    attack = 0.15
                 }
             }
         }
@@ -705,11 +712,11 @@ siege_artillery = {
 
             equipment_bonus = {
                 railway_gun_equipment = {
-                    railway_gun_hours_between_redistribution = -0.5
+                    railway_gun_hours_between_redistribution = -0.025
                     instant = yes
                 }
                 super_heavy_railway_gun_equipment = {
-                    railway_gun_hours_between_redistribution = -0.5
+                    railway_gun_hours_between_redistribution = -0.025
                     instant = yes
                 }
                 
@@ -733,21 +740,21 @@ siege_artillery = {
             }
             super_heavy_artillery = {
                 urban = {
-                    attack = 0.2
+                    attack = 0.1
                 }
             }
             self_propelled_super_heavy_artillery = {
                 urban = {
-                    attack = 0.2
+                    attack = 0.1
                 }
             }
         }
         mobile_artillery_command = {
             category_support_artillery = {
-                max_organisation = 10
+                max_organisation = 5
             }
             self_propelled_super_heavy_artillery = {
-                max_organisation = 10
+                max_organisation = 5
                 maximum_speed = 0.5
             }
 

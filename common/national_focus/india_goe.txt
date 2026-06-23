@@ -15383,13 +15383,25 @@ focus_tree = {
     focus = {
         id = RAJ_tryst_with_destiny
         icon = {
-            GFX_focus_RAJ_tryst_with_destiny_BAN = {
+            trigger = {
                 tag = BAN
             }
-            GFX_focus_RAJ_tryst_with_destiny_PAK = {
+            value = GFX_focus_RAJ_tryst_with_destiny_BAN
+        }
+        icon = {
+            trigger = {
                 tag = PAK
             }
-            GFX_focus_RAJ_tryst_with_destiny = yes
+            value = GFX_focus_RAJ_tryst_with_destiny_PAK
+        }
+        icon = {
+            trigger = {
+                NOT = {
+                    tag = PAK
+                    tag = BAN
+                }
+            }
+            value = GFX_focus_RAJ_tryst_with_destiny
         } 
         prerequisite = { focus = RAJ_a_secular_state }
         x = 5

@@ -332,14 +332,23 @@ focus_tree = {
 		id = AFG_kajaki_dam
 
 		icon = {
-			GFX_focus_AFG_helmand_river_authority = {
+			trigger = {
 				OR = {
 					has_government = democratic
 					has_government = communism
 				}
 			}
-			GFX_focus_generic_electrification = yes
+			value = GFX_focus_AFG_helmand_river_authority
 		}
+		icon = {
+			trigger = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			value = GFX_focus_generic_electrification
+		} 
 
 		prerequisite = { focus = AFG_qargha_dam }
 		x = 0

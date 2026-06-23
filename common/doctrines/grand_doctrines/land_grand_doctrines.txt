@@ -35,7 +35,7 @@ new_mobile_warfare = {
     milestones = {
         {
             #Infantry
-	        org_loss_when_moving = -0.15
+	        org_loss_when_moving = -0.1
             land_reinforce_rate = 0.02
             enable_tactic = tactic_delay
 
@@ -97,11 +97,7 @@ new_mobile_warfare = {
         }
         {
             #Operations
-	        planning_speed = 0.2
-            category_regimental_support_battalions = {
-                max_organisation = 5
-                breakthrough = 0.1
-            }
+	        planning_speed = 0.1
             enable_tactic = tactic_backhand_blow   
 
             effect = {
@@ -396,11 +392,6 @@ mass_assault = {
             enable_tactic = tactic_human_wave_tactics
             additional_brigade_column_size = 1
             supply_consumption_factor = -0.2
-            category_regimental_support_battalions = {
-                max_organisation = 3
-                supply_consumption = -0.02
-                default_morale = 0.1
-            }
 
             effect = {
                 if = {

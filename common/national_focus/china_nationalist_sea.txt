@@ -7667,7 +7667,7 @@ focus_tree = {
 	focus = {
 		id = CHI_seek_out_western_fascist_cooperation
 		icon = {
-			GFX_focus_chi_mission_to_germany = {
+			trigger = {
 				GER = {
 					has_government = fascism
 					NOT = {
@@ -7679,7 +7679,10 @@ focus_tree = {
 					has_wargoal_against = GER
 				}
 			}
-			GFX_focus_befriend_italy = {
+			value = GFX_focus_chi_mission_to_germany
+		}
+		icon = {
+			trigger = {
 				GER = {
 					OR = {
 						has_war_with = ROOT
@@ -7701,7 +7704,10 @@ focus_tree = {
 					has_wargoal_against = ITA
 				}
 			}
-			GFX_focus_ARG_fascist_researchers = {
+			value = GFX_focus_befriend_italy
+		} 
+		icon = {
+			trigger = {
 				OR = {
 					AND = {
 						GER = {
@@ -7729,7 +7735,7 @@ focus_tree = {
 					}
 				}
 			}
-			GFX_focus_ARG_fascist_researchers = yes
+			value = GFX_focus_ARG_fascist_researchers
 		} 
 
 		prerequisite = { focus = CHI_outlaw_opposition_parties }

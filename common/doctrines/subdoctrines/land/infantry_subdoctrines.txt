@@ -49,9 +49,6 @@ mobile_infantry = {
             category_vehicle_infantry = {
                 max_organisation = 10
             }
-            category_regimental_support_artillery = {
-                soft_attack = 0.05
-            }
         }
         delegated_authority = {
             category_vehicle_infantry = {
@@ -65,9 +62,6 @@ mobile_infantry = {
                 max_organisation = 5
                 maximum_speed = 0.05
             }
-            mot_fire_support = {
-                max_organisation = 5				
-			}
         }
 
     }
@@ -113,10 +107,6 @@ defensive_postures = {
     rewards = {
         improvised_fighting_position = {
             dig_in_speed_factor = 0.05
-            fire_support = {
-                supply_consumption = -0.01	
-                soft_attack = 0.1			
-			}
         }
         elastic_operations = {
             category_all_infantry = {
@@ -133,9 +123,6 @@ defensive_postures = {
             category_all_infantry = {
                 soft_attack = 0.05
             }
-            category_regimental_support_artillery = {
-                soft_attack = 0.1				
-			}
         }
         field_construction_training = {
             dig_in_speed_factor = 0.15
@@ -207,12 +194,6 @@ large_unit_tactics = {
             category_all_infantry = {
                 max_organisation = 10
             }
-            fire_support = {
-                breakthrough = 0.1			
-			}
-            category_regimental_support_artillery = {
-                soft_attack = 0.05			
-			}
             army_morale = 0.1
             
         }
@@ -273,20 +254,17 @@ assault_infantry = {
                     soft_attack = 0.05
                 }
             }
-            field_guns = {
-				soft_attack = 0.2
-            }
         }
         organic_battalion_fire_support = {
         #2
-            category_regimental_support_artillery = {
-                soft_attack = 0.1
+            category_support_artillery = {
+                soft_attack = 0.05
             }
-            anti_tank_battery = {
+            anti_tank = {
                 ap_attack = 0.1
                 hard_attack = 0.1
             }
-            anti_air_battery = {
+            anti_air = {
                 air_attack = 0.1
             }
 
@@ -333,9 +311,6 @@ assault_infantry = {
         #5
             category_support_artillery = {
                 supply_consumption = -0.02
-            }
-            category_regimental_support_artillery = {
-                supply_consumption = -0.01
             }
             light_flame_tank = {
                 battalion_mult = {
@@ -504,11 +479,7 @@ commandos = {
             }
              helicopter_field_hospital = {
                 casualty_trickleback = 0.05
-            } 
-            category_regimental_support_artillery = {
-                supply_consumption = -0.01
-                soft_attack = 0.05
-            }          
+            }           
 
         }
         security_zone_operations = {
@@ -577,15 +548,6 @@ commandos = {
                 soft_attack = 0.05
                 breakthrough = 0.1
             }
-            category_regimental_support_artillery = {
-                breakthrough = 0.1
-            }
-            fire_support = {
-                breakthrough = 0.15
-			}
-			mot_fire_support = {
-                breakthrough = 0.15
-			}
             
 
         }
@@ -808,10 +770,6 @@ great_war_infantry = {
                     entrenchment = 0.05
                 }
             }
-            fire_support = {
-                soft_attack = 0.1		
-                defense = 0.1
-			}
             
         }
         sapping_operations = {
@@ -831,9 +789,6 @@ great_war_infantry = {
                     breakthrough = 0.05
                 }
             }
-            category_regimental_support_artillery = {
-                soft_attack = 0.15				
-			}
         }
         field_fortification_emphasis = {
             category_light_infantry = {

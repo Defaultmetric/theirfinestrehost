@@ -6455,19 +6455,25 @@ initial_show_position = {
 
 		#When editing this, try to keep this somewhat in line with how the if/else block below works
 		icon = {
-			GFX_focus_generic_befriend_nationalist_spain_focus = {
+			trigger = {
 				OR = {
 					country_exists = SPA
 					country_exists = SPC
 				}
 			}
-			GFX_focus_generic_befriend_communist_spain_focus = {
+			value = GFX_focus_generic_befriend_nationalist_spain_focus
+		}
+		icon = {
+			trigger = {
 				country_exists = SPD
 				SPD = {
 					has_government = communism
 				}
 			}
-			GFX_focus_generic_befriend_republican_spain_focus = yes
+			value = GFX_focus_generic_befriend_communist_spain_focus
+		}
+		icon = {
+			value = GFX_focus_generic_befriend_republican_spain_focus
 		}
 		dynamic = yes
 

@@ -1357,13 +1357,20 @@ focus_tree = {
 		id = NOR_a_new_norway
 
 		icon = {
-			GFX_focus_NOR_a_new_norway_SOV_communism = {
+			trigger = {
 				has_country_flag = NOR_going_stalinist
 			}
-			GFX_focus_NOR_a_new_norway_Trotsky_communism = {
+			value = GFX_focus_NOR_a_new_norway_SOV_communism
+		}
+
+		icon = {
+			trigger = {
 				has_country_flag = NOR_trotsky_embraced
 			}
-			GFX_focus_NOR_a_new_norway_communism = yes
+			value = GFX_focus_NOR_a_new_norway_Trotsky_communism
+		}
+		icon = {
+			value = GFX_focus_NOR_a_new_norway_communism 
 		}
 
 		prerequisite = { focus = NOR_worker_armies }

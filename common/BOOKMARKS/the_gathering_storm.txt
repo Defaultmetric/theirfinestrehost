@@ -148,6 +148,7 @@ bookmarks = {
 			history = "JAP_GATHERING_STORM_DESC"
 			available = {  NOT = { has_dlc = "No Compromise, No Surrender" } }
 			ideology = neutrality
+			new_content = yes
 			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
 				JAP_1936_fake_state_shintoism_idea
@@ -165,6 +166,7 @@ bookmarks = {
 			history = "JAP_GATHERING_STORM_DESC"
 			available = {  has_dlc = "No Compromise, No Surrender" }
 			ideology = neutrality
+			new_content = yes
 			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
 				JAP_1936_fake_state_shintoism_idea
@@ -323,21 +325,19 @@ bookmarks = {
 		}
 	
 
-		"SIA"={
+		"MAN"={
 			minor = yes
-			history = "SIA_GATHERING_STORM_DESC"
-			ideology = neutrality
-			required_dlc  = { "Thunder at Our Gates" }
-			version = thunder_at_our_gates
-			assume_not_played_if_missing_data = yes
+			history = "MAN_GATHERING_STORM_DESC"
+			ideology = fascism
 			ideas = {
-				idea_SIA_military_neutral
-				idea_SIA_civilian_neutral
+				MAN_banditry
+				MAN_kwantung_veto
+				MAN_low_legitimacy_5
 			}
 			focuses = {
-				SIA_the_khana_ratsadon
-				SIA_shuffle_pridi_to_the_minister_of_interior
-				SIA_for_the_preservation_of_siamese_independence
+				MAN_obedience
+				MAN_independence_war
+				MAN_claim_the_mandate_of_heaven
 			}
 		}
 		

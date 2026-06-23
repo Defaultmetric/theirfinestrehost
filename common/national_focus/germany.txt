@@ -16965,56 +16965,79 @@ focus_tree = {
 		alternate_icon = GFX_focus_GER_support_the_fuhrer_historical
 
 		icon = {
-			GFX_focus_GER_fuhrerprinzip_todt = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_fritz_todt
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_speer = {
+			value = GFX_focus_GER_fuhrerprinzip_todt
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_albert_speer
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_goring = {
+			value = GFX_focus_GER_fuhrerprinzip_speer
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_hermann_goring
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_himmler = {
+			value = GFX_focus_GER_fuhrerprinzip_goring
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_heinrich_himmler
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_goebbels = {
+			value = GFX_focus_GER_fuhrerprinzip_himmler
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_joseph_goebbels
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_hess = {
+			value = GFX_focus_GER_fuhrerprinzip_goebbels
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_rudolf_hess
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_bormann = {
+			value = GFX_focus_GER_fuhrerprinzip_hess
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_martin_bormann
 				}
 			}
-			GFX_focus_GER_fuhrerprinzip_braun = {
+			value = GFX_focus_GER_fuhrerprinzip_bormann
+		}
+		icon = {
+			trigger = {
 				has_country_leader = {
 					ruling_only = yes
 					character = GER_eva_braun
 				}
 			}
-			GFX_focus_GER_support_the_fuhrer = yes
+			value = GFX_focus_GER_fuhrerprinzip_braun
 		}
+		icon = GFX_focus_GER_support_the_fuhrer
+
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
 		x = -17
 		y = 7
@@ -28176,11 +28199,19 @@ focus_tree = {
 		id = GER_german_hegemony_in_the_middle_east
 
 		icon = {
-			GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic = {
+			trigger = {
 				has_government = democratic
 			}
-			GFX_focus_GER_german_hegemony_in_the_middle_east_neutrality = yes
+			value = GFX_focus_GER_german_hegemony_in_the_middle_east_demcoratic
 		}
+		icon = {
+			trigger = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			value = GFX_focus_GER_german_hegemony_in_the_middle_east_neutrality
+		} 
 
 		prerequisite = { focus = GER_conquer_italy focus = GER_european_confederation focus = GER_align_italy focus = GER_prepare_italian_coup_ww }
 		mutually_exclusive = { focus = GER_bring_turkey_into_the_fold }
@@ -28287,11 +28318,19 @@ focus_tree = {
 		mutually_exclusive = { focus = GER_german_hegemony_in_the_middle_east }
 
 		icon = {
-			GFX_focus_TUR_pivot_to_the_past = {
+			trigger = {
 				has_government = neutrality
 			}
-			GFX_focus_generic_befriend_turkey = yes
+			value = GFX_focus_TUR_pivot_to_the_past
 		}
+		icon = {
+			trigger = {
+				NOT = {
+					has_government = neutrality
+				}
+			}
+			value = GFX_focus_generic_befriend_turkey
+		} 
 
 		x = 1
 		y = 1 

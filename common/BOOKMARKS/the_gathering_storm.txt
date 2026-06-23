@@ -323,19 +323,21 @@ bookmarks = {
 		}
 	
 
-		"MAN"={
+		"SIA"={
 			minor = yes
-			history = "MAN_GATHERING_STORM_DESC"
-			ideology = fascism
+			history = "SIA_GATHERING_STORM_DESC"
+			ideology = neutrality
+			required_dlc  = { "Thunder at Our Gates" }
+			version = thunder_at_our_gates
+			assume_not_played_if_missing_data = yes
 			ideas = {
-				MAN_banditry
-				MAN_kwantung_veto
-				MAN_low_legitimacy_5
+				idea_SIA_military_neutral
+				idea_SIA_civilian_neutral
 			}
 			focuses = {
-				MAN_obedience
-				MAN_independence_war
-				MAN_claim_the_mandate_of_heaven
+				SIA_the_khana_ratsadon
+				SIA_shuffle_pridi_to_the_minister_of_interior
+				SIA_for_the_preservation_of_siamese_independence
 			}
 		}
 		

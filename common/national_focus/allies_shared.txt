@@ -12,51 +12,51 @@ shared_focus = {
 	#ENG
 	offset = 
 	{
-		x = 68
+		x = 62
 		trigger = {has_focus_tree = british_focus}
 	}
 	#CAN
 	offset = 
 	{
-		x = 64
+		x = 58
 		trigger = {has_focus_tree = canadian_focus}
 	}
 	#BRA
 	offset = 
 	{
-		x = 80
+		x = 74
 		trigger = {has_focus_tree = brazil_tree}
 	}
 	#SAF
 	offset = 
 	{
-		x = 58
+		x = 52
 		trigger = {has_focus_tree = south_african_focus}
 	}
 
 	#AST
 	offset = 
 	{
-		x = 64
-		trigger = {has_focus_tree = australian_focus}
+		x = 98
+		trigger = {has_focus_tree = australia_taog_focus}
 	}
 	#RAJ
 	offset = 
 	{
-		x = 15
+		x = 9
 		y = 8
 		trigger = {has_focus_tree = indian_focus_goe}
 	}
 	#FRA
 	offset = 
 	{
-		x = 75
+		x = 69
 		trigger = {has_focus_tree = french_focus}
 	}
 	#FFRA
 	offset = 
 	{
-		x = 60
+		x = 54
 		trigger = {has_focus_tree = free_french_focus}
 	}
 
@@ -104,7 +104,7 @@ joint_focus = {
 	icon = GFX_focus_generic_improve_the_administration
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -7
+	x = 0
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -147,9 +147,9 @@ joint_focus = {
 	id = allies_civ_eco_boost
 	icon = GFX_focus_generic_modernize_industry
 	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_infra focus = allies_lower_power_usage_policy}
+	mutually_exclusive = {focus = allies_mining_expertise focus = allies_mil_eco_boost}
 
-	x = 0
+	x = -2
 	y = 1
 	relative_position_id = allies_political_cooperation
 	cost = 5
@@ -188,52 +188,15 @@ joint_focus = {
 
 }
 
-joint_focus = {
-	id = allies_lower_power_usage_policy
-	icon = GFX_focus_ARG_develop_the_electricity_sector
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = {focus = allies_infra focus = allies_civ_eco_boost }
-
-	x = 2
-	y = 1
-	relative_position_id = allies_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-			if = {
-				limit = { has_country_flag = accessible_shared_tree }
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = allies_shared_tt
-					add_to_variable = { 
-						allies_energy_consumption = -0.15
-						tooltip = factory_energy_consumption_tt
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = faction_warning_tt
-		}
-}
-
 
 joint_focus = {
 	id = allies_mining_expertise
 	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = allies_infra focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
-	mutually_exclusive = {focus = allies_mil_eco_boost}
+	prerequisite = { focus = allies_political_cooperation }
+	mutually_exclusive = {focus = allies_mil_eco_boost focus = allies_civ_eco_boost}
 
-	x = 1
-	y = 2
+	x = 0
+	y = 1
 	relative_position_id = allies_political_cooperation
 	cost = 5
 
@@ -266,11 +229,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = allies_infra focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
-	mutually_exclusive = {focus = allies_mining_expertise }
+	prerequisite = { focus = allies_political_cooperation }
+	mutually_exclusive = {focus = allies_mining_expertise focus = allies_civ_eco_boost }
 
-	x = -1
-	y = 2
+	x = 2
+	y = 1
 	relative_position_id = allies_political_cooperation
 	cost = 5
 
@@ -309,50 +272,6 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = allies_infra
-	icon = GFX_focus_generic_road_investment
-	prerequisite = { focus = allies_political_cooperation }
-	mutually_exclusive = { focus = allies_civ_eco_boost focus = allies_lower_power_usage_policy }
-
-	x = -2
-	y = 1
-	relative_position_id = allies_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-			has_country_flag = accessible_shared_tree
-}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = ENG
-                tag = CAN
-                tag = SAF
-                tag = BRA
-                tag = FRA
-                tag = AST
-				tag = RAJ
-            }
-        }
-		custom_effect_tooltip = generic_skip_one_line_tt
-        add_timed_idea = { 
-            idea = infra_boost
-            days = 365 
-        }
-    }
-}
-
-}
-
-joint_focus = {
 	id = allies_blitzkrieg_economy
 	icon = GFX_focus_generic_annex_country_2
 	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise}
@@ -372,6 +291,11 @@ joint_focus = {
 			has_completed_focus = GER_anschluss
 		}
 		date < 1938.1.1
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -667,13 +591,13 @@ joint_focus = {
 joint_focus = {
 	id = allies_adaptive_economy
 	icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise}
-	mutually_exclusive = {focus = allies_blitzkrieg_economy focus = allies_the_waiting_game}
+	prerequisite = { focus = allies_mil_eco_boost focus = allies_mining_expertise focus = allies_civ_eco_boost}
+	mutually_exclusive = {focus = allies_blitzkrieg_economy focus = allies_the_waiting_game }
 
-	x = 1
-	y = 1
-	relative_position_id = allies_mil_eco_boost
-	cost = 0
+	x = 0
+	y = 2
+	relative_position_id = allies_mining_expertise
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -693,7 +617,11 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	        custom_effect_tooltip = adaptive_eco_tt
+				custom_effect_tooltip = allies_shared_tt
+	       		add_to_variable = { 
+	        		allies_conversion = -0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
 
 		    }
 	}
@@ -701,11 +629,11 @@ joint_focus = {
 
 joint_focus = {
 	id = allies_adaptive_1
-	icon = GFX_focus_generic_rubber
+	icon = GFX_focus_CHI_planned_economy
 	prerequisite = { focus = allies_adaptive_economy}
 	mutually_exclusive = {focus = allies_adaptive_2 focus = allies_adaptive_3}
 
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = allies_adaptive_economy
 	cost = 5
@@ -725,25 +653,29 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	            modify_building_resources = {
-	            	   	building = synthetic_refinery
-	            	   	resource = rubber
-	            	  	amount = 1
-	            	}
+	            add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+				custom_effect_tooltip = allies_shared_tt
+
+				add_to_variable = { 
+					allies_civ_conc = 0.15
+					tooltip = production_speed_industrial_complex_factor_tt 
+				}
 		    }
-		custom_effect_tooltip = generic_skip_one_line_tt
-		set_global_flag = allies_high_value
-		custom_effect_tooltip = high_value_tt
 	}
 }
 
 joint_focus = {
 	id = allies_adaptive_2
-	icon = GFX_focus_generic_reorient_production
+	icon = GFX_focus_generic_full_employment
 	prerequisite = { focus = allies_adaptive_economy}
 	mutually_exclusive = {focus = allies_adaptive_1 focus = allies_adaptive_3}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = allies_adaptive_economy
 	cost = 5
@@ -765,15 +697,11 @@ joint_focus = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = allies_shared_tt
+	            add_to_variable = { 
+	    			allies_construction_speed = 0.1
+	    			tooltip = production_speed_buildings_factor_tt 
+	    		}
 
-	    	add_to_variable = { 
-	    		allies_growth_gain = 0.035
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
-	    	}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = allies_medium_value
-		    custom_effect_tooltip = medium_value_tt
 		}
 	}
 }
@@ -795,6 +723,11 @@ joint_focus = {
 		
 			has_country_flag = accessible_shared_tree
 }
+
+	allow_branch = 
+	{
+		always = no
+	}
 
 	available_if_capitulated = yes
 
@@ -836,6 +769,11 @@ joint_focus = {
 		{
 			has_completed_focus = GER_anschluss
 		}
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -1104,8 +1042,8 @@ joint_focus = {
 	icon = GFX_focus_SWI_issue_war_bonds
 	prerequisite = { focus = allies_blitzkrieg_phase1 focus = allies_adaptive_1 focus = allies_adaptive_2 focus = allies_adaptive_3 focus = allies_the_waiting_game_phase1}
 
-	x = 0
-	y = 1
+	x = -1
+	y = 2
 	relative_position_id = allies_adaptive_2
 	cost = 5
 
@@ -1150,14 +1088,11 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
+
+				custom_effect_tooltip = allies_shared_tt
 				add_to_variable = { 
 	        		allies_base = 0.05
 	        		tooltip = production_factory_start_efficiency_factor_tt 
-	    		}
-
-	            add_to_variable = { 
-	        		allies_conversion = -0.25
-	        		tooltip = conversion_cost_civ_to_mil_factor_tt
 	    		}
 
 
@@ -1171,7 +1106,7 @@ joint_focus = {
 	prerequisite = { focus = allies_war_economy}
 	mutually_exclusive = {focus = allies_adaptive_2_phase2 focus = allies_adaptive_3_phase2}
 
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = allies_war_economy
 	cost = 5
@@ -1199,31 +1134,30 @@ joint_focus = {
 			custom_effect_tooltip = allies_shared_tt
 
 	        add_to_variable = { 
-	        	allies_mill_output = 0.05
-	        	tooltip = industrial_capacity_factory_tt 
+				allies_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt 
+			}
+
+			add_to_variable = { 
+	        		allies_base = -0.05
+	        		tooltip = production_factory_start_efficiency_factor_tt 
 	    	}
 
-	    	add_to_variable = { 
-	    		allies_dockyard_output  = 0.05
-	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
-
+			add_to_variable = { 
+				allies_growth_gain = -0.1
+				tooltip = production_factory_efficiency_gain_factor_tt 
+			}
 		    }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = allies_high_value_2
-			custom_effect_tooltip = high_value_tt
-			mark_focus_tree_layout_dirty = yes
 	}
 }
 
 joint_focus = {
 	id = allies_adaptive_2_phase2
-	icon = GFX_focus_GER_customs_union
+	icon = GFX_focus_generic_economic_recovery
 	prerequisite = { focus = allies_war_economy}
 	mutually_exclusive = {focus = allies_adaptive_1_phase2 focus = allies_adaptive_3_phase2}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = allies_war_economy
 	cost = 5
@@ -1251,20 +1185,10 @@ joint_focus = {
 			custom_effect_tooltip = allies_shared_tt
 
 				add_to_variable = { 
-					allies_consumer = -0.05
-					tooltip = consumer_goods_factor_tt
-	    		}
-
-				add_to_variable = { 
-	    			allies_resources_factor = 0.05
-	    			tooltip = local_resources_factor_tt 
-	    		}
+					allies_growth_gain = 0.15
+					tooltip = production_factory_efficiency_gain_factor_tt 
+				}
 		    }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = allies_medium_value_2
-			custom_effect_tooltip = medium_value_tt
-			mark_focus_tree_layout_dirty = yes	
 	}
 }
 
@@ -1288,6 +1212,11 @@ joint_focus = {
 				has_global_flag = allies_the_waiting_game
 				has_global_flag = allies_blitzkrieg_eco
 		}
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -1327,15 +1256,7 @@ joint_focus = {
 
 	allow_branch = 
 	{
-		NOT = 
-		{
-			OR = 
-			{	
-				has_global_flag = allies_low_value_2
-				has_global_flag = allies_medium_value_2
-				has_global_flag = allies_high_value_2
-			}
-		}
+		always = no
 	}
 
 	available = {
@@ -1620,7 +1541,7 @@ joint_focus = {
 	icon = GFX_focus_NORDIC_dem_form_alliance
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = 7
+	x = 15
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -2763,7 +2684,7 @@ joint_focus = {
 	icon = GFX_focus_BRA_pact_of_silence_allies
 	prerequisite = { focus = allies_joint_alliance }
 
-	x = -20
+	x = -15
 	y = 1
 	relative_position_id = allies_joint_alliance
 	cost = 5
@@ -2797,8 +2718,8 @@ joint_focus = {
 	icon = GFX_goal_generic_allies_build_infantry	
 	prerequisite = { focus = allies_high_command}
 
-	x = 0
-	y = 1
+	x = -2
+	y = 2
 	relative_position_id = allies_high_command
 	cost = 5
 
@@ -2807,6 +2728,7 @@ joint_focus = {
 	available = {
 		
 			has_country_flag = accessible_shared_tree
+		date > 1939.1.1
 }
 
 	available_if_capitulated = yes
@@ -3476,11 +3398,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_war_readiness_program
 	icon = GFX_focus_generic_mass_production	
-	prerequisite = { focus = allies_joint_alliance}
+	prerequisite = { focus = allies_adaptive_economy}
+	prerequisite = {focus = allies_high_command}
 
-	x = -27
-	y = 6
-	relative_position_id = allies_joint_alliance
+	x = -6
+	y = 3
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -3489,6 +3411,8 @@ joint_focus = {
 		
 			has_country_flag = accessible_shared_tree
 }
+
+	relative_position_id = allies_adaptive_economy
 
 	available_if_capitulated = yes
 
@@ -3512,7 +3436,7 @@ joint_focus = {
 	prerequisite = { focus = allies_war_readiness_program }
 
 	x = 0
-	y = 1
+	y = 2
 	relative_position_id = allies_war_readiness_program
 	cost = 5
 
@@ -3531,9 +3455,9 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	    		army_experience = 75
-	    		air_experience = 75
-	    		navy_experience = 75
+	    		army_experience = 100
+	    		air_experience = 100
+	    		navy_experience = 100
 	    		
 		    }
 	}
@@ -3542,9 +3466,9 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	    		army_experience = 35
-	    		air_experience = 35
-	    		navy_experience = 35
+	    		army_experience = 50
+	    		air_experience = 50
+	    		navy_experience = 50
 		    }
 	}
 }
@@ -3554,7 +3478,7 @@ joint_focus = {
 	icon = GFX_focus_generic_africa_infrastructure
 	prerequisite = { focus = allies_war_readiness_program }
 
-	x = 3
+	x = 2
 	y = 1
 	relative_position_id = allies_war_readiness_program
 	cost = 5
@@ -3595,6 +3519,12 @@ joint_focus = {
 	    		}
 
 
+	    	
+	    		add_to_variable = { 
+	    			allies_supply_node_speed = 0.15
+	    			tooltip = production_speed_supply_node_factor_tt 
+	    		}
+
 		    }
 	}
 }
@@ -3615,6 +3545,11 @@ joint_focus = {
 		
 			has_country_flag = accessible_shared_tree
 }
+
+	allow_branch = 
+	{
+		always = no
+	}
 
 	available_if_capitulated = yes
 
@@ -3655,6 +3590,11 @@ joint_focus = {
 		
 			has_country_flag = accessible_shared_tree
 }
+
+	allow_branch = 
+	{
+		always = no
+	}
 
 	available_if_capitulated = yes
 
@@ -3710,7 +3650,7 @@ joint_focus = {
 	icon = GFX_goal_tfv_saf_secure_interests_in_africa
 	prerequisite = { focus = allies_stockpile_fuel }
 
-	x = 1
+	x = 0
 	y = 1
 	relative_position_id = allies_stockpile_fuel
 	cost = 5
@@ -3756,6 +3696,8 @@ joint_focus = {
 			has_country_flag = accessible_shared_tree
 }
 
+	allow_branch = {always = no}
+
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -3786,12 +3728,12 @@ joint_focus = {
 joint_focus = {
 	id = allies_dday_force_attack
 	icon = GFX_focus_ITA_corpo_volontari_della_liberta
-	prerequisite = { focus = allies_barbarossa_defense focus = allies_afrika_korps}
+	prerequisite = {focus = allies_afrika_korps}
 
 	x = 1
-	y = 1
+	y = 2
 	relative_position_id = allies_barbarossa_defense
-	cost = 1
+	cost = 0
 
 	text_icon = NORDIC_focus_style
 
@@ -3823,13 +3765,12 @@ joint_focus = {
 	id = allies_homeland_airbases
 	icon = GFX_focus_generic_air_bases
 
-	prerequisite = { focus = allies_stockpile_fuel }
 	prerequisite = { focus = allies_war_infrastructure }
 
 
-	x = 3
-	y = 2
-	relative_position_id = allies_stockpile_fuel
+	x = 1
+	y = 1
+	relative_position_id = allies_war_infrastructure
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -3893,11 +3834,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_rnd_department
 	icon = GFX_focus_NORDIC_dem_capstone_research
-	prerequisite = { focus = allies_joint_alliance }
+	prerequisite = { focus = allies_adaptive_economy}
+	prerequisite = { focus = allies_allied_researchers}
 
-	x = 23
-	y = 4
-	relative_position_id = allies_joint_alliance
+	x = 6
+	y = 3
 	cost = 3
 
 	text_icon = NORDIC_focus_style
@@ -3906,6 +3847,8 @@ joint_focus = {
 		
 			has_country_flag = accessible_shared_tree
 }
+
+	relative_position_id = allies_adaptive_economy
 
 	available_if_capitulated = yes
 
@@ -3928,7 +3871,7 @@ joint_focus = {
 	icon = GFX_focus_GER_support_the_proletarian_uprising
 	prerequisite = { focus = allies_rnd_department }
 
-	x = 5
+	x = 0
 	y = 1
 	relative_position_id = allies_rnd_department
 	cost = 5
@@ -4309,6 +4252,8 @@ joint_focus = {
 	available = {
 			has_country_flag = accessible_shared_tree
 }
+
+	allow_branch = {always = no}
 
 	available_if_capitulated = yes
 
@@ -4757,7 +4702,6 @@ joint_focus = {
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_tank_design_improvements focus = allies_continue_the_land_research}
 
 	available = {
 		
@@ -4943,11 +4887,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_tank_design_improvements
 	icon = GFX_focus_PER_czech_tanks
-	prerequisite = { focus = allies_land_warfare_facility }
+	prerequisite = { focus = allies_rnd_department }
 
-	x = -2
+	x = 2
 	y = 1
-	relative_position_id = allies_land_warfare_facility
+	relative_position_id = allies_rnd_department
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -4959,7 +4903,6 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = allies_land_warfare_facility_two focus = allies_continue_the_land_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -4981,16 +4924,16 @@ joint_focus = {
 joint_focus = {
 	id = allies_continue_the_land_research
 	icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
-	prerequisite = { focus = allies_land_warfare_facility}
+	prerequisite = { focus = allies_joint_military_exercices}
 
-	x = 2
+	x = 0
 	y = 1
-	relative_position_id = allies_land_warfare_facility
+	relative_position_id = allies_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_tank_design_improvements focus = allies_land_warfare_facility_two}
+	mutually_exclusive = {focus = allies_continue_the_air_research focus = allies_continue_the_navy_research}
 
 	available = {
 		
@@ -5350,11 +5293,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_fighter_design_improvements
 	icon = GFX_goal_generic_air_fighter2
-	prerequisite = { focus = allies_air_warfare_facility }
+	prerequisite = { focus = allies_rnd_department }
 
-	x = -1
+	x = -2
 	y = 1
-	relative_position_id = allies_air_warfare_facility
+	relative_position_id = allies_rnd_department
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -5366,7 +5309,6 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = allies_continue_the_air_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -5387,11 +5329,11 @@ joint_focus = {
 joint_focus = {
 	id = allies_continue_the_air_research
 	icon = GFX_focus_generic_university_2
-	prerequisite = { focus = allies_air_warfare_facility}
+	prerequisite = { focus = allies_joint_military_exercices}
 
-	x = 1
+	x = -2
 	y = 1
-	relative_position_id = allies_air_warfare_facility
+	relative_position_id = allies_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -5403,7 +5345,7 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = allies_fighter_design_improvements}
+	mutually_exclusive = {focus = allies_continue_the_land_research focus = allies_continue_the_navy_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -5721,16 +5663,16 @@ joint_focus = {
 joint_focus = {
 	id = allies_continue_the_navy_research
 	icon = GFX_focus_generic_navy_research_bonus
-	prerequisite = { focus = allies_naval_warfare_facility}
+	prerequisite = { focus = allies_joint_military_exercices}
 
-	x = 1
+	x = 2
 	y = 1
-	relative_position_id = allies_naval_warfare_facility
+	relative_position_id = allies_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_naval_expertise}
+	mutually_exclusive = {focus = allies_continue_the_air_research focus = allies_continue_the_land_research}
 
 	available = {
 		
@@ -5765,7 +5707,6 @@ joint_focus = {
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = allies_continue_the_navy_research}
 
 	available = {
 		
@@ -5784,11 +5725,3 @@ joint_focus = {
 		    }
 	}
 }
-
-
-
-
-
-
-
-

@@ -12,37 +12,37 @@ shared_focus = {
 	#GER
 	offset = 
 	{
-		x = 88
+		x = 80
 		trigger = {has_focus_tree = german_focus}
 	}
 	#ITA
 	offset = 
 	{
-		x = 70
+		x = 62
 		trigger = {has_focus_tree = italian_focus}
 	}
 	#BUL
 	offset = 
 	{
-		x = 43
+		x = 35
 		trigger = {has_focus_tree = bulgarian_focus}
 	}
 	#ROM
 	offset = 
 	{
-		x = 22
+		x = 14
 		trigger = {has_focus_tree = romanian_focus}
 	}
 	#HUN
 	offset = 
 	{
-		x = 42
+		x = 34
 		trigger = {has_focus_tree = wuw_hungarian_focus}
 	}
 	#SPR
 	offset = 
 	{
-		x = 26
+		x = 18
 		trigger = {has_focus_tree = spanish_focus}
 	}
 
@@ -94,7 +94,7 @@ joint_focus = {
 	icon = GFX_focus_generic_improve_the_administration
 	prerequisite = { focus = AXIS_joint_alliance }
 
-	x = -5
+	x = 0
 	y = 1
 	relative_position_id = AXIS_joint_alliance
 	cost = 5
@@ -137,9 +137,9 @@ joint_focus = {
 	id = AXIS_civ_eco_boost
 	icon = GFX_focus_generic_modernize_industry
 	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = {focus = AXIS_infra focus = AXIS_lower_power_usage_policy}
+	mutually_exclusive = {focus = AXIS_mining_expertise focus = AXIS_mil_eco_boost}
 
-	x = 0
+	x = -2
 	y = 1
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
@@ -178,51 +178,13 @@ joint_focus = {
 }
 
 joint_focus = {
-	id = AXIS_lower_power_usage_policy
-	icon = GFX_focus_ARG_develop_the_electricity_sector
-	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = {focus = AXIS_infra focus = AXIS_civ_eco_boost }
-
-	x = 2
-	y = 1
-	relative_position_id = AXIS_political_cooperation
-	cost = 5
-
-	text_icon = NORDIC_focus_style
-
-	available = {
-		has_country_flag = accessible_shared_tree
-		
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward = {
-			if = {
-				limit = { has_country_flag = accessible_shared_tree }
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = axis_shared_tt
-					add_to_variable = { 
-						axis_energy_consumption = -0.15
-						tooltip = factory_energy_consumption_tt
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = faction_warning_tt
-		}
-}
-
-
-joint_focus = {
 	id = AXIS_mining_expertise
 	icon = GFX_focus_generic_mining_industry
-	prerequisite = { focus = AXIS_infra focus = AXIS_civ_eco_boost focus = AXIS_lower_power_usage_policy }
-	mutually_exclusive = {focus = AXIS_mil_eco_boost}
+	prerequisite = { focus = AXIS_political_cooperation }
+	mutually_exclusive = {focus = AXIS_mil_eco_boost focus = AXIS_civ_eco_boost}
 
-	x = 1
-	y = 2
+	x = 0
+	y = 1
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
 
@@ -255,11 +217,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_mil_eco_boost
 	icon = GFX_focus_generic_military_industry
-	prerequisite = { focus = AXIS_infra focus = AXIS_civ_eco_boost focus = AXIS_lower_power_usage_policy }
-	mutually_exclusive = {focus = AXIS_mining_expertise }
+	prerequisite = { focus = AXIS_political_cooperation }
+	mutually_exclusive = {focus = AXIS_mining_expertise focus = AXIS_civ_eco_boost }
 
-	x = -1
-	y = 2
+	x = 2
+	y = 1
 	relative_position_id = AXIS_political_cooperation
 	cost = 5
 
@@ -296,48 +258,8 @@ joint_focus = {
 
 }
 
-joint_focus = {
-	id = AXIS_infra
-	icon = GFX_focus_generic_road_investment
-	prerequisite = { focus = AXIS_political_cooperation }
-	mutually_exclusive = { focus = AXIS_civ_eco_boost focus = AXIS_lower_power_usage_policy }
 
-	x = -2
-	y = 1
-	relative_position_id = AXIS_political_cooperation
-	cost = 5
 
-	text_icon = NORDIC_focus_style
-
-	available = {
-		has_country_flag = accessible_shared_tree
-	}
-
-	available_if_capitulated = yes
-
-	search_filters = { FOCUS_FILTER_POLITICAL }
-
-	completion_reward_joint_originator = {
-    every_country = {
-        limit = {
-            OR = {
-                tag = GER
-                tag = ITA
-                tag = ROM
-                tag = SPR
-                tag = HUN
-                tag = BUL
-            }
-        }
-		custom_effect_tooltip = generic_skip_one_line_tt
-        add_timed_idea = { 
-            idea = infra_boost
-            days = 365 
-        }
-    }
-}
-
-}
 
 joint_focus = {
 	id = AXIS_blitzkrieg_economy
@@ -359,6 +281,11 @@ joint_focus = {
 			has_completed_focus = GER_anschluss
 		}
 		date < 1938.1.1
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -654,13 +581,13 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_adaptive_economy
 	icon = GFX_SOV_planned_economy_ccp_2d_sov_compatibility
-	prerequisite = { focus = AXIS_mil_eco_boost focus = AXIS_mining_expertise}
-	mutually_exclusive = {focus = AXIS_blitzkrieg_economy focus = AXIS_the_waiting_game}
+	prerequisite = { focus = AXIS_mil_eco_boost focus = AXIS_mining_expertise focus = AXIS_civ_eco_boost}
+	mutually_exclusive = {focus = AXIS_blitzkrieg_economy focus = AXIS_the_waiting_game }
 
-	x = 1
-	y = 1
-	relative_position_id = AXIS_mil_eco_boost
-	cost = 0
+	x = 0
+	y = 2
+	relative_position_id = AXIS_mining_expertise
+	cost = 2
 
 	text_icon = NORDIC_focus_style
 
@@ -680,7 +607,11 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	        custom_effect_tooltip = adaptive_eco_tt
+				custom_effect_tooltip = axis_shared_tt
+	       		add_to_variable = { 
+	        		axis_conversion = -0.25
+	        		tooltip = conversion_cost_civ_to_mil_factor_tt
+	    		}
 
 		    }
 	}
@@ -692,7 +623,7 @@ joint_focus = {
 	prerequisite = { focus = AXIS_adaptive_economy}
 	mutually_exclusive = {focus = AXIS_adaptive_2 focus = AXIS_adaptive_3}
 
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = AXIS_adaptive_economy
 	cost = 5
@@ -718,19 +649,16 @@ joint_focus = {
 	            	  	amount = 1
 	            	}
 		    }
-		custom_effect_tooltip = generic_skip_one_line_tt
-		set_global_flag = axis_high_value
-		custom_effect_tooltip = high_value_tt
 	}
 }
 
 joint_focus = {
 	id = AXIS_adaptive_2
-	icon = GFX_focus_generic_reorient_production
+	icon = GFX_focus_generic_full_employment
 	prerequisite = { focus = AXIS_adaptive_economy}
 	mutually_exclusive = {focus = AXIS_adaptive_1 focus = AXIS_adaptive_3}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = AXIS_adaptive_economy
 	cost = 5
@@ -752,15 +680,11 @@ joint_focus = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = axis_shared_tt
-
-	    	add_to_variable = { 
-	    		axis_growth_gain = 0.035
-	    		tooltip = production_factory_efficiency_gain_factor_tt 
+	            add_to_variable = { 
+	    			axis_construction_speed = 0.1
+	    			tooltip = production_speed_buildings_factor_tt 
 	    	}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = axis_medium_value
-		    custom_effect_tooltip = medium_value_tt
 		}
 	}
 }
@@ -781,6 +705,11 @@ joint_focus = {
 	available = {
 		has_country_flag = accessible_shared_tree
 		
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -823,6 +752,11 @@ joint_focus = {
 		{
 			has_completed_focus = GER_anschluss
 		}
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -1091,8 +1025,8 @@ joint_focus = {
 	icon = GFX_focus_SWI_issue_war_bonds
 	prerequisite = { focus = AXIS_blitzkrieg_phase1 focus = AXIS_adaptive_1 focus = AXIS_adaptive_2 focus = AXIS_adaptive_3 focus = AXIS_the_waiting_game_phase1}
 
-	x = 0
-	y = 1
+	x = -1
+	y = 2
 	relative_position_id = AXIS_adaptive_2
 	cost = 5
 
@@ -1137,14 +1071,11 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
+
+				custom_effect_tooltip = axis_shared_tt
 				add_to_variable = { 
 	        		axis_base = 0.05
 	        		tooltip = production_factory_start_efficiency_factor_tt 
-	    		}
-
-	            add_to_variable = { 
-	        		axis_conversion = -0.25
-	        		tooltip = conversion_cost_civ_to_mil_factor_tt
 	    		}
 
 
@@ -1158,7 +1089,7 @@ joint_focus = {
 	prerequisite = { focus = AXIS_war_economy}
 	mutually_exclusive = {focus = AXIS_adaptive_2_phase2 focus = AXIS_adaptive_3_phase2}
 
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = AXIS_war_economy
 	cost = 5
@@ -1185,32 +1116,32 @@ joint_focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = axis_shared_tt
 
-	        add_to_variable = { 
-	        	axis_mill_output = 0.05
-	        	tooltip = industrial_capacity_factory_tt 
-	    	}
+	       add_to_variable = { 
+				axis_cap = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt 
+			}
 
-	    	add_to_variable = { 
-	    		axis_dockyard_output  = 0.05
-	    		tooltip = industrial_capacity_dockyard_tt 
-	    	}
+			add_to_variable = { 
+				axis_base = -0.05
+				tooltip = production_factory_start_efficiency_factor_tt 
+			}
+
+			add_to_variable = { 
+				axis_growth_gain = -0.1
+				tooltip = production_factory_efficiency_gain_factor_tt 
+			}
 
 		    }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = axis_high_value_2
-			custom_effect_tooltip = high_value_tt
-			mark_focus_tree_layout_dirty = yes
 	}
 }
 
 joint_focus = {
 	id = AXIS_adaptive_2_phase2
-	icon = GFX_focus_GER_customs_union
+	icon = GFX_focus_generic_economic_recovery
 	prerequisite = { focus = AXIS_war_economy}
 	mutually_exclusive = {focus = AXIS_adaptive_1_phase2 focus = AXIS_adaptive_3_phase2}
 
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = AXIS_war_economy
 	cost = 5
@@ -1238,20 +1169,10 @@ joint_focus = {
 			custom_effect_tooltip = axis_shared_tt
 
 				add_to_variable = { 
-					axis_consumer = -0.05
-					tooltip = consumer_goods_factor_tt
-	    		}
-
-				add_to_variable = { 
-	    			axis_resources_factor = 0.05
-	    			tooltip = local_resources_factor_tt 
-	    		}
+					axis_growth_gain = 0.15
+					tooltip = production_factory_efficiency_gain_factor_tt 
+				}
 		    }
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			set_global_flag = axis_medium_value_2
-			custom_effect_tooltip = medium_value_tt
-			mark_focus_tree_layout_dirty = yes	
 	}
 }
 
@@ -1265,6 +1186,11 @@ joint_focus = {
 	y = 1
 	relative_position_id = AXIS_war_economy
 	cost = 5
+
+	allow_branch = 
+	{
+		always = no
+	}
 
 	text_icon = NORDIC_focus_style
 
@@ -1314,15 +1240,7 @@ joint_focus = {
 
 	allow_branch = 
 	{
-		NOT = 
-		{
-			OR = 
-			{	
-				has_global_flag = axis_low_value_2
-				has_global_flag = axis_medium_value_2
-				has_global_flag = axis_high_value_2
-			}
-		}
+		always = no
 	}
 
 	available = {
@@ -1608,7 +1526,7 @@ joint_focus = {
 	icon = GFX_focus_ARG_fascist_researchers
 	prerequisite = { focus = AXIS_joint_alliance }
 
-	x = 5
+	x = 13
 	y = 1
 	relative_position_id = AXIS_joint_alliance
 	cost = 5
@@ -2755,7 +2673,7 @@ joint_focus = {
 	icon = GFX_focus_generic_fascist_troops
 	prerequisite = { focus = AXIS_joint_alliance }
 
-	x = -18
+	x = -13
 	y = 1
 	relative_position_id = AXIS_joint_alliance
 	cost = 5
@@ -2791,8 +2709,8 @@ joint_focus = {
 	icon = GFX_focus_chi_army_reform	
 	prerequisite = { focus = AXIS_high_command}
 
-	x = 0
-	y = 1
+	x = -2
+	y = 2
 	relative_position_id = AXIS_high_command
 	cost = 5
 
@@ -2800,7 +2718,7 @@ joint_focus = {
 
 	available = {
 		has_country_flag = accessible_shared_tree
-		
+		date > 1939.1.1
 	}
 
 	available_if_capitulated = yes
@@ -2821,11 +2739,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_war_readiness_program
 	icon = GFX_focus_generic_mass_production	
-	prerequisite = { focus = AXIS_joint_alliance}
+	prerequisite = { focus = AXIS_adaptive_economy}
+	prerequisite = {focus = AXIS_high_command}
 
-	x = -25
-	y = 6
-	relative_position_id = AXIS_joint_alliance
+	x = -6
+	y = 3
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -2834,6 +2752,8 @@ joint_focus = {
 		has_country_flag = accessible_shared_tree
 		
 	}
+
+	relative_position_id = AXIS_adaptive_economy
 
 	available_if_capitulated = yes
 
@@ -2857,7 +2777,7 @@ joint_focus = {
 	prerequisite = { focus = AXIS_war_readiness_program }
 
 	x = 0
-	y = 1
+	y = 2
 	relative_position_id = AXIS_war_readiness_program
 	cost = 5
 
@@ -2876,9 +2796,9 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	    		army_experience = 75
-	    		air_experience = 75
-	    		navy_experience = 75
+	    		army_experience = 100
+	    		air_experience = 100
+	    		navy_experience = 100
 	    		
 		    }
 	}
@@ -2887,9 +2807,9 @@ joint_focus = {
 	    if = {
 	        limit = { has_country_flag = accessible_shared_tree }
 
-	    		army_experience = 35
-	    		air_experience = 35
-	    		navy_experience = 35
+	    		army_experience = 50
+	    		air_experience = 50
+	    		navy_experience = 50
 		    }
 	}
 }
@@ -2905,7 +2825,7 @@ joint_focus = {
 		16 = { is_controlled_by = GER }
 	}
 
-	x = -3
+	x = -2
 	y = 1
 	relative_position_id = AXIS_war_readiness_program
 	cost = 5
@@ -2967,7 +2887,7 @@ joint_focus = {
 	icon = GFX_focus_hol_united_netherlands
 	prerequisite = { focus = AXIS_war_readiness_program}
 
-	x = -5
+	x = -4
 	y = 1
 	relative_position_id = AXIS_war_readiness_program
 	cost = 5
@@ -3031,7 +2951,7 @@ joint_focus = {
 	icon = GFX_focus_GER_reclaim_former_african_colonies
 	prerequisite = { focus = AXIS_operation_sealion focus = AXIS_break_the_maginot}
 
-	x = 2
+	x = 1
 	y = 1
 	relative_position_id = AXIS_operation_sealion
 	cost = 5
@@ -3076,6 +2996,8 @@ joint_focus = {
 		has_country_flag = accessible_shared_tree
 		
 	}
+
+	allow_branch = {always = no}
 
 	available_if_capitulated = yes
 
@@ -3125,10 +3047,10 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_dday_last_stand
 	icon = GFX_focus_FIN_coastal_defense
-	prerequisite = { focus = AXIS_barbarossa_offensive focus = AXIS_afrika_korps}
+	prerequisite = {focus = AXIS_afrika_korps}
 
 	x = 1
-	y = 1
+	y = 2
 	relative_position_id = AXIS_barbarossa_offensive
 	cost = 0
 
@@ -3162,7 +3084,7 @@ joint_focus = {
 	icon = GFX_focus_SWI_fortify_border_with_germany
 	prerequisite = { focus = AXIS_war_readiness_program }
 
-	x = 4
+	x = 2
 	y = 1
 	relative_position_id = AXIS_war_readiness_program 
 	cost = 5
@@ -3201,7 +3123,11 @@ joint_focus = {
 	    			axis_air_base_speed = 0.15
 	    			tooltip = production_speed_air_base_factor_tt 
 	    		}
-
+	    	
+	    		add_to_variable = { 
+	    			axis_supply_node_speed = 0.15
+	    			tooltip = production_speed_supply_node_factor_tt 
+	    		}
 
 		    }
 	}
@@ -3222,6 +3148,11 @@ joint_focus = {
 	available = {
 		has_country_flag = accessible_shared_tree
 		
+	}
+
+	allow_branch = 
+	{
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -3264,6 +3195,11 @@ joint_focus = {
 		
 	}
 
+	allow_branch = 
+	{
+		always = no
+	}
+
 	available_if_capitulated = yes
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
@@ -3284,10 +3220,9 @@ joint_focus = {
 	id = AXIS_normandy_airbases
 	icon = GFX_focus_generic_air_bases
 	prerequisite = { focus = AXIS_war_infrastructure }
-	prerequisite = { focus = AXIS_break_the_maginot }
 
-	x = -4
-	y = 2
+	x = 1
+	y = 1
 	relative_position_id = AXIS_war_infrastructure
 	cost = 5
 
@@ -3360,11 +3295,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_rnd_department
 	icon = GFX_focus_NORDIC_dem_capstone_research
-	prerequisite = { focus = AXIS_joint_alliance}
+	prerequisite = { focus = AXIS_adaptive_economy}
+	prerequisite = { focus = AXIS_fascist_researchers}
 
-	x = 23
-	y = 1
-	relative_position_id = AXIS_joint_alliance
+	x = 6
+	y = 3
 	cost = 3
 
 	text_icon = NORDIC_focus_style
@@ -3373,6 +3308,8 @@ joint_focus = {
 		has_country_flag = accessible_shared_tree
 		
 	}
+
+	relative_position_id = AXIS_adaptive_economy
 
 	available_if_capitulated = yes
 
@@ -3396,7 +3333,7 @@ joint_focus = {
 	icon = GFX_focus_GER_support_the_proletarian_uprising
 	prerequisite = { focus = AXIS_rnd_department }
 
-	x = 5
+	x = 0
 	y = 1
 	relative_position_id = AXIS_rnd_department
 	cost = 5
@@ -3773,6 +3710,8 @@ joint_focus = {
 	cost = 3
 
 	text_icon = NORDIC_focus_style
+
+	allow_branch = {always = no}
 
 	available = {
 		has_country_flag = accessible_shared_tree
@@ -4223,8 +4162,6 @@ joint_focus = {
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = AXIS_tank_design_improvements focus = AXIS_continue_the_land_research}
-
 	available = {
 		has_country_flag = accessible_shared_tree
 		
@@ -4547,11 +4484,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_tank_design_improvements
 	icon = GFX_focus_BRA_acquire_german_tanks
-	prerequisite = { focus = AXIS_land_warfare_facility }
+	prerequisite = { focus = AXIS_rnd_department }
 
-	x = -2
+	x = 2
 	y = 1
-	relative_position_id = AXIS_land_warfare_facility
+	relative_position_id = AXIS_rnd_department
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -4563,7 +4500,6 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = AXIS_land_warfare_facility_two focus = AXIS_continue_the_land_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -4585,16 +4521,16 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_continue_the_land_research
 	icon = GFX_SOV_military_engineering_university_ccp_2d_sov_compatibility
-	prerequisite = { focus = AXIS_land_warfare_facility}
+	prerequisite = { focus = AXIS_joint_military_exercices}
 
-	x = 2
+	x = 0
 	y = 1
-	relative_position_id = AXIS_land_warfare_facility
+	relative_position_id = AXIS_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = AXIS_tank_design_improvements focus = AXIS_land_warfare_facility_two}
+	mutually_exclusive = {focus = AXIS_continue_the_air_research focus = AXIS_continue_the_navy_research}
 
 	available = {
 		has_country_flag = accessible_shared_tree
@@ -4917,16 +4853,16 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_continue_the_navy_research
 	icon = GFX_focus_generic_navy_research_bonus
-	prerequisite = { focus = AXIS_naval_warfare_facility}
+	prerequisite = { focus = AXIS_joint_military_exercices}
 
-	x = 1
+	x = 2
 	y = 1
-	relative_position_id = AXIS_naval_warfare_facility
+	relative_position_id = AXIS_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
 
-	mutually_exclusive = {focus = AXIS_naval_expertise}
+	mutually_exclusive = {focus = AXIS_continue_the_air_research focus = AXIS_continue_the_land_research}
 
 	available = {
 		has_country_flag = accessible_shared_tree
@@ -4960,8 +4896,6 @@ joint_focus = {
 	cost = 5
 
 	text_icon = NORDIC_focus_style
-
-	mutually_exclusive = {focus = AXIS_continue_the_navy_research}
 
 	available = {
 		has_country_flag = accessible_shared_tree
@@ -5319,11 +5253,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_fighter_design_improvements
 	icon = GFX_goal_generic_air_fighter2
-	prerequisite = { focus = AXIS_air_warfare_facility }
+	prerequisite = { focus = AXIS_rnd_department }
 
-	x = -1
+	x = -2
 	y = 1
-	relative_position_id = AXIS_air_warfare_facility
+	relative_position_id = AXIS_rnd_department
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -5334,8 +5268,6 @@ joint_focus = {
 	}
 
 	available_if_capitulated = yes
-
-	mutually_exclusive = {focus = AXIS_continue_the_air_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -5356,11 +5288,11 @@ joint_focus = {
 joint_focus = {
 	id = AXIS_continue_the_air_research
 	icon = GFX_focus_generic_university_2
-	prerequisite = { focus = AXIS_air_warfare_facility}
+	prerequisite = { focus = AXIS_joint_military_exercices}
 
-	x = 1
+	x = -2
 	y = 1
-	relative_position_id = AXIS_air_warfare_facility
+	relative_position_id = AXIS_joint_military_exercices
 	cost = 5
 
 	text_icon = NORDIC_focus_style
@@ -5372,7 +5304,7 @@ joint_focus = {
 
 	available_if_capitulated = yes
 
-	mutually_exclusive = {focus = AXIS_fighter_design_improvements}
+	mutually_exclusive = {focus = AXIS_continue_the_land_research focus = AXIS_continue_the_navy_research}
 
 	search_filters = { FOCUS_FILTER_POLITICAL }
 

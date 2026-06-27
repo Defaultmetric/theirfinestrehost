@@ -242,3 +242,21 @@ NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 80						    -- Unlimited special forc
 
 NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 10000000	-- How many deployment lines minimum can be training
 NDefines.NProduction.MIN_FIELD_TO_TRAINING_MANPOWER_RATIO = 100	-- Ratio which % of army in field can be trained
+
+-- Air Rework
+NDefines.NAir.DISRUPTION_FACTOR = 5.5 --cas enters battle at 30+%
+NDefines.NAir.COMBAT_MULTIPLANE_CAP = 3                            -- How many planes can shoot at each plane on other side ( if there are 100 planes we are atttacking COMBAT_MULTIPLANE_CAP * 100 of our planes can shoot )
+NDefines.NAir.COMBAT_DAMAGE_SCALE = 0.5                        -- Higher value = more shot down planes
+-- Bombing Fix
+NDefines.NSupply.RAILWAY_FLOW_PENALTY_PER_DAMAGED = 4.9
+NDefines.NAir.AIR_WING_BOMB_DAMAGE_FACTOR = 0.6 --Chrom Bombing Fix; HMM = 0.6
+NDefines.NMilitary.ANTI_AIR_TARGETTING_TO_CHANCE = 0.09 -- Vanilla 0.07
+NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = 0 --Vanilla -0.12
+ ---AS KAR MOD --- FUCK FLICKERING ----
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_DEFAULT = 0.25    -- Default how much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_STRATEGIC_BOMBER = 0.06    -- How much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_CAS = 1.5                -- How much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_NAVAL_BOMBER = 1.4    -- How much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_TACTICAL_BOMBER = 0.06    -- How much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_FIGHTER = 1.5            -- How much efficiency to regain per day. Gain applied hourly.
+ NDefines.NAir.EFFICIENCY_REGION_CHANGE_PENALTY_FACTOR = 1.0                -- Penalty applied for changing region

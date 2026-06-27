@@ -238,7 +238,7 @@ NDefines.NAir.AIR_WING_ATTACK_LOGISTICS_RAILWAY_DAMAGE_SPILL_FACTOR = 0 -- Porti
 -- Mastery
 NDefines.NDoctrines.MASTERY_BANK_MAX = 500.0 	-- Vanilla value 200
 
-NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 320						    -- Unlimited special forces
+NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 80						    -- Unlimited special forces
 
 NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 10000000	-- How many deployment lines minimum can be training
 NDefines.NProduction.MIN_FIELD_TO_TRAINING_MANPOWER_RATIO = 100	-- Ratio which % of army in field can be trained

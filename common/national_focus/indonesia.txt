@@ -5498,9 +5498,6 @@ focus_tree = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_min_export value = 0.1 tooltip = min_export_tt }
 
-			give_market_access = JAP
-			JAP = { give_market_access = INS }
-
 			if = {
 				limit = {
 					is_subject = yes
@@ -5960,42 +5957,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_TFV_AUTONOMY }
 		completion_reward = {
-			if = {
-				limit = {
-					has_government = neutrality
-				}
-
-				INS_bonifacius_cornelis_de_jonge = {
-					swap_country_leader_traits = {
-						remove = INS_staunch_imperialist
-						add = INS_staunch_imperialist_upgraded
-						ideology = oligarchism
-					}
-					hidden_effect = {
-						swap_country_leader_traits = {
-							remove = INS_staunch_imperialist
-							add = INS_staunch_imperialist_upgraded
-							ideology = conservatism
-						}
-					}
-				}
-			}
-			else = {
-				INS_bonifacius_cornelis_de_jonge = {
-					swap_country_leader_traits = {
-						remove = INS_staunch_imperialist
-						add = INS_staunch_imperialist_upgraded
-						ideology = conservatism
-					}
-					hidden_effect = {
-						swap_country_leader_traits = {
-							remove = INS_staunch_imperialist
-							add = INS_staunch_imperialist_upgraded
-							ideology = oligarchism
-						}
-					}
-				}
-			}
+			add_political_power = 10
 		}
 	}
 
@@ -6193,12 +6155,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			add_stability = 0.05
-			INS_a_t_van_starkenborgh_stachouwer = {
-				swap_country_leader_traits = {
-					remove = TAOG_liberal_colonial_leader
-					add = TAOG_liberal_colonial_leader_2
-				}
-			}
+		
 			reduce_focus_completion_cost = {
 				focus = INSHOL_begin_negotiations_soetardjo
 				cost = 35

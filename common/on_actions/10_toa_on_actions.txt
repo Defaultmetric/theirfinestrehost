@@ -1,0 +1,224 @@
+on_actions = {
+
+	on_ruling_party_change = {
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Trial of Allegiance"
+					BRA = {
+						has_completed_focus = BRA_expand_fordlandia
+						NOT = {	
+							OR = {
+								has_government = communism 
+								has_country_flag = BRA_ford_event_has_happened
+							}
+						}
+					}
+					USA = {
+						has_government = communism
+					}
+				}
+				BRA = {
+					country_event = {
+						id = JUNO_brazil_events.180
+						days = 14
+					}
+				}
+			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			if = {
+				limit = { 
+					has_dlc = "Trial of Allegiance" 
+				}
+
+				every_country = {	
+					limit = {
+						OR = {
+							original_tag = URG
+							original_tag = BRA
+							original_tag = PAR
+							original_tag = CHL
+							original_tag = BOL
+							original_tag = ARG
+							original_tag = PRU
+							original_tag = VEN
+							original_tag = ECU
+							original_tag = COL
+							
+						}
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = JAP
+						value = -250
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = CHI
+						value = -250
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = PRC
+						value = -250
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = USA
+						value = -15
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = GER
+						value = -15
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = ENG
+						value = -15
+					}
+
+					add_ai_strategy = { 
+						type = alliance 
+						id = SOV
+						value = -50
+					}
+
+				}
+			}
+		}
+	}
+
+	on_declare_war = {
+		effect = {
+			IF = {
+				limit = {
+					has_dlc = "Trial of Allegiance"
+					ROOT = {
+						tag = ARG
+					}
+					FROM = { tag = URG }
+				}
+
+				BRA = {
+					country_event = {
+						id = ARG_political_events.110
+						hours = 5
+					}
+				}
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					has_dlc = "Trial of Allegiance"
+					ROOT = {
+						tag = BRA
+					}
+					FROM = { tag = URG }
+				}
+
+				ARG = {
+					country_event = {
+						id = ARG_political_events.110
+						hours = 5
+					}
+				}
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					ROOT = {
+						NOT = { has_idea = SMB_organization_of_american_states_member }
+					}
+					FROM = { has_idea = SMB_organization_of_american_states_member }
+				}
+				set_variable = {
+					var = global.org_american_unity_attacked_country
+					value = FROM
+				}
+				every_other_country = {
+					limit = {
+						has_idea = SMB_organization_of_american_states_member
+						NOT = { has_war_with = FROM }
+						NOT = { tag = FROM }
+					}
+					country_event = {
+						id = JUNO_brazil_events.130
+						hours = 1
+					}
+				}
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					ROOT = {
+						has_idea = SMB_organization_of_american_states_member
+					}
+					FROM = { has_idea = SMB_organization_of_american_states_member }
+				}
+				ROOT = {	
+					country_event = {
+						id = JUNO_brazil_events.133
+						hours = 1
+					}
+				}
+				set_variable = {
+					var = global.org_american_unity_attacked_country
+					value = FROM
+				}
+				every_other_country = {
+					limit = {
+						has_idea = SMB_organization_of_american_states_member
+						NOT = { has_war_with = FROM }
+						NOT = { tag = FROM }
+					}
+					country_event = {
+						id = JUNO_brazil_events.130
+						hours = 2
+					}
+				}
+			}
+		}
+		effect = {
+			IF = {
+				limit = {
+					ROOT = {
+						tag = PAR
+					}
+					FROM = {
+						NOT = {
+							has_country_flag = PAR_revenge_flag
+						}
+						OR = {
+							tag = BRA
+							tag = ARG
+							tag = URG
+						}
+					}
+				}
+				hidden_effect = {
+					FROM = { 
+						set_country_flag = PAR_revenge_flag 
+						country_event = {
+							id = south_american_events.56
+							days = 31
+						}
+					}
+				}
+			}
+		}
+	}
+}

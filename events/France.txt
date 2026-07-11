@@ -267,41 +267,26 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_guaranteed = YUG
+				has_guaranteed = FYG
 			}
 			diplomatic_relation = {
-   				country = YUG
+   				country = FYG
    				relation = guarantee
    				active = no
   			}
 		}
-		if = {
-			limit = {
-				ITA = {
-					OR = {
-						NOT = { has_completed_focus = ITA_balkan_ambition }						
-						is_in_faction_with = GER
-						exists = no
-					}
-				}
-			}
-			YUG = {
-				add_opinion_modifier = { target = FRA modifier = western_betrayal }
-				country_event = { id = yugoslavia.5 hours = 6 }
-			}			
+		GER = {
+			transfer_state = 102
+			transfer_state = 853
 		}
-		if = {
-			limit = { 
-				ITA = {
-					has_completed_focus = ITA_balkan_ambition
-					NOT = { is_in_faction_with = GER }
-					NOT = { has_war_with = YUG }
-				}
-			}
-			ITA = { country_event = { id = italy.12 } }
+		GER = {
+			set_country_flag = slovenia_acquired
+		}
+		hidden_effect = {
+			news_event = { id = news.163 hours = 6 }
 		}
 	}
-	option = { # Support the Yugoslavs alone
+	option = { # deny yugo
 		name = france.25.b
 		ai_chance = {
 			factor = 10
@@ -319,19 +304,8 @@ country_event = {
 			add_political_power = -200
 			add_opinion_modifier = { target = GER modifier = condemn_aggression }
 		}
-		YUG = { 
-			country_event = { id = yugoslavia.4 days = 1 }
-			add_opinion_modifier = { target = FRA modifier = offered_support }
-		}
 		GER = {
 			country_event = { id = germany.97 hours = 6 } #Generate wargoal
-			effect_tooltip = {
-				create_wargoal = {
-					type = take_state_focus
-					target = YUG
-					generator = { 102 853 }
-				}
-			}
 		}
 		if = {
 			limit = { 
@@ -365,7 +339,7 @@ country_event = {
 				NOT = { is_in_faction_with = GER }
 			}
 			add_to_faction = YUG
-			YUG = {
+			FYG = {
 				add_ai_strategy = {
 					type = alliance
 					id = "FRA"
@@ -383,8 +357,8 @@ country_event = {
 				}
 			}
 			create_faction = "french_alliance"
-			add_to_faction = YUG
-			YUG = {
+			add_to_faction = FYG
+			FYG = {
 				add_ai_strategy = {
 					type = alliance
 					id = "FRA"
@@ -437,10 +411,6 @@ country_event = {
 			}
 		}
 		add_opinion_modifier = { target = GER modifier = condemn_aggression }
-		YUG = { 
-			country_event = { id = yugoslavia.3 days = 1 }
-			add_opinion_modifier = { target = FRA modifier = offered_support }
-		}
 		GER = {
 			country_event = { id = germany.93 hours = 6 } #Generate wargoal
 			effect_tooltip = {

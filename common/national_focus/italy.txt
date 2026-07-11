@@ -14690,18 +14690,18 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					country_exists = YUG
+					country_exists = FYG
 					OR = {
-						103 = { is_fully_controlled_by = YUG }
-						105 = { is_fully_controlled_by = YUG }
+						103 = { is_fully_controlled_by = FYG }
+						105 = { is_fully_controlled_by = FYG }
 					}
 				}
-				activate_targeted_decision = { target = YUG decision = ITA_send_ultimatum_to_country_balkan }
+				activate_targeted_decision = { target = FYG decision = ITA_send_ultimatum_to_country_balkan }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			create_wargoal = {
 				type = annex_everything
-				target = YUG
+				target = FYG
 			}
 		}
 	}
@@ -14818,21 +14818,21 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					ALB = { has_war = no }
+					FAL = { has_war = no }
 				}
-				ALB = { country_event = { id = italy.3 hours = 1 } }
+				FAL = { country_event = { id = italy.3 hours = 1 } }
 			}
 			else = {
 				create_wargoal = {
 					type = take_state_focus
-					target = ALB
+					target = FAL
 					generator = { 44 }
 				}
 			}
 
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
-				annex_country = { target = ALB }
+				annex_country = { target = FAL }
 				add_named_threat = { threat = 2 name = ITA_albania_war_goal }
 				# The king is an idea
 				if = {

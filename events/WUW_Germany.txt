@@ -14561,55 +14561,6 @@ country_event = {
 			base = 80
 		}
 
-		YUG = {
-			SOV_vasily_flug = {
-				set_nationality = GER
-			}
-			SOV_boris_shteifon = {
-				set_nationality = GER
-			}
-		}
-
-		set_global_flag = SOV_flug_and_shteifon_went_to_germany_flag
-
-		set_country_flag = SOV_flug_and_shteifon_are_ready_to_serve_flag
-
-		division_template = {
-			name = "Russisches Schutzkorps"
-			template_counter = 48 # The Cross 
-			division_names_group = GER_Inf_01
-			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
-				infantry = { x = 0 y = 2 }
-				infantry = { x = 1 y = 0 }
-				infantry = { x = 1 y = 1 }
-			}
-			support = {
-				military_police = { x = 0 y = 0 }
-			}
-		}
-		random_state = {
-			limit = {
-				is_core_of = SER
-				OR = {
-					is_controlled_by = ROOT
-					any_country = {
-						is_subject_of = ROOT
-						controls_state = PREV
-					}
-				}
-			}
-			create_unit = {
-				division = "name = \"1. Russisches Schutzkorps\" division_template = \"Russisches Schutzkorps\" start_experience_factor = 0.2"
-				owner = GER
-			}
-			create_unit = {
-				division = "name = \"2. Russisches Schutzkorps\" division_template = \"Russisches Schutzkorps\" start_experience_factor = 0.3"
-				owner = GER
-			}
-		}
-
 		custom_effect_tooltip = generic_skip_one_line_tt
 
 		every_state = {

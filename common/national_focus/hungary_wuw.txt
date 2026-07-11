@@ -2977,7 +2977,7 @@ focus_tree = {
 							OR = {
 								is_claimed_by = CZE
 								is_core_of = CZE
-								is_owned_by = CZE
+								is_owned_by = FCZ
 							}
 						}
 					}
@@ -9461,7 +9461,7 @@ focus_tree = {
 						NOT = {
 							OR = {
 								is_owned_by = SLO
-								is_owned_by = CZE
+								is_owned_by = FCZ
 								is_owned_by = ROOT
 							}
 						}
@@ -9700,14 +9700,14 @@ focus_tree = {
 			custom_effect_tooltip = HUN_demands_tt
 			IF = {
 				limit = {
-					YUG = {
+					FYG = {
 						is_subject = yes
 						owns_state = 45
 					}
 				}
 				create_wargoal = {
 					type = take_state_focus
-					target = YUG
+					target = FYG
 					expire = 0
 					generator = { 45 }
 				}
@@ -9715,11 +9715,11 @@ focus_tree = {
 					IF = {
 						limit = {
 							OR = {
-								45 = { is_owned_by = YUG }
-								45 = { owner = { is_subject_of = YUG } }
+								45 = { is_owned_by = FYG }
+								45 = { owner = { is_subject_of = FYG } }
 							}
 						}
-						YUG = { country_event = DOD_hungary.90 }
+						FYG = { country_event = DOD_hungary.90 }
 					}
 				}
 			}
@@ -9729,8 +9729,8 @@ focus_tree = {
 					45 = {
 						NOT = {
 							OR  = {
-								is_owned_by = YUG
-								owner = { is_subject_of = YUG }
+								is_owned_by = FYG
+								owner = { is_subject_of = FYG }
 							}
 						}
 					}
@@ -10699,22 +10699,22 @@ focus_tree = {
 			OR = {
 				AND = {
 					975 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 					4 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 					152 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 					153 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 					848 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 					976 = {
-						NOT = { is_owned_by = AUS }
+						NOT = { is_owned_by = FAU }
 					}
 				}
 				AUS = {

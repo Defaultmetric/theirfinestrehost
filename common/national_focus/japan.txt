@@ -1,4 +1,4 @@
-﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_POLITICAL}
 ### search_filters = {FOCUS_FILTER_RESEARCH}
 ### search_filters = {FOCUS_FILTER_INDUSTRY}
 ### search_filters = {FOCUS_FILTER_STABILITY}
@@ -2331,7 +2331,7 @@ focus_tree = {
 		bypass = {
 			OR = {
 				has_war_with = event_target:WTT_current_china_leader
-				has_non_aggression_pact_with = CHI
+				has_non_aggression_pact_with = FCH
 			}
 		}
 
@@ -2341,7 +2341,7 @@ focus_tree = {
 
 
 		completion_reward = {
-			CHI = { 
+			FCH = { 
 				country_event = {
 					id = wtt_japan.11 
 					hours = 6
@@ -3224,7 +3224,7 @@ focus_tree = {
 			factor = 1
 			modifier = {
 				factor = 2
-				CHI = { has_government = democratic }
+				FCH = { has_government = democratic }
 			}
 		}
 
@@ -7677,7 +7677,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = no
-			CHI = {
+			FCH = {
 				exists = yes
 				NOT = {
 					is_ally_with = ROOT
@@ -7702,7 +7702,7 @@ focus_tree = {
 		bypass = {
 			OR = {
 				has_war = yes
-				CHI = {
+				FCH = {
 					OR = {
 						exists = no
 						is_ally_with = ROOT
@@ -7738,7 +7738,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			CHI = {
+			FCH = {
 				country_event = {
 					id = SEA_japan_foreign_policy.32
 					hours = 12
@@ -7747,7 +7747,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
-				CHI = {
+				FCH = {
 					add_timed_idea = {
 						idea = JAP_anti_communist_crackdowns_idea
 						days = 360
@@ -7787,7 +7787,7 @@ focus_tree = {
 			is_subject = no
 			is_in_faction = no
 			has_government = neutrality
-			CHI = {
+			FCH = {
 				is_subject = no
 				NOT = {
 					has_government = communism
@@ -7811,7 +7811,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			CHI = {
+			FCH = {
 				country_event = {
 					id = SEA_japan_foreign_policy.42
 					hours = 6
@@ -7820,7 +7820,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
-				CHI = {
+				FCH = {
 					IF = {
 						limit = {
 							is_faction_leader = yes
@@ -7845,7 +7845,7 @@ focus_tree = {
 								is_on_continent = asia
 							}
 						}
-						add_opinion_modifier = { target = CHI modifier = sino_japanese_alliance_threat }
+						add_opinion_modifier = { target = FCH modifier = sino_japanese_alliance_threat }
 					}
 					declare_war_on = {
 						target = PRC
@@ -7861,7 +7861,7 @@ focus_tree = {
 					
 					set_rule = { can_create_factions = yes }
 					create_faction_from_template = faction_template_JAP_sino_japanese_pact
-					add_to_faction = CHI
+					add_to_faction = FCH
 					add_named_threat = { threat = 3 name = SEA_japan_foreign_policy.42.t }
 				}
 			}
@@ -10987,8 +10987,8 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				has_war_with = CHI
-				has_subject = CHI
+				has_war_with = FCH
+				has_subject = FCH
 			}
 		}
 
@@ -11005,11 +11005,11 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					CHI = {
+					FCH = {
 						exists = yes
 					}
 				}
-				CHI = {
+				FCH = {
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = JAP_revisited_21_demands_neg_op_mod
@@ -11461,8 +11461,8 @@ focus_tree = {
 		available = {
 			is_subject = no 
 			NOT = { 
-				has_war_with = CHI 
-				is_ally_with = CHI
+				has_war_with = FCH 
+				is_ally_with = FCH
 			}
 			OR = {
 				NOT = {
@@ -11489,7 +11489,7 @@ focus_tree = {
 				AND = {
 					608 = {
 						NOT = {
-							is_controlled_by = CHI
+							is_controlled_by = FCH
 							is_controlled_by = PRC
 							is_controlled_by = SHX
 							is_controlled_by = SND
@@ -11499,7 +11499,7 @@ focus_tree = {
 					}
 					597 = {
 						NOT = {
-							is_controlled_by = CHI
+							is_controlled_by = FCH
 							is_controlled_by = PRC
 							is_controlled_by = SHX
 							is_controlled_by = SND
@@ -11509,7 +11509,7 @@ focus_tree = {
 					}
 					614 = {
 						NOT = {
-							is_controlled_by = CHI
+							is_controlled_by = FCH
 							is_controlled_by = PRC
 							is_controlled_by = SHX
 							is_controlled_by = SND
@@ -11518,12 +11518,12 @@ focus_tree = {
 						}
 					}
 				}
-				has_war_with = CHI
-				has_subject = CHI
+				has_war_with = FCH
+				has_subject = FCH
 			}
 		}
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 		will_lead_to_war_with = SHX
 		will_lead_to_war_with = HBC
 		will_lead_to_war_with = SND
@@ -11602,7 +11602,7 @@ focus_tree = {
 
 				IF = {
 					limit = {
-						CHI = { #if CHI owns one of these states, they get the event
+						FCH = { #if FCH owns one of these states, they get the event
 							OR = {
 								controls_state = 608
 								controls_state = 597
@@ -11611,7 +11611,7 @@ focus_tree = {
 							}
 						}
 					}
-					CHI = {
+					FCH = {
 						country_event = {
 							id = china.1
 							days = 1
@@ -11718,7 +11718,7 @@ focus_tree = {
 
 			add_ai_strategy = {
 				type = antagonize
-				id = CHI
+				id = FCH
 				value = 100
 			}
 			add_ai_strategy = {
@@ -11767,7 +11767,7 @@ focus_tree = {
 		bypass = {
 			OR = {
 				owns_state = 613
-				CHI = {
+				FCH = {
 					is_subject_of = ROOT
 				}
 			}
@@ -11904,7 +11904,7 @@ focus_tree = {
 				transfer_state_to = RNG
 			}
 			hidden_effect = {
-				CHI = {
+				FCH = {
 					every_core_state = {
 						set_state_flag = is_state_rng_wants_flag 
 					}
@@ -11925,7 +11925,7 @@ focus_tree = {
 					hours = 2
 				}
 				hidden_effect = {
-					inherit_technology = CHI 
+					inherit_technology = FCH 
 				}
 			}
 			IF = {
@@ -11934,18 +11934,18 @@ focus_tree = {
 						NOT = {
 							has_dlc = "No Compromise, No Surrender"
 						}
-						CHI = {
+						FCH = {
 							NOT = {
 								has_completed_focus = CHI_prepare_for_a_change_in_leadership
 							}
 						}
 					}
-					CHI = {
+					FCH = {
 						exists = yes
 						has_war_with = ROOT
 					}
 				}
-				CHI = {
+				FCH = {
 					country_event = {
 						id = SEA_japan_foreign_policy.61
 						hours = 1
@@ -11988,7 +11988,7 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 
-			CHI = {
+			FCH = {
 				every_core_state = {
 					limit = {
 						is_owned_and_controlled_by = ROOT
@@ -12328,11 +12328,11 @@ focus_tree = {
 				}
 			}
 			OR = {
-				has_war_with = CHI
-				CHI = {
+				has_war_with = FCH
+				FCH = {
 					exists = no
 				}
-				has_subject = CHI
+				has_subject = FCH
 				has_subject = RNG
 			}
 			JAP_army_faction_is_at_least_influential = yes
@@ -14428,7 +14428,7 @@ focus_tree = {
 		}
 
 		available = {
-			CHI = {
+			FCH = {
 				exists = yes
 				is_subject = no
 				NOT = {
@@ -14439,8 +14439,8 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				has_war_with = CHI
-				has_subject = CHI
+				has_war_with = FCH
+				has_subject = FCH
 				has_subject = RNG
 				owns_state = 608 # Beijing
 			}
@@ -14454,7 +14454,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			CHI = { 
+			FCH = { 
 				country_event = {
 					id = wtt_japan.11 
 					days = 1
@@ -19301,7 +19301,7 @@ focus_tree = {
 
 		}
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 		will_lead_to_war_with = SHX
 		will_lead_to_war_with = SND
 		will_lead_to_war_with = XSM
@@ -20517,7 +20517,7 @@ focus_tree = {
 
 		}
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 		will_lead_to_war_with = SHX
 		will_lead_to_war_with = SND
 		will_lead_to_war_with = XSM
@@ -20539,7 +20539,7 @@ focus_tree = {
 
 		completion_reward = {
 				
-			CHI = {
+			FCH = {
 				every_core_state = {
 					add_claim_by = ROOT
 				}
@@ -22963,7 +22963,7 @@ focus_tree = {
 			}
 		}
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -22999,7 +22999,7 @@ focus_tree = {
 
 				IF = {
 					limit = {
-						CHI = {
+						FCH = {
 							exists = yes
 							owns_state = 613
 							NOT = {
@@ -23016,13 +23016,13 @@ focus_tree = {
 									has_completed_focus = JAP_revoke_the_peace_preservation_law
 								}
 							}
-							CHI = {
+							FCH = {
 								set_country_flag = JAP_first_strike_principle_blocked
 							}
 						}
 					}
 					declare_war_on = {
-						target = CHI
+						target = FCH
 						type = annex_everything
 					}
 					IF = {
@@ -23040,7 +23040,7 @@ focus_tree = {
 						MAN = {
 							add_to_war = {
 							    targeted_alliance = ROOT
-							    enemy = CHI
+							    enemy = FCH
 							    hostility_reason = asked_to_join
 							}
 						}
@@ -23052,7 +23052,7 @@ focus_tree = {
 						613 = {
 							OWNER = {
 								NOT = {
-									tag = CHI
+									tag = FCH
 								}
 							}
 						}

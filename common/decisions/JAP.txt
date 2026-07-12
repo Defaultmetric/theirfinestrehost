@@ -976,7 +976,7 @@ foreign_politics = {
 				}
 				NOT = {
 					any_of = {
-						array = CHI.core_states
+						array = FCH.core_states
 						var:v = {
 							NOT = {
 								state = 524
@@ -1088,7 +1088,7 @@ foreign_politics = {
 				}
 				NOT = {
 					any_of = {
-						array = CHI.core_states
+						array = FCH.core_states
 						var:v = {
 							NOT = {
 								state = 524
@@ -5649,7 +5649,7 @@ JAP_kwantung_army_decisions = {
 			original_tag = JAP
 			has_civil_war = no
 			is_subject = no 
-			NOT = { has_war_with = CHI }
+			NOT = { has_war_with = FCH }
 			NOT = {
 				has_completed_focus = JAP_subdue_the_kwantung_army
 			}
@@ -5676,7 +5676,7 @@ JAP_kwantung_army_decisions = {
 								controls_state = 614
 							}
 						}
-						CHI = { #if CHI owns one of these states, they get the event
+						FCH = { #if FCH owns one of these states, they get the event
 							OR = {
 								controls_state = 608
 								controls_state = 614
@@ -5685,7 +5685,7 @@ JAP_kwantung_army_decisions = {
 						}
 					}	
 				}
-				CHI = {
+				FCH = {
 					country_event = {
 						id = china.1
 						days = 1
@@ -5789,7 +5789,7 @@ JAP_kwantung_army_decisions = {
 			original_tag = JAP
 			has_civil_war = no
 			is_subject = no 
-			NOT = { has_war_with = CHI }
+			NOT = { has_war_with = FCH }
 			has_war_with = SHX
 			has_subject = MEN
 		}
@@ -5839,7 +5839,7 @@ JAP_kwantung_army_decisions = {
 			original_tag = JAP
 			has_civil_war = no
 			is_subject = no 
-			NOT = { has_war_with = CHI }
+			NOT = { has_war_with = FCH }
 			NOT = {
 				has_completed_focus = JAP_subdue_the_kwantung_army
 			}
@@ -5848,7 +5848,7 @@ JAP_kwantung_army_decisions = {
 					is_literally_china = yes
 					NOT = {
 						is_ally_with = ROOT
-						has_war_with = ROOT # In case someone other than CHI owns this for example 
+						has_war_with = ROOT # In case someone other than FCH owns this for example 
 					}
 				}
 			}
@@ -5862,11 +5862,11 @@ JAP_kwantung_army_decisions = {
 
 			IF = {
 				limit = {
-					CHI = { #if CHI owns the state, they get the event
+					FCH = { #if FCH owns the state, they get the event
 						controls_state = 613
 					}
 				}
-				CHI = {
+				FCH = {
 					country_event = {
 						id = SEA_japan_popup_events.19
 						days = 1
@@ -5953,7 +5953,7 @@ JAP_kwantung_army_decisions = {
 		visible = { 
 			OR = {
 				has_subject = RNG
-				has_subject = CHI
+				has_subject = FCH
 				AND = {
 					has_completed_focus = JAP_subdue_the_kwantung_army
 					owns_state = 613 # Shanghai
@@ -10581,7 +10581,7 @@ JAP_the_co_prosperity_sphere_decisions = {
 		visible = { 
 			has_completed_focus = JAP_reorganized_national_government
 			any_controlled_state = {
-				is_core_of = CHI
+				is_core_of = FCH
 				is_fully_controlled_by = ROOT
 				NOT = {
 					is_owned_by = RNG
@@ -10634,7 +10634,7 @@ JAP_the_co_prosperity_sphere_decisions = {
 			effect_tooltip = {
 				every_controlled_state = {
 					limit = {
-						is_core_of = CHI
+						is_core_of = FCH
 						is_fully_controlled_by = ROOT
 						NOT = {
 							is_owned_by = RNG
@@ -10667,7 +10667,7 @@ JAP_the_co_prosperity_sphere_decisions = {
 				every_owned_state = {
 					limit = {
 						is_fully_controlled_by = ROOT
-						is_core_of = CHI
+						is_core_of = FCH
 						NOT = {
 							is_owned_by = RNG
 						}

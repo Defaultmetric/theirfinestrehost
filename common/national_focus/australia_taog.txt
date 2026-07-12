@@ -257,7 +257,7 @@ focus_tree = {
 				}
 			}
 
-			CHI = { 
+			FCH = { 
 				OR = {
 					exists = no
 					AND = {
@@ -285,7 +285,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = { country_event = { id = AST_diplomatic_events.1 days = 7  random_days = 7 } }
 			INS = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
-			CHI = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
+			FCH = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -412,7 +412,7 @@ focus_tree = {
 			OR = {
 				has_non_aggression_pact_with = JAP
 				has_non_aggression_pact_with = INS
-				has_non_aggression_pact_with = CHI
+				has_non_aggression_pact_with = FCH
 			}
 		}
 
@@ -450,7 +450,7 @@ focus_tree = {
 			
 			IF = {
 				limit = {
-					has_non_aggression_pact_with = CHI
+					has_non_aggression_pact_with = FCH
 				}
 				set_country_flag = AST_advance_pacific_initiatives_chi
 				custom_effect_tooltip = AST_advance_pacific_initiatives_chi_2_tt
@@ -468,7 +468,7 @@ focus_tree = {
 					OR = {
 						NOT = { has_non_aggression_pact_with = JAP }
 						NOT = { has_non_aggression_pact_with = INS }
-						NOT = { has_non_aggression_pact_with = CHI }
+						NOT = { has_non_aggression_pact_with = FCH }
 					}
 				}
 				custom_effect_tooltip = AST_advance_pacific_initiatives_tt
@@ -498,7 +498,7 @@ focus_tree = {
 				limit = {
 					NOT = {
 						has_completed_focus = AST_advance_pacific_initiatives
-						has_non_aggression_pact_with = CHI
+						has_non_aggression_pact_with = FCH
 					}
 				}
 				custom_effect_tooltip = AST_advance_pacific_initiatives_chi_tt

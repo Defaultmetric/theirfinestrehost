@@ -9230,12 +9230,16 @@ focus_tree = {
 				}
 				FCZ = { 
 					is_subject_of = ROOT
+					OR = {
+						has_completed_focus = CZE_german_minor_ally
+						has_completed_focus = CZE_german_puppet
+					}
 				}
 			}
 		}
 
 		available = {
-			
+			is_subject = no
 		}
 		
 		cancel = {
@@ -9250,6 +9254,23 @@ focus_tree = {
 				OR = {
 					has_government = democratic
 					has_government = communism
+				}
+			}
+			modifier = {	#PfoT: if CZE has strong allies, and we dont, dont try it
+				factor = 0
+				FCZ = {
+					any_allied_country = {
+						is_neighbor_of = ROOT
+						strength_ratio = {
+							tag = ROOT
+							ratio > 0.7
+						}
+					}
+				}
+				NOT = {
+					any_allied_country = {
+						is_major = yes
+					}
 				}
 			}
 		}
@@ -9298,7 +9319,7 @@ focus_tree = {
 				add_state_claim = 74
 			}
 
-			### EVENT CHAIN - MUNICH CONFERENCE (FCZ is always involved) ###
+			### EVENT CHAIN - MUNICH CONFERENCE (CZE is always involved) ###
 			if = {
 				limit = {
 					FCZ = {
@@ -9307,6 +9328,35 @@ focus_tree = {
 							controls_state = 972
 							controls_state = 74
 						}
+					}
+				}
+				if = { # HOL has formed EU and CZE is part of it - Alt-hist
+					limit = {
+						FCZ = {
+							is_in_faction_with = HOL
+							is_subject = no
+						}
+						HOL = {
+							has_completed_focus = HOL_foundations_for_a_european_union
+							is_faction_leader = yes
+							is_subject = no
+							exists = yes
+						}
+						NOT = { has_war_with = HOL }
+						NOT = { has_war_with = FRA }
+						OR = {
+							HUN = {
+								NOT = {
+									has_completed_focus = HUN_protect_czechoslovakia #DOD only
+								}
+							}
+							FCZ = {
+								has_country_flag = HUN_AH_CZE_refused
+							}
+						}
+					}
+					HOL = {
+						country_event = germany.40
 					}
 				}
 				else_if = { #THIS IS THE HISTORICAL OUTCOME THAT SHOULD HAPPEN ON HISTORICAL - HISTORICAL HERE!! 
@@ -9344,8 +9394,8 @@ focus_tree = {
 					}
 				}
 
-				### EVENT CHAIN - ALT-HIST DEMAND OF SUDETENLAND TO FCZ OR THEIR OVERLORD ###
-				else_if = { # If not historical and FCZ is independent or GER subject, send event to them
+				### EVENT CHAIN - ALT-HIST DEMAND OF SUDETENLAND TO CZE OR THEIR OVERLORD ###
+				else_if = { # If not historical and CZE is independent or GER subject, send event to them
 					limit = {
 						FCZ = {
 							OR = {
@@ -9358,12 +9408,41 @@ focus_tree = {
 						country_event = { id = germany.122 }
 					}
 				}
-				else_if = { # If not historical and FCZ is subject of someone else, send event to overlord
+				else_if = { # If not historical and CZE is subject of someone else, send event to overlord
 					limit = {
 						FCZ = { is_subject = yes }
 					}
 					FCZ = {
 						overlord = { country_event = { id = germany.122 } }
+					}
+				}
+				if = { #Romania gets a chance to bail on the Czechs
+					limit = {
+						ROM = {
+							exists = yes
+							has_guaranteed = FCZ
+							NOT = { has_war_with = GER }
+							If = {
+								limit = {
+									ENG = {
+										exists = yes
+										is_subject = no
+										NOT = { has_completed_focus = ENG_a_change_in_course }
+									}
+								}
+								NOT = {
+									is_in_faction_with = ENG
+								}
+							}
+						}
+						FCZ = {
+							NOT = {
+								is_subject_of = ROM
+							}
+						}
+					}
+					ROM = {
+						country_event = { id = MUN_czech.7 }
 					}
 				}
 			}
@@ -9410,6 +9489,7 @@ focus_tree = {
 					}
 				}
 			}
+			
 
 			add_named_threat = { threat = 4 name = GER_demand_sudetenland_threat }
 		}

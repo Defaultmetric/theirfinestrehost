@@ -480,15 +480,15 @@ MR_pact_transfer_state_effect = {
 			limit = {
 				OR = {
 					has_global_flag = LIT_gets_vilnius
-					LIT = { is_in_faction_with = SOU }
-					LIT = { controls_state = 784 }
+					NLI = { is_in_faction_with = SOU }
+					NLI = { controls_state = 784 }
 				}
-				LIT = {
+				NLI = {
 					exists = yes
 					has_capitulated = no
 				}
 			}
-			LIT = { transfer_state = 784 }
+			NLI = { transfer_state = 784 }
 		}
 		else_if = {
 			limit = {
@@ -633,14 +633,14 @@ MR_pact_transfer_faction_state_effect = {
 			limit = {
 				OR = {
 					has_global_flag = LIT_gets_vilnius
-					LIT = { controls_state = 784 }
+					NLI = { controls_state = 784 }
 				}
-				LIT = {
+				NLI = {
 					exists = yes
 					has_capitulated = no
 				}
 			}
-			LIT = { transfer_state = 784 }
+			NLI = { transfer_state = 784 }
 		}
 		else = {
 			SOU = { transfer_state = 784 }
@@ -1466,9 +1466,9 @@ GER_setup_GER_sphere_of_influence_array = { #REMEMBER to update the focus toolti
 				limit = {
 					is_on_continent = europe
 					OR = {
-						is_core_of = SWE
-						is_core_of = NOR
-						is_core_of = DEN
+						is_core_of = FSW
+						is_core_of = NNO
+						is_core_of = NDE
 						is_core_of = HUN
 
 						#WEST POLAND
@@ -1510,12 +1510,12 @@ GER_setup_SOV_sphere_of_influence_array = { #REMEMBER to update the focus toolti
 					is_on_continent = europe
 					OR = {
 						is_core_of = FIN
-						is_core_of = EST
-						is_core_of = LAT
-						is_core_of = LIT
+						is_core_of = NES
+						is_core_of = NLA
+						is_core_of = NLI
 						is_core_of = SLO
 						is_core_of = ROM
-						is_core_of = YUG
+						is_core_of = FYG
 						is_core_of = BUL
 
 						#EAST POLAND
@@ -1655,7 +1655,7 @@ GER_setup_GER_asia_sphere_of_influence_array = {
 						is_core_of = AST
 						is_core_of = NZL
 						is_core_of = MAL
-						is_core_of = INS
+						is_core_of = INF
 						is_core_of = PAP
 						is_core_of = PHI
 						is_core_of = GUM
@@ -1690,7 +1690,7 @@ GER_setup_CHI_sphere_of_influence_array = {
 						is_core_of = VIN
 						is_core_of = CAM
 						is_core_of = LAO
-						is_core_of = CHI
+						is_core_of = FCH
 						is_core_of = RAJ
 						is_core_of = PAK
 						is_core_of = BAN
@@ -1987,7 +1987,7 @@ GER_create_operative_fritz_duquesne = { #Game start
 		traits = { operative_commando operative_tough operative_escape_artist }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER SAF HOL USA }
+		nationalities = { GER SAF FNL USA }
 		gender = male
 	}
 }
@@ -2011,7 +2011,7 @@ GER_create_operative_otto_skorzeny = { #Anschluss
 		traits = { operative_commando }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER AUS }
+		nationalities = { GER FAU }
 		gender = male
 	}
 }
@@ -2035,7 +2035,7 @@ GER_create_operative_johannes_becker = { #Influence in South America
 		traits = { operative_natural_orator operative_linguist }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER AUS ARG BRA }
+		nationalities = { GER FAU ARG BRA }
 		gender = male
 	}
 }
@@ -2047,7 +2047,7 @@ GER_create_operative_eleysa_bazna = { #Absorb the Abwehr / Expand SS Security Du
 		traits = { operative_infiltrator }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GER TUR KOS ALB }
+		nationalities = { GER TUR KOS FAL }
 		gender = male
 	}
 }
@@ -2059,7 +2059,7 @@ GER_create_operative_savitri_devi = { #Propaganda Master
 		traits = { operative_natural_orator operative_linguist operative_well_groomed }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { GRE FRA RAJ }
+		nationalities = { NNG FRA RAJ }
 		gender = female
 	}
 }

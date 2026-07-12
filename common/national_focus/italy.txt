@@ -275,12 +275,12 @@ focus_tree = {
 		available = {
 			OR = {
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 					is_fully_controlled_by = ROOT
 				}
 				any_subject_country = { #FOR PUPPETS
 					any_controlled_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = PREV
 					}
 				}
@@ -294,12 +294,12 @@ focus_tree = {
 				limit = {
 					NOT = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 						}
 						any_subject_country = { #FOR PUPPETS
 							any_controlled_state = {
-								is_core_of = ETH
+								is_core_of = FET
 								is_fully_controlled_by = PREV
 							}
 						}
@@ -335,7 +335,7 @@ focus_tree = {
 				limit = {
 					ROOT = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -345,7 +345,7 @@ focus_tree = {
 					random_controlled_state = {
 						prioritize = { 835 } #HARARGHE
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -363,7 +363,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = { #FOR PUPPETS
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
@@ -372,14 +372,14 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
 					random_controlled_state = {
 						prioritize = { 835 } #HARARGHE
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -419,7 +419,7 @@ focus_tree = {
 				limit = {
 					ROOT = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -429,7 +429,7 @@ focus_tree = {
 					random_controlled_state = {
 						prioritize = { 837 } #SIDAMO
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -447,7 +447,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = { #FOR PUPPETS
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -457,7 +457,7 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -465,7 +465,7 @@ focus_tree = {
 					random_controlled_state = {
 						prioritize = { 837 } #SIDAMO
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -506,7 +506,7 @@ focus_tree = {
 				limit = {
 					ROOT = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -516,7 +516,7 @@ focus_tree = {
 					random_controlled_state = {
 						prioritize = { 841 } #BEGEMDER
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -534,7 +534,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = { #FOR PUPPETS
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -544,7 +544,7 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -552,7 +552,7 @@ focus_tree = {
 					random_controlled_state = {
 						prioritize = { 841 } #BEGEMDER
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -570,7 +570,7 @@ focus_tree = {
 			every_controlled_state = {
 				limit = {
 					state_is_fully_controlled_by_ROOT_or_subject = yes
-					is_core_of = ETH
+					is_core_of = FET
 					has_resistance = yes
 				}
 				add_compliance = 5
@@ -772,7 +772,7 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 							NOT = { has_state_flag = ITA_improved_infrastructure_in_state_flag }
 						}
@@ -1021,7 +1021,7 @@ focus_tree = {
 					random_controlled_state = {
 						limit = {
 							has_state_flag = ITA_improved_infrastructure_in_state_flag
-							is_core_of = ETH
+							is_core_of = FET
 						}
 						add_building_construction = {
 							type = industrial_complex
@@ -1045,14 +1045,14 @@ focus_tree = {
 						limit = {
 							is_subject_of = ROOT
 							any_controlled_state = {
-								is_core_of = ETH
+								is_core_of = FET
 								is_fully_controlled_by = PREV
 							}
 						}
 						random_controlled_state = {
 							limit = {
 								has_state_flag = ITA_improved_infrastructure_in_state_flag
-								is_core_of = ETH
+								is_core_of = FET
 							}
 							add_building_construction = {
 								type = industrial_complex
@@ -1067,7 +1067,7 @@ focus_tree = {
 				random_controlled_state = {
 					limit = {
 						has_state_flag = ITA_improved_infrastructure_in_state_flag
-						is_core_of = ETH
+						is_core_of = FET
 					}
 					add_building_construction = {
 						type = industrial_complex
@@ -1759,7 +1759,7 @@ focus_tree = {
 					is_core_of = LBA
 					is_core_of = ERI
 					is_core_of = SOM
-					is_core_of = ETH
+					is_core_of = FET
 				}
 				state_is_fully_controlled_by_ROOT_or_subject = yes
 			}
@@ -2123,13 +2123,13 @@ focus_tree = {
 			if = {
 				limit = {
 					any_controlled_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 				}
 				random_controlled_state = {
 					limit = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 					prioritize = { 271 } #ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -2147,7 +2147,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
@@ -2156,13 +2156,13 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
 					random_controlled_state = {
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 						prioritize = { 271 } #ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -2318,7 +2318,7 @@ focus_tree = {
 					is_core_of = LBA
 					is_core_of = ERI
 					is_core_of = SOM
-					is_core_of = ETH
+					is_core_of = FET
 				}
 				state_is_fully_controlled_by_ROOT_or_subject = yes
 			}
@@ -2628,13 +2628,13 @@ focus_tree = {
 			if = {
 				limit = {
 					any_controlled_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 				}
 				random_controlled_state = {
 					limit = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 					prioritize = { 271 } # ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -2662,7 +2662,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 						}
 					}
@@ -2670,13 +2670,13 @@ focus_tree = {
 				random_other_country = {
 					limit = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
 					random_controlled_state = {
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 						prioritize = { 271 } # ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -6809,11 +6809,11 @@ focus_tree = {
 			if = { #Historical agreement with Sweden
 				limit = {
 					NOT = {
-						has_war_with = SWE
-						any_enemy_country = { is_in_faction_with = SWE }
+						has_war_with = FSW
+						any_enemy_country = { is_in_faction_with = FSW }
 					}
 				}
-				SWE = { country_event = { id = BBA_italy_naval_cooperation_programs.08 hours = 1 } }
+				FSW = { country_event = { id = BBA_italy_naval_cooperation_programs.08 hours = 1 } }
 				custom_effect_tooltip = if_they_accept
 				effect_tooltip = {
 					custom_effect_tooltip = ITA_cooperation_programs_deal_sweden_tt
@@ -8479,7 +8479,7 @@ focus_tree = {
 				every_controlled_state = {
 					limit = {
 						is_fully_controlled_by = ROOT
-						is_core_of = ETH
+						is_core_of = FET
 					}
 					set_state_flag = ITA_can_electrify_state_flag
 				}
@@ -8617,8 +8617,8 @@ focus_tree = {
 		bypass = {
 			NOT = { has_country_flag = SUEZ_SANCTIONS_FLAG }
 			OR = {
-				NOT = { country_exists = ETH }
-				has_subject = ETH
+				NOT = { country_exists = FET }
+				has_subject = FET
 			}
 		} 
 
@@ -8632,7 +8632,7 @@ focus_tree = {
 			}
 
 			core_compliance = {
-				occupied_country_tag = ETH
+				occupied_country_tag = FET
 				value > 40
 			}
 		}
@@ -8650,7 +8650,7 @@ focus_tree = {
 			}
 
 			#Deescalation
-			add_to_variable = { ETH.ETH_war_escalation_level = -1 }
+			add_to_variable = { FET.ETH_war_escalation_level = -1 }
 			custom_effect_tooltip = ETH_war_deescalation_inc_tt
 		}
 	}
@@ -8683,9 +8683,9 @@ focus_tree = {
 			effect_tooltip = {
 				if = {
 					limit = {
-						country_exists = ETH
+						country_exists = FET
 					}
-					ETH = {
+					FET = {
 						add_legitimacy = -10
 					}
 				}
@@ -8776,7 +8776,7 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				ETH = {
+				FET = {
 					country_event = { id = BBA_italo_ethiopian_war_events.510 hours = 6 }
 				}
 			}
@@ -8859,9 +8859,9 @@ focus_tree = {
 
 			if = {
 				limit = {
-					country_exists = ETH
+					country_exists = FET
 				}
-				ETH = {
+				FET = {
 					add_legitimacy = -10
 				}
 			}
@@ -8869,7 +8869,7 @@ focus_tree = {
 			every_controlled_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
-					is_core_of = ETH
+					is_core_of = FET
 				}
 				add_compliance = 5
 			}
@@ -11761,12 +11761,12 @@ focus_tree = {
 			is_subject = no
 			OR = { #ADD A TOOLTIP INSTEAD??
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 					is_fully_controlled_by = ROOT
 				}
 				any_subject_country = { #FOR PUPPETS
 					any_controlled_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = PREV
 					}
 				}
@@ -14079,7 +14079,7 @@ focus_tree = {
 		available = {
 			any_country = {
 				OR = {
-					original_tag = POR
+					original_tag = NPR
 					original_tag = SPR
 				}
 				exists = yes
@@ -14098,7 +14098,7 @@ focus_tree = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = POR
+						original_tag = NPR
 						original_tag = SPR 
 					}
 					has_civil_war = no
@@ -14726,7 +14726,7 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = { #Changing stuff here will require changing stuff in History file for 1939 bookmark
-			YUG = {
+			FYG = {
 				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
 				if = {
 					limit = { ROOT = { has_government = fascism } }
@@ -14788,10 +14788,10 @@ focus_tree = {
 			}
 
 
-			activate_targeted_decision = { target = YUG decision = ITA_pressure_country_government_balkan }
+			activate_targeted_decision = { target = FYG decision = ITA_pressure_country_government_balkan }
 			activate_targeted_decision = { target = ROM decision = ITA_pressure_country_government_balkan }
 			activate_targeted_decision = { target = BUL decision = ITA_pressure_country_government_balkan }
-			activate_targeted_decision = { target = YUG decision = ITA_promote_ideology_rallies_balkan }
+			activate_targeted_decision = { target = FYG decision = ITA_promote_ideology_rallies_balkan }
 			activate_targeted_decision = { target = ROM decision = ITA_promote_ideology_rallies_balkan }
 			activate_targeted_decision = { target = BUL decision = ITA_promote_ideology_rallies_balkan }
 		}
@@ -14934,7 +14934,7 @@ focus_tree = {
 			add_state_claim = 105 #MONTENEGRO
 
 			hidden_effect = { #Representing the Albanian Irredentism recognized by ITA.
-				ALB = {
+				FAL = {
 					add_state_claim = 802 #KOSOVO
 					add_state_claim = 970 #DEBAR
 					add_state_claim = 185 #EPIRUS
@@ -14945,8 +14945,8 @@ focus_tree = {
 			every_state = {
 				limit = {
 					OR = {
-						is_core_of = ALB
-						is_claimed_by = ALB
+						is_core_of = FAL
+						is_claimed_by = FAL
 					}
 					is_fully_controlled_by = ROOT
 				}
@@ -14955,9 +14955,9 @@ focus_tree = {
 
 			if = {
 				limit = {
-					ALB = { is_subject_of = ROOT }
+					FAL = { is_subject_of = ROOT }
 				}
-				ALB = {
+				FAL = {
 					add_opinion_modifier = { target = ROOT modifier = ITA_supports_albanian_irredentism }
 					add_autonomy_score = {
 						value = -30
@@ -14981,7 +14981,7 @@ focus_tree = {
 			else = {
 				custom_effect_tooltip = ITA_support_albanian_irredentism_subject_effects_tt
 				effect_tooltip = {
-					ALB = {
+					FAL = {
 						add_opinion_modifier = { target = ROOT modifier = ITA_supports_albanian_irredentism }
 						add_autonomy_score = {
 							value = -30
@@ -15037,7 +15037,7 @@ focus_tree = {
 
 			every_controlled_state = {
 				limit = {
-					is_core_of = ALB
+					is_core_of = FAL
 					is_fully_controlled_by = ROOT
 				}
 				#set_occupation_law = colonial_police #MM: Not working
@@ -15073,8 +15073,8 @@ focus_tree = {
 		relative_position_id = ITA_potential_allies_in_the_balkans
 		cost = 5
 		available = {
-			country_exists = AUS
-			NOT = { has_war_with = AUS }
+			country_exists = FAU
+			NOT = { has_war_with = FAU }
 		}
 
 		allow_branch = {
@@ -15082,13 +15082,13 @@ focus_tree = {
 		}
 
 		bypass = {
-			has_guaranteed = AUS
+			has_guaranteed = FAU
 		}		 
 
 		search_filters = {} 
 
 		completion_reward = {
-			give_guarantee = AUS
+			give_guarantee = FAU
 			custom_effect_tooltip = ITA_austrian_guarantees_tt
 		}
 	}
@@ -15153,18 +15153,18 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			if = { #Send this event if ETH is hosted by ENG and ITA is at war with ETH
+			if = { #Send this event if FET is hosted by ENG and ITA is at war with FET
 				limit = { #UK or an ally is hosting exiled Ethiopia
 					ITA_hosting_exiled_ethiopia = yes
 					ROOT = {
-						has_war_with = ETH
+						has_war_with = FET
 					}
 				}
 				ENG = {
 					country_event = { id = BBA_italy_interaction_events.50 hours = 1 }
 				}
 			}
-			else_if = { #Send this event if ITA isn't at war with ETH or ETH isn't hosted by ENG
+			else_if = { #Send this event if ITA isn't at war with FET or FET isn't hosted by ENG
 				limit = {
 					ENG = {
 						controls_state = 269
@@ -15772,7 +15772,7 @@ focus_tree = {
 				BUL = { country_event = { id = generic.5 hours = 2 } }
 			}
 
-			YUG = {
+			FYG = {
 				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
 				# REVISIT Possibly clear old negative modifier if Slovenia and Dalmatia were taken
 			}
@@ -15984,18 +15984,18 @@ focus_tree = {
 		available = {
 
 			846 = {
-				is_owned_and_controlled_by = SWI
+				is_owned_and_controlled_by = NSW
 			}
 		
 		}
 
-		will_lead_to_war_with = SWI
+		will_lead_to_war_with = NSW
 
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = { 
 
-			SWI = {
+			NSW = {
 				country_event = {
 				    id = BBA_italy_interaction_events.1
 				    days = 2
@@ -16077,7 +16077,7 @@ focus_tree = {
 			every_country = {
 				limit = {
 					NOT = { is_in_faction_with = ROOT }
-					original_tag = GRE
+					original_tag = NNG
 				}
 				ROOT = {
 					add_ai_strategy = {
@@ -16092,27 +16092,27 @@ focus_tree = {
 		bypass = {
 			is_subject = no
 			OR = {
-				GRE = { is_subject_of = ROOT }
-				GRE = { exists = no }
-				is_in_faction_with = GRE
+				NNG = { is_subject_of = ROOT }
+				NNG = { exists = no }
+				is_in_faction_with = NNG
 			}
 		}
 
 		available = {
 			is_subject = no
-			GRE = { exists = yes }
-			NOT = { is_in_faction_with = GRE }
-			NOT = { has_guaranteed = GRE }
-			NOT = { has_non_aggression_pact_with = GRE }
-			NOT = { GRE = { is_subject_of = ROOT } }
+			NNG = { exists = yes }
+			NOT = { is_in_faction_with = NNG }
+			NOT = { has_guaranteed = NNG }
+			NOT = { has_non_aggression_pact_with = NNG }
+			NOT = { NNG = { is_subject_of = ROOT } }
 		}
 
-		will_lead_to_war_with = GRE
+		will_lead_to_war_with = NNG
 
 		search_filters = {}
 
 		completion_reward = {
-			GRE = {
+			NNG = {
 				every_owned_state = {
 					limit = {
 						is_core_of = PREV
@@ -16125,7 +16125,7 @@ focus_tree = {
 			}
 			create_wargoal = {
 				type = annex_everything
-				target = GRE
+				target = NNG
 			}
 		}
 	}
@@ -16141,20 +16141,20 @@ focus_tree = {
 		cost = 10
 
 		bypass = {
-			NOT = { country_exists = GRE }
+			NOT = { country_exists = NNG }
 		}
 
 		available = {
-			country_exists = GRE
+			country_exists = NNG
 			NOT = {
-				has_war_with = GRE
+				has_war_with = NNG
 			}
 		}
 
 		search_filters = {}
 
 		completion_reward = {
-			GRE = {
+			NNG = {
 				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
 				if = {
 					limit = { ROOT = { has_government = fascism } }
@@ -16171,8 +16171,8 @@ focus_tree = {
 				country_event = { id = generic.1 }
 			}
 
-			activate_targeted_decision = { target = GRE decision = ITA_pressure_country_government_balkan }
-			activate_targeted_decision = { target = GRE decision = ITA_promote_ideology_rallies_balkan }
+			activate_targeted_decision = { target = NNG decision = ITA_pressure_country_government_balkan }
+			activate_targeted_decision = { target = NNG decision = ITA_promote_ideology_rallies_balkan }
 
 			hidden_effect = {
 				news_event = { hours = 6 id = news.187 } 
@@ -16208,10 +16208,10 @@ focus_tree = {
 
 			if = {
 				limit = {
-					is_in_faction_with = GRE
+					is_in_faction_with = NNG
 					TUR = { owns_state = 339 }
 				}
-				GRE = { country_event = greece.4 }
+				NNG = { country_event = greece.4 }
 			}
 			create_wargoal = {
 				target = TUR
@@ -16579,16 +16579,16 @@ focus_tree = {
 		cost = 5
 		available = {
 			is_in_faction = yes
-			country_exists = POR
+			country_exists = NPR
 			NOT = {
-				has_war_with = POR
+				has_war_with = NPR
 			}
 		}
 
 		search_filters = {}
 
 		completion_reward = {
-			POR = {
+			NPR = {
 				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
 				if = {
 					limit = { ROOT = { has_government = fascism } }
@@ -17884,13 +17884,13 @@ focus_tree = {
 			if = {
 				limit = {
 					any_controlled_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 				}
 				random_controlled_state = {
 					limit = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 					prioritize = { 271 } #ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -17908,7 +17908,7 @@ focus_tree = {
 				limit = {
 					any_subject_country = {
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
@@ -17917,13 +17917,13 @@ focus_tree = {
 					limit = {
 						is_subject_of = ROOT
 						any_controlled_state = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = PREV
 						}
 					}
 					random_controlled_state = {
 						limit = {
-							is_core_of = ETH
+							is_core_of = FET
 							is_fully_controlled_by = ROOT
 						}
 						prioritize = { 271 } #ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -21288,7 +21288,7 @@ focus_tree = {
 		cost = 5
 
 		bypass = {
-			ETH = {
+			FET = {
 				OR = {
 					exists = no
 					is_subject = yes
@@ -21546,7 +21546,7 @@ focus_tree = {
 		cost = 5
 
 		bypass = {
-			NOT = { country_exists = ALB }
+			NOT = { country_exists = FAL }
 		}
 
 		available = {
@@ -21559,11 +21559,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			ALB = { country_event = { id = BBA_italy_anti_colonialism_events.100 hours = 4 random_hours = 2 } }
+			FAL = { country_event = { id = BBA_italy_anti_colonialism_events.100 hours = 4 random_hours = 2 } }
 			
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
-				annex_country = { target = ALB }
+				annex_country = { target = FAL }
 			}
 		}
 	}
@@ -21963,7 +21963,7 @@ focus_tree = {
 						}
 						else_if = {
 							limit = {
-								is_core_of = ETH
+								is_core_of = FET
 							}
 							if = {
 								limit = {
@@ -22088,9 +22088,9 @@ focus_tree = {
 								}
 							}
 						}
-						else_if = { #Puppet is ETH
+						else_if = { #Puppet is FET
 							limit = {
-								original_tag = ETH
+								original_tag = FET
 							}
 							random_controlled_state = {
 								limit = {
@@ -22587,7 +22587,7 @@ focus_tree = {
 						}
 						else_if = {
 							limit = {
-								is_core_of = ETH
+								is_core_of = FET
 							}
 							if = {
 								limit = {
@@ -22712,9 +22712,9 @@ focus_tree = {
 								}
 							}
 						}
-						else_if = { #Puppet is ETH
+						else_if = { #Puppet is FET
 							limit = {
-								original_tag = ETH
+								original_tag = FET
 							}
 							random_controlled_state = {
 								limit = {

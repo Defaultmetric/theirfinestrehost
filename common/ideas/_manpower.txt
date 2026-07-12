@@ -304,7 +304,7 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
@@ -352,7 +352,7 @@ ideas = {
 					date > 1939.1.1
 					date < 1939.9.1
 					has_war = no
-					NOT = { has_guaranteed = POL }
+					NOT = { has_guaranteed = NPO }
 					factor = 0
 				}
 				modifier = {
@@ -444,7 +444,7 @@ ideas = {
 					SWE_rapid_mob_manpower_law_trigger = yes 
 					if = {
 						limit = {
-							original_tag = DEN
+							original_tag = NDE
 							has_dlc = "Arms Against Tyranny"
 						}
 						has_country_leader = {
@@ -470,7 +470,7 @@ ideas = {
 						limit = {
 							has_dlc = "Arms Against Tyranny"
 							has_autonomy_state = autonomy_aat_defense_council_member
-							is_subject_of = SWE
+							is_subject_of = FSW
 						}
 					}
 					else = {
@@ -607,7 +607,7 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
@@ -646,7 +646,7 @@ ideas = {
 				modifier = {
 					factor = 3
 
-					original_tag = CHI
+					original_tag = FCH
 					has_manpower < 300000
 				}
 
@@ -913,7 +913,7 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
@@ -943,7 +943,7 @@ ideas = {
 				modifier = {
 					#Block has plenty manpower
 					factor = 0
-					NOT = { tag = CHI }
+					NOT = { tag = FCH }
 					NOT = { tag = SOV }
 					manpower_per_military_factory >  3000
 				}
@@ -951,7 +951,7 @@ ideas = {
 				modifier = { # china relies a lot on throwing bodies at the enemy
 					factor = 3
 
-					original_tag = CHI
+					original_tag = FCH
 					has_manpower < 200000
 				}
 
@@ -1049,7 +1049,7 @@ ideas = {
 
 			available = {
 				#has_manpower_for_recruit_change_to =  { value = 0.2 group = mobilization_laws }
-				NOT = {original_tag = CHI}
+				NOT = {original_tag = FCH}
 				has_war = yes
 				OR = {
 					has_war_support > 0.7
@@ -1194,7 +1194,7 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
@@ -1224,14 +1224,14 @@ ideas = {
 				modifier = {
 					#Block has plenty manpower
 					factor = 0
-					NOT = { tag = CHI }
+					NOT = { tag = FCH }
 					manpower_per_military_factory >  2800
 				}
 
 				modifier = { # china relies a lot on throwing bodies at the enemy
 					factor = 3
 
-					tag = CHI
+					tag = FCH
 					has_manpower < 200000
 				}
 				modifier = {
@@ -1458,7 +1458,7 @@ ideas = {
 				}
 				if = {
 					limit = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye

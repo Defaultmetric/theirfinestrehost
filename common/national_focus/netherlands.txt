@@ -14,7 +14,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = HOL
+			tag = FNL
 			has_dlc = "Man the Guns"
 		}
 	}
@@ -53,8 +53,8 @@ focus_tree = {
 			NOT = { has_war_with = ENG }
 			any_country = {
 				OR = {
-					original_tag = HOL
-					is_subject_of = HOL
+					original_tag = FNL
+					is_subject_of = FNL
 				}
 				has_full_control_of_state = 335
 				has_full_control_of_state = 672
@@ -354,7 +354,7 @@ focus_tree = {
 					has_full_control_of_state = 672
 				}
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 335
 					has_full_control_of_state = 672
 				}
@@ -387,13 +387,13 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = {
-						is_subject_of = HOL
+					INF = {
+						is_subject_of = FNL
 						has_full_control_of_state = 335
 						has_full_control_of_state = 672
 					}
 				}
-				INS = {
+				INF = {
 					add_autonomy_ratio = {
 						value = -0.025
 						localization = HOL_the_crown_jewel_colony
@@ -409,7 +409,7 @@ focus_tree = {
 			OR = {
 				has_full_control_of_state = 335
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 335
 				}
 			}
@@ -451,12 +451,12 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = {
-						is_subject_of = HOL
+					INF = {
+						is_subject_of = FNL
 						has_full_control_of_state = 335
 					}
 				}
-				INS = {
+				INF = {
 					add_autonomy_ratio = {
 						value = -0.05
 						localization = HOL_java
@@ -472,7 +472,7 @@ focus_tree = {
 			OR = {
 				has_full_control_of_state = 335
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 335
 				}
 			}
@@ -521,12 +521,12 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = {
-						is_subject_of = HOL
+					INF = {
+						is_subject_of = FNL
 						has_full_control_of_state = 335
 					}
 				}
-				INS = {
+				INF = {
 					add_autonomy_ratio = {
 						value = -0.025
 						localization = HOL_reinforce_java
@@ -542,7 +542,7 @@ focus_tree = {
 			OR = {
 				has_full_control_of_state = 335
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 335
 				}
 			}
@@ -600,7 +600,7 @@ focus_tree = {
 			OR = {
 				has_full_control_of_state = 672
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 672
 				}
 			}
@@ -642,12 +642,12 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = {
-						is_subject_of = HOL
+					INF = {
+						is_subject_of = FNL
 						has_full_control_of_state = 672
 					}
 				}
-				INS = {
+				INF = {
 					add_autonomy_ratio = {
 						value = -0.05
 						localization = HOL_sumatra
@@ -668,7 +668,7 @@ focus_tree = {
 					has_full_control_of_state = 673
 				}
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 667
 					has_full_control_of_state = 334
 					has_full_control_of_state = 668
@@ -734,15 +734,15 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = {
-						is_subject_of = HOL
+					INF = {
+						is_subject_of = FNL
 						has_full_control_of_state = 667
 						has_full_control_of_state = 334
 						has_full_control_of_state = 668
 						has_full_control_of_state = 673
 					}
 				}
-				INS = {
+				INF = {
 					add_autonomy_ratio = {
 						value = -0.05
 						localization = HOL_borneo_and_the_grote_oost
@@ -761,12 +761,12 @@ focus_tree = {
  	focus = {
 		id = HOL_curtail_colonial_autonomy
 		available = {
-			country_exists = INS
+			country_exists = INF
 			NOT = { has_completed_focus = HOL_oranje_boven }
-			INS = { is_subject_of = HOL }
+			INF = { is_subject_of = FNL }
 		}
 		bypass = {
-			INS = { exists = no }
+			INF = { exists = no }
 			owns_state = 335
 		}
 		prerequisite = { focus = HOL_the_crown_jewel_colony }
@@ -785,7 +785,7 @@ focus_tree = {
 				idea = HOL_curtail_colonial_autonomy_overlord
 				days = 545
 			}
-			INS = {
+			INF = {
 				add_timed_idea = {
 					idea = HOL_curtail_colonial_autonomy_subject
 					days = 545
@@ -806,8 +806,8 @@ focus_tree = {
 			has_capitulated = yes
 			NOT = { has_completed_focus = HOL_oranje_boven }
 			OR = {
-				INS = {
-					is_subject_of = HOL
+				INF = {
+					is_subject_of = FNL
 					has_autonomy_state = autonomy_integrated_puppet
 					compare_autonomy_progress_ratio < 0.6
 					has_full_control_of_state = 1058
@@ -829,18 +829,18 @@ focus_tree = {
 			custom_effect_tooltip = HOL_continue_the_war_in_batavia_tt
 			effect_tooltip = {
 				remove_ideas = HOL_curtail_colonial_autonomy_overlord
-				INS = {
+				INF = {
 					every_unit_leader = {
-						set_nationality = HOL
+						set_nationality = FNL
 					}
 				}
 				annex_country = {
-				    target = INS
+				    target = INF
 				    transfer_troops = yes
 				}
 				every_state = {
 					limit = {
-						is_core_of = INS
+						is_core_of = INF
 					}
 					add_compliance = 70
 				}
@@ -908,7 +908,7 @@ focus_tree = {
 			add_ideas = HOL_expand_the_colonial_army
 			every_state = {
 				limit = {
-					is_core_of = INS
+					is_core_of = INF
 				}
 				add_state_modifier = {
 					modifier = {
@@ -1191,12 +1191,12 @@ focus_tree = {
 			add_equipment_to_stockpile = {
 			    type = infantry_equipment
 			    amount = 10000
-			    producer = HOL
+			    producer = FNL
 			}
 			add_equipment_to_stockpile = {
 			    type = support_equipment
 			    amount = 500
-			    producer = HOL
+			    producer = FNL
 			}
 			add_ideas = HOL_liberation
 			HOL_de_crisisjaren_level_down = yes
@@ -1226,8 +1226,8 @@ focus_tree = {
 			NOT = { has_war_with = ENG }
 			any_country = {
 				OR = {
-					original_tag = HOL
-					is_subject_of = HOL
+					original_tag = FNL
+					is_subject_of = FNL
 				}
 				has_full_control_of_state = 335
 				has_full_control_of_state = 672
@@ -1247,7 +1247,7 @@ focus_tree = {
 			x = -4
 			y = 0
 			trigger = {
-				INS = {
+				INF = {
 					has_completed_focus = INS_underground_revolution
 				}
 			}
@@ -1269,7 +1269,7 @@ focus_tree = {
 
 		allow_branch = {
 			has_dlc = "Thunder at Our Gates"
-			INS = {
+			INF = {
 				is_ai = yes
 			}
 		}
@@ -1296,7 +1296,7 @@ focus_tree = {
 			add_political_power = -100
 			custom_effect_tooltip = HOL_taog_guarantee_colonial_loyalty_tt
 			custom_effect_tooltip = newline_tt
-			INS = {
+			INF = {
 				add_autonomy_score = { 
 					value = 500 
 					localization = HOL_taog_guarantee_colonial_loyalty
@@ -1309,10 +1309,10 @@ focus_tree = {
  	focus = {
 		id = HOL_curtail_colonial_autonomy_taog #TAOG
 		available = {
-			country_exists = INS
+			country_exists = INF
 			NOT = { has_completed_focus = HOL_oranje_boven }
-			INS = { is_subject_of = HOL }
-			INS = {
+			INF = { is_subject_of = FNL }
+			INF = {
 				NOT = {
 					has_autonomy_state = autonomy_dominion
 				}
@@ -1323,7 +1323,7 @@ focus_tree = {
 			}
 		}
 		bypass = {
-			INS = { exists = no }
+			INF = { exists = no }
 			owns_state = 335
 			owns_state = 1058
 			owns_state = 1051
@@ -1339,7 +1339,7 @@ focus_tree = {
 			x = 0
 			y = -1
 			trigger = {
-				INS = {
+				INF = {
 					has_completed_focus = INS_underground_revolution
 				}
 			}
@@ -1371,7 +1371,7 @@ focus_tree = {
 				idea = HOL_curtail_colonial_autonomy_overlord
 				days = 545
 			}
-			INS = {
+			INF = {
 				add_timed_idea = {
 					idea = HOL_curtail_colonial_autonomy_subject
 					days = 545
@@ -1454,19 +1454,19 @@ focus_tree = {
 			base = 1
 			modifier = {
 				factor = 0.6
-				INS = {
+				INF = {
 					is_ai = no
 				}
 			}
 			modifier = {
 				factor = 1.1
-				INS = {
+				INF = {
 					is_ai = yes
 				}
 			}
 			modifier = {
 				factor = 1.7
-				INS = {
+				INF = {
 					is_ai = yes
 				}
 				date > 1938.1.1
@@ -1551,19 +1551,19 @@ focus_tree = {
 			base = 1
 			modifier = {
 				factor = 0.5
-				INS = {
+				INF = {
 					is_ai = no
 				}
 			}
 			modifier = {
 				factor = 1.1
-				INS = {
+				INF = {
 					is_ai = yes
 				}
 			}
 			modifier = {
 				factor = 1.7
-				INS = {
+				INF = {
 					is_ai = yes
 				}
 				date > 1938.1.1
@@ -1687,8 +1687,8 @@ focus_tree = {
 			has_capitulated = yes
 			NOT = { has_completed_focus = HOL_oranje_boven }
 			OR = {
-				INS = {
-					is_subject_of = HOL
+				INF = {
+					is_subject_of = FNL
 					has_autonomy_state = autonomy_integrated_puppet
 					compare_autonomy_progress_ratio < 0.6
 					has_full_control_of_state = 1058
@@ -1706,7 +1706,7 @@ focus_tree = {
 			x = 0
 			y = -2
 			trigger = {
-				INS = {
+				INF = {
 					has_completed_focus = INS_underground_revolution
 				}
 			}
@@ -1725,13 +1725,13 @@ focus_tree = {
 			modifier = {
 				factor = 2
 				has_war_with_major = yes
-				INS = {
+				INF = {
 					surrender_progress < 0.2
 				}
 			}
 			modifier = {
 				factor = 0.1 #dont be mean
-				INS = {
+				INF = {
 					is_ai = no
 				}
 			}
@@ -1745,18 +1745,18 @@ focus_tree = {
 			custom_effect_tooltip = HOL_continue_the_war_in_batavia_tt
 			effect_tooltip = {
 				remove_ideas = HOL_curtail_colonial_autonomy_overlord
-				INS = {
+				INF = {
 					every_unit_leader = {
-						set_nationality = HOL
+						set_nationality = FNL
 					}
 				}
 				annex_country = {
-				    target = INS
+				    target = INF
 				    transfer_troops = yes
 				}
 				every_state = {
 					limit = {
-						is_core_of = INS
+						is_core_of = INF
 					}
 					add_compliance = 70
 				}
@@ -1824,7 +1824,7 @@ focus_tree = {
 			add_ideas = HOL_expand_the_colonial_army
 			every_state = {
 				limit = {
-					is_core_of = INS
+					is_core_of = INF
 				}
 				add_state_modifier = {
 					modifier = {
@@ -2107,12 +2107,12 @@ focus_tree = {
 			add_equipment_to_stockpile = {
 			    type = infantry_equipment
 			    amount = 10000
-			    producer = HOL
+			    producer = FNL
 			}
 			add_equipment_to_stockpile = {
 			    type = support_equipment
 			    amount = 500
-			    producer = HOL
+			    producer = FNL
 			}
 			add_ideas = HOL_liberation
 			HOL_de_crisisjaren_level_down = yes
@@ -2390,9 +2390,9 @@ focus_tree = {
 		available = {
 			has_full_control_of_state = 7
 			has_full_control_of_state = 36
-			INS = {
+			INF = {
 				exists = yes
-				is_subject_of = HOL
+				is_subject_of = FNL
 				has_full_control_of_state = 1058
 				has_full_control_of_state = 1051
 				has_full_control_of_state = 335
@@ -2423,14 +2423,14 @@ focus_tree = {
 
 			modifier = {
 				factor = 0.1
-				INS = {
+				INF = {
 					has_autonomy_state = autonomy_integrated_puppet
 				}
 			}
 
 			modifier = {
 				factor = 0.3
-				INS = {
+				INF = {
 					has_autonomy_state = autonomy_puppet
 				}
 			}
@@ -2450,7 +2450,7 @@ focus_tree = {
 			x = 0
 			y = -1
 			trigger = {
-				INS = {
+				INF = {
 					has_completed_focus = INS_underground_revolution
 				}
 			}
@@ -3201,7 +3201,7 @@ focus_tree = {
 				}
 			}
 			ENG = {
-				add_opinion_modifier = { target = HOL modifier = HOL_protect_against_britain }
+				add_opinion_modifier = { target = FNL modifier = HOL_protect_against_britain }
 			}	
 		}
 	}
@@ -3395,7 +3395,7 @@ focus_tree = {
 				}
 			}	
 			GER = {
-				add_opinion_modifier = { target = HOL modifier = HOL_germany_is_the_greater_threat }
+				add_opinion_modifier = { target = FNL modifier = HOL_germany_is_the_greater_threat }
 			}	
 		}
 	}
@@ -3997,42 +3997,42 @@ focus_tree = {
 					OR = {
 						controls_state = 335
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 335
 						}
 					}
 					OR = {
 						controls_state = 672
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 672
 						}
 					}
 					OR = {
 						controls_state = 334
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 334
 						}
 					}
 					OR = {
 						controls_state = 673
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 673
 						}
 					}
 					OR = {
 						controls_state = 667
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 667
 						}
 					}
 					OR = {
 						controls_state = 309
 						any_country = {
-							is_subject_of = HOL
+							is_subject_of = FNL
 							controls_state = 309
 						}
 					}
@@ -4160,7 +4160,7 @@ focus_tree = {
 					has_full_control_of_state = 669
 				}
 				any_other_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					has_full_control_of_state = 335
 					has_full_control_of_state = 672
 					has_full_control_of_state = 673
@@ -4438,7 +4438,7 @@ focus_tree = {
 				is_subject = no
 				AND = {
 						country_exists = GER
-						has_opinion = { target = HOL value > 74 } 
+						has_opinion = { target = FNL value > 74 } 
 				}
 			}
 		}
@@ -4716,7 +4716,7 @@ focus_tree = {
 			effect_tooltip = {
 				GER = {
 					custom_effect_tooltip = HOL_trade_influence_tt
-					add_political_power = HOL.gateway_to_europe_influence_pp_total
+					add_political_power = FNL.gateway_to_europe_influence_pp_total
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4725,17 +4725,17 @@ focus_tree = {
 			add_timed_idea = { idea = HOL_caved_to_the_germans days = 1095 }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			GER = {
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_germans_ger }
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_germans_ger_trade }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_germans_ger }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_germans_ger_trade }
 				if = {
 					limit = {
-						INS = { is_subject_of = HOL }
+						INF = { is_subject_of = FNL }
 					}
-					add_opinion_modifier = { target = INS modifier = HOL_caved_to_the_germans_ger_trade }
+					add_opinion_modifier = { target = INF modifier = HOL_caved_to_the_germans_ger_trade }
 				}
 			}	
 			ENG = {
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_germans_eng }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_germans_eng }
 			}
 			hidden_effect = { news_event = { id = mtg_news.10 hours = 6 } }
 		}
@@ -4808,13 +4808,13 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_opinion_modifier = { target = GER modifier = HOL_essential_dutch_trade }
 			GER = {
-				add_opinion_modifier = { target = HOL modifier = HOL_maintained_trade_neutrality }
-				add_opinion_modifier = { target = HOL modifier = HOL_essential_dutch_trade }
+				add_opinion_modifier = { target = FNL modifier = HOL_maintained_trade_neutrality }
+				add_opinion_modifier = { target = FNL modifier = HOL_essential_dutch_trade }
 			}
 			add_opinion_modifier = { target = ENG modifier = HOL_essential_dutch_trade }
 			ENG = {
-				add_opinion_modifier = { target = HOL modifier = HOL_maintained_trade_neutrality }
-				add_opinion_modifier = { target = HOL modifier = HOL_essential_dutch_trade }
+				add_opinion_modifier = { target = FNL modifier = HOL_maintained_trade_neutrality }
+				add_opinion_modifier = { target = FNL modifier = HOL_essential_dutch_trade }
 			}
 			hidden_effect = { news_event = { id = mtg_news.12 hours = 6 } }
 		}
@@ -4889,7 +4889,7 @@ focus_tree = {
 			effect_tooltip = {
 				ENG = {
 					custom_effect_tooltip = HOL_trade_influence_tt
-					add_political_power = HOL.gateway_to_europe_influence_pp_total
+					add_political_power = FNL.gateway_to_europe_influence_pp_total
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -4898,17 +4898,17 @@ focus_tree = {
 			add_timed_idea = { idea = HOL_caved_to_the_british days = 1095 }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			GER = {
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_british_ger }
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_british_ger_trade }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_british_ger }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_british_ger_trade }
 				if = {
 					limit = {
-						INS = { is_subject_of = HOL }
+						INF = { is_subject_of = FNL }
 					}
-					add_opinion_modifier = { target = INS modifier = HOL_caved_to_the_british_ger_trade }
+					add_opinion_modifier = { target = INF modifier = HOL_caved_to_the_british_ger_trade }
 				}
 			}	
 			ENG = {
-				add_opinion_modifier = { target = HOL modifier = HOL_caved_to_the_british_eng }
+				add_opinion_modifier = { target = FNL modifier = HOL_caved_to_the_british_eng }
 			}
 			hidden_effect = { news_event = { id = mtg_news.11 hours = 6 } }
 		}
@@ -5117,13 +5117,13 @@ focus_tree = {
 							has_tech = advanced_medium_tank
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_equipment_3
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_equipment_3
 							    amount = 250
@@ -5136,13 +5136,13 @@ focus_tree = {
 							has_tech = improved_medium_tank
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_equipment_2
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_equipment_2
 							    amount = 250
@@ -5155,13 +5155,13 @@ focus_tree = {
 							has_tech = basic_medium_tank
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_equipment_1
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_equipment_1
 							    amount = 250
@@ -5174,13 +5174,13 @@ focus_tree = {
 							has_tech = advanced_medium_tank_chassis
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_chassis_3
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_chassis_3
 							    amount = 250
@@ -5193,13 +5193,13 @@ focus_tree = {
 							has_tech = improved_medium_tank_chassis
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_chassis_2
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_chassis_2
 							    amount = 250
@@ -5212,13 +5212,13 @@ focus_tree = {
 							has_tech = basic_medium_tank_chassis
 						}
 						create_production_license = {
-							target = HOL
+							target = FNL
 							equipment = {
 								type = medium_tank_chassis_1
 							}
 							cost_factor = 0
 						}
-						HOL = {
+						FNL = {
 							add_equipment_to_stockpile = {
 							    type = medium_tank_chassis_1
 							    amount = 250
@@ -5247,7 +5247,7 @@ focus_tree = {
 						limit = {
 							has_tech = advanced_medium_tank
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5265,7 +5265,7 @@ focus_tree = {
 						limit = {
 							has_tech = improved_medium_tank
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5283,7 +5283,7 @@ focus_tree = {
 						limit = {
 							has_tech = basic_medium_tank
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5301,7 +5301,7 @@ focus_tree = {
 						limit = {
 							has_tech = advanced_medium_tank_chassis
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5319,7 +5319,7 @@ focus_tree = {
 						limit = {
 							has_tech = improved_medium_tank_chassis
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5337,7 +5337,7 @@ focus_tree = {
 						limit = {
 							has_tech = basic_medium_tank_chassis
 						}
-						HOL = {
+						FNL = {
 							add_tech_bonus = {
 								name = HOL_beginnings_of_a_dutch_blitzkrieg
 								bonus = 1
@@ -5382,7 +5382,7 @@ focus_tree = {
 					controls_state = 667
 				}
 				any_country = {
-					is_subject_of = HOL
+					is_subject_of = FNL
 					controls_state = 335
 					controls_state = 672
 					controls_state = 334
@@ -5404,7 +5404,7 @@ focus_tree = {
 						controls_state = 309
 					}
 					any_country = {
-						is_subject_of = HOL
+						is_subject_of = FNL
 						controls_state = 335
 						controls_state = 672
 						controls_state = 334
@@ -5645,7 +5645,7 @@ focus_tree = {
 					owns_state = 29
 					has_full_control_of_state = 29
 				}
-				HOL = {
+				FNL = {
 					add_state_claim = 29
 					create_wargoal = {
 					    type = take_state_focus
@@ -5662,7 +5662,7 @@ focus_tree = {
 		id = HOL_the_united_netherlands
 
 		available = {
-			NOT = { is_in_faction_with = BEL }
+			NOT = { is_in_faction_with = FBL }
 			NOT = { is_in_faction_with = LUX }
 			custom_trigger_tooltip = {
 				tooltip = HOL_pre_empt_venezuelan_aggression_tt
@@ -5688,7 +5688,7 @@ focus_tree = {
 
 		prerequisite = { focus = HOL_join_germany focus = HOL_the_netherlands_first }
 
-		will_lead_to_war_with = BEL
+		will_lead_to_war_with = FBL
 		will_lead_to_war_with = LUX
 
 		icon = GFX_focus_hol_united_netherlands
@@ -5710,7 +5710,7 @@ focus_tree = {
 
 			create_wargoal = {
 			    type = annex_everything
-			    target = BEL
+			    target = FBL
 			    expire = 0
 			}
 			create_wargoal = {
@@ -5981,35 +5981,35 @@ focus_tree = {
 		available = {
 			has_government = communism
 			OR = {
-				CRC = { is_subject_of = HOL }
-				695 = { is_fully_controlled_by = HOL }
-				SUR = { is_subject_of = HOL }
-				309 = { is_fully_controlled_by = HOL }
+				CRC = { is_subject_of = FNL }
+				695 = { is_fully_controlled_by = FNL }
+				SUR = { is_subject_of = FNL }
+				309 = { is_fully_controlled_by = FNL }
 				custom_trigger_tooltip = {
 					tooltip = HOL_decolonization_tt2
 					AND = {
-						672 = { is_fully_controlled_by = HOL }
-						335 = { is_fully_controlled_by = HOL }
-						334 = { is_fully_controlled_by = HOL }
-						667 = { is_fully_controlled_by = HOL }
-						673 = { is_fully_controlled_by = HOL }
-						668 = { is_fully_controlled_by = HOL }
-						738 = { is_fully_controlled_by = HOL }
-						669 = { is_fully_controlled_by = HOL }
+						672 = { is_fully_controlled_by = FNL }
+						335 = { is_fully_controlled_by = FNL }
+						334 = { is_fully_controlled_by = FNL }
+						667 = { is_fully_controlled_by = FNL }
+						673 = { is_fully_controlled_by = FNL }
+						668 = { is_fully_controlled_by = FNL }
+						738 = { is_fully_controlled_by = FNL }
+						669 = { is_fully_controlled_by = FNL }
 					}
 				}
 				AND = {
-					INS = { is_subject_of = HOL }
+					INF = { is_subject_of = FNL }
 					custom_trigger_tooltip = {
 						tooltip = HOL_decolonization_tt1
-						672 = { is_fully_controlled_by = INS }
-						335 = { is_fully_controlled_by = INS }
-						334 = { is_fully_controlled_by = INS }
-						667 = { is_fully_controlled_by = INS }
-						673 = { is_fully_controlled_by = INS }
-						668 = { is_fully_controlled_by = INS }
-						738 = { is_fully_controlled_by = INS }
-						669 = { is_fully_controlled_by = INS }
+						672 = { is_fully_controlled_by = INF }
+						335 = { is_fully_controlled_by = INF }
+						334 = { is_fully_controlled_by = INF }
+						667 = { is_fully_controlled_by = INF }
+						673 = { is_fully_controlled_by = INF }
+						668 = { is_fully_controlled_by = INF }
+						738 = { is_fully_controlled_by = INF }
+						669 = { is_fully_controlled_by = INF }
 					}
 				}
 			}
@@ -6018,23 +6018,23 @@ focus_tree = {
 		bypass = {
 			NOT = {
 				OR = {
-					672 = { is_owned_by = HOL }
-					335 = { is_owned_by = HOL }
-					334 = { is_owned_by = HOL }
-					667 = { is_owned_by = HOL }
-					673 = { is_owned_by = HOL }
-					668 = { is_owned_by = HOL }
-					738 = { is_owned_by = HOL }
-					669 = { is_owned_by = HOL }
-					695 = { is_owned_by = HOL }
-					309 = { is_owned_by = HOL }
+					672 = { is_owned_by = FNL }
+					335 = { is_owned_by = FNL }
+					334 = { is_owned_by = FNL }
+					667 = { is_owned_by = FNL }
+					673 = { is_owned_by = FNL }
+					668 = { is_owned_by = FNL }
+					738 = { is_owned_by = FNL }
+					669 = { is_owned_by = FNL }
+					695 = { is_owned_by = FNL }
+					309 = { is_owned_by = FNL }
 				}
 			}
 			NOT = {
 				OR = {
-					CRC = { is_subject_of = HOL }
-					SUR = { is_subject_of = HOL }
-					INS = { is_subject_of = HOL }
+					CRC = { is_subject_of = FNL }
+					SUR = { is_subject_of = FNL }
+					INF = { is_subject_of = FNL }
 				}
 			}
 		}
@@ -6046,7 +6046,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6055,24 +6055,24 @@ focus_tree = {
 			
 			if = {
 				limit = {
-					672 = { is_fully_controlled_by = HOL }
-					335 = { is_fully_controlled_by = HOL }
-					334 = { is_fully_controlled_by = HOL }
-					667 = { is_fully_controlled_by = HOL }
-					673 = { is_fully_controlled_by = HOL }
-					668 = { is_fully_controlled_by = HOL }
-					738 = { is_fully_controlled_by = HOL }
-					669 = { is_fully_controlled_by = HOL }
+					672 = { is_fully_controlled_by = FNL }
+					335 = { is_fully_controlled_by = FNL }
+					334 = { is_fully_controlled_by = FNL }
+					667 = { is_fully_controlled_by = FNL }
+					673 = { is_fully_controlled_by = FNL }
+					668 = { is_fully_controlled_by = FNL }
+					738 = { is_fully_controlled_by = FNL }
+					669 = { is_fully_controlled_by = FNL }
 				}
-				INS = {
+				INF = {
 					every_unit_leader = {
-						set_nationality = HOL
+						set_nationality = FNL
 					}
 				}
-				release = INS
+				release = INF
 				custom_effect_tooltip = generic_skip_one_line_tt
 				hidden_effect = {
-					INS = {
+					INF = {
 						drop_cosmetic_tag = yes
 						retire_country_leader = yes
 					}
@@ -6080,35 +6080,35 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = { is_subject_of = HOL }
-					672 = { is_fully_controlled_by = INS }
-					335 = { is_fully_controlled_by = INS }
-					334 = { is_fully_controlled_by = INS }
-					667 = { is_fully_controlled_by = INS }
-					673 = { is_fully_controlled_by = INS }
-					668 = { is_fully_controlled_by = INS }
-					738 = { is_fully_controlled_by = INS }
-					669 = { is_fully_controlled_by = INS }
+					INF = { is_subject_of = FNL }
+					672 = { is_fully_controlled_by = INF }
+					335 = { is_fully_controlled_by = INF }
+					334 = { is_fully_controlled_by = INF }
+					667 = { is_fully_controlled_by = INF }
+					673 = { is_fully_controlled_by = INF }
+					668 = { is_fully_controlled_by = INF }
+					738 = { is_fully_controlled_by = INF }
+					669 = { is_fully_controlled_by = INF }
 				}
 				hidden_effect = {
-					INS = {
+					INF = {
 						drop_cosmetic_tag = yes
 						retire_country_leader = yes
 					}
 				}
 				set_autonomy = {
-				    target = INS
+				    target = INF
 				    autonomy_state = autonomy_free
 				}
 
 				if = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
-						INS = {
+						INF = {
 							has_completed_focus = INS_the_jewel_in_the_crown
 						}
 					}
-					INS = {
+					INF = {
 						complete_national_focus = INSHOL_nationalize_dutch_companies
 					}
 				}
@@ -6119,8 +6119,8 @@ focus_tree = {
 			if = {
 				limit = {
 					OR = {
-						CRC = { is_subject_of = HOL }
-						695 = { is_fully_controlled_by = HOL }
+						CRC = { is_subject_of = FNL }
+						695 = { is_fully_controlled_by = FNL }
 					}
 				}
 				release = CRC
@@ -6128,8 +6128,8 @@ focus_tree = {
 			if = {
 				limit = {
 					OR = {
-						SUR = { is_subject_of = HOL }
-						309 = { is_fully_controlled_by = HOL }
+						SUR = { is_subject_of = FNL }
+						309 = { is_fully_controlled_by = FNL }
 					}
 				}
 				release = SUR
@@ -6162,35 +6162,35 @@ focus_tree = {
 				7 = {
 					create_unit = {
 						division = "name = \"1. KNIL Divisie 'Java'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"2. KNIL Divisie 'Java'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"3. KNIL Divisie 'Java'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"4. KNIL Divisie 'Sumatra'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"5. KNIL Divisie 'Sumatra'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"6. KNIL Divisie 'Borneo'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"7. KNIL Divisie 'Borneo'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 					create_unit = {
 						division = "name = \"8. KNIL Divisie 'Celebes'\" division_template = \"KNIL Divisie\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 				}
 			}
@@ -6211,7 +6211,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6271,7 +6271,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6294,7 +6294,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6322,7 +6322,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6382,7 +6382,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6437,7 +6437,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 		completion_reward = {
 			
@@ -6463,7 +6463,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6484,7 +6484,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6536,7 +6536,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6572,7 +6572,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 		
 		completion_reward = {
@@ -6642,7 +6642,7 @@ focus_tree = {
 	focus = {
 		id = HOL_bring_socialism_south
 		available = {
-			NOT = { is_in_faction_with = BEL }
+			NOT = { is_in_faction_with = FBL }
 			NOT = { is_in_faction_with = LUX }
 			custom_trigger_tooltip = {
 				tooltip = HOL_pre_empt_venezuelan_aggression_tt
@@ -6665,7 +6665,7 @@ focus_tree = {
 			has_full_control_of_state = 8
 		}
 		prerequisite = { focus = HOL_bastion_of_true_communism focus = HOL_join_the_french focus = HOL_affirm_loyalty_to_moscow }
-		will_lead_to_war_with = BEL
+		will_lead_to_war_with = FBL
 		will_lead_to_war_with = LUX
 		icon = GFX_goal_generic_war_with_comintern
 		x = -1
@@ -6674,7 +6674,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6688,7 +6688,7 @@ focus_tree = {
 
 			create_wargoal = {
 			    type = puppet_wargoal_focus
-			    target = BEL
+			    target = FBL
 			    expire = 0
 			}
 
@@ -6714,7 +6714,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_MANPOWER}
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 		completion_reward = {
 			
@@ -6735,7 +6735,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_MANPOWER}
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 		completion_reward = {
 			
@@ -6810,7 +6810,7 @@ focus_tree = {
 				limit = {
 					ENG = {
 						NOT = { has_government = communism }
-						NOT = { is_in_faction_with = HOL }
+						NOT = { is_in_faction_with = FNL }
 					}
 				}
 				create_wargoal = {
@@ -6823,7 +6823,7 @@ focus_tree = {
 				limit = {
 					FRA = {
 						NOT = { has_government = communism }
-						NOT = { is_in_faction_with = HOL }
+						NOT = { is_in_faction_with = FNL }
 					}
 				}
 				create_wargoal = {
@@ -6836,7 +6836,7 @@ focus_tree = {
 				limit = {
 					USA = {
 						NOT = { has_government = communism }
-						NOT = { is_in_faction_with = HOL }
+						NOT = { is_in_faction_with = FNL }
 					}
 				}
 				create_wargoal = {
@@ -6894,7 +6894,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -6924,7 +6924,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			base = 5 #if HOL completes the prerequisites it should keep going down all of these
+			base = 5 #if FNL completes the prerequisites it should keep going down all of these
 		}
 
 		available_if_capitulated = yes
@@ -7083,7 +7083,7 @@ focus_tree = {
 		available = {
 			is_in_faction_with = ENG
 			has_war_together_with = ENG
-			BEL = {
+			FBL = {
 				is_in_faction_with = ROOT
 				has_war_together_with = ROOT
 			}
@@ -7094,20 +7094,20 @@ focus_tree = {
 			OR = {
 				AND = {
 					ROOT = { has_capitulated = no }
-					BEL = { has_capitulated = yes }
+					FBL = { has_capitulated = yes }
 					LUX = { has_capitulated = yes }
 				}
 				AND = {
 					ROOT = { has_capitulated = yes }
-					BEL = { has_capitulated = yes }
+					FBL = { has_capitulated = yes }
 					LUX = { has_capitulated = yes }
 					custom_trigger_tooltip = {
 						tooltip = HOL_revive_the_buffer_state_proposal_tt1
-						check_variable = { HOL.legitimacy > BEL.legitimacy }
+						check_variable = { FNL.legitimacy > FBL.legitimacy }
 					}
 					custom_trigger_tooltip = {
 						tooltip = HOL_revive_the_buffer_state_proposal_tt2
-						check_variable = { HOL.legitimacy > LUX.legitimacy }
+						check_variable = { FNL.legitimacy > LUX.legitimacy }
 					}
 				}
 			}
@@ -7265,7 +7265,7 @@ focus_tree = {
 		bypass = {
 			AND = {
 				is_in_faction_with = GER
-				HOL = { has_government = neutrality }
+				FNL = { has_government = neutrality }
 				GER = { has_government = neutrality } 
 			}
 		}
@@ -7316,25 +7316,25 @@ focus_tree = {
 							tag = ENG
 							tag = USA
 							tag = FRA
-							tag = BEL
+							tag = FBL
 						}
 						has_government = democratic
 					}
-					add_opinion_modifier = { target = HOL modifier = HOL_wilhelminism }
+					add_opinion_modifier = { target = FNL modifier = HOL_wilhelminism }
 					hidden_effect = {
 						add_ai_strategy = {
 							type = antagonize
-							id = "HOL"
+							id = "FNL"
 							value = 200
 						}
 						add_ai_strategy = {
 							type = befriend
-							id = "HOL"
+							id = "FNL"
 							value = -200
 						}
 						add_ai_strategy = {
 							type = alliance
-							id = "HOL"
+							id = "FNL"
 							value = -200
 						}
 					}
@@ -7384,11 +7384,11 @@ focus_tree = {
 								tag = ENG
 								tag = USA
 								tag = FRA
-								tag = BEL
+								tag = FBL
 							}
 							has_government = democratic
 						}
-						add_opinion_modifier = { target = HOL modifier = HOL_wilhelminism }
+						add_opinion_modifier = { target = FNL modifier = HOL_wilhelminism }
 					}
 					custom_effect_tooltip = HOL_wilhelminism_tt
 					GER = {
@@ -7749,13 +7749,13 @@ focus_tree = {
 				695 = {
 					create_unit = {
 						division = "name = \"1. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 				}
 				309 = {
 					create_unit = {
 						division = "name = \"2. American Garrison\" division_template = \"American Garrison\" start_experience_factor = 0.5" 
-						owner = HOL
+						owner = FNL
 					}
 				}
 			}
@@ -7767,7 +7767,7 @@ focus_tree = {
 				effect_tooltip = {
 					USA = {
 						add_war_support = 0.1
-						give_guarantee = HOL
+						give_guarantee = FNL
 					}
 				}
 				USA = { country_event = { id = mtg_netherlands.26 } }
@@ -7953,7 +7953,7 @@ focus_tree = {
 					is_major = no
 					has_government = democratic
 				}
-				add_opinion_modifier = { target = HOL modifier = HOL_lead_the_minor_democracies }
+				add_opinion_modifier = { target = FNL modifier = HOL_lead_the_minor_democracies }
 				add_timed_idea = { idea = HOL_lead_the_minor_democracies days = 1095 }
 			}
 		}
@@ -7964,11 +7964,11 @@ focus_tree = {
 		available = {
 			is_in_faction = no
 			is_subject = no
-			BEL = { is_in_faction = no }
+			FBL = { is_in_faction = no }
 			LUX = { is_in_faction = no }
 		}
 		bypass = {
-			BEL = { exists = no }
+			FBL = { exists = no }
 			LUX = { exists = no }
 		}
 		prerequisite = { focus = HOL_lead_the_minor_democracies }
@@ -7991,14 +7991,14 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			BEL = {
+			FBL = {
 				custom_effect_tooltip = HOL_form_the_benelux_bel_tt
 			}
 			LUX = {
 				custom_effect_tooltip = HOL_form_the_benelux_lux_tt
 			}
 			hidden_effect = {
-				BEL = { country_event = { id = generic.5 hours = 6 } }
+				FBL = { country_event = { id = generic.5 hours = 6 } }
 				LUX = { country_event = { id = generic.5 hours = 6 } }
 			}
 			hidden_effect = { news_event = { id = mtg_news.53 days = 1 } }

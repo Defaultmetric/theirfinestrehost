@@ -95,7 +95,7 @@ debug_decisions = {
 				limit = {
 					is_on_continent = africa
 				}
-				ETH = { transfer_state = PREV }
+				FET = { transfer_state = PREV }
 			}
 			every_state = {
 				limit = {
@@ -113,7 +113,7 @@ debug_decisions = {
 				limit = {
 					is_on_continent = south_america
 				}
-				PER = { transfer_state = PREV }
+				FPR = { transfer_state = PREV }
 			}
 		}
 	}
@@ -5209,7 +5209,7 @@ SOV_diplomacy_baltic_decision_category = {
 			}
 		}
 
-		targets = {	EST LAT LIT	}
+		targets = {	NES NLA NLI	}
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes
@@ -5540,7 +5540,7 @@ SOV_diplomacy_nordic_decision_category = {
 			}
 		}
 
-		targets = { FIN SWE NOR DEN KAR } #All Continental Nordic Countries
+		targets = { FIN FSW NNO NDE KAR } #All Continental Nordic Countries
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes
@@ -5616,7 +5616,7 @@ SOV_diplomacy_nordic_decision_category = {
 			}
 		}
 
-		targets = { FIN SWE NOR DEN KAR } #All Continental Nordic Countries
+		targets = { FIN FSW NNO NDE KAR } #All Continental Nordic Countries
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes
@@ -5695,7 +5695,7 @@ SOV_diplomacy_nordic_decision_category = {
 			}
 		}
 
-		targets = { FIN SWE NOR DEN }
+		targets = { FIN FSW NNO NDE }
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes
@@ -5781,7 +5781,7 @@ SOV_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes
@@ -5850,7 +5850,7 @@ SOV_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes
@@ -5917,7 +5917,7 @@ SOV_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_ultimatum_triggers = yes
@@ -5988,7 +5988,7 @@ SOV_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes
@@ -6237,7 +6237,7 @@ SOV_diplomacy_middle_east_decision_category = {
 			}
 		}
 
-		targets = { PER }
+		targets = { FPR }
 
 		target_trigger = {
 			SOV_basic_ultimatum_triggers = yes
@@ -6308,7 +6308,7 @@ SOV_diplomacy_middle_east_decision_category = {
 			}
 		}
 
-		targets = { IRQ PER AFG SAU }
+		targets = { IRQ FPR AFG SAU }
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes
@@ -6389,11 +6389,11 @@ SOV_diplomacy_middle_east_decision_category = {
 		cancel_trigger = {
 			OR = {
 				is_subject = yes
-				NOT = { country_exists = PER }
-				is_in_faction_with = PER
-				has_war_with = PER
-				has_guaranteed = PER
-				has_non_aggression_pact_with = PER
+				NOT = { country_exists = FPR }
+				is_in_faction_with = FPR
+				has_war_with = FPR
+				has_guaranteed = FPR
+				has_non_aggression_pact_with = FPR
 				AND = {
 					has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
 					SOV = { has_war_with = ENG }
@@ -6411,7 +6411,7 @@ SOV_diplomacy_middle_east_decision_category = {
 					NOT = { has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag }
 				}
 				declare_war_on = {
-					target = PER
+					target = FPR
 					type = puppet_wargoal_focus
 				}
 			}
@@ -6421,22 +6421,22 @@ SOV_diplomacy_middle_east_decision_category = {
 						original_tag = SOV
 					}
 					declare_war_on = {
-						target = PER
+						target = FPR
 						type = puppet_wargoal_focus
 					}
 					ENG = {
-						add_to_war = { targeted_alliance = SOV enemy = PER hostility_reason = asked_to_join single_target_only = yes}
+						add_to_war = { targeted_alliance = SOV enemy = FPR hostility_reason = asked_to_join single_target_only = yes}
 					}
 				}
 				else = { #ENG only sees a fake
 					effect_tooltip = {
 						SOV = {
 							declare_war_on = {
-								target = PER
+								target = FPR
 								type = puppet_wargoal_focus
 							}
 						}
-						add_to_war = { targeted_alliance = SOV enemy = PER hostility_reason = asked_to_join single_target_only = yes}
+						add_to_war = { targeted_alliance = SOV enemy = FPR hostility_reason = asked_to_join single_target_only = yes}
 					}
 
 					hidden_effect = { news_event = { id = nsb_news.104 days = 4 random_days = 2 } } #Only ENG sends the news event.
@@ -6483,7 +6483,7 @@ SOV_diplomacy_middle_east_decision_category = {
 		}
 
 		available =  {
-			PER = { has_capitulated = yes }
+			FPR = { has_capitulated = yes }
 			all_of_scopes = {
 				array = SOV_iranian_initial_states
 				OR = {
@@ -6608,7 +6608,7 @@ SOV_diplomacy_asia_decision_category = {
 			}
 		}
 
-		targets = { PRC CHI }
+		targets = { PRC FCH }
 
 		target_trigger = {
 
@@ -6644,7 +6644,7 @@ SOV_diplomacy_asia_decision_category = {
 				}
 				AND = {
 					has_completed_focus = SOV_support_the_kuomintang
-					FROM = { tag = CHI }
+					FROM = { tag = FCH }
 				}
 			}
 		}
@@ -10418,7 +10418,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 			base = 0.5
 		}
 
-		cosmetic_tag = EST
+		cosmetic_tag = NES
 		cosmetic_ideology = communism
 
 		allowed = {
@@ -10432,7 +10432,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		visible = {
 			has_completed_focus = SOV_national_academies_of_sciences
 			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_EST_flag }
-			NOT = { country_exists = EST }
+			NOT = { country_exists = NES }
 		}
 
 		fire_only_once = yes
@@ -10446,7 +10446,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		}
 
 		remove_effect = {
-			EST = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			NES = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
 			set_country_flag = SOV_national_academy_of_sciences_built_EST_flag
 		}
 	}
@@ -10460,7 +10460,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 			base = 0.5
 		}
 
-		cosmetic_tag = LAT
+		cosmetic_tag = NLA
 		cosmetic_ideology = communism
 
 		allowed = {
@@ -10474,7 +10474,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		visible = {
 			has_completed_focus = SOV_national_academies_of_sciences
 			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_LAT_flag }
-			NOT = { country_exists = LAT }
+			NOT = { country_exists = NLA }
 		}
 
 		fire_only_once = yes
@@ -10488,7 +10488,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		}
 
 		remove_effect = {
-			LAT = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			NLA = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
 			set_country_flag = SOV_national_academy_of_sciences_built_LAT_flag
 		}
 	}
@@ -10502,7 +10502,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 			base = 0.5
 		}
 
-		cosmetic_tag = LIT
+		cosmetic_tag = NLI
 		cosmetic_ideology = communism
 
 		allowed = {
@@ -10516,7 +10516,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		visible = {
 			has_completed_focus = SOV_national_academies_of_sciences
 			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_LIT_flag }
-			NOT = { country_exists = LIT }
+			NOT = { country_exists = NLI }
 		}
 
 		fire_only_once = yes
@@ -10530,7 +10530,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		}
 
 		remove_effect = {
-			LIT = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			NLI = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
 			set_country_flag = SOV_national_academy_of_sciences_built_LIT_flag
 		}
 	}
@@ -10544,7 +10544,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 			base = 0.5
 		}
 
-		cosmetic_tag = POL
+		cosmetic_tag = NPO
 		cosmetic_ideology = communism
 
 		allowed = {
@@ -10558,7 +10558,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		visible = {
 			has_completed_focus = SOV_national_academies_of_sciences
 			NOT = { has_country_flag = SOV_national_academy_of_sciences_built_POL_flag }
-			NOT = { country_exists = POL }
+			NOT = { country_exists = NPO }
 		}
 
 		fire_only_once = yes
@@ -10572,7 +10572,7 @@ SOV_national_academy_of_sciences_dec_cat = {
 		}
 
 		remove_effect = {
-			POL = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
+			NPO = { SOV_build_national_academy_of_sciences_effect = yes } #Tooltip + increase research speed in dynamic modifier
 			set_country_flag = SOV_national_academy_of_sciences_built_POL_flag
 		}
 	}
@@ -12668,19 +12668,19 @@ SOV_great_patriotic_war = {
 			has_country_flag = SOV_scorched_earth
 			NOT = { has_country_flag = SOV_order_227_flag }
 			OR = {
-				#LIT
+				#NLI
 				controls_state = 188
 				controls_state = 814
 				controls_state = 189
 				controls_state = 11
 				controls_state = 815
-				#LAT
+				#NLA
 				controls_state = 190
 				controls_state = 12
 				controls_state = 809
 				controls_state = 810
 				controls_state = 808
-				#EST
+				#NES
 				controls_state = 191
 				controls_state = 13
 				controls_state = 811
@@ -12698,19 +12698,19 @@ SOV_great_patriotic_war = {
 			every_controlled_state = {
 				limit = {
 					OR = {
-						#LIT
+						#NLI
 						state = 188
 						state = 814
 						state = 189
 						state = 11
 						state = 815
-						#LAT
+						#NLA
 						state = 190
 						state = 12
 						state = 809
 						state = 810
 						state = 808
-						#EST
+						#NES
 						state = 191
 						state = 13
 						state = 811
@@ -17633,7 +17633,7 @@ political_actions = {
 			base = 0
 			modifier = {
 				add = 150
-					#Has somewhat won against CHI and JAP
+					#Has somewhat won against FCH and JAP
 				count_triggers = {
 					amount = 10
 					595 = { is_controlled_by = FROM }
@@ -17668,7 +17668,7 @@ political_actions = {
 			}
 		}
 
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
+		targets = { FCH PRC GXC YUN SHX XSM SIK }
 		targets_dynamic = yes
 
 		target_trigger = {
@@ -17714,7 +17714,7 @@ political_actions = {
 			FROM = { has_country_flag = WTT_support_from_soviet }
 		}
 
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
+		targets = { FCH PRC GXC YUN SHX XSM SIK }
 		targets_dynamic = yes
 
 		target_trigger = {
@@ -17725,7 +17725,7 @@ political_actions = {
 			base = 0
 			modifier = {
 				add = 100
-				#Has won against CHI and JAP
+				#Has won against FCH and JAP
 				595 = { is_controlled_by = FROM }
 				596 = { is_controlled_by = FROM }
 				597 = { is_controlled_by = FROM }
@@ -17818,7 +17818,7 @@ political_actions = {
 			FROM = {
 				NOT = {
 					is_subject_of = SOV
-					is_subject_of = GRE
+					is_subject_of = NNG
 				}
 			}
 		}
@@ -18135,17 +18135,17 @@ SOV_polish_territory = {
 		}
 
 		visible = {
-			POL = {
+			NPO = {
 				exists = yes
 				is_subject_of = ROOT
 				NOT = { has_completed_focus = POL_surrender_the_east }
 			}
 			any_owned_state = {
-				is_core_of = POL
+				is_core_of = NPO
 				OR = {
 
 					any_country_with_core = {
-						not = { tag = POL }
+						not = { tag = NPO }
 					}
 					state = 97
 				}
@@ -18166,7 +18166,7 @@ SOV_polish_territory = {
 		}
 
 		complete_effect = {
-			POL = {
+			NPO = {
 				country_event = {
 					id = soviet.74
 					hours = 4
@@ -18177,7 +18177,7 @@ SOV_polish_territory = {
 					ROOT = {
 						add_stability = 0.05
 					}
-					POL = {
+					NPO = {
 						add_autonomy_score = {
 							value = -250
 							localization = POL_accepted_states
@@ -18190,26 +18190,26 @@ SOV_polish_territory = {
 					ROOT  ={
 						every_owned_state = {
 							limit = {
-								is_core_of = POL
+								is_core_of = NPO
 								OR = {
 									# Białystok
 									state = 97
 									# Uncontested Polish Cores
 									NOT = {
 										any_country_with_core = {
-											NOT = { tag = POL }
+											NOT = { tag = NPO }
 										}
 									}
 								}
 
 							}
-							transfer_state_to = POL
+							transfer_state_to = NPO
 						}
 					}
 				}
 				custom_effect_tooltip = if_they_refuse_newline_tt
 				effect_tooltip = {
-					POL = {
+					NPO = {
 						add_autonomy_score = {
 							value = 250
 							localization = POL_refused_states
@@ -18218,22 +18218,22 @@ SOV_polish_territory = {
 					ROOT = {
 						every_owned_state = {
 							limit = {
-								is_core_of = POL
+								is_core_of = NPO
 								OR = {
 									# Białystok
 									state = 97
 									# Uncontested Polish Cores
 									NOT = {
 										any_country_with_core = {
-											NOT = { tag = POL }
+											NOT = { tag = NPO }
 										}
 									}
 								}
 
 							}
-							remove_core_of = POL
+							remove_core_of = NPO
 							add_core_of = SOV
-							add_claim_by = POL
+							add_claim_by = NPO
 						}
 					}
 				}

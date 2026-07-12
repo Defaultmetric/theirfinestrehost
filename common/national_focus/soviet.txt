@@ -12972,8 +12972,8 @@ focus = {
 
 			if = {
 				limit = {
-					country_exists = POL
-					POL = { SOV_is_valid_collective_security_target = yes }
+					country_exists = NPO
+					NPO = { SOV_is_valid_collective_security_target = yes }
 					var:SOV_collective_security_target = {
 						capital_scope = { is_on_continent = europe }
 					}
@@ -14105,9 +14105,9 @@ focus = {
 
 		bypass = {
 			NOT = {
-				country_exists = EST
-				country_exists = LAT
-				country_exists = LIT
+				country_exists = NES
+				country_exists = NLA
+				country_exists = NLI
 			}
 		}
 
@@ -14119,12 +14119,12 @@ focus = {
 		search_filters = {}
 
 		completion_reward = {
-			activate_targeted_decision = { target = EST decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = LAT decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = LIT decision = SOV_promote_ideology_rallies_baltic }
-			activate_targeted_decision = { target = EST decision = SOV_pressure_country_government_baltic }
-			activate_targeted_decision = { target = LAT decision = SOV_pressure_country_government_baltic }
-			activate_targeted_decision = { target = LIT decision = SOV_pressure_country_government_baltic }
+			activate_targeted_decision = { target = NES decision = SOV_promote_ideology_rallies_baltic }
+			activate_targeted_decision = { target = NLA decision = SOV_promote_ideology_rallies_baltic }
+			activate_targeted_decision = { target = NLI decision = SOV_promote_ideology_rallies_baltic }
+			activate_targeted_decision = { target = NES decision = SOV_pressure_country_government_baltic }
+			activate_targeted_decision = { target = NLA decision = SOV_pressure_country_government_baltic }
+			activate_targeted_decision = { target = NLI decision = SOV_pressure_country_government_baltic }
 		}
 	}
 
@@ -14308,12 +14308,12 @@ focus = {
 			#Sweden
 			if = {
 				limit = {
-					country_exists = SWE
-					SWE = {
+					country_exists = FSW
+					FSW = {
 						NOT = { is_in_faction_with = ROOT }
 					}
 				}
-				SWE = {
+				FSW = {
 					add_timed_idea = {
 						idea = communist_pressure
 						days = 365
@@ -14326,12 +14326,12 @@ focus = {
 			#Norway
 			if = {
 				limit = {
-					country_exists = NOR
-					NOR = {
+					country_exists = NNO
+					NNO = {
 						NOT = { is_in_faction_with = ROOT }
 					}
 				}
-				NOR = {
+				NNO = {
 					add_timed_idea = {
 						idea = communist_pressure
 						days = 365
@@ -14344,13 +14344,13 @@ focus = {
 			#Denmark
 			if = {
 				limit = {
-					country_exists = DEN
-					DEN = {
+					country_exists = NDE
+					NDE = {
 						NOT = { is_in_faction_with = ROOT }
 					}
 					
 				}
-				DEN = {
+				NDE = {
 					add_timed_idea = {
 						idea = communist_pressure
 						days = 365
@@ -14373,13 +14373,13 @@ focus = {
 			custom_effect_tooltip = SOV_control_scandinavia_decisions_tt
 			hidden_effect = {
 				activate_targeted_decision = { target = FIN decision = SOV_promote_ideology_rallies_nordic }
-				activate_targeted_decision = { target = SWE decision = SOV_promote_ideology_rallies_nordic }
-				activate_targeted_decision = { target = NOR decision = SOV_promote_ideology_rallies_nordic }
-				activate_targeted_decision = { target = DEN decision = SOV_promote_ideology_rallies_nordic }
+				activate_targeted_decision = { target = FSW decision = SOV_promote_ideology_rallies_nordic }
+				activate_targeted_decision = { target = NNO decision = SOV_promote_ideology_rallies_nordic }
+				activate_targeted_decision = { target = NDE decision = SOV_promote_ideology_rallies_nordic }
 				activate_targeted_decision = { target = FIN decision = SOV_pressure_country_government_nordic }
-				activate_targeted_decision = { target = SWE decision = SOV_pressure_country_government_nordic }
-				activate_targeted_decision = { target = NOR decision = SOV_pressure_country_government_nordic }
-				activate_targeted_decision = { target = DEN decision = SOV_pressure_country_government_nordic }
+				activate_targeted_decision = { target = FSW decision = SOV_pressure_country_government_nordic }
+				activate_targeted_decision = { target = NNO decision = SOV_pressure_country_government_nordic }
+				activate_targeted_decision = { target = NDE decision = SOV_pressure_country_government_nordic }
 			}
 		}
 	}
@@ -14422,10 +14422,10 @@ focus = {
 			OR = {
 				has_idea = SOV_molotov_ribbentrop_pact
 
-				NOT = { country_exists = POL }
+				NOT = { country_exists = NPO }
 
-				has_non_aggression_pact_with = POL
-				has_guaranteed = POL
+				has_non_aggression_pact_with = NPO
+				has_guaranteed = NPO
 
 				AND = {
 					OR = { 
@@ -14537,55 +14537,55 @@ focus = {
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
 			is_subject = no
-			NOT =  { is_in_faction_with = POL }
-			NOT = { has_non_aggression_pact_with = POL }
-			NOT = { has_guaranteed = POL }
-			NOT = { has_war_with = POL }
+			NOT =  { is_in_faction_with = NPO }
+			NOT = { has_non_aggression_pact_with = NPO }
+			NOT = { has_guaranteed = NPO }
+			NOT = { has_war_with = NPO }
 			OR = {
-				96 = { is_owned_and_controlled_by = POL }
-				95 = { is_owned_and_controlled_by = POL }
-				94 = { is_owned_and_controlled_by = POL }
-				93 = { is_owned_and_controlled_by = POL }
-				91 = { is_owned_and_controlled_by = POL }
-				89 = { is_owned_and_controlled_by = POL }
-				784 = { is_owned_and_controlled_by = POL }
+				96 = { is_owned_and_controlled_by = NPO }
+				95 = { is_owned_and_controlled_by = NPO }
+				94 = { is_owned_and_controlled_by = NPO }
+				93 = { is_owned_and_controlled_by = NPO }
+				91 = { is_owned_and_controlled_by = NPO }
+				89 = { is_owned_and_controlled_by = NPO }
+				784 = { is_owned_and_controlled_by = NPO }
 			}
 		}
 		
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = { id = poland.2 }
 				custom_effect_tooltip = needs_approval
 			}
 			effect_tooltip = {
 				SOV = {
 					if = {
-						limit = { POL = { owns_state = 96 controls_state = 96 } }
+						limit = { NPO = { owns_state = 96 controls_state = 96 } }
 						transfer_state = 96
 					}
 					if = {
-						limit = { POL = { owns_state = 95 controls_state = 95 } }
+						limit = { NPO = { owns_state = 95 controls_state = 95 } }
 						transfer_state = 95
 					}
 					if = {
-						limit = { POL = { owns_state = 94 controls_state = 94 } }
+						limit = { NPO = { owns_state = 94 controls_state = 94 } }
 						transfer_state = 94
 					}
 					if = {
-						limit = { POL = { owns_state = 93 controls_state = 93 } }
+						limit = { NPO = { owns_state = 93 controls_state = 93 } }
 						transfer_state = 93
 					}
 					if = {
-						limit = { POL = { owns_state = 91 controls_state = 91 } }
+						limit = { NPO = { owns_state = 91 controls_state = 91 } }
 						transfer_state = 91
 					}
 					if = {
-						limit = { POL = { owns_state = 89 controls_state = 89 } }
+						limit = { NPO = { owns_state = 89 controls_state = 89 } }
 						transfer_state = 89
 					}
 					if = {
-						limit = { POL = { owns_state = 784 controls_state = 784 } }
+						limit = { NPO = { owns_state = 784 controls_state = 784 } }
 						transfer_state = 784
 					}
 				}
@@ -14641,9 +14641,9 @@ focus = {
 
 		available = {
 			NOT = { has_country_flag = SOV_paranoia_system_active_flag }
-			country_exists = POL
-			NOT = { has_war_with = POL }
-			POL = {
+			country_exists = NPO
+			NOT = { has_war_with = NPO }
+			NPO = {
 				SOV_is_valid_subject = yes
 				has_capitulated = no
 			}
@@ -14654,7 +14654,7 @@ focus = {
 		
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = { id = poland.5 }
 				custom_effect_tooltip = needs_approval
 				effect_tooltip = {
@@ -14670,31 +14670,31 @@ focus = {
 			effect_tooltip = {
 				SOV = {
 					if = {
-						limit = { POL = { owns_state = 96 controls_state = 96 } }
+						limit = { NPO = { owns_state = 96 controls_state = 96 } }
 						transfer_state = 96
 					}
 					if = {
-						limit = { POL = { owns_state = 95 controls_state = 95 } }
+						limit = { NPO = { owns_state = 95 controls_state = 95 } }
 						transfer_state = 95
 					}
 					if = {
-						limit = { POL = { owns_state = 94 controls_state = 94 } }
+						limit = { NPO = { owns_state = 94 controls_state = 94 } }
 						transfer_state = 94
 					}
 					if = {
-						limit = { POL = { owns_state = 93 controls_state = 93 } }
+						limit = { NPO = { owns_state = 93 controls_state = 93 } }
 						transfer_state = 93
 					}
 					if = {
-						limit = { POL = { owns_state = 91 controls_state = 91 } }
+						limit = { NPO = { owns_state = 91 controls_state = 91 } }
 						transfer_state = 91
 					}
 					if = {
-						limit = { POL = { owns_state = 89 controls_state = 89 } }
+						limit = { NPO = { owns_state = 89 controls_state = 89 } }
 						transfer_state = 89
 					}
 					if = {
-						limit = { POL = { owns_state = 784 controls_state = 784 } }
+						limit = { NPO = { owns_state = 784 controls_state = 784 } }
 						transfer_state = 784
 					}
 				}
@@ -14897,8 +14897,8 @@ focus = {
 			hidden_effect = {
 				activate_targeted_decision = { target = ROM decision = SOV_send_ultimatum_to_country_balkan }
 				activate_targeted_decision = { target = BUL decision = SOV_send_ultimatum_to_country_balkan }
-				activate_targeted_decision = { target = GRE decision = SOV_send_ultimatum_to_country_balkan }
-				activate_targeted_decision = { target = YUG decision = SOV_send_ultimatum_to_country_balkan }
+				activate_targeted_decision = { target = NNG decision = SOV_send_ultimatum_to_country_balkan }
+				activate_targeted_decision = { target = FYG decision = SOV_send_ultimatum_to_country_balkan }
 				activate_targeted_decision = { target = TUR decision = SOV_send_ultimatum_to_country_balkan }
 			}
 		}
@@ -14955,13 +14955,13 @@ focus = {
 			hidden_effect = {
 				activate_targeted_decision = { target = ROM decision = SOV_pressure_country_government_balkan }
 				activate_targeted_decision = { target = BUL decision = SOV_pressure_country_government_balkan }
-				activate_targeted_decision = { target = GRE decision = SOV_pressure_country_government_balkan }
-				activate_targeted_decision = { target = YUG decision = SOV_pressure_country_government_balkan }
+				activate_targeted_decision = { target = NNG decision = SOV_pressure_country_government_balkan }
+				activate_targeted_decision = { target = FYG decision = SOV_pressure_country_government_balkan }
 				activate_targeted_decision = { target = TUR decision = SOV_pressure_country_government_balkan }
 				activate_targeted_decision = { target = ROM decision = SOV_promote_ideology_rallies_balkan }
 				activate_targeted_decision = { target = BUL decision = SOV_promote_ideology_rallies_balkan }
-				activate_targeted_decision = { target = GRE decision = SOV_promote_ideology_rallies_balkan }
-				activate_targeted_decision = { target = YUG decision = SOV_promote_ideology_rallies_balkan }
+				activate_targeted_decision = { target = NNG decision = SOV_promote_ideology_rallies_balkan }
+				activate_targeted_decision = { target = FYG decision = SOV_promote_ideology_rallies_balkan }
 				activate_targeted_decision = { target = TUR decision = SOV_promote_ideology_rallies_balkan }
 			}
 		}
@@ -14992,7 +14992,7 @@ ai_will_do = {
 		bypass = {
 			NOT = {
 				country_exists = IRQ
-				country_exists = PER
+				country_exists = FPR
 				country_exists = AFG
 				country_exists = SAU
 			}
@@ -15029,9 +15029,9 @@ ai_will_do = {
 			}
 			if = {
 				limit = {
-					country_exists = PER
+					country_exists = FPR
 				}
-				PER = {
+				FPR = {
 					if = {
 						limit = { ROOT = { has_government = fascism } }
 						add_timed_idea = { idea = fascist_influence_weak days = 1095 }
@@ -15133,7 +15133,7 @@ ai_will_do = {
 		}
 
 		bypass = {
-			PER = {
+			FPR = {
 				NOT = { owns_state = 419 }
 				NOT = { owns_state = 420 }
 				NOT = { owns_state = 266 }
@@ -15152,7 +15152,7 @@ ai_will_do = {
 		available = {
 			OR = {
 				country_exists = IRQ
-				country_exists = PER
+				country_exists = FPR
 				country_exists = AFG
 				country_exists = SAU
 			}
@@ -15161,7 +15161,7 @@ ai_will_do = {
 
 		mutually_exclusive = { focus = SOV_support_afghan_ideology }
 		
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 		will_lead_to_war_with = IRQ
 		will_lead_to_war_with = AFG
 		
@@ -15169,7 +15169,7 @@ ai_will_do = {
 		completion_reward = {
 			if = {
 				limit = { 
-					PER = {
+					FPR = {
 						OR = {
 							owns_state = 419
 							owns_state = 420
@@ -15180,7 +15180,7 @@ ai_will_do = {
 				}
 				create_wargoal = {
 					type = take_state_focus
-					target = PER
+					target = FPR
 					expire = 0
 					generator = { 419 420 266 416}
 				}
@@ -15282,16 +15282,16 @@ ai_will_do = {
 			}
 			modifier = {
 				factor = 0
-				PER = {
+				FPR = {
 					has_government = ROOT
 				}
 			}	
 		}
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 		available = {
-			country_exists = PER
-			NOT = { has_war_with = PER }
-			NOT = { is_in_faction_with = PER}
+			country_exists = FPR
+			NOT = { has_war_with = FPR }
+			NOT = { is_in_faction_with = FPR}
 			is_subject = no
 			any_enemy_country = { is_major = yes }
 		}
@@ -15299,7 +15299,7 @@ ai_will_do = {
 		search_filters = {}
 
 		completion_reward = {
-			PER = {
+			FPR = {
 				set_country_flag = SOV_ultimatum_sent_flag
 				country_event = { id = NSB_soviet_foreign_politics_events.210 hours = 16 random_hours = 8 }
 			}
@@ -15307,7 +15307,7 @@ ai_will_do = {
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
 				ROOT = {
-					puppet = PER
+					puppet = FPR
 				}
 
 				custom_effect_tooltip = if_they_refuse_tt
@@ -15597,19 +15597,19 @@ ai_will_do = {
 		mutually_exclusive = { focus = SOV_the_gobi_gambit focus = SOV_two_red_flags }
 
 		bypass = {
-			NOT = { country_exists = CHI }
+			NOT = { country_exists = FCH }
 		}
 
 		available = {
 			NOT = { has_completed_focus = SOV_the_left_opposition }
-			NOT = { has_war_with = CHI }
+			NOT = { has_war_with = FCH }
 			is_subject = no
 		}
 		
 		search_filters = {}
 
 		completion_reward = {
-			CHI = {
+			FCH = {
 				add_opinion_modifier = { #Good relations with Mao
 					target = ROOT
 					modifier = SOV_cooperating_with_us
@@ -15628,7 +15628,7 @@ ai_will_do = {
 					}
 				}
 			}
-			activate_targeted_decision = { target = CHI decision = SOV_send_infantry_equipment_asia }
+			activate_targeted_decision = { target = FCH decision = SOV_send_infantry_equipment_asia }
 			custom_effect_tooltip = SOV_volunteers_allowed_kuomintang_tt
 		}
 	}
@@ -15685,7 +15685,7 @@ ai_will_do = {
 					}
 					else_if = {
 						limit = {
-							tag = CHI
+							tag = FCH
 							ROOT = { has_completed_focus = SOV_support_the_kuomintang }
 						}
 					}
@@ -15706,7 +15706,7 @@ ai_will_do = {
 				}
 				every_state = { #Set cores for SIK
 					limit = {
-						is_core_of = CHI
+						is_core_of = FCH
 					}
 					add_core_of = SIK
 				}
@@ -17818,10 +17818,10 @@ ai_will_do = {
 			every_other_country = {
 	 		 	limit = {
 	     			OR = {
-	     				tag = DEN
-	     				tag = GRE
+	     				tag = NDE
+	     				tag = NNG
 	     				tag = GER
-	     				tag = NOR
+	     				tag = NNO
 	     				#tag = SPA
 	     				#tag = ENG
 	     				#tag = ROM
@@ -18376,9 +18376,9 @@ ai_will_do = {
 
 		completion_reward = {
 			add_ideas = SOV_our_slavic_commitments
-			give_guarantee = CZE
-			give_guarantee = POL
-			give_guarantee = YUG
+			give_guarantee = FCZ
+			give_guarantee = NPO
+			give_guarantee = FYG
 			give_guarantee = BUL
 			news_event = { id = nsb_news.406 hours = 12 }
 		}
@@ -18397,7 +18397,7 @@ ai_will_do = {
 		}
 		available_if_capitulated = no
 
-		will_lead_to_war_with = SWE
+		will_lead_to_war_with = FSW
 
 		search_filters = {}
 
@@ -18406,7 +18406,7 @@ ai_will_do = {
 		}
 
 		bypass = {
-			SWE = {
+			FSW = {
 				OR = {
 					exists = no
 					has_war_with = SOV
@@ -18416,7 +18416,7 @@ ai_will_do = {
 		}
 
 		completion_reward = {
-			create_wargoal = { type = annex_everything target = SWE }
+			create_wargoal = { type = annex_everything target = FSW }
 		}
 	}	
 
@@ -18470,9 +18470,9 @@ ai_will_do = {
 		}
 		available_if_capitulated = no
 
-		will_lead_to_war_with = EST
-		will_lead_to_war_with = LIT
-		will_lead_to_war_with = LAT
+		will_lead_to_war_with = NES
+		will_lead_to_war_with = NLI
+		will_lead_to_war_with = NLA
 
 		search_filters = {}
 
@@ -18480,21 +18480,21 @@ ai_will_do = {
 			is_subject = no
 		}
 		bypass = {
-			EST = {
+			NES = {
 				OR = {
 					exists = no
 					has_war_with = SOV
 					is_subject_of = SOV
 				}
 			}
-			LAT = {
+			NLA = {
 				OR = {
 					exists = no
 					has_war_with = SOV
 					is_subject_of = SOV
 				}
 			}
-			LIT = {
+			NLI = {
 				OR = {
 					exists = no
 					has_war_with = SOV
@@ -18504,9 +18504,9 @@ ai_will_do = {
 		}
 
 		completion_reward = {
-			create_wargoal = { type = annex_everything target = EST }
-			create_wargoal = { type = annex_everything target = LIT }
-			create_wargoal = { type = annex_everything target = LAT }
+			create_wargoal = { type = annex_everything target = NES }
+			create_wargoal = { type = annex_everything target = NLI }
+			create_wargoal = { type = annex_everything target = NLA }
 		}
 	}	
 
@@ -18534,10 +18534,10 @@ ai_will_do = {
 				every_country = {
 	 			 	limit = {
 	     				OR = {
-	     					tag = POL
+	     					tag = NPO
 	     					tag = BUL
-	     					tag = YUG
-	     					tag = CZE
+	     					tag = FYG
+	     					tag = FCZ
 	     				}
 	     				NOT = { has_war_with = ROOT }
 	  				}
@@ -18557,10 +18557,10 @@ ai_will_do = {
     			every_country = {
 	 			 	limit = {
 	     				OR = {
-	     					tag = POL
+	     					tag = NPO
 	     					tag = BUL
-	     					tag = YUG
-	     					tag = CZE
+	     					tag = FYG
+	     					tag = FCZ
 	     				}
 	     				NOT = { has_war_with = ROOT }
 	  				}
@@ -18572,10 +18572,10 @@ ai_will_do = {
     		every_country = {
     			limit = {
     				NOT = {
-    					tag = POL
+    					tag = NPO
 	     				tag = BUL
-	     				tag = YUG
-	     				tag = CZE
+	     				tag = FYG
+	     				tag = FCZ
 	     				tag = ROOT
     				}
     				OR = {
@@ -19040,7 +19040,7 @@ ai_will_do = {
 		}
 
 		will_lead_to_war_with = AFG
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 
 		available_if_capitulated = no
 		
@@ -19057,7 +19057,7 @@ ai_will_do = {
 			}
 			create_wargoal = { 
 				type = annex_everything
-				target = PER
+				target = FPR
 			}
 		}
 	}
@@ -19364,7 +19364,7 @@ ai_will_do = {
 							is_core_of = XSM
 							is_core_of = SHX
 							is_core_of = PRC
-							is_core_of = CHI
+							is_core_of = FCH
 							is_core_of = YUN
 							is_core_of = GXC
 							is_core_of = MEN

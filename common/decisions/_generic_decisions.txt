@@ -320,7 +320,7 @@ political_actions = {
 			modifier = {
 				add = 1000
 				has_stability < 0.76
-				original_tag = SWE
+				original_tag = FSW
 				has_idea = SWE_hungershield
 			}
 		}
@@ -471,7 +471,7 @@ economy_decisions = {
 				add = 1
 				has_stability > 0.74
 				NOT = {
-					original_tag = SWE
+					original_tag = FSW
 					has_idea = SWE_hungershield
 				}
 			}
@@ -2142,7 +2142,7 @@ war_measures = {
 				}
 				NOT = {
 					OR = {
-						tag = BEL #has a focus
+						tag = FBL #has a focus
 						tag = COG #has a focus
 					}
 				}
@@ -2472,8 +2472,8 @@ foreign_support = {
 			is_subject = no
 			NOT = {
 				OR = {
-					has_subject = CHI
-					has_war_with = CHI
+					has_subject = FCH
+					has_war_with = FCH
 				}
 			}
 			OR = {
@@ -2634,8 +2634,8 @@ foreign_support = {
 			is_subject = no
 			NOT = {
 				OR = {
-					has_subject = CHI
-					has_war_with = CHI
+					has_subject = FCH
+					has_war_with = FCH
 				}
 			}
 			OR = {
@@ -2831,8 +2831,8 @@ foreign_support = {
 			is_subject = no
 			NOT = {
 				OR = {
-					has_subject = CHI
-					has_war_with = CHI
+					has_subject = FCH
+					has_war_with = FCH
 				}
 			}
 			OR = {
@@ -2993,8 +2993,8 @@ foreign_support = {
 			is_subject = no
 			NOT = {
 				OR = {
-					has_subject = CHI
-					has_war_with = CHI
+					has_subject = FCH
+					has_war_with = FCH
 				}
 			}
 			OR = {
@@ -3191,8 +3191,8 @@ foreign_support = {
  			is_subject = no
  			NOT = {
  				OR = {
- 					has_subject = CHI
- 					has_war_with = CHI
+ 					has_subject = FCH
+ 					has_war_with = FCH
  				}
  			}
 			OR = {
@@ -3329,8 +3329,8 @@ foreign_support = {
  			is_subject = no
  			NOT = {
  				OR = {
- 					has_subject = CHI
- 					has_war_with = CHI
+ 					has_subject = FCH
+ 					has_war_with = FCH
  				}
  			}
 			OR = {
@@ -3503,8 +3503,8 @@ foreign_support = {
 			is_subject = no
 			NOT = {
 				OR = {
-					has_subject = CHI
-					has_war_with = CHI
+					has_subject = FCH
+					has_war_with = FCH
 				}
 			}
 			OR = {
@@ -3812,7 +3812,7 @@ generic_refit_civilian_ships_category = {
 					create_equipment_variant = {	
 						name = "Refitted Destroyer Class" 		
 						type = ship_hull_light_1
-						name_group = "DEN_DD_HISTORICAL" #Note: Doesn't matter if ROOT is not DEN, the effect will grab the appropriate country-specific name list anyways
+						name_group = "DEN_DD_HISTORICAL" #Note: Doesn't matter if ROOT is not NDE, the effect will grab the appropriate country-specific name list anyways
 						parent_version = 0
 						modules = {
 							fixed_ship_battery_slot = ship_light_battery_1
@@ -3906,7 +3906,7 @@ generic_refit_civilian_ships_category = {
 					create_equipment_variant = {
 						name = "Refitted Cruiser Class"				
 						type = ship_hull_cruiser_1
-						name_group = DEN_CL_HISTORICAL #Note: Doesn't matter if ROOT is not DEN, the effect will grab the appropriate country-specific name list anyways
+						name_group = DEN_CL_HISTORICAL #Note: Doesn't matter if ROOT is not NDE, the effect will grab the appropriate country-specific name list anyways
 						parent_version = 0
 						modules = {
 							fixed_ship_battery_slot = ship_light_medium_battery_1

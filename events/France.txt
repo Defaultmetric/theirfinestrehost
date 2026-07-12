@@ -260,7 +260,7 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					is_in_faction_with = YUG
+					is_in_faction_with = FYG
 					has_war_with = GER
 				}
 			}
@@ -338,7 +338,7 @@ country_event = {
 				NOT = { is_in_faction_with = ENG }
 				NOT = { is_in_faction_with = GER }
 			}
-			add_to_faction = YUG
+			add_to_faction = FYG
 			FYG = {
 				add_ai_strategy = {
 					type = alliance
@@ -394,10 +394,10 @@ country_event = {
 		if = {
 			limit = {
 				NOT = {
-					has_guaranteed = YUG
+					has_guaranteed = FYG
 				}
 			}
-			give_guarantee = YUG
+			give_guarantee = FYG
 		}
 		if = {
 			limit = { is_in_faction = no }
@@ -416,7 +416,7 @@ country_event = {
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state_focus
-					target = YUG
+					target = FYG
 					generator = { 102 853 }
 				}
 			}
@@ -431,15 +431,15 @@ country_event = {
 		set_global_flag = FRA_abandoned_yugoslavia
 		if = {
 			limit = {
-				has_guaranteed = YUG
+				has_guaranteed = FYG
 			}
 			diplomatic_relation = {
-   				country = YUG
+   				country = FYG
    				relation = guarantee
    				active = no
   			}
 		}
-		YUG = {
+		FYG = {
 			country_event = { id = yugoslavia.3 hours = 6 }
 			add_opinion_modifier = { target = FRA modifier = western_betrayal }
 		}

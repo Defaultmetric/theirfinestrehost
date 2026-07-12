@@ -4391,7 +4391,7 @@ country_event = {
 		effect_tooltip = {
 			FROM = {
 				declare_war_on = {
-					target = PER
+					target = FPR
 					type = annex_everything
 				}
 			}
@@ -4431,7 +4431,7 @@ country_event = {
 		name = GOE_RAJ_loyalist.04.a
 
 		declare_war_on = {
-			target = PER
+			target = FPR
 			type = annex_everything
 		}
 	}
@@ -5615,7 +5615,7 @@ country_event = {
 			base = 2
 			modifier = {
 				OR = {
-					original_tag = AUS
+					original_tag = FAU
 					original_tag = IRQ
 					is_in_faction_with = FROM
 				}
@@ -5829,7 +5829,7 @@ country_event = {
 		custom_effect_tooltip = RAJ_force_china_to_accept_opium_trade_tt
 		if = {
 			limit = {
-				original_tag = CHI
+				original_tag = FCH
 			}
 			FROM = { 
 				transfer_state = 743 
@@ -5864,7 +5864,7 @@ country_event = {
 		ai_chance = {
 			base = 5
 			modifier = {
-				original_tag = CHI
+				original_tag = FCH
 				NOT = { controls_state = 743 }
 				factor = 0
 			}
@@ -7455,7 +7455,7 @@ country_event = {
 			RAJ = {
 				create_wargoal = {
 					type = take_claimed_state
-					target = POR
+					target = NPR
 					generator = { 321 }
 				}
 			}
@@ -7492,7 +7492,7 @@ country_event = {
 		RAJ = {
 			create_wargoal = {
 				type = take_claimed_state
-				target = POR
+				target = NPR
 				generator = { 321 }
 			}
 		}

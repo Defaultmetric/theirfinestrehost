@@ -627,7 +627,7 @@ fascism_on_the_rise = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = DEN
+				original_tag = NDE
 				has_dlc = "Arms Against Tyranny"
 				is_subject = yes
 			}
@@ -1182,7 +1182,7 @@ democratic_on_the_rise = {
 				limit = {
 					NOR_AAT = yes 
 				}
-				original_tag = NOR 
+				original_tag = NNO 
 				has_country_flag = NOR_included_in_generic_political
 			}
 		}
@@ -1207,7 +1207,7 @@ democratic_on_the_rise = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = DEN
+				original_tag = NDE
 				has_dlc = "Arms Against Tyranny"
 				is_subject = yes
 			}
@@ -1824,7 +1824,7 @@ communism_on_the_rise = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = DEN
+				original_tag = NDE
 				has_dlc = "Arms Against Tyranny"
 				is_subject = yes
 			}
@@ -1958,7 +1958,7 @@ political_actions = {
 			IF = {
 				limit = {
 					has_dlc = "Gotterdammerung"
-					original_tag = AUS
+					original_tag = FAU
 				}
 				NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
 			}
@@ -1977,7 +1977,7 @@ political_actions = {
 			if = {
 				limit = {
 					has_aat = yes 
-					original_tag = NOR 
+					original_tag = NNO 
 				}
 				NOT = { 
 					has_idea = NOR_anti_communist_sentiment_ns
@@ -1996,7 +1996,7 @@ political_actions = {
 		cancel_trigger = {
 			if = {
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 				}
 				OR = {
 					has_completed_focus = AUS_clamp_down_on_dnsap
@@ -2020,19 +2020,19 @@ political_actions = {
 			base = 0
 			modifier = {
 				add = 1
-				tag = AUS
+				tag = FAU
 				fascism > 0.45
 				is_historical_focus_on = no
 			}
 			modifier = {
 				add = 10
-				tag = AUS
+				tag = FAU
 				fascism > 0.45
 				GER = { has_completed_focus = GER_reestablish_free_elections }
 			}
 			modifier = {
 				add = 50
-				tag = AUS
+				tag = FAU
 				has_dlc = "Gotterdammerung"
 				OR = {
 					has_country_flag = AUS_AI_RANDOM_ANTI_ANSCLUSS_STRESS
@@ -2245,7 +2245,7 @@ political_actions = {
 			IF = {
 				limit = {
 					has_aat = yes 
-					original_tag = NOR 
+					original_tag = NNO 
 				}
 				NOT = {
 					has_idea = NOR_anti_communist_sentiment_ns
@@ -2284,13 +2284,13 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"	
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 
 			IF = {
 				limit = {
 					has_dlc = "Gotterdammerung"
-					original_tag = AUS
+					original_tag = FAU
 				}
 				NOT = { has_completed_focus = AUS_reinstate_the_imperial_council }
 			}
@@ -2347,7 +2347,7 @@ political_actions = {
 			factor = 0
 			modifier = {
 				add = 50
-				tag = AUS
+				tag = FAU
 				has_dlc = "Gotterdammerung"
 				OR = {
 					has_country_flag = AUS_AI_RANDOM_ANTI_ANSCLUSS_STRESS
@@ -2383,7 +2383,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"	
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 			IF = {
 				limit = {
@@ -2479,7 +2479,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"	
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 		}
 
@@ -2652,7 +2652,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 		}
 	
@@ -2708,7 +2708,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 		}
 		
@@ -2764,7 +2764,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 		}
 	
@@ -2820,7 +2820,7 @@ political_actions = {
 				limit = { 
 					has_dlc = "Battle for the Bosporus"
 				}
-				NOT = { original_tag = GRE }
+				NOT = { original_tag = NNG }
 			}
 		}
 	

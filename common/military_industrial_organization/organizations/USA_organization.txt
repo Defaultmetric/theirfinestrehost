@@ -796,7 +796,7 @@ USA_ford_motor_company_organization = {
 		OR = {
 			tag = USA 
 			AND = {
-				tag = POL # If Poland sets up a local one
+				tag = NPO # If Poland sets up a local one
 				OR = {
 					has_dlc = "Poland: United and Ready"
 					has_dlc = "No Step Back"
@@ -808,14 +808,14 @@ USA_ford_motor_company_organization = {
 			}
 			tag = MEX # Mexican Ford
 			AND = {
-				tag = GRE # Greek Ford
+				tag = NNG # Greek Ford
 				has_dlc = "Battle for the Bosporus"
 			}
 			AND = {
 				OR = {
-					original_TAG = LAT
-					original_TAG = LIT
-					original_TAG = EST
+					original_TAG = NLA
+					original_TAG = NLI
+					original_TAG = NES
 				}
 				has_dlc = "No Step Back"
 			}
@@ -830,7 +830,7 @@ USA_ford_motor_company_organization = {
 	visible = {
 		IF = { 
 			limit = {
-				FROM = { tag = POL }
+				FROM = { tag = NPO }
 			}
 			FROM = {
 				has_country_flag = POL_ford_motors
@@ -863,9 +863,9 @@ USA_ford_motor_company_organization = {
 			limit = {
 				FROM = {
 					OR = {
-						original_TAG = LAT
-						original_TAG = LIT
-						original_TAG = EST
+						original_TAG = NLA
+						original_TAG = NLI
+						original_TAG = NES
 					}
 				}
 			}

@@ -22,7 +22,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 1000
-			tag = CHI
+			tag = FCH
 			has_dlc = "No Compromise, No Surrender"
 		}
 	}
@@ -401,7 +401,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = CHI_local_rural_reconstruction_modifier
-					scope = CHI
+					scope = FCH
 				}	
 			}
 
@@ -1801,7 +1801,7 @@ focus_tree = {
 				every_country = {
 					limit = {
 						is_in_array = {
-							array = CHI.nine_power_treaty_signatories
+							array = FCH.nine_power_treaty_signatories
 							value = THIS
 						}
 					}
@@ -1885,9 +1885,9 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
 			custom_effect_tooltip = available_theorist
-			CHI = { show_ideas_tooltip = CHI_claire_lee_chennault_theorist }
+			FCH = { show_ideas_tooltip = CHI_claire_lee_chennault_theorist }
 			custom_effect_tooltip = available_chief_of_airforce
-			CHI = { show_ideas_tooltip = CHI_claire_lee_chennault_ground_support }
+			FCH = { show_ideas_tooltip = CHI_claire_lee_chennault_ground_support }
 
 		}
 	}
@@ -2418,7 +2418,7 @@ focus_tree = {
 				exists = yes
 				NOT = { has_war_with = ROOT }
 				has_opinion = {
-					target = CHI
+					target = FCH
 					value > 0 
 				}
 			}
@@ -2576,7 +2576,7 @@ focus_tree = {
 					}
 
 					add_autonomy_ratio = { 
-						value = var:CHI.executive_yuan_autonomy_ratio
+						value = var:FCH.executive_yuan_autonomy_ratio
 						localization = CHI_take_control_of_the_executive_yuan
 					}
 				}
@@ -3593,7 +3593,7 @@ focus_tree = {
 			every_country = {
 				limit = {
 					is_in_array = {
-						array = CHI.nine_power_treaty_signatories
+						array = FCH.nine_power_treaty_signatories
 						value = THIS
 					}
 				}
@@ -4111,7 +4111,7 @@ focus_tree = {
 					is_in_faction = no
 
 				}
-				IF = { ## Added check to prevent two CUFs from being formed - if PRC has created CUF, but CHI does not join, then create Nanjing front instead
+				IF = { ## Added check to prevent two CUFs from being formed - if PRC has created CUF, but FCH does not join, then create Nanjing front instead
 					limit = {
 						PRC = {
 							has_faction_template = faction_template_chinese_united_front
@@ -5309,9 +5309,9 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_theorist
-			CHI = { show_ideas_tooltip = CHI_claire_lee_chennault_theorist }
+			FCH = { show_ideas_tooltip = CHI_claire_lee_chennault_theorist }
 			custom_effect_tooltip = available_chief_of_airforce
-			CHI = { show_ideas_tooltip = CHI_claire_lee_chennault_ground_support }
+			FCH = { show_ideas_tooltip = CHI_claire_lee_chennault_ground_support }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_ace = {
 				name = Huang 
@@ -6143,7 +6143,7 @@ focus_tree = {
 				limit = {
 					CHI_northern_warlords = yes
 				}
-				subtract_from_variable = { CHI_warlord_integration_pp_cost = CHI.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
+				subtract_from_variable = { CHI_warlord_integration_pp_cost = FCH.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
 				CHI_apply_integration_cost_reduction = yes
 				custom_effect_tooltip = CHI_warlord_integration_cost_reduction
 				custom_effect_tooltip = CHI_impair_the_control_yuan_tt
@@ -6260,7 +6260,7 @@ focus_tree = {
 				limit = {
 					CHI_western_warlords = yes
 				}
-				subtract_from_variable = { CHI_warlord_integration_pp_cost = CHI.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
+				subtract_from_variable = { CHI_warlord_integration_pp_cost = FCH.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
 				CHI_apply_integration_cost_reduction = yes
 				custom_effect_tooltip = CHI_warlord_integration_cost_reduction
 				custom_effect_tooltip = CHI_impair_the_control_yuan_tt
@@ -6367,7 +6367,7 @@ focus_tree = {
 				limit = {
 					CHI_southern_warlords = yes
 				}
-				subtract_from_variable = { CHI_warlord_integration_pp_cost = CHI.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
+				subtract_from_variable = { CHI_warlord_integration_pp_cost = FCH.CHI_reduce_integration_pp_cost } #Makes Integration Decisions cheaper to take
 				CHI_apply_integration_cost_reduction = yes
 				custom_effect_tooltip = CHI_warlord_integration_cost_reduction
 				custom_effect_tooltip = CHI_impair_the_control_yuan_tt
@@ -7926,7 +7926,7 @@ focus_tree = {
 					1035 = {
 						add_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI #These modifiers should only apply to PRC
+							scope = FCH #These modifiers should only apply to PRC
 						}
 					}
 				}
@@ -7937,7 +7937,7 @@ focus_tree = {
 					613 = {
 						add_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI #These modifiers should only apply to PRC
+							scope = FCH #These modifiers should only apply to PRC
 						}
 					}
 				}
@@ -7948,7 +7948,7 @@ focus_tree = {
 					1036 = {
 						add_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI #These modifiers should only apply to PRC
+							scope = FCH #These modifiers should only apply to PRC
 						}
 					}
 				}
@@ -7959,7 +7959,7 @@ focus_tree = {
 					1037 = {
 						add_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI #These modifiers should only apply to PRC
+							scope = FCH #These modifiers should only apply to PRC
 						}
 					}
 				}
@@ -7970,7 +7970,7 @@ focus_tree = {
 					608 = {
 						add_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI #These modifiers should only apply to PRC
+							scope = FCH #These modifiers should only apply to PRC
 						}
 					}
 				}
@@ -8541,7 +8541,7 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					has_dynamic_modifier = {
 						modifier = CHI_infiltrated_state_3
-						scope = CHI
+						scope = FCH
 					}
 				}
 				create_unit = {
@@ -8661,7 +8661,7 @@ focus_tree = {
 		relative_position_id = CHI_a_party_unified
 		cost = 5
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 		will_lead_to_war_with = PRC
 		will_lead_to_war_with = GXC
 		will_lead_to_war_with = YUN
@@ -9040,7 +9040,7 @@ focus_tree = {
 			every_country = {
 				limit = {
 					is_in_array = {
-						array = CHI.nine_power_treaty_signatories
+						array = FCH.nine_power_treaty_signatories
 						value = THIS
 					}
 				}
@@ -10291,7 +10291,7 @@ focus_tree = {
 				add_equipment_to_stockpile = { 
 					type = artillery_equipment
 					amount = 360
-					producer = CHI
+					producer = FCH
 				}
 			}
 			ELSE_IF = {
@@ -10312,7 +10312,7 @@ focus_tree = {
 				add_equipment_to_stockpile = { 
 					type = artillery_equipment
 					amount = 360
-					producer = CHI
+					producer = FCH
 				}
 			}
 			ELSE = {
@@ -10383,7 +10383,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = CHI_bog_defensive_modifier
-					scope = CHI
+					scope = FCH
 					days = 120
 				}
 			}
@@ -10546,7 +10546,7 @@ focus_tree = {
 				capital_scope = {
 					create_unit = {
 						division = "name = \"200th Division\" division_template = \"200th Division\" start_experience_factor = 0.75 start_equipment_factor = 1"
-						owner = CHI
+						owner = FCH
 						count = 1
 					}
 				}
@@ -10655,7 +10655,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = CHI_bog_defensive_modifier
-					scope = CHI
+					scope = FCH
 					days = 120
 				}
 			}
@@ -13587,7 +13587,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_heavy_1
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Sun Yat Sen Class"	
 					}
 					requested_factories = 1
@@ -13598,7 +13598,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_heavy_1
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Sun Yat Sen Class"	
 					}
 					requested_factories = 1
@@ -13704,7 +13704,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_cruiser_coastal_defense_ship
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Chiang Class"	
 					}
 					requested_factories = 1
@@ -13715,7 +13715,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_cruiser_coastal_defense_ship
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Chiang Class"	
 					}
 					requested_factories = 1
@@ -13726,7 +13726,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_cruiser_coastal_defense_ship
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Chiang Class"	
 					}
 					requested_factories = 1
@@ -13737,7 +13737,7 @@ focus_tree = {
 				add_equipment_production = {
 					equipment = {
 						type = ship_hull_cruiser_coastal_defense_ship
-						creator = "CHI"
+						creator = "FCH"
 						version_name = "Chiang Class"	
 					}
 					requested_factories = 1
@@ -13937,7 +13937,7 @@ focus_tree = {
 					has_completed_focus = CHI_strike_from_below
 				}
 				generate_scientist_character = {
-					portrait_tag_override = CHI
+					portrait_tag_override = FCH
 					traits = { scientist_trait_submarine_specialist }
 					skills = {
 						specialization_naval = 2
@@ -13949,7 +13949,7 @@ focus_tree = {
 					has_completed_focus = CHI_heavy_ship_research
 				}
 				generate_scientist_character = {
-					portrait_tag_override = CHI
+					portrait_tag_override = FCH
 					traits = { scientist_trait_surface_ship_specialist }
 					skills = {
 						specialization_naval = 2

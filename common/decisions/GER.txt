@@ -636,7 +636,7 @@ GER_operational_planning_category = {
 			modifier = {
 				factor = 10
 				FROM = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				has_completed_focus = GER_danzig_or_war
 			}
@@ -696,8 +696,8 @@ GER_operational_planning_category = {
 					NOT = {
 						any_controlled_state = {
 							OR = {
-								is_core_of = HOL
-								is_core_of = BEL
+								is_core_of = FNL
+								is_core_of = FBL
 							}
 							any_neighbor_state = {
 								is_fully_controlled_by = ROOT
@@ -712,8 +712,8 @@ GER_operational_planning_category = {
 				factor = 0
 				FROM = {
 					OR = {
-						original_tag = HOL
-						original_tag = BEL
+						original_tag = FNL
+						original_tag = FBL
 					}
 					is_ai = yes
 				}
@@ -1635,8 +1635,8 @@ GER_fortify_the_vaterland_cat = {
 			modifier = {
 				factor = 3
 				OR = {
-					has_war_with = HOL
-					has_war_with = BEL
+					has_war_with = FNL
+					has_war_with = FBL
 					has_war_with = LUX
 					has_war_with = FRA
 					has_war_with = ENG
@@ -1645,8 +1645,8 @@ GER_fortify_the_vaterland_cat = {
 			modifier = {
 				factor = 2
 				OR = {
-					has_wargoal_against = HOL
-					has_wargoal_against = BEL
+					has_wargoal_against = FNL
+					has_wargoal_against = FBL
 					has_wargoal_against = LUX
 					has_wargoal_against = FRA
 				}
@@ -3617,7 +3617,7 @@ GER_reichskommissariats = {
 
 		available = {
 			is_subject = no
-			NOR = {
+			NNO = {
 				NOT = {
 					has_completed_focus = NOR_quislings_coup
 				}
@@ -3686,11 +3686,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 25
-				NOR = { has_capitulated = yes }
+				NNO = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 25
-				NOR = { exists = no }
+				NNO = { exists = no }
 			}
 		}
 
@@ -3844,11 +3844,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 15
-				HOL = { has_capitulated = yes }
+				FNL = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 25
-				HOL = { exists = no }
+				FNL = { exists = no }
 			}
 		}
 
@@ -4008,11 +4008,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 15
-				BEL = { has_capitulated = yes }
+				FBL = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 25
-				BEL = { exists = no }
+				FBL = { exists = no }
 			}
 		}
 
@@ -4222,19 +4222,19 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 5
-				LIT = { exists = no }
+				NLI = { exists = no }
 			}
 			modifier = {
 				add = 5
-				LAT = { exists = no }
+				NLA = { exists = no }
 			}
 			modifier = {
 				add = 5
-				EST = { exists = no }
+				NES = { exists = no }
 			}
 			modifier = {
 				add = 15
-				POL = { exists = no }
+				NPO = { exists = no }
 			}
 		}
 
@@ -6258,7 +6258,7 @@ GER_reichskommissariats = {
 			base = 2
 			modifier = {
 				add = 25
-				POL = { has_capitulated = yes }
+				NPO = { has_capitulated = yes }
 			}
 		}
 
@@ -6764,7 +6764,7 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 5
-				POR = { exists = no }
+				NPR = { exists = no }
 			}
 			modifier = {
 				add = 2
@@ -7025,7 +7025,7 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 5
-				GRE = { has_capitulated = yes }
+				NNG = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 5
@@ -7524,11 +7524,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 2
-				GRE = { has_capitulated = yes }
+				NNG = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 25
-				GRE = { exists = no }
+				NNG = { exists = no }
 			}
 		}
 
@@ -8135,11 +8135,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 10
-				ETH = { has_capitulated = yes }
+				FET = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 10
-				ETH = { has_capitulated = yes }
+				FET = { has_capitulated = yes }
 			}
 		}
 
@@ -8555,11 +8555,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 10
-				ETH = { has_capitulated = yes }
+				FET = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 10
-				ETH = { has_capitulated = yes }
+				FET = { has_capitulated = yes }
 			}
 		}
 
@@ -11104,11 +11104,11 @@ GER_reichskommissariats = {
 			base = 0
 			modifier = {
 				add = 1
-				PER = { has_capitulated = yes }
+				FPR = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 10
-				PER = { exists = no }
+				FPR = { exists = no }
 			}
 			modifier = {
 				add = 15
@@ -11981,7 +11981,7 @@ GER_reichskommissariats = {
 			base = 5
 			modifier = {
 				add = 10
-				CHI = { has_capitulated = yes }
+				FCH = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 10
@@ -11993,7 +11993,7 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 10
-				CHI = { exists = no }
+				FCH = { exists = no }
 			}
 			modifier = {
 				add = 10
@@ -12313,11 +12313,11 @@ GER_reichskommissariats = {
 			}
 			modifier = {
 				add = 10
-				INS = { has_capitulated = yes }
+				INF = { has_capitulated = yes }
 			}
 			modifier = {
 				add = 10
-				INS = { exists = no }
+				INF = { exists = no }
 			}
 			modifier = {
 				add = 10
@@ -12736,7 +12736,7 @@ foreign_politics = {
 
 		available = {
 			has_war_with = SOV
-			NOT = { is_in_faction_with = POL }
+			NOT = { is_in_faction_with = NPO }
 		}
 
 		cost = 50
@@ -12753,7 +12753,7 @@ foreign_politics = {
 		}
 
 		complete_effect = {
-			POL = { country_event = { id = wtt_germany.65 hours = 6 } }
+			NPO = { country_event = { id = wtt_germany.65 hours = 6 } }
 		}
 
 	}
@@ -13397,14 +13397,14 @@ GER_austro_hungarian_empire = {
 
 		allowed = {
 			OR = {
-				original_tag = AUS
+				original_tag = FAU
 				original_tag = HUN
-				original_tag = CZE
+				original_tag = FCZ
 			}
 		}
 
 		available = {
-			AUS = {
+			FAU = {
 				OR = {
 					has_government = neutrality
 					neutrality > 0.4
@@ -13416,7 +13416,7 @@ GER_austro_hungarian_empire = {
 					neutrality > 0.4
 				}
 			}
-			CZE = {
+			FCZ = {
 				OR = {
 					has_government = neutrality
 					neutrality > 0.4
@@ -13433,7 +13433,7 @@ GER_austro_hungarian_empire = {
 				}
 				has_government = neutrality
 			}
-			AUS = {
+			FAU = {
 				exists = yes
 			}
 			HUN = {
@@ -13453,7 +13453,7 @@ GER_austro_hungarian_empire = {
 			}
 			modifier = {
 				factor = 0
-				original_tag = CZE
+				original_tag = FCZ
 			}
 		}
 
@@ -13462,38 +13462,38 @@ GER_austro_hungarian_empire = {
 			hidden_effect = { set_global_flag = GER_reformed_austro_hungarian_empire }
 			if = {
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 				}
 				HUN = { country_event = { id = wtt_germany.68 hours = 1 } }
 				IF = {
 					limit = {
-						CZE = {
+						FCZ = {
 							exists = yes
 						}
 					}
-					CZE = { country_event = { id = wtt_germany.68 hours = 3 } }
+					FCZ = { country_event = { id = wtt_germany.68 hours = 3 } }
 				}
 			}
 			if = {
 				limit = {
 					original_tag = HUN
 				}
-				AUS = { country_event = { id = wtt_germany.68 hours = 1 } }
+				FAU = { country_event = { id = wtt_germany.68 hours = 1 } }
 				IF = {
 					limit = {
-						CZE = {
+						FCZ = {
 							exists = yes
 						}
 					}
-					CZE = { country_event = { id = wtt_germany.68 hours = 3 } }
+					FCZ = { country_event = { id = wtt_germany.68 hours = 3 } }
 				}
 			}
 			if = {
 				limit = {
-					original_tag = CZE
+					original_tag = FCZ
 				}
 				HUN = { country_event = { id = wtt_germany.68 hours = 1 } }
-				AUS = { country_event = { id = wtt_germany.68 hours = 3 } }
+				FAU = { country_event = { id = wtt_germany.68 hours = 3 } }
 			}
 		}
 	}
@@ -14615,7 +14615,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SWE NOR FIN DEN SMI ICE KAR }
+		targets = { FSW NNO FIN NDE SMI ICE KAR }
 
 		target_trigger = {
 			FROM = {
@@ -14698,7 +14698,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { HOL BEL LUX }
+		targets = { FNL FBL LUX }
 
 		target_trigger = {
 			FROM = {
@@ -14781,7 +14781,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
+		targets = { FPR IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
 
 		target_trigger = {
 			FROM = {
@@ -14867,7 +14867,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
+		targets = { FPR IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
 
 		target_trigger = {
 			FROM = {
@@ -14950,7 +14950,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
+		targets = { FPR IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR }
 
 		target_trigger = {
 			FROM = {
@@ -15033,7 +15033,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER FAL FYG NNG ROM MLD BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15116,7 +15116,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER FAL FYG NNG ROM MLD BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15201,7 +15201,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER FAL FYG NNG ROM MLD BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15290,17 +15290,17 @@ GER_invite_to_faction_cat = {
 			}
 		}
 
-		targets = { SWE NOR FIN DEN EST LAT LIT SMI ICE KAR PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { FSW NNO FIN NDE NES NLA NLI SMI ICE KAR FPR IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR SLV CRO MAC MNT BOS HRZ SER FAL FYG NNG ROM MLD BUL KOS TRA }
 
 		target_trigger = {
 			if = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = SWE
-							original_tag = NOR
+							original_tag = FSW
+							original_tag = NNO
 							original_tag = FIN
-							original_tag = DEN
+							original_tag = NDE
 							original_tag = SMI
 							original_tag = ICE
 							original_tag = KAR
@@ -15315,9 +15315,9 @@ GER_invite_to_faction_cat = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = EST
-							original_tag = LIT
-							original_tag = LAT
+							original_tag = NES
+							original_tag = NLI
+							original_tag = NLA
 						}
 					}
 				}
@@ -15329,8 +15329,8 @@ GER_invite_to_faction_cat = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = HOL
-							original_tag = BEL
+							original_tag = FNL
+							original_tag = FBL
 							original_tag = LUX
 						}
 					}
@@ -15343,7 +15343,7 @@ GER_invite_to_faction_cat = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = PER
+							original_tag = FPR
 							original_tag = IRQ
 							original_tag = SYR
 							original_tag = SAU
@@ -15378,9 +15378,9 @@ GER_invite_to_faction_cat = {
 							original_tag = BOS
 							original_tag = HRZ
 							original_tag = SER
-							original_tag = ALB
-							original_tag = YUG
-							original_tag = GRE
+							original_tag = FAL
+							original_tag = FYG
+							original_tag = NNG
 							original_tag = ROM
 							original_tag = MLD
 							original_tag = BUL
@@ -15535,7 +15535,7 @@ GER_middle_eastern_trade_cat = {
 			}
 		}
 
-		targets = { PER IRQ SYR SAU EGY JOR LEB OMA YEM KUW QAT UAE }
+		targets = { FPR IRQ SYR SAU EGY JOR LEB OMA YEM KUW QAT UAE }
 
 		target_trigger = {
 			FROM = {
@@ -18668,11 +18668,11 @@ GER_realpolitik_cat = {
 
 		icon = GFX_decision_generic_political_discourse
 
-		targets = { HOL }
+		targets = { FNL }
 
 		target_trigger = {
 			FROM = {
-				tag = HOL
+				tag = FNL
 			}
 		}
 
@@ -18706,7 +18706,7 @@ GER_realpolitik_cat = {
 			NOT = {
 				has_country_flag = GER_currently_holding_backdoor_negitations_flag
 			}
-			HOL = {
+			FNL = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -18714,14 +18714,14 @@ GER_realpolitik_cat = {
 				is_in_faction = no
 				is_subject = no
 			}
-			BEL = {
+			FBL = {
 				exists = yes
 				NOT = {
 					OR = {
 						is_subject_of = ROOT
-						is_subject_of = HOL
+						is_subject_of = FNL
 						has_war_with = ROOT
-						has_war_with = HOL
+						has_war_with = FNL
 					}
 				}
 			}
@@ -18733,7 +18733,7 @@ GER_realpolitik_cat = {
 
 		complete_effect = {
 
-			HOL = {
+			FNL = {
 				country_event = {
 					id = wuw_GER_diplomacy.67
 					hours = 18
@@ -18747,7 +18747,7 @@ GER_realpolitik_cat = {
 					}
 					create_faction = GER_mitteleuropa_alliance
 				}
-				HOL = {
+				FNL = {
 					add_state_claim = 977
 					add_state_claim = 6
 				}
@@ -18756,10 +18756,10 @@ GER_realpolitik_cat = {
 
 				add_state_claim = 980
 				add_state_claim = 34
-				add_to_faction = HOL
+				add_to_faction = FNL
 				create_wargoal = {
 					type = take_claimed_state
-					target = BEL
+					target = FBL
 					generator = { 980 34 }
 				}	
 			}
@@ -18776,11 +18776,11 @@ GER_realpolitik_cat = {
 
 		icon = GFX_decision_generic_political_discourse
 
-		targets = { BEL }
+		targets = { FBL }
 
 		target_trigger = {
 			FROM = {
-				tag = BEL
+				tag = FBL
 			}
 		}
 
@@ -18814,7 +18814,7 @@ GER_realpolitik_cat = {
 			NOT = {
 				has_country_flag = GER_currently_holding_backdoor_negitations_flag
 			}
-			BEL = {
+			FBL = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -18822,14 +18822,14 @@ GER_realpolitik_cat = {
 				is_in_faction = no
 				is_subject = no
 			}
-			HOL = {
+			FNL = {
 				exists = yes
 				NOT = {
 					OR = {
 						is_subject_of = ROOT
-						is_subject_of = BEL
+						is_subject_of = FBL
 						has_war_with = ROOT
-						has_war_with = BEL
+						has_war_with = FBL
 					}
 				}
 			}
@@ -18841,7 +18841,7 @@ GER_realpolitik_cat = {
 
 		complete_effect = {
 
-			BEL = {
+			FBL = {
 				country_event = {
 					id = wuw_GER_diplomacy.67
 					hours = 18
@@ -18855,7 +18855,7 @@ GER_realpolitik_cat = {
 					}
 					create_faction = GER_mitteleuropa_alliance
 				}
-				BEL = {
+				FBL = {
 					add_state_claim = 35
 				}
 
@@ -18863,10 +18863,10 @@ GER_realpolitik_cat = {
 
 				add_state_claim = 7
 				add_state_claim = 36
-				add_to_faction = BEL
+				add_to_faction = FBL
 				create_wargoal = {
 					type = take_claimed_state
-					target = HOL
+					target = FNL
 					generator = { 7 36 }
 				}	
 			}
@@ -18883,11 +18883,11 @@ GER_realpolitik_cat = {
 
 		icon = GFX_decision_eng_propaganda_campaigns
 
-		targets = { AUS }
+		targets = { FAU }
 
 		target_trigger = {
 			FROM = {
-				tag = AUS
+				tag = FAU
 			}
 		}
 
@@ -18906,8 +18906,8 @@ GER_realpolitik_cat = {
 		visible = {
 			NOT = {
 				has_country_flag = GER_has_attempted_to_sway_public_opinion_in_austria_flag
-				is_in_faction_with = AUS
-				has_subject = AUS
+				is_in_faction_with = FAU
+				has_subject = FAU
 			}
 			has_completed_focus = GER_mitteleuropa
 		}
@@ -18918,7 +18918,7 @@ GER_realpolitik_cat = {
 				has_government = neutrality
 				has_government = democratic
 			}
-			AUS = {
+			FAU = {
 				NOT = {
 					has_government = ROOT
 				}
@@ -18931,14 +18931,14 @@ GER_realpolitik_cat = {
 
 		complete_effect = {
 
-			AUS = {
+			FAU = {
 				country_event = {
 					id = wuw_GER_diplomacy.70
 					hours = 12
 				}	
 			}
 			effect_tooltip = {
-				AUS = {
+				FAU = {
 					add_popularity = {
 						ideology = ROOT
 						popularity = 0.1
@@ -19739,7 +19739,7 @@ GER_realpolitik_cat = {
 
 		visible = {
 			has_completed_focus = GER_establish_western_grand_duchies
-			BEL = {
+			FBL = {
 				OR = {
 					exists = no
 					is_subject_of = ROOT
@@ -19785,7 +19785,7 @@ GER_realpolitik_cat = {
 			base = 50
 			modifier = {
 				add = 150
-				BEL = { 
+				FBL = { 
 					OR = {
 						has_capitulated = yes 
 						exists = no
@@ -19805,14 +19805,14 @@ GER_realpolitik_cat = {
 			IF = {
 				limit = {
 					has_government = neutrality
-					BEL = {
+					FBL = {
 						NOT = {
 							is_subject_of = ROOT
 						}
 					}
 				}
 				set_autonomy = { 
-					target = BEL 
+					target = FBL 
 					autonomy_state = autonomy_personal_union
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -19820,28 +19820,28 @@ GER_realpolitik_cat = {
 			ELSE_IF = {
 				limit = {
 					has_government = democratic
-					BEL = {
+					FBL = {
 						NOT = {
 							is_subject_of = ROOT
 						}
 					}
 				}
 				set_autonomy = { 
-					target = BEL 
+					target = FBL 
 					autonomy_state = autonomy_colony
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			ELSE_IF = {
 				limit = {
-					BEL = {
+					FBL = {
 						NOT = {
 							is_subject_of = ROOT
 						}
 					}
 				}
 				set_autonomy = { 
-					target = BEL 
+					target = FBL 
 					autonomy_state = autonomy_puppet 
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -19857,15 +19857,15 @@ GER_realpolitik_cat = {
 							state = 29
 						}
 					}
-					add_core_of = BEL
-					transfer_state_to = BEL
+					add_core_of = FBL
+					transfer_state_to = FBL
 				}
 				980 = {
-					remove_core_of = BEL
+					remove_core_of = FBL
 				}
 			}
 
-			BEL = {
+			FBL = {
 				set_cosmetic_tag = BEL_flanders
 				add_political_power = 150
 				add_stability = 0.1
@@ -21068,12 +21068,12 @@ GER_spreading_the_red_flame_cat = {
 				FROM = {
 					NOT = {
 						original_tag = FIN
-						original_tag = EST
-						original_tag = LAT
-						original_tag = LIT
+						original_tag = NES
+						original_tag = NLA
+						original_tag = NLI
 						original_tag = SLO
 						original_tag = ROM
-						original_tag = YUG
+						original_tag = FYG
 						original_tag = BUL
 					}
 				}
@@ -21160,12 +21160,12 @@ GER_spreading_the_red_flame_cat = {
 				FROM = {
 					NOT = {
 						original_tag = FIN
-						original_tag = EST
-						original_tag = LAT
-						original_tag = LIT
+						original_tag = NES
+						original_tag = NLA
+						original_tag = NLI
 						original_tag = SLO
 						original_tag = ROM
-						original_tag = YUG
+						original_tag = FYG
 						original_tag = BUL
 					}
 				}
@@ -21297,7 +21297,7 @@ GER_spreading_the_red_flame_cat = {
 
 		fire_only_once = yes
 
-		targets = { PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE TUR }
+		targets = { FPR IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE TUR }
 
 		target_trigger = {
 			NOT = {
@@ -22047,7 +22047,7 @@ GER_the_fading_eagle_category = {
 				original_tag_to_check = ITA
 				is_subject_of = ROOT
 			}
-			ALB = {
+			FAL = {
 				is_in_faction_with = ROOT
 				is_subject = no
 			}
@@ -22056,11 +22056,11 @@ GER_the_fading_eagle_category = {
 	
 		available = {
 			has_government = fascism
-			ALB = {
+			FAL = {
 				is_in_faction_with = ROOT
 				is_subject = no
 				all_owned_state = {
-					is_controlled_by = ALB
+					is_controlled_by = FAL
 				}
 			}
 		}
@@ -22069,7 +22069,7 @@ GER_the_fading_eagle_category = {
 
 		complete_effect = {
 
-			ALB = {
+			FAL = {
 				country_event = {
 					id = GOT_GER_fading_eagle.01
 					hours = 6
@@ -22077,7 +22077,7 @@ GER_the_fading_eagle_category = {
 			}
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
-				puppet = ALB
+				puppet = FAL
 			}
 
 			hidden_effect = {

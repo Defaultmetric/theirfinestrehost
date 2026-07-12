@@ -1113,12 +1113,12 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					DEN = {
+					NDE = {
 						exists = yes 
 						NOT = { has_country_flag = DEN_depose_the_king }
 					}
 				}
-				DEN = {
+				NDE = {
 					country_event = {
 						id = AAT_norway_communist.8
 						days = 5
@@ -1126,10 +1126,10 @@ focus_tree = {
 				}
 				effect_tooltip = {
 					NOR_king_haakon_vii = {
-						set_nationality = DEN 
+						set_nationality = NDE 
 					}
 					NOR_prince_olav = {
-						set_nationality = DEN
+						set_nationality = NDE
 					}
 				}
 			}
@@ -1157,12 +1157,12 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					SWE = {
+					FSW = {
 						exists = yes
 						NOT = { has_completed_focus = SWE_liquidate_the_monarchy }
 					}
 				}
-				SWE = {
+				FSW = {
 					country_event = {
 						id = AAT_norway_communist.8
 						days = 5
@@ -1170,10 +1170,10 @@ focus_tree = {
 				}
 				effect_tooltip = {
 					NOR_king_haakon_vii = {
-						set_nationality = SWE 
+						set_nationality = FSW 
 					}
 					NOR_prince_olav = {
-						set_nationality = SWE
+						set_nationality = FSW
 					}
 				}
 			}
@@ -1399,22 +1399,22 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_army_org_factor
+				var = NNO.NOR_independent_norway_dmod_army_org_factor
 				value = 0.15
 				tooltip = army_org_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_navy_org_factor
+				var = NNO.NOR_independent_norway_dmod_navy_org_factor
 				value = 0.1
 				tooltip = navy_org_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_war_stability_factor
+				var = NNO.NOR_independent_norway_dmod_war_stability_factor
 				value = 0.2
 				tooltip = war_stability_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_war_support_factor
+				var = NNO.NOR_independent_norway_dmod_war_support_factor
 				value = 0.15
 				tooltip = war_support_factor_tt
 			}
@@ -1521,7 +1521,7 @@ focus_tree = {
 			# I know There's a better way to do this but the tooltip looks wrong otherwise. 
 			if = {
 				limit ={
-					SWE = {
+					FSW = {
 						NOT = { 
 							has_government = communism 
 							is_in_faction_with = ROOT 
@@ -1530,7 +1530,7 @@ focus_tree = {
 				}
 				create_wargoal = {
 					type = annex_everything
-					target = SWE
+					target = FSW
 				}
 			}
 			if = {
@@ -1550,7 +1550,7 @@ focus_tree = {
 
 			if = {
 				limit ={
-					DEN = {
+					NDE = {
 						NOT = { 
 							has_government = communism 
 							is_in_faction_with = ROOT 
@@ -1559,7 +1559,7 @@ focus_tree = {
 				}
 				create_wargoal = {
 					type = annex_everything
-					target = DEN
+					target = NDE
 				}
 			}
 			if = {
@@ -1964,7 +1964,7 @@ focus_tree = {
 		
 		available = {	
 			is_subject = no
-			SWE = {
+			FSW = {
 				exists = yes
 				NOT = {
 					OR = {
@@ -1976,7 +1976,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			SWE = {
+			FSW = {
 				OR = {		
 					exists = no
 					is_subject_of = ROOT
@@ -1989,7 +1989,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = annex_everything
-				target = SWE
+				target = FSW
 				generator = { 666 }
 			}
 			add_timed_idea = {
@@ -2013,7 +2013,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			DEN = {
+			NDE = {
 				exists = yes
 				NOT = {
 					OR = {
@@ -2025,7 +2025,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			DEN = {
+			NDE = {
 				OR = {
 					exists = no
 					is_subject_of = ROOT
@@ -2038,7 +2038,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = annex_everything
-				target = DEN
+				target = NDE
 			}
 			add_timed_idea = {
 				idea = NOR_attack_denmark_ns
@@ -2131,11 +2131,11 @@ focus_tree = {
 						original_tag = GER
 						has_government = fascism
 					}
-					set_variable = { NOR.AltGer = THIS }
+					set_variable = { NNO.AltGer = THIS }
 
 				}
-				var:NOR.AltGer = {
-					NOR = {
+				var:NNO.AltGer = {
+					NNO = {
 						create_wargoal = {
 							type = topple_government
 							target = PREV
@@ -2187,7 +2187,7 @@ focus_tree = {
 				effect_tooltip = {
 					create_unit = {
 						division = "name = \"1. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no
 						count = 5  
 					}
@@ -2195,27 +2195,27 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"1. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no  
 					}
 					create_unit = {
 						division = "name = \"2. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no  
 					}
 					create_unit = {
 						division = "name = \"3. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no  
 					}
 					create_unit = {
 						division = "name = \"4. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no  
 					}
 					create_unit = {
 						division = "name = \"5. Hemmelige Hæren\" division_template = \"Hemmelige Hæren\" start_experience_factor = 0.25 start_equipment_factor = 0.5"
-						owner = NOR
+						owner = NNO
 						allow_spawning_on_enemy_provs = no  
 					}
 				}
@@ -2642,7 +2642,7 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = infantry_equipment
 				amount = 2000 
-				producer = NOR
+				producer = NNO
 			}
 		}
 	}
@@ -3236,7 +3236,7 @@ focus_tree = {
 			110 = { # Oslofjord
 				create_unit = {
 					division = "division_template = \"Nøytralitetsvakt\" start_experience_factor = 0.15"
-					owner = NOR 
+					owner = NNO 
 					count = 4
 				}
 			}
@@ -3842,7 +3842,7 @@ focus_tree = {
 					traits = { operative_escape_artist operative_commando }
 					available_to_spy_master = yes
 					female = no
-					nationalities = { NOR }
+					nationalities = { NNO }
 				}
 				create_operative_leader = {
 					name = "Astrid Løken"
@@ -3850,7 +3850,7 @@ focus_tree = {
 					traits = { operative_infiltrator }
 					available_to_spy_master = yes
 					female = yes
-					nationalities = { NOR }
+					nationalities = { NNO }
 				}
 				unlock_decision_tooltip = NOR_foment_resistance_in_state
 			}
@@ -4374,7 +4374,7 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = motorized_equipment
 				amount = 35
-				producer = NOR
+				producer = NNO
 			}
 			every_owned_state = {
 				limit = {
@@ -4654,7 +4654,7 @@ focus_tree = {
 			if = {
 				limit = {
 					any_other_country = {
-						original_tag = NOR
+						original_tag = NNO
 						exists = yes
 						NOT = { has_government = fascism }
 					}
@@ -4994,7 +4994,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			set_variable = { NOR.NOR_oppressed_civilians_dmod_recruitable_population_factor = 0 }
+			set_variable = { NNO.NOR_oppressed_civilians_dmod_recruitable_population_factor = 0 }
 			add_dynamic_modifier = {
 				modifier = NOR_oppressed_civilians_dmod 
 			}
@@ -5065,7 +5065,7 @@ focus_tree = {
 			
 			custom_effect_tooltip = NOR_modify_oppressed_civilians_TT
 			set_variable = {
-				var = NOR.NOR_oppressed_civilians_dmod_recruitable_population_factor
+				var = NNO.NOR_oppressed_civilians_dmod_recruitable_population_factor
 				value = 0.15
 				tooltip = conscription_factor_tt
 			}
@@ -5406,9 +5406,9 @@ focus_tree = {
 			is_faction_leader = no 
 			if = {
 				limit = {
-					has_variable = NOR.NOR_cw_democratic_norway
+					has_variable = NNO.NOR_cw_democratic_norway
 				}
-				var:NOR.NOR_cw_democratic_norway = {
+				var:NNO.NOR_cw_democratic_norway = {
 					has_capitulated = yes 
 				}
 			}
@@ -5430,13 +5430,13 @@ focus_tree = {
 			
 			if = {
 				limit = {
-					NOT = { has_variable = NOR.NOR_cw_fascist_attacker }  
+					NOT = { has_variable = NNO.NOR_cw_fascist_attacker }  
 				}
 				faction_leader = {
-					set_variable = { NOR.NOR_cw_fascist_attacker = THIS }
+					set_variable = { NNO.NOR_cw_fascist_attacker = THIS }
 				}
 			}
-			var:NOR.NOR_cw_fascist_attacker = {
+			var:NNO.NOR_cw_fascist_attacker = {
 				set_autonomy = {
 					target = PREV
 					autonomy_state = autonomy_reichsprotectorate
@@ -6502,7 +6502,7 @@ focus_tree = {
 					}
 				}
 				122 = {
-					add_claim_by = NOR
+					add_claim_by = NNO
 				}
 			}
 		}
@@ -6565,19 +6565,19 @@ focus_tree = {
 					effect_tooltip = {
 						custom_effect_tooltip = if_they_accept
 						915 = { # Bohuslän 
-							transfer_state_to = NOR
+							transfer_state_to = NNO
 						}
 						if = {  # Dalarna  
 							limit = {
 								owns_state = 916
 							}
-							916 = { transfer_State_to = NOR }
+							916 = { transfer_State_to = NNO }
 						}
 						if = { # Jämtland  
 							limit = {
 								owns_state = 917 
 							}
-							917 = { transfer_state_to = NOR }
+							917 = { transfer_state_to = NNO }
 						}
 						custom_effect_tooltip = if_they_reject
 						915 = {  # Bohuslan
@@ -6671,7 +6671,7 @@ focus_tree = {
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept
 				337 = {
-					transfer_state_to = NOR
+					transfer_state_to = NNO
 				}
 				custom_effect_tooltip = if_they_reject
 				337 = {
@@ -6732,7 +6732,7 @@ focus_tree = {
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept
 				101 = {
-					transfer_state_to = NOR
+					transfer_state_to = NNO
 				}
 				custom_effect_tooltip = if_they_reject
 				101 = {
@@ -6800,7 +6800,7 @@ focus_tree = {
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept
 				100 = {
-					transfer_state_to = NOR
+					transfer_state_to = NNO
 				}
 				custom_effect_tooltip = if_they_reject
 				100 = {
@@ -6842,7 +6842,7 @@ focus_tree = {
 				limit = {
 					has_government = neutrality 
 				}
-				DEN = {
+				NDE = {
 					exists = yes 
 					has_capitulated = no 
 					NOT = { 
@@ -6861,10 +6861,10 @@ focus_tree = {
 			IF = {
 				limit = {
 					37 = {
-						is_owned_by = DEN
+						is_owned_by = NDE
 					}
 				}
-				DEN = {
+				NDE = {
 					is_subject = no
 				}
 			}
@@ -6882,12 +6882,12 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					DEN = {
+					NDE = {
 						exists = yes 
 						NOR_is_only_core_denmark = yes 
 					}
 				}
-				DEN = {
+				NDE = {
 					country_event = {
 						id = AAT_norway.17
 						hours = 3 
@@ -6896,14 +6896,14 @@ focus_tree = {
 				effect_tooltip = {
 					custom_effect_tooltip = if_they_accept
 					annex_country = {
-						target = DEN
+						target = NDE
 						transfer_troops = yes
 					}						
 				}		
 				custom_effect_tooltip = if_they_reject
 				create_wargoal = {
 					type = annex_everything
-					target = DEN
+					target = NDE
 				}
 			}
 			else = {
@@ -6918,14 +6918,14 @@ focus_tree = {
 				effect_tooltip = {
 					custom_effect_tooltip = if_they_accept
 					37 = {
-						transfer_state_to = NOR
+						transfer_state_to = NNO
 						OWNER = {
 							912 = {
 								if = {
 									limit = {
 										is_owned_and_controlled_by = PREV 
 									}
-									transfer_state_to = NOR 
+									transfer_state_to = NNO 
 								}
 							}
 							99 = {
@@ -6933,7 +6933,7 @@ focus_tree = {
 									limit = {
 										is_owned_and_controlled_by = PREV 
 									}
-									transfer_state_to = NOR 
+									transfer_state_to = NNO 
 								}
 							}
 							911 = {
@@ -6941,7 +6941,7 @@ focus_tree = {
 									limit = {
 										is_owned_and_controlled_by = PREV 
 									}
-									transfer_state_to = NOR 
+									transfer_state_to = NNO 
 								}
 							}
 							910 = {
@@ -6949,7 +6949,7 @@ focus_tree = {
 									limit = {
 										is_owned_and_controlled_by = PREV 
 									}
-									transfer_state_to = NOR 
+									transfer_state_to = NNO 
 								}
 							}
 						}
@@ -7020,19 +7020,19 @@ focus_tree = {
 						custom_effect_tooltip = if_they_accept
 		
 						213 = { # Murmansk 
-							transfer_state_to = NOR
+							transfer_state_to = NNO
 						}
 						if = {  # Arkhangelsk  
 							limit = {
 								owns_state = 214
 							}
-							214 = { transfer_State_to = NOR }
+							214 = { transfer_State_to = NNO }
 						}
 						if = { # Onega  
 							limit = {
 								owns_state = 215 
 							}
-							215 = { transfer_state_to = NOR }
+							215 = { transfer_state_to = NNO }
 						}
 						custom_effect_tooltip = if_they_reject
 						ROOT = {
@@ -7194,10 +7194,10 @@ focus_tree = {
 				effect_tooltip = {
 					custom_effect_tooltip = if_they_accept
 					120 = {
-						transfer_state_to = NOR
+						transfer_state_to = NNO
 					}
 					933 = {
-						transfer_state_to = NOR
+						transfer_state_to = NNO
 					}
 					custom_effect_tooltip = if_they_reject
 					120 = {
@@ -7223,7 +7223,7 @@ focus_tree = {
 						effect_tooltip = {
 							custom_effect_tooltip = if_they_accept
 							120 = {
-								transfer_state_to = NOR
+								transfer_state_to = NNO
 							}
 							custom_effect_tooltip = if_they_reject
 							ROOT = {
@@ -7245,7 +7245,7 @@ focus_tree = {
 						effect_tooltip = {
 							custom_effect_tooltip = if_they_accept
 							933 = {
-								transfer_state_to = NOR
+								transfer_state_to = NNO
 							}
 							custom_effect_tooltip = if_they_reject
 							ROOT = {
@@ -7316,10 +7316,10 @@ focus_tree = {
 				effect_tooltip = {
 					custom_effect_tooltip = if_they_accept
 					331 = {
-						transfer_state_to = NOR
+						transfer_state_to = NNO
 					}
 					332 = {
-						transfer_state_to = NOR
+						transfer_state_to = NNO
 					}
 					custom_effect_tooltip = if_they_reject
 					331 = {
@@ -7345,7 +7345,7 @@ focus_tree = {
 							}
 							OWNER = {
 								NOT = {
-									original_tag = NOR
+									original_tag = NNO
 									has_war_with = ROOT
 								}
 							}
@@ -7360,7 +7360,7 @@ focus_tree = {
 							effect_tooltip = {
 								custom_effect_tooltip = if_they_accept
 								331 = {
-									transfer_state_to = NOR
+									transfer_state_to = NNO
 								}
 								custom_effect_tooltip = if_they_reject
 								331 = {
@@ -7386,7 +7386,7 @@ focus_tree = {
 							OWNER = {
 								controls_state = 332
 								NOT = {
-									original_tag = NOR
+									original_tag = NNO
 									has_war_with = ROOT
 								}
 							}
@@ -7401,7 +7401,7 @@ focus_tree = {
 							effect_tooltip = {
 								custom_effect_tooltip = if_they_accept
 								332 = {
-									transfer_state_to = NOR
+									transfer_state_to = NNO
 								}
 								custom_effect_tooltip = if_they_reject
 								332 = {
@@ -7537,7 +7537,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_controlled_by = ROOT 
-					is_core_of = DEN 
+					is_core_of = NDE 
 					NOT = { is_core_of = ROOT }
 					is_on_continent = europe
 				}
@@ -7886,7 +7886,7 @@ focus_tree = {
 		cost = 5
 		available = {
 			OR = {
-				SWE = {
+				FSW = {
 					exists = yes 
 					has_equipment = {
 					 	light_tank_chassis > 0
@@ -8188,12 +8188,12 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_consumer_goods_factor
+				var = NNO.NOR_independent_norway_dmod_consumer_goods_factor
 				value = -0.1
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_production_speed_industrial_complex_factor
+				var = NNO.NOR_independent_norway_dmod_production_speed_industrial_complex_factor
 				value = 0.15
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
@@ -8242,7 +8242,7 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = convoy 
 				amount = 75 
-				producer = NOR
+				producer = NNO
 			}
 		}
 	}
@@ -8263,7 +8263,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_research_speed_factor
+				var = NNO.NOR_independent_norway_dmod_research_speed_factor
 				value = 0.05
 				tooltip = research_speed_factor_tt
 			}	
@@ -8409,7 +8409,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_production_speed_industrial_complex_factor
+				var = NNO.NOR_independent_norway_dmod_production_speed_industrial_complex_factor
 				value = 0.15
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
@@ -8552,7 +8552,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_production_speed_infrastructure_factor
+				var = NNO.NOR_independent_norway_dmod_production_speed_infrastructure_factor
 				value = 0.2
 				tooltip = production_speed_infrastructure_factor_tt
 			}
@@ -8577,7 +8577,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_independent_norway_TT
 			add_to_variable = {
-				var = NOR.NOR_independent_norway_dmod_research_speed_factor
+				var = NNO.NOR_independent_norway_dmod_research_speed_factor
 				value = 0.03
 				tooltip = research_speed_factor_tt
 			}
@@ -8712,12 +8712,12 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_doctrine_cost_factor
+				var = NNO.NOR_army_air_force_dmod_air_doctrine_cost_factor
 				value = -0.1
 				tooltip = air_doctrine_cost_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_license_air_purchase_cost
+				var = NNO.NOR_army_air_force_dmod_license_air_purchase_cost
 				value = -0.4
 				tooltip = license_air_purchase_cost_tt
 			}		
@@ -8799,7 +8799,7 @@ focus_tree = {
 				custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_production_speed_anti_air_building_factor
+				var = NNO.NOR_army_air_force_dmod_production_speed_anti_air_building_factor
 				value = 0.5
 				tooltip = production_speed_anti_air_building_factor_tt
 			}
@@ -8968,7 +8968,7 @@ focus_tree = {
 		cost = 10
 		available = {
 			NOR_broken_gun_trigger = yes
-			SWE = {
+			FSW = {
 				exists = yes 
 				has_capitulated = no 
 				NOT = { has_war_with = ROOT }
@@ -8986,7 +8986,7 @@ focus_tree = {
 				custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			}								
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_production_speed_anti_air_building_factor
+				var = NNO.NOR_army_air_force_dmod_production_speed_anti_air_building_factor
 				value = 0.25
 				tooltip = production_speed_anti_air_building_factor_tt
 			}
@@ -8996,7 +8996,7 @@ focus_tree = {
 			add_equipment_subsidy = {
 				cic = 250
 				equipment_type = anti_air_equipment
-				seller_tags = { SWE } 
+				seller_tags = { FSW } 
 			}	
 		}
 	}
@@ -9019,22 +9019,22 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_production_speed_air_base_factor
+				var = NNO.NOR_army_air_force_dmod_production_speed_air_base_factor
 				value = 0.45
 				tooltip = production_speed_air_base_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_attack_factor
+				var = NNO.NOR_army_air_force_dmod_air_attack_factor
 				value = 0.1 
 				tooltip = air_attack_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_defence_factor
+				var = NNO.NOR_army_air_force_dmod_air_defence_factor
 				value = 0.1 
 				tooltip = air_defence_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_doctrine_cost_factor
+				var = NNO.NOR_army_air_force_dmod_air_doctrine_cost_factor
 				value = -0.1 
 				tooltip = air_doctrine_cost_factor_tt
 			}
@@ -9178,12 +9178,12 @@ focus_tree = {
 				custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_ace_bonuses_factor
+				var = NNO.NOR_army_air_force_dmod_air_ace_bonuses_factor
 				value = 0.15
 				tooltip = air_ace_bonuses_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_ace_generation_chance_factor
+				var = NNO.NOR_army_air_force_dmod_air_ace_generation_chance_factor
 				value = 0.25
 				tooltip = air_ace_generation_chance_factor_tt
 			}
@@ -9398,7 +9398,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 				add_to_variable = {
-					var = NOR.NOR_royal_navy_dmod_spotting_chance
+					var = NNO.NOR_royal_navy_dmod_spotting_chance
 					value = 0.25 
 					tooltip = spotting_chance_tt
 				}	
@@ -9486,7 +9486,7 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = convoy 
 				amount = 150 
-				producer = NOR
+				producer = NNO
 			}
 		}
 	}
@@ -9513,12 +9513,12 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_experience_gain_navy
+				var = NNO.NOR_royal_navy_dmod_experience_gain_navy
 				value = 0.12
 				tooltip = experience_gain_navy_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_naval_doctrine_cost_factor
+				var = NNO.NOR_royal_navy_dmod_naval_doctrine_cost_factor
 				value = -0.12
 				tooltip = naval_doctrine_cost_factor_tt
 			}
@@ -9568,7 +9568,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_sortie_efficiency
+				var = NNO.NOR_royal_navy_dmod_sortie_efficiency
 				value = 0.2
 				tooltip = CARRIER_SORTIE_EFFICIENCY_FACTOR_TT
 			}
@@ -9606,7 +9606,7 @@ focus_tree = {
 				}
 				custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 				add_to_variable = {
-					var = NOR.NOR_royal_navy_dmod_mines_planting_by_fleets_factor
+					var = NNO.NOR_royal_navy_dmod_mines_planting_by_fleets_factor
 					value = 0.35 
 					tooltip = mines_planting_by_fleets_factor_tt
 				}
@@ -9640,7 +9640,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_naval_torpedo_reveal_chance_factor
+				var = NNO.NOR_royal_navy_dmod_naval_torpedo_reveal_chance_factor
 				value = -0.3
 				tooltip = naval_torpedo_reveal_chance_factor_tt
 			}
@@ -9710,12 +9710,12 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_naval_strike_attack_factor
+				var = NNO.NOR_royal_navy_dmod_naval_strike_attack_factor
 				value = 0.25
 				tooltip = naval_strike_attack_factor_tt
 			}
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_naval_strike_targetting_factor
+				var = NNO.NOR_royal_navy_dmod_naval_strike_targetting_factor
 				value = 0.2
 				tooltip = naval_strike_targetting_factor_tt
 			}
@@ -9747,7 +9747,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_convoy_escort_efficiency #0.3
+				var = NNO.NOR_royal_navy_dmod_convoy_escort_efficiency #0.3
 				value = 0.3 
 				tooltip = convoy_escort_efficiency_tt
 			}
@@ -9780,11 +9780,11 @@ focus_tree = {
 			add_equipment_to_stockpile = { 
 				type = convoy 
 				amount = 200 
-				producer = NOR
+				producer = NNO
 			}
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_convoy_retreat_speed
+				var = NNO.NOR_royal_navy_dmod_convoy_retreat_speed
 				value = 0.2
 				tooltip = convoy_retreat_speed_tt
 			}
@@ -9822,7 +9822,7 @@ focus_tree = {
 				custom_effect_tooltip = NOR_modify_air_force_dmod_TT
 			}
 			add_to_variable = {
-				var = NOR.NOR_army_air_force_dmod_air_nav_efficiency
+				var = NNO.NOR_army_air_force_dmod_air_nav_efficiency
 				value = 0.25
 				tooltip = air_nav_efficiency_tt
 			}
@@ -9853,7 +9853,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = NOR_modify_royal_navy_dmod_TT
 			add_to_variable = {
-				var = NOR.NOR_royal_navy_dmod_industrial_capacity_dockyard
+				var = NNO.NOR_royal_navy_dmod_industrial_capacity_dockyard
 				value = 0.15
 				tooltip = industrial_capacity_dockyard_tt
 			}

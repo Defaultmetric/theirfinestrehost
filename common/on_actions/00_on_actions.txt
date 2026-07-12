@@ -245,7 +245,7 @@ on_actions = {
 			if = {
 				limit = {
 					#is_ironman =  = yes
-					original_tag = SWE
+					original_tag = FSW
 					has_completed_focus = SWE_per_albin_bus
 					divisions_in_state = {
 						state = 141
@@ -271,7 +271,7 @@ on_actions = {
 			
 			if = {
 				limit = {
-					original_tag = SWE
+					original_tag = FSW
 					has_completed_focus = SWE_per_albin_bus
 					divisions_in_state = {
 						state = 681
@@ -418,10 +418,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					tag = SWE
+					tag = FSW
 					FROM = {
-						is_owned_by = DEN
-						is_core_of = DEN
+						is_owned_by = NDE
+						is_core_of = NDE
 					}
 				}
 				set_country_flag = achievement_med_plutonium
@@ -429,10 +429,10 @@ on_actions = {
 
 			if = { #Med Plutonium 2 
 				limit = {
-					tag = DEN
+					tag = NDE
 					FROM = {
-						is_owned_by = SWE
-						is_core_of = SWE
+						is_owned_by = FSW
+						is_core_of = FSW
 					}
 				}
 				set_country_flag = achievement_med_plutonium_2
@@ -745,7 +745,7 @@ on_actions = {
 						original_tag = CAN
 						original_tag = RAJ
 						original_tag = MAL
-						original_tag = INS
+						original_tag = INF
 					}
 				}
 				if = {
@@ -1023,14 +1023,14 @@ on_actions = {
 			if = {
 				limit = {
 					FROM = { tag = JAP }
-					ROOT = { tag = CHI }
+					ROOT = { tag = FCH }
 				}
 				JAP = { JAP_intervene_in_china_remove = yes }
 			}
 
 			if = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 					has_government = neutrality
 					NOT = { has_completed_focus = POL_fulfil_fifth_of_november }
 				}
@@ -1038,14 +1038,14 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					original_tag = YUG
+					original_tag = FYG
 				}
 				remove_ideas = YUG_idea_economic_aid
 			}
 			if = {
 				limit = {
 					NOT = { has_dlc = "Arms Against Tyranny"} # AAT uses separate system
-					original_tag = DEN
+					original_tag = NDE
 					any_country = {
 						OR = {
 							tag = ROOT
@@ -1135,7 +1135,7 @@ on_actions = {
 		effect = { #if Austria resists Anschluss, give Germany cores on Austria once they capitulate
 			IF = {
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 					FROM = {
 						original_tag = GER
 						has_country_flag = GER_anscluss_rejected
@@ -1154,7 +1154,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					tag = GRE
+					tag = NNG
 					date < 1945.01.01
 				}
 				set_global_flag = achievement_anzac_failed
@@ -1181,7 +1181,7 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
-						original_tag = BEL
+						original_tag = FBL
 						is_in_faction = yes
 						#is_government_in_exile = yes
 					}
@@ -1465,7 +1465,7 @@ on_actions = {
 					}
 					original_tag = GER
 					has_government = neutrality
-					NOT = { is_subject_of = HOL }
+					NOT = { is_subject_of = FNL }
 				}
 				set_global_flag = { flag = civil_war_olympics value = 1 days = 30 }
 				country_event = { id = wtt_germany.18 days = 1 }
@@ -1485,7 +1485,7 @@ on_actions = {
 			if = {
 				limit = {
 					has_dlc = "Death or Dishonor"
-					original_tag = YUG
+					original_tag = FYG
 				}
 				every_other_country = {
 					limit = {
@@ -1529,7 +1529,7 @@ on_actions = {
 			if = {
 				limit = {
 					has_dlc = "Graveyard of Empires"
-					original_tag = PER
+					original_tag = FPR
 					has_cosmetic_tag = PER_loyalist_iran
 				}
 				drop_cosmetic_tag = yes
@@ -1621,7 +1621,7 @@ on_actions = {
 						original_tag = RAJ
 						original_tag = CAN
 						original_tag = MAL
-						original_tag = INS
+						original_tag = INF
 					}
 					is_puppet = no
 				}
@@ -1638,11 +1638,11 @@ on_actions = {
 			GER = { #Axis and Poland just didn't get along
 				add_ai_strategy = {
 				   type = alliance
-				   id = POL
+				   id = NPO
 				   value = -2000
 				}
 			}
-			POL = {
+			NPO = {
 				add_ai_strategy = {
 				   type = alliance
 				   id = GER
@@ -1853,7 +1853,7 @@ on_actions = {
 					}
 				}
 			}
-			CHI = { #No game weighting here
+			FCH = { #No game weighting here
 				if = {
 					limit = {
 						has_dlc = "Waking the Tiger"
@@ -1873,8 +1873,8 @@ on_actions = {
 						}
 					}
 					random_list = {
-						50 = { CHI = { set_country_flag = CHI_AI_RANDOM_HISTORICAL } }
-						50 = { CHI = { set_country_flag = CHI_AI_RANDOM_ALTERNATE } }
+						50 = { FCH = { set_country_flag = CHI_AI_RANDOM_HISTORICAL } }
+						50 = { FCH = { set_country_flag = CHI_AI_RANDOM_ALTERNATE } }
 					}
 				}
 				else_if = {
@@ -1895,10 +1895,10 @@ on_actions = {
 						}
 					}
 					random_list = {
-						40 = { CHI = { set_country_flag = CHI_AI_RANDOM_HISTORICAL_SEA } }
-						20 = { CHI = { set_country_flag = CHI_AI_RANDOM_WANG_JINGWEI } }
-						20 = { CHI = { set_country_flag = CHI_AI_RANDOM_FASCIST } }
-						20 = { CHI = { set_country_flag = CHI_AI_RANDOM_DEMOCRATIC_SEA } }
+						40 = { FCH = { set_country_flag = CHI_AI_RANDOM_HISTORICAL_SEA } }
+						20 = { FCH = { set_country_flag = CHI_AI_RANDOM_WANG_JINGWEI } }
+						20 = { FCH = { set_country_flag = CHI_AI_RANDOM_FASCIST } }
+						20 = { FCH = { set_country_flag = CHI_AI_RANDOM_DEMOCRATIC_SEA } }
 					}
 				}
 			}
@@ -2580,7 +2580,7 @@ on_actions = {
 				}
 			}
 
-			CZE = {
+			FCZ = {
 				if = {
 					limit = {
 						has_dlc = "Death or Dishonor"
@@ -2656,7 +2656,7 @@ on_actions = {
 					}
 				}
 			}
-			YUG = {
+			FYG = {
 				if = {
 					limit = {
 						has_dlc = "Death or Dishonor"
@@ -2935,7 +2935,7 @@ on_actions = {
 					}
 				}
 			}
-			POL = {
+			NPO = {
 				if = {
 					limit = {
 						OR = {
@@ -3188,7 +3188,7 @@ on_actions = {
 					}
 				}
 			}
-			HOL = {
+			FNL = {
 				if = {
 					limit = {
 						has_dlc = "Man the Guns"
@@ -3402,7 +3402,7 @@ on_actions = {
 					}
 				}
 			}
-			POR = {
+			NPR = {
 				if = {
 					limit = {
 						has_dlc = "La Resistance"
@@ -3553,7 +3553,7 @@ on_actions = {
 					}
 				}
 			}
-			GRE = {
+			NNG = {
 				if = {
 					limit = {
 						has_dlc = "Battle for the Bosporus"
@@ -3741,7 +3741,7 @@ on_actions = {
 					}
 				}
 			}
-			LIT = {
+			NLI = {
 				if = {
 					limit = {
 						has_dlc = "No Step Back"
@@ -3796,7 +3796,7 @@ on_actions = {
 					}
 				}
 			}
-			LAT = {
+			NLA = {
 				if = {
 					limit = {
 						has_dlc = "No Step Back"
@@ -3843,7 +3843,7 @@ on_actions = {
 					}
 				}
 			}
-			EST = {
+			NES = {
 				if = {
 					limit = {
 						has_dlc = "No Step Back"
@@ -3892,7 +3892,7 @@ on_actions = {
 					}
 				}
 			}
-			ETH = {
+			FET = {
 				if = {
 					limit = {
 						has_dlc = "By Blood Alone"
@@ -3945,7 +3945,7 @@ on_actions = {
 					}
 				}
 			}
-			SWI = {
+			NSW = {
 				if = {
 					limit = {
 						has_dlc = "By Blood Alone"
@@ -3985,7 +3985,7 @@ on_actions = {
 					remove_ideas = RAJ_agrarian_society #For startup screen
 				}
 			}
-			SWE = {
+			FSW = {
 				if = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
@@ -4147,7 +4147,7 @@ on_actions = {
 					}
 				}
 			}
-			NOR = {
+			NNO = {
 				if = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
@@ -4167,34 +4167,34 @@ on_actions = {
 					}
 					random_list = {
 						25 = {
-							NOR = {
+							NNO = {
 								set_country_flag = NOR_AI_RANDOM_HISTORICAL
 							}
 						}
 						30 = {
-							NOR = {
+							NNO = {
 								set_country_flag = NOR_AI_RANDOM_FASCIST
 							}
 						}
 						15 = {
-							NOR = {
+							NNO = {
 								set_country_flag = NOR_AI_RANDOM_STALINIST
 							}
 						}
 						10 = {
-							NOR = {
+							NNO = {
 								set_country_flag = NOR_AI_RANDOM_TROSTSKYIST
 							}
 						}
 						20 = {
-							NOR = {
+							NNO = {
 								set_country_flag = NOR_AI_RANDOM_MONARCHIST
 							}
 						}
 					}
 				}
 			}
-			DEN = {
+			NDE = {
 				if = {
 					limit = {
 						has_dlc = "Arms Against Tyranny"
@@ -4244,7 +4244,7 @@ on_actions = {
 						20 = { 
 							modifier = {
 								factor = 5
-								DEN = {
+								NDE = {
 									OR = {
 										has_country_flag = DEN_AI_RANDOM_ALLIANCE_PLAN
 										has_game_rule = {
@@ -4445,7 +4445,7 @@ on_actions = {
 				}
 			}
 
-			AUS = {
+			FAU = {
 				IF = {
 					limit = {
 						OR = {
@@ -4464,40 +4464,40 @@ on_actions = {
 					}
 					random_list = {
 						50 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_HISTORICAL }
+							FAU = { set_country_flag = AUS_AI_RANDOM_HISTORICAL }
 						}
 						25 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_PUPPET }
+							FAU = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_PUPPET }
 						}
 						25 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_ANNEX }
+							FAU = { set_country_flag = AUS_AI_RANDOM_MONARCHIST_ANNEX }
 						}
 						10 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_NEUTRALITY_FEDERATIVE }
+							FAU = { set_country_flag = AUS_AI_RANDOM_NEUTRALITY_FEDERATIVE }
 						}
 						10 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_COMMUNIST_SOV_ALIGNED }
+							FAU = { set_country_flag = AUS_AI_RANDOM_COMMUNIST_SOV_ALIGNED }
 						}
 						10 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_COMMUNIST }
+							FAU = { set_country_flag = AUS_AI_RANDOM_COMMUNIST }
 						}
 						10 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALLIES }
+							FAU = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALLIES }
 						}
 						10 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALPINE_FEDERATION }
+							FAU = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_ALPINE_FEDERATION }
 						}
 						5 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_FEDERATIVE }
+							FAU = { set_country_flag = AUS_AI_RANDOM_DEMOCRATIC_FEDERATIVE }
 						}
 						1 = {
-							AUS = { set_country_flag = AUS_AI_RANDOM_ANTI_ANSCLUSS_STRESS}
+							FAU = { set_country_flag = AUS_AI_RANDOM_ANTI_ANSCLUSS_STRESS}
 						}
 					}
 				}
 			}
 
-			BEL = {
+			FBL = {
 				IF = {
 					limit = {
 						OR = {
@@ -4516,19 +4516,19 @@ on_actions = {
 					}
 					random_list = {
 						45 = {
-							BEL = { set_country_flag = BEL_AI_RANDOM_HISTORICAL }
+							FBL = { set_country_flag = BEL_AI_RANDOM_HISTORICAL }
 						}
 						20 = {
-							BEL = { set_country_flag = BEL_AI_RANDOM_NATIONALIST_FASCIST }
+							FBL = { set_country_flag = BEL_AI_RANDOM_NATIONALIST_FASCIST }
 						}
 						10 = {
-							BEL = { set_country_flag = BEL_AI_RANDOM_EXPANSIONIST_FASCIST }
+							FBL = { set_country_flag = BEL_AI_RANDOM_EXPANSIONIST_FASCIST }
 						}
 						20 = {
-							BEL = { set_country_flag = BEL_AI_RANDOM_DEFENSIVE_DEMOCRAT }
+							FBL = { set_country_flag = BEL_AI_RANDOM_DEFENSIVE_DEMOCRAT }
 						}
 						05 = {
-							BEL = { set_country_flag = BEL_AI_RANDOM_COMMUNIST }
+							FBL = { set_country_flag = BEL_AI_RANDOM_COMMUNIST }
 						}
 					}
 				}
@@ -4577,11 +4577,11 @@ on_actions = {
 				}
 				add_ai_strategy = {
 				   type = alliance
-				   id = AUS
+				   id = FAU
 				   value = -2000
 				}
 			}
-			AUS = {
+			FAU = {
 				IF = {
 					limit = {
 						is_historical_focus_on = yes
@@ -4673,7 +4673,7 @@ on_actions = {
 					}
 				}
 			}
-			PER = {
+			FPR = {
 				IF = {
 					limit = {
 						has_dlc = "Graveyard of Empires"
@@ -4693,19 +4693,19 @@ on_actions = {
 					}
 					random_list = {
 						50 = {
-							PER = { set_country_flag = PER_AI_RANDOM_HISTORICAL }
+							FPR = { set_country_flag = PER_AI_RANDOM_HISTORICAL }
 						}
 						15 = {
-							PER = { set_country_flag = PER_AI_RANDOM_IMPERIAL }
+							FPR = { set_country_flag = PER_AI_RANDOM_IMPERIAL }
 						}
 						10 = {
-							PER = { set_country_flag = PER_AI_RANDOM_FASCISM }
+							FPR = { set_country_flag = PER_AI_RANDOM_FASCISM }
 						}
 						5 = {
-							PER = { set_country_flag = PER_AI_RANDOM_DEMOCRATIC }
+							FPR = { set_country_flag = PER_AI_RANDOM_DEMOCRATIC }
 						}
 						5 = {
-							PER = { set_country_flag = PER_AI_RANDOM_COMMUNISM }
+							FPR = { set_country_flag = PER_AI_RANDOM_COMMUNISM }
 						}
 					}
 				}
@@ -4791,7 +4791,7 @@ on_actions = {
 				}
 			}
 
-			INS = {
+			INF = {
 				IF = {
 					limit = {
 						OR = {
@@ -4810,19 +4810,19 @@ on_actions = {
 					}
 					random_list = {
 						35 = {
-							INS = { set_country_flag = INS_AI_RANDOM_TRUE_HISTORICAL }
+							INF = { set_country_flag = INS_AI_RANDOM_TRUE_HISTORICAL }
 						}
 						35 = {
-							INS = { set_country_flag = INS_AI_RANDOM_LOYALIST }
+							INF = { set_country_flag = INS_AI_RANDOM_LOYALIST }
 						}
 						10 = {
-							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_DEMOCRATIC }
+							INF = { set_country_flag = INS_AI_RANDOM_REVOLUTION_DEMOCRATIC }
 						}
 						10 = {
-							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_UNALIGNED }
+							INF = { set_country_flag = INS_AI_RANDOM_REVOLUTION_UNALIGNED }
 						}
 						10 = {
-							INS = { set_country_flag = INS_AI_RANDOM_REVOLUTION_COMMUNIST }
+							INF = { set_country_flag = INS_AI_RANDOM_REVOLUTION_COMMUNIST }
 						}
 					}
 				}
@@ -4902,7 +4902,7 @@ on_actions = {
 					tag = ENG
 					has_war_with = GER
 					has_country_leader = { character = ENG_neville_chamberlain ruling_only = yes }
-					GER = { has_war_with = POL }
+					GER = { has_war_with = NPO }
 				}
 				play_war_with_germany_effect = yes
 			}
@@ -5167,10 +5167,10 @@ on_actions = {
 			if = {
 				limit = {
 					OR = {
-						# TAG = POL # don't include POL as the event is about Soviet capture of Warsaw
+						# TAG = NPO # don't include NPO as the event is about Soviet capture of Warsaw
 						TAG = SOV
 					}
-					NOT = { SOV = { has_war_with = POL } }
+					NOT = { SOV = { has_war_with = NPO } }
 					FROM = { original_tag = GER }
 					FROM = { has_war_with = ROOT }
 					FROM.FROM = { state = 10 }
@@ -5230,12 +5230,12 @@ on_actions = {
 					has_country_flag = germany_war_return_kaiser
 					has_government = neutrality
 					FROM = {
-						original_tag = HOL
+						original_tag = FNL
 						has_country_flag = netherlands_refused_return_kaiser
 					}
 					OR = {
 						7 = { is_controlled_by = GER }
-						HOL = { is_subject_of = GER }
+						FNL = { is_subject_of = GER }
 					}
 				}
 				country_event = { id = wtt_germany.6 }
@@ -5312,8 +5312,8 @@ on_actions = {
 					}
 					FROM = {
 						OR = {
-							original_tag = POL
-							tag = POL
+							original_tag = NPO
+							tag = NPO
 						}
 					}
 				}

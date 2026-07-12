@@ -15,14 +15,14 @@ news_event = {
 		name = nsb_news.1.a
 		trigger = {
 			has_government = communism
-			NOT = { tag = POL }
+			NOT = { tag = NPO }
 		}
 	}
 
 	option = { #Sanation Poland
 		name = nsb_news.1.b
 		trigger = {
-			original_tag = POL
+			original_tag = NPO
 			NOT = { has_cosmetic_tag = POL_PEASANT }
 		}
 	}
@@ -30,7 +30,7 @@ news_event = {
 	option = { #Peasant Poland
 		name = nsb_news.1.c
 		trigger = {
-			original_tag = POL
+			original_tag = NPO
 			has_cosmetic_tag = POL_PEASANT
 		}
 	}
@@ -49,7 +49,7 @@ news_event = {
 			NOT = { has_government = communism }
 			OR = {
 				NOT = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				AND = {
 					original_tag = GER
@@ -67,13 +67,13 @@ news_event = {
 	desc = {
 		text = nsb_news.2.desc.dem
 		trigger = {
-			POL = { NOT = { has_government = communism } }
+			NPO = { NOT = { has_government = communism } }
 		}
 	}
 	desc = {
 		text = nsb_news.2.desc.com
 		trigger = {
-			POL = { has_government = communism }
+			NPO = { has_government = communism }
 		}
 	}
 	picture = GFX_news_event_imro
@@ -88,7 +88,7 @@ news_event = {
 			original_tag = USA
 		}
 		add_opinion_modifier = {
-			target = POL
+			target = NPO
 			modifier = annex_liberia_opinion
 		}
 	}
@@ -103,7 +103,7 @@ news_event = {
 	option = { #Poland
 		name = nsb_news.2.c
 		trigger = {
-			original_tag = POL
+			original_tag = NPO
 		}
 	}
 
@@ -111,7 +111,7 @@ news_event = {
 		name = nsb_news.2.d
 		trigger = {
 			NOT = {
-				original_tag = POL
+				original_tag = NPO
 				original_tag = LIB
 				original_tag = USA
 				has_government = communism
@@ -123,8 +123,8 @@ news_event = {
 		name = nsb_news.2.e
 		trigger = {
 			has_government = communism
-			POL = { NOT = { has_government = communism } }
-			NOT = { tag = POL }
+			NPO = { NOT = { has_government = communism } }
+			NOT = { tag = NPO }
 		}
 	}
 	
@@ -132,8 +132,8 @@ news_event = {
 		name = nsb_news.2.f
 		trigger = {
 			has_government = communism
-			POL = { has_government = communism }
-			NOT = { tag = POL }
+			NPO = { has_government = communism }
+			NOT = { tag = NPO }
 			NOT = { tag = LIB }
 		}
 	}
@@ -233,31 +233,31 @@ news_event = {
 	desc = {
 		text = nsb_news.5.desc.saxon
 		trigger = {
-			POL = { has_completed_focus = POL_claiming_lithuania }
+			NPO = { has_completed_focus = POL_claiming_lithuania }
 		}
 	}
 	desc = {
 		text = nsb_news.5.desc.romania
 		trigger = {
-			POL = { has_completed_focus = POL_hohenzollern }
+			NPO = { has_completed_focus = POL_hohenzollern }
 		}
 	}
 	desc = {
 		text = nsb_news.5.desc.cossack
 		trigger = {
-			POL = { has_completed_focus = POL_cossack_king }
+			NPO = { has_completed_focus = POL_cossack_king }
 		}
 	}
 	desc = {
 		text = nsb_news.5.desc.romanov
 		trigger = {
-			POL = { has_completed_focus = POL_romanov }
+			NPO = { has_completed_focus = POL_romanov }
 		}
 	}
 	desc = {
 		text = nsb_news.5.desc.habsburg
 		trigger = {
-			POL = { has_completed_focus = POL_habsburg }
+			NPO = { has_completed_focus = POL_habsburg }
 		}
 	}
 	picture = GFX_news_event_generic_parliament
@@ -276,7 +276,7 @@ news_event = {
 		name = nsb_news.5.b
 		trigger = {
 			NOT = { tag = FROM }
-			POL = {
+			NPO = {
 				NOT = {
 					OR = {
 						has_completed_focus = POL_cossack_king
@@ -290,7 +290,7 @@ news_event = {
 		name = nsb_news.5.c
 		trigger = {
 			NOT = { tag = FROM }
-			POL = {
+			NPO = {
 				OR = {
 					has_completed_focus = POL_cossack_king
 					has_completed_focus = POL_romanov
@@ -349,7 +349,7 @@ news_event = {
 		trigger = {
 			OR = {
 				tag = FROM
-				tag = POL
+				tag = NPO
 			}
 		}
 	}
@@ -358,7 +358,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				tag = FROM
-				tag = POL
+				tag = NPO
 			}
 		}
 	}
@@ -378,7 +378,7 @@ news_event = {
 	option = {
 		name = nsb_news.8.a
 		trigger = {
-			NOT = { tag = POL }
+			NOT = { tag = NPO }
 			has_government = communism
 		}
 	}
@@ -386,14 +386,14 @@ news_event = {
 	option = {
 		name = nsb_news.8.b
 		trigger = {
-			tag = POL
+			tag = NPO
 		}
 	}
 	
 	option = {
 		name = nsb_news.8.c
 		trigger = {
-			tag = LIT
+			tag = NLI
 		}
 	}
 	
@@ -401,8 +401,8 @@ news_event = {
 		name = nsb_news.8.d
 		trigger = {
 			NOT = {
-				tag = LIT
-				tag = POL
+				tag = NLI
+				tag = NPO
 				has_government = communism
 			}
 		}
@@ -839,7 +839,7 @@ news_event = {
 	}
 }
 
-# Successful Defensive Pact with Allies -> SOV-FRA (default) + maybe POL
+# Successful Defensive Pact with Allies -> SOV-FRA (default) + maybe NPO
 news_event = {
 	id = nsb_news.102
 	title = nsb_news.102.t
@@ -869,7 +869,7 @@ news_event = {
 				tag = SOV
 				tag = event_target:SOV_collective_security_pact_integrant
 				AND = {
-					tag = POL
+					tag = NPO
 					has_global_flag = SOV_collective_security_pact_poland_inlcuded_flag
 				}
 			}
@@ -884,7 +884,7 @@ news_event = {
 				tag = SOV
 				tag = event_target:SOV_collective_security_pact_integrant
 				AND = {
-					tag = POL
+					tag = NPO
 					has_global_flag = SOV_collective_security_pact_poland_inlcuded_flag
 				}
 			}
@@ -1458,10 +1458,10 @@ news_event = {
 		name = nsb_news.406.b
 		trigger = {
 			OR = {
-				tag = POL
+				tag = NPO
 	     		tag = BUL
-	     		tag = YUG
-	     		tag = CZE
+	     		tag = FYG
+	     		tag = FCZ
 			}
 		}
 	}
@@ -1470,10 +1470,10 @@ news_event = {
 		trigger = {
 			NOT = {
 				tag = FROM
-				tag = POL
+				tag = NPO
 	     		tag = BUL
-	     		tag = YUG
-	     		tag = CZE
+	     		tag = FYG
+	     		tag = FCZ
 			}
 		}
 	}

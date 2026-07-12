@@ -2034,7 +2034,7 @@ country_event = {
 #### ##     ## ##     ##  #######  
 
 
-#The IMRO is back! - Event for YUG and GRE (or whoever occupy Macedonian states)
+#The IMRO is back! - Event for FYG and NNG (or whoever occupy Macedonian states)
 country_event = {
 	id = bftb_bulgaria_imro.1
 	title = bftb_bulgaria_imro.1.t
@@ -2061,7 +2061,7 @@ country_event = {
 	}
 }
 
-#IMRO spreads Bulgarian sentiment - Event for YUG and GRE (or whoever occupy Macedonian states)
+#IMRO spreads Bulgarian sentiment - Event for FYG and NNG (or whoever occupy Macedonian states)
 country_event = {
 	id = bftb_bulgaria_imro.2
 	title = bftb_bulgaria_imro.2.t
@@ -4205,7 +4205,7 @@ country_event = {
 							controller = {
 								is_in_faction_with = GER
 								NOT = { original_tag = BUL }
-								NOT = { owns_state = PREV } #Not owner (it should be actually occupating the state -> Also prevents the issue in YUG with IMRO removing the core)
+								NOT = { owns_state = PREV } #Not owner (it should be actually occupating the state -> Also prevents the issue in FYG with IMRO removing the core)
 								NOT = { PREV = { is_core_of = controller } }
 							}
 						}
@@ -4219,7 +4219,7 @@ country_event = {
 							controller = {
 								is_in_faction_with = GER
 								NOT = { original_tag = BUL }
-								NOT = { owns_state = PREV } #Not owner (it should be actually occupating the state -> Also prevents the issue in YUG with IMRO removing the core)
+								NOT = { owns_state = PREV } #Not owner (it should be actually occupating the state -> Also prevents the issue in FYG with IMRO removing the core)
 								#PREV = { NOT = { is_core_of = controller } }
 							}
 						}
@@ -4429,7 +4429,7 @@ country_event = {
 				AND = {
 					tag = GER
 					is_historical_focus_on = yes
-					FROM.FROM = { is_core_of = YUG }
+					FROM.FROM = { is_core_of = FYG }
 				}
 			}
 			modifier = {
@@ -7001,7 +7001,7 @@ country_event = {
    ##     #######   ######    #######   ######  ######## ##     ##    ###    #### ##     ## ##    ##    #### ##    ## ##       ########  #######  ######## ##    ##  ######  ######## 
 
 
-# Treaty of Perpetual Friendship - BUL wants a NA with YUG - Event for YUG
+# Treaty of Perpetual Friendship - BUL wants a NA with FYG - Event for FYG
 country_event = {
 	id = bftb_bulgaria_yugoslavian_influence.1
 	title = bftb_bulgaria_yugoslavian_influence.1.t
@@ -7148,7 +7148,7 @@ country_event = {
 	}
 }
 
-# Treaty of Perpetual Friendship - YUG accepts - Event for BUL
+# Treaty of Perpetual Friendship - FYG accepts - Event for BUL
 country_event = {
 	id = bftb_bulgaria_yugoslavian_influence.2
 	title = bftb_bulgaria_yugoslavian_influence.2.t
@@ -7203,7 +7203,7 @@ country_event = {
 	}
 }
 
-# Treaty of Perpetual Friendship - YUG rejects our proposal - Event for BUL
+# Treaty of Perpetual Friendship - FYG rejects our proposal - Event for BUL
 country_event = {
 	id = bftb_bulgaria_yugoslavian_influence.3
 	title = bftb_bulgaria_yugoslavian_influence.3.t
@@ -7252,7 +7252,7 @@ country_event = {
 	}
 }
 
-#Bulgarian Balkan Federation Project Ready - Event for YUG
+#Bulgarian Balkan Federation Project Ready - Event for FYG
 country_event = {
 	id = bftb_bulgaria_balkan_federation.2
 	title = bftb_bulgaria_balkan_federation.2.t
@@ -7962,19 +7962,19 @@ country_event = {
 				}
 				else_if = { #Initial Balkan countries are prioritized before releasables 
 					limit = {
-						is_core_of = YUG
-						country_exists = YUG
+						is_core_of = FYG
+						country_exists = FYG
 					}
-					YUG = {
+					FYG = {
 						transfer_state = PREV
 					}
 				}
 				else_if = {
 					limit = {
-						is_core_of = GRE
-						country_exists = GRE
+						is_core_of = NNG
+						country_exists = NNG
 					}
-					GRE = {
+					NNG = {
 						transfer_state = PREV
 					}
 				}
@@ -7989,10 +7989,10 @@ country_event = {
 				}
 				else_if = {
 					limit = {
-						is_core_of = ALB
-						country_exists = ALB
+						is_core_of = FAL
+						country_exists = FAL
 					}
-					ALB = {
+					FAL = {
 						transfer_state = PREV
 					}
 				}
@@ -9068,7 +9068,7 @@ country_event = {
  ######   ##     ## ######## ######## ##    ##    #### ##    ## ##       ########  #######  ######## ##    ##  ######  ######## 
 
 
-#Bulgaria asks GRE for a NA pact - Event for GRE
+#Bulgaria asks NNG for a NA pact - Event for NNG
 country_event = {
 	id = bftb_bulgaria_greek_influence.1
 	title = bftb_bulgaria_greek_influence.1.t
@@ -9203,7 +9203,7 @@ country_event = {
 	}
 }
 
-#GRE accepts NA with BUL - Event for BUL
+#NNG accepts NA with BUL - Event for BUL
 country_event = {
 	id = bftb_bulgaria_greek_influence.2
 	title = bftb_bulgaria_greek_influence.2.t
@@ -9246,7 +9246,7 @@ country_event = {
 	}
 }
 
-#GRE declines NA with BUL - Event for BUL
+#NNG declines NA with BUL - Event for BUL
 country_event = {
 	id = bftb_bulgaria_greek_influence.3
 	title = bftb_bulgaria_greek_influence.3.t

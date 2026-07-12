@@ -789,12 +789,12 @@ focus_tree = {
 				add_equipment_subsidy = {
 					cic = 1000
 					equipment_type = small_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
+					seller_tags = { USA JAP ENG FRA ITA GER FBL SOV } 
 				}
 				add_equipment_subsidy = {
 					cic = 1000
 					equipment_type = medium_plane_airframe
-					seller_tags = { USA JAP ENG FRA ITA GER BEL SOV } 
+					seller_tags = { USA JAP ENG FRA ITA GER FBL SOV } 
 				}
 			}
 
@@ -1734,7 +1734,7 @@ focus_tree = {
 			889 = {
 				is_owned_and_controlled_by = ROOT
 			}
-			BEL = {
+			FBL = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -1742,8 +1742,8 @@ focus_tree = {
 				has_civil_war = no
 			}
 			OR = {
-				is_subject_of = BEL
-				is_in_faction_with = BEL
+				is_subject_of = FBL
+				is_in_faction_with = FBL
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -1761,7 +1761,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
-			BEL = {
+			FBL = {
 				country_event = {
 					id = ww_congo.22
 					hours = 12
@@ -1797,7 +1797,7 @@ focus_tree = {
 					ruling_only = yes
 					character = COG_pierre_ryckmans
 				}
-				BEL = {
+				FBL = {
 					has_opinion = {
 						target = ROOT
 						value > 49
@@ -2198,7 +2198,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -2762,7 +2762,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -2807,7 +2807,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -2854,7 +2854,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -2933,7 +2933,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 			any_country_with_original_tag = {
@@ -3040,7 +3040,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 			any_country_with_original_tag = {
@@ -3133,7 +3133,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -3173,7 +3173,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 		}
@@ -3207,7 +3207,7 @@ focus_tree = {
 	
 		available = {
 			any_country = {
-				original_tag = BEL
+				original_tag = FBL
 				has_subject = ROOT
 			}
 			has_civil_war = no
@@ -3837,7 +3837,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -3862,7 +3862,7 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					BEL = {
+					FBL = {
 						is_in_faction_with = ENG
 						ENG = {
 							has_war = yes
@@ -3920,7 +3920,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -3968,7 +3968,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4067,7 +4067,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4140,7 +4140,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4190,7 +4190,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4221,7 +4221,7 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					BEL = {
+					FBL = {
 						NOT = {
 							has_completed_focus = BEL_king_of_the_belgians
 						}
@@ -4231,17 +4231,17 @@ focus_tree = {
 			}
 			ELSE_IF = {
 				limit = {
-					BEL = {
+					FBL = {
 						has_completed_focus = BEL_king_of_the_belgians
 					}
 				}
 				IF = {
 					limit = {
 						COG = {
-							is_subject_of = BEL
+							is_subject_of = FBL
 						}
 					}
-					BEL = {
+					FBL = {
 						set_autonomy = {
 							target = COG
 							autonomy_state = autonomy_free
@@ -4296,7 +4296,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4304,7 +4304,7 @@ focus_tree = {
 				has_war = yes
 				has_civil_war = no
 			}
-			BEL = {
+			FBL = {
 				has_completed_focus = BEL_unfit_to_reign
 			}
 		}
@@ -4342,7 +4342,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4404,7 +4404,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -4466,7 +4466,7 @@ focus_tree = {
 	
 		available = {
 			any_country_with_original_tag = {
-				original_tag_to_check = BEL
+				original_tag_to_check = FBL
 				OR = {
 					has_subject = ROOT
 					is_in_faction_with = ROOT
@@ -5382,7 +5382,7 @@ focus_tree = {
 		y = 1
 
 		will_lead_to_war_with = ENG
-		will_lead_to_war_with = POR
+		will_lead_to_war_with = NPR
 		will_lead_to_war_with = FRA
 		will_lead_to_war_with = SPR
 
@@ -5741,7 +5741,7 @@ focus_tree = {
 				limit = {
 					has_dlc = "By Blood Alone"
 				}
-				ETH = {
+				FET = {
 					NOT = {
 						has_completed_focus = ETH_organization_of_african_unity
 					}
@@ -6721,12 +6721,12 @@ focus_tree = {
 				limit = {
 					AND = {
 						has_dlc = "La Resistance"
-						POR = {
+						NPR = {
 							has_completed_focus = POR_concordat_with_the_holy_see
 						}
 					}
 				}
-				POR = {
+				NPR = {
 					add_opinion_modifier = {
 						target = ROOT
 						modifier = embraced_catholicism
@@ -7599,7 +7599,7 @@ focus_tree = {
 				is_faction_leader = yes
 				is_in_faction = no
 			}
-			POR = {
+			NPR = {
 				exists = yes
 				is_subject = no
 				OR = {
@@ -7620,19 +7620,19 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					POR = {
+					NPR = {
 						is_faction_leader = yes
 					}
 				}
-				POR = { country_event = generic.2 }
+				NPR = { country_event = generic.2 }
 			}
 			ELSE_IF = {
 				limit = {
-					POR = {	
+					NPR = {	
 						is_in_faction = no
 					}
 				}
-				POR = {
+				NPR = {
 					country_event = {
 						id = ww_congo.50
 						hours = 12

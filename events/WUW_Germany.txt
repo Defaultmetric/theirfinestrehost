@@ -322,11 +322,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				original_tag = HOL
+				original_tag = FNL
 				has_country_flag = GER_trading_proposal_flag
 			}
 			effect_tooltip = {
-				INS = {
+				INF = {
 					add_ideas = GER_german_trade_ns
 
 					add_opinion_modifier = {
@@ -338,7 +338,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				original_tag = BEL
+				original_tag = FBL
 				has_country_flag = GER_trading_proposal_flag
 			}
 			effect_tooltip = {
@@ -379,11 +379,11 @@ country_event = { #FROM accepts our trade deal
 		if = {
 			limit = {
 				FROM = {
-					original_tag = HOL
+					original_tag = FNL
 					has_country_flag = GER_trading_proposal_flag
 				}
 			}
-			INS = {
+			INF = {
 				add_ideas = GER_german_trade_ns
 				add_opinion_modifier = {
 					target = GER
@@ -394,7 +394,7 @@ country_event = { #FROM accepts our trade deal
 		if = {
 			limit = {
 				FROM = {
-					original_tag = BEL
+					original_tag = FBL
 					has_country_flag = GER_trading_proposal_flag
 				}
 			}
@@ -519,7 +519,7 @@ country_event = {
 
 		if = {
 			limit = {
-				original_tag = CZE
+				original_tag = FCZ
 				has_country_flag = GER_influencing_CZE_flag
 			}
 			add_opinion_modifier = { target = GER modifier = ger_cze_diplomatic_focus }
@@ -3104,7 +3104,7 @@ country_event = {
 	}
 }
 
-# Germany demands the return of North Schleswig - event for DEN
+# Germany demands the return of North Schleswig - event for NDE
 country_event = { 
 	id = wuw_GER_diplomacy.57
 	title = wuw_GER_diplomacy.57.t
@@ -3120,7 +3120,7 @@ country_event = {
 		}		
 		
 		FROM = {
-			# DEN caves to our demands
+			# NDE caves to our demands
 			country_event = { 
 				id = wuw_GER_diplomacy.58 
 				days = 1
@@ -3148,7 +3148,7 @@ country_event = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 		
 		FROM = {
-			# DEN stands firm
+			# NDE stands firm
 			country_event = { 
 				id = wuw_GER_diplomacy.59
 				days = 1
@@ -3234,7 +3234,7 @@ country_event = {
 	}
 }
 
-# Germany demands the return of North Schleswig - event for owner of the state (not DEN)
+# Germany demands the return of North Schleswig - event for owner of the state (not NDE)
 country_event = { 
 	id = wuw_GER_diplomacy.60
 	title = wuw_GER_diplomacy.60.t
@@ -3289,7 +3289,7 @@ country_event = {
 	}
 }
 
-# FROM returns North Schleswig - event for owner of the state (not DEN)
+# FROM returns North Schleswig - event for owner of the state (not NDE)
 country_event = { 
 	id = wuw_GER_diplomacy.61
 	title = wuw_GER_diplomacy.61.t
@@ -3320,7 +3320,7 @@ country_event = {
 	}
 }
 
-# FROM refuses to return North Schleswig - event for owner of the state (not DEN)
+# FROM refuses to return North Schleswig - event for owner of the state (not NDE)
 country_event = { 
 	id = wuw_GER_diplomacy.62
 	title = wuw_GER_diplomacy.62.t
@@ -3404,7 +3404,7 @@ country_event = {
 
 ### GUARANTEES FOR TRIBUTES ###
 
-# Germany offers protection in exchange for Tributes - event for LIT, LAT and EST
+# Germany offers protection in exchange for Tributes - event for NLI, NLA and NES
 country_event = { 
 	id = wuw_GER_diplomacy.64
 	title = wuw_GER_diplomacy.64.t
@@ -3444,7 +3444,7 @@ country_event = {
 		effect_tooltip = {
 			IF = {
 				limit = {
-					original_tag = LIT
+					original_tag = NLI
 					owns_state = 188
 				}
 				add_ideas = anti_soviet_pact
@@ -3458,7 +3458,7 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					original_tag = LIT
+					original_tag = NLI
 					NOT = {
 						owns_state = 188
 					}
@@ -3472,8 +3472,8 @@ country_event = {
 			ELSE_IF = {
 				limit = {
 					OR = {
-						original_tag = LAT
-						original_tag = EST
+						original_tag = NLA
+						original_tag = NES
 					}
 				}
 				FROM = {
@@ -3538,7 +3538,7 @@ country_event = {
 		IF = {
 			limit = {
 				FROM = {
-					original_tag = LIT
+					original_tag = NLI
 					owns_state = 188
 				}
 			}
@@ -3554,7 +3554,7 @@ country_event = {
 		ELSE_IF = {
 			limit = {
 				FROM = {
-					original_tag = LIT
+					original_tag = NLI
 					NOT = {
 						owns_state = 188
 					}
@@ -3573,7 +3573,7 @@ country_event = {
 		ELSE_IF = {
 			limit = {
 				FROM = {
-					original_tag = LAT
+					original_tag = NLA
 				}
 			}
 			FROM = {
@@ -3589,7 +3589,7 @@ country_event = {
 		ELSE_IF = {
 			limit = {
 				FROM = {
-					original_tag = EST
+					original_tag = NES
 				}
 			}
 			FROM = {
@@ -3643,7 +3643,7 @@ country_event = {
 
 ### BACKDOOR NEGOTIATIONS ###
 
-# Germany Offers a Secret Pact - event for HOL or BEL
+# Germany Offers a Secret Pact - event for FNL or FBL
 country_event = { 
 	id = wuw_GER_diplomacy.67
 	title = wuw_GER_diplomacy.67.t
@@ -3689,7 +3689,7 @@ country_event = {
 		effect_tooltip = {
 			IF = {
 				limit = {
-					original_tag = BEL
+					original_tag = FBL
 				}
 				IF = {
 					limit = {
@@ -3713,7 +3713,7 @@ country_event = {
 					add_to_faction = ROOT
 					create_wargoal = {
 						type = take_claimed_state
-						target = HOL
+						target = FNL
 						generator = { 7 36 }
 					}
 				}
@@ -3721,7 +3721,7 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					original_tag = HOL
+					original_tag = FNL
 				}
 				IF = {
 					limit = {
@@ -3746,7 +3746,7 @@ country_event = {
 					add_to_faction = ROOT
 					create_wargoal = {
 						type = take_claimed_state
-						target = BEL
+						target = FBL
 						generator = { 980 34 }
 					}	
 				}
@@ -3768,7 +3768,7 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					original_tag = BEL
+					original_tag = FBL
 				}
 				FROM = {
 					set_country_flag = GER_bel_responded_to_backdoor_negotiations_flag
@@ -3777,7 +3777,7 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					original_tag = HOL
+					original_tag = FNL
 				}
 				FROM = {
 					set_country_flag = GER_hol_responded_to_backdoor_negotiations_flag
@@ -3819,7 +3819,7 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					original_tag = BEL
+					original_tag = FBL
 				}
 				FROM = {
 					set_country_flag = GER_bel_responded_to_backdoor_negotiations_flag
@@ -3827,7 +3827,7 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					original_tag = HOL
+					original_tag = FNL
 				}
 				FROM = {
 					set_country_flag = GER_hol_responded_to_backdoor_negotiations_flag
@@ -3861,7 +3861,7 @@ country_event = {
 		IF = {
 			limit = {
 				FROM = {
-					original_tag = HOL
+					original_tag = FNL
 				}
 			}
 			IF = {
@@ -3883,14 +3883,14 @@ country_event = {
 			add_threat = 2
 			create_wargoal = {
 				type = take_claimed_state
-				target = BEL
+				target = FBL
 				generator = { 980 34 }
 			}	
 		}
 		ELSE_IF = {
 			limit = {
 				FROM = {
-					original_tag = BEL
+					original_tag = FBL
 				}
 			}
 			IF = {
@@ -3911,7 +3911,7 @@ country_event = {
 			add_threat = 2
 			create_wargoal = {
 				type = take_claimed_state
-				target = HOL
+				target = FNL
 				generator = { 7 36 }
 			}
 		}
@@ -3931,7 +3931,7 @@ country_event = {
 		IF = {
 			limit = {
 				FROM = {
-					original_tag = HOL
+					original_tag = FNL
 				}
 			}
 			IF = {
@@ -3954,7 +3954,7 @@ country_event = {
 		ELSE_IF = {
 			limit = {
 				FROM = {
-					original_tag = BEL
+					original_tag = FBL
 				}
 			}
 			IF = {
@@ -4010,7 +4010,7 @@ country_event = {
 
 ### SWAYING AUSTRIAN PUBLIC OPINION ###
 
-# Germany Interferes in our Politics - event for AUS
+# Germany Interferes in our Politics - event for FAU
 country_event = { 
 	id = wuw_GER_diplomacy.70
 	title = wuw_GER_diplomacy.70.t
@@ -4710,7 +4710,7 @@ country_event = { #Germany demands integration
 		IF = {
 			limit = {
 				ROOT = {
-					original_tag = CZE
+					original_tag = FCZ
 				}
 			}
 
@@ -4774,7 +4774,7 @@ country_event = { #Germany demands integration
 		ELSE_IF = {
 			limit = {
 				ROOT = {
-					original_tag = POL
+					original_tag = NPO
 				}
 			}
 
@@ -6376,7 +6376,7 @@ country_event = {
 	}
 }
 
-#GER wants to integrate CZE
+#GER wants to integrate FCZ
 country_event = { 
 	id = wuw_GER_diplomacy.117
 	title = wuw_GER_realpolitik.16.t #Intentional
@@ -6441,7 +6441,7 @@ country_event = {
 			}
 			every_state = {
 				limit = {
-					is_owned_and_controlled_by = CZE
+					is_owned_and_controlled_by = FCZ
 					OR = {
 						state = 69
 						state = 972
@@ -6492,7 +6492,7 @@ country_event = {
 	}
 }
  
-# Germany annexes CZE peacefully
+# Germany annexes FCZ peacefully
 country_event = { 
 	id = wuw_GER_diplomacy.118
 	title = wuw_GER_diplomacy.118.t
@@ -6558,7 +6558,7 @@ country_event = {
 	}
 }
 
-#CZE Rejects our offer - event for GER
+#FCZ Rejects our offer - event for GER
 country_event = { 
 	id = wuw_GER_diplomacy.119
 	title = wuw_GER_diplomacy.119.t
@@ -6579,7 +6579,7 @@ country_event = {
 
 	}
 
-	#CZE must be destroyed
+	#FCZ must be destroyed
 	option = { 
 		name = wuw_GER_realpolitik.9.a #Intentional	
 		ai_chance = {
@@ -6621,7 +6621,7 @@ country_event = {
 
 		every_state = {
 			limit = {
-				is_owned_and_controlled_by = CZE
+				is_owned_and_controlled_by = FCZ
 				OR = {
 					state = 69
 					state = 972
@@ -6984,7 +6984,7 @@ country_event = {
 						NOT = {
 							OR = {
 								original_tag = COG
-								original_tag = BEL
+								original_tag = FBL
 							}
 						}
 					}
@@ -6994,7 +6994,7 @@ country_event = {
 						NOT = {
 							OR = {
 								original_tag = COG
-								original_tag = BEL
+								original_tag = FBL
 							}
 						}
 					}
@@ -7004,7 +7004,7 @@ country_event = {
 						NOT = {
 							OR = {
 								original_tag = COG
-								original_tag = BEL
+								original_tag = FBL
 							}
 						}
 					}
@@ -7014,7 +7014,7 @@ country_event = {
 						NOT = {
 							OR = {
 								original_tag = COG
-								original_tag = BEL
+								original_tag = FBL
 							}
 						}
 					}
@@ -7024,7 +7024,7 @@ country_event = {
 						NOT = {
 							OR = {
 								original_tag = COG
-								original_tag = BEL
+								original_tag = FBL
 							}
 						}
 					}
@@ -7104,18 +7104,18 @@ country_event = {
 			limit = {
 				OR = {
 					295 = {
-						is_owned_and_controlled_by = BEL
+						is_owned_and_controlled_by = FBL
 					}
 					COG = {
 						exists = yes
 						OR = {
-							is_subject_of = BEL
-							is_in_faction_with = BEL
+							is_subject_of = FBL
+							is_in_faction_with = FBL
 						}
 					}
 				}
 			}
-			BEL = {
+			FBL = {
 				# England demands we give up the Congo
 				country_event = { 
 					id = wuw_GER_weltpolitik.5
@@ -7133,7 +7133,7 @@ country_event = {
 							state = 889
 						}
 						OR = {
-							is_fully_controlled_by = BEL
+							is_fully_controlled_by = FBL
 							is_fully_controlled_by = COG
 						}
 					}
@@ -7150,7 +7150,7 @@ country_event = {
 							state = 769
 						}
 						OR = {
-							is_fully_controlled_by = BEL
+							is_fully_controlled_by = FBL
 							is_fully_controlled_by = COG
 						}
 					}
@@ -7186,7 +7186,7 @@ country_event = {
 	}
 }
 
-# Britain Demands we give up the Congo - event for BEL
+# Britain Demands we give up the Congo - event for FBL
 country_event = { 
 	id = wuw_GER_weltpolitik.5
 	title = wuw_GER_weltpolitik.5.t
@@ -7335,7 +7335,7 @@ country_event = {
 						state = 889
 					}
 					OR = {
-						is_fully_controlled_by = BEL
+						is_fully_controlled_by = FBL
 						is_fully_controlled_by = COG
 					}
 				}
@@ -7354,7 +7354,7 @@ country_event = {
 						state = 769
 					}
 					OR = {
-						is_fully_controlled_by = BEL
+						is_fully_controlled_by = FBL
 						is_fully_controlled_by = COG
 					}
 				}
@@ -7457,13 +7457,13 @@ country_event = {
 		}
 		ELSE_IF = {
 			limit = {
-				BEL = {
+				FBL = {
 					owns_state = 295
 				}
 			}
 			create_wargoal = {
 				type = take_claimed_state
-				target = BEL
+				target = FBL
 			}	
 		}
 		
@@ -7513,7 +7513,7 @@ country_event = {
 			}
 		}
 
-		BEL = {
+		FBL = {
 			# Congo folds
 			country_event = { 
 				id = wuw_GER_weltpolitik.11
@@ -7549,7 +7549,7 @@ country_event = {
 			}
 		}
 
-		BEL = {
+		FBL = {
 			# Congo goes against our wishes
 			country_event = { 
 				id = wuw_GER_weltpolitik.11
@@ -7590,7 +7590,7 @@ country_event = {
 						state = 888
 						state = 889
 					}
-					is_owned_by = BEL
+					is_owned_by = FBL
 				}
 				transfer_state_to = ROOT
 			}
@@ -7609,7 +7609,7 @@ country_event = {
 						state = 768
 						state = 769
 					}
-					is_owned_by = BEL
+					is_owned_by = FBL
 				}
 				transfer_state_to = ROOT
 			}
@@ -7696,12 +7696,12 @@ country_event = {
 						state = 768
 						state = 769
 					}
-					is_owned_by = BEL
+					is_owned_by = FBL
 				}
 			}
 			create_wargoal = {
 				type = take_claimed_state
-				target = BEL
+				target = FBL
 			}	
 		}
 		
@@ -7835,7 +7835,7 @@ country_event = {
 	}
 }
 
-# The Congo Crisis - event for BEL
+# The Congo Crisis - event for FBL
 country_event = { 
 	id = wuw_GER_weltpolitik.11
 	title = wuw_GER_weltpolitik.11.t
@@ -8343,7 +8343,7 @@ country_event = { # GER wants Asian Spheres of influence - event for CHINA
 
 }
 
-country_event = { # CHI accepts sphere of influence - event for GER
+country_event = { # FCH accepts sphere of influence - event for GER
 	id = wuw_GER_weltpolitik.17
 	title = wuw_GER_weltpolitik.17.t
 	desc = wuw_GER_weltpolitik.17.desc
@@ -8359,7 +8359,7 @@ country_event = { # CHI accepts sphere of influence - event for GER
 	}
 }
 
-country_event = { # CHI rejects sphere of influence - event for GER
+country_event = { # FCH rejects sphere of influence - event for GER
 	id = wuw_GER_weltpolitik.18
 	title = wuw_GER_weltpolitik.18.t
 	desc = wuw_GER_weltpolitik.18.desc
@@ -8517,7 +8517,7 @@ country_event = {
 
 ### CHINESE OVERTURES EVENTS ###
 
-# Germany Sends us Arms and Materials - event for CHI (any country which is LITERALLY china) (＞▽＜)b OK!!
+# Germany Sends us Arms and Materials - event for FCH (any country which is LITERALLY china) (＞▽＜)b OK!!
 country_event = { 
 	id = wuw_GER_chinese_diplomacy.1 
 	title = wuw_GER_chinese_diplomacy.1.t
@@ -8586,7 +8586,7 @@ country_event = {
 	}
 }
 
-# Germany Offers Industrial Aid in Exchange for Resource Rights - event for CHI (any country which is LITERALLY china) (＞▽＜)b OK!!
+# Germany Offers Industrial Aid in Exchange for Resource Rights - event for FCH (any country which is LITERALLY china) (＞▽＜)b OK!!
 country_event = { 
 	id = wuw_GER_chinese_diplomacy.2
 	title = wuw_GER_chinese_diplomacy.2.t
@@ -8690,7 +8690,7 @@ country_event = {
 	}
 }
 
-# The Sino-German Joint Research Program - event for CHI (any country which is LITERALLY china) (＞▽＜)b OK!!
+# The Sino-German Joint Research Program - event for FCH (any country which is LITERALLY china) (＞▽＜)b OK!!
 country_event = { 
 	id = wuw_GER_chinese_diplomacy.5
 	title = wuw_GER_chinese_diplomacy.5.t
@@ -8815,13 +8815,13 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					BEL = {
+					FBL = {
 						NOT = {
 							has_government = fascism
 						}
 					}
 				}
-				BEL = {
+				FBL = {
 					set_nationality = {
 					    target_country = RKB
 					    character = BEL_leon_degrelle
@@ -8846,7 +8846,7 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					BEL = {
+					FBL = {
 						NOT = {
 							has_government = fascism
 						}
@@ -8854,7 +8854,7 @@ country_event = {
 				}
 				RKB = {
 					set_nationality = {
-					    target_country = BEL
+					    target_country = FBL
 					    character = BEL_leon_degrelle
 					}
 				}
@@ -8872,7 +8872,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.1.b
 		trigger = {
-			BEL = {
+			FBL = {
 				NOT = {
 					has_government = fascism
 				}
@@ -8911,11 +8911,11 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = no
 					}
 				}
-				AUS = {
+				FAU = {
 					set_nationality = {
 					    target_country = RKN
 					    character = AUS_arthur_seyss-inquart
@@ -8924,11 +8924,11 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = yes
 					}
 				}
-				AUS = {
+				FAU = {
 					set_nationality = {
 					    target_country = RKN
 					    character = AUS_edmund_glaise_horstenau
@@ -8938,13 +8938,13 @@ country_event = {
 
 			IF = {
 				limit = {
-					HOL = {
+					FNL = {
 						NOT = {
 							has_government = fascism
 						}
 					}
 				}
-				HOL = {
+				FNL = {
 					set_nationality = {
 					    target_country = RKN
 					    character = HOL_anton_mussert
@@ -8966,7 +8966,7 @@ country_event = {
 		RKN = {
 			IF = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = no
 					}
 				}
@@ -8987,7 +8987,7 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = yes
 					}
 				}
@@ -9013,7 +9013,7 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					HOL = {
+					FNL = {
 						NOT = {
 							has_government = fascism
 						}
@@ -9021,7 +9021,7 @@ country_event = {
 				}
 				RKN = {
 					set_nationality = {
-					    target_country = HOL
+					    target_country = FNL
 					    character = HOL_anton_mussert
 					}
 				}
@@ -9039,7 +9039,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.2.b
 		trigger = {
-			HOL = {
+			FNL = {
 				NOT = {
 					has_government = fascism
 				}
@@ -9060,26 +9060,26 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					AUS = {
+					FAU = {
 						exists = no
 					}
 				}
 				RKN = {
 					set_nationality = {
-					    target_country = AUS
+					    target_country = FAU
 					    character = AUS_arthur_seyss-inquart
 					}
 				}
 			}
 			ELSE_IF = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = yes
 					}
 				}
 				RKN = {
 					set_nationality = {
-					    target_country = AUS
+					    target_country = FAU
 					    character = AUS_edmund_glaise_horstenau
 					}
 				}
@@ -9106,7 +9106,7 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					NOR = {
+					NNO = {
 						NOT = {
 							has_country_leader = {
 								ruling_only = yes
@@ -9115,7 +9115,7 @@ country_event = {
 						}
 					}
 				}
-				NOR = {
+				NNO = {
 					set_nationality = {
 					    target_country = RKG
 					    character = NOR_vidkun_quisling
@@ -9124,7 +9124,7 @@ country_event = {
 			}
 			IF = {
 				limit = {
-					NOR = {
+					NNO = {
 						NOT = {
 							has_country_leader = {
 								ruling_only = yes
@@ -9133,7 +9133,7 @@ country_event = {
 						}
 					}
 				}
-				NOR = {
+				NNO = {
 					set_nationality = {
 					    target_country = RKG
 					    character = NOR_josef_terboven
@@ -9148,7 +9148,7 @@ country_event = {
 	option = { # We Need a German Official
 		name = wuw_GER_reichskommissariats.3.a
 		trigger = {
-			NOR = {
+			NNO = {
 				NOT = {
 					has_country_leader = {
 						ruling_only = yes
@@ -9172,7 +9172,7 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					NOR = {
+					NNO = {
 						NOT = {
 							has_government = fascism
 						}
@@ -9180,7 +9180,7 @@ country_event = {
 				}
 				RKG = {
 					set_nationality = {
-					    target_country = NOR
+					    target_country = NNO
 					    character = NOR_vidkun_quisling
 					}
 				}
@@ -9198,7 +9198,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.3.b
 		trigger = {
-			NOR = {
+			NNO = {
 				NOT = {
 					has_country_leader = {
 						ruling_only = yes
@@ -9878,7 +9878,7 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -9887,7 +9887,7 @@ country_event = {
 						}
 					}
 				}
-				POL = {
+				NPO = {
 					set_nationality = {
 					    target_country = RKL
 					    character = POL_rudinger_von_der_goltz
@@ -9987,7 +9987,7 @@ country_event = {
 
 		IF = {
 			limit = {
-				POL = {
+				NPO = {
 					NOT = {
 						AND = {
 							has_completed_focus = POL_restore_bermontians
@@ -10091,7 +10091,7 @@ country_event = {
 
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -10102,7 +10102,7 @@ country_event = {
 				}
 				RKL = {
 					set_nationality = {
-					    target_country = POL
+					    target_country = NPO
 					    character = POL_rudinger_von_der_goltz
 					}
 				}
@@ -10172,7 +10172,7 @@ country_event = {
 
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -10183,7 +10183,7 @@ country_event = {
 				}
 				RKL = {
 					set_nationality = {
-					    target_country = POL
+					    target_country = NPO
 					    character = POL_rudinger_von_der_goltz
 					}
 				}
@@ -10331,13 +10331,13 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							has_government = fascism
 						}
 					}
 				}
-				POL = {
+				NPO = {
 					set_nationality = {
 					    target_country = GEN
 					    character = POL_boleslaw_piasecki
@@ -10362,7 +10362,7 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							has_government = fascism
 						}
@@ -10370,7 +10370,7 @@ country_event = {
 				}
 				GEN = {
 					set_nationality = {
-					    target_country = POL
+					    target_country = NPO
 					    character = POL_boleslaw_piasecki
 					}
 				}
@@ -10388,7 +10388,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.12.b
 		trigger = {
-			POL = {
+			NPO = {
 				NOT = {
 					has_government = fascism
 				}
@@ -10436,7 +10436,7 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					CZE = {
+					FCZ = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -10445,7 +10445,7 @@ country_event = {
 						}
 					}
 				}
-				CZE = {
+				FCZ = {
 					set_nationality = {
 					    target_country = RKH
 					    character = CZE_jaroslav_krejchi
@@ -10527,7 +10527,7 @@ country_event = {
 		hidden_effect = {
 			IF = { # The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 				limit = {
-					CZE = {
+					FCZ = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -10538,7 +10538,7 @@ country_event = {
 				}
 				RKH = {
 					set_nationality = {
-					    target_country = CZE
+					    target_country = FCZ
 					    character = CZE_jaroslav_krejchi
 					}
 				}
@@ -10556,7 +10556,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.13.b
 		trigger = {
-			CZE = {
+			FCZ = {
 				NOT = {
 					AND = {
 						has_government = fascism
@@ -12481,7 +12481,7 @@ country_event = {
 			IF = {
 				limit = {
 					has_dlc = "By Blood Alone"
-					SWI = {
+					NSW = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -12490,7 +12490,7 @@ country_event = {
 						}
 					}
 				}
-				SWI = {
+				NSW = {
 					set_nationality = {
 					    target_country = RAR
 					    character = SWI_robert_tobler
@@ -12540,7 +12540,7 @@ country_event = {
 			IF = {
 				limit = {
 					has_dlc = "By Blood Alone"
-					SWI = {
+					NSW = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -12652,7 +12652,7 @@ country_event = {
 			IF = {
 				limit = {
 					has_dlc = "By Blood Alone"
-					SWI = {
+					NSW = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -12663,7 +12663,7 @@ country_event = {
 				}
 				RAR = {
 					set_nationality = {
-					    target_country = SWI
+					    target_country = NSW
 					    character = SWI_robert_tobler
 					}
 				}
@@ -12925,7 +12925,7 @@ country_event = {
 
 			IF = {
 				limit = {
-					CHI = {
+					FCH = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -12934,7 +12934,7 @@ country_event = {
 						}
 					}
 				}
-				CHI = {
+				FCH = {
 					set_nationality = {
 					    target_country = ROA
 					    character = CHI_wang_jingwei
@@ -12977,7 +12977,7 @@ country_event = {
 			# The IF is left here so that it doesn't try to transfer a character back if it hasn' been moved here to begin with
 			IF = {
 				limit = {
-					CHI = {
+					FCH = {
 						NOT = {
 							AND = {
 								has_government = fascism
@@ -12988,7 +12988,7 @@ country_event = {
 				}
 				ROA = {
 					set_nationality = {
-					    target_country = CHI
+					    target_country = FCH
 					    character = CHI_wang_jingwei
 					}
 				}
@@ -13007,7 +13007,7 @@ country_event = {
 	option = { # It might be wise to use a local puppet
 		name = wuw_GER_reichskommissariats.26.b
 		trigger = {
-			CHI = {
+			FCH = {
 				NOT = {
 					AND = {
 						has_government = fascism
@@ -13071,7 +13071,7 @@ country_event = {
 			
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -13080,7 +13080,7 @@ country_event = {
 						}
 					}
 				}
-				POL = {
+				NPO = {
 					set_nationality = {
 					    target_country = RAA
 					    character = POL_pavel_bermondt_avalov
@@ -13129,7 +13129,7 @@ country_event = {
 		RAA = {
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -13240,7 +13240,7 @@ country_event = {
 			
 			IF = {
 				limit = {
-					POL = {
+					NPO = {
 						NOT = {
 							AND = {
 								has_completed_focus = POL_restore_bermontians
@@ -13251,7 +13251,7 @@ country_event = {
 				}
 				RAA = {
 					set_nationality = {
-					    target_country = POL
+					    target_country = NPO
 					    character = POL_pavel_bermondt_avalov
 					}
 				}
@@ -15974,13 +15974,13 @@ country_event = {
 			base = 60
 			modifier = {
 				factor = 0
-				LIT = {
+				NLI = {
 					is_ai = no
 				}
 			}
 		}
 		
-		LIT = {
+		NLI = {
 			# Germany demands our annexation
 			country_event = {
 				id = wuw_GER_realpolitik.6
@@ -15999,7 +15999,7 @@ country_event = {
 			base = 40
 		}
 		
-		LIT = {
+		NLI = {
 			# Germany demands we become their vassal
 			country_event = {
 				id = wuw_GER_realpolitik.7
@@ -16014,7 +16014,7 @@ country_event = {
 	}
 }
 
-# Germany wants to annex us - event for LIT
+# Germany wants to annex us - event for NLI
 country_event = {
 	id = wuw_GER_realpolitik.6
 	title = wuw_GER_realpolitik.6.t
@@ -16080,7 +16080,7 @@ country_event = {
 	}
 }
 
-# Germany wants to puppet us - event for LIT
+# Germany wants to puppet us - event for NLI
 country_event = {
 	id = wuw_GER_realpolitik.7
 	title = wuw_GER_realpolitik.7.t
@@ -16188,7 +16188,7 @@ country_event = {
 				}
 				set_temp_variable = { occupied_state_num_factory = 0 }
 				for_each_scope_loop = {
-					array = LIT.core_states
+					array = NLI.core_states
 					if = {
 						limit = {
 							is_fully_controlled_by = ROOT
@@ -16569,7 +16569,7 @@ country_event = {
 
 }
 
-# Germany wants to annex us - event for POL
+# Germany wants to annex us - event for NPO
 country_event = {
 	id = wuw_GER_realpolitik.16
 	title = wuw_GER_realpolitik.16.t
@@ -16622,7 +16622,7 @@ country_event = {
 	}
 }
 
-# Germany Demands we return Imperial Possessions - event for POL
+# Germany Demands we return Imperial Possessions - event for NPO
 country_event = {
 	id = wuw_GER_realpolitik.17
 	title = wuw_GER_realpolitik.17.t
@@ -16736,17 +16736,17 @@ country_event = {
 
 		IF = {
 			limit = {
-				has_guaranteed = LIT
-				is_guaranteed_by = LIT
+				has_guaranteed = NLI
+				is_guaranteed_by = NLI
 			}
 			diplomatic_relation = {
-				country = LIT
+				country = NLI
 				relation = guarantee
 				active = no
 			}
-			LIT = {
+			NLI = {
 				diplomatic_relation = {
-					country = POL
+					country = NPO
 					relation = guarantee
 					active = no
 				}
@@ -16829,7 +16829,7 @@ country_event = {
 					NOT = {
 						is_in_faction_with = GER
 					}
-					has_guaranteed = POL
+					has_guaranteed = NPO
 				}
 			}
 			ENG = {
@@ -16842,7 +16842,7 @@ country_event = {
 					NOT = {
 						is_in_faction_with = GER
 					}
-					has_guaranteed = POL
+					has_guaranteed = NPO
 				}
 			}
 			FRA = {
@@ -16972,7 +16972,7 @@ country_event = {
 	}
 }
 
-# Germany Demands Further Concessions - event for POL
+# Germany Demands Further Concessions - event for NPO
 country_event = {
 	id = wuw_GER_realpolitik.20
 	title = wuw_GER_realpolitik.20.t
@@ -17084,17 +17084,17 @@ country_event = {
 
 		IF = {
 			limit = {
-				has_guaranteed = LIT
-				is_guaranteed_by = LIT
+				has_guaranteed = NLI
+				is_guaranteed_by = NLI
 			}
 			diplomatic_relation = {
-				country = LIT
+				country = NLI
 				relation = guarantee
 				active = no
 			}
-			LIT = {
+			NLI = {
 				diplomatic_relation = {
-					country = POL
+					country = NPO
 					relation = guarantee
 					active = no
 				}
@@ -17173,7 +17173,7 @@ country_event = {
 					NOT = {
 						is_in_faction_with = GER
 					}
-					has_guaranteed = POL
+					has_guaranteed = NPO
 				}
 			}
 			ENG = {
@@ -17186,7 +17186,7 @@ country_event = {
 					NOT = {
 						is_in_faction_with = GER
 					}
-					has_guaranteed = POL
+					has_guaranteed = NPO
 				}
 			}
 			FRA = {
@@ -18081,7 +18081,7 @@ country_event = { # [FROM.GetNameDefCap] Rejects our offer - event for GER
 }
 
 
-# Germany proposes unification - event for AUS
+# Germany proposes unification - event for FAU
 country_event = { 
 	id = wuw_GER_realpolitik.36
 	title = wuw_GER_realpolitik.36.t
@@ -18245,16 +18245,16 @@ country_event = {
 		add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 
 		IF = {
-			limit = { AUS = { has_completed_focus = AUS_bring_generals_out_of_retirement } }
+			limit = { FAU = { has_completed_focus = AUS_bring_generals_out_of_retirement } }
 
-			AUS = {
+			FAU = {
 				AUS_wilhelm_gebauer = {
 					set_nationality = ROOT
 				}
 			}
 		}
 
-		AUS = {
+		FAU = {
 			AUS_ludwig_von_eimannsberger = {
 				set_nationality = ROOT
 			}
@@ -18682,7 +18682,7 @@ country_event = {
 				}
 				HUN = {
 					HUN_otto_von_habsburg = { 
-						set_nationality = AUS
+						set_nationality = FAU
 						promote_character = yes
 					}
 				}
@@ -18770,11 +18770,11 @@ country_event = {
 
 					IF = {
 						limit = {
-							CZE = {
+							FCZ = {
 								exists = yes
 							}
 						}
-						CZE = {
+						FCZ = {
 							add_opinion_modifier = {
 								target = ROOT
 								modifier = AUS_imperilalist_sentiments
@@ -18784,11 +18784,11 @@ country_event = {
 
 					IF = {
 						limit = {
-							YUG = {
+							FYG = {
 								exists = yes
 							}
 						}
-						YUG = {
+						FYG = {
 							add_opinion_modifier = {
 								target = ROOT
 								modifier = AUS_imperilalist_sentiments
@@ -19093,11 +19093,11 @@ country_event = {
 
 		IF = {
 			limit = {
-				CZE = {
+				FCZ = {
 					is_subject = no
 				}
 			}
-			CZE = { # [GER.GetNameDefCap] Demands Czechoslovak Lands
+			FCZ = { # [GER.GetNameDefCap] Demands Czechoslovak Lands
 				country_event = { 
 					id = wuw_GER_realpolitik.46
 					hours = 5 
@@ -19106,7 +19106,7 @@ country_event = {
 			}
 		}
 		ELSE = {
-			CZE = {
+			FCZ = {
 				OVERLORD = {
 					# [GER.GetNameDefCap] Demands Czechoslovak Lands
 					country_event = { 
@@ -19121,7 +19121,7 @@ country_event = {
 		custom_effect_tooltip = if_they_accept_tt
 
 		effect_tooltip = {
-			CZE = {
+			FCZ = {
 				every_controlled_state = {
 					limit = {
 						OR = {
@@ -19138,7 +19138,7 @@ country_event = {
 
 			if = {
 				limit = {
-					POL = {
+					NPO = {
 						OR = {
 							exists = no
 							AND = {
@@ -19148,7 +19148,7 @@ country_event = {
 						}
 					}
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19165,7 +19165,7 @@ country_event = {
 				}
 			}
 			else = {
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19180,10 +19180,10 @@ country_event = {
 						add_core_of = ROOT
 					}
 				}
-				POL = {
+				NPO = {
 					transfer_state = 72
 					add_state_core = 72
-					POL = {
+					NPO = {
 						country_event = { hours = 6 id = germany.52 }
 					}
 				}
@@ -19207,7 +19207,7 @@ country_event = {
 	}
 }
 
-# Germany Demands Czechoslovak Lands - event for CZE or their overlord
+# Germany Demands Czechoslovak Lands - event for FCZ or their overlord
 country_event = { 
 	id = wuw_GER_realpolitik.46
 	title = wuw_GER_realpolitik.46.t
@@ -19224,7 +19224,7 @@ country_event = {
 		
 		IF = {
 			limit = {
-				original_tag = CZE
+				original_tag = FCZ
 			}
 			GER = { # [FROM.GetNameDefCap] Accepts Splitting Czechoslovakia
 				country_event = { 
@@ -19235,7 +19235,7 @@ country_event = {
 			}
 		}
 		ELSE = {
-			CZE = { # Our Overlord Surrenders us to [GER.GetNameDef]
+			FCZ = { # Our Overlord Surrenders us to [GER.GetNameDef]
 				country_event = { 
 					id = wuw_GER_realpolitik.49
 					hours = 5 
@@ -19244,7 +19244,7 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			CZE = {
+			FCZ = {
 				every_controlled_state = {
 					limit = {
 						OR = {
@@ -19261,7 +19261,7 @@ country_event = {
 
 			if = {
 				limit = {
-					POL = {
+					NPO = {
 						OR = {
 							exists = no
 							AND = {
@@ -19271,7 +19271,7 @@ country_event = {
 						}
 					}
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19288,7 +19288,7 @@ country_event = {
 				}
 			}
 			else = {
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19303,7 +19303,7 @@ country_event = {
 						add_core_of = FROM
 					}
 				}
-				POL = {
+				NPO = {
 					transfer_state = 72
 					add_state_core = 72
 				}
@@ -19340,7 +19340,7 @@ country_event = {
 	option = { # Great
 		name = wuw_GER_realpolitik.47.a
 		
-		CZE = {
+		FCZ = {
 			every_controlled_state = {
 				limit = {
 					OR = {
@@ -19362,7 +19362,7 @@ country_event = {
 
 		IF = {
 			limit = {
-				POL = {
+				NPO = {
 					OR = {
 						exists = no
 						AND = {
@@ -19376,7 +19376,7 @@ country_event = {
 				limit = {
 					is_in_faction_with = HUN
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19394,9 +19394,9 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					is_in_faction_with = AUS
+					is_in_faction_with = FAU
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19407,15 +19407,15 @@ country_event = {
 								state = 73
 							}
 						}
-						transfer_state_to = AUS
-						add_core_of = AUS
+						transfer_state_to = FAU
+						add_core_of = FAU
 					}
 				}
 			}
 		}
 		else_if = {
 			limit = {
-				POL = {
+				NPO = {
 					exists = yes
 					NOT = {
 						has_war_with = ROOT
@@ -19426,7 +19426,7 @@ country_event = {
 				limit = {
 					is_in_faction_with = HUN
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19444,9 +19444,9 @@ country_event = {
 			}
 			ELSE_IF = {
 				limit = {
-					is_in_faction_with = AUS
+					is_in_faction_with = FAU
 				}
-				CZE = {
+				FCZ = {
 					every_controlled_state = {
 						limit = {
 							OR = {
@@ -19462,10 +19462,10 @@ country_event = {
 					}
 				}
 			}
-			POL = {
+			NPO = {
 				transfer_state = 72
 				add_state_core = 72
-				POL = {
+				NPO = {
 					country_event = { hours = 6 id = germany.52 }
 				}
 			}
@@ -19489,13 +19489,13 @@ country_event = {
 
 		create_wargoal = {
 			type = annex_everything
-			target = CZE
+			target = FCZ
 		}	
 
 	}
 }
 
-# Our Overlord Surrenders us to [GER.GetNameDef] - event for CZE
+# Our Overlord Surrenders us to [GER.GetNameDef] - event for FCZ
 country_event = { 
 	id = wuw_GER_realpolitik.49
 	title = wuw_GER_realpolitik.49.t
@@ -19600,7 +19600,7 @@ country_event = {
 			IF = {
 				limit = {
 					FROM = {
-						is_in_faction_with = AUS
+						is_in_faction_with = FAU
 					}
 				}
 				ROOT = {
@@ -19613,7 +19613,7 @@ country_event = {
 								state = 72
 							}
 						}
-						transfer_state_to = AUS
+						transfer_state_to = FAU
 					}
 				}
 			}
@@ -19689,7 +19689,7 @@ country_event = {
 		IF = {
 			limit = {
 				ROOT = {
-					is_in_faction_with = AUS
+					is_in_faction_with = FAU
 				}
 			}
 			FROM = {
@@ -19702,7 +19702,7 @@ country_event = {
 							state = 72
 						}
 					}
-					transfer_state_to = AUS
+					transfer_state_to = FAU
 				}
 			}
 		}
@@ -19778,10 +19778,10 @@ country_event = {
 		else_if = {
 			limit = {
 				ROOT = {
-					is_in_faction_with = AUS
+					is_in_faction_with = FAU
 				}
 			}
-			AUS = {
+			FAU = {
 				create_wargoal = {
 					type = take_claimed_state
 					target = FROM
@@ -19844,7 +19844,7 @@ country_event = {
 			IF = {
 				limit = {
 					FROM = {
-						is_in_faction_with = AUS
+						is_in_faction_with = FAU
 					}
 				}
 				ROOT = {
@@ -19859,7 +19859,7 @@ country_event = {
 								state = 76
 							}
 						}
-						transfer_state_to = AUS
+						transfer_state_to = FAU
 					}
 				}
 			}
@@ -19937,7 +19937,7 @@ country_event = {
 		IF = {
 			limit = {
 				ROOT = {
-					is_in_faction_with = AUS
+					is_in_faction_with = FAU
 				}
 			}
 			FROM = {
@@ -19952,7 +19952,7 @@ country_event = {
 							state = 76
 						}
 					}
-					transfer_state_to = AUS
+					transfer_state_to = FAU
 				}
 			}
 		}
@@ -20871,7 +20871,7 @@ news_event = {
 				OR = {
 					original_tag = GER
 					original_tag = SIL
-					original_tag = POL
+					original_tag = NPO
 				}
 			}
 		}
@@ -20901,7 +20901,7 @@ news_event = {
 		ai_chance = {
 			base = 100
 		}
-		trigger = { original_tag = POL }
+		trigger = { original_tag = NPO }
 	}
 }
 

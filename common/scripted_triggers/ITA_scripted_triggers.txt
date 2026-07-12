@@ -48,7 +48,7 @@ ITA_missiolinis_weigh_mussolini_feels_safe = {
 }
 
 ETH_is_in_exile = { #Add any more stuff needed here
-	ETH = {
+	FET = {
 		is_government_in_exile = yes
 	}
 }
@@ -58,7 +58,7 @@ ITA_is_italian_colony = { #State scope
 		is_core_of = ERI
 		is_core_of = LBA
 		is_core_of = SOM
-		is_core_of = ETH
+		is_core_of = FET
 	}
 }
 
@@ -136,22 +136,22 @@ ITA_is_protestant_or_orthodox_country_in_europe_for_pope = {
 	OR = {
 		#"PROTESTANTS"
 		original_tag = ENG
-		original_tag = DEN
-		original_tag = NOR
-		original_tag = SWE
+		original_tag = NDE
+		original_tag = NNO
+		original_tag = FSW
 		original_tag = FIN
 		original_tag = GER
-		original_tag = HOL
-		original_tag = LAT
-		original_tag = LIT
+		original_tag = FNL
+		original_tag = NLA
+		original_tag = NLI
 		#ORTHODOX / MUSLIM
-		original_tag = EST
+		original_tag = NES
 		original_tag = SOV
-		original_tag = ALB
-		original_tag = GRE
+		original_tag = FAL
+		original_tag = NNG
 		original_tag = ROM
 		original_tag = BUL
-		original_tag = YUG
+		original_tag = FYG
 		original_tag = SER
 		original_tag = MNT
 		original_tag = KOS
@@ -246,17 +246,17 @@ ITA_is_valid_free_states_of_europe_target = {
 	OR = {
 		original_tag = FRA
 		original_tag = SPR
-		original_tag = POR
-		original_tag = SWI
-		original_tag = AUS
-		original_tag = YUG
+		original_tag = NPR
+		original_tag = NSW
+		original_tag = FAU
+		original_tag = FYG
 		original_tag = SER
 		original_tag = CRO
 		original_tag = MNT
 		original_tag = BOS
 		original_tag = KOS
-		original_tag = GRE
-		original_tag = ALB
+		original_tag = NNG
+		original_tag = FAL
 		original_tag = TUR
 		AND = {
 			OR = {
@@ -264,15 +264,15 @@ ITA_is_valid_free_states_of_europe_target = {
 				original_tag = BUL
 				original_tag = ROM
 				original_tag = HUN
-				original_tag = CZE
+				original_tag = FCZ
 				original_tag = SLO
 				original_tag = SLV
 				original_tag = MAC
 				original_tag = TRA
 				original_tag = LUX
-				original_tag = BEL
-				original_tag = HOL
-				original_tag = POL
+				original_tag = FBL
+				original_tag = FNL
+				original_tag = NPO
 			}
 			is_neighbor_of = ROOT
 		}
@@ -289,7 +289,7 @@ ITA_state_is_in_north_africa = { #West/East Maghreb + Tripoli + Egypt + Upper Ni
 	}
 }
 
-ITA_state_is_in_east_africa = { #Danakil + ETH Highlands + Ogaden + Lake Victoria + SE Africa + Madagascar
+ITA_state_is_in_east_africa = { #Danakil + FET Highlands + Ogaden + Lake Victoria + SE Africa + Madagascar
 	is_on_continent = africa
 	OR = {
 		region = 273 #DANAKIL
@@ -555,8 +555,8 @@ ITA_is_anti_fascist = {
 
 ITA_hosting_exiled_ethiopia = {
 	OR = {
-		check_variable = { ETH.host_nation = ENG }
-		var:ETH.host_nation = {	is_in_faction_with = ENG }
+		check_variable = { FET.host_nation = ENG }
+		var:FET.host_nation = {	is_in_faction_with = ENG }
 	}
 }
 

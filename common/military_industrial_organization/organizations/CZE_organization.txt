@@ -14,10 +14,10 @@ CZE_ckd_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -25,7 +25,7 @@ CZE_ckd_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	}
@@ -34,14 +34,14 @@ CZE_ckd_organization = {
 		# When in a Foreign MIO, countries need to be at peace with original country
 		IF = {
 			limit = {
-				FROM = { NOT = { original_tag = CZE } }
+				FROM = { NOT = { original_tag = FCZ } }
 			}
-			FROM = { NOT = { has_war_with = CZE } }
+			FROM = { NOT = { has_war_with = FCZ } }
 		}
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -62,7 +62,7 @@ CZE_ckd_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -97,7 +97,7 @@ CZE_ckd_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -125,7 +125,7 @@ CZE_tatra_organization = {
 	icon = GFX_idea_CZE_tatra
 	allowed = {
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -140,7 +140,7 @@ CZE_tatra_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -165,10 +165,10 @@ CZE_skoda_armor_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = SLO
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 			AND = {
@@ -176,7 +176,7 @@ CZE_skoda_armor_organization = {
 				has_dlc = "Gotterdammerung"
 			}
 			AND = {
-				tag = PER
+				tag = FPR
 				has_dlc = "Graveyard of Empires"
 				has_dlc = "Arms Against Tyranny"
 			}
@@ -185,7 +185,7 @@ CZE_skoda_armor_organization = {
 	
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 		IF = {
@@ -193,7 +193,7 @@ CZE_skoda_armor_organization = {
 			FROM = { has_completed_focus = wuw_HUN_integrate_bohemian_and_austrian_industries }
 		}
 		IF = {
-			limit = { FROM = { original_tag = PER } }
+			limit = { FROM = { original_tag = FPR } }
 			FROM = { has_completed_focus = PER_czech_tanks }
 		}
 	}
@@ -202,14 +202,14 @@ CZE_skoda_armor_organization = {
 		# When in a Foreign MIO, countries need to be at peace with original country
 		IF = {
 			limit = {
-				FROM = { NOT = { original_tag = CZE } }
+				FROM = { NOT = { original_tag = FCZ } }
 			}
-			FROM = { NOT = { has_war_with = CZE } }
+			FROM = { NOT = { has_war_with = FCZ } }
 		}
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -219,7 +219,7 @@ CZE_skoda_armor_organization = {
 			}
 		}
 		IF = {
-			limit = { FROM = { original_tag = PER } }
+			limit = { FROM = { original_tag = FPR } }
 			FROM = { has_completed_focus = PER_czech_tanks }
 		}
 	}
@@ -234,7 +234,7 @@ CZE_skoda_armor_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -270,7 +270,7 @@ CZE_skoda_armor_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -299,8 +299,8 @@ CZE_skoda_plzen_tank_destroyer_organization = {
 
 	allowed = {
 		OR = {
-			tag = CZE
-			tag = AUS
+			tag = FCZ
+			tag = FAU
 			tag = SLO
 		}
 		has_dlc = "Peace For Our Time"
@@ -310,7 +310,7 @@ CZE_skoda_plzen_tank_destroyer_organization = {
 		if = {
 			limit = {
 				FROM = {
-					original_tag = CZE
+					original_tag = FCZ
 				}
 			}
 			FROM = {
@@ -320,7 +320,7 @@ CZE_skoda_plzen_tank_destroyer_organization = {
 		if = {
 			limit = {
 				FROM = {
-					original_tag = AUS
+					original_tag = FAU
 				}
 			}
 			FROM = {
@@ -494,7 +494,7 @@ CZE_skoda_shipyards_organization = {
 	icon = GFX_idea_CZE_skoda_shipyards
 	allowed = { 
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -525,9 +525,9 @@ CZE_avia_organization = {
 	icon = GFX_idea_CZE_avia
 	allowed = { 
 		OR = {
-			tag = CZE 
+			tag = FCZ 
 			AND = {
-				tag = ETH
+				tag = FET
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -535,7 +535,7 @@ CZE_avia_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	}
@@ -544,14 +544,14 @@ CZE_avia_organization = {
 		# When in a Foreign MIO, countries need to be at peace with original country
 		IF = {
 			limit = {
-				FROM = { NOT = { original_tag = CZE } }
+				FROM = { NOT = { original_tag = FCZ } }
 			}
-			FROM = { NOT = { has_war_with = CZE } }
+			FROM = { NOT = { has_war_with = FCZ } }
 		}
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -572,7 +572,7 @@ CZE_avia_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -611,7 +611,7 @@ CZE_avia_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -646,9 +646,9 @@ CZE_ckd_praga_organization = {
 	icon = GFX_idea_CZE_ckd_praga
 	allowed = { 
 		OR = {
-			tag = CZE
+			tag = FCZ
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 			AND = {
@@ -705,7 +705,7 @@ CZE_ckd_praga_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -733,7 +733,7 @@ CZE_ckd_praga_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -772,7 +772,7 @@ CZE_ckd_praga_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -808,7 +808,7 @@ CZE_aero_organization = {
 
 	allowed = {
 		OR = {
-			original_tag = CZE
+			original_tag = FCZ
 			tag = RKH
 		}
 	}
@@ -834,7 +834,7 @@ CZE_aero_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -873,7 +873,7 @@ CZE_aero_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -908,7 +908,7 @@ CZE_letov_organization = {
 	icon = GFX_idea_CZE_letov
 	allowed = { 
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = SLO
 			tag = RKH
 		}
@@ -924,7 +924,7 @@ CZE_letov_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -963,7 +963,7 @@ CZE_letov_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -999,7 +999,7 @@ CZE_benees_mraz_organization = {
 	allowed = {
 		has_dlc = "Peace For Our Time"
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -1014,7 +1014,7 @@ CZE_benees_mraz_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1053,7 +1053,7 @@ CZE_benees_mraz_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1088,7 +1088,7 @@ CZE_zlin_aircraft_organization = {
 	icon = GFX_idea_CZE_zlin_aircraft
 	allowed = {
 		has_dlc = "Peace For Our Time"
-		tag = CZE
+		tag = FCZ
 	}
 
 	add_trait = {
@@ -1101,7 +1101,7 @@ CZE_zlin_aircraft_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1140,7 +1140,7 @@ CZE_zlin_aircraft_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1313,11 +1313,11 @@ CZE_zbrojovka_brno_organization = {
 	icon = GFX_idea_CZE_zbrojovka_brno
 	allowed = {
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 			AND = {
 				has_dlc = "Peace For Our Time"
-				tag = ETH
+				tag = FET
 			}
 		}
 	}
@@ -1325,12 +1325,12 @@ CZE_zbrojovka_brno_organization = {
 	visible = {
 		OR = {
 			FROM = {
-				original_tag = CZE
+				original_tag = FCZ
 			}
 			if = {
 				limit = {
 					FROM = {
-						original_tag = ETH
+						original_tag = FET
 					}
 				}
 				FROM = {
@@ -1346,12 +1346,12 @@ CZE_zbrojovka_brno_organization = {
 			limit = {
 				FROM = {
 					has_global_flag = second_italo_ethiopian_war_flag
-					original_tag = ETH
+					original_tag = FET
 				}
 			}
 			FROM = {
 				NOT = {
-					has_war_with = CZE
+					has_war_with = FCZ
 				}
 			}
 		}
@@ -1373,7 +1373,7 @@ CZE_zbrojovka_brno_organization = {
 		
 		visible = {
 			FROM = { 
-				original_tag = ETH
+				original_tag = FET
 				has_global_flag = second_italo_ethiopian_war_flag
 			}
 		}
@@ -1400,7 +1400,7 @@ CZE_zbrojovka_brno_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -1432,7 +1432,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 	allowed = { 
 		has_dlc = "Peace For Our Time"
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = SLO
 			tag = GER
 			tag = RKH
@@ -1443,7 +1443,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 		OR = {
 			FROM = {
 				OR = {
-					original_tag = CZE
+					original_tag = FCZ
 					original_tag = SLO
 				}
 				
@@ -1465,7 +1465,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 		if = {
 			limit = {
 				FROM = {
-					original_tag = CZE
+					original_tag = FCZ
 				}
 			}
 			FROM = {
@@ -1502,7 +1502,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -1536,7 +1536,7 @@ CZE_ceska_zbrojovka_uhersky_brod_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1611,11 +1611,11 @@ CZE_skoda_artillery_organization = {
 	icon = GFX_idea_CZE_skoda_artillery
 	allowed = {
 		OR = {
-			tag = CZE 
+			tag = FCZ 
 			tag = SLO
 			tag = RKH
 			AND = {
-				tag = ETH
+				tag = FET
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -1623,7 +1623,7 @@ CZE_skoda_artillery_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	}
@@ -1635,18 +1635,18 @@ CZE_skoda_artillery_organization = {
 				FROM = {
 					NOT = {
 						OR = {
-							original_tag = CZE 
+							original_tag = FCZ 
 							original_tag = SLO
 						}
 					} 
 				}
 			}
-			FROM = { NOT = { has_war_with = CZE } }
+			FROM = { NOT = { has_war_with = FCZ } }
 		}
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -1667,7 +1667,7 @@ CZE_skoda_artillery_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -1702,7 +1702,7 @@ CZE_skoda_artillery_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1736,7 +1736,7 @@ CZE_skoda_artillery_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1763,7 +1763,7 @@ CZE_praga_organization = {
 	icon = GFX_idea_CZE_praga
 	allowed = {
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -1778,7 +1778,7 @@ CZE_praga_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1809,7 +1809,7 @@ CZE_praga_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1844,7 +1844,7 @@ CZE_ringhoffer_tatra_organization = {
 	icon = GFX_idea_CZE_tatra
 	allowed = {	
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -1860,7 +1860,7 @@ CZE_ringhoffer_tatra_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1888,7 +1888,7 @@ CZE_ringhoffer_tatra_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1924,7 +1924,7 @@ CZE_zbrojovka_vsetin_organization = {
 	allowed = {
 		has_dlc = "Peace For Our Time"
 		OR = {
-			tag = CZE
+			tag = FCZ
 			tag = RKH
 		}
 	}
@@ -1939,7 +1939,7 @@ CZE_zbrojovka_vsetin_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -1974,7 +1974,7 @@ CZE_CKD_plzen_organization = {
 	icon = GFX_idea_CZE_ckd_plzen
 	allowed = {
 		has_dlc = "Peace For Our Time"
-		tag = CZE
+		tag = FCZ
 	}
 
 	initial_trait = {
@@ -2003,7 +2003,7 @@ CZE_CKD_plzen_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -2031,7 +2031,7 @@ CZE_CKD_plzen_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -2066,7 +2066,7 @@ CZE_praga_aviation_organization = {
 	icon = GFX_idea_cze_praga_aviation
 	
 	allowed = {	
-		original_tag = CZE
+		original_tag = FCZ
 		has_dlc = "Gotterdammerung"		
 	}
 
@@ -2080,7 +2080,7 @@ CZE_praga_aviation_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}
@@ -2113,7 +2113,7 @@ CZE_praga_aviation_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 				NOT = {
 					has_completed_focus = CZE_kickstart_rapid_rearmanent 
@@ -2147,7 +2147,7 @@ CZE_praga_aviation_organization = {
 
 		visible = {
 			FROM = { 
-				original_tag = CZE
+				original_tag = FCZ
 				has_dlc = "Peace For Our Time"
 			}
 		}

@@ -265,24 +265,24 @@ ENG_narvik_crisis_cat = {
 		available = {
 			OR = {
 				GER = {
-					has_war_with = NOR
+					has_war_with = NNO
 				}
-				NOR = {
+				NNO = {
 					any_core_state = {
 						controller  = { original_tag = GER }
 					}
 				}
 			}
 
-			SWE = { 
+			FSW = { 
 				NOT = { has_war_with = ROOT }
-				NOT = { has_war_with = NOR }
+				NOT = { has_war_with = NNO }
 				NOT = { has_war_with = GER }
 				exists = yes
 				is_subject = no
 			}
 
-			NOR = {
+			NNO = {
 				OR = {
 					is_in_faction_with = ROOT
 					has_capitulated = yes
@@ -309,7 +309,7 @@ ENG_narvik_crisis_cat = {
 		cost = 10
 
 		complete_effect = {
-			SWE = {
+			FSW = {
 				add_opinion_modifier = {
 					target = PREV
 					modifier = SWE_ENG_invaded_swe
@@ -320,7 +320,7 @@ ENG_narvik_crisis_cat = {
 				}
 			}
 			declare_war_on = {
-				target = SWE
+				target = FSW
 				type = liberate_wargoal
 			}
 			144 = {
@@ -331,19 +331,19 @@ ENG_narvik_crisis_cat = {
 						}
 
 						declare_war_on = {
-							target = SWE
+							target = FSW
 							type = liberate_wargoal
 						}
 
 						if = {
-							limit = { controller = { NOT = { has_war_with = SWE }}}
+							limit = { controller = { NOT = { has_war_with = FSW }}}
 							ROOT = { set_variable = { ENG_narvik_controller = PREV } }
 						}
 					}
 				}
 			}
 			GER = { country_event = { id = AAT_britain_narvik.2 hours = 1} }
-			SWE = { country_event = { id = AAT_britain_narvik.2 hours = 1 } }
+			FSW = { country_event = { id = AAT_britain_narvik.2 hours = 1 } }
 			activate_mission = ENG_explode_the_swedish_iron_ore_mine
 			hidden_effect = {
 				set_country_flag = ENG_activated_plan_rfour
@@ -359,7 +359,7 @@ ENG_narvik_crisis_cat = {
 					has_completed_focus = uk_scandinavian_focus
 				}
 
-				NOR = { is_ai = yes }
+				NNO = { is_ai = yes }
 				add = 1
 			}
 		}
@@ -383,7 +383,7 @@ ENG_narvik_crisis_cat = {
 			}
 			OR = {
 				has_active_mission = ENG_explode_the_swedish_iron_ore_mine
-				has_war_with = SWE
+				has_war_with = FSW
 			}
 		}
 
@@ -402,7 +402,7 @@ ENG_narvik_crisis_cat = {
 				controls_province = 11155
 				OR = {
 					has_active_mission = ENG_explode_the_swedish_iron_ore_mine 
-					has_war_with = SWE
+					has_war_with = FSW
 				}
 			}
 
@@ -425,7 +425,7 @@ ENG_narvik_crisis_cat = {
 					has_country_flag = ENG_activated_plan_rfour
 				}
 				country_event = { id = AAT_britain_narvik.1 }
-				SWE = {
+				FSW = {
 					country_event = { id = AAT_britain_narvik.3 }
 				}
 				GER = {
@@ -475,7 +475,7 @@ ENG_narvik_crisis_cat = {
 
 		timeout_effect = {
 			white_peace = {
-				tag = SWE
+				tag = FSW
 			}
 			add_war_support = -0.1
 			add_stability = -0.1
@@ -9417,18 +9417,18 @@ political_actions = {
 	#	}
 	#
 	#	visible = {
-	#		CZE = {
+	#		FCZ = {
 	#			exists = no
 	#		}
 	#	
-	#		CZE = {
+	#		FCZ = {
 	#			is_government_in_exile = no
 	#		}
 	#	
 	#		9 = { CONTROLLER = { has_war_with = ROOT } }
 	#	}
 	#	complete_effect = {
-	#		CZE = {
+	#		FCZ = {
 	#			become_exiled_in = {
 	#				target = ROOT
 	#				legitimacy = 50
@@ -9488,7 +9488,7 @@ political_actions = {
 			}
 			modifier = {
 				factor = 2
-				POL = {
+				NPO = {
 					has_capitulated = yes
 				}
 			}
@@ -9668,13 +9668,13 @@ political_actions = {
 		available = {
 			has_war = yes
 			has_government = democratic
-			POR = {
+			NPR = {
 				OR = {
 					has_government = ROOT
 					has_government = neutrality
 				}
 			}
-			POR = { is_in_faction = no }
+			NPR = { is_in_faction = no }
 			is_faction_leader = yes
 		}
 
@@ -9682,8 +9682,8 @@ political_actions = {
 		
 		visible = {
 			has_war = yes
-			NOT = { has_war_with = POR }
-			POR = { is_in_faction = no }
+			NOT = { has_war_with = NPR }
+			NPR = { is_in_faction = no }
 		}
 		
 		complete_effect = {
@@ -9693,7 +9693,7 @@ political_actions = {
 				}
 			}
 
-			POR = {
+			NPR = {
 				country_event = generic.5
 				country_event = {
 					id = generic.5
@@ -9724,14 +9724,14 @@ political_actions = {
 		available = {
 			has_war = yes
 			has_government = democratic
-			POR = {
+			NPR = {
 				has_full_control_of_state = 698
 				OR = {
 					has_government = ROOT
 					has_government = neutrality
 				}
 			}
-			POR = { is_in_faction = no }
+			NPR = { is_in_faction = no }
 		}
 
 		cost = 50
@@ -9744,14 +9744,14 @@ political_actions = {
 		
 		visible = {
 			has_war = yes
-			POR = {
+			NPR = {
 				has_full_control_of_state = 698
 				NOT = { has_war_with = ROOT }
 			}
 		}
 		
 		complete_effect = {
-			POR = { 
+			NPR = { 
 				country_event = {
 					id = wtt_britain_lease_azores.1
 					hours = 6
@@ -10122,14 +10122,14 @@ operations = {
 			ICE = { exists = yes }
 			IF = {
 				limit = {
-					NOR = { has_government = democratic }
+					NNO = { has_government = democratic }
 				}
-				NOR = { has_capitulated = yes }
-				is_in_faction_with = NOR
+				NNO = { has_capitulated = yes }
+				is_in_faction_with = NNO
 			}
 			ELSE = {
 				any_country_with_original_tag = {
-					original_tag_to_check = NOR 
+					original_tag_to_check = NNO 
 					has_capitulated = yes
 					is_in_faction_with = ROOT 
 				}
@@ -10176,15 +10176,15 @@ operations = {
 		}
 		
 		available = { #Dublicate of Visibility intented
-			DEN = {
+			NDE = {
 				is_subject = yes
 				NOT = {
-					is_in_faction_with = var:DEN.DEN_overlord_nation
+					is_in_faction_with = var:NDE.DEN_overlord_nation
 				}
 			}
-			has_war_with = var:DEN.DEN_overlord_nation
+			has_war_with = var:NDE.DEN_overlord_nation
 			337 = {
-				is_controlled_by = DEN
+				is_controlled_by = NDE
 			}
 		}
 
@@ -10214,7 +10214,7 @@ operations = {
 				factor = 6
 				any_country = {
 					has_government = democratic
-					original_tag = NOR
+					original_tag = NNO
 					is_in_faction_with = ROOT
 					has_capitulated = yes
 				}
@@ -10223,21 +10223,21 @@ operations = {
 		
 		visible = {
 			original_tag = ENG
-			DEN = {
+			NDE = {
 				is_subject = yes
 				NOT = {
-					is_in_faction_with = var:DEN.DEN_overlord_nation
+					is_in_faction_with = var:NDE.DEN_overlord_nation
 				}
 			}
-			has_war_with = var:DEN.DEN_overlord_nation
+			has_war_with = var:NDE.DEN_overlord_nation
 			337 = {
-				is_controlled_by = DEN
+				is_controlled_by = NDE
 			}
 			has_dlc = "Arms Against Tyranny"
 		}
 		
 		complete_effect = {
-			DEN = { country_event = { id = AAT_USA_events.02 days = 2 } }
+			NDE = { country_event = { id = AAT_USA_events.02 days = 2 } }
 			add_popularity = { 
 				ideology = ROOT 
 				popularity = -0.02
@@ -10281,14 +10281,14 @@ operations = {
 			NOT = { is_in_faction_with = IRE }
 			IF = {
 				limit = {
-					NOR = { has_government = democratic }
+					NNO = { has_government = democratic }
 				}
-				NOR = { has_capitulated = yes }
-				is_in_faction_with = NOR
+				NNO = { has_capitulated = yes }
+				is_in_faction_with = NNO
 			}
 			ELSE = {
 				any_country_with_original_tag = {
-					original_tag_to_check = NOR 
+					original_tag_to_check = NNO 
 					has_capitulated = yes
 					is_in_faction_with = ROOT
 				}

@@ -398,7 +398,7 @@ ideas = {
 
 			available = {
 				101 = {	is_controlled_by = ROOT }
-				DEN = {
+				NDE = {
 					OR = {
 						has_war = yes
 						is_subject = yes
@@ -407,7 +407,7 @@ ideas = {
 			}
 
 			cancel = {
-				DEN = {
+				NDE = {
 					is_subject = no
 					has_war = no
 					is_in_faction_with = ROOT
@@ -418,7 +418,7 @@ ideas = {
 			on_remove = {
 				IF = {
 					limit = {
-						DEN = {
+						NDE = {
 							exists = yes
 							is_subject = no
 						}
@@ -427,9 +427,9 @@ ideas = {
 						}
 					}
 					101 = {
-						transfer_state_to = DEN
+						transfer_state_to = NDE
 					}
-					DEN = { country_event = { id = AAT_USA_events.07 days = 1 } }
+					NDE = { country_event = { id = AAT_USA_events.07 days = 1 } }
 				}
 			}
 			

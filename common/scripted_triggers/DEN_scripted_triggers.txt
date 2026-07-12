@@ -14,12 +14,12 @@
 # 
 
 DEN_aat = { # Trigger to check if playing as Denmark while having AAT
-	original_tag = DEN
+	original_tag = NDE
 	has_dlc = "Arms Against Tyranny"
 }
 
 DEN_aat_is_subject = { # Trigger to check if playing as Denmark while having AAT and is a subject
-	original_tag = DEN
+	original_tag = NDE
 	has_dlc = "Arms Against Tyranny"
 	is_subject = yes
 }
@@ -152,7 +152,7 @@ DEN_guarantor_seller_trigger = {
 	}
 	else = {
 		custom_trigger_tooltip = { 
-			tooltip = "[?DEN.DEN_guaranteeing_nation.GetNameDef]"
+			tooltip = "[?NDE.DEN_guaranteeing_nation.GetNameDef]"
 		}
 		hidden_trigger = {
 			FROM = { 
@@ -184,7 +184,7 @@ DEN_rearmament_seller_trigger = {
 			has_country_flag = DEN_seeks_alliance_flag
 		}
 		custom_trigger_tooltip = {
-			tooltip = "[?DEN.DEN_allied_nation.GetNameDef]"
+			tooltip = "[?NDE.DEN_allied_nation.GetNameDef]"
 		}
 		FROM = { 
 			has_country_flag = DEN_allied_with_denmark

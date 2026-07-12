@@ -129,10 +129,10 @@ country_event = {
 				add_to_faction = BRA
 				add_to_faction = SAF
 				add_to_faction = AST
-				add_to_faction = INS
-				add_to_faction = POL
-				add_to_faction = HOL
-				add_to_faction = BEL
+				add_to_faction = INF
+				add_to_faction = NPO
+				add_to_faction = FNL
+				add_to_faction = FBL
 				add_to_faction = LUX
 				add_to_faction = FRA
 			}
@@ -2986,16 +2986,16 @@ country_event = {
 		}
 		if = {
 			limit = {
-				INS = {
+				INF = {
 					is_subject_of = ROOT
 				}
 			}
-			set_autonomy = { target = INS autonomy_state = autonomy_free }
-			INS = { leave_faction = yes }
+			set_autonomy = { target = INF autonomy_state = autonomy_free }
+			INF = { leave_faction = yes }
 		}
 		if = {
 			limit = {
-				NOT = { original_tag = INS }
+				NOT = { original_tag = INF }
 				owns_state = 335
 				has_full_control_of_state = 335
 				owns_state = 672
@@ -3015,7 +3015,7 @@ country_event = {
 				owns_state = 669
 				has_full_control_of_state = 669
 			}
-			release = INS
+			release = INF
 		}
 		if = {
 			limit = {
@@ -3619,11 +3619,11 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { original_tag = INS }
+				NOT = { original_tag = INF }
 				owns_state = 721
 				has_full_control_of_state = 721
 			}
-			INS = { transfer_state = 721 }
+			INF = { transfer_state = 721 }
 		}
 		if = {
 			limit = {
@@ -3742,20 +3742,20 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { original_tag = ETH }
+				NOT = { original_tag = FET }
 				owns_state = 271
 				has_full_control_of_state = 271
 			}
-			release = ETH
+			release = FET
 		}
 		if = {
 			limit = {
-				ETH = {
+				FET = {
 					is_subject_of = ROOT
 				}
 			}
-			set_autonomy = { target = ETH autonomy_state = autonomy_free }
-			ETH = { leave_faction = yes }
+			set_autonomy = { target = FET autonomy_state = autonomy_free }
+			FET = { leave_faction = yes }
 		}
 		if = {
 			limit = {
@@ -6207,11 +6207,11 @@ country_event = {
 		effect_tooltip = {
 			if = {
 				limit = {
-					tag = PER
+					tag = FPR
 				}
 				create_wargoal = {
 					type = puppet_wargoal_focus
-					target = PER
+					target = FPR
 				}
 			}
 			if = {
@@ -6229,7 +6229,7 @@ country_event = {
 	}
 }
 
-# Event for ENG that PER/AFG accepted puppet status
+# Event for ENG that FPR/AFG accepted puppet status
 country_event = {
 	id = mtg_britain.80
 	title = mtg_britain.80.t
@@ -6245,7 +6245,7 @@ country_event = {
 	}
 }
 
-# Event for ENG that PER/AFG rejected puppet status
+# Event for ENG that FPR/AFG rejected puppet status
 country_event = {
 	id = mtg_britain.81
 	title = mtg_britain.81.t

@@ -21,7 +21,7 @@ news_event = {
 
 # Communist Ethiopia
 
-# SOV demand ITA end war against ETH
+# SOV demand ITA end war against FET
 news_event = {
 	id = bba_news.1
 	title = bba_news.1.t
@@ -96,7 +96,7 @@ news_event = {
 			text = bba_news.5.desc_owns_454
 			trigger = {
 				454 = {
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}				
 		}
@@ -104,7 +104,7 @@ news_event = {
 			text = bba_news.5.desc_does_not_own_454
 			trigger = {
 				454 = {
-					NOT = { is_owned_by = ETH}
+					NOT = { is_owned_by = FET}
 				}
 			}
 		}
@@ -164,14 +164,14 @@ news_event = {
 	option = {
 		name = bba_news.7.a
 		trigger = {
-			NOT = {tag = ETH}
+			NOT = {tag = FET}
 			NOT = {tag = ITA}
 		}
 	}
 	option = {
 		name = bba_news.7.b
 		trigger = {
-			tag = ETH
+			tag = FET
 		}
 	}
 	option = {
@@ -195,14 +195,14 @@ news_event = {
 	option = {
 		name = bba_news.8.a
 		trigger = {
-			NOT = {tag = ETH}
+			NOT = {tag = FET}
 			NOT = {tag = ITA}
 		}
 	}
 	option = {
 		name = bba_news.8.b
 		trigger = {
-			tag = ETH
+			tag = FET
 		}
 	}
 	option = {
@@ -414,7 +414,7 @@ news_event = {
 		trigger = {
 			NOT = {
 				TAG = ITA
-				TAG = ALB
+				TAG = FAL
 			}
 		}
 	}
@@ -424,7 +424,7 @@ news_event = {
 	}
 	option = {
 		name = news.23.c #intentional
-		trigger = { TAG = ALB }
+		trigger = { TAG = FAL }
 	}
 }
 

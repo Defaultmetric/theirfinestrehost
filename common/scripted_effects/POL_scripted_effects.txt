@@ -463,11 +463,11 @@ POL_monarchist_civil_war_effect = {
 	}
 	if = {
 		limit = {
-			tag = LIT
+			tag = NLI
 		}
 		if = {
 			limit = {
-				POL = {
+				NPO = {
 					owns_state = 784
 				}
 			}
@@ -496,7 +496,7 @@ POL_monarchist_civil_war_effect = {
 		random_other_country = {
 			limit = {
 				has_civil_war = yes
-				original_tag = LIT
+				original_tag = NLI
 			}
 			set_cosmetic_tag = LIT_KINGDOM
 			set_country_flag = POL_lithuanian_personal_union_flag
@@ -504,13 +504,13 @@ POL_monarchist_civil_war_effect = {
 		if = {
 			limit = {
 				any_other_country = {
-					original_tag = POL
+					original_tag = NPO
 					POL_is_valid_to_boost_monarchy = yes 
 				}
 			}
 			every_other_country = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				set_country_flag = attempted_royal_takeover_in_LIT
 			}
@@ -542,13 +542,13 @@ POL_monarchist_civil_war_effect = {
 		if = {
 			limit = {
 				any_other_country = {
-						original_tag = POL
+						original_tag = NPO
 						POL_is_valid_to_boost_monarchy = yes 
 				}
 			}
 			every_other_country = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				set_country_flag = attempted_royal_takeover_in_ROM
 			}
@@ -556,7 +556,7 @@ POL_monarchist_civil_war_effect = {
 	}
 	if = {
 		limit = {
-			tag = CZE
+			tag = FCZ
 		}
 		start_civil_war = {
 			ideology = neutrality
@@ -568,20 +568,20 @@ POL_monarchist_civil_war_effect = {
 		random_other_country = {
 			limit = {
 				has_civil_war = yes
-				original_tag = CZE
+				original_tag = FCZ
 			}
 			set_country_flag = POL_czech_personal_union_flag
 		}
 		if = {
 			limit = {
 				any_other_country = {
-						original_tag = POL
+						original_tag = NPO
 						POL_is_valid_to_boost_monarchy = yes 
 				}
 			}
 			every_other_country = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				set_country_flag = attempted_royal_takeover_in_CZE
 			}
@@ -589,7 +589,7 @@ POL_monarchist_civil_war_effect = {
 	}
 	if = {
 		limit = {
-			tag = POL
+			tag = NPO
 		}
 		start_civil_war = {
 			ideology = neutrality
@@ -602,7 +602,7 @@ POL_monarchist_civil_war_effect = {
 		random_other_country = {
 			limit = {
 				has_civil_war = yes
-				original_tag = POL
+				original_tag = NPO
 			}
 			set_cosmetic_tag = POL_KINGDOM
 			set_country_flag = LIT_poland_personal_union_flag
@@ -610,13 +610,13 @@ POL_monarchist_civil_war_effect = {
 		if = {
 			limit = {
 				any_other_country = {
-						original_tag = LIT
+						original_tag = NLI
 						POL_is_valid_to_boost_monarchy = yes 
 				}
 			}
 			every_other_country = {
 				limit = {
-					original_tag = LIT
+					original_tag = NLI
 				}
 				set_country_flag = attempted_royal_takeover_in_POL
 			}
@@ -670,7 +670,7 @@ POL_become_german_puppet_effect = {
 	GER = {
 		if = {
 			limit = {
-				POL = {
+				NPO = {
 					controls_state = 85
 					owns_state = 85
 				}
@@ -679,7 +679,7 @@ POL_become_german_puppet_effect = {
 		}
 		if = {
 			limit = {
-				POL = {
+				NPO = {
 					controls_state = 807
 					owns_state = 807
 				}
@@ -688,7 +688,7 @@ POL_become_german_puppet_effect = {
 		}
 		if = {
 			limit = {
-				POL = {
+				NPO = {
 					controls_state = 86
 					owns_state = 86
 				}
@@ -697,7 +697,7 @@ POL_become_german_puppet_effect = {
 		}
 		if = {
 			limit = {
-				POL = {
+				NPO = {
 					controls_state = 762
 					owns_state = 762
 				}
@@ -713,27 +713,27 @@ POL_become_german_puppet_effect = {
 				has_dlc = "Death or Dishonor"
 			}
 			set_autonomy = {
-				target = POL
+				target = NPO
 				autonomy_state = autonomy_reichsprotectorate
 			}
 		}
 		else = {
 			set_autonomy = {
-				target = POL
+				target = NPO
 				autonomy_state = autonomy_integrated_puppet
 			}
 		}
-		add_to_faction = POL
+		add_to_faction = NPO
 	}
 	hidden_effect = {
 		GER = { #Reverse the AI strategy set at game start
 			add_ai_strategy = {
 			   type = alliance
-			   id = POL
+			   id = NPO
 			   value = 2000
 			}
 		}
-		POL = {
+		NPO = {
 			add_ai_strategy = {
 			   type = alliance
 			   id = GER
@@ -745,7 +745,7 @@ POL_become_german_puppet_effect = {
 
 POL_divide_lithuania_effect = {
 	188 = { add_core_of = GER }
-	LIT = {
+	NLI = {
 		every_owned_state = {
 			limit = {
 				OR = {
@@ -759,9 +759,9 @@ POL_divide_lithuania_effect = {
 			}
 		}
 	}
-	POL = {
+	NPO = {
 		annex_country = {
-			target = LIT
+			target = NLI
 			transfer_troops = no
 		}
 	}
@@ -769,15 +769,15 @@ POL_divide_lithuania_effect = {
 
 POL_lithuania_wargoal_claims_effect = {
 	188 = { add_core_of = GER }
-	189 = { add_claim_by = POL }
-	815 = { add_claim_by = POL }
-	11 = { add_claim_by = POL }
-	814 = { add_claim_by = POL }
+	189 = { add_claim_by = NPO }
+	815 = { add_claim_by = NPO }
+	11 = { add_claim_by = NPO }
+	814 = { add_claim_by = NPO }
 	GER = {
 		create_wargoal = {
 			type = take_core_state
 			generator = { 188 }
-			target = LIT
+			target = NLI
 		}
 	}
 }
@@ -785,13 +785,13 @@ POL_lithuania_wargoal_claims_effect = {
 POL_set_attempted_royal_takeover_flag = {
 	hidden_effect = {
 		if = {
-			limit = { original_tag = POL }
+			limit = { original_tag = NPO }
 			FROM = {
 				set_country_flag = attempted_royal_takeover_in_POL
 			}
 		}
 		else_if = {
-			limit = { original_tag = LIT }
+			limit = { original_tag = NLI }
 			FROM = {
 				set_country_flag = attempted_royal_takeover_in_LIT
 			}
@@ -803,7 +803,7 @@ POL_set_attempted_royal_takeover_flag = {
 			}
 		}
 		else_if = {
-			limit = { original_tag = CZE }
+			limit = { original_tag = FCZ }
 			FROM = {
 				set_country_flag = attempted_royal_takeover_in_CZE
 			}

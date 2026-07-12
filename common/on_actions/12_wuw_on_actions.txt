@@ -37,7 +37,7 @@ on_actions = {
 					}
 					FROM = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -203,7 +203,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -399,7 +399,7 @@ on_actions = {
 			IF = {
 				limit = {
 					FROM = {
-						original_tag = BEL
+						original_tag = FBL
 						has_completed_focus = BEL_interpreters
 					}
 				}
@@ -455,7 +455,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -629,7 +629,7 @@ on_actions = {
 			IF = {
 				limit = {
 					ROOT = {
-						original_tag = BEL
+						original_tag = FBL
 						has_completed_focus = BEL_interpreters
 					}
 				}
@@ -648,7 +648,7 @@ on_actions = {
 				limit = {
 					ROOT = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -787,7 +787,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -995,7 +995,7 @@ on_actions = {
 				limit = {
 					FROM = {
 						OR = {
-							original_tag = AUS
+							original_tag = FAU
 							original_tag = HUN
 						}
 						tag = global.AH_originator_country
@@ -1124,7 +1124,7 @@ on_actions = {
 						original_tag = TRA
 					}
 
-					AUS = {
+					FAU = {
 						OR = {
 							has_completed_focus = AUS_demand_romanian_lands
 							has_completed_focus = AUS_subjugate_lands_of_old
@@ -1135,7 +1135,7 @@ on_actions = {
 				TRA = {
 					capital_scope = {
 						add_to_array = {
-							array = AUS.expansion_targets
+							array = FAU.expansion_targets
 							value = THIS
 						}
 
@@ -1184,7 +1184,7 @@ on_actions = {
 						original_tag = TRA
 					}
 
-					AUS = {
+					FAU = {
 						OR = {
 							has_completed_focus = AUS_demand_romanian_lands
 							has_completed_focus = AUS_subjugate_lands_of_old
@@ -1196,7 +1196,7 @@ on_actions = {
 				TRA = {
 					capital_scope = {
 						add_to_array = {
-							array = AUS.expansion_targets
+							array = FAU.expansion_targets
 							value = THIS
 						}
 
@@ -1359,7 +1359,7 @@ on_actions = {
 					has_country_flag = AUS_annexed
 				}
 				for_each_scope_loop = {
-					array = AUS.AUS_initial_states
+					array = FAU.AUS_initial_states
 					if = {
 						limit = {
 							is_core_of = GER
@@ -1374,7 +1374,7 @@ on_actions = {
 		effect = {
 			IF = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 					is_in_faction_with = ENG
 					NOT = {
 						has_global_flag = jan_zumbach_fled_to_britain
@@ -1429,31 +1429,31 @@ on_actions = {
 	
 	on_capitulation = { # ROOT is capitulated country, FROM is winner
 
-		effect = { #recall the volunteers for ITA from ETH as war can go on and troops are needed
+		effect = { #recall the volunteers for ITA from FET as war can go on and troops are needed
 			IF = { 
 				limit = {
-					original_tag = ETH
+					original_tag = FET
 					FROM = { tag = ITA }
 					ITA = {
 						has_volunteers_amount_from = {
-							tag = AUS
+							tag = FAU
 							count > 0
 						}
 					}
 				}
-				AUS = {
+				FAU = {
 					recall_volunteers_from = ITA 
 				}
 			}
 		}
 
-		effect = { #Set the new flag and fire event when HAI capitulates to AUS
+		effect = { #Set the new flag and fire event when HAI capitulates to FAU
 			IF = {
 				limit = {
 					original_tag = HAI
-					FROM = { tag = AUS }
+					FROM = { tag = FAU }
 				}
-				AUS = {
+				FAU = {
 					set_cosmetic_tag = AUS_true_liechtenstein 
 
 					country_event = {
@@ -1480,7 +1480,7 @@ on_actions = {
 					}
 	
 					ROOT = {
-						original_tag = POL
+						original_tag = NPO
 					}
 				}
 
@@ -1511,7 +1511,7 @@ on_actions = {
 					}
 		
 					ROOT = {
-						original_tag = CZE
+						original_tag = FCZ
 					}
 				}
 
@@ -1561,7 +1561,7 @@ on_actions = {
 					ROOT = { 
 						capital_scope = {
 							is_in_array = {
-								array = AUS.expansion_targets
+								array = FAU.expansion_targets
 								value = THIS
 							}
 						}
@@ -1571,7 +1571,7 @@ on_actions = {
 				ROOT = {
 					capital_scope = {
 						remove_from_array = {
-							array = AUS.expansion_targets
+							array = FAU.expansion_targets
 							value = THIS
 						}
 						set_state_flag = AUS_no_longer_expansion_target
@@ -1584,15 +1584,15 @@ on_actions = {
 	
 	on_war = {
 
-		effect = { #if he survived, have Brumowski offer to become an AUS advisor
+		effect = { #if he survived, have Brumowski offer to become an FAU advisor
 			IF = {
 				limit = { 
-					original_tag = AUS  
+					original_tag = FAU  
 					has_global_flag = {
 						flag = AUS_brumowski_survives_flag
 					}
 				}
-				AUS = {
+				FAU = {
 					country_event = {
 						id = AUS_political_events.19
 						hours = 12
@@ -1624,14 +1624,14 @@ on_actions = {
 	on_war_relation_added = {
 
 		effect = {
-			if = { #If Germany goes into a war with YUG or SER, they will want to occupy Serbia Proper (thus gettign claims), helps fix osme of the YUG occupation bordergore
+			if = { #If Germany goes into a war with FYG or SER, they will want to occupy Serbia Proper (thus gettign claims), helps fix osme of the FYG occupation bordergore
 				limit = {
 					ROOT = {
 						original_tag = GER
 					}
 					OR = {
 						FROM = {
-							original_tag = YUG
+							original_tag = FYG
 							original_tag = SER
 						}
 					}
@@ -1656,14 +1656,14 @@ on_actions = {
 		}
 
 		effect = {
-			if = { #If Germany goes into a war with YUG or SER, they will want to occupy Serbia Proper (thus gettign claims), helps fix osme of the YUG occupation bordergore
+			if = { #If Germany goes into a war with FYG or SER, they will want to occupy Serbia Proper (thus gettign claims), helps fix osme of the FYG occupation bordergore
 				limit = {
 					FROM = {
 						original_tag = GER
 					}
 					ROOT = {
 						OR = {
-							original_tag = YUG
+							original_tag = FYG
 							original_tag = SER
 						}
 					}
@@ -1713,11 +1713,11 @@ on_actions = {
 			}
 		}
 
-		effect = {  #BEL Unknown Sympathies Trigger : BEL is being attacked, with Leopold still as king 
+		effect = {  #FBL Unknown Sympathies Trigger : FBL is being attacked, with Leopold still as king 
 			if = { 
 				limit = {
 					FROM = {
-						original_tag = BEL
+						original_tag = FBL
 						has_country_flag = BEL_leopold_flag
 						NOT = {
 							has_country_flag = BEL_unknown_sympathies_triggered_flag
@@ -1725,7 +1725,7 @@ on_actions = {
 					}
 				}
 				ROOT = {
-					BEL = { 
+					FBL = { 
 						country_event = { id = ww_BEL_event_war.2 hours = 6 } 
 					}
 				}
@@ -1736,11 +1736,11 @@ on_actions = {
 
 	on_send_volunteers = { 
 
-		#sets a flag when AUS sends volunteers to SPA
+		#sets a flag when FAU sends volunteers to SPA
 		effect = {
 			IF = { 
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 					FROM = { 
 						tag = SPA
 					}
@@ -1749,11 +1749,11 @@ on_actions = {
 			}	
 		}
 
-		#sets a flag when AUS sends volunteers to SPR
+		#sets a flag when FAU sends volunteers to SPR
 		effect = {
 			IF = { 
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 					FROM = { 
 						tag = SPR
 					}
@@ -1762,11 +1762,11 @@ on_actions = {
 			}	
 		}
 
-		#sets a flag when AUS sends volunteers to ITA
+		#sets a flag when FAU sends volunteers to ITA
 		effect = {
 			IF = { 
 				limit = {
-					original_tag = AUS
+					original_tag = FAU
 					FROM = { 
 						tag = ITA
 					}
@@ -1783,9 +1783,9 @@ on_actions = {
 		effect = { #achievement check
 			IF = { 
 				limit = {
-					ROOT = { original_tag = BEL }
+					ROOT = { original_tag = FBL }
 				}
-				add_to_variable = { BEL.special_projects_completed = 1 }
+				add_to_variable = { FBL.special_projects_completed = 1 }
 			}
 		}
 	}
@@ -1963,10 +1963,10 @@ on_actions = {
 				limit = { has_dlc = "Gotterdammerung" }
 				random_list = {
 					999 = {
-						BEL = { set_country_flag = BEL_serious_waffle_flag }
+						FBL = { set_country_flag = BEL_serious_waffle_flag }
 					}
 					1 = {
-						BEL = { set_country_flag = BEL_wunder_waffle_flag }
+						FBL = { set_country_flag = BEL_wunder_waffle_flag }
 					}
 				}
 			}
@@ -2066,7 +2066,7 @@ on_actions = {
 					original_tag = COG
 					has_cosmetic_tag = COG_belgian_congo
 					NOT = {
-						is_subject_of = BEL
+						is_subject_of = FBL
 					}
 				}
 				COG = {
@@ -2234,7 +2234,7 @@ on_actions = {
 			IF = {
 				limit = {
 					ROOT = {
-						original_tag = AUS
+						original_tag = FAU
 						has_government = neutrality
 						has_completed_focus = AUS_legacy_of_the_empire
 						has_dynamic_modifier = {
@@ -2636,7 +2636,7 @@ on_actions = {
 					}
 
 					ROOT = {
-						original_tag = BEL
+						original_tag = FBL
 						has_completed_focus = BEL_demand_calais
 						any_other_country = {
 							is_major = no
@@ -2656,11 +2656,11 @@ on_actions = {
 		}
 
 		#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
-		effect = { #BEL trigger Kings Surrender if any of Liege, Antwerp or Brussels fall.
+		effect = { #FBL trigger Kings Surrender if any of Liege, Antwerp or Brussels fall.
 			IF = {
 				limit = {
 					FROM = {
-						original_tag = BEL
+						original_tag = FBL
 						has_country_flag = BEL_leopold_flag
 						NOT = {
 							has_completed_focus = BEL_kings_abdication
@@ -2670,7 +2670,7 @@ on_actions = {
 						has_civil_war = no
 					}
 					FROM.FROM = {
-						is_owned_by = BEL
+						is_owned_by = FBL
 						OR = { #Losing the capital of these provinces is enough to capitulate the state.
 							state = 977 #Antwerpen - Antwerp
 							state = 6 #Vlaanderen - Brussels
@@ -2875,7 +2875,7 @@ on_actions = {
 			IF = {
 				limit = {
 					has_country_flag = GER_hitler_wants_austria_flag
-					AUS = {
+					FAU = {
 						exists = yes
 						is_subject = no
 						NOT = { has_war_with = GER }
@@ -2891,7 +2891,7 @@ on_actions = {
 
 				IF = {
 					limit = {
-						AUS = {	
+						FAU = {	
 							OR = {
 								has_completed_focus = AUS_reinstate_the_imperial_council
 								has_government = neutrality
@@ -2900,15 +2900,15 @@ on_actions = {
 						}
 					}
 
-					set_variable = { AUS.fascism_anschluss_tick = AUS.party_popularity@fascism } #sets a new variable to not risk affecting the standard variable of fascist popularity
+					set_variable = { FAU.fascism_anschluss_tick = FAU.party_popularity@fascism } #sets a new variable to not risk affecting the standard variable of fascist popularity
 
 					IF = {
 						limit = { #makes sure that we do not get a negative ratio after the subtraction
-							check_variable = { global.deployed_manpower_ratio_needed_for_anschluss > AUS.fascism_anschluss_tick  }
+							check_variable = { global.deployed_manpower_ratio_needed_for_anschluss > FAU.fascism_anschluss_tick  }
 						}
 						subtract_from_variable = { #if we can subtract without going below zero, subtract the fascism support from the ratio
 							var = global.deployed_manpower_ratio_needed_for_anschluss
-							value = AUS.fascism_anschluss_tick
+							value = FAU.fascism_anschluss_tick
 						}
 					}
 				
@@ -2916,16 +2916,16 @@ on_actions = {
 
 				ELSE = {
 
-					set_variable = { AUS.neutrality_anschluss_tick = AUS.party_popularity@neutrality } #sets a new variable to not risk affecting the standard variable of neutrality popularity
+					set_variable = { FAU.neutrality_anschluss_tick = FAU.party_popularity@neutrality } #sets a new variable to not risk affecting the standard variable of neutrality popularity
 					
 					IF = {
 						limit = { #makes sure that we do not get a negative ratio after the subtraction
-							check_variable = { global.deployed_manpower_ratio_needed_for_anschluss > AUS.neutrality_anschluss_tick }
+							check_variable = { global.deployed_manpower_ratio_needed_for_anschluss > FAU.neutrality_anschluss_tick }
 						}
 
 						subtract_from_variable = { #if we can subtract without going below zero, subtract the fascism support from the ratio
 							var = global.deployed_manpower_ratio_needed_for_anschluss
-							value = AUS.neutrality_anschluss_tick
+							value = FAU.neutrality_anschluss_tick
 						}
 					}
 				}
@@ -2985,7 +2985,7 @@ on_actions = {
 			IF = {
 				limit = {
 					has_dlc = "Gotterdammerung"
-					AUS = { has_country_flag = AUS_antischluss_active_flag }
+					FAU = { has_country_flag = AUS_antischluss_active_flag }
 				}
 
 				#below variables are set to be multiplied with a percentage to check how close Germany are to achieving the fighting army strength ratio needed for anschluss

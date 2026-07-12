@@ -22,7 +22,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 50
-			tag = CZE
+			tag = FCZ
 			has_dlc = "Peace For Our Time"
 		}
 	}
@@ -1200,11 +1200,11 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
-						original_tag = YUG
-						# AND = {	#marijn211: give them the idea if YUG accepts instead
-						# 	is_subject_of = YUG
+						original_tag = FYG
+						# AND = {	#marijn211: give them the idea if FYG accepts instead
+						# 	is_subject_of = FYG
 						# 	capital_scope = {
 						# 		region = 24
 						# 	}
@@ -1415,8 +1415,8 @@ focus_tree = {
 			if = {
 				limit = {
 					has_completed_focus = CZE_a_strong_poland
-					is_guaranteed_by = POL
-					POL = {
+					is_guaranteed_by = NPO
+					NPO = {
 						is_subject = no
 						NOT = {
 							is_in_faction_with = GER
@@ -1427,13 +1427,13 @@ focus_tree = {
 					}
 				}
 				custom_effect_tooltip = CZE_if_POL_ally_tt
-				POL = {
+				NPO = {
 					country_event = MUN_czech.1017
 				}
 				else = {
 					custom_effect_tooltip = CZE_if_POL_ally_tt
 					effect_tooltip = {
-						POL = {
+						NPO = {
 							country_event = MUN_czech.1017
 						}
 					}
@@ -1445,8 +1445,8 @@ focus_tree = {
 					OR = {
 						AND = {
 							has_completed_focus = CZE_a_strong_poland
-							is_guaranteed_by = POL
-							POL = {
+							is_guaranteed_by = NPO
+							NPO = {
 								is_subject = no
 								NOT = {
 									is_in_faction_with = GER
@@ -1504,17 +1504,17 @@ focus_tree = {
 			factor = 1
 			modifier = {
 				factor = 0
-				POL = {
+				NPO = {
 					is_ai = no
 				}
 			}
 			modifier = {
 				factor = 0
 				strength_ratio = {
-					tag = POL
+					tag = NPO
 					ratio < 0.85
 				}
-				POL = {
+				NPO = {
 					has_war = no
 				}
 			}
@@ -1571,11 +1571,11 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		will_lead_to_war_with = POL
+		will_lead_to_war_with = NPO
 
 		available = {
 			is_subject = no
-			POL = {
+			NPO = {
 				exists = yes
 				NOT = {
 					is_ally_with = ROOT
@@ -1584,7 +1584,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			has_war_with = POL
+			has_war_with = NPO
 		}
 
 		bypass_effect = {
@@ -1667,7 +1667,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			create_wargoal = {
 				type = puppet_wargoal_focus
-				target = POL
+				target = NPO
 			}
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -1770,16 +1770,16 @@ focus_tree = {
 				}
 			}
 			65 = {
-				add_core_of = CZE
+				add_core_of = FCZ
 			}
 			86 = {
-				add_core_of = CZE
+				add_core_of = FCZ
 			}
 			807 = {
-				add_core_of = CZE
+				add_core_of = FCZ
 			}
 			85 = {
-				add_core_of = CZE
+				add_core_of = FCZ
 			}
 		}
 		search_filters = { FOCUS_FILTER_MANPOWER }
@@ -2856,7 +2856,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			AUS = {
+			FAU = {
 				exists = yes
 				has_war = no
 			}
@@ -2867,7 +2867,7 @@ focus_tree = {
 			modifier = {
 				add = 15
 				ITA = {
-					has_guaranteed = AUS
+					has_guaranteed = FAU
 					OR = {
 						AND = {
 							is_in_faction = no
@@ -2890,7 +2890,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			give_guarantee = AUS
+			give_guarantee = FAU
 		}
 	}
 
@@ -2908,7 +2908,7 @@ focus_tree = {
 
 		cost = 10
 
-		will_lead_to_war_with = AUS
+		will_lead_to_war_with = FAU
 
 		relative_position_id = CZE_assist_austria
 		x = -4
@@ -2916,7 +2916,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			AUS = {
+			FAU = {
 				exists = yes
 				NOT = {
 					is_ally_with = ROOT
@@ -2929,7 +2929,7 @@ focus_tree = {
 			modifier = {
 				factor = 0
 				strength_ratio = {
-					tag = AUS
+					tag = FAU
 					ratio < 0.7
 				}
 			}
@@ -2946,7 +2946,7 @@ focus_tree = {
 			modifier = {
 				factor = 0
 				any_other_country = {
-					has_guaranteed = AUS
+					has_guaranteed = FAU
 					NOT = {
 						has_guaranteed = ROOT
 						is_ally_with = ROOT
@@ -2960,7 +2960,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			AUS = {
+			FAU = {
 				OR = {
 					exists = no
 					is_subject_of = ROOT	#this may seem duplicate but if our Austrian puppet doesnt control all it lands, still shouldnt give a wargoal
@@ -2996,7 +2996,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			create_wargoal = {
 				type = annex_everything
-				target = AUS
+				target = FAU
 				expire = 730
 			}
 		}
@@ -3159,7 +3159,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			YUG = {
+			FYG = {
 				exists = yes
 				is_subject = no
 				has_completed_focus = YUG_limited_self_government
@@ -3168,7 +3168,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			YUG = {
+			FYG = {
 				country_event = MUN_czech.1002
 			}
 		}
@@ -3208,7 +3208,7 @@ focus_tree = {
 			base = 1
 			modifier = {
 				add = 1
-				POL = {
+				NPO = {
 					is_ai = no
 				}
 			}
@@ -3217,7 +3217,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_war = no
-			POL = {
+			NPO = {
 				exists = yes
 				is_subject = no
 				is_in_faction = no
@@ -3227,20 +3227,20 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				POL = {
+				NPO = {
 					is_ally_with = ROOT
 				}
 				AND = {
 					AND = {
-						has_guaranteed = POL
-						is_guaranteed_by = POL
+						has_guaranteed = NPO
+						is_guaranteed_by = NPO
 					}
 				}
 			}
 		}
 
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = MUN_czech.1006
 			}
 		}
@@ -3260,21 +3260,21 @@ focus_tree = {
 		relative_position_id = CZE_poland_alliance_monarchist
 		y = 1
 
-		will_lead_to_war_with = LIT
+		will_lead_to_war_with = NLI
 
 		available = {
 			OR = {
-				is_ally_with = POL
+				is_ally_with = NPO
 				AND = {
-					has_guaranteed = POL
-					is_guaranteed_by = POL
+					has_guaranteed = NPO
+					is_guaranteed_by = NPO
 				}
 			}
-			LIT = {
+			NLI = {
 				exists = yes
 				NOT = {
-					has_non_aggression_pact_with = POL
-					is_ally_with = POL
+					has_non_aggression_pact_with = NPO
+					is_ally_with = NPO
 					has_non_aggression_pact_with = ROOT
 					is_ally_with = ROOT
 				}
@@ -3282,21 +3282,21 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = MUN_czech.1054
 			}
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
-				POL = {
+				NPO = {
 					declare_war_on = {
-						target = LIT
+						target = NLI
 						type = annex_everything
 					}
 					activate_decision = form_commonwealth	#help Poland form this more easily, meaning getting them as an ally becomes easier
 				}
 				add_to_war = {
-					targeted_alliance = POL
-					enemy = LIT
+					targeted_alliance = NPO
+					enemy = NLI
 				}
 			}
 		}
@@ -3406,7 +3406,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			YUG = {
+			FYG = {
 				exists = yes
 				NOT = {
 					is_ally_with = ROOT
@@ -3415,21 +3415,21 @@ focus_tree = {
 			}
 		}
 
-		will_lead_to_war_with = YUG
+		will_lead_to_war_with = FYG
 
 		ai_will_do = {
 			base = 1
 			modifier = {
 				factor = 0
 				strength_ratio = {
-					tag = YUG
+					tag = FYG
 					ratio < 0.7
 				}
 			}
 			modifier = {
 				factor = 0
 				any_other_country = {
-					has_guaranteed = YUG
+					has_guaranteed = FYG
 					NOT = {
 						has_guaranteed = ROOT
 						is_ally_with = ROOT
@@ -3444,10 +3444,10 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				has_war_with = YUG
-				has_wargoal_against = YUG
+				has_war_with = FYG
+				has_wargoal_against = FYG
 				NOT = {
-					country_exists = YUG
+					country_exists = FYG
 				}
 			}
 		}
@@ -3455,7 +3455,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = puppet_wargoal_focus
-				target = YUG
+				target = FYG
 				expire = 730
 			}
 		}
@@ -4221,7 +4221,7 @@ focus_tree = {
 		completion_reward = {
 			mark_focus_tree_layout_dirty = yes
 			create_dynamic_country = {
-				original_tag = CZE
+				original_tag = FCZ
 				reserve_dynamic_country = yes
 				set_country_flag = CZE_exile_committee
 				ROOT = {
@@ -4364,9 +4364,9 @@ focus_tree = {
 					}
 				}
 				AND = {
-					is_ally_with = POL
-					has_war_together_with = POL
-					POL = {
+					is_ally_with = NPO
+					has_war_together_with = NPO
+					NPO = {
 						has_capitulated = no
 					}
 				}
@@ -4397,13 +4397,13 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					is_ally_with = POL
-					has_war_together_with = POL
-					POL = {
+					is_ally_with = NPO
+					has_war_together_with = NPO
+					NPO = {
 						has_capitulated = no
 					}
 				}
-				POL = {
+				NPO = {
 					random_owned_controlled_state = {
 						prioritize = { 10 }
 						create_unit = {
@@ -4917,7 +4917,7 @@ focus_tree = {
 				any_neighbor_country = {
 					OR = {
 						has_added_tension_amount > 10
-						is_justifying_wargoal_against = PREV #PREV is ROOT (CZE) here
+						is_justifying_wargoal_against = PREV #PREV is ROOT (FCZ) here
 					}
 				}
 			}
@@ -5099,7 +5099,7 @@ focus_tree = {
 				is_subject = no
 			}
 			CZE_SLO_is_not_its_own_thing = yes
-			CZE = {
+			FCZ = {
 				controls_state = 70
 				controls_state = 71
 				has_war = no
@@ -6025,11 +6025,11 @@ focus_tree = {
 					controller = {
 						OR = {
 							is_neighbor_of = ROOT
-							original_tag = CZE
+							original_tag = FCZ
 							if = {
 								limit = {
 									SLO = {
-										is_subject_of = CZE
+										is_subject_of = FCZ
 									}
 								}
 								is_neighbor_of = SLO
@@ -6037,7 +6037,7 @@ focus_tree = {
 							if = {
 								limit = {
 									RUT = {
-										is_subject_of = CZE
+										is_subject_of = FCZ
 									}
 								}
 								is_neighbor_of = RUT
@@ -6049,7 +6049,7 @@ focus_tree = {
 						OR = {
 							has_government = ROOT
 							has_government = neutrality
-							original_tag = AUS
+							original_tag = FAU
 						}
 					}
 					OR = { #TODO_logan better checks then doing states, use has_railway_connection?
@@ -6088,7 +6088,7 @@ focus_tree = {
 					OR = {
 						has_government = ROOT
 						has_government = neutrality
-						original_tag = AUS
+						original_tag = FAU
 					}
 					OR = {
 						controls_state = 88
@@ -6109,7 +6109,7 @@ focus_tree = {
 					limit = {
 						OR = {
 							original_tag = HUN
-							original_tag = AUS
+							original_tag = FAU
 						}
 					}
 					set_country_flag = CZE_reintegrate_cross_border_rail_connections_flag
@@ -6288,7 +6288,7 @@ focus_tree = {
 			is_subject = no
 			any_neighbor_country = {
 				OR = {
-					original_tag = AUS
+					original_tag = FAU
 					original_tag = HUN
 				}
 				has_country_flag = CZE_reintegrate_cross_border_rail_connections_flag
@@ -6301,7 +6301,7 @@ focus_tree = {
 			}
 			hidden_trigger = {
 				OR = {
-					AUS = {
+					FAU = {
 						exists = yes
 					}
 					HUN = {
@@ -6328,7 +6328,7 @@ focus_tree = {
 					every_neighbor_country = {
 						limit = {
 							OR = {
-								original_tag = AUS
+								original_tag = FAU
 								original_tag = HUN
 							}
 							NOT = {
@@ -6343,7 +6343,7 @@ focus_tree = {
 				limit = {
 					has_country_flag = CZE_reintegrate_cross_border_rail_connections_flag
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					NOT = {
@@ -6407,7 +6407,7 @@ focus_tree = {
 			is_subject = no
 			any_neighbor_country = {
 				OR = {
-					original_tag = AUS
+					original_tag = FAU
 					original_tag = HUN
 				}
 				exists = yes
@@ -6624,17 +6624,17 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				FRA = {
 					add_opinion_modifier = {
-						target = CZE
+						target = FCZ
 						modifier = CZE_renewed_diplomatic_efforts
 					}
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 					add_ai_strategy = {
 						type = protect
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 				}
@@ -6653,12 +6653,12 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				ENG = {
 					add_opinion_modifier = {
-						target = CZE
+						target = FCZ
 						modifier = CZE_renewed_diplomatic_efforts
 					}
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 				}
@@ -6677,7 +6677,7 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				USA = {
 					add_opinion_modifier = {
-						target = CZE
+						target = FCZ
 						modifier = CZE_renewed_diplomatic_efforts
 					}
 				}
@@ -6800,7 +6800,7 @@ focus_tree = {
 					}
 					add_ai_strategy = {
 						type = befriend
-						id = CZE
+						id = FCZ
 						value = 5
 					}	
 				}
@@ -6913,7 +6913,7 @@ focus_tree = {
 				ENG = {
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 				}
@@ -6929,12 +6929,12 @@ focus_tree = {
 				FRA = {
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 					add_ai_strategy = {
 						type = protect
-						id = CZE
+						id = FCZ
 						value = 5
 					}
 				}
@@ -7079,12 +7079,12 @@ focus_tree = {
 				ENG = {
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 15
 					}
 					add_ai_strategy = {
 						type = protect
-						id = CZE
+						id = FCZ
 						value = 25
 					}
 				}
@@ -7100,12 +7100,12 @@ focus_tree = {
 				FRA = {
 					add_ai_strategy = {
 						type = support
-						id = CZE
+						id = FCZ
 						value = 15
 					}
 					add_ai_strategy = {
 						type = protect
-						id = CZE
+						id = FCZ
 						value = 15
 					}
 				}
@@ -8498,7 +8498,7 @@ focus_tree = {
 				}
 
 				random_country_with_original_tag = {
-					original_tag_to_check = CZE
+					original_tag_to_check = FCZ
 					limit = {
 						has_government = democratic
 					}
@@ -8574,7 +8574,7 @@ focus_tree = {
 
 			if = {
 				limit = {
-					AUS = {
+					FAU = {
 						exists = no
 					}
 				}
@@ -9079,7 +9079,7 @@ focus_tree = {
 				hidden_effect = {
 					every_possible_country = {
 						limit = {
-							original_tag = CZE
+							original_tag = FCZ
 						}
 						every_character = {
 							limit = {
@@ -9371,7 +9371,7 @@ focus_tree = {
 		y = 1
 
 		available = {
-			YUG = {
+			FYG = {
 				exists = yes
 				is_subject = no
 				has_government = communism
@@ -10748,7 +10748,7 @@ focus_tree = {
 				}
 			}
 			hidden_effect = {
-				add_ai_strategy = {	#marijn211: Prevents CZE leaving their own faction after letting France lead it
+				add_ai_strategy = {	#marijn211: Prevents FCZ leaving their own faction after letting France lead it
 					type = alliance
 					id = FRA
 					value = 150
@@ -11142,7 +11142,7 @@ focus_tree = {
 					}
 				}
 			}
-			AUS = {
+			FAU = {
 				exists = yes
 				is_in_faction = no
 				NOT = {
@@ -11152,7 +11152,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			AUS = {
+			FAU = {
 				OR = {
 					exists = no
 					is_subject = yes
@@ -11170,7 +11170,7 @@ focus_tree = {
 						original_tag = FRA
 					}
 				}
-				AUS = {
+				FAU = {
 					save_global_event_target_as = CZE_invited_country
 				}
 				FRA = {
@@ -11178,7 +11178,7 @@ focus_tree = {
 				}
 			}
 			else = {
-				AUS = {
+				FAU = {
 					country_event = generic.5
 				}
 			}
@@ -11232,7 +11232,7 @@ focus_tree = {
 						is_on_continent = europe
 					}
 					NOT = {
-						original_tag = SWI
+						original_tag = NSW
 					}
 					CZE_has_neutrality_idea = yes
 				}
@@ -11279,7 +11279,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			SWI = {
+			NSW = {
 				exists = yes
 				is_subject = no
 				has_war = no
@@ -11287,13 +11287,13 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			SWI = {
+			NSW = {
 				country_event = MUN_czech.1011
 			}
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
-				give_guarantee = SWI
-				SWI = {
+				give_guarantee = NSW
+				NSW = {
 					give_guarantee = ROOT
 				}
 			}
@@ -11333,7 +11333,7 @@ focus_tree = {
 					}
 				}
 			}
-			YUG = {
+			FYG = {
 				exists = yes
 				is_in_faction = no
 				NOT = {
@@ -11343,7 +11343,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			YUG = {
+			FYG = {
 				OR = {
 					exists = no
 					is_subject = yes
@@ -11361,7 +11361,7 @@ focus_tree = {
 						original_tag = FRA
 					}
 				}
-				YUG = {
+				FYG = {
 					save_global_event_target_as = CZE_invited_country
 				}
 				FRA = {
@@ -11369,7 +11369,7 @@ focus_tree = {
 				}
 			}
 			else = {
-				YUG = {
+				FYG = {
 					country_event = generic.5
 				}
 			}
@@ -11395,7 +11395,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			is_ally_with = YUG
+			is_ally_with = FYG
 			975 = {
 				owner = {
 					is_subject = no
@@ -11487,9 +11487,9 @@ focus_tree = {
 		available = {
 			count_triggers = {
 				amount = 2
-				is_in_faction_with = AUS
+				is_in_faction_with = FAU
 				is_in_faction_with = HUN
-				is_in_faction_with = YUG
+				is_in_faction_with = FYG
 				is_in_faction_with = SOV
 			}
 		}
@@ -11527,8 +11527,8 @@ focus_tree = {
 				limit = {
 					is_in_faction_with = ROOT
 					OR = {
-						original_tag = POL
-						original_tag = AUS
+						original_tag = NPO
+						original_tag = FAU
 						original_tag = HUN
 						BUL_is_balkan_nation = yes
 					}
@@ -11682,7 +11682,7 @@ focus_tree = {
 					SOV = {
 						is_faction_leader = yes
 						all_enemy_country = {
-							has_war_with = CZE
+							has_war_with = FCZ
 						}
 					}
 				}
@@ -11791,10 +11791,10 @@ focus_tree = {
 		available = {
 			is_subject = no
 			strength_ratio = {
-				tag = POL
+				tag = NPO
 				ratio > 0.7
 			}
-			POL = {
+			NPO = {
 				is_subject = no
 				owns_state = 89
 				owns_state = 91
@@ -11816,16 +11816,16 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				has_war_with = POL
+				has_war_with = NPO
 				AND = {
 					89 = {
 						NOT = {
-							is_owned_by = POL
+							is_owned_by = NPO
 						}
 					}
 					91 = {
 						NOT = {
-							is_owned_by = POL
+							is_owned_by = NPO
 						}
 					}
 				}
@@ -11833,7 +11833,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = MUN_czech.1001
 			}
 
@@ -11920,7 +11920,7 @@ focus_tree = {
 			base = 0
 			modifier = {
 				add = 2
-				POL = {
+				NPO = {
 					is_ai = no
 				}
 			}
@@ -11943,7 +11943,7 @@ focus_tree = {
 					}
 				}
 			}
-			POL = {
+			NPO = {
 				exists = yes
 				is_in_faction = no
 				NOT = {
@@ -11974,7 +11974,7 @@ focus_tree = {
 						original_tag = FRA
 					}
 				}
-				POL = {
+				NPO = {
 					save_global_event_target_as = CZE_invited_country
 				}
 				FRA = {
@@ -11982,7 +11982,7 @@ focus_tree = {
 				}
 			}
 			else = {
-				POL = {
+				NPO = {
 					country_event = MUN_czech.1009
 				}
 			}
@@ -12015,7 +12015,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			POL = {
+			NPO = {
 				is_ally_with = ROOT
 				OR = {
 					is_subject = no
@@ -12029,7 +12029,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			POL = {
+			NPO = {
 				country_event = MUN_czech.1031
 				custom_effect_tooltip = if_they_accept_newline_tt
 				effect_tooltip = {
@@ -12040,7 +12040,7 @@ focus_tree = {
 			}
 			effect_tooltip = {
 				annex_country = {
-					target = POL
+					target = NPO
 				}
 				set_cosmetic_tag = CZE_POL_union
 			}
@@ -14037,7 +14037,7 @@ focus_tree = {
 	
 		available = {
 			74 = {
-				is_fully_controlled_by = CZE
+				is_fully_controlled_by = FCZ
 			}
 		}
 	
@@ -14136,7 +14136,7 @@ focus_tree = {
 		available = {
 			has_tech = excavation3
 			9 = {
-				is_fully_controlled_by = CZE
+				is_fully_controlled_by = FCZ
 			}
 		}
 	
@@ -17238,7 +17238,7 @@ focus_tree = {
 		allow_branch = {
 			has_global_flag = CZE_skoda_focus_activation
 			has_completed_focus = CZE_raise_more_industrial_funds
-			CZE = {
+			FCZ = {
 				exists = yes
 				is_ai = no
 			}
@@ -18155,7 +18155,7 @@ focus_tree = {
 				any_neighbor_country = {
 					OR = {
 						has_added_tension_amount > 15
-						is_justifying_wargoal_against = PREV #PREV is ROOT (CZE) here
+						is_justifying_wargoal_against = PREV #PREV is ROOT (FCZ) here
 					}
 				}
 			}
@@ -19286,7 +19286,7 @@ focus_tree = {
 			add_equipment_to_stockpile = {
 				type = convoy_1
 				amount = 75
-				producer = CZE
+				producer = FCZ
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

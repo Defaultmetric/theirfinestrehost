@@ -1,7 +1,7 @@
 DEN_avoid_axis_or_comintern = {
 
 	allowed = { 
-		original_tag = DEN 
+		original_tag = NDE 
 		has_dlc = "Arms Against Tyranny"
 	}
 	
@@ -16,7 +16,7 @@ DEN_avoid_axis_or_comintern = {
 			AND = {
 				has_country_flag = DEN_has_occupation_flag
 				any_other_country = { #TODO_DANNE: Optimize this
-					has_subject = DEN
+					has_subject = NDE
 					OR = {
 						has_government = democratic 
 						AND = {
@@ -57,7 +57,7 @@ DEN_avoid_axis_or_comintern = {
 DEN_avoid_allies = {
 
 	allowed = { 
-		original_tag = DEN 
+		original_tag = NDE 
 		has_dlc = "Arms Against Tyranny"
 	}
 	
@@ -72,7 +72,7 @@ DEN_avoid_allies = {
 			AND = {
 				has_country_flag = DEN_has_occupation_flag
 				any_other_country = { #TODO_DANNE: Optimize this
-					has_subject = DEN
+					has_subject = NDE
 					OR = {
 						has_government = fascism 
 						has_government = communism
@@ -136,7 +136,7 @@ DEN_avoid_allies = {
 
 	ai_strategy = {
 		type = alliance
-		id = "HOL"
+		id = "FNL"
 		value = -1000
 	}
 
@@ -148,20 +148,20 @@ DEN_avoid_allies = {
 
 	ai_strategy = {
 		type = alliance
-		id = "BEL"
+		id = "FBL"
 		value = -1000
 	}
 
 	ai_strategy = {
 		type = alliance
-		id = "NOR"
+		id = "NNO"
 		value = -1000
 	}
 }
 
 DEN_buy_planes_from_netherlands_and_uk = {
 	allowed = {
-		original_tag = DEN
+		original_tag = NDE
 		has_dlc = "Arms Against Tyranny"
 	}
 	enable = {
@@ -185,20 +185,20 @@ DEN_buy_planes_from_netherlands_and_uk = {
 	# We want to buy from the Netherlands
 	ai_strategy = {
 		type = diplo_action_desire
-		id = HOL
+		id = FNL
 		target = market_access_rights
 		value = 50
 	}
 	ai_strategy = {
 		type = equipment_market_buy
 		equipment_type = small_plane_cas_airframe
-		seller = HOL
+		seller = FNL
 		value = 100
 	}
 	ai_strategy = {
 		type = equipment_market_buy
 		equipment_type = small_plane_airframe
-		seller = HOL
+		seller = FNL
 		value = 100
 	}
 
@@ -225,7 +225,7 @@ DEN_buy_planes_from_netherlands_and_uk = {
 
 DEN_prioritize_artillery = {
 	allowed = {
-		original_tag = DEN
+		original_tag = NDE
 		has_dlc = "Arms Against Tyranny"
 	}
 	enable = {

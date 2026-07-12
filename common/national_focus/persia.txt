@@ -51,7 +51,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			tag = PER
+			tag = FPR
 			has_dlc = "Graveyard of Empires"
 		} 
 	}
@@ -1240,7 +1240,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			CZE = {
+			FCZ = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -1249,7 +1249,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			CZE = {
+			FCZ = {
 				OR = {
 					exists = no
 					has_war_with = ROOT
@@ -1683,7 +1683,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			SWE = {
+			FSW = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -1692,7 +1692,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			SWE = {
+			FSW = {
 				OR = {
 					exists = no
 					has_war_with = ROOT
@@ -2320,7 +2320,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			#PER = {
+			#FPR = {
 				#NOT = {
 				#	has_completed_focus = PER_writing_on_wall
 				#}
@@ -3749,11 +3749,11 @@ focus_tree = {
 		completion_reward = {
 			GER = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
-			PER = {
+			FPR = {
 				add_opinion_modifier = {
 				target = GER
 				modifier = large_increase
@@ -4305,7 +4305,7 @@ focus_tree = {
 		
 		available = {
 			has_government = neutrality
-			PER = {
+			FPR = {
 				controls_state = 229
 				controls_state = 230
 				controls_state = 231
@@ -4862,7 +4862,7 @@ focus_tree = {
 	 			}
 	 			add_dynamic_modifier = {
 	 				modifier = ETH_state_local_offensive_dynamic_modifier
-	 				scope = PER
+	 				scope = FPR
 	 				days = 90
 	 			}
 	 		}
@@ -4915,7 +4915,7 @@ focus_tree = {
 	 			}
 	 			add_dynamic_modifier = {
 	 				modifier = ETH_state_local_offensive_dynamic_modifier
-	 				scope = PER
+	 				scope = FPR
 	 				days = 90
 	 			}
 	 		}
@@ -4934,7 +4934,7 @@ focus_tree = {
 		
 		available = {
 			266 = {
-				is_owned_and_controlled_by = PER
+				is_owned_and_controlled_by = FPR
 			}
 			has_defensive_war = yes
 		}
@@ -4967,7 +4967,7 @@ focus_tree = {
 	 			}
 	 			add_dynamic_modifier = {
 	 				modifier = PER_state_local_defensive_dynamic_modifier
-	 				scope = PER
+	 				scope = FPR
 	 				days = 90
 	 			}
 				add_building_construction = {
@@ -5034,7 +5034,7 @@ focus_tree = {
 	 			}
 	 			add_dynamic_modifier = {
 	 				modifier = PER_state_local_defensive_dynamic_modifier
-	 				scope = PER
+	 				scope = FPR
 	 				days = 90
 	 			}
 	 		}
@@ -5223,7 +5223,7 @@ focus_tree = {
 					ELSE_IF = {
 						limit = {
 							#has_country_flag = PER_operation_countenance_flag
-							has_war_with = PER
+							has_war_with = FPR
 							original_tag = ENG
 						}
 						country_event = {
@@ -5234,7 +5234,7 @@ focus_tree = {
 					ELSE_IF = {
 						limit = {
 							#has_country_flag = PER_operation_countenance_flag
-							has_war_with = PER
+							has_war_with = FPR
 							original_tag = SOV
 						}
 						country_event = {
@@ -5245,7 +5245,7 @@ focus_tree = {
 					ELSE_IF = {
 						limit = {
 							#has_country_flag = PER_operation_countenance_flag
-							has_war_with = PER
+							has_war_with = FPR
 							original_tag = SOV
 							has_global_flag = SOV_soviet_invasion_of_iran_flag
 						}
@@ -5325,7 +5325,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5343,7 +5343,7 @@ focus_tree = {
 					}
 				}
 				OR = {
-					PER = {
+					FPR = {
 						is_subject = yes
 					}
 					has_completed_focus = PER_rebuilding_iran
@@ -5379,7 +5379,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5420,7 +5420,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject_of = ENG
 			}
 		}
@@ -5431,7 +5431,7 @@ focus_tree = {
 
 		allow_branch = {
 			OR = {
-				PER = {
+				FPR = {
 					is_subject_of = ENG
 				}
 				has_completed_focus = PER_reinstate_qajars
@@ -5448,7 +5448,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = PER_reinstate_qajars_tt
-			PER = {
+			FPR = {
 				country_event = {
 					id = PER_imperial_events.230
 					hours = 1
@@ -5467,7 +5467,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5505,7 +5505,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5544,12 +5544,12 @@ focus_tree = {
 				add_equipment_to_stockpile = { 
 					type = infantry_equipment_1 
 					amount = 2500  
-					producer = PER
+					producer = FPR
 				}
 				add_equipment_to_stockpile = { 
 					type = artillery_equipment 
 					amount = 500  
-					producer = PER
+					producer = FPR
 				}
 			}
 		}
@@ -5565,7 +5565,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5673,7 +5673,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5721,7 +5721,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5765,7 +5765,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5866,7 +5866,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			PER = {
+			FPR = {
 				is_subject = yes
 			}
 		}
@@ -5914,15 +5914,15 @@ focus_tree = {
 		
 		available = {
 			765 = {
-				is_owned_and_controlled_by = PER
+				is_owned_and_controlled_by = FPR
 			}
 
 			658 = {
-				is_owned_and_controlled_by = PER
+				is_owned_and_controlled_by = FPR
 			}
 
 			656 = {
-				is_owned_and_controlled_by = PER
+				is_owned_and_controlled_by = FPR
 			}
 		}
 
@@ -5945,15 +5945,15 @@ focus_tree = {
 
 		completion_reward = {
 			765 = {
-				add_core_of = PER
+				add_core_of = FPR
 			}
 
 			658 = {
-				add_core_of = PER
+				add_core_of = FPR
 			}
 
 			656 = {
-				add_core_of = PER
+				add_core_of = FPR
 			}
 			hidden_effect = {
 				mark_focus_tree_layout_dirty = yes
@@ -6055,7 +6055,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			PER = {
+			FPR = {
 				country_event = {
 					id = PER_imperial_events.20
 					hours = 1
@@ -6112,7 +6112,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.02
 			custom_effect_tooltip = CHL_skip_one_line_tt
-			PER = {
+			FPR = {
 				country_event = {
 					id = PER_imperial_events.50
 					hours = 1
@@ -6220,7 +6220,7 @@ focus_tree = {
 		custom_effect_tooltip = PER_shahbanu_tt
 			
 			hidden_effect = {
-				PER = {
+				FPR = {
 					country_event = {
 						id = PER_imperial_events.40
 						hours = 1
@@ -6534,13 +6534,13 @@ focus_tree = {
 		completion_reward = {
 			AFG = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = huge_increase
 				}
 			}
 			IRQ = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = huge_increase
 				}
 			}
@@ -6866,7 +6866,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			PER = {
+			FPR = {
 				country_event = {
 					id = PER_imperial_events.30
 					hours = 1
@@ -6880,43 +6880,43 @@ focus_tree = {
 			custom_effect_tooltip = CHL_skip_one_line_tt
 			USA = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			ENG = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			GER = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			FRA = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			SOV = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			JAP = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
 			ITA = {
 				add_opinion_modifier = {
-				target = PER
+				target = FPR
 				modifier = large_increase
 				}
 			}
@@ -7303,7 +7303,7 @@ focus_tree = {
 			NOT = {
 				any_other_country = {
 					is_in_faction_with = SOU
-					has_war_with = PER	
+					has_war_with = FPR	
 				}
 			}
 			SOU = {
@@ -7323,7 +7323,7 @@ focus_tree = {
 				has_war_with = SOU 
 				any_other_country = {
 					is_in_faction_with = SOU
-					has_war_with = PER	
+					has_war_with = FPR	
 				}
 			}
 		}
@@ -7967,16 +7967,16 @@ focus_tree = {
 		available = {
 			has_government = neutrality
 			is_subject = no
-			GRE = {
+			NNG = {
 				exists = yes
 			}
 			NOT = {
-				has_war_with = GRE
+				has_war_with = NNG
 			}
 		}
 
 		bypass = {
-			has_war_with = GRE
+			has_war_with = NNG
 		}
 
 		ai_will_do = {
@@ -7987,19 +7987,19 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 
-		will_lead_to_war_with = GRE #To give Greece a headsup that PER might be about to attack
+		will_lead_to_war_with = NNG #To give Greece a headsup that FPR might be about to attack
 
 		completion_reward = {
-			PER = {
+			FPR = {
 				create_wargoal = {
-					target = GRE
+					target = NNG
 					type = annex_everything
 				}
 			}
 
 			if = {
 				limit = {
-					GRE = {
+					NNG = {
 						has_country_flag = GRE_byz_unified_flag
 					}
 				}
@@ -9570,7 +9570,7 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = PER_free_elections_tt
 			custom_effect_tooltip = CHL_skip_one_line_tt
-			PER = { 
+			FPR = { 
 				country_event = {
 					id = PER_imperial_events.220
 					hours = 1
@@ -12697,7 +12697,7 @@ focus_tree = {
 			random_owned_controlled_state = {
 				create_unit = {
 				    division = "name = \"Vanguard\" division_template = \"Vanguard Division\" start_manpower_factor = 1"
-				    owner = PER
+				    owner = FPR
 				    count = 3
 				    allow_spawning_on_enemy_provs = no
 				    id = 455
@@ -12808,7 +12808,7 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			PER = {
+			FPR = {
 				random_owned_controlled_state = {
 					prioritize = { 413 412}
 					add_resource = {
@@ -13719,7 +13719,7 @@ focus_tree = {
 			has_government = fascism
 			SOU = {
 				exists = yes
-				NOT = {is_subject_of = PER} #this will basically never happen but just in case lol
+				NOT = {is_subject_of = FPR} #this will basically never happen but just in case lol
 			}
 		}
 
@@ -13728,7 +13728,7 @@ focus_tree = {
 			SOU = {
 				OR = {
 					exists = no
-					is_subject_of = PER
+					is_subject_of = FPR
 				}
 			}
 		}

@@ -3850,7 +3850,7 @@ focus_tree = {
 						original_tag = OMA
 						original_tag = YEM
 						original_tag = IRQ
-						original_tag = PER
+						original_tag = FPR
 						original_tag = FSA
 						original_tag = JOR
 						original_tag = PAL
@@ -3868,7 +3868,7 @@ focus_tree = {
 						original_tag = MOR
 						original_tag = RIF
 						original_tag = MAL
-						original_tag = INS
+						original_tag = INF
 						original_tag = MLD
 						original_tag = BAN
 						original_tag = PAK
@@ -3883,7 +3883,7 @@ focus_tree = {
 						original_tag = AZR
 						original_tag = DAG
 						original_tag = CIN
-						original_tag = ALB
+						original_tag = FAL
 						original_tag = TAT
 						original_tag = BSK
 						original_tag = BUK
@@ -5373,7 +5373,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = AFG_proclaim_the_second_afghan_empire
 
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 		
 		cost = 10
 
@@ -5382,13 +5382,13 @@ focus_tree = {
 		}
 		available = {
 			OR = {
-				PER = {
+				FPR = {
 					exists = yes
 					NOT = {
 						is_ally_with = ROOT
 					}
 				}
-				PER = {
+				FPR = {
 					exists = no
 				}
 			}
@@ -5403,7 +5403,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			PER = {
+			FPR = {
 				every_core_state = {
 					add_claim_by = ROOT
 				}
@@ -5413,20 +5413,20 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					PER = {
+					FPR = {
 						exists = yes
 					}
 				}
 				create_wargoal = {
 					type = annex_everything
-					target = PER
+					target = FPR
 					expire = 0
 				}	
 			}
 			ELSE = {
 				every_state = {
 	        		limit = {
-	        			is_core_of = PER
+	        			is_core_of = FPR
 	        		}
 	        		IF = {
 	        			limit = {
@@ -5624,7 +5624,7 @@ focus_tree = {
 			    		is_core_of = ROOT
 			    	}
 			        OR = {
-			        	is_core_of = PER
+			        	is_core_of = FPR
 			        	is_core_of = PAK
 			        }
 			    }
@@ -6102,16 +6102,16 @@ focus_tree = {
 		will_lead_to_war_with = RIF
 		will_lead_to_war_with = MOR
 		will_lead_to_war_with = SPR
-		will_lead_to_war_with = POR
-		will_lead_to_war_with = INS
+		will_lead_to_war_with = NPR
+		will_lead_to_war_with = INF
 		will_lead_to_war_with = MAL
 		will_lead_to_war_with = PAK
 		will_lead_to_war_with = BAN
 		will_lead_to_war_with = KSH
 		will_lead_to_war_with = SIK
 		will_lead_to_war_with = AZR
-		will_lead_to_war_with = PER
-		will_lead_to_war_with = ALB
+		will_lead_to_war_with = FPR
+		will_lead_to_war_with = FAL
 		will_lead_to_war_with = TAT
 		will_lead_to_war_with = CRI
 		will_lead_to_war_with = TUR
@@ -7343,7 +7343,7 @@ focus_tree = {
 				is_in_faction = no
 			}
 			OR = {
-				PER = {
+				FPR = {
 					exists = yes
 					is_in_faction = no
 					is_subject = no
@@ -7359,7 +7359,7 @@ focus_tree = {
 		}
 
 		bypass = {
-			PER = {
+			FPR = {
 				OR = {
 					exists = no
 					is_in_faction = yes
@@ -7400,14 +7400,14 @@ focus_tree = {
 
 		cost = 5
 
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 
 		ai_will_do = {
 			factor = 10
 		}
 
 		bypass = {
-			PER = {
+			FPR = {
 				OR = {
 					exists = no
 					has_War_with = ROOT
@@ -7419,7 +7419,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			PER = {
+			FPR = {
 				exists = yes
 			}
 		}
@@ -7428,7 +7428,7 @@ focus_tree = {
 
 		completion_reward = {
 			create_wargoal = {
-				target = PER
+				target = FPR
 				type = puppet_wargoal_focus
 			}
 		}
@@ -9973,7 +9973,7 @@ focus_tree = {
 		available = {
 			is_in_faction_with = ENG
 			NOT = {
-				is_in_faction_with = PER
+				is_in_faction_with = FPR
 			}
 			NOT = { has_idea = neutrality_idea }
 		}
@@ -10098,8 +10098,8 @@ focus_tree = {
 
 		bypass = {
 			OR = { 
-				has_war_with = PER
-				PER = {
+				has_war_with = FPR
+				FPR = {
 					OR = {
 						exists = no
 						AND = {
@@ -10114,9 +10114,9 @@ focus_tree = {
 		}
 		available = {
 			NOT = {
-				is_in_faction_with = PER
+				is_in_faction_with = FPR
 			}
-			PER = {
+			FPR = {
 				is_in_faction = no
 			}
 			NOT = { has_idea = neutrality_idea }
@@ -10126,7 +10126,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			create_wargoal = {
-				target = PER
+				target = FPR
 				type = puppet_wargoal_focus
 			}
 		}
@@ -10339,7 +10339,7 @@ focus_tree = {
 					}
 				}
 			}
-			PER = {
+			FPR = {
 				OR = {
 					has_capitulated = yes
 					is_subject = yes
@@ -10404,7 +10404,7 @@ focus_tree = {
 				custom_effect_tooltip = AFG_khorasan_buffer_state_tt
 				hidden_effect = {
 					create_dynamic_country = {
-						original_tag = PER
+						original_tag = FPR
 						set_country_flag = AFG_khorasan_flag
 						set_politics = {
 							ruling_party = ROOT
@@ -11733,13 +11733,13 @@ focus_tree = {
 		relative_position_id = AFG_communist_industrialization
 		#mutually_exclusive = { focus = AFG_propose_confederation_with_pakistan }
 		cost = 5
-		will_lead_to_war_with = PER
+		will_lead_to_war_with = FPR
 		ai_will_do = {
 			factor = 10
 		}
 		available = {
 			is_in_faction_with = SOU
-			PER = {
+			FPR = {
 				exists = yes
 				NOT = {
 					OR = {
@@ -11755,7 +11755,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			create_wargoal = {
-				target = PER
+				target = FPR
 				type = puppet_wargoal_focus
 			}
 		}

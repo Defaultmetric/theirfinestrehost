@@ -377,7 +377,7 @@ ENG_vauxhall_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	
@@ -589,7 +589,7 @@ ENG_john_brown_organization = {
 			}
 
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -597,7 +597,7 @@ ENG_john_brown_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	}
@@ -734,7 +734,7 @@ ENG_de_havilland_organization = {
 		has_dlc = "Arms Against Tyranny"
 		OR = {
 			tag = ENG
-			tag = NOR 		
+			tag = NNO 		
 		}
 	}
 
@@ -749,7 +749,7 @@ ENG_de_havilland_organization = {
 
 		if = {
 			limit = {
-				FROM = { tag = NOR }
+				FROM = { tag = NNO }
 			}
 			FROM = {
 				has_completed_focus = NOR_invite_transnational_manufacturers
@@ -770,7 +770,7 @@ ENG_fairey_aviation_organization = {
 				has_dlc = "Battle for the Bosporus"
 			}
 			AND = {
-				tag = ETH
+				tag = FET
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -778,7 +778,7 @@ ENG_fairey_aviation_organization = {
 
 	visible = {
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
 	}
@@ -811,7 +811,7 @@ ENG_fairey_aviation_organization = {
 		}
 		ELSE_IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -873,14 +873,14 @@ ENG_rsaf_enfield_organization = {
 		OR = {
 			tag = ENG 
 			AND = {
-				tag = GRE
+				tag = NNG
 				has_dlc = "Battle for the Bosporus"
 			}
 			AND = {
 				OR = {
-					original_TAG = LAT
-					original_TAG = LIT
-					original_TAG = EST
+					original_TAG = NLA
+					original_TAG = NLI
+					original_TAG = NES
 				}
 				has_dlc = "No Step Back"
 			}
@@ -900,9 +900,9 @@ ENG_rsaf_enfield_organization = {
 			limit = {
 				FROM = {
 					OR = {
-						original_TAG = LAT
-						original_TAG = LIT
-						original_TAG = EST
+						original_TAG = NLA
+						original_TAG = NLI
+						original_TAG = NES
 					}
 				}
 			}
@@ -952,13 +952,13 @@ ENG_vauxhall_automotive_organization = {
 	allowed = {	
 		OR = {
 			tag = ENG
-			tag = POL # If Poland sets up a local one
+			tag = NPO # If Poland sets up a local one
 			AND = {
 				tag = ROM
 				has_dlc = "Death or Dishonor"
 			}
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -967,14 +967,14 @@ ENG_vauxhall_automotive_organization = {
 	visible = {
 		IF = { 
 			limit = {
-				FROM = { original_tag = POL }
+				FROM = { original_tag = NPO }
 			}
 			FROM = {
 				has_country_flag = POL_vauxhall_motors
 			}
 		}
 		IF = {
-			limit = { FROM = { original_tag = ETH } }
+			limit = { FROM = { original_tag = FET } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}	
 	}
@@ -991,7 +991,7 @@ ENG_vauxhall_automotive_organization = {
 		IF = {
 			limit = {
 				OR = { 
-					FROM = { original_tag = ETH }
+					FROM = { original_tag = FET }
 				}  
 			}
 			custom_trigger_tooltip = {
@@ -1022,9 +1022,9 @@ ENG_royal_arsenal_organization = {
 			tag = ENG
 			AND = {
 				OR = {
-					original_TAG = LAT
-					original_TAG = LIT
-					original_TAG = EST
+					original_TAG = NLA
+					original_TAG = NLI
+					original_TAG = NES
 				}
 				has_dlc = "No Step Back"
 			}
@@ -1044,9 +1044,9 @@ ENG_royal_arsenal_organization = {
 			limit = {
 				FROM = {
 					OR = {
-						original_TAG = LAT
-						original_TAG = LIT
-						original_TAG = EST
+						original_TAG = NLA
+						original_TAG = NLI
+						original_TAG = NES
 					}
 				}
 			}
@@ -1071,15 +1071,15 @@ ENG_crossley_motors_organization = {
 				has_dlc = "Gotterdammerung"
 			}
 			AND = {
-				tag = EST
+				tag = NES
 				has_dlc = "No Step Back"
 			}
 			AND = {
-				tag = LAT
+				tag = NLA
 				has_dlc = "No Step Back"
 			}
 			AND = {
-				tag = LIT
+				tag = NLI
 				has_dlc = "No Step Back"
 			}
 		}
@@ -1110,9 +1110,9 @@ ENG_crossley_motors_organization = {
 			limit = {
 				FROM = { 
 					OR = {
-						original_tag = EST 
-						original_tag = LAT
-						original_tag = LIT
+						original_tag = NES 
+						original_tag = NLA
+						original_tag = NLI
 					}
 				}
 			}

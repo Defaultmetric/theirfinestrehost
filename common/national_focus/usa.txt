@@ -384,13 +384,13 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					INS = {
+					INF = {
 						exists = yes
 						is_subject = yes
 					}
 				}
 				create_wargoal = {
-					target = INS
+					target = INF
 					type = puppet_wargoal_focus
 					expire = 0
 				}
@@ -1772,7 +1772,7 @@ focus_tree = {
 			NOT = {
 				OR = {
 					has_war_with = JAP
-					has_war_with = CHI
+					has_war_with = FCH
 				}
 			}
 		}
@@ -4310,7 +4310,7 @@ focus_tree = {
 					exists = no
 				}
 			}
-			INS = {
+			INF = {
 				OR = {
 					has_war_with = ROOT
 					is_subject_of = ROOT
@@ -4361,12 +4361,12 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					INS = { is_subject = yes }
+					INF = { is_subject = yes }
 				}
-				INS = { OVERLORD = { country_event = mtg_usa_secure_asia.4 } }
+				INF = { OVERLORD = { country_event = mtg_usa_secure_asia.4 } }
 			}
 			else = {
-				INS = { country_event = mtg_usa_secure_asia.1 }
+				INF = { country_event = mtg_usa_secure_asia.1 }
 			}
 			if = {
 				limit = {

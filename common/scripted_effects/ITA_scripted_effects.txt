@@ -44,7 +44,7 @@ ITA_end_the_italo_ethiopian_war = {
 
 
 ITA_manage_italian_defeat_in_ethiopia_effect = {
-	#First missiolini focus (Struggle in ETH, AByssinian Fiasco and Solid Progress) are handled before this effect
+	#First missiolini focus (Struggle in FET, AByssinian Fiasco and Solid Progress) are handled before this effect
 	if = {
 		limit = {
 			NOT = { has_completed_focus = ITA_servizio_informazione_militare }
@@ -174,7 +174,7 @@ ITA_missiolini_progress_in_ethiopia_success_effect = {
 			has_dlc = "By Blood Alone"
 		}
 		effect_tooltip = { #With BBA this is handled in Ethiopian decisions
-			ETH = { add_war_support = -0.1 }
+			FET = { add_war_support = -0.1 }
 		}
 	}
 
@@ -201,7 +201,7 @@ ITA_missiolini_conquer_ethiopia_failure_effect = {
 	every_controlled_state = {
 		limit = {
 			NOT = { is_owned_by = ROOT }
-			is_core_of = ETH
+			is_core_of = FET
 		}
 		add_compliance = -5
 	}
@@ -221,7 +221,7 @@ ITA_missiolini_pacify_ethiopia_failure_effect = {
 	every_controlled_state = {
 		limit = {
 			NOT = { is_owned_by = ROOT }
-			is_core_of = ETH
+			is_core_of = FET
 		}
 		add_compliance = -5
 	}
@@ -234,7 +234,7 @@ ITA_missiolini_pacify_ethiopia_success_effect = {
 	every_owned_state = {
 		limit = {
 			OR = {
-				is_core_of = ETH
+				is_core_of = FET
 				is_core_of = ERI
 				is_core_of = SOM
 			}
@@ -615,7 +615,7 @@ ITA_missiolini_occupy_albania_success_effect = {
 
 		custom_effect_tooltip = ITA_missiolini_occupy_albania_subject_effects
 		effect_tooltip = {
-			ALB = {
+			FAL = {
 				add_autonomy_score = {
 					value = -35
 					localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -664,13 +664,13 @@ ITA_missiolini_occupy_albania_success_effect = {
 				limit = {
 					has_subject_autonomy_feature = yes
 					any_other_country = {
-						original_tag = ALB
+						original_tag = FAL
 						is_subject_of = ROOT
 					}
 				}
 				random_subject_country = {
 					limit = {
-						original_tag = ALB
+						original_tag = FAL
 						is_subject_of = ROOT
 					}
 					add_autonomy_score = {
@@ -705,7 +705,7 @@ ITA_missiolini_occupy_albania_success_effect = {
 
 		custom_effect_tooltip = ITA_missiolini_occupy_albania_subject_effects
 		effect_tooltip = {
-			ALB = {
+			FAL = {
 				add_autonomy_score = {
 					value = -50
 					localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -754,13 +754,13 @@ ITA_missiolini_occupy_albania_success_effect = {
 				limit = {
 					has_subject_autonomy_feature = yes
 					any_other_country = {
-						original_tag = ALB
+						original_tag = FAL
 						is_subject_of = ROOT
 					}
 				}
 				random_subject_country = {
 					limit = {
-						original_tag = ALB
+						original_tag = FAL
 						is_subject_of = ROOT
 					}
 					add_autonomy_score = {
@@ -808,7 +808,7 @@ ITA_missiolini_occupy_dalmatia_success_effect = {
 			}
 			every_controlled_state = {
 				limit = {
-					is_core_of = YUG
+					is_core_of = FYG
 					is_fully_controlled_by = ROOT
 					NOT = { state = 103 } #Dalmatia goes first above
 					has_resistance = yes
@@ -844,7 +844,7 @@ ITA_missiolini_occupy_dalmatia_success_effect = {
 							limit = {
 								is_subject_of = ROOT
 								capital_scope = {
-									is_core_of = YUG
+									is_core_of = FYG
 									is_fully_controlled_by = PREV
 								}
 							}
@@ -887,7 +887,7 @@ ITA_missiolini_occupy_dalmatia_success_effect = {
 			}
 			every_controlled_state = {
 				limit = {
-					is_core_of = YUG
+					is_core_of = FYG
 					is_fully_controlled_by = ROOT
 					NOT = { state = 103 } #Dalmatia goes first above
 					has_resistance = yes
@@ -923,7 +923,7 @@ ITA_missiolini_occupy_dalmatia_success_effect = {
 							limit = {
 								is_subject_of = ROOT
 								capital_scope = {
-									is_core_of = YUG
+									is_core_of = FYG
 									is_fully_controlled_by = PREV
 								}
 							}
@@ -973,7 +973,7 @@ ITA_missiolini_occupy_greece_success_effect = {
 		custom_effect_tooltip = ITA_missiolini_occupy_greece_occupation_effects
 		every_controlled_state = {
 			limit = {
-				is_core_of = GRE
+				is_core_of = NNG
 				is_fully_controlled_by = ROOT
 				has_resistance = yes
 			}
@@ -987,11 +987,11 @@ ITA_missiolini_occupy_greece_success_effect = {
 			}
 			if = {
 				limit = {
-					GRE = {
+					NNG = {
 						is_subject_of = ROOT
 					}
 				}
-				GRE = {
+				NNG = {
 					add_autonomy_score = {
 						value = -35
 						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1001,7 +1001,7 @@ ITA_missiolini_occupy_greece_success_effect = {
 			else = {
 				custom_effect_tooltip = ITA_missiolini_occupy_greece_subject_effects
 				effect_tooltip = {
-					GRE = {
+					NNG = {
 						add_autonomy_score = {
 							value = -35
 							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1022,7 +1022,7 @@ ITA_missiolini_occupy_greece_success_effect = {
 		custom_effect_tooltip = ITA_missiolini_occupy_greece_occupation_effects
 		every_controlled_state = {
 			limit = {
-				is_core_of = GRE
+				is_core_of = NNG
 				is_fully_controlled_by = ROOT
 				has_resistance = yes
 			}
@@ -1036,11 +1036,11 @@ ITA_missiolini_occupy_greece_success_effect = {
 			}
 			if = {
 				limit = {
-					GRE = {
+					NNG = {
 						is_subject_of = ROOT
 					}
 				}
-				GRE = {
+				NNG = {
 					add_autonomy_score = {
 						value = -50
 						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1050,7 +1050,7 @@ ITA_missiolini_occupy_greece_success_effect = {
 			else = {
 				custom_effect_tooltip = ITA_missiolini_occupy_greece_subject_effects
 				effect_tooltip = {
-					GRE = {
+					NNG = {
 						add_autonomy_score = {
 							value = -50
 							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1088,7 +1088,7 @@ ITA_missiolini_occupy_ticino_success_effect = {
 		custom_effect_tooltip = ITA_missiolini_occupy_ticino_occupation_effects
 		every_controlled_state = {
 			limit = {
-				is_core_of = SWI
+				is_core_of = NSW
 				is_fully_controlled_by = ROOT
 				has_resistance = yes
 			}
@@ -1102,11 +1102,11 @@ ITA_missiolini_occupy_ticino_success_effect = {
 			}
 			if = {
 				limit = {
-					SWI = {
+					NSW = {
 						is_subject_of = ROOT
 					}
 				}
-				SWI = {
+				NSW = {
 					add_autonomy_score = {
 						value = -35
 						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1116,7 +1116,7 @@ ITA_missiolini_occupy_ticino_success_effect = {
 			else = {
 				custom_effect_tooltip = ITA_missiolini_occupy_ticino_subject_effects
 				effect_tooltip = {
-					SWI = {
+					NSW = {
 						add_autonomy_score = {
 							value = -35
 							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1137,7 +1137,7 @@ ITA_missiolini_occupy_ticino_success_effect = {
 		custom_effect_tooltip = ITA_missiolini_occupy_ticino_occupation_effects
 		every_controlled_state = {
 			limit = {
-				is_core_of = SWI
+				is_core_of = NSW
 				is_fully_controlled_by = ROOT
 				has_resistance = yes
 			}
@@ -1151,11 +1151,11 @@ ITA_missiolini_occupy_ticino_success_effect = {
 			}
 			if = {
 				limit = {
-					SWI = {
+					NSW = {
 						is_subject_of = ROOT
 					}
 				}
-				SWI = {
+				NSW = {
 					add_autonomy_score = {
 						value = -50
 						localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1165,7 +1165,7 @@ ITA_missiolini_occupy_ticino_success_effect = {
 			else = {
 				custom_effect_tooltip = ITA_missiolini_occupy_ticino_subject_effects
 				effect_tooltip = {
-					SWI = {
+					NSW = {
 						add_autonomy_score = {
 							value = -50
 							localization = ITA_missiolini_firmly_established_italian_administration_autonomy_text
@@ -1835,7 +1835,7 @@ ITA_start_civil_war_effect = { #The one triggered via BoP
 					uncomplete_children = yes
 				}
 			}
-			if = { #ETH-ITA war focus
+			if = { #FET-ITA war focus
 				limit = {
 					has_completed_focus = ITA_struggle_in_ethiopia
 				}
@@ -1882,7 +1882,7 @@ ITA_start_civil_war_effect = { #The one triggered via BoP
 					uncomplete_children = yes
 				}
 			}
-			if = { #ETH-ITA war focus
+			if = { #FET-ITA war focus
 				limit = {
 #					has_completed_focus = ITA_the_abyssinian_fiasco
 				}
@@ -2967,20 +2967,20 @@ ITA_start_anti_fascist_civil_war = { #The one triggered via focus
 		}
 	}
 
-	#If at war with ETH (while ETH controls any state), make sure controlled ETH states go to fascist side (Part I)
+	#If at war with FET (while FET controls any state), make sure controlled FET states go to fascist side (Part I)
 	hidden_effect = {
 		if = {
 			limit = {
-				has_war_with = ETH
+				has_war_with = FET
 				any_state = {
-					is_core_of = ETH
-					is_controlled_by = ETH
+					is_core_of = FET
+					is_controlled_by = FET
 				}
 			}
 			every_controlled_state = {
 				limit = {
 					NOT = { is_owned_by = ROOT }
-					is_core_of = ETH
+					is_core_of = FET
 				}
 				set_state_flag = ITA_controlled_ethiopian_state_for_fascists_flag
 				if = {
@@ -3037,7 +3037,7 @@ ITA_start_anti_fascist_civil_war = { #The one triggered via focus
 		}
 	}
 
-	#If at war with ETH (while ETH controls any state), make sure controlled ETH states go to fascist side (Part II)
+	#If at war with FET (while FET controls any state), make sure controlled FET states go to fascist side (Part II)
 	hidden_effect = {
 		if = {
 			limit = {
@@ -4871,7 +4871,7 @@ ITA_increase_resource_amount_in_state = { #THIS is state
 ITA_peace_out_eth_on_startup_effect = {
 	ITA = {
 		white_peace = {
-			tag = ETH
+			tag = FET
 		}
 		unlock_national_focus = ITA_solid_progress
 	}
@@ -6232,7 +6232,7 @@ ITA_create_francesco_de_martini_operative = { #INITIAL
 		traits = { operative_commando operative_demolition_expert operative_linguist }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ITA SYR ETH }
+		nationalities = { ITA SYR FET }
 	}
 }
 
@@ -6254,7 +6254,7 @@ ITA_create_rosa_dainelli_operative = { #SIM
 		traits = { operative_commando operative_demolition_expert }
 		bypass_recruitment = no
 		available_to_spy_master = yes
-		nationalities = { ITA ETH }
+		nationalities = { ITA FET }
 	}
 }
 
@@ -6868,30 +6868,30 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			OR = {
 				AND = {
-					ETH = {
+					FET = {
 						any_core_state = {
 							is_controlled_by = ITA
 						}
 					}
 					ITA = {
 						any_owned_state = {
-							is_controlled_by = ETH
+							is_controlled_by = FET
 						}
 					}
 				}
 				AND = {
 					ITA = { surrender_progress < 0.01 }
-					ETH = { surrender_progress < 0.01 }
+					FET = { surrender_progress < 0.01 }
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			white_peace = ITA
 		}
 	}
 	else_if = {
 		limit = {
-			ETH = {
+			FET = {
 				all_core_state = {
 					is_controlled_by = ITA
 				}
@@ -6899,51 +6899,51 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		}
 		ITA = {
 			start_peace_conference = {
-				tag = ETH
+				tag = FET
 				score_factor = 0.25
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			ETH = { surrender_progress > 0.74 }
+			FET = { surrender_progress > 0.74 }
 		}
 		ITA = {
 			start_peace_conference = {
-				tag = ETH
+				tag = FET
 				score_factor = 0.20
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			ETH = { surrender_progress > 0.49 }
+			FET = { surrender_progress > 0.49 }
 		}
 		ITA = {
 			start_peace_conference = {
-				tag = ETH
+				tag = FET
 				score_factor = 0.15
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			ETH = { surrender_progress > 0.19 }
+			FET = { surrender_progress > 0.19 }
 		}
 		ITA = {
 			start_peace_conference = {
-				tag = ETH
+				tag = FET
 				score_factor = 0.1
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			ETH = { surrender_progress > 0 }
+			FET = { surrender_progress > 0 }
 		}
 		ITA = {
 			start_peace_conference = {
-				tag = ETH
+				tag = FET
 				score_factor = 0.05
 			}
 		}
@@ -6952,7 +6952,7 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			ITA = { surrender_progress > 0.74 }
 		}
-		ETH = {
+		FET = {
 			start_peace_conference = {
 				tag = ITA
 				score_factor = 0.125
@@ -6963,7 +6963,7 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			ITA = { surrender_progress > 0.49 }
 		}
-		ETH = {
+		FET = {
 			start_peace_conference = {
 				tag = ITA
 				score_factor = 0.1
@@ -6974,7 +6974,7 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			ITA = { surrender_progress > 0.19 }
 		}
-		ETH = {
+		FET = {
 			start_peace_conference = {
 				tag = ITA
 				score_factor = 0.075
@@ -6985,7 +6985,7 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			ITA = { surrender_progress > 0 }
 		}
-		ETH = {
+		FET = {
 			start_peace_conference = {
 				tag = ITA
 				score_factor = 0.05
@@ -6996,7 +6996,7 @@ ITA_forced_italo_ethiopian_peace_deal = {
 		limit = {
 			ITA = { surrender_progress < 0.01 }
 		}
-		ETH = {
+		FET = {
 			start_peace_conference = {
 				tag = ITA
 				score_factor = 0.025

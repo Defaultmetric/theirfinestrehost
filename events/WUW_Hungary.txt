@@ -376,7 +376,7 @@ country_event = {
 	}
 }
 
-# Hungary demands Southern Sloavkia - event for owner of 664 who isn't SLO or CZE
+# Hungary demands Southern Sloavkia - event for owner of 664 who isn't SLO or FCZ
 country_event = {
 	id = WW_hungary.7
 	title = WW_hungary.7.t
@@ -435,7 +435,7 @@ country_event = {
 	}
 }
 
-# Hungary offers protection in exchange for Burgenland - event for AUS
+# Hungary offers protection in exchange for Burgenland - event for FAU
 country_event = {
 	id = WW_hungary.8
 	title = WW_hungary.8.t
@@ -1461,8 +1461,8 @@ country_event = {
 				is_subject = no
 				OR = {
 					original_tag = ROM
-					original_tag = YUG
-					original_tag = CZE
+					original_tag = FYG
+					original_tag = FCZ
 					original_tag = SLO
 					original_tag = TRA
 					original_tag = SER
@@ -1477,7 +1477,7 @@ country_event = {
 	}
 }
 
-# A New Monarch - event for AUS
+# A New Monarch - event for FAU
 country_event = {
 	id = WW_hungary.31
 	title = WW_hungary.31.t 
@@ -1505,7 +1505,7 @@ country_event = {
 	}
 }
 
-# Hungary demands for the restoration of Cisleithania - event for AUS
+# Hungary demands for the restoration of Cisleithania - event for FAU
 country_event = {
 	id = WW_hungary.32
 	title = WW_hungary.32.t
@@ -1620,18 +1620,18 @@ country_event = {
 				NOT = {
 					is_core_of = ROOT
 				}
-				is_core_of = AUS
+				is_core_of = FAU
 			}
-			transfer_state_to = AUS
+			transfer_state_to = FAU
 		}
 
 		custom_effect_tooltip = HUN_cisleithania_tt
 
 		ROOT = {
-			HUN_joseph_august_von_habsburg = { set_nationality = AUS }
+			HUN_joseph_august_von_habsburg = { set_nationality = FAU }
 		}
 
-		AUS = {
+		FAU = {
 			add_political_power = 75
 			hidden_effect = {
 				drop_cosmetic_tag = yes
@@ -1640,11 +1640,11 @@ country_event = {
 			}
 		}
 
-		puppet = AUS 
+		puppet = FAU 
 
 		hidden_effect = {
 			set_country_flag = HUN_created_austrian_monarchy 
-			AUS = {
+			FAU = {
 				country_event = {
 				    id = WW_hungary.31
 				    days = 0
@@ -2039,7 +2039,7 @@ country_event = {
 	}
 }
 
-# Hungary Demands we restore Wiedist Rule - event for ALB
+# Hungary Demands we restore Wiedist Rule - event for FAL
 country_event = {
 	id = WW_hungary.44
 	title = WW_hungary.44.t
@@ -2131,11 +2131,11 @@ country_event = {
 		}
 
 		802 = {
-			add_core_of = ALB
+			add_core_of = FAL
 		}
 
 		970 = {
-			add_core_of = ALB
+			add_core_of = FAL
 		}
 
 		every_state = {
@@ -2144,12 +2144,12 @@ country_event = {
 				NOT = {
 					is_core_of = ROOT
 				}
-				is_core_of = ALB
+				is_core_of = FAL
 			}
-			transfer_state_to = ALB
+			transfer_state_to = FAL
 		}
 
-		ALB = {
+		FAL = {
 			drop_cosmetic_tag = yes
 			set_cosmetic_tag = ALB_wiedist_principality
 			set_party_name = {
@@ -2160,7 +2160,7 @@ country_event = {
 			promote_character = ALB_wilhelm_of_wied
 		}
 
-		puppet = ALB 
+		puppet = FAL 
 
 		hidden_effect = {
 			set_country_flag = HUN_created_wiedist_monarchy 
@@ -2196,7 +2196,7 @@ country_event = {
 	}
 }
 
-# Hungary Demands we restore Habsburg Rule - event for POL
+# Hungary Demands we restore Habsburg Rule - event for NPO
 country_event = {
 	id = WW_hungary.47
 	title = WW_hungary.47.t
@@ -2299,9 +2299,9 @@ country_event = {
 				NOT = {
 					is_core_of = ROOT
 				}
-				is_core_of = POL
+				is_core_of = NPO
 				NOT = {
-					is_owned_and_controlled_by = POL
+					is_owned_and_controlled_by = NPO
 				}
 				NOT = {
 					OR = {
@@ -2314,10 +2314,10 @@ country_event = {
 					}
 				}
 			}
-			transfer_state_to = POL
+			transfer_state_to = NPO
 		}
 
-		POL = {
+		NPO = {
 			drop_cosmetic_tag = yes
 			set_cosmetic_tag = POL_KINGDOM
 			IF = {
@@ -2605,7 +2605,7 @@ country_event = {
 	}
 }
 
-#Hungary offers Czechoslovakia a Habsburg crown - event for CZE
+#Hungary offers Czechoslovakia a Habsburg crown - event for FCZ
 country_event = {
 	id = WW_hungary.55
 	title = WW_hungary.55.t
@@ -2688,7 +2688,7 @@ country_event = {
 
 }
 
-#CZE gets a Habsburg monarhch (becomes a puppet of HUN) - event for HUN
+#FCZ gets a Habsburg monarhch (becomes a puppet of HUN) - event for HUN
 country_event = {
 	id = WW_hungary.56
 	title = WW_hungary.56.t
@@ -2747,7 +2747,7 @@ country_event = {
 
 }
 
-#CZE refuses a Habsburg monarch - event for HUN
+#FCZ refuses a Habsburg monarch - event for HUN
 country_event = {
 	id = WW_hungary.57
 	title = WW_hungary.57.t
@@ -2825,7 +2825,7 @@ country_event = {
 			base = 40
 			modifier = {
 				factor = 1.2
-				original_tag = POL
+				original_tag = NPO
 			}
 			modifier = {
 				strength_ratio = { tag = HUN ratio > 1 }
@@ -3588,7 +3588,7 @@ country_event = {
 
 		IF = {
 			limit = {
-				CZE = {
+				FCZ = {
 					is_subject_of = ROOT
 				}
 			}
@@ -3597,7 +3597,7 @@ country_event = {
 					is_core_of = SIL
 					is_owned_and_controlled_by = FROM
 				}
-				transfer_state_to = CZE
+				transfer_state_to = FCZ
 			}
 			ELSE = {
 				every_state = {
@@ -5305,7 +5305,7 @@ country_event = {
 						capital_scope = {
 							NOT = {
 								is_in_array = {
-									array = AUS.expansion_targets
+									array = FAU.expansion_targets
 									value = THIS
 								}
 							}
@@ -5316,7 +5316,7 @@ country_event = {
 				TRA = {
 					capital_scope = {
 						add_to_array = {
-							array = AUS.expansion_targets
+							array = FAU.expansion_targets
 							value = TRA
 						}
 					}
@@ -6907,7 +6907,7 @@ news_event = {
 	option = {
 		name = wuw_HUN_news_events.9.b
 		trigger = { 
-			TAG = AUS
+			TAG = FAU
 		}
 	}
 	option = { 
@@ -6916,7 +6916,7 @@ news_event = {
 			NOT = { 
 				OR = {
 					TAG = HUN 
-					TAG = AUS
+					TAG = FAU
 				}
 			}
 		}

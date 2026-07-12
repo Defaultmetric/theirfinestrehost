@@ -28,7 +28,7 @@ country_event = {
 					has_war_with = SIK
 					has_war_with = XSM
 					has_war_with = GXC
-					has_war_with = CHI
+					has_war_with = FCH
 					has_war_with = XIC
 					has_war_with = SND
 					has_war_with = KHM
@@ -728,7 +728,7 @@ country_event = {
 	
 	option = {
 		name = wtt_xian_incident.2.a #ask him to ally with the communists
-		CHI = { country_event = wtt_xian_incident.4 }
+		FCH = { country_event = wtt_xian_incident.4 }
 	}
 
 }
@@ -871,44 +871,44 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { is_in_faction_with = CHI }
-				CHI = { is_in_faction = no }
+				NOT = { is_in_faction_with = FCH }
+				FCH = { is_in_faction = no }
 			}
 			if = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
 				}
-				CHI = {
+				FCH = {
 					set_rule = { can_create_factions = yes }
 					create_faction_from_template = faction_template_chinese_united_front
 				}
 			}
 			else = {
-				CHI = {
+				FCH = {
 					set_rule = { can_create_factions = yes }
 					create_faction = chinese_united_front
 				}
 			}
-			CHI = { add_to_faction = PRC }
+			FCH = { add_to_faction = PRC }
 		}
 		if = {
 			limit = {
-				CHI = { is_faction_leader = yes }
+				FCH = { is_faction_leader = yes }
 			}
-			CHI = { add_to_faction = PRC }
+			FCH = { add_to_faction = PRC }
 			PRC = { 
 				add_ai_strategy = {
 					type = alliance
-					id = CHI
+					id = FCH
 					value = 200
 				}
 				set_rule = { can_join_factions = yes }
 			}
 			every_country = {
 				limit = {
-					is_subject_of = CHI
+					is_subject_of = FCH
 				}
-				CHI = { add_to_faction = PREV }
+				FCH = { add_to_faction = PREV }
 			}
 		}
 		IF = {
@@ -974,7 +974,7 @@ country_event = {
 			base = 70
 		}
 		custom_effect_tooltip = wtt_xian_incident_warning_8
-		CHI = { country_event = wtt_xian_incident.8 }
+		FCH = { country_event = wtt_xian_incident.8 }
 	}
 
 	option = {
@@ -1065,7 +1065,7 @@ country_event = {
 				factor = 0
 			}
 		}
-		CHI = {
+		FCH = {
 			CHI_kill_chiang_for_new_leader = yes
 			create_wargoal = {
 				target = PREV
@@ -1122,7 +1122,7 @@ country_event = {
 		ai_chance = {
 			base = 30
 		}
-		CHI = {
+		FCH = {
 			country_event = wtt_xian_incident.10
 		}
 		
@@ -1209,7 +1209,7 @@ country_event = {
 			event_target:CHI_xian_instigator = {
 				if = {
 					limit = {
-						is_in_faction_with = CHI
+						is_in_faction_with = FCH
 					}
 					leave_faction = yes
 				}
@@ -1289,7 +1289,7 @@ country_event = {
 			}
 		}
 		name = wtt_xian_incident.9.a #approve
-		CHI = {
+		FCH = {
 			kill_country_leader = yes
 			if = {
 				limit = {
@@ -1326,7 +1326,7 @@ country_event = {
 	}
 }
 
-#Xian incident - PRC opts for the United Front, event for CHI
+#Xian incident - PRC opts for the United Front, event for FCH
 country_event = {
 	id = wtt_xian_incident.10
 	title = wtt_xian_incident.10.t
@@ -1346,47 +1346,47 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { is_in_faction_with = CHI }
-				CHI = { is_in_faction = no }
+				NOT = { is_in_faction_with = FCH }
+				FCH = { is_in_faction = no }
 			}
 			if = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
 				}
-				CHI = {
+				FCH = {
 					set_rule = { can_create_factions = yes }
 					create_faction_from_template = faction_template_chinese_united_front
 				}
 			}
 			else = {
-				CHI = {
+				FCH = {
 					set_rule = { can_create_factions = yes }
 					create_faction = chinese_united_front
 				}
 			}
-			CHI = { add_to_faction = PRC }
+			FCH = { add_to_faction = PRC }
 			PRC = {
 				set_rule = { can_join_factions = yes }
 			}
 		}
 		else_if = {
 			limit = {
-				CHI = { is_faction_leader = yes }
+				FCH = { is_faction_leader = yes }
 			}
-			CHI = { add_to_faction = PRC }
+			FCH = { add_to_faction = PRC }
 			PRC = { 
 				add_ai_strategy = {
 					type = alliance
-					id = "CHI"
+					id = "FCH"
 					value = 200
 				}
 				set_rule = { can_join_factions = yes }
 			}
 			every_country = {
 				limit = {
-					is_subject_of = CHI
+					is_subject_of = FCH
 				}
-				CHI = { add_to_faction = PREV }
+				FCH = { add_to_faction = PREV }
 			}
 		}
 		IF = {

@@ -2087,7 +2087,7 @@ prospect_for_resources = {
 				factor = 20 #10 was the default weight before
 				OR = {
 					original_tag = GER
-					original_tag = HOL
+					original_tag = FNL
 				}
 			}
 			modifier = {
@@ -3700,7 +3700,7 @@ prospect_for_resources = {
 			IF = {
 				limit = {
 					OR = {
-						original_tag = BEL
+						original_tag = FBL
 						original_tag = COG
 					}
 					has_dlc = "Gotterdammerung"
@@ -8988,7 +8988,7 @@ develop_aleppo_coal_mines = {
 		icon = steel
 
 		allowed = {
-			original_tag = DEN
+			original_tag = NDE
 		}
 		available = {
 			has_tech = excavation3
@@ -9325,7 +9325,7 @@ develop_aleppo_coal_mines = {
 		icon = tungsten
 
 		allowed = {
-			tag = CHI
+			tag = FCH
 			has_dlc = "No Compromise, No Surrender"
 		}
 
@@ -9396,7 +9396,7 @@ develop_aleppo_coal_mines = {
 		icon = tungsten
 
 		allowed = {
-			tag = CHI
+			tag = FCH
 			has_dlc = "No Compromise, No Surrender"
 		}
 
@@ -9467,7 +9467,7 @@ develop_aleppo_coal_mines = {
 		icon = coal
 
 		allowed = {
-			#original_tag = CHI
+			#original_tag = FCH
 			#has_dlc = "No Compromise, No Surrender"
 			
 		}
@@ -9484,7 +9484,7 @@ develop_aleppo_coal_mines = {
 		target_root_trigger = {
 			if = {
 				limit = {
-					original_tag = CHI
+					original_tag = FCH
 					has_dlc = "No Compromise, No Surrender"
 				}
 				has_completed_focus = CHI_grow_the_coal_industry
@@ -9493,7 +9493,7 @@ develop_aleppo_coal_mines = {
 
 		state_target = yes
 		on_map_mode = map_and_decisions_view
-		target_array = CHI.core_states
+		target_array = FCH.core_states
 		target_trigger = {
 			OR = {
 				AND = {
@@ -9502,7 +9502,7 @@ develop_aleppo_coal_mines = {
 				}
 				AND = {		#Only let China check allies, its performance-intensive
 					has_dlc = "No Compromise, No Surrender"
-					original_tag = CHI
+					original_tag = FCH
 					FROM = {
 						controller = {
 							is_ally_with = ROOT

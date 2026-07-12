@@ -1272,8 +1272,8 @@ news_event = {
 		name = lar_news.6.a
 		trigger = {
 			OR = {
-				tag = CZE
-				tag = POL
+				tag = FCZ
+				tag = NPO
 				tag = ROM
 			}
 		}
@@ -1284,8 +1284,8 @@ news_event = {
 			is_in_faction_with = FRA
 			NOT = { 
 				tag = FRA 
-				tag = CZE
-				tag = POL
+				tag = FCZ
+				tag = NPO
 				tag = ROM
 			}
 		}
@@ -1296,8 +1296,8 @@ news_event = {
 			NOT = {
 				is_in_faction_with = FRA
 				tag = FRA
-				tag = CZE
-				tag = POL
+				tag = FCZ
+				tag = NPO
 				tag = ROM
 				tag = GER
 				tag = SOV
@@ -1336,8 +1336,8 @@ news_event = {
 		name = lar_news.7.a
 		trigger = {
 			OR = {
-				tag = HOL
-				tag = BEL
+				tag = FNL
+				tag = FBL
 				tag = LUX
 			}
 		}
@@ -1349,8 +1349,8 @@ news_event = {
 			NOT = { 
 				tag = FRA 
 				tag = GER
-				tag = HOL
-				tag = BEL
+				tag = FNL
+				tag = FBL
 				tag = LUX
 			}
 		}
@@ -1361,8 +1361,8 @@ news_event = {
 			NOT = {
 				is_in_faction_with = FRA
 				tag = FRA
-				tag = HOL
-				tag = BEL
+				tag = FNL
+				tag = FBL
 				tag = LUX
 				tag = GER
 			}
@@ -2477,14 +2477,14 @@ news_event = {
 		name = lar_news.23.a #Portugal and Spanish Republic / Nationalist Spain
 		trigger = {
 			OR = {
-				tag = POR
+				tag = NPR
 				AND = {
 					tag = SPD
-					is_in_faction_with = POR
+					is_in_faction_with = NPR
 				}
 				AND = {
 					tag = SPA
-					is_in_faction_with = POR
+					is_in_faction_with = NPR
 				}
 			}
 		}
@@ -2505,7 +2505,7 @@ news_event = {
 				is_in_faction_with = ENG
 				tag = ENG
 			}
-			NOT = { tag = POR }
+			NOT = { tag = NPR }
 			NOT = { tag = SPD }
 			NOT = { tag = SPA }
 
@@ -2519,14 +2519,14 @@ news_event = {
 				is_in_faction_with = GER
 				tag = ENG
 				tag = GER
-				tag = POR
+				tag = NPR
 				AND = {
 					tag = SPD
-					is_in_faction_with = POR
+					is_in_faction_with = NPR
 				}
 				AND = {
 					tag = SPA
-					is_in_faction_with = POR
+					is_in_faction_with = NPR
 				}
 			}
 		}
@@ -2548,7 +2548,7 @@ news_event = {
 		name = lar_news.24.a #Portugal and Nationalist Spain
 		trigger = {
 			OR = {
-				tag = POR
+				tag = NPR
 				tag = SPA
 			}
 		}
@@ -2569,7 +2569,7 @@ news_event = {
 				tag = ENG
 				is_in_faction_with = ENG
 			}
-			NOT = { tag = POR }
+			NOT = { tag = NPR }
 			NOT = { tag = SPA }
 
 		}
@@ -2582,7 +2582,7 @@ news_event = {
 				is_in_faction_with = GER
 				tag = ENG
 				tag = GER
-				tag = POR
+				tag = NPR
 				tag = SPA
 			}
 		}
@@ -2603,13 +2603,13 @@ news_event = {
 	option = {
 		name = lar_news.25.a #Portugal
 		trigger = {
-			tag = POR
+			tag = NPR
 		}
 	}
 	option = {
 		name = lar_news.25.b #Everyone else
 		trigger = {
-			NOT = { tag = POR }
+			NOT = { tag = NPR }
 		}
 	}
 }
@@ -2628,21 +2628,21 @@ news_event = {
 	option = {
 		name = lar_news.26.a #Portugal
 		trigger = {
-			tag = POR
+			tag = NPR
 		}
 	}
 	option = {
 		name = lar_news.26.b #countries at war with Portugal
 		trigger = {
-			has_war_with = POR
+			has_war_with = NPR
 		}
 	}
 	option = {
 		name = lar_news.26.c #Everyone else
 		trigger = {
 			NOT = { 
-				has_war_with = POR
-				tag = POR 
+				has_war_with = NPR
+				tag = NPR 
 			}
 		}
 	}
@@ -2662,20 +2662,20 @@ news_event = {
 	option = {
 		name = lar_news.27.a #Portugal
 		trigger = {
-			tag = POR
+			tag = NPR
 		}
 	}
 	option = {
 		name = lar_news.27.b #Communists
 		trigger = {
-			NOT = { tag = POR }
+			NOT = { tag = NPR }
 			has_government = communism
 		}
 	}
 	option = {
 		name = lar_news.27.c #Fascists
 		trigger = {
-			NOT = { tag = POR }
+			NOT = { tag = NPR }
 			has_government = fascism
 		}
 	}
@@ -2686,7 +2686,7 @@ news_event = {
 			NOT = {
 				has_government = communism
 				has_government = fascism
-				tag = POR
+				tag = NPR
 			}
 		}
 	}

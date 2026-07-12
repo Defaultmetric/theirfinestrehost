@@ -89,7 +89,7 @@ set_variable = { ITA_missiolinis_min_cd_between_missions = 30 } #WARNING: IF THI
 set_country_flag = { flag = ITA_missiolinis_level_flag value = 1 } #Basic level - Default missions
 
 #DECISIONS values
-#ETH_hold_the_north_time initialized in ETH scope inside the ETH history file
+#ETH_hold_the_north_time initialized in FET scope inside the FET history file
 set_variable = { ITA_missiolinis_conquer_ethiopia_days = 170 }
 set_variable = { ITA_missiolinis_pacify_ethiopia_days = 720 }
 set_variable = { ITA_missiolinis_default_days = 350 }
@@ -491,10 +491,10 @@ if = {
 	}
 
 	declare_war_on = {
-		target = ETH
+		target = FET
 		type = annex_everything
 	}
-	give_guarantee = ALB
+	give_guarantee = FAL
 }
 
 1939.1.1 = {
@@ -502,7 +502,7 @@ if = {
 	add_political_power = 1198
 	add_command_power = 100
 	
-	#white_peace = ETH
+	#white_peace = FET
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
@@ -588,7 +588,7 @@ if = {
 	oob = "ITA_aviazione_legionaria"
 
 	# Effects from Potential Allies in the Balkans
-	YUG = {
+	FYG = {
 		add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
 		add_popularity = {
 			ideology = fascism
@@ -605,10 +605,10 @@ if = {
 			popularity = 0.07
 		}
 	}
-	activate_targeted_decision = { target = YUG decision = ITA_pressure_country_government_balkan }
+	activate_targeted_decision = { target = FYG decision = ITA_pressure_country_government_balkan }
 	activate_targeted_decision = { target = ROM decision = ITA_pressure_country_government_balkan }
 	activate_targeted_decision = { target = BUL decision = ITA_pressure_country_government_balkan }
-	activate_targeted_decision = { target = YUG decision = ITA_promote_ideology_rallies_balkan }
+	activate_targeted_decision = { target = FYG decision = ITA_promote_ideology_rallies_balkan }
 	activate_targeted_decision = { target = ROM decision = ITA_promote_ideology_rallies_balkan }
 	activate_targeted_decision = { target = BUL decision = ITA_promote_ideology_rallies_balkan }
 
@@ -992,7 +992,7 @@ if = {
 		icon = "GFX_ITA_early_bomber_old_medium"
 	}
 	create_equipment_variant = {
-		name = "S.72" # Savoia-Marchetti S.72, used by CHI
+		name = "S.72" # Savoia-Marchetti S.72, used by FCH
 		type = medium_plane_airframe_0
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay

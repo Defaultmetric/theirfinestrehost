@@ -542,10 +542,10 @@ AI_annex = {
     icon = generic_industry
     fire_only_once = yes
     available = {
-        country_exists = POR
+        country_exists = NPR
         original_tag = ITA
-        POR = { has_capitulated = no }
-        POR = { is_ai = yes }
+        NPR = { has_capitulated = no }
+        NPR = { is_ai = yes }
         41 = 
         {
             is_core_of = ITA
@@ -553,15 +553,15 @@ AI_annex = {
     }
     visible = {
         original_tag = ITA
-        POR = { is_ai = yes }
-        country_exists = POR
+        NPR = { is_ai = yes }
+        country_exists = NPR
     }
     cost = 0
     complete_effect = {
-        annex_country = { target = POR transfer_troops = yes }
+        annex_country = { target = NPR transfer_troops = yes }
         every_state = {
             limit = {
-                is_core_of = POR
+                is_core_of = NPR
                 is_controlled_by = ITA
             }
             add_core_of = ITA
@@ -609,25 +609,25 @@ AST_annex_MAL_INS = {
         date > 1940.06.01
         NOT = {has_global_flag = noAsia}
         country_exists = MAL
-        country_exists = INS
+        country_exists = INF
         original_tag = AST
         MAL = { has_capitulated = no }
         MAL = { is_ai = yes }
-        INS = { has_capitulated = no }
-        INS = { is_ai = yes }
+        INF = { has_capitulated = no }
+        INF = { is_ai = yes }
     }
     visible = {
         original_tag = AST
         MAL = { is_ai = yes }
         country_exists = MAL
-        INS = { is_ai = yes }
-        country_exists = INS
+        INF = { is_ai = yes }
+        country_exists = INF
     }
     cost = 0
 
     complete_effect = {
         annex_country = { target = MAL }
-        annex_country = { target = INS }
+        annex_country = { target = INF }
         every_state = {
             limit = {
                 is_core_of = MAL
@@ -640,7 +640,7 @@ AST_annex_MAL_INS = {
         }
         every_state = {
             limit = {
-                is_core_of = INS
+                is_core_of = INF
                 is_controlled_by = AST
             }
             add_core_of = AST

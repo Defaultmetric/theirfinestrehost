@@ -6,7 +6,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = BEL
+			tag = FBL
 			has_dlc = "Gotterdammerung"
 		}
 	}
@@ -214,7 +214,7 @@ focus_tree = {
 		cost = 5
 
 		available = {
-			BEL = { 
+			FBL = { 
 				OR = {
 					controls_province = 6598
 					controls_province = 516 
@@ -246,7 +246,7 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				BEL = { 
+				FBL = { 
 					NOT = {
 						controls_province = 6598
 						controls_province = 516 
@@ -369,7 +369,7 @@ focus_tree = {
 
 		available = {
 			OR = {
-				BEL = { controls_state = 34 }
+				FBL = { controls_state = 34 }
 
 				custom_trigger_tooltip = {
 					tooltip = BEL_fortify_liege_available_tt
@@ -558,7 +558,7 @@ focus_tree = {
 		cost = 5
 
 		available = {
-			BEL = { controls_province = 11519 }
+			FBL = { controls_province = 11519 }
 
 			custom_trigger_tooltip = {
 				tooltip = BEL_eben_emael_fortress_available_tt
@@ -763,7 +763,7 @@ focus_tree = {
 					}
 				}
 				add_dynamic_modifier = {
-					scope = BEL
+					scope = FBL
 					modifier = BEL_flooded_tank_barriers_dynamic_modifier
 				}
 			}
@@ -898,7 +898,7 @@ focus_tree = {
 				}
 
 				add_dynamic_modifier = {
-					scope = BEL
+					scope = FBL
 					modifier = dam_blown_modifier
 					days = 360
 				}
@@ -1936,13 +1936,13 @@ focus_tree = {
 			if = {
 				limit = {
 					FRA = {
-						has_guaranteed = BEL
+						has_guaranteed = FBL
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				if = {
 					limit = {
-						BEL = {
+						FBL = {
 							has_guaranteed = FRA
 						}
 					}
@@ -1954,16 +1954,16 @@ focus_tree = {
 				}
 				FRA = {
 					diplomatic_relation = { 
-						country = BEL 
+						country = FBL 
 						relation = guarantee
 						active = no
 					}
 				}
 				FRA = {	country_event = { id = ww_BEL_event_diplomatic.1 hours = 6 }	}
 			}
-			else_if = { #Just in case FRA already removed their guarantee but BEL hasn't
+			else_if = { #Just in case FRA already removed their guarantee but FBL hasn't
 				limit = {
-					BEL = {
+					FBL = {
 						has_guaranteed = FRA
 					}
 				}
@@ -1977,13 +1977,13 @@ focus_tree = {
 			if = {
 				limit = {
 					ENG = {
-						has_guaranteed = BEL
+						has_guaranteed = FBL
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				if = {
 					limit = {
-						BEL = {
+						FBL = {
 							has_guaranteed = ENG
 						}
 					}
@@ -1995,16 +1995,16 @@ focus_tree = {
 				}
 				ENG = {
 					diplomatic_relation = { 
-						country = BEL 
+						country = FBL 
 						relation = guarantee
 						active = no
 					}
 				}
 				ENG = {	country_event = { id = ww_BEL_event_diplomatic.1 hours = 6 }	}
 			}
-			else_if = { #Just in case ENG already removed their guarantee but BEL hasn't
+			else_if = { #Just in case ENG already removed their guarantee but FBL hasn't
 				limit = {
-					BEL = {
+					FBL = {
 						has_guaranteed = ENG
 					}
 				}
@@ -2058,7 +2058,7 @@ focus_tree = {
 				FRA = {
 					add_ai_strategy = { 
 						type = dont_defend_ally_borders
-						id = BEL
+						id = FBL
 						value = -50
 					}
 
@@ -2084,7 +2084,7 @@ focus_tree = {
 				ENG = {
 					add_ai_strategy = { 
 						type = dont_defend_ally_borders
-						id = BEL
+						id = FBL
 						value = -50
 					}
 
@@ -2556,7 +2556,7 @@ focus_tree = {
 
 				IF = {
 					limit = {
-						HOL = {
+						FNL = {
 							exists = yes
 							is_subject = no
 							is_in_faction = no
@@ -2567,7 +2567,7 @@ focus_tree = {
 						}
 					}
 
-					HOL = {
+					FNL = {
 						country_event = {
 							id = ww_BEL_event_diplomatic.20
 							hours = 6
@@ -2965,8 +2965,8 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					free_building_slots = {
 						building = industrial_complex
 						size > 1
@@ -2982,8 +2982,8 @@ focus_tree = {
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					free_building_slots = {
 						building = industrial_complex
 						size > 1
@@ -3167,15 +3167,15 @@ focus_tree = {
 		available = {
 			fascism > 0.9
 			980 = {
-				is_owned_and_controlled_by = BEL
+				is_owned_and_controlled_by = FBL
 			}
 		}
 	
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					NOT = { state = 980 }
 					free_building_slots = {
 						building = industrial_complex
@@ -3192,8 +3192,8 @@ focus_tree = {
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					NOT = { state = 980 }
 					free_building_slots = {
 						building = arms_factory
@@ -3782,7 +3782,7 @@ focus = {
 		prerequisite = { focus = BEL_revitalize_nederlands }		
 
 		will_lead_to_war_with = LUX	
-		will_lead_to_war_with = HOL		
+		will_lead_to_war_with = FNL		
 
 		relative_position_id = BEL_revitalize_nederlands
 
@@ -3804,7 +3804,7 @@ focus = {
 				exists = no
 			}
 
-			HOL = {
+			FNL = {
 				exists = no
 			}
 		}
@@ -3825,13 +3825,13 @@ focus = {
 
 			IF = {
 				limit = {
-					HOL = {
+					FNL = {
 						exists = yes
 					}
 				}
 				create_wargoal = {
 				    type = annex_everything
-				    target = HOL
+				    target = FNL
 				    expire = 0
 				}
 			}
@@ -3855,12 +3855,12 @@ focus = {
 		cost = 10
 
 		available = {
-			HOL = {
+			FNL = {
 				all_core_state = {
 					OR = {
 						controls_or_subject_of = yes
 						controller = {
-							original_tag = BEL
+							original_tag = FBL
 							is_in_faction_with = ROOT
 						}
 					}
@@ -3871,18 +3871,18 @@ focus = {
 					OR = {
 						controls_or_subject_of = yes
 						controller = {
-							original_tag = BEL
+							original_tag = FBL
 							is_in_faction_with = ROOT
 						}
 					}
 				}
 			}
-			BEL = {
+			FBL = {
 				all_core_state = {
 					OR = {
 						controls_or_subject_of = yes
 						controller = {
-							original_tag = BEL
+							original_tag = FBL
 							is_in_faction_with = ROOT
 						}
 					}
@@ -4017,7 +4017,7 @@ focus = {
 
 		available = {
 			29 = {
-				is_fully_controlled_by = BEL
+				is_fully_controlled_by = FBL
 			}
 		}
 	
@@ -5619,7 +5619,7 @@ focus = {
 	
 		completion_reward = {
 			IF = {
-				limit = { COG = { is_subject_of = BEL } }
+				limit = { COG = { is_subject_of = FBL } }
 				COG = {
 					add_ideas = BEL_communism_in_congo
 
@@ -5627,7 +5627,7 @@ focus = {
 					custom_effect_tooltip = generic_skip_one_line_tt
 
 					COG_cyrille_adoula = {
-						set_nationality = BEL
+						set_nationality = FBL
 						add_advisor_role = {
 							advisor = {
 								slot = political_advisor
@@ -5793,16 +5793,16 @@ focus = {
 							controls_state = 774
 						}
 						NOT = {
-							BEL = {
+							FBL = {
 								has_wargoal_against = {
 									target = PREV
 								}
 							}
-							is_subject_of = BEL
+							is_subject_of = FBL
 						}
 					}
 
-					BEL = {
+					FBL = {
 						create_wargoal = {
 							type = take_claimed_state
 							target = PREV
@@ -6141,7 +6141,7 @@ focus = {
 
 			IF = {
 				limit = {
-					HOL = {
+					FNL = {
 						exists = yes
 						is_subject = no
 						is_in_faction = no
@@ -6152,7 +6152,7 @@ focus = {
 					}
 				}
 
-				HOL = {
+				FNL = {
 					country_event = {
 						id = ww_BEL_event_diplomatic.20
 						hours = 6
@@ -6277,8 +6277,8 @@ focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			custom_effect_tooltip = modify_COG_belgian_congo_colonial_dynamic_modifier_tt
-			add_to_variable = { BEL.COG_belgian_congo_colonial_dynamic_modifier_cic_to_overlord_factor = 0.15 tooltip = cic_to_overlord_factor_tt }
-			add_to_variable = { BEL.COG_belgian_congo_colonial_dynamic_modifier_mic_to_overlord_factor = 0.25 tooltip = mic_to_overlord_factor_tt }
+			add_to_variable = { FBL.COG_belgian_congo_colonial_dynamic_modifier_cic_to_overlord_factor = 0.15 tooltip = cic_to_overlord_factor_tt }
+			add_to_variable = { FBL.COG_belgian_congo_colonial_dynamic_modifier_mic_to_overlord_factor = 0.25 tooltip = mic_to_overlord_factor_tt }
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = BEL_the_king_surrenders_tt
@@ -7253,8 +7253,8 @@ focus = {
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					free_building_slots = {
 						building = industrial_complex
 						size > 1
@@ -7270,8 +7270,8 @@ focus = {
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_core_of = BEL
-					is_fully_controlled_by = BEL
+					is_core_of = FBL
+					is_fully_controlled_by = FBL
 					free_building_slots = {
 						building = industrial_complex
 						size > 1
@@ -8071,17 +8071,17 @@ focus = {
 				add_equipment_subsidy = {
 					cic = 1000
 					equipment_type = small_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
+					seller_tags = { USA ENG FRA ITA GER SOV FNL NPO } 
 				}
 				add_equipment_subsidy = {
 					cic = 1000
 					equipment_type = large_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
+					seller_tags = { USA ENG FRA ITA GER SOV FNL NPO } 
 				}
 				add_equipment_subsidy = {
 					cic = 1000
 					equipment_type = medium_plane_airframe
-					seller_tags = { USA ENG FRA ITA GER SOV HOL POL } 
+					seller_tags = { USA ENG FRA ITA GER SOV FNL NPO } 
 				}
 			}
 			else = {

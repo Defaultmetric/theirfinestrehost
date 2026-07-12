@@ -1057,7 +1057,7 @@ foreign_support = {
 			}
 		}
 
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
+		targets = { FCH PRC GXC YUN SHX XSM SIK }
 		targets_dynamic = yes
 
 		target_root_trigger = {
@@ -1149,7 +1149,7 @@ foreign_support = {
 			}
 		}
 
-		targets = { CHI PRC GXC YUN SHX XSM SIK }
+		targets = { FCH PRC GXC YUN SHX XSM SIK }
 		targets_dynamic = yes
 
 		target_trigger = {
@@ -1953,7 +1953,7 @@ USA_war_plans = {
 		icon = generic_operation
 		available = {
 			OR = {
-				has_war_with = CHI
+				has_war_with = FCH
 				has_war_with = PRC
 				has_war_with = SHX
 				has_war_with = YUN
@@ -1972,7 +1972,7 @@ USA_war_plans = {
 		fire_only_once = yes
 		days_remove = 180
 		targeted_modifier = {
-			tag = CHI
+			tag = FCH
 			attack_bonus_against = 0.1
 			defense_bonus_against = 0.1
 		}
@@ -3048,23 +3048,23 @@ USA_decolonisation = {
 		remove_effect = {
 			if = {
 				limit = {
-					not = { country_exists = INS }
+					not = { country_exists = INF }
 				}
 				every_state = {
 					limit = {
-						is_core_of = INS
+						is_core_of = INF
 						is_controlled_by = ROOT
 					}
-					"INS" = {
+					"INF" = {
 						transfer_state = PREV
 					}
 				}
 			}
 			else_if = {
 				limit = {
-					has_war_with = INS
+					has_war_with = INF
 				}
-				"INS" = {
+				"INF" = {
 					start_civil_war = {
 						ideology = ROOT
 						size = 1
@@ -3072,7 +3072,7 @@ USA_decolonisation = {
 				}
 				random_country = {
 					limit = {
-						original_tag = INS
+						original_tag = INF
 						has_government = ROOT
 					}
 					ROOT = {
@@ -3094,7 +3094,7 @@ USA_decolonisation = {
 						}
 						random_country = {
 							limit = {
-								original_tag = INS
+								original_tag = INF
 								has_government = ROOT
 							}
 							transfer_state = PREV
@@ -3122,18 +3122,18 @@ operations = {
 				has_government = neutrality
 			}
 			101 = {
-				is_owned_and_controlled_by = DEN
+				is_owned_and_controlled_by = NDE
 			}
-			DEN = {
+			NDE = {
 				is_subject = yes
 			}
 			IF = {
 				limit = {	
-					DEN = {
+					NDE = {
 						is_subject = yes
 					}
 				}
-				DEN = {
+				NDE = {
 					overlord = {
 						NOT = {
 							has_government = democratic
@@ -3153,7 +3153,7 @@ operations = {
 			base = 1
 			modifier = {
 				factor = 50 
-				DEN = {
+				NDE = {
 					overlord = {
 						OR = {
 							has_government = fascism
@@ -3171,7 +3171,7 @@ operations = {
 				}	
 				GER = {
 					has_government = fascism
-					has_subject = DEN
+					has_subject = NDE
 				}
 			}
 		} 
@@ -3183,9 +3183,9 @@ operations = {
 				has_government = neutrality
 			}
 			101 = {
-				is_owned_and_controlled_by = DEN
+				is_owned_and_controlled_by = NDE
 			}
-			DEN = {
+			NDE = {
 				is_subject = yes
 				overlord = {
 					is_major = yes
@@ -3200,7 +3200,7 @@ operations = {
 		}
 		
 		complete_effect = {
-			DEN = { country_event = { id = AAT_USA_events.01 days = 2 } }
+			NDE = { country_event = { id = AAT_USA_events.01 days = 2 } }
 			add_ideas = USA_greenland_patrol_idea
 			ROOT = {
 				transfer_state = 101

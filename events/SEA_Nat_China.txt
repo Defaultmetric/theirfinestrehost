@@ -827,7 +827,7 @@ country_event = { # to FROM, China wants to remove 9 power treaty
 			base = 1
 			modifier = {
 				fighting_army_strength_ratio = {
-					tag = CHI
+					tag = FCH
 					ratio > 1
 				}
 				factor = 2
@@ -851,7 +851,7 @@ country_event = { # to FROM, China wants to remove 9 power treaty
 
 			modifier = {
 				any_enemy_country = {
-					has_war_with = CHI	
+					has_war_with = FCH	
 				}
 				factor = 0.05
 			}
@@ -882,7 +882,7 @@ country_event = { # to China. FROM agrees to repudiate the treaty
 		CHI_reduce_nine_power_malus = yes
 
 		remove_from_array = {
-			array = CHI.nine_power_treaty_signatories
+			array = FCH.nine_power_treaty_signatories
 			value = FROM
 		}
 	}
@@ -934,7 +934,7 @@ country_event = { # to FROM, option to stand down, or punish
 			base = 1
 			modifier = {
 				fighting_army_strength_ratio = {
-					tag = CHI
+					tag = FCH
 					ratio > 1
 				}
 				factor = 1.15
@@ -1008,7 +1008,7 @@ country_event = { # To China, FROM embargoes
 		CHI_reduce_nine_power_malus = yes
 
 		remove_from_array = {
-			array = CHI.nine_power_treaty_signatories
+			array = FCH.nine_power_treaty_signatories
 			value = FROM
 		}
 	}
@@ -1028,13 +1028,13 @@ country_event = { # To China. FROM folds, no embargo
 		CHI_reduce_nine_power_malus = yes
 
 		remove_from_array = {
-			array = CHI.nine_power_treaty_signatories
+			array = FCH.nine_power_treaty_signatories
 			value = FROM
 		}
 	}
 }
 
-country_event = { # CHI asking SOV if they can have MIO
+country_event = { # FCH asking SOV if they can have MIO
 	id = SEA_china.25
 	title = SEA_china.25.t
 	desc = SEA_china.25.desc
@@ -1293,7 +1293,7 @@ country_event = { # China tries to stall war with Japan, HBC and SND get the cha
 
 		if = {
 			limit = {
-				is_in_faction_with = CHI
+				is_in_faction_with = FCH
 			}
 			leave_faction = yes
 		}
@@ -1743,7 +1743,7 @@ country_event = { # Warlord rejects integration
 	}
 }
 
-country_event = { # CHI demands annexation
+country_event = { # FCH demands annexation
 	id = SEA_china_warlords.4
 	title = SEA_china_warlords.4.t
 	desc = SEA_china_warlords.4.desc
@@ -1780,7 +1780,7 @@ country_event = { # CHI demands annexation
 	}
 }
 
-country_event = { # CHI demands annexation
+country_event = { # FCH demands annexation
 	id = SEA_china_warlords.5
 	title = SEA_china_warlords.5.t
 	desc = SEA_china_warlords.5.desc
@@ -2023,12 +2023,12 @@ country_event = {
 		ai_chance = {
 			base = 90
 			modifier = {
-				strength_ratio = { tag = CHI ratio < 0.8 }
+				strength_ratio = { tag = FCH ratio < 0.8 }
 				factor = 1.5
 			}
 			modifier = {
 				has_opinion = {
-					target = CHI
+					target = FCH
 					value > 75
 				}	
 				factor = 2
@@ -2058,12 +2058,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 			modifier = {
-				strength_ratio = { tag = CHI ratio > 1.5 }
+				strength_ratio = { tag = FCH ratio > 1.5 }
 				factor = 2
 			}
 			modifier = {
 				has_opinion = {
-					target = CHI
+					target = FCH
 					value < 25
 				}	
 				factor = 2
@@ -2082,7 +2082,7 @@ country_event = {
 	}
 }
 
-# FROM Accept our Offer - event for CHI
+# FROM Accept our Offer - event for FCH
 country_event = {
 	id = SEA_china_democratic.3
 	title = SEA_china_democratic.3.t
@@ -2103,7 +2103,7 @@ country_event = {
 
 }
 
-# FROM Refuses to Join Us - event for CHI
+# FROM Refuses to Join Us - event for FCH
 country_event = {
 	id = SEA_china_democratic.4
 	title = SEA_china_democratic.4.t
@@ -2290,7 +2290,7 @@ country_event = { #China demands FROM releases territories in Asia
 			base = 1
 			modifier = {
 				fighting_army_strength_ratio = {
-					tag = CHI
+					tag = FCH
 					ratio > 1
 				}
 				factor = 2
@@ -2361,12 +2361,12 @@ country_event = {
 		ai_chance = {
 			base = 90
 			modifier = {
-				strength_ratio = { tag = CHI ratio < 0.8 }
+				strength_ratio = { tag = FCH ratio < 0.8 }
 				factor = 1.5
 			}
 			modifier = {
 				has_opinion = {
-					target = CHI
+					target = FCH
 					value > 75
 				}	
 				factor = 2
@@ -2399,12 +2399,12 @@ country_event = {
 		ai_chance = {
 			base = 10
 			modifier = {
-				strength_ratio = { tag = CHI ratio > 1.5 }
+				strength_ratio = { tag = FCH ratio > 1.5 }
 				factor = 2
 			}
 			modifier = {
 				has_opinion = {
-					target = CHI
+					target = FCH
 					value < 25
 				}	
 				factor = 2
@@ -2423,7 +2423,7 @@ country_event = {
 	}
 }
 
-# FROM Accept our Offer - event for CHI
+# FROM Accept our Offer - event for FCH
 country_event = {
 	id = SEA_china_democratic.11
 	title = SEA_china_democratic.11.t
@@ -2452,7 +2452,7 @@ country_event = {
 
 }
 
-# FROM Refuses to Join Us - event for CHI
+# FROM Refuses to Join Us - event for FCH
 country_event = {
 	id = SEA_china_democratic.12
 	title = SEA_china_democratic.12.t

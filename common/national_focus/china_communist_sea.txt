@@ -1187,7 +1187,7 @@ focus_tree = {
 
 			if = {
 				limit = {
-					NOT = { is_in_faction_with = CHI }
+					NOT = { is_in_faction_with = FCH }
 				}
 				custom_effect_tooltip = PRC_dissent_in_the_united_front_1_tt
 				custom_effect_tooltip = PRC_halves_infiltration_cost_tt
@@ -3015,12 +3015,12 @@ focus_tree = {
 		}
 
 		available = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 		
 		bypass = {
 			NOT = {
-				is_in_faction_with = CHI
+				is_in_faction_with = FCH
 			}
 		}
 
@@ -3814,7 +3814,7 @@ focus_tree = {
 
 			if = {
 				limit = {
-					CHI = {
+					FCH = {
 						OR = {
 							has_character = SOV_vasily_chuykov 
 						}
@@ -4320,7 +4320,7 @@ focus_tree = {
 		}
 
 		available = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 		
 		bypass = {
@@ -6155,7 +6155,7 @@ focus = {
 			}
 			ELSE_IF = { #We want to kill KMT China even if they aren't a major, long as they are not our ally
 				limit = {
-					CHI = {
+					FCH = {
 						exists = yes
 						NOT = { is_ally_with = ROOT }
 					}
@@ -6163,7 +6163,7 @@ focus = {
 
 				create_wargoal = {
 					type = annex_everything 
-					target = CHI
+					target = FCH
 				}
 			}
 		}
@@ -7255,7 +7255,7 @@ focus = {
 			#}
 		}
 
-		will_lead_to_war_with = CHI
+		will_lead_to_war_with = FCH
 		will_lead_to_war_with = PRC
 		will_lead_to_war_with = GXC
 		will_lead_to_war_with = YUN
@@ -7292,7 +7292,7 @@ focus = {
 		bypass = {
 			custom_trigger_tooltip = {
 				tooltip = PRC_towards_one_china_bypass_tt
-				CHI = {
+				FCH = {
 					OR = {
 						exists = no
 						has_war_with = ROOT
@@ -8585,7 +8585,7 @@ focus = {
 								is_core_of = CAM
 								is_core_of = SIA
 								is_core_of = MAL
-								is_core_of = INS
+								is_core_of = INF
 								is_core_of = TML
 								is_core_of = BRN
 								is_core_of = SAR
@@ -8606,7 +8606,7 @@ focus = {
 									is_core_of = SIA
 									is_core_of = BRM
 									is_core_of = MAL
-									is_core_of = INS
+									is_core_of = INF
 									is_core_of = TML
 									is_core_of = BRN
 									is_core_of = SAR
@@ -8627,7 +8627,7 @@ focus = {
 									is_core_of = CAM
 									is_core_of = SIA
 									is_core_of = MAL
-									is_core_of = INS
+									is_core_of = INF
 									is_core_of = TML
 									is_core_of = BRN
 									is_core_of = SAR
@@ -8879,7 +8879,7 @@ focus = {
 		completion_reward = {
 			if = {
 				limit = {
-					is_in_faction_with = CHI
+					is_in_faction_with = FCH
 					any_other_country = {
 						controls_state = 1032
 						OR = {
@@ -8888,13 +8888,13 @@ focus = {
 						}
 					}
 				}
-				CHI = {
+				FCH = {
 					country_event = { id = SEA_PRC_faction_events.1 days = 1 }
 				}
 				effect_tooltip = {
 					custom_effect_tooltip = if_they_accept_tt
 					transfer_state = 1032
-					CHI = {
+					FCH = {
 						transfer_state = 744
 					}
 				}
@@ -8904,7 +8904,7 @@ focus = {
 					limit = {
 						NOT = { #This is done merely to get informative tooltips
 							has_completed_focus = PRC_usurp_control_over_yanan
-							is_in_faction_with = CHI
+							is_in_faction_with = FCH
 						}
 						any_other_country = {
 							controls_state = 1032
@@ -8916,7 +8916,7 @@ focus = {
 					}
 					custom_effect_tooltip = PRC_usurp_control_over_yanan_tt
 					effect_tooltip = {
-						CHI = {
+						FCH = {
 							country_event = { id = SEA_PRC_faction_events.1 days = 1 }
 						}
 						custom_effect_tooltip = if_they_accept_tt

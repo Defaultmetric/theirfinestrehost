@@ -34,27 +34,27 @@ SWE_is_historical_ai = {
 
 SWE_AAT = { 
 	AND = {
-		tag = SWE
-		original_tag = SWE
+		tag = FSW
+		original_tag = FSW
 		has_dlc = "Arms Against Tyranny"
 	}
 }
 is_eligible_for_train_the_sheltered = {
-	#If any of FIN/NOR/DEN has capitulated and you do not have war with that country, OR if you have war with that country but any other of the 2 countries has capitulated 
+	#If any of FIN/NNO/NDE has capitulated and you do not have war with that country, OR if you have war with that country but any other of the 2 countries has capitulated 
 	OR = {
 		OR = {
 			AND = {
-				has_war_with = DEN
+				has_war_with = NDE
 				OR = {
 					FIN = { has_capitulated = yes }
-					NOR = { has_capitulated = yes }
+					NNO = { has_capitulated = yes }
 				}
 			}
 			AND = {
-				NOT = { has_war_with = DEN }
+				NOT = { has_war_with = NDE }
 				OR = {
-					DEN = { has_capitulated = yes }
-					DEN = { is_subject = yes }
+					NDE = { has_capitulated = yes }
+					NDE = { is_subject = yes }
 				}
 
 			}
@@ -64,8 +64,8 @@ is_eligible_for_train_the_sheltered = {
 			AND = {
 				has_war_with = FIN
 				OR = {
-					DEN = { has_capitulated = yes }
-					NOR = { has_capitulated = yes }
+					NDE = { has_capitulated = yes }
+					NNO = { has_capitulated = yes }
 				}
 			}
 			AND = {
@@ -79,17 +79,17 @@ is_eligible_for_train_the_sheltered = {
 
 		OR = {
 			AND = {
-				has_war_with = NOR
+				has_war_with = NNO
 				OR = {
-					DEN = { has_capitulated = yes }
+					NDE = { has_capitulated = yes }
 					FIN = { has_capitulated = yes }
 				}
 			}
 			AND = {
-				NOT = { has_war_with = NOR }
+				NOT = { has_war_with = NNO }
 				OR = {
-					NOR = { has_capitulated = yes }
-					NOR = { is_subject = yes }
+					NNO = { has_capitulated = yes }
+					NNO = { is_subject = yes }
 				}
 			}
 		}
@@ -100,7 +100,7 @@ SWE_rapid_mob_manpower_law_trigger = {
 	if = {
 		limit = {
 			hidden_trigger = { 
-				original_tag = SWE
+				original_tag = FSW
 				has_dlc = "Arms Against Tyranny"
 			}
 		}
@@ -132,7 +132,7 @@ SWE_the_old_enemy_stirs_trigger = {
 SWE_refuge_for_revolutionaries_trigger = {
 	hidden_trigger = {
 		SWE_AAT = yes
-		SWE = { 
+		FSW = { 
 			has_completed_focus = SWE_refuge_from_war 
 			exists = yes
 			is_subject = no
@@ -144,12 +144,12 @@ SWE_refuge_for_revolutionaries_trigger = {
 SWE_state_or_vp_name_should_change = {
 	OR = {
 		AND = {
-			ROOT = { original_tag = SWE }
-			NOT = { FROM = { original_tag = SWE } } #Not civil wars
+			ROOT = { original_tag = FSW }
+			NOT = { FROM = { original_tag = FSW } } #Not civil wars
 		}
 		AND = {
-			FROM = { original_tag = SWE }
-			NOT = { ROOT = { original_tag = SWE } } #Not civil wars
+			FROM = { original_tag = FSW }
+			NOT = { ROOT = { original_tag = FSW } } #Not civil wars
 		}
 	}
 	OR = {
@@ -169,10 +169,10 @@ SWE_state_or_vp_name_should_change = {
 SWE_cross_we_bear_state_condition_trigger = {
 
 	OR = {
-		is_controlled_by = SWE
+		is_controlled_by = FSW
 		is_controlled_by = THIS
 		controller = {
-			is_in_faction_with = SWE
+			is_in_faction_with = FSW
 			is_subject = no
 			OR = {
 				has_government = democratic

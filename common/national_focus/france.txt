@@ -189,7 +189,7 @@ focus_tree = {
 		available = {
 			JAP = 
 			{
-				has_war_with = CHI
+				has_war_with = FCH
 			}
 			NOT = 
 			{
@@ -1800,18 +1800,18 @@ focus_tree = {
 
 		available = {
 			OR = {
-				country_exists = YUG
-				country_exists = CZE
+				country_exists = FYG
+				country_exists = FCZ
 				country_exists = ROM
-				country_exists = POL
+				country_exists = NPO
 			}
 			is_subject = no
 			NOT = {
 				AND = {
-					has_war_with = YUG
-					has_war_with = POL
+					has_war_with = FYG
+					has_war_with = NPO
 					has_war_with = ROM
-					has_war_with = CZE
+					has_war_with = FCZ
 				}
 			}
 		}
@@ -1828,10 +1828,10 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-						original_tag = YUG
-						original_tag = CZE
+						original_tag = FYG
+						original_tag = FCZ
 						original_tag = ROM
-						original_tag = POL
+						original_tag = NPO
 					}
 					exists = yes
 					not = { has_war_with = ROOT }
@@ -2242,7 +2242,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			ROOT = { country_event = { id = france.2 } }
-			BEL = {
+			FBL = {
 				add_opinion_modifier = {
 					target = ROOT
 					modifier = FRA_extend_the_maginot_line_focus_neg
@@ -3525,13 +3525,13 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-						original_tag = YUG
+						original_tag = FYG
 						original_tag = HUN
 						original_tag = ROM
-						original_tag = GRE
-						original_tag = CZE
+						original_tag = NNG
+						original_tag = FCZ
 						original_tag = BUL
-						original_tag = ALB
+						original_tag = FAL
 						original_tag = SER
 						original_tag = SLO
 						original_tag = MNT
@@ -4590,7 +4590,7 @@ focus_tree = {
 		cost = 0
 
 		available = {
-				HOL = {
+				FNL = {
 					NOT = 
 					{
 						has_full_control_of_state = 36
@@ -5557,7 +5557,7 @@ focus_tree = {
 		}
 
 		available = {
-			HOL = {
+			FNL = {
 					NOT = 
 					{
 						has_full_control_of_state = 36
@@ -5821,7 +5821,7 @@ focus_tree = {
 		}
 
 		available = {
-			country_exists = CZE
+			country_exists = FCZ
 			is_subject = no
 		}
 		
@@ -5836,18 +5836,18 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						has_government = ROOT
 						is_faction_leader = yes
 					}
 				}
-				CZE = {
+				FCZ = {
 					country_event = generic.2
 				}
 			}
 			else_if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						has_government = ROOT
 						OR = {
 							is_subject = no
@@ -5856,11 +5856,11 @@ focus_tree = {
 					}
 					is_faction_leader = yes
 				}
-				CZE = { country_event = generic.5 }
+				FCZ = { country_event = generic.5 }
 			}
 			else_if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						has_government = ROOT
 						is_in_faction = no
 						OR = {
@@ -5872,9 +5872,9 @@ focus_tree = {
 				}
 				set_rule = { can_create_factions = yes }
 				create_faction = FRA_little_entente
-				CZE = { custom_effect_tooltip = invite_to_faction_tt }
+				FCZ = { custom_effect_tooltip = invite_to_faction_tt }
 				hidden_effect = {
-					CZE = { country_event = generic.5 }
+					FCZ = { country_event = generic.5 }
 				}
 			}
 		}
@@ -5888,7 +5888,7 @@ focus_tree = {
 		}
 	 	prerequisite = { focus = FRA_strengthen_the_little_entente }
 	 	bypass = {
-	 		YUG = {
+	 		FYG = {
 	 			OR = {
 	 				exists = no
 	 				is_puppet = yes
@@ -5905,7 +5905,7 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			YUG = { country_event = france.17 }
+			FYG = { country_event = france.17 }
 		}
 	}
 
@@ -6168,8 +6168,8 @@ focus_tree = {
 		}
 
 		available = {
-			country_exists = POL
-			NOT = { has_war_with = POL }
+			country_exists = NPO
+			NOT = { has_war_with = NPO }
 			is_subject = no
 		}
 		
@@ -6186,10 +6186,10 @@ focus_tree = {
 				limit = {
 					is_faction_leader = yes
 				}
-				POL = { country_event = generic.5 }
+				NPO = { country_event = generic.5 }
 			}
 			else = {
-				give_guarantee = POL
+				give_guarantee = NPO
 				custom_effect_tooltip = FRA_revive_the_franco_polish_alliance_tt
 			}
 		}
@@ -7332,9 +7332,9 @@ focus_tree = {
 			NOT = {
 				any_other_country = {
 					OR = {
-						tag = POL
-						tag = CZE
-						tag = YUG
+						tag = NPO
+						tag = FCZ
+						tag = FYG
 						tag = ROM
 						tag = HUN
 					}
@@ -7351,9 +7351,9 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-						tag = POL
-						tag = CZE
-						tag = YUG
+						tag = NPO
+						tag = FCZ
+						tag = FYG
 						tag = ROM
 						tag = HUN
 					}
@@ -7526,7 +7526,7 @@ focus_tree = {
 		}
 
 		available = {
-			POR = {
+			NPR = {
 				exists = yes
 				NOT = { has_war_with = ROOT }
 			}
@@ -7534,14 +7534,14 @@ focus_tree = {
 				limit = { is_subject = yes }
 				OVERLORD = {
 					NOT = {
-						has_war_with = POR
+						has_war_with = NPR
 					}
 				}
 			}
 		}
 		
 		bypass = {
-			POR = {
+			NPR = {
 				OR = {
 					exists = no
 					is_in_faction_with = ROOT
@@ -7554,7 +7554,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			POR = { 
+			NPR = { 
 				IF = {
 					limit = {
 						ROOT = { is_in_faction = yes }
@@ -7639,21 +7639,21 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		will_lead_to_war_with = GRE
+		will_lead_to_war_with = NNG
 		available = {
-			NOT = { is_in_faction_with = GRE }
+			NOT = { is_in_faction_with = NNG }
 		}
 		
 		bypass = {
 			OR = {
-				has_war_with = GRE
-				has_subject = GRE
+				has_war_with = NNG
+				has_subject = NNG
 			}
 			any_country = {
 				is_in_faction_with = ROOT
 				OR = {
-					has_war_with = GRE
-					has_subject = GRE
+					has_war_with = NNG
+					has_subject = NNG
 				}
 			}
 		}
@@ -7708,7 +7708,7 @@ focus_tree = {
 
 		available = {
 			is_in_faction_with = ITA
-			is_in_faction_with = POR
+			is_in_faction_with = NPR
 			41 = {
 				CONTROLLER = {
 					is_in_faction_with = ROOT
@@ -7747,9 +7747,9 @@ focus_tree = {
 			factor = 1
 		}
 
-		will_lead_to_war_with = BEL
+		will_lead_to_war_with = FBL
 		will_lead_to_war_with = GER
-		will_lead_to_war_with = HOL
+		will_lead_to_war_with = FNL
 		will_lead_to_war_with = LUX
 		available = {
 			
@@ -7785,7 +7785,7 @@ focus_tree = {
 
 			create_wargoal = {
 				type = annex_everything
-				target = BEL
+				target = FBL
 				expire = 0
 			}
 			create_wargoal = {
@@ -7798,13 +7798,13 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					HOL = {
+					FNL = {
 						owns_state = 35
 					}
 				}
 				create_wargoal = {
 					type = take_state
-					target = HOL
+					target = FNL
 					expire = 0
 					generator = { 35 }
 				}
@@ -7966,9 +7966,9 @@ focus_tree = {
 				is_subject_of = GER
 			}
 		}
-		will_lead_to_war_with = BEL
+		will_lead_to_war_with = FBL
 		bypass = {
-			BEL = {
+			FBL = {
 				OR = {
 					exists = no
 					has_war_with = ROOT
@@ -7981,7 +7981,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			BEL = {
+			FBL = {
 				country_event = {
 					id = lar_split_belgium.1
 					hours = 6
@@ -8006,9 +8006,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		will_lead_to_war_with = BEL
+		will_lead_to_war_with = FBL
 		available = {
-			BEL = {
+			FBL = {
 				exists = yes
 				is_in_faction = no
 				NOT = {
@@ -8022,7 +8022,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-			BEL = {
+			FBL = {
 				is_subject_of = ROOT
 			}
 		}
@@ -8032,7 +8032,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			BEL = {
+			FBL = {
 				country_event = {
 					id = lar_align_belgium.1
 					hours = 6
@@ -8060,33 +8060,33 @@ focus_tree = {
 		}
 
 		available = {
-			BEL = {
+			FBL = {
 				is_subject_of = ROOT
 			}
 			OR = { 
 				is_subject = no
 				is_subject_of = GER
 			}
-			295 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			538 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			718 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			769 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			768 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			890 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			888 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
-			889 = { CONTROLLER = { OR = { tag = BEL is_subject_of = BEL } } }
+			295 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			538 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			718 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			769 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			768 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			890 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			888 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
+			889 = { CONTROLLER = { OR = { tag = FBL is_subject_of = FBL } } }
 		}
 		
 		bypass = {
-			BEL = { 
+			FBL = { 
 				exists = no 
 			}
 			NOT = { 
 				295 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8095,8 +8095,8 @@ focus_tree = {
 				538 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8105,8 +8105,8 @@ focus_tree = {
 				718 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8115,8 +8115,8 @@ focus_tree = {
 				769 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8125,8 +8125,8 @@ focus_tree = {
 				768 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8135,8 +8135,8 @@ focus_tree = {
 				890 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8145,8 +8145,8 @@ focus_tree = {
 				888 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8155,8 +8155,8 @@ focus_tree = {
 				889 = { 
 					CONTROLLER = { 
 						OR = { 
-							tag = BEL 
-							is_subject_of = BEL 
+							tag = FBL 
+							is_subject_of = FBL 
 						} 
 					} 
 				} 
@@ -8450,7 +8450,7 @@ focus_tree = {
 					is_subject = no
 					NOT = {
 						tag = TUR
-						tag = PER
+						tag = FPR
 					}
 				}
 				country_event = {
@@ -8624,9 +8624,9 @@ focus_tree = {
 			hidden_effect = {
 				if = {
 					limit = {
-						AUS = { has_government = fascism }
+						FAU = { has_government = fascism }
 					}
-					AUS = {
+					FAU = {
 						add_ai_strategy = {
 							type = befriend
 							id = ROOT
@@ -8741,9 +8741,9 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						YUG = { has_government = fascism }
+						FYG = { has_government = fascism }
 					}
-					YUG = {
+					FYG = {
 						add_ai_strategy = {
 							type = befriend
 							id = ROOT
@@ -9690,8 +9690,8 @@ focus_tree = {
 			factor = 1
 		}
 		will_lead_to_war_with = ENG
-		will_lead_to_war_with = BEL
-		will_lead_to_war_with = HOL
+		will_lead_to_war_with = FBL
+		will_lead_to_war_with = FNL
 		will_lead_to_war_with = LUX
 
 		available = {
@@ -9699,13 +9699,13 @@ focus_tree = {
 		}
 		
 		bypass = {
-			BEL = {
+			FBL = {
 				OR = {
 					exists = no
 					is_subject_of = ROOT
 				}
 			}
-			HOL = {
+			FNL = {
 				OR = {
 					exists = no
 					is_subject_of = ROOT
@@ -9731,7 +9731,7 @@ focus_tree = {
 
 		completion_reward = {
 			create_wargoal = {
-				target = BEL
+				target = FBL
 				type = annex_everything
 				expire = 0
 			}
@@ -9741,7 +9741,7 @@ focus_tree = {
 				expire = 0
 			}
 			create_wargoal = {
-				target = HOL
+				target = FNL
 				type = annex_everything
 				expire = 0
 			}
@@ -9771,11 +9771,11 @@ focus_tree = {
 		available = {
 			is_subject = no
 			OR = {
-				HOL = {
+				FNL = {
 					is_subject_of = ROOT
 				}
 				any_state = {
-					is_core_of = HOL
+					is_core_of = FNL
 					is_controlled_by = ROOT
 				}
 			}
@@ -9791,7 +9791,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_relation_modifier = {
-				target = HOL
+				target = FNL
 				modifier = FRA_reorganized_departments
 			}
 		}
@@ -9911,7 +9911,7 @@ focus_tree = {
 					975 = { is_owned_or_subject_trigger = yes }
 					976 = { is_owned_or_subject_trigger = yes }
 				}
-				AUS = {
+				FAU = {
 					transfer_state = 4
 					transfer_state = 152
 					transfer_state = 153
@@ -9919,7 +9919,7 @@ focus_tree = {
 					transfer_state = 975
 					transfer_state = 976  
 				}
-				puppet = AUS
+				puppet = FAU
 			}
 			if = { #set up Wurtemberg puppet
 				limit = {
@@ -10022,26 +10022,26 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					CZE = { exists = yes }
-					NOT = { has_war_with = CZE }
+					FCZ = { exists = yes }
+					NOT = { has_war_with = FCZ }
 				}
 				every_state = {
 					limit = { 
-						is_core_of = CZE 
+						is_core_of = FCZ 
 						is_owned_or_subject_trigger = yes
 					}
-					CZE = { transfer_state = PREV }
+					FCZ = { transfer_state = PREV }
 				}
 			}
 			else = {
 				every_state = {
 					limit = { 
-						is_core_of = CZE 
+						is_core_of = FCZ 
 						is_owned_or_subject_trigger = yes
 					}
-					CZE = { transfer_state = PREV }
+					FCZ = { transfer_state = PREV }
 				}
-				puppet = CZE
+				puppet = FCZ
 			}
 			every_state = {
 				limit = { 
@@ -10056,7 +10056,7 @@ focus_tree = {
 								tag = HAN
 								tag = SHL
 								tag = WUR
-								tag = CZE
+								tag = FCZ
 							}
 						}
 					}

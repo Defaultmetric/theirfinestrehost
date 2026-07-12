@@ -272,19 +272,19 @@ ETH_state_decentralization_dynamic_modifier = {
 		ROOT = { 
 			NOT = {
 				OWNER = {
-					original_tag = ETH
+					original_tag = FET
 				}
 			} # ROOT refers to the state on which the modifier is added
 		}
 	}
 	icon = GFX_modifiers_ETH_state_decentralization
 	local_building_slots_factor = ETH_state_decentralization_building_slots
-	production_speed_infrastructure_factor = ETH.ETH_state_decentralization_infrastructure
-	state_resources_factor = ETH.ETH_state_decentralization_resources
-	army_defence_factor = ETH.ETH_state_decentralization_defence
-	army_attack_factor = ETH.ETH_state_decentralization_attack
-	recruitable_population_factor = ETH.ETH_state_decentralization_recruitable_population
-	army_speed_factor = ETH.ETH_state_decentralization_army_speed
+	production_speed_infrastructure_factor = FET.ETH_state_decentralization_infrastructure
+	state_resources_factor = FET.ETH_state_decentralization_resources
+	army_defence_factor = FET.ETH_state_decentralization_defence
+	army_attack_factor = FET.ETH_state_decentralization_attack
+	recruitable_population_factor = FET.ETH_state_decentralization_recruitable_population
+	army_speed_factor = FET.ETH_state_decentralization_army_speed
 }
 
 ETH_state_local_offensive_dynamic_modifier = {
@@ -1502,7 +1502,7 @@ SWI_fake_active_citizen_militia_for_the_tooltip = { # I swear this is the last t
 SWI_gold_trade_with_switzerland = {
 	enable = { 
 		NOT = {
-			has_war_with = SWI
+			has_war_with = NSW
 		}
 	}
 	icon = GFX_idea_SPR_seize_the_gold_reserves

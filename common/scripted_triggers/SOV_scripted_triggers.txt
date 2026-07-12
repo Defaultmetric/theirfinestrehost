@@ -92,7 +92,7 @@ SOV_is_free_chinese_tag = {
 	custom_trigger_tooltip = {
 		tooltip = SOV_is_free_chinese_tag_tt
 		OR = {
-			original_tag = CHI
+			original_tag = FCH
 			original_tag = PRC
 			original_tag = SIK
 			original_tag = XSM
@@ -108,7 +108,7 @@ SOV_is_free_chinese_tag = {
 
 SOV_is_chinese_tag = {
 	OR = {
-		original_tag = CHI
+		original_tag = FCH
 		original_tag = PRC
 		original_tag = SIK
 		original_tag = XSM
@@ -212,10 +212,10 @@ SOV_is_soviet_republic_tag_lax = {
 		tag = CHU # Chuvashia
 		tag = MEL # Mariel		
 
-		tag = EST
-		tag = LAT
-		tag = LIT
-		tag = POL
+		tag = NES
+		tag = NLA
+		tag = NLI
+		tag = NPO
 		tag = FIN
 		tag = MON
 	}
@@ -291,19 +291,19 @@ SOV_has_already_built_national_academy_of_sciences = {
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_KUB_flag }
 		}
 		AND = {
-			FROM = { tag = EST }
+			FROM = { tag = NES }
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_EST_flag }
 		}
 		AND = {
-			FROM = { tag = LAT }
+			FROM = { tag = NLA }
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_LAT_flag }
 		}
 		AND = {
-			FROM = { tag = LIT }
+			FROM = { tag = NLI }
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_LIT_flag }
 		}
 		AND = {
-			FROM = { tag = POL }
+			FROM = { tag = NPO }
 			ROOT = { has_country_flag = SOV_national_academy_of_sciences_built_POL_flag }
 		}
 		AND = {
@@ -1247,9 +1247,9 @@ SOV_we_want_to_send_ultimatums = {
 	}
 	any_other_country = {
 		OR = {
-			original_tag = LIT
-			original_tag = LAT
-			original_tag = EST
+			original_tag = NLI
+			original_tag = NLA
+			original_tag = NES
 		}
 		NOT = { has_country_flag = SOV_ultimatum_sent_flag }
 	}

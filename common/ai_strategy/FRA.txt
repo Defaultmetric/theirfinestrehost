@@ -464,10 +464,10 @@ FRA_why_push_into_germany_their_food_is_horrible = {
 		surrender_progress < 0.01 # We haven't lost territories 
 		
 		# Once Germany launches some kind of attack on the low countries, or if they go somewhere dangerous, we can try if we want to
-		GER = { NOT = { has_war_with = BEL } }
-		GER = { NOT = { has_war_with = HOL } }
-		GER = { NOT = { has_war_with = CZE } }
-		GER = { NOT = { has_war_with = AUS } }
+		GER = { NOT = { has_war_with = FBL } }
+		GER = { NOT = { has_war_with = FNL } }
+		GER = { NOT = { has_war_with = FCZ } }
+		GER = { NOT = { has_war_with = FAU } }
 		GER = { NOT = { has_war_with = SOV } }
 		GER = { NOT = { has_war_with = ITA } }
 
@@ -515,8 +515,8 @@ FRA_benelux_will_surely_not_fall = {
 		has_war_with = GER
 		date < 1940.8.1
 		OR = {
-			HOL = { has_capitulated = no }
-			BEL = { has_capitulated = no }
+			FNL = { has_capitulated = no }
+			FBL = { has_capitulated = no }
 		}
 	}
 
@@ -524,20 +524,20 @@ FRA_benelux_will_surely_not_fall = {
 		OR = {
 			date > 1940.8.1
 			AND = {
-				HOL = { surrender_progress > 0.30 }
-				BEL = { surrender_progress > 0.30 }
+				FNL = { surrender_progress > 0.30 }
+				FBL = { surrender_progress > 0.30 }
 			}
 		}
 	}
 
 	ai_strategy = {
 		type = dont_defend_ally_borders
-		id = "HOL"
+		id = "FNL"
 		value = 50
 	}
 	ai_strategy = {
 		type = dont_defend_ally_borders
-		id = "BEL"
+		id = "FBL"
 		value = 50
 	}
 	ai_strategy = {

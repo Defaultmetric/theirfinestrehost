@@ -6,9 +6,9 @@ form_scandinavia_category = {
 
 		allowed = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
-				original_tag = SWE
+				original_tag = NNO
+				original_tag = NDE
+				original_tag = FSW
 			}
 			OR = {
 				has_dlc = "Waking the Tiger"
@@ -65,9 +65,9 @@ form_scandinavia_category = {
 
 		visible = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
-				original_tag = SWE
+				original_tag = NNO
+				original_tag = NDE
+				original_tag = FSW
 			}
 			NOT = { has_global_flag = form_nordic_league_flag }
 			NOT = { has_global_flag = form_scandinavia_flag }
@@ -140,12 +140,12 @@ form_nordic_league_category = {
 
 		allowed = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
-				original_tag = SWE
+				original_tag = NNO
+				original_tag = NDE
+				original_tag = FSW
 				original_tag = FIN
 				original_tag = ICE
-				original_tag = EST
+				original_tag = NES
 				original_tag = GRN
 				original_tag = SMI
 				original_tag = KAR
@@ -155,9 +155,9 @@ form_nordic_league_category = {
 				AND = {
 					has_dlc = "Arms Against Tyranny"
 					OR = {
-						original_tag = NOR
-						original_tag = DEN
-						original_tag = SWE
+						original_tag = NNO
+						original_tag = NDE
+						original_tag = FSW
 						original_tag = FIN
 						original_tag = ICE
 						original_tag = GRN
@@ -167,7 +167,7 @@ form_nordic_league_category = {
 				}
 				AND = {
 					has_dlc = "No Step Back"
-					original_tag = EST
+					original_tag = NES
 				}
 			}
 		}
@@ -182,7 +182,7 @@ form_nordic_league_category = {
 			is_subject = no
 			if = {
 				limit = {
-					NOT = { original_tag = EST }
+					NOT = { original_tag = NES }
 				}
 				# Norway
 				custom_trigger_tooltip = {
@@ -260,9 +260,9 @@ form_nordic_league_category = {
 							}
 							NOT = {
 								AND = {
-									is_core_of = NOR
-									is_core_of = DEN
-									is_core_of = SWE
+									is_core_of = NNO
+									is_core_of = NDE
+									is_core_of = FSW
 								}
 							}
 						}
@@ -273,16 +273,16 @@ form_nordic_league_category = {
 
 		visible = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
-				original_tag = SWE
+				original_tag = NNO
+				original_tag = NDE
+				original_tag = FSW
 				original_tag = FIN
 				original_tag = ICE
 				original_tag = GRN
 				original_tag = SMI
 				original_tag = KAR
 				AND = {
-					original_tag = EST
+					original_tag = NES
 					has_completed_focus = EST_form_scandinavia
 				}
 			}
@@ -319,19 +319,19 @@ form_nordic_league_category = {
 
 			if = {
 				limit = {
-					NOR = {
+					NNO = {
 						is_subject_of = ROOT
 					}
 				}
 				
-				NOR = {
+				NNO = {
 					every_unit_leader = {
 						set_nationality = ROOT
 					}
 				}
 				
 				annex_country = {
-					target = NOR
+					target = NNO
 					transfer_troops = yes
 				}
 			}
@@ -355,19 +355,19 @@ form_nordic_league_category = {
 
 			if = {
 				limit = {
-					SWE = {
+					FSW = {
 						is_subject_of = ROOT
 					}
 				}
 				
-				SWE = {
+				FSW = {
 					every_unit_leader = {
 						set_nationality = ROOT
 					}
 				}
 				
 				annex_country = {
-					target = SWE
+					target = FSW
 					transfer_troops = yes
 				}
 			}
@@ -386,19 +386,19 @@ form_nordic_league_category = {
 
 			if = {
 				limit = {
-					DEN = {
+					NDE = {
 						is_subject_of = ROOT
 					}
 				}
 				
-				DEN = {
+				NDE = {
 					every_unit_leader = {
 						set_nationality = ROOT
 					}
 				}				
 				
 				annex_country = {
-					target = DEN
+					target = NDE
 					transfer_troops = yes
 				}
 			}
@@ -516,7 +516,7 @@ form_nordic_league_category = {
 			
 			hidden_effect = {
 				if = {
-					limit = { NOT = { original_tag = EST } }
+					limit = { NOT = { original_tag = NES } }
 					news_event = { id = wtt_news.54 hours = 6 }
 				}
 				else = {
@@ -545,8 +545,8 @@ form_north_sea_category = {
 
 		allowed = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
+				original_tag = NNO
+				original_tag = NDE
 			}
 			has_dlc = "Arms Against Tyranny"
 		}
@@ -606,8 +606,8 @@ form_north_sea_category = {
 
 		visible = {
 			OR = {
-				original_tag = NOR
-				original_tag = DEN
+				original_tag = NNO
+				original_tag = NDE
 			}
 			hidden_trigger = {
 				NOT = { has_country_flag = form_nordic_nation_flag }
@@ -685,7 +685,7 @@ form_baltic_sea_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = DEN
+			original_tag = NDE
 			has_dlc = "Arms Against Tyranny"
 		}
 
@@ -766,7 +766,7 @@ form_baltic_sea_empire_category = {
 		}
 
 		visible = {
-			original_tag = DEN
+			original_tag = NDE
 			hidden_trigger = {
 				NOT = { has_country_flag = form_nordic_nation_flag }
 			}
@@ -1010,8 +1010,8 @@ form_austria_hungary_category = {
 
 		allowed = {
 			OR = {
-				original_tag = AUS
-				original_tag = CZE
+				original_tag = FAU
+				original_tag = FCZ
 				original_tag = CRO
 				original_tag = SLO
 				original_tag = SLV
@@ -1073,8 +1073,8 @@ form_austria_hungary_category = {
 
 		visible = {
 			OR = {
-				original_tag = AUS
-				original_tag = CZE
+				original_tag = FAU
+				original_tag = FCZ
 				original_tag = CRO
 				original_tag = SLO
 				original_tag = SLV
@@ -1096,9 +1096,9 @@ form_austria_hungary_category = {
 			hidden_effect = {
 				IF = {
 					limit = {
-						NOT = { tag = AUS }
+						NOT = { tag = FAU }
 					}
-					AUS = { set_cosmetic_tag = AUS_NOT_WHITE }
+					FAU = { set_cosmetic_tag = AUS_NOT_WHITE }
 				}
 
 				102 = { add_core_of = ROOT }
@@ -1351,8 +1351,8 @@ form_commonwealth_category = {
 
 		allowed = {
 			OR = {
-				original_tag = POL
-				original_tag = LIT
+				original_tag = NPO
+				original_tag = NLI
 			}
 		}
 
@@ -1385,16 +1385,16 @@ form_commonwealth_category = {
 			}
 			OR = {
 				AND = {
-					original_tag = POL
+					original_tag = NPO
 					core_compliance = {
-						occupied_country_tag = LIT
+						occupied_country_tag = NLI
 						value > 80
 					}
 				}
 				AND = {
-					original_tag = LIT
+					original_tag = NLI
 					core_compliance = {
-						occupied_country_tag = POL
+						occupied_country_tag = NPO
 						value > 80
 					}
 				}
@@ -1403,8 +1403,8 @@ form_commonwealth_category = {
 
 		visible = {
 			OR = {
-				original_tag = POL
-				original_tag = LIT
+				original_tag = NPO
+				original_tag = NLI
 			}
 			NOT = { has_global_flag = form_commonwealth_flag }
 		}
@@ -1438,7 +1438,7 @@ form_united_netherlands_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
+				original_tag = FNL
 				original_tag = LUX
 			}
 			has_dlc = "Waking the Tiger"
@@ -1466,8 +1466,8 @@ form_united_netherlands_category = {
 
 		visible = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 			}
 			NOT = { has_global_flag = form_united_netherlands_flag }
@@ -1669,9 +1669,9 @@ form_baltic_federation_category = {
 
 		allowed = {
 			OR = {
-				original_tag = EST
-				original_tag = LAT
-				original_tag = LIT
+				original_tag = NES
+				original_tag = NLA
+				original_tag = NLI
 			}
 			OR = {
 				has_dlc = "Waking the Tiger"
@@ -1711,9 +1711,9 @@ form_baltic_federation_category = {
 
 		visible = {
 			OR = {
-				original_tag = EST
-				original_tag = LAT
-				original_tag = LIT
+				original_tag = NES
+				original_tag = NLA
+				original_tag = NLI
 			}
 			NOT = { has_global_flag = form_baltic_federation_flag }
 			NOT = { has_cosmetic_tag = LIVONIA }
@@ -1856,8 +1856,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -1866,7 +1866,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -1883,8 +1883,8 @@ form_european_union_category = {
 			OR = { 
 				AND = {
 					OR = {
-						original_tag = HOL
-						original_tag = BEL
+						original_tag = FNL
+						original_tag = FBL
 						original_tag = LUX
 						original_tag = FRA
 						original_tag = ITA
@@ -1910,7 +1910,7 @@ form_european_union_category = {
 					has_completed_focus = wuw_HUN_renovato_imperii
 				}
 				AND = {
-					original_tag = AUS
+					original_tag = FAU
 					OR = {
 						AND = {
 							has_country_leader = {
@@ -2194,8 +2194,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2204,7 +2204,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -2316,8 +2316,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2326,7 +2326,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -2469,8 +2469,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2479,7 +2479,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -2611,8 +2611,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2621,7 +2621,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -2734,8 +2734,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2744,7 +2744,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -2877,8 +2877,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -2887,7 +2887,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3042,8 +3042,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3052,7 +3052,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3184,8 +3184,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3194,7 +3194,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3343,8 +3343,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3353,7 +3353,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3464,8 +3464,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3474,7 +3474,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3590,8 +3590,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3600,7 +3600,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3693,8 +3693,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3703,7 +3703,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -3837,8 +3837,8 @@ form_european_union_category = {
 
 		allowed = {
 			OR = {
-				original_tag = HOL
-				original_tag = BEL
+				original_tag = FNL
+				original_tag = FBL
 				original_tag = LUX
 				original_tag = FRA
 				original_tag = ITA
@@ -3847,7 +3847,7 @@ form_european_union_category = {
 				original_tag = ENG
 				AND = {
 					OR = {
-						original_tag = AUS
+						original_tag = FAU
 						original_tag = HUN
 					}
 					has_dlc = "Gotterdammerung"
@@ -4745,7 +4745,7 @@ form_persian_empire_category = {
 
 		allowed = {
 			OR = {
-				original_tag = PER
+				original_tag = FPR
 				original_tag = AFG
 			}
 			has_dlc = "Waking the Tiger"
@@ -4935,7 +4935,7 @@ form_persian_empire_category = {
 
 		visible = {
 			OR = {
-				original_tag = PER
+				original_tag = FPR
 				original_tag = AFG
 			}
 			NOT = { has_global_flag = form_persian_empire_flag }
@@ -5066,7 +5066,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Waking the Tiger"
 			NOT = { has_dlc = "Battle for the Bosporus" }
 		}
@@ -5254,7 +5254,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -5426,7 +5426,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -5584,7 +5584,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			OR = {
 				has_dlc = "Waking the Tiger"
 				has_dlc = "Battle for the Bosporus"
@@ -5616,7 +5616,7 @@ form_byzantine_empire_category = {
 		}
 
 		visible = {
-			original_tag = GRE
+			original_tag = NNG
 			NOT = { has_global_flag = triumph_for_italy }
 			if = {
 				limit = {
@@ -5664,7 +5664,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			OR = {
 				has_dlc = "Waking the Tiger"
 				has_dlc = "Battle for the Bosporus"
@@ -5689,7 +5689,7 @@ form_byzantine_empire_category = {
 		}
 
 		visible = {
-			original_tag = GRE
+			original_tag = NNG
 			NOT = { has_global_flag = triumph_for_middle_east }
 			if = {
 				limit = { has_dlc = "Battle for the Bosporus"}
@@ -5725,7 +5725,7 @@ form_byzantine_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Waking the Tiger"
 		}
 
@@ -6343,7 +6343,7 @@ form_majapahit_empire_category = {
 
 		allowed = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_dlc = "Waking the Tiger"
@@ -6374,7 +6374,7 @@ form_majapahit_empire_category = {
 
 		visible = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			NOT = { has_global_flag = form_majapahit_empire_flag }
@@ -6430,7 +6430,7 @@ form_majapahit_empire_category = {
 
 		allowed = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_dlc = "Waking the Tiger"
@@ -6445,7 +6445,7 @@ form_majapahit_empire_category = {
 
 		visible = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_global_flag = form_majapahit_empire_flag 
@@ -6475,7 +6475,7 @@ form_majapahit_empire_category = {
 
 		allowed = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_dlc = "Waking the Tiger"
@@ -6489,7 +6489,7 @@ form_majapahit_empire_category = {
 
 		visible = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_global_flag = form_majapahit_empire_flag 
@@ -6524,7 +6524,7 @@ form_majapahit_empire_category = {
 
 		allowed = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_dlc = "Waking the Tiger"
@@ -6544,7 +6544,7 @@ form_majapahit_empire_category = {
 
 		visible = {
 			OR = {
-				original_tag = INS
+				original_tag = INF
 				original_tag = MAL
 			}
 			has_global_flag = form_majapahit_empire_flag 
@@ -6627,7 +6627,7 @@ form_hre_category = {
 			OR = {
 				original_tag = GER
 				AND = {
-					original_tag = AUS 
+					original_tag = FAU 
 					has_dlc = "Gotterdammerung"
 				}
 			}
@@ -6736,7 +6736,7 @@ form_hre_category = {
 						has_completed_focus = GER_restore_the_holy_roman_empire
 					}
 					AND = {
-						original_tag = AUS
+						original_tag = FAU
 						has_government = neutrality
 						has_completed_focus = AUS_legacy_of_the_empire
 						OR = {
@@ -8567,7 +8567,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8724,7 +8724,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8770,7 +8770,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8818,7 +8818,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8859,7 +8859,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8903,7 +8903,7 @@ form_greater_greece_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -8950,7 +8950,7 @@ form_macedonian_empire_category = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = GRE
+			original_tag = NNG
 			has_dlc = "Battle for the Bosporus"
 		}
 
@@ -9096,7 +9096,7 @@ form_macedonian_empire_category = {
 		}
 
 		visible = {
-			original_tag = GRE
+			original_tag = NNG
 			OR = {
 				AND = {
 					has_completed_focus = GRE_moulding_the_new_world_order
@@ -10581,7 +10581,7 @@ form_ethiopian_empire_category  = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = ETH # Ethiopia # Maybe add Eritrea as well? 
+			original_tag = FET # Ethiopia # Maybe add Eritrea as well? 
 		}
 
 		available = {
@@ -10628,7 +10628,7 @@ form_ethiopian_empire_category  = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = ETH # Ethiopia 
+			original_tag = FET # Ethiopia 
 		}
 
 		available = {
@@ -10676,7 +10676,7 @@ form_ethiopian_empire_category  = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = ETH # Ethiopia 
+			original_tag = FET # Ethiopia 
 		}
 
 		available = {
@@ -10725,7 +10725,7 @@ form_ethiopian_empire_category  = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = ETH # Ethiopia 
+			original_tag = FET # Ethiopia 
 		}
 
 		available = {
@@ -10780,7 +10780,7 @@ form_ethiopian_empire_category  = {
 		icon = generic_form_nation
 
 		allowed = {
-			original_tag = ETH # Ethiopia 
+			original_tag = FET # Ethiopia 
 		}
 
 		available = {
@@ -11159,7 +11159,7 @@ form_horn_of_africa_africa_category = {
 
 		allowed = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11177,7 +11177,7 @@ form_horn_of_africa_africa_category = {
 		visible = {
 			IF = {
 				limit = {
-					original_tag = ETH
+					original_tag = FET
 				}
 				has_completed_focus = ETH_develop_the_horn_of_africa
 			}
@@ -11197,7 +11197,7 @@ form_horn_of_africa_africa_category = {
 				has_completed_focus = HOA_proclaim_east-african_hegemony
 			}
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11218,7 +11218,7 @@ form_horn_of_africa_africa_category = {
 		available = {
 			IF = {
 				limit = {
-					original_tag = ETH
+					original_tag = FET
 				}
 				has_completed_focus = ETH_develop_the_horn_of_africa
 				controls_state = 842 # Tigray
@@ -11363,7 +11363,7 @@ form_horn_of_africa_africa_category = {
 
 		allowed = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11380,7 +11380,7 @@ form_horn_of_africa_africa_category = {
 
 		visible = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11427,7 +11427,7 @@ form_horn_of_africa_africa_category = {
 
 		allowed = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11444,7 +11444,7 @@ form_horn_of_africa_africa_category = {
 
 		visible = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11508,7 +11508,7 @@ form_horn_of_africa_africa_category = {
 
 		allowed = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray
@@ -11525,7 +11525,7 @@ form_horn_of_africa_africa_category = {
 
 		visible = {
 			OR = {
-				original_tag = ETH # Ethiopia
+				original_tag = FET # Ethiopia
 				original_tag = ERI # Eritrea
 				original_tag = SOM # Somalia
 				original_tag = TIG # Tigray

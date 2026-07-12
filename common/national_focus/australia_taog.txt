@@ -241,7 +241,7 @@ focus_tree = {
 				}	
 			}
 
-			INS = { 
+			INF = { 
 				OR = {
 					exists = no
 					AND = {
@@ -284,7 +284,7 @@ focus_tree = {
 			add_political_power = 75
 			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = { country_event = { id = AST_diplomatic_events.1 days = 7  random_days = 7 } }
-			INS = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
+			INF = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
 			FCH = { country_event = { id = AST_diplomatic_events.1 days = 7 random_days = 7 } }
 		}
 
@@ -411,7 +411,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_non_aggression_pact_with = JAP
-				has_non_aggression_pact_with = INS
+				has_non_aggression_pact_with = INF
 				has_non_aggression_pact_with = FCH
 			}
 		}
@@ -438,7 +438,7 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					has_non_aggression_pact_with = INS
+					has_non_aggression_pact_with = INF
 				}
 				set_country_flag = AST_advance_pacific_initiatives_ins
 				custom_effect_tooltip = AST_advance_pacific_initiatives_ins_2_tt
@@ -467,7 +467,7 @@ focus_tree = {
 					}
 					OR = {
 						NOT = { has_non_aggression_pact_with = JAP }
-						NOT = { has_non_aggression_pact_with = INS }
+						NOT = { has_non_aggression_pact_with = INF }
 						NOT = { has_non_aggression_pact_with = FCH }
 					}
 				}
@@ -488,7 +488,7 @@ focus_tree = {
 				limit = {
 					NOT = {
 						has_completed_focus = AST_advance_pacific_initiatives
-						has_non_aggression_pact_with = INS
+						has_non_aggression_pact_with = INF
 					}
 				}
 				custom_effect_tooltip = AST_advance_pacific_initiatives_ins_tt
@@ -3270,11 +3270,11 @@ focus_tree = {
 
 		available = {
 			threat > 0.8
-			INS = {
+			INF = {
 				exists = yes
 			}
 			NOT = {
-				INS = {
+				INF = {
 					is_subject_of = AST
 				}
 			}
@@ -3287,17 +3287,17 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			INS = { country_event = { id = AST_diplomatic_events.17 days = 1 } }
+			INF = { country_event = { id = AST_diplomatic_events.17 days = 1 } }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = possible_outcomes_tt
 			effect_tooltip = {
 				AST = {
-					puppet = INS
+					puppet = INF
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = possible_outcomes_tt
 				diplomatic_relation = {
-	  				country = INS
+	  				country = INF
 	 				relation = military_access
 	  				active = yes
 	  			}
@@ -5318,14 +5318,14 @@ focus_tree = {
 		completion_reward = {
 			every_state = {
 				limit = {
-					is_owned_by = INS
+					is_owned_by = INF
 				}
 				add_claim_by = AST
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			create_wargoal = {
                 type = annex_everything
-                target = INS
+                target = INF
             }
 		}
 
@@ -6320,7 +6320,7 @@ focus = {
 			}
 			add_to_array = {
 				array = AST_union_control_target_array
-				value = INS
+				value = INF
 			}
 			custom_effect_tooltip = AST_union_control_local
 		}
@@ -6863,7 +6863,7 @@ focus = {
 
 		available = {
 			PRC = {
-				has_war_with = CHI
+				has_war_with = FCH
 			}
 		}
 
@@ -6894,7 +6894,7 @@ focus = {
 			else = {
 				add_to_war = {
 					targeted_alliance = PRC
-					enemy = CHI
+					enemy = FCH
 					hostility_reason = asked_to_join
 				}
 			}

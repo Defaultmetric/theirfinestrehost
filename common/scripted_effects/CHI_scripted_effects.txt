@@ -337,12 +337,12 @@ CHI_set_ally_strat_on_current_leader = {
 	if = {
 		limit = {
 			FROM = {
-				tag = CHI
+				tag = FCH
 			}
 		}
 		add_ai_strategy = {
             type = alliance
-            id = CHI
+            id = FCH
             value = 200
         }
 	}
@@ -522,7 +522,7 @@ CHI_no_longer_a_warlord_idea_removal = {
 #called from warlord scope. Applies cost reduction to political power cost
 CHI_apply_integration_cost_reduction = {
 	set_variable = { t_cost_reduction = 1 }
-	subtract_from_variable = { t_cost_reduction = CHI.political_power_warlord_integration_cost_reduction }
+	subtract_from_variable = { t_cost_reduction = FCH.political_power_warlord_integration_cost_reduction }
 
 
 	multiply_variable = { press_warlord_to_become_puppet_influence_points_trigger =  t_cost_reduction }
@@ -535,7 +535,7 @@ CHI_apply_integration_cost_reduction = {
 CHI_remove_annexed_warlord_from_array = { #called from on_actions
 	if = {
 		limit = {
-			FROM = { original_tag = CHI }
+			FROM = { original_tag = FCH }
 			is_in_array = {
 				array = FROM.warlord_subjects
 				value = ROOT
@@ -636,7 +636,7 @@ CHI_concessions_add_small_amount_of_days = {
 		JAP = {
 			add_days_mission_timeout = {
 			    mission = JAP_kwantung_army_impatience
-			    days = CHI.CHI_concessions_small 
+			    days = FCH.CHI_concessions_small 
 			}
 		}
 	}
@@ -647,7 +647,7 @@ CHI_concessions_add_medium_amount_of_days = {
 		JAP = {
 			add_days_mission_timeout = {
 			    mission = JAP_kwantung_army_impatience
-			    days = CHI.CHI_concessions_medium 
+			    days = FCH.CHI_concessions_medium 
 			}
 		}
 	}
@@ -658,7 +658,7 @@ CHI_concessions_add_large_amount_of_days = {
 		JAP = {
 			add_days_mission_timeout = {
 			    mission = JAP_kwantung_army_impatience
-			    days = CHI.CHI_concessions_large 
+			    days = FCH.CHI_concessions_large 
 			}
 		}
 	}
@@ -834,22 +834,22 @@ CHI_reduce_nine_power_malus = {
 }
 
 CHI_update_claimed_and_core_states = {
-	CHI = {
+	FCH = {
 		every_state = {
 			limit = {
 				OR = {
-					is_core_of = CHI
-					is_claimed_by = CHI
+					is_core_of = FCH
+					is_claimed_by = FCH
 				}
 				NOT = {
 					is_in_array = {
-						array = CHI.core_and_claimed_states
+						array = FCH.core_and_claimed_states
 						value = THIS
 					}
 				}
 			}
 
-			add_to_array = { CHI.core_and_claimed_states = THIS }	
+			add_to_array = { FCH.core_and_claimed_states = THIS }	
 			set_state_flag = CHI_has_claimed_this_state_flag
 		}
 	}
@@ -879,14 +879,14 @@ CHI_setup_colonized_countries_to_liberate_array = {
 							}
 							NOT = { #don't add multiple times
 								is_in_array = {
-									array = CHI.asian_democracies_countries_to_liberate
+									array = FCH.asian_democracies_countries_to_liberate
 									value = THIS
 								}
 							}
 						}
 					}
 				}
-				add_to_array = { CHI.asian_democracies_countries_to_liberate = THIS }
+				add_to_array = { FCH.asian_democracies_countries_to_liberate = THIS }
 			}
 		}
 		
@@ -967,7 +967,7 @@ CHI_move_factories = {
 	if = {
 		limit = {
 			has_dlc = "No Compromise, No Surrender"
-			ROOT = { original_tag = CHI }
+			ROOT = { original_tag = FCH }
 		}
 		if = {
 			limit = {

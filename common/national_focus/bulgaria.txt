@@ -4470,16 +4470,16 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				NOT = { country_exists = YUG }
-				YUG = { is_subject = yes }
-				YUG = { has_capitulated = yes }
+				NOT = { country_exists = FYG }
+				FYG = { is_subject = yes }
+				FYG = { has_capitulated = yes }
 			}
 		}
 
 		available = {
-			country_exists = YUG
-			NOT = { has_war_with = YUG }
-			YUG = { 
+			country_exists = FYG
+			NOT = { has_war_with = FYG }
+			FYG = { 
 				NOT = { is_justifying_wargoal_against = ROOT }
 				has_opinion	= {
 					target = ROOT
@@ -4488,19 +4488,19 @@ focus_tree = {
 			}
 			OR = {
 				is_in_faction = no
-				is_in_faction_with = YUG
+				is_in_faction_with = FYG
 			}
 		}
 		
 		completion_reward = {
 			unlock_decision_category_tooltip = BUL_the_balkan_federation_dream
-			YUG = {
+			FYG = {
 				country_event = { id = bftb_bulgaria_yugoslavian_influence.1 hours = 4 random_hours = 4 }
 			}
 			custom_effect_tooltip = BUL_treaty_of_perpetual_friendship_event_effects_tt
 			custom_effect_tooltip = BUL_treaty_of_perpetual_friendship_claims_tt
 			effect_tooltip = {
-				YUG = {
+				FYG = {
 					diplomatic_relation = {
 						country = ROOT
 						relation = non_aggression_pact
@@ -4512,18 +4512,18 @@ focus_tree = {
 					}
 				}
 				add_opinion_modifier = { 
-					target = YUG
+					target = FYG
 					modifier = BUL_strengthened_relations_with_us
 				}
 
 				add_ideas = BUL_balkan_federation_project_propaganda
-				YUG = { add_ideas = BUL_balkan_federation_project_propaganda }
+				FYG = { add_ideas = BUL_balkan_federation_project_propaganda }
 
 				every_country = {
 					limit = {
 						BUL_country_can_influence_bulgaria = yes
 						NOT = { is_in_faction_with = ROOT }
-						NOT = { is_in_faction_with = YUG }
+						NOT = { is_in_faction_with = FYG }
 					}
 					add_opinion_modifier = { 
 						target = ROOT
@@ -4532,7 +4532,7 @@ focus_tree = {
 				}
 			}
 
-			YUG = {
+			FYG = {
 				add_ai_strategy = {
 					type = befriend
 					id = ROOT
@@ -4541,7 +4541,7 @@ focus_tree = {
 			}
 			add_ai_strategy = {
 				type = befriend
-				id = YUG
+				id = FYG
 				value = 20
 			}
 		}
@@ -4570,7 +4570,7 @@ focus_tree = {
 			
 			add_stability = 0.1
 			create_faction = BUL_balkan_federation_of_socialist_republics		
-			YUG = {
+			FYG = {
 				hidden_effect = {
 					country_event = { id = generic.5 hours = 4 random_hours = 4 }
 				}
@@ -4582,7 +4582,7 @@ focus_tree = {
 				news_event = { id = bftb_news.9 hours = 8 random_hours = 4 }
 			}
 
-			YUG = {
+			FYG = {
 				add_ai_strategy = {
 					type = befriend
 					id = ROOT
@@ -4591,7 +4591,7 @@ focus_tree = {
 			}
 			add_ai_strategy = {
 				type = befriend
-				id = YUG
+				id = FYG
 				value = 100
 			}
 		}
@@ -5388,16 +5388,16 @@ focus_tree = {
 
 		bypass = {
 			OR = {
-				NOT = { country_exists = GRE }
-				GRE = { is_subject = yes }
-				GRE = { has_capitulated = yes }
+				NOT = { country_exists = NNG }
+				NNG = { is_subject = yes }
+				NNG = { has_capitulated = yes }
 			}
 		}
 
 		available = {
-			country_exists = GRE
-			NOT = { has_war_with = GRE }
-			GRE = { 
+			country_exists = NNG
+			NOT = { has_war_with = NNG }
+			NNG = { 
 				NOT = { is_justifying_wargoal_against = ROOT }
 				has_opinion	= {
 					target = ROOT
@@ -5406,17 +5406,17 @@ focus_tree = {
 			}
 			OR = {
 				is_in_faction = no
-				is_in_faction_with = GRE
+				is_in_faction_with = NNG
 			}
 		}
 		
 		completion_reward = {
-			GRE = {
+			NNG = {
 				country_event = { id = bftb_bulgaria_greek_influence.1 hours = 4 random_hours = 4 }
 			}
 			custom_effect_tooltip = BUL_the_salonika_agreement_event_effects_tt
 			effect_tooltip = {
-				GRE = {
+				NNG = {
 					diplomatic_relation = {
 						country = ROOT
 						relation = non_aggression_pact
@@ -5428,7 +5428,7 @@ focus_tree = {
 					}
 				}
 				add_opinion_modifier = { 
-					target = GRE
+					target = NNG
 					modifier = BUL_strengthened_relations_with_us
 				}
 
@@ -5436,7 +5436,7 @@ focus_tree = {
 					limit = {
 						BUL_country_can_influence_bulgaria = yes
 						NOT = { is_in_faction_with = ROOT }
-						NOT = { is_in_faction_with = GRE }
+						NOT = { is_in_faction_with = NNG }
 					}
 					add_opinion_modifier = { 
 						target = ROOT
@@ -5445,7 +5445,7 @@ focus_tree = {
 				}
 			}
 
-			GRE = {
+			NNG = {
 				add_ai_strategy = {
 					type = befriend
 					id = ROOT
@@ -5454,7 +5454,7 @@ focus_tree = {
 			}
 			add_ai_strategy = {
 				type = befriend
-				id = GRE
+				id = NNG
 				value = 20
 			}
 		}
@@ -5481,7 +5481,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_political_power = 50
 			create_faction = BUL_balkan_federation_democratic
-			GRE = {
+			NNG = {
 				hidden_effect = {
 					country_event = { id = generic.5 hours = 4 random_hours = 4 }
 				}
@@ -5489,7 +5489,7 @@ focus_tree = {
 			}
 			unlock_decision_category_tooltip = BUL_balkan_confederation
 
-			GRE = {
+			NNG = {
 				add_ai_strategy = {
 					type = befriend
 					id = ROOT
@@ -5498,7 +5498,7 @@ focus_tree = {
 			}
 			add_ai_strategy = {
 				type = befriend
-				id = GRE
+				id = NNG
 				value = 100
 			}
 		}
@@ -7270,8 +7270,8 @@ focus_tree = {
 			every_other_country = {
 				limit = {
 					OR = {
-						tag = GRE
-						tag = YUG
+						tag = NNG
+						tag = FYG
 						tag = ROM
 						tag = TUR
 					}
@@ -7317,8 +7317,8 @@ focus_tree = {
 			OR = {
 				country_exists = ENG
 				country_exists = FRA
-				country_exists = YUG
-				country_exists = GRE
+				country_exists = FYG
+				country_exists = NNG
 				country_exists = ROM
 				country_exists = TUR
 			}
@@ -7351,8 +7351,8 @@ focus_tree = {
 				every_country = {
 					limit = {
 						OR = {
-							original_tag = YUG
-							original_tag = GRE
+							original_tag = FYG
+							original_tag = NNG
 							original_tag = ROM
 							original_tag = TUR
 						}
@@ -7369,8 +7369,8 @@ focus_tree = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = YUG
-						original_tag = GRE
+						original_tag = FYG
+						original_tag = NNG
 						original_tag = ROM
 						original_tag = TUR
 					}

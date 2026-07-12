@@ -6,7 +6,7 @@ AUS_anschluss_risk_low = {
 		
 		GER = {
 			fighting_army_strength_ratio = {
-				tag = AUS
+				tag = FAU
 				ratio < global.medium_anschluss_risk
 			}
 	
@@ -28,11 +28,11 @@ AUS_anschluss_risk_medium = {
 			OR = {
 				AND = {
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio > global.medium_anschluss_risk
 					}
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio < global.high_anschluss_risk
 					}
 					NOT = {
@@ -47,7 +47,7 @@ AUS_anschluss_risk_medium = {
 					}
 					
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio < global.medium_anschluss_risk
 					}
 				}
@@ -67,11 +67,11 @@ AUS_anschluss_risk_high = {
 			OR = {
 				AND = {
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio < global.deployed_manpower_ratio_needed_for_anschluss 
 					}
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio > global.high_anschluss_risk
 					}
 					NOT = {
@@ -86,12 +86,12 @@ AUS_anschluss_risk_high = {
 #						has_completed_focus = GER_reorganize_the_wehrmacht
 					}
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio > global.medium_anschluss_risk
 					}
 
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio < global.high_anschluss_risk
 					}
 				}
@@ -116,13 +116,13 @@ AUS_anschluss_risk_critical = {
 #						has_completed_focus = GER_reorganize_the_wehrmacht
 					}
 					fighting_army_strength_ratio = {
-						tag = AUS
+						tag = FAU
 						ratio > global.high_anschluss_risk
 					}
 				}
 
 				fighting_army_strength_ratio = {
-					tag = AUS
+					tag = FAU
 					ratio > global.deployed_manpower_ratio_needed_for_anschluss 
 				}
 			}
@@ -151,9 +151,9 @@ AUS_danubian_communism_bypass = {
 			}
 
 			IF = {
-				limit = { CZE = { exists = yes } }
+				limit = { FCZ = { exists = yes } }
 
-				CZE = { 
+				FCZ = { 
 					OR = {
 					
 						has_government = communism
@@ -164,9 +164,9 @@ AUS_danubian_communism_bypass = {
 			}
 
 			IF = {
-				limit = { YUG = { exists = yes } }
+				limit = { FYG = { exists = yes } }
 
-				YUG = { 
+				FYG = { 
 					OR = {
 					
 						has_government = communism
@@ -333,9 +333,9 @@ AUS_danubian_communism_bypass = {
 			}
 
 			IF = {
-				limit = { GRE = { exists = yes } }
+				limit = { NNG = { exists = yes } }
 
-				GRE = { 
+				NNG = { 
 					OR = {
 					
 						has_government = communism
@@ -346,9 +346,9 @@ AUS_danubian_communism_bypass = {
 			}
 
 			IF = {
-				limit = { HOL = { exists = yes } }
+				limit = { FNL = { exists = yes } }
 
-				HOL = { 
+				FNL = { 
 					OR = {
 					
 						has_government = communism
@@ -372,9 +372,9 @@ AUS_danubian_communism_bypass = {
 			}
 
 			IF = {
-				limit = { BEL = { exists = yes } }
+				limit = { FBL = { exists = yes } }
 
-				BEL = { 
+				FBL = { 
 					OR = {
 					
 						has_government = communism

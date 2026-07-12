@@ -31,7 +31,7 @@ FRA_renault_organization = {
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -148,7 +148,7 @@ FRA_bloch_organization = {
 		OR = {
 			tag = FRA 
 			AND = {
-				tag = ETH 
+				tag = FET 
 				has_dlc = "By Blood Alone"
 			}
 			AND = {
@@ -161,7 +161,7 @@ FRA_bloch_organization = {
 	visible = {
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
@@ -178,7 +178,7 @@ FRA_bloch_organization = {
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt
@@ -261,7 +261,7 @@ FRA_somua_organization = {
 		OR = {
 			tag = FRA 
 			AND = {
-				tag = POL # If Poland sets up a local one
+				tag = NPO # If Poland sets up a local one
 				OR = {
 					has_dlc = "Poland: United and Ready"
 					has_dlc = "No Step Back"
@@ -273,7 +273,7 @@ FRA_somua_organization = {
 	visible = {
 		IF = { 
 			limit = {
-				FROM = { tag = POL }
+				FROM = { tag = NPO }
 			}
 			FROM = {
 				has_country_flag = POL_somua_motors
@@ -300,7 +300,7 @@ FRA_mas_organization = {
 		OR = {
 			tag = FRA 
 			AND = {
-				tag = ETH
+				tag = FET
 				has_dlc = "By Blood Alone"
 			}
 		}
@@ -309,7 +309,7 @@ FRA_mas_organization = {
 	visible = {
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
 		}
@@ -326,7 +326,7 @@ FRA_mas_organization = {
 
 		IF = {
 			limit = {
-				FROM = { original_tag = ETH }
+				FROM = { original_tag = FET }
 			}
 			custom_trigger_tooltip = {
 				tooltip = has_invited_mio_tt

@@ -14,12 +14,12 @@
 # 
 
 NOR_AAT = { # Trigger to check if playing as Norway while having AAT
-	original_tag = NOR
+	original_tag = NNO
 	has_dlc = "Arms Against Tyranny"
 }
 
 NOR_prep_his_mod_remove_trigger = { #Trigger to remove the state modifiers in the prep system when playing historical democratic  
-	NOR = {
+	NNO = {
 		OR = {
 			NOT = { owns_state = PREV }
 			AND = {
@@ -32,7 +32,7 @@ NOR_prep_his_mod_remove_trigger = { #Trigger to remove the state modifiers in th
 }
 
 NOR_prep_fasc_mod_remove_trigger = { #Trigger to remove the state modifiers in the prep system  
-	NOR = {
+	NNO = {
 		OR = {
 			NOT = { owns_state = PREV }
 			AND = {
@@ -45,7 +45,7 @@ NOR_prep_fasc_mod_remove_trigger = { #Trigger to remove the state modifiers in t
 }
 
 NOR_tank_seller_still_exists = {
-	NOR = {
+	NNO = {
 		OR = {
 			AND = {
 				has_variable = NOR_fascist_tank_seller
@@ -75,7 +75,7 @@ NOR_tank_seller_still_exists = {
 
 NOR_fascist_norway_exists = {
 	any_country = {
-		original_tag = NOR 
+		original_tag = NNO 
 		has_government = fascism
 		exists = yes 
 		has_capitulated = no 
@@ -107,7 +107,7 @@ NOR_valid_fascist_tank_seller = {
 			is_major = yes
 			has_capitulated = no
 			NOT = {
-				original_tag = NOR
+				original_tag = NNO
 				has_war_with = ROOT   
 			}
 		}
@@ -153,7 +153,7 @@ NOR_kings_no_allow_trigger = {
 }
 
 NOR_is_only_core_denmark = {
-	original_tag = DEN 
+	original_tag = NDE 
 	owns_state = 912
 	owns_state = 99
 	owns_state = 911

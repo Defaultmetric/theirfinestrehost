@@ -21,7 +21,7 @@ debug_decisions = {
 
 		complete_effect = {
 			ITA_missiolinis_initialize_missiolinis_system = yes
-			log = "Will mess the sync between between the initial missions to Conquer/Hold Ethiopia for ETH and ITA"
+			log = "Will mess the sync between between the initial missions to Conquer/Hold Ethiopia for FET and ITA"
 			ITA_benito_mussolini = { unit_leader_event = BBA_italo_ethiopian_war_events.01 } #This event initializes the system
 		}
 	}
@@ -139,13 +139,13 @@ ETH_second_italo_ethiopian_war_category = {
 		fire_only_once = yes
 
 		complete_effect = {
-			ETH = {
+			FET = {
 				country_event = { id = BBA_italy_second_italo_ethiopian_war.1 hours = 1 }
 			}
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 				custom_effect_tooltip = ITA_transfer_lost_states_tt
-				white_peace = ETH
+				white_peace = FET
 
 				ITA_manage_italian_defeat_in_ethiopia_effect = yes
 			}
@@ -174,7 +174,7 @@ ETH_second_italo_ethiopian_war_category = {
 			modifier = {
 				factor = 0.5
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 			modifier = {
@@ -400,7 +400,7 @@ ITA_missiolinis = {
 		visible = {
 			ITA_missiolinis_system_available = yes
 			has_global_flag = second_italo_ethiopian_war_flag
-			NOT = { has_country_flag = ITA_victory_in_ethiopia_flag } #If Italy peaces out with ETH, the mission just cancels instead of failing
+			NOT = { has_country_flag = ITA_victory_in_ethiopia_flag } #If Italy peaces out with FET, the mission just cancels instead of failing
 		}
 
 		highlight_states = {
@@ -433,7 +433,7 @@ ITA_missiolinis = {
 		is_good = no #Tooltip purposes
 		fire_only_once = yes
 		selectable_mission = no
-		days_mission_timeout = ETH.ETH_hold_the_north_time
+		days_mission_timeout = FET.ETH_hold_the_north_time
 
 		cancel_effect = {
 			if = { #MISSION SUCCEEDED
@@ -560,7 +560,7 @@ ITA_missiolinis = {
 		visible = {
 			ITA_missiolinis_system_available = yes
 			has_global_flag = second_italo_ethiopian_war_flag
-			NOT = { has_country_flag = ITA_victory_in_ethiopia_flag } #If Italy peaces out with ETH, the mission just cancels instead of failing
+			NOT = { has_country_flag = ITA_victory_in_ethiopia_flag } #If Italy peaces out with FET, the mission just cancels instead of failing
 		}
 
 		highlight_states = {
@@ -578,7 +578,7 @@ ITA_missiolinis = {
 		is_good = no #Tooltip purposes
 		fire_only_once = yes
 		selectable_mission = no
-		days_mission_timeout = ETH.ETH_hold_the_south_time
+		days_mission_timeout = FET.ETH_hold_the_south_time
 
 		cancel_effect = {
 			if = { #MISSION SUCCEEDED
@@ -1411,7 +1411,7 @@ ITA_missiolinis = {
 		selectable_mission = no
 		days_mission_timeout = ITA_missiolinis_default_days
 
-		cosmetic_tag = ALB
+		cosmetic_tag = FAL
 		cosmetic_ideology = neutrality
 
 		timeout_effect = { #MISSION FAILS
@@ -1469,7 +1469,7 @@ ITA_missiolinis = {
 		selectable_mission = no
 		days_mission_timeout = ITA_missiolinis_default_days
 
-		cosmetic_tag = YUG
+		cosmetic_tag = FYG
 		cosmetic_ideology = neutrality
 
 		timeout_effect = { #MISSION FAILS
@@ -1549,7 +1549,7 @@ ITA_missiolinis = {
 		selectable_mission = no
 		days_mission_timeout = ITA_missiolinis_default_days
 
-		cosmetic_tag = GRE
+		cosmetic_tag = NNG
 		cosmetic_ideology = neutrality
 
 		timeout_effect = { #MISSION FAILS
@@ -1607,7 +1607,7 @@ ITA_missiolinis = {
 		selectable_mission = no
 		days_mission_timeout = ITA_missiolinis_default_days
 
-		cosmetic_tag = SWI
+		cosmetic_tag = NSW
 		cosmetic_ideology = democratic
 
 		timeout_effect = { #MISSION FAILS
@@ -3777,7 +3777,7 @@ ETH_italian_occupation_category = {
 #		target_trigger = {
 #			FROM = {
 #				owner = {
-#					tag = ETH # For now - change if making it generic
+#					tag = FET # For now - change if making it generic
 #				}
 #				is_fully_controlled_by = ROOT
 #			}
@@ -3798,7 +3798,7 @@ ETH_italian_occupation_category = {
 #			FROM = {
 #				compliance > 60
 #				any_neighbor_state = { is_owned_by = ROOT }
-#				var:ETH.host_nation = {
+#				var:FET.host_nation = {
 #					NOT = { has_war_with = ROOT }
 #				}
 #			}
@@ -3845,7 +3845,7 @@ ETH_italian_occupation_category = {
 
 		visible = {
 			any_controlled_state = {
-				is_owned_by = ETH
+				is_owned_by = FET
 			}
 		}
 
@@ -3853,17 +3853,17 @@ ETH_italian_occupation_category = {
 		cost = 35
 
 		complete_effect = {
-			ETH = {
+			FET = {
 				add_legitimacy = -10
 			}
 
 			hidden_effect = {
-				ETH = { country_event = { id = BBA_italo_ethiopian_war_events.510 hours = 1 } }
+				FET = { country_event = { id = BBA_italo_ethiopian_war_events.510 hours = 1 } }
 			}
 
 			every_controlled_state = {
 				limit = {
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 				add_compliance = 5
 			}
@@ -3876,11 +3876,11 @@ ETH_italian_occupation_category = {
 		}
 	}
 
-	ITA_electrify_state = { #Equivalent to ETH_electrify_state but for Italy (So that it goes into same category as other ETH-related stuff for ITA)
+	ITA_electrify_state = { #Equivalent to ETH_electrify_state but for Italy (So that it goes into same category as other FET-related stuff for ITA)
 		icon = GFX_decision_generic_electricity
 		target_trigger = {
 			FROM = {
-				has_state_flag = ITA_can_electrify_state_flag #Different flag so that ITA/ETH conditions for electrifying states are different
+				has_state_flag = ITA_can_electrify_state_flag #Different flag so that ITA/FET conditions for electrifying states are different
 				NOT = { has_state_flag = ETH_state_is_electrified_flag }
 				is_fully_controlled_by = ROOT
 			}
@@ -3920,7 +3920,7 @@ ETH_italian_occupation_category = {
 
 		remove_effect = {
 			FROM = { add_compliance = 15 }
-			ETH_electrify_state_remove_effect = yes  #Used both in ETH and ITA decisions
+			ETH_electrify_state_remove_effect = yes  #Used both in FET and ITA decisions
 		}
 
 		ai_will_do = {
@@ -3963,7 +3963,7 @@ ITA_colonial_management_dec_cat = {
 					is_core_of = LBA
 					is_core_of = ERI
 					is_core_of = SOM
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
@@ -4171,13 +4171,13 @@ ITA_colonial_management_dec_cat = {
 			if = {
 				limit = {
 					any_owned_state = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 				}
 				random_owned_controlled_state = {
 					limit = {
-						is_core_of = ETH
+						is_core_of = FET
 						is_fully_controlled_by = ROOT
 					}
 					prioritize = { 271 } # ADDIS ABABA (In case at some point this gets split or tag gets more cores)
@@ -4989,7 +4989,7 @@ ITA_colonial_management_dec_cat = {
 			base = 200
 			modifier = {
 				factor = 0
-				ETH = {
+				FET = {
 					has_completed_focus = ETH_declare_for_italy
 				}
 			}
@@ -5777,8 +5777,8 @@ ITA_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { YUG BUL ROM }
-		#targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { FYG BUL ROM }
+		#targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_pressure_government_triggers = yes
@@ -5847,8 +5847,8 @@ ITA_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { YUG BUL ROM }
-		#targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { FYG BUL ROM }
+		#targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_promote_rallies_triggers = yes
@@ -5917,17 +5917,17 @@ ITA_diplomacy_balkan_decision_category = {
 				factor = 0.5
 				original_tag = ITA
 				FROM = {
-					original_tag = YUG
+					original_tag = FYG
 					any_other_country = {
 						has_guaranteed = PREV
 						is_major = yes
 					}
 				}
-				has_global_flag = second_italo_ethiopian_war_flag #Don't attack YUG if you can't handle ETH
+				has_global_flag = second_italo_ethiopian_war_flag #Don't attack FYG if you can't handle FET
 			}
 		}
 
-		targets = { YUG CRO MNT SLV BOS HRZ MAC SER KOS TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { FYG CRO MNT SLV BOS HRZ MAC SER KOS TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			ITA_basic_ultimatum_triggers = yes
@@ -6009,7 +6009,7 @@ ITA_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		targets = { BUL GRE YUG ALB ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
+		targets = { BUL NNG FYG FAL ROM TUR SLV BOS HRZ MAC SER CRO KOS MNT TRA } #These are all tags included in scripted trigger "BUL_is_balkan_nation = yes"
 
 		target_trigger = {
 			SOV_basic_fight_alongside_comrades_triggers = yes
@@ -6281,7 +6281,7 @@ ITA_diplomacy_balkan_decision_category = {
 		}
 
 		available = {
-			ALB = {
+			FAL = {
 				exists = no
 			}
 			44 = {
@@ -6313,7 +6313,7 @@ ITA_diplomacy_balkan_decision_category = {
 		cost = 50
 
 		complete_effect = {
-			ALB = {
+			FAL = {
 				transfer_state = 44
 				transfer_state = 805
 				transfer_state = 934
@@ -6336,10 +6336,10 @@ ITA_diplomacy_balkan_decision_category = {
 				add_ideas = ITA_ALB_italian_settlers
 			}
 			802 = {
-				add_core_of = ALB
+				add_core_of = FAL
 			}
 			970 = {
-				add_core_of = ALB
+				add_core_of = FAL
 			}
 			IF = {
 				limit = {
@@ -6347,7 +6347,7 @@ ITA_diplomacy_balkan_decision_category = {
 				}
 				ITA = {
 					set_autonomy = {
-					    target = ALB
+					    target = FAL
 					    autonomy_state = autonomy_reichsprotectorate
 					    end_wars = no
 					    end_civil_wars = no
@@ -6361,10 +6361,10 @@ ITA_diplomacy_balkan_decision_category = {
 					}
 				}
 				ITA = {
-					puppet = ALB
+					puppet = FAL
 				}
 			}
-			ALB = {
+			FAL = {
 				division_template = {
 				    name = "Milicia Fashiste Shqiptare"
 				    is_locked = yes
@@ -6381,11 +6381,11 @@ ITA_diplomacy_balkan_decision_category = {
 			44 = {
 				create_unit = {
 				    division = "name = \"1. Milicia Fashiste Shqiptare\" division_template = \"Milicia Fashiste Shqiptare\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
-				    owner = ALB
+				    owner = FAL
 				}
 				create_unit = {
 				    division = "name = \"2. Milicia Fashiste Shqiptare\" division_template = \"Milicia Fashiste Shqiptare\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
-				    owner = ALB
+				    owner = FAL
 				}
 			}
 			hidden_effect = {
@@ -6527,18 +6527,18 @@ ITA_diplomacy_balkan_decision_category = {
 		}
 
 		available = {
-			ALB = {
+			FAL = {
 				exists = yes
 				is_subject_of = ITA
 			}
 			802 = {
 				OR = {
-					is_controlled_by = ALB
+					is_controlled_by = FAL
 					is_controlled_by = ITA
-					is_controlled_by = YUG
+					is_controlled_by = FYG
 				}
 			}
-			YUG = {
+			FYG = {
 				exists = yes
 				OR = {
 					is_subject_of = ITA
@@ -6554,7 +6554,7 @@ ITA_diplomacy_balkan_decision_category = {
 					has_government = fascism
 				}
 			}
-			ALB = {
+			FAL = {
 				exists = yes
 				is_subject_of = ITA
 			}
@@ -6566,7 +6566,7 @@ ITA_diplomacy_balkan_decision_category = {
 		cost = 25
 
 		complete_effect = {
-			YUG = {
+			FYG = {
 				country_event = {
 					id = BBA_italy_interaction_events.29
 					hours = 8
@@ -6893,7 +6893,7 @@ ITA_diplomacy_balkan_decision_category = {
 			base = 10
 			modifier = {
 				factor = 10
-				GRE = { is_ai = no }
+				NNG = { is_ai = no }
 			}
 		}
 
@@ -6908,7 +6908,7 @@ ITA_diplomacy_balkan_decision_category = {
 			is_subject = no
 			controls_state = 164
 			
-			GRE = {
+			NNG = {
 				is_subject = no
 				has_civil_war = no
 				NOT = {
@@ -6919,7 +6919,7 @@ ITA_diplomacy_balkan_decision_category = {
 		}
 
 		visible = {
-			GRE = {
+			NNG = {
 				exists = yes
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -6941,7 +6941,7 @@ ITA_diplomacy_balkan_decision_category = {
 
 			random_country = {
 				limit = {
-					original_tag = GRE
+					original_tag = NNG
 					is_subject = no
 					has_civil_war = no
 					NOT = {

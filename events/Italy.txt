@@ -73,7 +73,7 @@ country_event = {
 		name = italy.2.a
 		create_wargoal = {
 			type = take_state_focus
-			target = ALB
+			target = FAL
 			generator = { 44 805 }
 		}
 		hidden_effect = {
@@ -421,8 +421,8 @@ country_event = {
 		ITA = {
 			add_political_power = -100
 			if = { limit = { is_faction_leader = yes }
-				add_to_faction = YUG
-				YUG = {
+				add_to_faction = FYG
+				FYG = {
 					add_ai_strategy = {
 						type = alliance
 						id = "ITA"
@@ -441,8 +441,8 @@ country_event = {
 					}
 				}
 				create_faction = italy_empire_faction
-				add_to_faction = YUG
-				YUG = {
+				add_to_faction = FYG
+				FYG = {
 					add_ai_strategy = {
 						type = alliance
 						id = "ITA"
@@ -452,14 +452,14 @@ country_event = {
 			}			
 		}
 		GER = { country_event = { id = germany.96 hours = 6 } }
-		YUG = { country_event = { id = yugoslavia.6 hours = 6 } }
+		FYG = { country_event = { id = yugoslavia.6 hours = 6 } }
 	}	
 	option = {
 		ai_chance = {
 			factor = 100
 		}	
 		name = italy.12.b
-		YUG = {
+		FYG = {
 			add_opinion_modifier = { target = ITA modifier = western_betrayal }
 			country_event = { id = yugoslavia.5 hours = 6 }
 		}

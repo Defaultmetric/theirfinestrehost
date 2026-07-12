@@ -50,7 +50,7 @@ FIN_trade_with_sweden = {
 
 	ai_strategy = {
 		type = equipment_market_trade_desire
-		id = SWE
+		id = FSW
 		value = 40
 	}
 }
@@ -59,25 +59,25 @@ FIN_trust_nordic_neutrality = {
 	enable = {
 		tag = FIN
 		is_historical_focus_on = yes
-		NOT = { has_war_with = NOR }
-		NOT = { has_war_with = SWE }
+		NOT = { has_war_with = NNO }
+		NOT = { has_war_with = FSW }
 	}
 
 	abort = {
 		OR = {
-			has_war_with = NOR
-			has_war_with = SWE
+			has_war_with = NNO
+			has_war_with = FSW
 		}
 	}
 
 	ai_strategy = {
 	 	type = front_unit_request
-		tag = NOR
+		tag = NNO
 		value = -200
 	}
 	ai_strategy = {
 	 	type = front_unit_request
-		tag = SWE
+		tag = FSW
 		value = -200
 	}
 }

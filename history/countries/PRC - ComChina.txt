@@ -287,7 +287,7 @@ IF = {
 			available_to_spy_master = yes 
 			traits = { operative_double_agent }
 			gfx = GFX_portrait_PRC_mo_xiong 
-			nationalities = { PRC CHI }
+			nationalities = { PRC FCH }
 			gender = male
 		}
 		## Xiong Xiangui
@@ -297,7 +297,7 @@ IF = {
 			available_to_spy_master = yes 
 			traits = { operative_double_agent operative_well_groomed }
 			gfx = GFX_portrait_PRC_xiong_xianghui 
-			nationalities = { PRC CHI }
+			nationalities = { PRC FCH }
 			gender = male
 		}
 		## Li Kenong
@@ -307,7 +307,7 @@ IF = {
 			available_to_spy_master = yes 
 			gfx = GFX_portrait_PRC_li_kenong
 			traits = { operative_double_agent }
-			nationalities = { PRC CHI } 
+			nationalities = { PRC FCH } 
 			gender = male
 		}
 	}
@@ -336,7 +336,7 @@ IF = {
 
 
 
-add_opinion_modifier = { target = CHI modifier = hostile_status }
+add_opinion_modifier = { target = FCH modifier = hostile_status }
 
 
 
@@ -455,12 +455,12 @@ add_opinion_modifier = { target = CHI modifier = hostile_status }
 	
 	# Chinese Popular Front effects
 	add_to_war = {
-		targeted_alliance = CHI
+		targeted_alliance = FCH
 		enemy = JAP
 		hostility_reason = asked_to_join
 	}
 	set_country_flag = PRC_joined_CHI_against_JAP
-	remove_opinion_modifier = { target = CHI modifier = hostile_status }
+	remove_opinion_modifier = { target = FCH modifier = hostile_status }
 	add_state_claim = 612
 	add_state_claim = 611
 	add_state_claim = 714

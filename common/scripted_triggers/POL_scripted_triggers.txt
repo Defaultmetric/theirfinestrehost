@@ -41,9 +41,9 @@ POL_is_valid_to_boost_monarchy = {
 			has_completed_focus = POL_support_monarchism_in_LIT
 		}
 		NOT = { has_country_flag = attempted_royal_takeover_in_LIT }
-		LIT = { NOT = { has_completed_focus = LIT_a_king_for_our_people } }
+		NLI = { NOT = { has_completed_focus = LIT_a_king_for_our_people } }
 		FROM = {
-			original_tag = LIT
+			original_tag = NLI
 		}
 	}
 	if = {
@@ -52,7 +52,7 @@ POL_is_valid_to_boost_monarchy = {
 		}
 		NOT = { has_country_flag = attempted_royal_takeover_in_CZE }			
 		FROM = {
-			original_tag = CZE
+			original_tag = FCZ
 		}
 	}
 	if = {
@@ -69,9 +69,9 @@ POL_is_valid_to_boost_monarchy = {
 			has_completed_focus = LIT_support_monarchism_in_POL
 		}
 		NOT = { has_country_flag = attempted_royal_takeover_in_POL }
-		POL = { NOT = { has_country_flag = achievement_POL_elected_monarch } } 
+		NPO = { NOT = { has_country_flag = achievement_POL_elected_monarch } } 
 		FROM = {
-			original_tag = POL
+			original_tag = NPO
 		}
 	}
 	NOT = {
@@ -89,52 +89,52 @@ POL_is_valid_to_boost_monarchy = {
 POL_is_valid_to_reject_monarchy = {	
 	if = {	
 		limit = {
-			original_tag = POL
+			original_tag = NPO
 		}
-		LIT = { 
+		NLI = { 
 			has_completed_focus = LIT_support_monarchism_in_POL
 			NOT = { has_country_flag = attempted_royal_takeover_in_POL }
 		}
 		NOT = { has_country_flag = achievement_POL_elected_monarch }
 		FROM = {
-			original_tag = LIT
+			original_tag = NLI
 		}
 	}
 	if = {
 		limit = {
-			original_tag = LIT 
+			original_tag = NLI 
 		}
 		NOT = { has_completed_focus = LIT_a_king_for_our_people }
-		POL = { 
+		NPO = { 
 			has_completed_focus = POL_support_monarchism_in_LIT 
 			NOT = { has_country_flag = attempted_royal_takeover_in_LIT }
 		} 
 		FROM = {
-			original_tag = POL
+			original_tag = NPO
 		}
 	}
 	if = {
 		limit = {
-			original_tag = CZE
+			original_tag = FCZ
 		}
-		POL = {
+		NPO = {
 			has_completed_focus = POL_support_monarchy_in_CZE
 			NOT = { has_country_flag = attempted_royal_takeover_in_CZE }
 		}
 		FROM = {
-			original_tag = POL
+			original_tag = NPO
 		}
 	}
 	if = { 
 		limit = {
 			original_tag = ROM
 		}
-		POL = {
+		NPO = {
 			has_completed_focus = POL_internal_romanian_support
 			NOT = { has_country_flag = attempted_royal_takeover_in_ROM }
 		}
 		FROM = {
-			original_tag = POL
+			original_tag = NPO
 		}
 	}
 	NOT = { has_country_flag = POL_banned_monarchy_flag }

@@ -71,7 +71,7 @@ PRC_infiltrate_nationalist_areas = {
 
 		days_remove = 60
 
-		war_with_on_remove = CHI
+		war_with_on_remove = FCH
 
 		cost = 25
 
@@ -2732,7 +2732,7 @@ political_actions = {
 			modifier = {
 				add = -50
 						
-				#Has somewhat won against CHI and JAP
+				#Has somewhat won against FCH and JAP
 				NOT = {
 					count_triggers = {
 						amount = 7
@@ -4194,7 +4194,7 @@ PRC_guerilla_warfare_sea_cat = {
 			}
 			else_if = {
 				limit = {
-					original_tag = CHI
+					original_tag = FCH
 				}
 				NOT = { has_completed_focus = CHI_victory_over_the_invaders }#This is here to inform to the player 
 			}
@@ -4249,7 +4249,7 @@ PRC_guerilla_warfare_sea_cat = {
 			}
 			else_if = {
 				limit = {
-					original_tag = CHI
+					original_tag = FCH
 				}
 				has_completed_focus = CHI_guerrilla_warfare
 				NOT = {
@@ -4572,7 +4572,7 @@ PRC_guerilla_warfare_sea_cat = {
 			}
 			else_if = {
 				limit = {
-					original_tag = CHI
+					original_tag = FCH
 				}
 				NOT = { has_completed_focus = CHI_victory_over_the_invaders }#This is here to inform to the player 
 			}
@@ -4622,7 +4622,7 @@ PRC_guerilla_warfare_sea_cat = {
 			}
 			else_if = {
 				limit = {
-					original_tag = CHI
+					original_tag = FCH
 
 				}
 				has_completed_focus = CHI_train_for_asymmetry
@@ -4651,7 +4651,7 @@ PRC_guerilla_warfare_sea_cat = {
 						}
 					}
 					AND = {
-						ROOT = { original_tag = CHI }
+						ROOT = { original_tag = FCH }
 						NOT = {
 							has_dynamic_modifier = {
 								modifier = PRC_guerilla_cells_active_2
@@ -5614,7 +5614,7 @@ PRC_infiltration_sea_cat = {
 			}
 			if = {
 				limit = {
-					CHI = {
+					FCH = {
 						has_completed_focus = CHI_a_chapter_in_every_village
 					}
 				}
@@ -5622,15 +5622,15 @@ PRC_infiltration_sea_cat = {
 					NOT = {
 						has_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_1
-							scope = CHI
+							scope = FCH
 						}
 						has_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_2
-							scope = CHI
+							scope = FCH
 						}
 						has_dynamic_modifier = {
 							modifier = CHI_infiltrated_state_3
-							scope = CHI
+							scope = FCH
 						}
 					}
 				}
@@ -6024,7 +6024,7 @@ CHI_counter_infiltration_sea_cat = {
 				factor = 1.5
 				OR = {
 					is_faction_leader = yes
-					original_tag = CHI
+					original_tag = FCH
 				}
 			}
 			modifier = {
@@ -6176,7 +6176,7 @@ CHI_counter_infiltration_sea_cat = {
 				factor = 1.5
 				OR = {
 					is_faction_leader = yes
-					original_tag = CHI
+					original_tag = FCH
 				}
 			}
 			modifier = {
@@ -6951,7 +6951,7 @@ PRC_war_of_resistance_cat = {
 					OR = {
 						has_war_with = ROOT
 						AND = {
-							NOT = { has_war_with = CHI }
+							NOT = { has_war_with = FCH }
 							NOT = { has_war_with = PRC }
 							NOT = { has_war_with = GXC }
 							NOT = { has_war_with = YUN }
@@ -7514,7 +7514,7 @@ PRC_integration_decision_cat = {
 political_actions = {
 	
 		
-	PRC_second_thoughts_factions = { ## For edge case if PRC forms a different faction from CHI and both at war with JAP, can form a CUF
+	PRC_second_thoughts_factions = { ## For edge case if PRC forms a different faction from FCH and both at war with JAP, can form a CUF
 
 
 		priority = 1000

@@ -346,7 +346,7 @@
 				num_of_factories > 50
 				all_state = {
 					OR = {
-						NOT = { is_core_of = CHI }
+						NOT = { is_core_of = FCH }
 						NOT = { is_core_of = PRC }
 						OR = {
 							is_controlled_by = ROOT
@@ -1891,7 +1891,7 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			every_state = {
-				limit = { is_core_of = CHI }
+				limit = { is_core_of = FCH }
 				add_core_of = ROOT
 			}
 		}
@@ -3417,7 +3417,7 @@
 				remove_idea = MAN_rival_government
 				add_idea = MAN_the_legitimate_successor
 			}
-			CHI = {
+			FCH = {
 				every_core_state = {
 					add_core_of = ROOT
 				}
@@ -4517,7 +4517,7 @@
 
 			set_rule = { can_create_factions = yes }
 			every_state = {
-				limit = { is_core_of = CHI }
+				limit = { is_core_of = FCH }
 				add_core_of = ROOT
 			}
 

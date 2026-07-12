@@ -288,7 +288,7 @@ country_event = {
 		name = soviet.7.a
 		create_wargoal = {
 			type = annex_everything
-			target = EST
+			target = NES
 		}		
 	}
 }
@@ -329,7 +329,7 @@ country_event = {
 		name = soviet.9.a
 		create_wargoal = {
 			type = annex_everything
-			target = LAT
+			target = NLA
 		}		
 	}
 }
@@ -370,7 +370,7 @@ country_event = {
 		name = soviet.11.a
 		create_wargoal = {
 			type = annex_everything
-			target = LIT
+			target = NLI
 		}		
 	}
 }
@@ -618,7 +618,7 @@ country_event = {
 	
 	trigger = {
 		date > 1936.11.1
-		tag = CHI
+		tag = FCH
 		has_opinion_modifier = hostile_status
 		NOT = { has_dlc = "Waking the Tiger" }
 	}
@@ -657,8 +657,8 @@ country_event = {
 	# Agree to a truce
 	option = {
 		name = soviet.19.a
-		remove_opinion_modifier = { target = CHI modifier = hostile_status }
-		CHI = {
+		remove_opinion_modifier = { target = FCH modifier = hostile_status }
+		FCH = {
 			remove_opinion_modifier = { target = PRC modifier = hostile_status }
 			country_event = { id = soviet.21 days = 1 }
 		}
@@ -727,8 +727,8 @@ country_event = {
 	option = {
 		name = soviet.21.a
 		effect_tooltip = {
-			PRC = { remove_opinion_modifier = { target = CHI modifier = hostile_status } }
-			CHI = { remove_opinion_modifier = { target = PRC modifier = hostile_status } }
+			PRC = { remove_opinion_modifier = { target = FCH modifier = hostile_status } }
+			FCH = { remove_opinion_modifier = { target = PRC modifier = hostile_status } }
 		}
 	}
 }
@@ -1352,10 +1352,10 @@ country_event = {
 
 		effect_tooltip = {
 			if = {
-				limit = { FROM = { tag = LIT } }
+				limit = { FROM = { tag = NLI } }
 			 	SOV = {
 			 		annex_country = {
-					target = LIT
+					target = NLI
 					transfer_troops = yes } 
 					add_named_threat = { threat = 2 name = soviet.35_threat_LIT }
 				}
@@ -1370,19 +1370,19 @@ country_event = {
 				}
 			}
 			if = {
-				limit = { FROM = { tag = EST } } 
+				limit = { FROM = { tag = NES } } 
 			 	SOV = { 
 			 		annex_country = {
-					target = EST
+					target = NES
 					transfer_troops = yes } 
 					add_named_threat = { threat = 2 name = soviet.35_threat_EST }
 				}
 			}
 			if = {
-				limit = { FROM = { tag = LAT } } 
+				limit = { FROM = { tag = NLA } } 
 			 	SOV = {
 			 		annex_country = {
-					target = LAT
+					target = NLA
 					transfer_troops = yes } 
 					add_named_threat = { threat = 2 name = soviet.35_threat_LAT }
 				}
@@ -1429,7 +1429,7 @@ country_event = {
 		}
 		ai_chance = { factor = 100 }
 			if = {
-				limit = { FROM = { tag = LIT } }
+				limit = { FROM = { tag = NLI } }
 				add_named_threat = { threat = 1 name = soviet.36_threat_LIT }
 			}	
 			if = {
@@ -1437,11 +1437,11 @@ country_event = {
 				add_named_threat = { threat = 2 name = soviet.36_threat_FIN }
 			}			
 			if = {
-				limit = { FROM = { tag = EST } }
+				limit = { FROM = { tag = NES } }
 				add_named_threat = { threat = 1 name = soviet.36_threat_EST }
 			}			
 			if = {
-				limit = { FROM = { tag = LAT } }
+				limit = { FROM = { tag = NLA } }
 				add_named_threat = { threat = 1 name = soviet.36_threat_LAT }
 			}		
 
@@ -2132,7 +2132,7 @@ country_event = {
 				owns_state = 807 #GDYNIA
 			}
 			AND = {
-				POL = { has_capitulated = yes }
+				NPO = { has_capitulated = yes }
 				OR = {
 					controls_state = 88 #KRAKOW
 					controls_state = 92 #LUBLIN
@@ -2164,7 +2164,7 @@ country_event = {
 						owns_state = 762 #KATOWICE
 						owns_state = 807 #GDYNIA
 						AND = {
-							POL = { has_capitulated = yes }
+							NPO = { has_capitulated = yes }
 							OR = {
 								controls_state = 88 #KRAKOW
 								controls_state = 92 #LUBLIN
@@ -2194,11 +2194,11 @@ country_event = {
 			modifier = {
 				factor = 0
 				AND = {
-					POL = {
+					NPO = {
 						is_ai = no
 						has_civil_war = no
 					}
-					is_in_faction_with = POL
+					is_in_faction_with = NPO
 				}
 			}
 		}
@@ -2464,11 +2464,11 @@ country_event = {
 				is_historical_focus_on = yes
 				NOT = {
 					AND = {
-						POL = {
+						NPO = {
 							is_ai = no
 							has_civil_war = no
 						}
-						is_in_faction_with = POL
+						is_in_faction_with = NPO
 					}
 				}
 			}
@@ -2638,7 +2638,7 @@ country_event = {
 	picture = GFX_report_event_soviet_tanks
 
 	trigger = {
-		tag = POL
+		tag = NPO
 		is_subject = no
 		NOT = { has_government = communism }
 		has_global_flag = yalta_agreed_flag
@@ -2739,7 +2739,7 @@ country_event = {
 			base = 5
 			modifier = {
 				factor = 0
-				POL = {
+				NPO = {
 					is_in_faction_with = USA
 				}
 			}
@@ -2803,7 +2803,7 @@ country_event = {
 		ai_chance = {
 			base = 1
 		}
-		POL = {
+		NPO = {
 			add_autonomy_score = { 
 				value = -250 
 				localization = POL_accepted_states
@@ -2816,20 +2816,20 @@ country_event = {
 		FROM = {
 			every_owned_state = {
 				limit = {
-					is_core_of = POL 
+					is_core_of = NPO 
 					OR = {
 						# Białystok
 						state = 97 
 						# Uncontested Polish Cores
 						NOT = {
 							any_country_with_core = {
-								NOT = { tag = POL }
+								NOT = { tag = NPO }
 							}
 						}
 					}
 					
 				}
-				transfer_state_to = POL
+				transfer_state_to = NPO
 			}
 		}
 		FROM = {
@@ -2845,7 +2845,7 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		POL = {
+		NPO = {
 			add_autonomy_score = { 
 				value = 250 
 				localization = POL_refused_states
@@ -2854,22 +2854,22 @@ country_event = {
 		FROM = {
 			every_owned_state = {
 				limit = {
-					is_core_of = POL 
+					is_core_of = NPO 
 					OR = {
 						# Białystok
 						state = 97 
 						# Uncontested Polish Cores
 						NOT = {
 							any_country_with_core = {
-								NOT = { tag = POL }
+								NOT = { tag = NPO }
 							}
 						}
 					}
 					
 				}
-				remove_core_of = POL  
+				remove_core_of = NPO  
 				add_core_of = SOV
-				add_claim_by = POL 
+				add_claim_by = NPO 
 			}
 		}
 		FROM = {

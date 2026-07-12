@@ -4007,7 +4007,7 @@ focus_tree = {
 
 		available = {
 			has_war = no
-			ETH = {
+			FET = {
 				exists = yes
 			}
 			has_global_flag = second_italo_ethiopian_war_flag
@@ -4026,14 +4026,14 @@ focus_tree = {
 		completion_reward = {
 				
 			add_relation_modifier = {
-				target = ETH
+				target = FET
 				modifier = JAP_support_ethiopia_static_modifier 
 			}
 			add_relation_rule_override = {
-				target = ETH
+				target = FET
 				can_send_volunteers = yes
 			}
-			ETH = {
+			FET = {
 				add_opinion_modifier = {
 					target = ROOT
 					modifier = JAP_sent_eth_aid_opm
@@ -4042,7 +4042,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			ETH = {
+			FET = {
 				country_event = {
 					id = SEA_japan_foreign_policy.75
 					hours = 2
@@ -4056,12 +4056,12 @@ focus_tree = {
 				}
 				add_ai_strategy = {
 					type = send_volunteers_desire
-					id = ETH
+					id = FET
 					value = 350
 				}
 				add_ai_strategy = {
 					type = protect
-					id = ETH
+					id = FET
 					value = 100
 				}
 			}
@@ -6128,7 +6128,7 @@ focus_tree = {
 		}
 
 		available = {
-			POL = {
+			NPO = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT
@@ -6149,7 +6149,7 @@ focus_tree = {
 
 		completion_reward = {
 
-			POL = {
+			NPO = {
 				country_event = {
 					id = SEA_japan_foreign_policy.82
 					hours = 6
@@ -6161,7 +6161,7 @@ focus_tree = {
 			effect_tooltip = {
 				add_ideas = JAP_POL_anti_soviet_pact
 				#custom_effect_tooltip = POL_JAP_pact_tt
-				POL = {
+				NPO = {
 					add_ideas = JAP_POL_anti_soviet_pact
 				}
 			}
@@ -6216,7 +6216,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					has_completed_focus = JAP_authorize_aid_to_ethiopia
-					ETH = {
+					FET = {
 						exists = yes
 						is_subject = no
 						is_faction_leader = no
@@ -6229,7 +6229,7 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = JAP_eth_is_invited_to_faction_tt
 				hidden_effect = {
-					ETH = {
+					FET = {
 						add_ai_strategy = {
 							type = befriend
 							id = ROOT
@@ -12044,7 +12044,7 @@ focus_tree = {
 			has_completed_focus = SOV_the_fourth_international
 		}
 
-		will_lead_to_war_with = POR
+		will_lead_to_war_with = NPR
 
 		ai_will_do = {
 			factor = 1
@@ -14121,10 +14121,10 @@ focus_tree = {
 		hidden_effect = {
     if = {
         limit = {
-            country_exists = INS
+            country_exists = INF
         }
         declare_war_on = {
-            target = INS
+            target = INF
             type = annex_everything
         }
     }
@@ -14261,7 +14261,7 @@ focus_tree = {
 				OWNER = {
 					has_war = no
 					OR = {
-						original_tag = POR
+						original_tag = NPR
 						original_tag = TML
 					}
 					NOT = {
@@ -14276,7 +14276,7 @@ focus_tree = {
 
 		}
 
-		will_lead_to_war_with = POR
+		will_lead_to_war_with = NPR
 		will_lead_to_war_with = TML
 
 		cancel_if_invalid = no
@@ -14302,11 +14302,11 @@ focus_tree = {
 			ELSE_IF = {
 				limit = {
 					721 = {
-						is_owned_by = POR
+						is_owned_by = NPR
 					}
 				}
 				custom_effect_tooltip = JAP_occupy_east_timor_tt
-				POR = {
+				NPR = {
 					country_event = { 
 						id = SEA_japan_foreign_policy.13
 						days = 1
@@ -15276,7 +15276,7 @@ focus_tree = {
 					has_completed_focus = JAP_utilize_our_polish_friendship
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				POL = {
+				NPO = {
 					country_event = {
 						id = SEA_japan_foreign_policy.86
 						hours = 6
@@ -15435,7 +15435,7 @@ focus_tree = {
 					has_completed_focus = JAP_utilize_our_polish_friendship
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				POL = {
+				NPO = {
 					country_event = {
 						id = SEA_japan_foreign_policy.86
 						hours = 6
@@ -17816,7 +17816,7 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					ETH = {
+					FET = {
 						NOT = {
 							has_completed_focus = ETH_support_from_the_japanese_communists
 						}
@@ -17824,7 +17824,7 @@ focus_tree = {
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				set_country_flag = IA_anarchists_recruited_flag
-				ETH = {
+				FET = {
 					IA_sanshiro_ishikawa = { set_nationality = ROOT }
 					IA_sakutaro_iwasa = { set_nationality = ROOT }
 				}
@@ -19533,8 +19533,8 @@ focus_tree = {
 		will_lead_to_war_with = PHI
 		will_lead_to_war_with = MAL
 		will_lead_to_war_with = SNG
-		will_lead_to_war_with = INS
-		will_lead_to_war_with = HOL
+		will_lead_to_war_with = INF
+		will_lead_to_war_with = FNL
 		will_lead_to_war_with = AST
 		will_lead_to_war_with = NZL
 		will_lead_to_war_with = SAR
@@ -19563,7 +19563,7 @@ focus_tree = {
 						original_tag = PHI
 						original_tag = MAL
 						original_tag = SNG
-						original_tag = INS
+						original_tag = INF
 						original_tag = AST
 						original_tag = NZL
 						original_tag = SAR
@@ -19610,7 +19610,7 @@ focus_tree = {
 						original_tag = PHI
 						original_tag = MAL
 						original_tag = SNG
-						original_tag = INS
+						original_tag = INF
 						original_tag = AST
 						original_tag = NZL
 					}
@@ -21100,8 +21100,8 @@ focus_tree = {
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = MAL
 		will_lead_to_war_with = SNG
-		will_lead_to_war_with = INS
-		will_lead_to_war_with = HOL
+		will_lead_to_war_with = INF
+		will_lead_to_war_with = FNL
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -23435,7 +23435,7 @@ focus_tree = {
 					has_subject = SAR
 					has_subject = SAB
 					has_subject = BRN
-					has_subject = INS
+					has_subject = INF
 					has_subject = SIA
 					has_subject = PHI
 				}

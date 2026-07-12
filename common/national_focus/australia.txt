@@ -3967,15 +3967,15 @@
 		}
 
 		available = {
-			NOT = { has_war_with = HOL }
-			HOL = { has_capitulated = yes }
+			NOT = { has_war_with = FNL }
+			FNL = { has_capitulated = yes }
 			NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 		
 		bypass = {
-			INS = {
+			INF = {
 				OR = {
-					NOT = { is_puppet_of = HOL }
+					NOT = { is_puppet_of = FNL }
 					exists = no
 					has_capitulated = yes
 				}
@@ -3987,7 +3987,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			HOL = {
+			FNL = {
 				country_event = { id = tfv_australia.10 }
 			}
 		}
@@ -4026,7 +4026,7 @@
 			if = {
 				limit = {
 					has_completed_focus = AST_protect_the_dutch_colonies
-					INS = { is_puppet_of = AST }
+					INF = { is_puppet_of = AST }
 				}
 				set_country_flag = INS_is_a_puppet
 			}
@@ -4269,8 +4269,8 @@
 		}
 
 		available = {
-			country_exists = INS
-			INS = { is_subject = yes }
+			country_exists = INF
+			INF = { is_subject = yes }
 			ROOT = {
 				fascism > 0.15
 			}
@@ -4288,7 +4288,7 @@
 		}
 		
 		bypass = {
-			INS = {
+			INF = {
 				OR = {
 					has_government = fascism
 					is_subject = no
@@ -4302,14 +4302,14 @@
 
 		completion_reward = {
 			#Boosts fascism in Indonesia
-			INS = {
+			INF = {
 				add_timed_idea = { days = 730 idea = AST_indonesian_nationalists } 
 			}
 			hidden_effect = {
-				INS = { country_event = { id = tfv_australia.95 } }
+				INF = { country_event = { id = tfv_australia.95 } }
 				every_country = {
 					limit = {
-						has_subject = INS
+						has_subject = INF
 					}
 					country_event = { id = tfv_australia.95 } 
 				}
@@ -4332,8 +4332,8 @@
 		}
 
 		available = {
-			country_exists = INS
-			INS = { is_subject = yes }
+			country_exists = INF
+			INF = { is_subject = yes }
 			OR = {
 				is_subject = no
 				AND = {
@@ -4342,14 +4342,14 @@
 				}
 			}
 			fascism > 0.3
-			INS = {
+			INF = {
 				fascism > 0.3
 			}
 			NOT = { has_country_flag = britain_enforced_our_loyalty }
 		}
 		
 		bypass = {
-			INS = {
+			INF = {
 				OR = {
 					has_government = fascism
 					is_subject = no
@@ -4364,9 +4364,9 @@
 		completion_reward = {
 			if = {
 				limit = {
-					INS = { has_civil_war = no }
+					INF = { has_civil_war = no }
 				}
-				INS = { country_event = { id = tfv_australia.96 } }
+				INF = { country_event = { id = tfv_australia.96 } }
 			}
 			add_ideas = AST_support_indonesian_uprising
 		}

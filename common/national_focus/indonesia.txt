@@ -32,7 +32,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = INS
+			tag = INF
 			has_dlc = "Thunder at Our Gates"
 		}
 	}
@@ -132,7 +132,7 @@ focus_tree = {
 			unlock_decision_category_tooltip = INS_revolution_planning_cat
 			unlock_decision_tooltip = INS_revolution_planning_hq
 
-			HOL = {
+			FNL = {
 				country_event = {
 					id = INS_revolution_events.8
 					hours = 2
@@ -230,7 +230,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 				}
@@ -288,7 +288,7 @@ focus_tree = {
 		icon = GFX_focus_INS_instigate_chaos_sulawesi
 
 		available = {
-			is_subject_of = HOL
+			is_subject_of = FNL
 		}
 		prerequisite = { focus = INS_underground_revolution }
 		mutually_exclusive = {  }
@@ -314,7 +314,7 @@ focus_tree = {
 	#	icon = GFX_focus_AUS_raid_military_storages
 #
 	#	available = {
-	#		is_subject_of = HOL
+	#		is_subject_of = FNL
 	#	}
 	#	prerequisite = { focus = INS_expand_resistance_membership }
 	#	mutually_exclusive = {  }
@@ -336,7 +336,7 @@ focus_tree = {
 		icon = GFX_focus_INS_instigate_chaos_medan
 
 		available = {
-			is_subject_of = HOL
+			is_subject_of = FNL
 		}
 		prerequisite = { focus = INS_instigate_chaos_sulawesi }
 		mutually_exclusive = {  }
@@ -363,7 +363,7 @@ focus_tree = {
 		icon = GFX_focus_RAJ_headhunt_army_personell
 
 		available = {
-			is_subject_of = HOL
+			is_subject_of = FNL
 		}
 		prerequisite = { focus = INS_infiltrate_the_army }
 
@@ -561,7 +561,7 @@ focus_tree = {
 					}
 					indonesia_form_republic_effect = yes
 				}
-				HOL = {
+				FNL = {
 					country_event = {
 						id = INS_revolution_events.9
 						hours = 4
@@ -570,16 +570,16 @@ focus_tree = {
 				every_country = {
 					limit = {
 						OR = {
-							#tag = HOL
+							#tag = FNL
 							original_tag = ENG
 							original_tag = FRA
-							is_in_faction_with = HOL
+							is_in_faction_with = FNL
 							any_core_state = {
 								is_on_continent = asia
 							}
 						}
 						NOT = {
-							tag = INS
+							tag = INF
 						}
 					}
 					news_event = {
@@ -694,10 +694,10 @@ focus_tree = {
 
 				every_country = {
 					limit = {
-						is_in_faction_with = HOL
+						is_in_faction_with = FNL
 						NOT = {
-							tag = HOL
-							is_subject_of = HOL
+							tag = FNL
+							is_subject_of = FNL
 						}
 					}
 					INS_set_hol_ally_strategy_effect = yes
@@ -813,7 +813,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Laskar Sabilillah\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 	1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -861,7 +861,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"KRIS Cabang Makassar\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 	1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -941,7 +941,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"API Cabang Jakarta\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 	1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -992,7 +992,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Laskar Buruh Kereta Api\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 	1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -1048,7 +1048,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Batalyon Moestopo\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 	1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -1388,7 +1388,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Laskar Persatuan Perjuangan\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -1400,7 +1400,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Laskar Rakyat Jakarta Raya\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -1412,7 +1412,7 @@ focus_tree = {
 				hidden_effect = {
 					create_unit = {
 						division = "name = \"Laskar Tani Murba\" division_template = \"Freedom Fighter Militia\" start_experience_factor = 0.3 start_equipment_factor = 1 	start_manpower_factor = 1"
-						owner = INS
+						owner = INF
 						allow_spawning_on_enemy_provs = no
 						count = 1
 						id = 1510
@@ -1444,25 +1444,25 @@ focus_tree = {
 			capital_scope = {
 				create_unit = {
 					division = "name = \"Pasukan Revolusi Murba\" division_template = \"Pasukan Revolusi Murba\" start_experience_factor = 0.5 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
-					owner = INS
+					owner = INF
 					allow_spawning_on_enemy_provs = no 
 					count = 1
 				}
 				create_unit = {
 					division = "name = \"Laskar Republik Sosialis\" division_template = \"Pasukan Revolusi Murba\" start_experience_factor = 0.5 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
-					owner = INS
+					owner = INF
 					allow_spawning_on_enemy_provs = no 
 					count = 1
 				}
 				create_unit = {
 					division = "name = \"Gerakan Revolusi Rakyat\" division_template = \"Pasukan Revolusi Murba\" start_experience_factor = 0.5 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
-					owner = INS
+					owner = INF
 					allow_spawning_on_enemy_provs = no 
 					count = 1
 				}
 				create_unit = {
 					division = "name = \"Laskar 100 Persen Merdeka\" division_template = \"Communist Revolutionary Division\" start_experience_factor = 0.5 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
-					owner = INS
+					owner = INF
 					allow_spawning_on_enemy_provs = no 
 					count = 1
 				}
@@ -1600,55 +1600,55 @@ focus_tree = {
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Pati Unus"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Hang Tuah"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Hang Jebat"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Gajah Mada"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Nala"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Sultan Agung"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Trunojoyo"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Sultan Hasanuddin"
 			}
 			create_ship = {
 				type = ship_hull_light_2
 				equipment_variant = "Pati Unus Class"
-				creator = INS
+				creator = INF
 				name = "KRI Diponegoro"
 			}
 		}
@@ -1712,7 +1712,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INS usually takes a cheap navy and moves on, sometimes goes hyper-navy.
+			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INF usually takes a cheap navy and moves on, sometimes goes hyper-navy.
 		}
 
 		search_filters = { FOCUS_FILTER_NAVY_XP }
@@ -1736,7 +1736,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = INS_just_a_fisherman
 		ai_will_do = {
-			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INS usually takes a cheap navy and moves on, sometimes goes hyper-navy.
+			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INF usually takes a cheap navy and moves on, sometimes goes hyper-navy.
 		}
 
 		cost = 10
@@ -1810,7 +1810,7 @@ focus_tree = {
 
 		cost = 10
 		ai_will_do = {
-			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INS usually takes a cheap navy and moves on, sometimes goes hyper-navy.
+			base = 7 #unlikely that AI starts this branch. if they do, make them REALLY love the navy. so INF usually takes a cheap navy and moves on, sometimes goes hyper-navy.
 		}
 
 		search_filters = { FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH }
@@ -2434,7 +2434,7 @@ focus_tree = {
 				custom_trigger_tooltip = {
 					tooltip = INS_is_noncore_but_indonesian_trigger_tt
 					is_in_array = {
-						array = INS.default_noncore_states
+						array = INF.default_noncore_states
 						value = THIS
 					}
 				}
@@ -2448,7 +2448,7 @@ focus_tree = {
 					custom_trigger_tooltip = {
 						tooltip = INS_is_noncore_but_indonesian_trigger_tt
 						is_in_array = {
-							array = INS.default_noncore_states
+							array = INF.default_noncore_states
 							value = THIS
 						}
 					}
@@ -2467,7 +2467,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_in_array = {
-						array = INS.default_noncore_states
+						array = INF.default_noncore_states
 						value = THIS
 					}
 				}
@@ -2507,7 +2507,7 @@ focus_tree = {
 		available = {
 			any_owned_state = {
 				is_in_array = {
-					array = INS.owned_states_at_game_start
+					array = INF.owned_states_at_game_start
 					value = THIS
 				}
 			}
@@ -2527,7 +2527,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 				}
@@ -3662,7 +3662,7 @@ focus_tree = {
 				limit = {
 					is_fully_controlled_by = PREV
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 					OR = {
@@ -3871,7 +3871,7 @@ focus_tree = {
 				add = 1
 				SOV = {
 					has_opinion = {
-						target = INS
+						target = INF
 						value > 60
 					}
 				}
@@ -3913,7 +3913,7 @@ focus_tree = {
 
 			if = {
 				limit = {
-					INS = {
+					INF = {
 						NOT = {
 							is_in_faction_with = SOU
 						}
@@ -5416,7 +5416,7 @@ focus_tree = {
 				limit = {
 					OR = {
 						original_tag = JAP
-						original_tag = CHI
+						original_tag = FCH
 						original_tag = PRC
 						original_tag = SIA
 						original_tag = MAL
@@ -5438,13 +5438,13 @@ focus_tree = {
 			every_country = {
 				limit = {
 					OR = {
-						original_tag = HOL
+						original_tag = FNL
 						original_tag = USA
 						original_tag = ENG
 						original_tag = FRA
 						original_tag = CAN
-						original_tag = BEL
-						original_tag = DEN
+						original_tag = FBL
+						original_tag = NDE
 					}
 				}
 				add_opinion_modifier = {
@@ -5567,7 +5567,7 @@ focus_tree = {
 					is_literally_china = yes
 				}
 				add_opinion_modifier = {
-					target = INS
+					target = INF
 					modifier = indonesia_china_trade_modifier
 				}
 			}
@@ -5838,7 +5838,7 @@ focus_tree = {
 					type = arms_factory
 					level = 1
 				}
-				HOL = {
+				FNL = {
 					add_offsite_building = {
 						type = industrial_complex
 						level = 1
@@ -6505,7 +6505,7 @@ focus_tree = {
 			520 = { #Northern Territory
 				create_unit = {
 					division = "name = \"KNIL Division\" division_template = \"Exile Division\" start_experience_factor = 0.35 start_equipment_factor = 0.8 start_manpower_factor = 0.8"
-					owner = INS
+					owner = INF
 					prioritize_location = 7669 #Darwin
 					allow_spawning_on_enemy_provs = no 
 					count = 8
@@ -6598,7 +6598,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 				}
@@ -6623,7 +6623,7 @@ focus_tree = {
 				tooltip = INS_stronghold_java_tt
 				any_owned_state = {
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 					NOT = {
@@ -6672,7 +6672,7 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					is_in_array = {
-						array = INS.owned_states_at_game_start
+						array = INF.owned_states_at_game_start
 						value = THIS
 					}
 					NOT = {
@@ -6746,7 +6746,7 @@ focus_tree = {
 				every_controlled_state = {
 					limit = {
 						is_in_array = {
-							array = INS.owned_states_at_game_start
+							array = INF.owned_states_at_game_start
 							value = THIS
 						}
 					}
@@ -6842,7 +6842,7 @@ focus_tree = {
 			is_subject_of = JAP
 			set_temp_variable = {
 				var = temp_states_plus_more
-				value = INS.states_japan_owned_when_taking_INS
+				value = INF.states_japan_owned_when_taking_INS
 			}
 			subtract_from_temp_variable = { temp_states_plus_more = 5 }
 			OR = {
@@ -6884,7 +6884,7 @@ focus_tree = {
 				indonesia_free_effect = yes
 				indonesia_form_republic_effect = yes
 			}
-			HOL = {
+			FNL = {
 				country_event = {
 					id = INS_political_events.9
 					hours = 0 #yes, it needs to be instant.

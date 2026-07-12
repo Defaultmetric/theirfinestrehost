@@ -1456,7 +1456,7 @@ country_event = {
 	}
 }
 
-#PRC and CHI are ganking up on us!!!
+#PRC and FCH are ganking up on us!!!
 country_event = { 
 	id = SEA_PRC_faction_events.2
 	is_triggered_only = yes
@@ -1680,7 +1680,7 @@ country_event = {
 	}
 }
 
-#CHI refuses to split Yan'an with us!
+#FCH refuses to split Yan'an with us!
 country_event = { 
 	id = SEA_PRC_faction_events.3
 	is_triggered_only = yes
@@ -1727,7 +1727,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				original_tag = CHI
+				original_tag = FCH
 			}
 			if = {
 				limit = {
@@ -1800,7 +1800,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				original_tag = CHI
+				original_tag = FCH
 			}
 			create_wargoal = {
 				type = take_state_focus
@@ -1811,7 +1811,7 @@ country_event = {
 	}
 }
 
-#CHI: Prc wants to create the Second United Front
+#FCH: Prc wants to create the Second United Front
 country_event = { 
 	id = SEA_PRC_faction_events.10
 	title = SEA_PRC_faction_events.10.t
@@ -1821,9 +1821,9 @@ country_event = {
 	
 	option = { #Yes - For the sake of all of China
 		name = SEA_PRC_faction_events.10.a
-		trigger = { ## Edge case prevent fascist CHI from joining CUF
+		trigger = { ## Edge case prevent fascist FCH from joining CUF
 			NOT = {
-				CHI = {
+				FCH = {
 					has_government = fascism 
 				}	
 			}
@@ -3282,7 +3282,7 @@ country_event = {
 
 
 country_event = { 
-	id = SEA_PRC_faction_events.90  ## For edge case if PRC forms a different faction from CHI and both at war with JAP, can form a CUF
+	id = SEA_PRC_faction_events.90  ## For edge case if PRC forms a different faction from FCH and both at war with JAP, can form a CUF
 	title = SEA_PRC_faction_events.90.t 
 	desc = SEA_PRC_faction_events.90.desc
 	picture = GFX_report_event_generic_sign_treaty1
@@ -3297,7 +3297,7 @@ country_event = {
 			base = 90
 
 			modifier = {
-				CHI = {
+				FCH = {
 					has_government = fascism 
 				}
 				factor = 0
@@ -3406,7 +3406,7 @@ country_event = {
 
 
 
-# New Fourth Army Incident Event Chain - First event to CHI, increased tensions
+# New Fourth Army Incident Event Chain - First event to FCH, increased tensions
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.1
 	title = SEA_PRC_fourth_army_incident.1.t
@@ -3416,7 +3416,7 @@ country_event = {
 
 	trigger = {
 		has_dlc = "No Compromise, No Surrender"
-		original_tag = CHI
+		original_tag = FCH
 		is_faction_leader = yes
 		is_in_faction_with = PRC
 		any_enemy_country = {
@@ -3514,7 +3514,7 @@ country_event = {
 	}
 }
 
-### Event to PRC - CHI complain 
+### Event to PRC - FCH complain 
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.3
 	title = SEA_PRC_fourth_army_incident.3.t
@@ -3525,7 +3525,7 @@ country_event = {
 
 	trigger = {
 		PRC = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 	}
 
@@ -3616,7 +3616,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC withdraws 
+## Event to FCH, PRC withdraws 
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.4
 	title = SEA_PRC_fourth_army_incident.4.t
@@ -3634,7 +3634,7 @@ country_event = {
 	}
 }
 
-## Event to CHI - the Incident itself 
+## Event to FCH - the Incident itself 
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.5
 	title = SEA_PRC_fourth_army_incident.5.t
@@ -3645,7 +3645,7 @@ country_event = {
 
 	trigger = {
 		PRC = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 	}
 
@@ -3698,7 +3698,7 @@ country_event = {
 
 		add_manpower = -10000
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_PRC_fourth_army_incident.7
 				days = 10
@@ -3746,8 +3746,8 @@ country_event = {
 
 		leave_faction = yes 
 
-		CHI = {
-			country_event = { ## Inform CHI of this
+		FCH = {
+			country_event = { ## Inform FCH of this
 				id = SEA_PRC_fourth_army_incident.6
 				hours = 1
 			}
@@ -3755,7 +3755,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC leaves faction
+## Event to FCH, PRC leaves faction
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.6
 	title = SEA_PRC_fourth_army_incident.6.t
@@ -3777,7 +3777,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC complains regarding the incident
+## Event to FCH, PRC complains regarding the incident
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.7
 	title = SEA_PRC_fourth_army_incident.7.t
@@ -3788,7 +3788,7 @@ country_event = {
 
 	trigger = {
 		PRC = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 	}
 
@@ -3875,7 +3875,7 @@ country_event = {
 }
 
 
-## Event to PRC, CHI escalates
+## Event to PRC, FCH escalates
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.8
 	title = SEA_PRC_fourth_army_incident.8.t
@@ -3886,7 +3886,7 @@ country_event = {
 
 	trigger = {
 		PRC = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 	}
 
@@ -3988,7 +3988,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC de-escalates, end of chain
+## Event to FCH, PRC de-escalates, end of chain
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.9
 	title = SEA_PRC_fourth_army_incident.9.t
@@ -4006,7 +4006,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC leaves faction and declares war
+## Event to FCH, PRC leaves faction and declares war
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.10
 	title = SEA_PRC_fourth_army_incident.10.t
@@ -4024,7 +4024,7 @@ country_event = {
 
 }
 
-## Event to PRC, CHI de-escalates 
+## Event to PRC, FCH de-escalates 
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.11
 	title = SEA_PRC_fourth_army_incident.11.t
@@ -4035,7 +4035,7 @@ country_event = {
 
 	trigger = {
 		PRC = {
-			is_in_faction_with = CHI
+			is_in_faction_with = FCH
 		}
 	}
 
@@ -4139,7 +4139,7 @@ country_event = {
 	}
 }
 
-## Event to CHI, PRC accepts apology, end of chain
+## Event to FCH, PRC accepts apology, end of chain
 country_event = { 
 	id = SEA_PRC_fourth_army_incident.12
 	title = SEA_PRC_fourth_army_incident.12.t
@@ -5438,13 +5438,13 @@ country_event = {
 			country_event = { id = SEA_PRC_misc_events.19 hours = 1 }
 		}
 	}
-	#POR hands over Macau
+	#NPR hands over Macau
 	option = {
 		name = SEA_PRC_misc_events.18.b
 		trigger = {
-			original_tag = POR
+			original_tag = NPR
 			729 = {
-				is_controlled_by = POR
+				is_controlled_by = NPR
 			}
 		}
 		ai_chance = {
@@ -5739,7 +5739,7 @@ country_event = {
 		#NO NEED FOR AI CHANCE SINCE PRC WILL ONLY HAVE ACCESS TO ONE OF THESE OPTIONS AT A TIME
 		trigger = {
 			FROM = {
-				original_tag = POR
+				original_tag = NPR
 			}
 			controls_state = 729
 			NOT = {
@@ -6726,7 +6726,7 @@ country_event = {
 
 		set_country_flag = PRC_zhang_guotao_left
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_PRC_zhang_guotao_events.5
 				hours = 2
@@ -6872,7 +6872,7 @@ country_event = {
 
 		set_country_flag = PRC_zhang_guotao_left
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_PRC_zhang_guotao_events.5
 				hours = 2
@@ -6887,7 +6887,7 @@ country_event = {
 
 
 ### 
-### This event is sent to CHI and all warlords when war against CHI and PRC breaks out. Says there are some Generals that are leaving us for the PRC and removes them from the game. 
+### This event is sent to FCH and all warlords when war against FCH and PRC breaks out. Says there are some Generals that are leaving us for the PRC and removes them from the game. 
 ## TODO_ML - trigger also dependent on faction influence, how well you are doing
 country_event = {
 	id = SEA_PRC_political_events.19
@@ -6944,7 +6944,7 @@ country_event = {
 
 
 
-## This event is to SOV from CHI, about getting Chuikov as general
+## This event is to SOV from FCH, about getting Chuikov as general
 country_event = {
 	id = SEA_PRC_political_events.21
 	title = SEA_PRC_political_events.21.t
@@ -6971,7 +6971,7 @@ country_event = {
 		}
 
 		SOV_vasily_chuykov = {
-			set_nationality = CHI
+			set_nationality = FCH
 		}
 		
 		add_political_power = 25
@@ -6998,7 +6998,7 @@ country_event = {
 
 
 
-## This event is to CHI from SOV - They Agree
+## This event is to FCH from SOV - They Agree
 country_event = {
 	id = SEA_PRC_political_events.22
 	title = SEA_PRC_political_events.22.t
@@ -7019,7 +7019,7 @@ country_event = {
 
 
 
-## This event is to CHI from SOV - They Refuse
+## This event is to FCH from SOV - They Refuse
 country_event = {
 	id = SEA_PRC_political_events.23
 	title = SEA_PRC_political_events.23.t
@@ -7061,7 +7061,7 @@ country_event = {
 			set_nationality = FROM
 		}
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_PRC_political_events.25
 				hours = 3
@@ -7086,7 +7086,7 @@ country_event = {
 		}
 
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_PRC_political_events.27
 				hours = 3
@@ -7099,7 +7099,7 @@ country_event = {
 
 
 
-## This event is to CHI if SOV says yes
+## This event is to FCH if SOV says yes
 country_event = {
 	id = SEA_PRC_political_events.25
 	title = SEA_PRC_political_events.25.t

@@ -73,7 +73,7 @@ country_event = {
 		# Ensure enemies also have war with target 
 		random_other_country = {
 			limit = {
-				original_tag = ETH 
+				original_tag = FET 
 				has_government = neutrality
 				has_war_with = ROOT 
 			}
@@ -114,7 +114,7 @@ country_event = {
 			# Ensure enemies also have war with target 
 			random_other_country = {
 				limit = {
-					original_tag = ETH 
+					original_tag = FET 
 					has_government = fascism
 					has_war_with = ROOT 
 				}
@@ -217,8 +217,8 @@ country_event = {
 				IF = { 
 					limit = {
 						exists = no # no country should get more than one state
-						NOT = { original_tag = ETH }
-						PREV = { is_core_of = ETH } # Ethiopia keeps all "colonies", only the ethiopian Nobility that is rising up 
+						NOT = { original_tag = FET }
+						PREV = { is_core_of = FET } # Ethiopia keeps all "colonies", only the ethiopian Nobility that is rising up 
 					}
 					transfer_state = PREV 
 					# Ensure countries at war with Ethiopia are also at war with the new countries 
@@ -1082,21 +1082,21 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					ETH = { 
+					FET = { 
 						any_owned_state = { is_controlled_by = ITA }
 					}
 				}
-				set_variable = { ETH.ETH_occupier_country = ITA}
+				set_variable = { FET.ETH_occupier_country = ITA}
 			}
 			ELSE = {
 				random_country = {
 					limit = {
-						has_war_with = ETH
-						ETH = { 
+						has_war_with = FET
+						FET = { 
 						 	any_owned_state = { is_controlled_by = PREV.PREV }
 						}
 					}
-					set_variable = { ETH.ETH_occupier_country = THIS }
+					set_variable = { FET.ETH_occupier_country = THIS }
 				}
 			}
 		}
@@ -1110,11 +1110,11 @@ country_event = {
 		# Give wargoal if not already at war
 		IF = {
 			limit = {
-				NOT = { has_war_with = ETH.ETH_occupier_country }
+				NOT = { has_war_with = FET.ETH_occupier_country }
 			}
 			create_wargoal = {
 				type = liberate_wargoal
-				target = ETH.ETH_occupier_country
+				target = FET.ETH_occupier_country
 			}
 		}
 		custom_effect_tooltip = ETH_can_call_allies_tt
@@ -1170,7 +1170,7 @@ country_event = {
 			base = 10
 		}
 		RAJ_orde_wingate = {
-			set_nationality = ETH
+			set_nationality = FET
 			hidden_effect = { 
 				set_character_flag = is_in_ethiopia 
 				if = {
@@ -1182,7 +1182,7 @@ country_event = {
 	}
 }
 
-# Notification event to ETH about Wingate being sent to Burma
+# Notification event to FET about Wingate being sent to Burma
 country_event = {
 	id = BBA_ethiopia_exile_events.05
 	title = BBA_ethiopia_exile_events.05.t
@@ -1344,7 +1344,7 @@ country_event = {
 			any_state = {
 				is_core_of = SOM 
 				any_country = {
-					has_war_with = ETH 
+					has_war_with = FET 
 					PREV = { is_owned_by = PREV }
 				}
 			}
@@ -1599,23 +1599,23 @@ country_event = {
 		custom_effect_tooltip = ETH_destroyers_tt
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		FROM = {
 			country_event = {
@@ -1643,19 +1643,19 @@ country_event = {
 		custom_effect_tooltip = ETH_cruiser_tt
 		transfer_ship = {
 			type = heavy_cruiser
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		transfer_ship = {
 			type = destroyer
-			target = ETH
+			target = FET
 		}
 		FROM = {
 			country_event = {
@@ -1680,7 +1680,7 @@ country_event = {
 		custom_effect_tooltip = ETH_battleship_tt
 		transfer_ship = {
 			type = battleship
-			target = ETH
+			target = FET
 		}
 		FROM = {
 			country_event = {
@@ -1705,7 +1705,7 @@ country_event = {
 				size < 11
 			}
 		}
-		ETH = {
+		FET = {
 			add_tech_bonus = {
 				bonus = 0.5
 				uses = 3
@@ -1804,7 +1804,7 @@ country_event = {
 					is_fully_controlled_by = JAP 
 
 				}
-				set_variable = { ETH.japanese_island = THIS }
+				set_variable = { FET.japanese_island = THIS }
 			}
 		}
 	}
@@ -1818,7 +1818,7 @@ country_event = {
 		trigger = {
 			647 = { is_fully_controlled_by = ROOT }
 		}
-		647 = { set_variable = { ETH.japanese_island = THIS } }
+		647 = { set_variable = { FET.japanese_island = THIS } }
 		effect_tooltip = {
 			FROM = { transfer_state = 647 }
 			ROOT = { puppet = FROM }
@@ -1847,7 +1847,7 @@ country_event = {
 			524 = { is_fully_controlled_by = ROOT }
 
 		}
-		524 = { set_variable = { ETH.japanese_island = THIS } }
+		524 = { set_variable = { FET.japanese_island = THIS } }
 		effect_tooltip = {
 			FROM = { transfer_state = 524 }
 			ROOT = { puppet = FROM }
@@ -1876,7 +1876,7 @@ country_event = {
 			543 = { is_fully_controlled_by = ROOT }
 			
 		}
-		543 = { set_variable = { ETH.japanese_island = THIS } }
+		543 = { set_variable = { FET.japanese_island = THIS } }
 		effect_tooltip = {
 			FROM = { transfer_state = 543 }
 			ROOT = { puppet = FROM }
@@ -1909,7 +1909,7 @@ country_event = {
 			709  = { NOT = { is_fully_controlled_by = ROOT } }
 		}
 		effect_tooltip = {
-			FROM = { transfer_state = ETH.japanese_island }
+			FROM = { transfer_state = FET.japanese_island }
 			ROOT = { puppet = FROM }
 			ROOT = {
 				add_to_war = { 
@@ -1942,17 +1942,17 @@ country_event = {
 		}
 		IF = {
 			limit = { 422 = { is_fully_controlled_by = ROOT } }
-			422 = { set_variable = { ETH.japanese_island = THIS } }
+			422 = { set_variable = { FET.japanese_island = THIS } }
 		}
 		ELSE_IF = {
 			limit = { 281 = { is_fully_controlled_by = ROOT } }
-			281 = { set_variable = { ETH.japanese_island = THIS } }
+			281 = { set_variable = { FET.japanese_island = THIS } }
 		}
 		ELSE = {
-			709 = { set_variable = { ETH.japanese_island = THIS } }
+			709 = { set_variable = { FET.japanese_island = THIS } }
 		}
 		effect_tooltip = {
-			FROM = { transfer_state = ETH.japanese_island }
+			FROM = { transfer_state = FET.japanese_island }
 			ROOT = { puppet = FROM }
 			ROOT = {
 				add_to_war = { 
@@ -1986,7 +1986,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ROOT = { transfer_state = ETH.japanese_island }
+		ROOT = { transfer_state = FET.japanese_island }
 		effect_tooltip = { 
 			FROM = { puppet = ROOT }
 			FROM = {
@@ -1998,10 +1998,10 @@ country_event = {
 			} 
 		}
 		hidden_effect = {
-			set_temp_variable = { temp_neutrality = ETH.party_popularity_100@neutrality}
-			set_temp_variable = { temp_fascism = ETH.party_popularity_100@fascism}
-			set_temp_variable = { temp_democratic = ETH.party_popularity_100@democratic}
-			set_temp_variable = { temp_communism = ETH.party_popularity_100@communism}
+			set_temp_variable = { temp_neutrality = FET.party_popularity_100@neutrality}
+			set_temp_variable = { temp_fascism = FET.party_popularity_100@fascism}
+			set_temp_variable = { temp_democratic = FET.party_popularity_100@democratic}
+			set_temp_variable = { temp_communism = FET.party_popularity_100@communism}
 			
 			JAP = { puppet = ROOT }
 			ROOT = {
@@ -2098,7 +2098,7 @@ country_event = {
 				factor = 0
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_exile_events.31
 				hours = 4
@@ -2222,7 +2222,7 @@ country_event = {
 	picture = GFX_report_event_military_planning
 	immediate = {
 		hidden_effect = {
-			# just in case the Ethiopia asking for protection is no longer tag = ETH
+			# just in case the Ethiopia asking for protection is no longer tag = FET
 			set_variable = { global.ETH_peace_country = FROM } 
 		}
 	}
@@ -2523,7 +2523,7 @@ country_event = {
 				}
 				random_state = {
 					limit = {
-						is_owned_by = ETH 
+						is_owned_by = FET 
 						any_neighbor_state = { 
 							owner = {
 								OR = {
@@ -2542,7 +2542,7 @@ country_event = {
 				}
 				random_state = {
 					limit = {
-						is_owned_by = ETH 
+						is_owned_by = FET 
 						any_neighbor_state = { 
 							owner = {
 								OR = {
@@ -2879,7 +2879,7 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			ETH = { transfer_state = 268 }
+			FET = { transfer_state = 268 }
 		}
 		add_timed_idea = {
 			idea = ETH_djibouti_sale_idea
@@ -3583,7 +3583,7 @@ country_event = {
 			ideology = ROOT 
 			popularity = -0.05
 		}
-		ETH = {
+		FET = {
 			clr_country_flag = ETH_currently_demanding_peace_flag
 		}		
 		clear_variable = global.african_revolt_country
@@ -3638,7 +3638,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ETH = {
+		FET = {
 			clr_country_flag = ETH_currently_demanding_peace_flag
 		}
 		clear_variable = global.african_revolt_country
@@ -3662,7 +3662,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ETH = {
+		FET = {
 			clr_country_flag = ETH_currently_demanding_peace_flag
 		}
 		clear_variable = global.african_revolt_country
@@ -3709,7 +3709,7 @@ country_event = {
 							NOT = { has_state_flag = ETH_state_grown_flag }
 						}
 						set_variable = {
-							ETH.ETH_local_state = THIS 
+							FET.ETH_local_state = THIS 
 						}
 					}
 					activate_mission = 	ETH_local_development_state_grows_mission
@@ -3740,7 +3740,7 @@ country_event = {
 							}
 						}
 						set_variable = {
-							ETH.ETH_local_state = THIS 
+							FET.ETH_local_state = THIS 
 						}
 					}
 					activate_mission = 	ETH_local_development_industry_grows_mission
@@ -3771,7 +3771,7 @@ country_event = {
 							}
 						}
 						set_variable = {
-							ETH.ETH_local_state = THIS 
+							FET.ETH_local_state = THIS 
 						}
 					}
 					activate_mission = 	ETH_local_development_arms_industry_grows_mission
@@ -3789,7 +3789,7 @@ country_event = {
 							NOT = { has_state_flag = ETH_production_increased_flag }
 						}
 						set_variable = {
-							ETH.ETH_local_state = THIS 
+							FET.ETH_local_state = THIS 
 						}
 					}
 					activate_mission = 	ETH_local_development_improved_production_mission
@@ -3996,7 +3996,7 @@ country_event = {
 		custom_effect_tooltip = ETH_cede_states_tt
 		custom_effect_tooltip = ETH_cede_south_tt 
 		custom_effect_tooltip = ETH_ethiopia_italian_puppet_tt
-		#Gugsa: keep ETH "tag", cede Bale 836, Hararghe 835, and Sidamo 837 (and Illubabor?)
+		#Gugsa: keep FET "tag", cede Bale 836, Hararghe 835, and Sidamo 837 (and Illubabor?)
 		custom_effect_tooltip = if_they_refuse_tt
 		custom_effect_tooltip = ETH_italy_refuse_cooperation
 
@@ -4344,83 +4344,83 @@ country_event = {
 			hidden_effect = {
 				IF = {
 					limit = {
-						ETH = { has_character = ETH_ayalew_birru }
+						FET = { has_character = ETH_ayalew_birru }
 					}
-					ETH = { ETH_ayalew_birru = { set_nationality = PREV.PREV } }
+					FET = { ETH_ayalew_birru = { set_nationality = PREV.PREV } }
 				}
 				IF = {
 					limit = {
-						ETH = { has_character = ETH_beyene_merid }
+						FET = { has_character = ETH_beyene_merid }
 					}
-					ETH = { ETH_beyene_merid = { set_nationality = PREV.PREV } }
+					FET = { ETH_beyene_merid = { set_nationality = PREV.PREV } }
 				}
 				IF = {
 					limit = {
-						ETH = { has_character = ETH_balcho_safo }
+						FET = { has_character = ETH_balcho_safo }
 					}
-					ETH = { ETH_balcho_safo = { set_nationality = PREV.PREV } }
+					FET = { ETH_balcho_safo = { set_nationality = PREV.PREV } }
 				}
 				# Set up Dynamic Modifiers for Haile Selassie
 				add_dynamic_modifier = {
 					modifier = ETH_army_1_dynamic_modifier
 				}
-				set_variable = { ETH_army_max_dig_in_factor = ETH.ETH_army_max_dig_in_factor }
-				set_variable = { ETH_army_dig_in_speed_factor = ETH.ETH_army_dig_in_speed_factor }
-				set_variable = { ETH_army_experience_gain_army_factor = ETH.ETH_army_experience_gain_army_factor }
-				set_variable = { ETH_army_army_defence_factor = ETH.ETH_army_army_defence_factor }
-				set_variable = { ETH_army_army_org_factor = ETH.ETH_army_army_org_factor }
-				set_variable = { ETH_army_modifier_army_sub_unit_infantry_attack_factor = ETH.ETH_army_modifier_army_sub_unit_infantry_attack_factor }
-				set_variable = { ETH_army_modifier_army_sub_unit_infantry_defence_factor = ETH.ETH_army_modifier_army_sub_unit_infantry_defence_factor }
-				set_variable = { ETH_army_modifier_army_sub_unit_infantry_speed_factor = ETH.ETH_army_modifier_army_sub_unit_infantry_speed_factor }
-				set_variable = { ETH_army_modifier_army_sub_unit_irregular_infantry_attack_factor = ETH.ETH_army_modifier_army_sub_unit_irregular_infantry_attack_factor }
-				set_variable = { ETH_army_supply_consumption_factor = ETH.ETH_army_supply_consumption_factor }
-				set_variable = { ETH_army_cas_damage_reduction  = ETH.ETH_army_cas_damage_reduction  }
-				set_variable = { ETH_army_equipment_capture_factor  = ETH.ETH_army_equipment_capture_factor  }
-				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_defence_factor = ETH.ETH_modifier_army_sub_unit_irregular_infantry_defence_factor }
-				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_speed_factor = ETH.ETH_modifier_army_sub_unit_irregular_infantry_speed_factor }
-				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_max_org_factor = ETH.ETH_modifier_army_sub_unit_irregular_infantry_max_org_factor }
+				set_variable = { ETH_army_max_dig_in_factor = FET.ETH_army_max_dig_in_factor }
+				set_variable = { ETH_army_dig_in_speed_factor = FET.ETH_army_dig_in_speed_factor }
+				set_variable = { ETH_army_experience_gain_army_factor = FET.ETH_army_experience_gain_army_factor }
+				set_variable = { ETH_army_army_defence_factor = FET.ETH_army_army_defence_factor }
+				set_variable = { ETH_army_army_org_factor = FET.ETH_army_army_org_factor }
+				set_variable = { ETH_army_modifier_army_sub_unit_infantry_attack_factor = FET.ETH_army_modifier_army_sub_unit_infantry_attack_factor }
+				set_variable = { ETH_army_modifier_army_sub_unit_infantry_defence_factor = FET.ETH_army_modifier_army_sub_unit_infantry_defence_factor }
+				set_variable = { ETH_army_modifier_army_sub_unit_infantry_speed_factor = FET.ETH_army_modifier_army_sub_unit_infantry_speed_factor }
+				set_variable = { ETH_army_modifier_army_sub_unit_irregular_infantry_attack_factor = FET.ETH_army_modifier_army_sub_unit_irregular_infantry_attack_factor }
+				set_variable = { ETH_army_supply_consumption_factor = FET.ETH_army_supply_consumption_factor }
+				set_variable = { ETH_army_cas_damage_reduction  = FET.ETH_army_cas_damage_reduction  }
+				set_variable = { ETH_army_equipment_capture_factor  = FET.ETH_army_equipment_capture_factor  }
+				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_defence_factor = FET.ETH_modifier_army_sub_unit_irregular_infantry_defence_factor }
+				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_speed_factor = FET.ETH_modifier_army_sub_unit_irregular_infantry_speed_factor }
+				set_variable = { ETH_modifier_army_sub_unit_irregular_infantry_max_org_factor = FET.ETH_modifier_army_sub_unit_irregular_infantry_max_org_factor }
 
 				add_dynamic_modifier = {
 					modifier = ETH_navy_1_dynamic_modifier
 				}
-				set_variable = { ETH_navy_repair_speed_factor = ETH.ETH_navy_repair_speed_factor }
-				set_variable = { ETH_navy_naval_doctrine_cost_factor = ETH.ETH_navy_naval_doctrine_cost_factor }
-				set_variable = { ETH_navy_refit_ic_cost = ETH.ETH_navy_refit_ic_cost }
+				set_variable = { ETH_navy_repair_speed_factor = FET.ETH_navy_repair_speed_factor }
+				set_variable = { ETH_navy_naval_doctrine_cost_factor = FET.ETH_navy_naval_doctrine_cost_factor }
+				set_variable = { ETH_navy_refit_ic_cost = FET.ETH_navy_refit_ic_cost }
 
 				add_dynamic_modifier = {
 					modifier = ETH_airforce_1_dynamic_modifier
 				}
-				set_variable = { ETH_airforce_enemy_army_bonus_air_superiority_factor = ETH.ETH_airforce_enemy_army_bonus_air_superiority_factor }
-				set_variable = { ETH_airforce_air_doctrine_cost_factor = ETH.ETH_airforce_air_doctrine_cost_factor }
-				set_variable = { ETH_airforce_air_accidents_factor = ETH.ETH_airforce_air_accidents_factor }
-				set_variable = { ETH_airforce_air_attack_factor = ETH.ETH_airforce_air_attack_factor }
+				set_variable = { ETH_airforce_enemy_army_bonus_air_superiority_factor = FET.ETH_airforce_enemy_army_bonus_air_superiority_factor }
+				set_variable = { ETH_airforce_air_doctrine_cost_factor = FET.ETH_airforce_air_doctrine_cost_factor }
+				set_variable = { ETH_airforce_air_accidents_factor = FET.ETH_airforce_air_accidents_factor }
+				set_variable = { ETH_airforce_air_attack_factor = FET.ETH_airforce_air_attack_factor }
 
 				add_dynamic_modifier = {
 					modifier = ETH_corrupt_bureaucracy_dynamic_modifier
 				}
-				set_variable = { ETH_bureaucracy_research_speed_factor = ETH.ETH_bureaucracy_research_speed_factor}
-				set_variable = { ETH_bureaucracy_production_speed_buildings_factor = ETH.ETH_bureaucracy_production_speed_buildings_factor}
-				set_variable = { ETH_bureaucracy_production_factory_max_efficiency_factor = ETH.ETH_bureaucracy_production_factory_max_efficiency_factor}
+				set_variable = { ETH_bureaucracy_research_speed_factor = FET.ETH_bureaucracy_research_speed_factor}
+				set_variable = { ETH_bureaucracy_production_speed_buildings_factor = FET.ETH_bureaucracy_production_speed_buildings_factor}
+				set_variable = { ETH_bureaucracy_production_factory_max_efficiency_factor = FET.ETH_bureaucracy_production_factory_max_efficiency_factor}
 
 				add_dynamic_modifier = {
 					modifier = ETH_industrialization_dynamic_modifier 
 				}
-				set_variable = { ETH_industrialization_industrial_capacity_dockyard = ETH.ETH_industrialization_industrial_capacity_dockyard } 
-				set_variable = { ETH_industrialization_industrial_capacity_factory = ETH.ETH_industrialization_industrial_capacity_factory } 
-				set_variable = { ETH_industrialization_line_change_production_efficiency_factor = ETH.ETH_industrialization_line_change_production_efficiency_factor } 
-				set_variable = { ETH_industrialization_consumer_goods_factor = ETH.ETH_industrialization_consumer_goods_factor } 
-				set_variable = { ETH_industrialization_industry_air_damage_factor = ETH.ETH_industrialization_industry_air_damage_factor } 
-				set_variable = { ETH_industrialization_industry_repair_factor = ETH.ETH_industrialization_industry_repair_factor } 
-				set_variable = { ETH_production_factory_max_efficiency_factor = ETH.ETH_production_factory_max_efficiency_factor } 
-				set_variable = { ETH_air_equipment_upgrade_xp_cost = ETH.ETH_air_equipment_upgrade_xp_cost } 
-				set_variable = { ETH_land_equipment_upgrade_xp_cost = ETH.ETH_land_equipment_upgrade_xp_cost } 
-				set_variable = { ETH_production_speed_buildings_factor = ETH.ETH_production_speed_buildings_factor }
+				set_variable = { ETH_industrialization_industrial_capacity_dockyard = FET.ETH_industrialization_industrial_capacity_dockyard } 
+				set_variable = { ETH_industrialization_industrial_capacity_factory = FET.ETH_industrialization_industrial_capacity_factory } 
+				set_variable = { ETH_industrialization_line_change_production_efficiency_factor = FET.ETH_industrialization_line_change_production_efficiency_factor } 
+				set_variable = { ETH_industrialization_consumer_goods_factor = FET.ETH_industrialization_consumer_goods_factor } 
+				set_variable = { ETH_industrialization_industry_air_damage_factor = FET.ETH_industrialization_industry_air_damage_factor } 
+				set_variable = { ETH_industrialization_industry_repair_factor = FET.ETH_industrialization_industry_repair_factor } 
+				set_variable = { ETH_production_factory_max_efficiency_factor = FET.ETH_production_factory_max_efficiency_factor } 
+				set_variable = { ETH_air_equipment_upgrade_xp_cost = FET.ETH_air_equipment_upgrade_xp_cost } 
+				set_variable = { ETH_land_equipment_upgrade_xp_cost = FET.ETH_land_equipment_upgrade_xp_cost } 
+				set_variable = { ETH_production_speed_buildings_factor = FET.ETH_production_speed_buildings_factor }
 
 				add_dynamic_modifier = {
 					modifier = ETH_international_red_cross_dynamic_modifier 
 				}
-				set_variable = { ETH_irc_morale_factor = ETH.ETH_irc_morale_factor }
-				set_variable = { ETH_irc_enemy_army_bonus_air_superiority_factor = ETH.ETH_irc_enemy_army_bonus_air_superiority_factor }
+				set_variable = { ETH_irc_morale_factor = FET.ETH_irc_morale_factor }
+				set_variable = { ETH_irc_enemy_army_bonus_air_superiority_factor = FET.ETH_irc_enemy_army_bonus_air_superiority_factor }
 				
 			}
 		}
@@ -4453,18 +4453,18 @@ country_event = {
 		}
 		every_state = {
 			limit = {
-				is_core_of = ETH 
+				is_core_of = FET 
 				OR = {
 					is_controlled_by = ITA
-					is_controlled_by = ETH
+					is_controlled_by = FET
 				}
 			}
-			set_state_controller_to = ETH
+			set_state_controller_to = FET
 		}
 		add_ideas = ETH_victor_emanuel_of_ethiopia_idea
 		hidden_effect = {
 			# Remove Red Cross - they stay with haile Selassie
-			ETH = {
+			FET = {
 				remove_dynamic_modifier = {
 					modifier = ETH_international_red_cross_dynamic_modifier
 				}
@@ -4820,7 +4820,7 @@ country_event = {
 ##########################################################################
 #						Demand DJI from Vichy Events
 ##########################################################################
-#ETH takes DJI from Vichy - Does vichy continue war?
+#FET takes DJI from Vichy - Does vichy continue war?
 country_event = {
 	id = BBA_ethiopia_fascist_events.50
 	title = BBA_ethiopia_fascist_events.50.t
@@ -4833,20 +4833,20 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.51
 				hours = 1
 			}
 		}
 	}
-	# War with ETH
+	# War with FET
 	option = {
 		name = BBA_ethiopia_fascist_events.50.b
 		ai_chance = {
 			base = 0
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.52
 				hours = 1
@@ -4874,9 +4874,9 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		ETH = {
+		FET = {
 			transfer_state = 268
-			268 = { add_core_of = ETH }
+			268 = { add_core_of = FET }
 		}
 	}
 }
@@ -4901,7 +4901,7 @@ country_event = {
 #					Request Italian Equipment Events
 ##########################################################################
 
-#ETH choose which equipment to request from ITA
+#FET choose which equipment to request from ITA
 country_event = {
 	id = BBA_ethiopia_fascist_events.53
 	title = BBA_ethiopia_fascist_events.53.t
@@ -4938,7 +4938,7 @@ country_event = {
 	}
 }
 
-# ETH request ITA equipment
+# FET request ITA equipment
 country_event = {
 	id = BBA_ethiopia_fascist_events.54
 	title = BBA_ethiopia_fascist_events.54.t
@@ -4957,7 +4957,7 @@ country_event = {
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.56
 				hours = 24
@@ -4976,7 +4976,7 @@ country_event = {
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.55
 				hours = 24
@@ -5060,7 +5060,7 @@ country_event = {
 	}
 }
 
-# ETH requests designers from ITA
+# FET requests designers from ITA
 country_event = {
 	id = BBA_ethiopia_fascist_events.57
 	title = BBA_ethiopia_fascist_events.57.t
@@ -5210,7 +5210,7 @@ country_event = {
 #							Our Enemy's Enemy Events
 ##########################################################################
 
-# ETH requesting weapons from all major nations who have different ideology to ITA
+# FET requesting weapons from all major nations who have different ideology to ITA
 country_event = {
 	id = BBA_ethiopia_fascist_events.61
 	title = BBA_ethiopia_fascist_events.61.t
@@ -5327,7 +5327,7 @@ country_event = {
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			set_country_flag = ETH_wants_ERI_flag
 			country_event = {
 				id = BBA_ethiopia_fascist_events.66
@@ -5346,7 +5346,7 @@ country_event = {
 				}
 			}
 		}	
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.67
 				days = 3
@@ -5373,7 +5373,7 @@ country_event = {
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			set_country_flag = ETH_wants_som_flag
 			country_event = {
 				id = BBA_ethiopia_fascist_events.66
@@ -5392,7 +5392,7 @@ country_event = {
 				}
 			}
 		}	
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_fascist_events.67
 				days = 3
@@ -5401,7 +5401,7 @@ country_event = {
 	}
 }
 
-#ITA Agree to give ETH land
+#ITA Agree to give FET land
 country_event = {
 	id = BBA_ethiopia_fascist_events.66
 	title = BBA_ethiopia_fascist_events.66.t
@@ -5417,15 +5417,15 @@ country_event = {
 			limit = {
 				has_country_flag = ETH_wants_ERI_flag
 			}
-			ETH = { transfer_state = 550}
+			FET = { transfer_state = 550}
 			clr_country_flag = ETH_wants_ERI_flag
 		}
 		ELSE_IF = {
 			limit = {
 				has_country_flag = ETH_wants_som_flag
 			}
-			ETH = { transfer_state = 559}
-			ETH = { transfer_state = 844}
+			FET = { transfer_state = 559}
+			FET = { transfer_state = 844}
 			clr_country_flag = ETH_wants_som_flag
 		}
 	}
@@ -5450,7 +5450,7 @@ country_event = {
 #							Raid Italian Depots Events
 ##########################################################################
 
-# ETH Italian Depot Raided
+# FET Italian Depot Raided
 country_event = {
 	id = BBA_ethiopia_fascist_events.68
 	title = BBA_ethiopia_fascist_events.68.t
@@ -5474,7 +5474,7 @@ country_event = {
 #						Request Italian Generals
 ##########################################################################
 
-#ITA event for sending advisors to ETH
+#ITA event for sending advisors to FET
 country_event = {
 	id = BBA_ethiopia_fascist_events.69
 	title = BBA_ethiopia_fascist_events.69.t
@@ -5492,7 +5492,7 @@ country_event = {
 					NOT = { has_government = fascism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}
@@ -5529,7 +5529,7 @@ country_event = {
 	}
 }
 
-#ETH event for ITA sending advisors
+#FET event for ITA sending advisors
 country_event = {
 	id = BBA_ethiopia_fascist_events.70
 	title = BBA_ethiopia_fascist_events.70.t
@@ -5546,15 +5546,15 @@ country_event = {
 			ITA = {
 				#Set Italian characters here:
 				ITA_giuseppe_tellera = {
-					set_nationality = ETH
+					set_nationality = FET
 					set_character_flag = ITA_advisor_eth
 				}
 				ITA_mario_berti = {
-					set_nationality = ETH
+					set_nationality = FET
 					set_character_flag = ITA_advisor_eth
 				}
 				ITA_alessandro_pirzio_biroli = {
-					set_nationality = ETH
+					set_nationality = FET
 					set_character_flag = ITA_advisor_eth
 				}
 			}
@@ -5593,7 +5593,7 @@ country_event = {
 
 ##########################################################################
 
-#ETH requests Soviet Aid
+#FET requests Soviet Aid
 country_event = {
 	id = BBA_ethiopia_communist_events.01
 	title = BBA_ethiopia_communist_events.01.t
@@ -5602,7 +5602,7 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 
-	# We should support the communists in ETH
+	# We should support the communists in FET
 	option = {
 		name = BBA_ethiopia_communist_events.01.a
 		ai_chance = {
@@ -5620,12 +5620,12 @@ country_event = {
 			add_timed_idea = { idea = ETH_aid_ethiopian_communists days = 730 }
 			add_ai_strategy = {
 				type = send_volunteers_desire
-				id = ETH
+				id = FET
 				value = 200
 			}
 		}
 
-		ETH = {
+		FET = {
 			country_event = {
 				days = 2
 				id = BBA_ethiopia_communist_events.04
@@ -5640,7 +5640,7 @@ country_event = {
 		}
 	}
 
-	# We have no interest in ETH 
+	# We have no interest in FET 
 	option = {
 		name = BBA_ethiopia_communist_events.01.b
 		ai_chance = {
@@ -5653,7 +5653,7 @@ country_event = {
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				days = 2
 				id = BBA_ethiopia_communist_events.02
@@ -5662,7 +5662,7 @@ country_event = {
 	}
 }
 
-# Event for ETH if SOV rejects call for aid
+# Event for FET if SOV rejects call for aid
 country_event = {
 	id = BBA_ethiopia_communist_events.02
 	title = BBA_ethiopia_communist_events.02.t
@@ -5684,7 +5684,7 @@ country_event = {
 	}
 }
 
-# Event for ITA if SOV sends aid to ETH
+# Event for ITA if SOV sends aid to FET
 country_event = {
 	id = BBA_ethiopia_communist_events.03
 	title = BBA_ethiopia_communist_events.03.t
@@ -5707,7 +5707,7 @@ country_event = {
 	}
 }
 
-# Event for ETH if SOV agrees to send aid
+# Event for FET if SOV agrees to send aid
 country_event = {
 	id = BBA_ethiopia_communist_events.04
 	title = BBA_ethiopia_communist_events.04.t
@@ -5793,7 +5793,7 @@ country_event = {
 			long_name = ETH_provisonal_military_admin_long 
 			name = ETH_provisonal_military_admin
 		}
-		ETH = {
+		FET = {
 			promote_character = ETH_prov_mil_admin
 		}		
 	}
@@ -5806,7 +5806,7 @@ country_event = {
 	desc = BBA_ethiopia_communist_events.07.desc
 	picture = GFX_report_event_SOV_cossack_cavalry
 	is_triggered_only = yes
-	#Refuse to end war with ETH
+	#Refuse to end war with FET
 	option = {
 		name = BBA_ethiopia_communist_events.07.a
 		ai_chance = {
@@ -5844,7 +5844,7 @@ country_event = {
 		}	
 		clr_global_flag =  italo_ethiopian_peace_negotiations_ongoing
 	}
-	#Agree to end war with ETH
+	#Agree to end war with FET
 	option = {
 		name = BBA_ethiopia_communist_events.07.b
 		ai_chance = {
@@ -5875,7 +5875,7 @@ country_event = {
 			}
 		}
 		add_stability = -0.5
-		ETH = {
+		FET = {
 			white_peace = ITA
 			if = {
 				limit = {
@@ -5904,7 +5904,7 @@ country_event = {
 	}
 }
 
-#ETH Requests SOV Rifles
+#FET Requests SOV Rifles
 country_event = {
 	id = BBA_ethiopia_communist_events.08
 	title = BBA_ethiopia_communist_events.08.t
@@ -5924,7 +5924,7 @@ country_event = {
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.10
@@ -5942,12 +5942,12 @@ country_event = {
 					NOT = { has_government = communism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.09
@@ -5991,7 +5991,7 @@ country_event = {
 	}
 }
 
-#Sov event for sending advisors to ETH
+#Sov event for sending advisors to FET
 country_event = {
 	id = BBA_ethiopia_communist_events.11
 	title = BBA_ethiopia_communist_events.11.t
@@ -6009,12 +6009,12 @@ country_event = {
 					NOT = { has_government = communism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.15
@@ -6042,7 +6042,7 @@ country_event = {
 	}
 }
 
-#ETH Event for receiving infantry equipment
+#FET Event for receiving infantry equipment
 country_event = {
 	id = BBA_ethiopia_communist_events.12
 	title = BBA_ethiopia_communist_events.12.t
@@ -6062,7 +6062,7 @@ country_event = {
 	}
 }
 
-#Event for ETH receiving planes
+#Event for FET receiving planes
 country_event = {
 	id = BBA_ethiopia_communist_events.13
 	title = BBA_ethiopia_communist_events.12.t
@@ -6077,14 +6077,14 @@ country_event = {
 	}
 }
 
-#SOV event for helping ETH form airforce
+#SOV event for helping FET form airforce
 country_event = {
 	id = BBA_ethiopia_communist_events.14
 	title = BBA_ethiopia_communist_events.14.t
 	desc = BBA_ethiopia_communist_events.14.desc
 	picture = GFX_report_event_SOV_purge_aircraft_2
 	is_triggered_only = yes
-	#Agree to help ETH
+	#Agree to help FET
 	option = {
 		name = BBA_ethiopia_communist_events.14.a
 		ai_chance = {
@@ -6095,19 +6095,19 @@ country_event = {
 					NOT = { has_government = communism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.21
 			}
 		}
 	} 
-	#Refuse to help ETH
+	#Refuse to help FET
 	option = {
 		name = BBA_ethiopia_communist_events.14.b
 		ai_chance = {
@@ -6120,7 +6120,7 @@ country_event = {
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.20
@@ -6129,7 +6129,7 @@ country_event = {
 	}
 }
 
-#ETH event for SOV's sending advisors
+#FET event for SOV's sending advisors
 country_event = {
 	id = BBA_ethiopia_communist_events.15
 	title = BBA_ethiopia_communist_events.15.t
@@ -6145,11 +6145,11 @@ country_event = {
 		hidden_effect = {
 			SOV = {
 				SOV_semyon_budyonny = {
-					set_nationality = ETH
+					set_nationality = FET
 					set_character_flag = soviet_advisor_eth
 				}
 				SOV_Vasily_Kuznetsov = {
-					set_nationality = ETH
+					set_nationality = FET
 					set_character_flag = soviet_advisor_eth
 				}
 			}
@@ -6173,7 +6173,7 @@ country_event = {
 	}
 }
 
-#SOV event for ETH requesting armored cars
+#SOV event for FET requesting armored cars
 country_event = {
 	id = BBA_ethiopia_communist_events.17
 	title = BBA_ethiopia_communist_events.17.t
@@ -6193,7 +6193,7 @@ country_event = {
 				}				
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.19
@@ -6213,7 +6213,7 @@ country_event = {
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 1
 				id = BBA_ethiopia_communist_events.18
@@ -6222,7 +6222,7 @@ country_event = {
 	}
 }
 
-#Event for ETH if SOV refuse to send cars/tanks
+#Event for FET if SOV refuse to send cars/tanks
 country_event = {
 	id = BBA_ethiopia_communist_events.18
 	title = BBA_ethiopia_communist_events.18.t
@@ -6237,7 +6237,7 @@ country_event = {
 	}
 }
 
-#ETH event when SOV sends cars/tanks
+#FET event when SOV sends cars/tanks
 country_event = {
 	id = BBA_ethiopia_communist_events.19
 	title = BBA_ethiopia_communist_events.19.t
@@ -6380,7 +6380,7 @@ country_event = {
 					NOT = { has_government = communism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}		
@@ -6391,7 +6391,7 @@ country_event = {
    				target = ITA
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				hours = 24
 				id = BBA_ethiopia_communist_events.24 
@@ -6422,7 +6422,7 @@ country_event = {
 				hours = 1
 			}
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.27
 				hours = 1
@@ -6448,7 +6448,7 @@ country_event = {
 	} 
 }
 
-#ETH for becoming SOV puppet
+#FET for becoming SOV puppet
 
 country_event = {
 	id = BBA_ethiopia_communist_events.24
@@ -6462,19 +6462,19 @@ country_event = {
 			base = 10
 		}
 		SOV = {
-			puppet = ETH			
+			puppet = FET			
 		}
 	} 
 }
 
-#SOV event for ETH asking for mediation
+#SOV event for FET asking for mediation
 country_event = {
 	id = BBA_ethiopia_communist_events.25
 	title = BBA_ethiopia_communist_events.25.t
 	desc = BBA_ethiopia_communist_events.25.desc
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_conference
-	#Agree to mediate, won't puppet ETH
+	#Agree to mediate, won't puppet FET
 	option = {
 		name = BBA_ethiopia_communist_events.25.a
 		ai_chance = {
@@ -6493,7 +6493,7 @@ country_event = {
 		}
 
 	}
-	#Agree to mediate, will puppet ETH
+	#Agree to mediate, will puppet FET
 	option = {
 		name = BBA_ethiopia_communist_events.25.b
 		ai_chance = {
@@ -6504,7 +6504,7 @@ country_event = {
 					NOT = { has_government = communism }
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}		
@@ -6521,7 +6521,7 @@ country_event = {
 				hours = 2
 			}
 		}
-		ETH = {
+		FET = {
 			set_country_flag = ETH_SOV_wants_to_puppet_flag
 		}
 	}
@@ -6536,7 +6536,7 @@ country_event = {
 					NOT = {has_government = communism}
 					has_civil_war = yes
 					NOT = {
-						ETH = {has_war_with = ITA}
+						FET = {has_war_with = ITA}
 					}
 				}				
 			}
@@ -6553,7 +6553,7 @@ country_event = {
 				}
 			}			
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.26
 				hours = 1
@@ -6562,7 +6562,7 @@ country_event = {
 	}
 }
 
-#ETH event for when Sov refuses to mediate
+#FET event for when Sov refuses to mediate
 country_event = {
 	id = BBA_ethiopia_communist_events.26
 	title = BBA_ethiopia_communist_events.26.t
@@ -6577,7 +6577,7 @@ country_event = {
 	}
 }
 
-#ETH Event for SOV backing down against ITA
+#FET Event for SOV backing down against ITA
 
 country_event = {
 	id = BBA_ethiopia_communist_events.27
@@ -6593,7 +6593,7 @@ country_event = {
 	}
 }
 
-#Event for ETH when ITA backs down but SOV still want to puppet
+#Event for FET when ITA backs down but SOV still want to puppet
 country_event = {
 	id = BBA_ethiopia_communist_events.28 
 	title = BBA_ethiopia_communist_events.28.t
@@ -6606,10 +6606,10 @@ country_event = {
 			base = 10
 		}
 		SOV = {
-			puppet = ETH
+			puppet = FET
 			hidden_effect = {
 				set_autonomy = {
-					target = ETH
+					target = FET
 					autonomous_state = autonomy_puppet
 					freedom_level = 0.4
 				}
@@ -6620,7 +6620,7 @@ country_event = {
 	}
 }
 
-#Event for ETH when ITA backs down but SOV does **NOT** want to puppet
+#Event for FET when ITA backs down but SOV does **NOT** want to puppet
 country_event = {
 	id = BBA_ethiopia_communist_events.29
 	title = BBA_ethiopia_communist_events.29.t
@@ -6650,12 +6650,12 @@ country_event = {
 				every_owned_state = {
 					limit = {
 						is_on_continent = africa
-						is_controlled_by = ETH
+						is_controlled_by = FET
 					}
 					set_state_flag = eth_occupied_ita_states_flag
 				}
 			}
-			ETH = {
+			FET = {
 				every_owned_state = {
 					limit = {
 						is_on_continent = africa
@@ -6684,8 +6684,8 @@ country_event = {
 		}
 		
 
-		# Event for ETH if ITA accepts
-		ETH = {
+		# Event for FET if ITA accepts
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.31
 				hours = 1
@@ -6736,8 +6736,8 @@ country_event = {
 			popularity = -0.2
 			ideology = ROOT
 		}
-		#Event for ETH if ITA refuses to end war
-		ETH = {
+		#Event for FET if ITA refuses to end war
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.32
 				hours = 1
@@ -6747,7 +6747,7 @@ country_event = {
 	} 
 }
 
-#ETH event for ITA accepting peace, transfers states between countries
+#FET event for ITA accepting peace, transfers states between countries
 country_event = {
 	id = BBA_ethiopia_communist_events.31
 	title = BBA_ethiopia_communist_events.31.t
@@ -6762,7 +6762,7 @@ country_event = {
 			base = 10
 		}
 		white_peace = ITA
-		ETH = {
+		FET = {
 			every_owned_state = {
 
 				log = "Currently in [THIS.GetName]"
@@ -6774,14 +6774,14 @@ country_event = {
 		ITA = {
 			every_owned_state = {
 				limit = { has_state_flag = eth_occupied_ita_states_flag }
-				ETH = {	transfer_state = PREV }
+				FET = {	transfer_state = PREV }
 				clr_state_flag = eth_occupied_ita_states_flag
 			}
 		}
 		set_global_flag = ethiopia_recognized_flag
 		if = {
-			limit = { ETH = { owns_state = 550 } }
-			ETH = {
+			limit = { FET = { owns_state = 550 } }
+			FET = {
 				#Event to release Eritrea
 				country_event = {
 					id = BBA_ethiopia_communist_events.33
@@ -6792,7 +6792,7 @@ country_event = {
 		}
 		if = {
 			limit = { 
-				ETH = {
+				FET = {
 					AND = {
 						owns_state = 844
 						owns_state = 559
@@ -6820,7 +6820,7 @@ country_event = {
 	}
 }
 
-#ETH event if ITA continues the war
+#FET event if ITA continues the war
 country_event = {
 	id = BBA_ethiopia_communist_events.32
 	title = BBA_ethiopia_communist_events.32.t
@@ -6903,7 +6903,7 @@ country_event = {
 				}
 				create_dynamic_country = {
 					original_tag = SOM
-					set_variable = { ETH.new_somalia = THIS }
+					set_variable = { FET.new_somalia = THIS }
 					log = "Dynamic tag: [THIS.GetName]"
 					PREV = {
 						log = "Prev tag: [THIS.GetName]"
@@ -6915,42 +6915,42 @@ country_event = {
 								NOT = {state = 836}
 							}
 							#event_target:released_nation_target = {
-							var:ETH.new_somalia = {
+							var:FET.new_somalia = {
 								log = "Prev Prev tag: [THIS.GetName]"
 								transfer_state = PREV
 							}
 						}
 					}
 					set_popularities = {
-						democratic = ETH.party_popularity_100@democratic
-						neutrality = ETH.party_popularity_100@neutrality
-						fascism = ETH.party_popularity_100@fascism
-						communism = ETH.party_popularity_100@communism
+						democratic = FET.party_popularity_100@democratic
+						neutrality = FET.party_popularity_100@neutrality
+						fascism = FET.party_popularity_100@fascism
+						communism = FET.party_popularity_100@communism
 					}
 					set_politics = {
 						ruling_party = ROOT
 					}
 				}
-				clear_variable = ETH.new_somalia
+				clear_variable = FET.new_somalia
 			}
 			ELSE = {
 				release = SOM
 				SOM = {
 					835 = {
-						ETH = {	transfer_state = PREV }
-						add_core_of = ETH
+						FET = {	transfer_state = PREV }
+						add_core_of = FET
 						clr_state_flag = eth_core_flag_som
 					}
 					836 = {
-						ETH = {	transfer_state = PREV }
-						add_core_of = ETH
+						FET = {	transfer_state = PREV }
+						add_core_of = FET
 						clr_state_flag = eth_core_flag_som
 					}
 					set_popularities = {
-						democratic = ETH.party_popularity_100@democratic
-						neutrality = ETH.party_popularity_100@neutrality
-						fascism = ETH.party_popularity_100@fascism
-						communism = ETH.party_popularity_100@communism
+						democratic = FET.party_popularity_100@democratic
+						neutrality = FET.party_popularity_100@neutrality
+						fascism = FET.party_popularity_100@fascism
+						communism = FET.party_popularity_100@communism
 					}
 					set_politics = {
 						ruling_party = ROOT
@@ -6969,7 +6969,7 @@ country_event = {
 	}
 }
 
-#Spanish event for ETH requesting Rif be released
+#Spanish event for FET requesting Rif be released
 country_event = {
 	id = BBA_ethiopia_communist_events.35
 	title = BBA_ethiopia_communist_events.35.t
@@ -6984,12 +6984,12 @@ country_event = {
 			modifier = {
 				factor = 0
 				SPC = {
-					has_war_with = ETH
+					has_war_with = FET
 				}
 			}
 		}
 		
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.36
 				hours = 1
@@ -7002,7 +7002,7 @@ country_event = {
 		ai_chance = {
 			base = 1
 		}
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.37
 				hours = 1
@@ -7011,7 +7011,7 @@ country_event = {
 	}
 }
 
-#ETH event if Spain Agrees
+#FET event if Spain Agrees
 country_event = {
 	id = BBA_ethiopia_communist_events.36
 	title = BBA_ethiopia_communist_events.36.t
@@ -7029,7 +7029,7 @@ country_event = {
 	}
 }
 
-#ETH event if Spain refuses
+#FET event if Spain refuses
 
 country_event = {
 	id = BBA_ethiopia_communist_events.37
@@ -7065,7 +7065,7 @@ country_event = {
 	}
 }
 
-#SPC event for ETH sending support during SCW
+#SPC event for FET sending support during SCW
 country_event = {
 	id = BBA_ethiopia_communist_events.38
 	title = BBA_ethiopia_communist_events.38.t
@@ -7081,7 +7081,7 @@ country_event = {
 	}
 }
 
-# Event if ETH occupies the Rif from SPC
+# Event if FET occupies the Rif from SPC
 country_event = {
 	id = BBA_ethiopia_communist_events.39
 	title = BBA_ethiopia_communist_events.39.t
@@ -7107,7 +7107,7 @@ country_event = {
 	}	
 }
 
-# Event for SPC if ETH occupies the Rif
+# Event for SPC if FET occupies the Rif
 
 country_event = {
 	id = BBA_ethiopia_communist_events.40
@@ -7138,7 +7138,7 @@ country_event = {
 	}
 }
 
-#ETH demand release of SUD 
+#FET demand release of SUD 
 #country_event = {
 #	id = BBA_ethiopia_communist_events.42
 #	title = BBA_ethiopia_communist_events.42.t
@@ -7216,7 +7216,7 @@ country_event = {
 #	}
 #}
 
-#ETH backs down
+#FET backs down
 #country_event = {
 #	id = BBA_ethiopia_communist_events.44
 #	title = BBA_ethiopia_communist_events.44.t
@@ -7246,7 +7246,7 @@ country_event = {
 #	}
 #}
 
-#ETH offers peace for SUD
+#FET offers peace for SUD
 country_event = {
 	id = BBA_ethiopia_communist_events.46
 	title = BBA_ethiopia_communist_events.46.t
@@ -7262,7 +7262,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7283,20 +7283,20 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = SUD
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = SUD
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 
@@ -7316,7 +7316,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7337,20 +7337,20 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = DJI
-					is_controlled_by = ETH
+					is_controlled_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = DJI
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 
@@ -7370,7 +7370,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7391,20 +7391,20 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = ERI
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = ERI
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 
@@ -7424,7 +7424,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7445,20 +7445,20 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = KEN
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = KEN
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 #SOM
@@ -7477,7 +7477,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7498,20 +7498,20 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = SOM
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = SOM
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 #UGA
@@ -7530,7 +7530,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7551,24 +7551,24 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_core_of = UGA
-					is_owned_by = ETH
+					is_owned_by = FET
 				}
 			}
 			modifier = {
 				add = -15
 				any_controlled_state = {
-					is_core_of = ETH
+					is_core_of = FET
 				}
 			}
 		}
-		ETH = {
+		FET = {
 			release_puppet_on_controlled = UGA
 		}
-		white_peace = ETH
+		white_peace = FET
 	}
 }
 
-#SOV event when ETH completes 'Our Own Path' focus
+#SOV event when FET completes 'Our Own Path' focus
 country_event = {
 	id = BBA_ethiopia_communist_events.52
 	title = BBA_ethiopia_communist_events.52.t
@@ -7582,7 +7582,7 @@ country_event = {
 			base = 10
 		}
 	}
-	#Sov gets war goal on ETH
+	#Sov gets war goal on FET
 	option = {
 		name = BBA_ethiopia_communist_events.52.b
 		ai_chance = {
@@ -7590,7 +7590,7 @@ country_event = {
 		}
 		create_wargoal = {
 			type = puppet_wargoal_focus
-			target = ETH
+			target = FET
 			expire = 30
 		} 
 	}
@@ -7653,7 +7653,7 @@ country_event = {
 			base = 10
 		}
 
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.57
 				days = 7
@@ -7680,7 +7680,7 @@ country_event = {
 			base = 10
 		}
 
-		ETH = {
+		FET = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.54
 				days = 7
@@ -7726,7 +7726,7 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-		send_embargo = ETH
+		send_embargo = FET
 		FROM = {
 			country_event = {
 				id = BBA_ethiopia_communist_events.59
@@ -7779,7 +7779,7 @@ country_event = {
 				AND = {
 					is_in_faction = yes
 					has_war_with_major = yes
-					ETH = {
+					FET = {
 						is_in_faction = yes
 					}
 				}
@@ -7800,7 +7800,7 @@ country_event = {
 				add = 30
 				any_owned_state = {
 					is_on_continent = africa
-					is_controlled_by = ETH
+					is_controlled_by = FET
 				}
 			}
 			modifier = {
@@ -7818,7 +7818,7 @@ country_event = {
 		}
 		
 		for_each_scope_loop = {
-			array = ETH.ETH_has_liberation_goal_array
+			array = FET.ETH_has_liberation_goal_array
 			every_core_state = {
 				IF = {
 					limit = {
@@ -7826,7 +7826,7 @@ country_event = {
 					}
 				}
 			}
-			#FROM is ETH				
+			#FROM is FET				
 			FROM = {
 				every_owned_state = {
 					limit = {
@@ -7842,8 +7842,8 @@ country_event = {
 						limit = {
 							has_state_flag = ETH_prio_state_flag
 						}
-						#PREV.PREV is ETH
-						ETH = {
+						#PREV.PREV is FET
+						FET = {
 							transfer_state = PREV
 						}
 						
@@ -7855,7 +7855,7 @@ country_event = {
 				}
 			}
 			remove_from_array = {
-				array = ETH.ETH_has_liberation_goal_array
+				array = FET.ETH_has_liberation_goal_array
 				value = THIS
 			}	
 		}
@@ -7869,18 +7869,18 @@ country_event = {
 				leave_faction = yes
 			}
 		}
-		white_peace = ETH
+		white_peace = FET
 		# Allies also make peace
 		every_other_country = {
 			limit = { 
 				is_in_faction_with = ROOT 
-				has_war_with = ETH
+				has_war_with = FET
 			}
-			white_peace = ETH
+			white_peace = FET
 		}
 		every_other_country = {
 			limit = {
-				is_in_faction_with = ETH
+				is_in_faction_with = FET
 				has_war_with = ROOT
 			}
 			white_peace = ROOT
@@ -7900,7 +7900,7 @@ country_event = {
 			base = 5
 		}
 		hidden_effect = {
-			clear_variable = ETH.ETH_disputed_colony
+			clear_variable = FET.ETH_disputed_colony
 			clr_country_flag = ETH_has_active_liberation_goal
 		}	
 	}

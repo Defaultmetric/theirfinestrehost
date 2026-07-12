@@ -284,7 +284,7 @@ on_actions = {
 					}
 					ROOT = {
 						has_war_with = SND
-						has_war_with = CHI
+						has_war_with = FCH
 						OR = {
 							original_tag = JAP
 							AND = {
@@ -300,14 +300,14 @@ on_actions = {
 					FROM = {
 						original_tag = SND
 						is_subject = no
-						is_in_faction_with = CHI 
+						is_in_faction_with = FCH 
 						NOT = { 
 							has_country_flag = SND_han_fuju_stays 
 						}
 					}
 					NOT = { has_global_flag = jinan_has_fallen }
 				}
-				CHI = {
+				FCH = {
 					country_event = {
 						id = SEA_warlords.42
 						hours = 6
@@ -426,7 +426,7 @@ on_actions = {
 			if = {
 				limit = {
 					FROM = { 
-						original_tag = CHI
+						original_tag = FCH
 						has_completed_focus = CHI_appoint_sympathetic_judges 
 					}
 
@@ -444,7 +444,7 @@ on_actions = {
 			if = {
 				limit = {
 					FROM = { 
-						original_tag = CHI
+						original_tag = FCH
 						has_completed_focus = CHI_take_control_of_the_executive_yuan 
 					}
 
@@ -460,7 +460,7 @@ on_actions = {
 					}
 
 					add_autonomy_ratio = { 
-						value = var:CHI.executive_yuan_autonomy_ratio
+						value = var:FCH.executive_yuan_autonomy_ratio
 						localization = CHI_take_control_of_the_executive_yuan
 					}
 				}
@@ -953,7 +953,7 @@ on_actions = {
 								is_core_of = CAM
 								is_core_of = SIA
 								is_core_of = MAL
-								is_core_of = INS
+								is_core_of = INF
 								is_core_of = PNG
 								is_core_of = TML
 								is_core_of = BRN
@@ -1001,13 +1001,13 @@ on_actions = {
 							ROOT = {
 								OR = {
 									tag = PRC
-									tag = CHI
+									tag = FCH
 								}
 							}
 							FROM = {
 								OR = {
 									tag = PRC
-									tag = CHI
+									tag = FCH
 								}
 							}
 						}
@@ -1020,12 +1020,12 @@ on_actions = {
 							NOT = { has_country_flag = PRC_locK_timed_window_for_war }
 							OR = {
 								AND = {
-									has_war_with = CHI
+									has_war_with = FCH
 									NOT = { has_war_with = JAP }
 								}
 								AND = {
 									has_war_with = JAP
-									NOT = { has_war_with = CHI }
+									NOT = { has_war_with = FCH }
 								}
 							}
 						}
@@ -1044,7 +1044,7 @@ on_actions = {
 							days > 0
 						}
 						PRC = {
-							has_war_with = CHI	
+							has_war_with = FCH	
 							has_war_with = JAP
 						}
 					}
@@ -1925,12 +1925,12 @@ on_actions = {
 				limit = {
 					ROOT = {
 						original_tag = HBC
-						is_ally_with = CHI
+						is_ally_with = FCH
 					}
 
 					FROM = {
 						has_war_with = HBC
-						has_war_with = CHI
+						has_war_with = FCH
 						OR = {
 							original_tag = JAP
 							AND = {
@@ -1950,7 +1950,7 @@ on_actions = {
 					
 					NOT = { has_global_flag = hbc_has_been_dissolved }
 				}
-				CHI = {
+				FCH = {
 					country_event = {
 						id = SEA_warlords.69 
 						hours = 6
@@ -1982,7 +1982,7 @@ on_actions = {
 						original_tag = PRC
 						has_completed_focus = PRC_burn_the_paper_tigers
 						is_faction_leader = yes
-						is_in_faction_with = CHI
+						is_in_faction_with = FCH
 					}
 					FROM = {
 						OR = {
@@ -1993,14 +1993,14 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						CHI = {
+						FCH = {
 							is_major = no
 							is_subject = no
 							exists = yes
 							has_capitulated = no
 						}
 					}
-					CHI = {
+					FCH = {
 						set_faction_leader = yes
 					}
 				}
@@ -2071,7 +2071,7 @@ on_actions = {
         			}
         			# One of the losers if Nationalist China and has been puppeted by Japan 
         			FROM = {
-        				original_tag = CHI 
+        				original_tag = FCH 
         				is_subject_of = JAP
          			}
         		}

@@ -147,7 +147,7 @@ country_event = {
 	}
 
 	trigger = { #Someone near us is sus
-		original_tag = CZE
+		original_tag = FCZ
 		exists = yes
 		has_power_balance = {
     		id = CZE_bop_army_readiness
@@ -166,7 +166,7 @@ country_event = {
 				else = {
 					any_neighbor_country = {
 						any_country_with_original_tag = { 
-							original_tag_to_check = CZE
+							original_tag_to_check = FCZ
 							PREV = { #PREV here is any_neighbor_country
 								is_justifying_wargoal_against = PREV #PREV here is the 'any_country_with_original_tag'
 							}
@@ -187,13 +187,13 @@ country_event = {
 					has_completed_focus = HUN_secret_rearmament
 				}
 			}
-			AUS = {
+			FAU = {
 				OR = {
 					has_completed_focus = AUS_repeal_the_may_constitution
 					has_completed_focus = AUS_rapid_rearmament
 				}
 			}
-			POL = {
+			NPO = {
 				OR = {
 					has_completed_focus = POL_organize_the_peasants_strike
 					has_completed_focus = POL_assemble_the_regency_council
@@ -243,12 +243,12 @@ country_event = { #Ethiopa is told about Czech 'Observers'
 
 		custom_effect_tooltip = MUN_czech_bop_3_tt
 		hidden_effect = {
-			CZE = { country_event = { id = MUN_czech_bop.4 days = 3 } }
+			FCZ = { country_event = { id = MUN_czech_bop.4 days = 3 } }
 		}
 		ai_chance = {
 			base = 1
 			modifier = {
-				CZE = {
+				FCZ = {
 					is_ai = no
 				}
 				add = 10
@@ -264,7 +264,7 @@ country_event = { #Ethiopa is told about Czech 'Observers'
 		ai_chance = {
 			base = 1
 			modifier = {
-				CZE = {
+				FCZ = {
 					is_ai = yes
 				}
 				add = 10
@@ -291,7 +291,7 @@ country_event = { #Ethiopa is cool with us smuggling in some guns
 		ai_chance = {
 			base = 1
 			modifier = {
-				ETH = {
+				FET = {
 					is_ai = no
 				}
 				add = 10
@@ -321,7 +321,7 @@ country_event = { #Ethiopa is cool with us smuggling in some guns
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		ETH = { country_event = { id = MUN_czech_bop.5 days = 2 } }
+		FET = { country_event = { id = MUN_czech_bop.5 days = 2 } }
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -410,7 +410,7 @@ country_event = { #Ethiopa is cool with us smuggling in some guns
 		ai_chance = {
 			base = 1
 			modifier = {
-				ETH = {
+				FET = {
 					is_ai = yes
 				}
 				add = 10
@@ -464,7 +464,7 @@ country_event = {
 		add_equipment_to_stockpile = {
     		type = infantry_equipment
    			amount = 100
-			producer = CZE 
+			producer = FCZ 
 		}
 	}
 }
@@ -491,7 +491,7 @@ country_event = { #Triggers MUN_czech.2
 		}
 		OR = { #German States
 			original_tag = GER
-			original_tag = AUS
+			original_tag = FAU
 			original_tag = BAY
 			original_tag = SIL
 			original_tag = PRE
@@ -509,7 +509,7 @@ country_event = { #Triggers MUN_czech.2
 		}
 		exists = yes
 		any_country_with_original_tag = {
-			original_tag_to_check = CZE
+			original_tag_to_check = FCZ
 			has_idea = CZE_sudeten_german_quandary
 			is_neighbor_of = ROOT
 			OR = {
@@ -520,7 +520,7 @@ country_event = { #Triggers MUN_czech.2
 		}
 		NOT = {
 			any_country_with_original_tag = { #Can't already be at war
-				original_tag_to_check = CZE
+				original_tag_to_check = FCZ
 				PREV = { #PREV here is the ROOT
 					has_war_with = PREV #PREV here is the 'any_country_with_original_tag'
 				}
@@ -528,13 +528,13 @@ country_event = { #Triggers MUN_czech.2
 		}
 		OR = {
 			any_country_with_original_tag = { 
-				original_tag_to_check = CZE
+				original_tag_to_check = FCZ
 				PREV = { #PREV here is the ROOT
 					is_justifying_wargoal_against = PREV #PREV here is the 'any_country_with_original_tag'
 				}
 			}
 			has_wargoal_against = {
-				target = CZE
+				target = FCZ
 			}
 			focus_progress = {
 				focus = GER_demand_sudetenland
@@ -572,7 +572,7 @@ country_event = { #Triggers MUN_czech.2
 	}
 }
 
-# ROOT choice on rather to support the Sudeten German paramilitary. Also is a way to discourage possible griefing from the German tag from justifing a war goal on CZE tag just to trigger this effect
+# ROOT choice on rather to support the Sudeten German paramilitary. Also is a way to discourage possible griefing from the German tag from justifing a war goal on FCZ tag just to trigger this effect
 country_event = {
 	id = MUN_czech.2
 	title = {
@@ -669,7 +669,7 @@ country_event = {
 
 		hidden_effect = {
 			every_country_with_original_tag = {
-				original_tag_to_check = CZE
+				original_tag_to_check = FCZ
 				limit = {
 					has_idea = CZE_sudeten_german_quandary
 					OR = {
@@ -690,9 +690,9 @@ country_event = {
 								}
 								is_subject_of = ENG
 								is_subject_of = FRA
-								is_subject_of = CZE
-								is_subject_of = HOL
-								is_subject_of = BEL
+								is_subject_of = FCZ
+								is_subject_of = FNL
+								is_subject_of = FBL
 							}
 						}
 						news_event = {
@@ -742,7 +742,7 @@ country_event = {
 
 		hidden_effect = {
 			every_country_with_original_tag = {
-				original_tag_to_check = CZE
+				original_tag_to_check = FCZ
 				limit = {
 					has_idea = CZE_sudeten_german_quandary
 					OR = {
@@ -762,8 +762,8 @@ country_event = {
 									is_on_continent = europe
 								}
 								is_subject_of = ENG
-								is_subject_of = HOL
-								is_subject_of = BEL
+								is_subject_of = FNL
+								is_subject_of = FBL
 							}
 						}
 						news_event = {
@@ -865,7 +865,7 @@ country_event = {
 						has_war = no
 						OR = {
 							original_tag = GER
-							original_tag = AUS
+							original_tag = FAU
 						}
 					}
 				}
@@ -911,7 +911,7 @@ country_event = {
 					has_war = no
 					OR = {
 						original_tag = GER
-						original_tag = AUS
+						original_tag = FAU
 					}
 				}
 			}
@@ -1002,37 +1002,37 @@ country_event = {
 				factor = 0.1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					is_ai = no
 				}
 				add = 1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					is_major = yes
 				}
 				add = 1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_forgive_trading_debts
 				}
 				factor = 1.1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_reintegrate_cross_border_rail_connections
 				}
 				factor = 1.1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_improve_balkan_trade_relations
 				}
 				factor = 1.2
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_government = ROOT
 				}
 				factor = 1.1
@@ -1059,13 +1059,13 @@ country_event = {
 				factor = 10
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					is_major = no
 				}
 				factor = 2
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					NOT = {
 						has_government = ROOT
 					}
@@ -1083,18 +1083,18 @@ country_event = {
 		}
 
 		diplomatic_relation = {
-			country = CZE
+			country = FCZ
 			relation = guarantee
 			active = no
 		}
 		add_ai_strategy = {
 			type = protect
-			id = CZE
+			id = FCZ
 			value = -100
 		}
 		add_ai_strategy = { #Back out on you once, not going to back you up again
 			type = diplo_action_desire
-			id = CZE
+			id = FCZ
 			target = guarantee
 			value = -100
 		}
@@ -1325,7 +1325,7 @@ country_event = {
 					has_cosmetic_tag = vojvodina
 				}
 			}
-			CZE = {
+			FCZ = {
 				puppet = PREV
 			}
 		}
@@ -1422,7 +1422,7 @@ country_event = {
 					#state = 160	#partially theirs, but only the northern 1/3rd
 				}
 			}
-			transfer_state_to = CZE
+			transfer_state_to = FCZ
 		}
 		FROM = {
 			set_variable = { global.CZE_origin_event = 1005 }
@@ -1653,7 +1653,7 @@ country_event = {	#Czechoslovakia invites country that claims its territory into
 					}
 				}
 				AND = {
-					original_tag = POL
+					original_tag = NPO
 					FROM = {
 						owns_state = 72
 					}
@@ -1668,7 +1668,7 @@ country_event = {	#Czechoslovakia invites country that claims its territory into
 			custom_effect_tooltip = if_they_accept_newline_tt
 			if = {
 				limit = {
-					original_tag = POL
+					original_tag = NPO
 					FROM = {
 						owns_state = 72
 					}
@@ -1848,14 +1848,14 @@ country_event = {	#Czechoslovakia offers protection agreement to Switzerland
 				factor = 1.3
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_ally_austria
 				}
 				factor = 1.5
 			}
 		}
-		give_guarantee = CZE
-		CZE = {
+		give_guarantee = FCZ
+		FCZ = {
 			give_guarantee = ROOT
 		}
 	}
@@ -1948,7 +1948,7 @@ country_event = {	#Czechoslovakia pressures Romania with USSR
 				factor = 1.3
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_ally_austria
 				}
 				factor = 1.1
@@ -2028,7 +2028,7 @@ country_event = {
 		if = {
 			limit = {
 				FROM = {
-					original_tag = POL
+					original_tag = NPO
 				}
 				#origin event checks that they own it
 			}
@@ -2139,19 +2139,19 @@ country_event = {	#event to USSR for cooperation - request guarantees
 				factor = 2
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_contact_henlein
 				}
 				factor = 2
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_feeding_the_alligator
 				}
 				factor = 25
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_work_with_germany
 				}
 				factor = 50
@@ -2274,13 +2274,13 @@ country_event = {	#event to GER for non-agression pact	#aka Haushofer-Krofta Pac
 				factor = 1.1
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_contact_henlein
 				}
 				factor = 1.5
 			}
 			modifier = {
-				CZE = {
+				FCZ = {
 					has_completed_focus = CZE_feeding_the_alligator
 				}
 				factor = 3
@@ -2320,7 +2320,7 @@ country_event = {	#event to GER for non-agression pact	#aka Haushofer-Krofta Pac
 	}
 }
 
-country_event = {	#event to FRA/POL for joint invasion of Germany
+country_event = {	#event to FRA/NPO for joint invasion of Germany
 	id = MUN_czech.1017
 	title = MUN_czech.1017.t
 	desc = MUN_czech.1017.d
@@ -2415,7 +2415,7 @@ country_event = {	#event to Czechoslovakia about joint invasion of Germany, fire
 	desc = {
 		text = MUN_czech.1018.d.FRA_POL
 		trigger = {
-			POL = {
+			NPO = {
 				has_country_flag = CZE_agreed_to_germany_invasion
 			}
 			FRA = {
@@ -2424,9 +2424,9 @@ country_event = {	#event to Czechoslovakia about joint invasion of Germany, fire
 		}
 	}
 	desc = {
-		text = MUN_czech.1018.d.POL
+		text = MUN_czech.1018.d.NPO
 		trigger = {
-			POL = {
+			NPO = {
 				has_country_flag = CZE_agreed_to_germany_invasion
 			}
 			NOT = {
@@ -2443,7 +2443,7 @@ country_event = {	#event to Czechoslovakia about joint invasion of Germany, fire
 				has_country_flag = CZE_agreed_to_germany_invasion
 			}
 			NOT = {
-				POL = {
+				NPO = {
 					has_country_flag = CZE_agreed_to_germany_invasion
 				}
 			}
@@ -2706,7 +2706,7 @@ country_event = {	#conditional investment		#marijn211: Event completed
 		}
 		else_if = {
 			limit = {
-				original_tag = YUG
+				original_tag = FYG
 			}
 			effect_tooltip = {
 				build_railway = {	#upgrades existing railway
@@ -2814,7 +2814,7 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 			every_other_country = {
 				limit = {
 					OR = {
-						original_tag = CZE
+						original_tag = FCZ
 						has_country_flag = CZE_trade_agreement
 					}
 				}
@@ -2832,13 +2832,13 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 						}
 					}
 				}
-				AUS = {
+				FAU = {
 					add_ideas = CZE_trade_agreement_to_HUN_YUG
 				}
 				HUN = {
 					add_ideas = CZE_trade_agreement_to_AUS_YUG
 				}
-				YUG = {
+				FYG = {
 					add_ideas = CZE_trade_agreement_to_HUN_AUS
 				}
 				FROM = {
@@ -2853,9 +2853,9 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 					meta_effect = {
 						text = {
 							ROOT = {
-								add_ideas = CZE_trade_agreement_to_[CZE_idea_country_1]	#joining country sends trade to CZE and the country thats already in
+								add_ideas = CZE_trade_agreement_to_[CZE_idea_country_1]	#joining country sends trade to FCZ and the country thats already in
 							}
-							add_ideas = CZE_trade_agreement_to_[CZE_idea_country_2]		#the country thats already in now sends trade to CZE and the new country
+							add_ideas = CZE_trade_agreement_to_[CZE_idea_country_2]		#the country thats already in now sends trade to FCZ and the new country
 						}
 						CZE_idea_country_1 = "[THIS.GetTag]"
 						CZE_idea_country_2 = "[ROOT.GetTag]"
@@ -2870,8 +2870,8 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 							}
 						}
 						OR = {
-							original_tag = AUS
-							AUS = {
+							original_tag = FAU
+							FAU = {
 								has_country_flag = CZE_trade_agreement
 							}
 						}
@@ -2889,8 +2889,8 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 							}
 						}
 						OR = {
-							original_tag = YUG
-							YUG = {
+							original_tag = FYG
+							FYG = {
 								has_country_flag = CZE_trade_agreement
 							}
 						}
@@ -2902,14 +2902,14 @@ country_event = {	#restoration of the Austro-Hungarian customs union
 				else_if = {
 					limit = {
 						OR = {
-							original_tag = AUS
-							AUS = {
+							original_tag = FAU
+							FAU = {
 								has_country_flag = CZE_trade_agreement
 							}
 						}
 						OR = {
-							original_tag = YUG
-							YUG = {
+							original_tag = FYG
+							FYG = {
 								has_country_flag = CZE_trade_agreement
 							}
 						}
@@ -2978,7 +2978,7 @@ country_event = {
 					}
 				}
 				762 = {
-					transfer_state_to = CZE
+					transfer_state_to = FCZ
 				}
 			}
 			if = {
@@ -2990,11 +2990,11 @@ country_event = {
 					}
 				}
 				67 = {
-					transfer_state_to = CZE
+					transfer_state_to = FCZ
 				}
 			}
 			66 = {
-				transfer_state_to = CZE
+				transfer_state_to = FCZ
 			}
 		}
 	}
@@ -3012,7 +3012,7 @@ country_event = {
 		}
 		trigger = {
 			NOT = {
-				original_tag = CZE
+				original_tag = FCZ
 			}
 		}
 		create_wargoal = {
@@ -3026,14 +3026,14 @@ country_event = {
 		name = MUN_czech.1022.b
 		trigger = {
 			NOT = {
-				original_tag = CZE
+				original_tag = FCZ
 			}
 		}
 	}
 	option = {
 		name = MUN_czech.1022.c
 		trigger = {
-			original_tag = CZE
+			original_tag = FCZ
 		}
 	}
 }
@@ -3052,7 +3052,7 @@ country_event = {	#66 owner notified of Czech border war - currently cut content
 }
 
 
-country_event = {	#66 owner requested white peace with CZE
+country_event = {	#66 owner requested white peace with FCZ
 	id = MUN_czech.1024
 	title = MUN_czech.1024.t
 	desc = MUN_czech.1024.d
@@ -3099,7 +3099,7 @@ country_event = {	#66 owner requested white peace with CZE
 				}
 			}
 			762 = {
-				transfer_state_to = CZE
+				transfer_state_to = FCZ
 				set_state_flag = CZE_transferred_to_us
 			}
 		}
@@ -3112,12 +3112,12 @@ country_event = {	#66 owner requested white peace with CZE
 				}
 			}
 			67 = {
-				transfer_state_to = CZE
+				transfer_state_to = FCZ
 				set_state_flag = CZE_transferred_to_us
 			}
 		}
 		66 = {
-			transfer_state_to = CZE
+			transfer_state_to = FCZ
 			set_state_flag = CZE_transferred_to_us
 		}
 		white_peace = FROM
@@ -3500,10 +3500,10 @@ country_event = { #Balkan union puppeting
 					limit = {
 						OR = {
 							original_tag = BUL
-							original_tag = GRE
+							original_tag = NNG
 							original_tag = HUN
-							original_tag = AUS
-							original_tag = YUG
+							original_tag = FAU
+							original_tag = FYG
 						}
 					}
 					FROM = {
@@ -3517,11 +3517,11 @@ country_event = { #Balkan union puppeting
 					limit = {
 						OR = {
 							original_tag = BUL
-							original_tag = GRE
+							original_tag = NNG
 							original_tag = HUN
-							original_tag = AUS
-							original_tag = YUG
-							original_tag = ALB
+							original_tag = FAU
+							original_tag = FYG
+							original_tag = FAL
 						}
 					}
 					FROM = {
@@ -3805,7 +3805,7 @@ country_event = { #Tells ROOT a divided nation decision can be taken
 	}
 }
 
-country_event = { #CZE asks to enter exile
+country_event = { #FCZ asks to enter exile
 	id = MUN_czech.1033
 	title = MUN_czech.1033.t
 	desc = MUN_czech.1033.d
@@ -4172,7 +4172,7 @@ country_event = {
 						has_war = no
 					}
 					SLO = {
-						inherit_technology = CZE #Doing this now so it's not a massive popup later during Germany.55 event
+						inherit_technology = FCZ #Doing this now so it's not a massive popup later during Germany.55 event
 						set_popularities = {
 							democratic = 5
 							fascism = 90
@@ -4565,7 +4565,7 @@ unit_leader_event = { #RUT tells ROOT they want the same deal ROOT gave SLO
 	}
 }
 
-country_event = { #CZE wants to form a trade union
+country_event = { #FCZ wants to form a trade union
 	id = MUN_czech.1040
 	title = MUN_czech.1040.t
 	desc = MUN_czech.1040.d
@@ -4637,7 +4637,7 @@ country_event = { #CZE wants to form a trade union
 				factor = 1.2
 			}
 			modifier = {
-				has_non_aggression_pact_with = CZE
+				has_non_aggression_pact_with = FCZ
 				factor = 1.2
 			}
 			modifier = {
@@ -4696,7 +4696,7 @@ country_event = { #From said yes to request
 	}
 }
 
-country_event = { #CZE demands ROOT to become annexed
+country_event = { #FCZ demands ROOT to become annexed
 	id = MUN_czech.1043
 	title = MUN_czech.1043.t
 	desc = MUN_czech.1043.d
@@ -4768,7 +4768,7 @@ country_event = { #CZE demands ROOT to become annexed
 				factor = 1.2
 			}
 			modifier = {
-				has_non_aggression_pact_with = CZE
+				has_non_aggression_pact_with = FCZ
 				factor = 1.2
 			}
 			modifier = {
@@ -4937,7 +4937,7 @@ country_event = { #hidden event that makes the below focus be from a unit leader
 country_event = {
 	id = MUN_czech.1048
 	title = {
-		text = MUN_czech.1048.t		#Country accepts CZE demands
+		text = MUN_czech.1048.t		#Country accepts FCZ demands
 		trigger = {
 			NOT = {
 				check_variable = { global.CZE_origin_event = 1016 }
@@ -4947,7 +4947,7 @@ country_event = {
 		}
 	}
 	title = {
-		text = MUN_czech.1048.t2	#Country accepts CZE diplomatic agreement
+		text = MUN_czech.1048.t2	#Country accepts FCZ diplomatic agreement
 		trigger = {
 			OR = {
 				check_variable = { global.CZE_origin_event = 1016 }
@@ -5222,7 +5222,7 @@ country_event = {
 	}
 }
 
-#CZE requests we give mil access to SOV
+#FCZ requests we give mil access to SOV
 country_event = {
 	id = MUN_czech.1052
 	title = MUN_czech.1052.t
@@ -5335,14 +5335,14 @@ country_event = {
 	option = {
 		name = MUN_czech.1054.a
 		declare_war_on = {
-			target = LIT
+			target = NLI
 			type = annex_everything
 		}
 		activate_decision = form_commonwealth	#help Poland form this more easily, meaning getting them as an ally becomes easier
 		FROM = {
 			add_to_war = {
 				targeted_alliance = ROOT
-				enemy = LIT
+				enemy = NLI
 			}
 		}
 	}
@@ -5391,7 +5391,7 @@ country_event = {
 			73 = {
 				create_unit = { 
 					division = "name = \"Soviet Volunteers\" division_template = \"Soviet Volunteer Division\" start_experience_factor = 0.5" 
-					owner = CZE
+					owner = FCZ
 					count = 5
 				}
 			}
@@ -5425,7 +5425,7 @@ country_event = {	#event to Austria to demand Burgenland
 					}
 				}
 			}
-			modifier = {	#slightly more sympathetic to same ideology CZE protecting itself
+			modifier = {	#slightly more sympathetic to same ideology FCZ protecting itself
 				factor = 2
 				has_government = democratic
 				FROM = {
@@ -5447,7 +5447,7 @@ country_event = {	#event to Austria to demand Burgenland
 						has_government = fascism
 					}
 					NOT = {
-						original_tag = AUS
+						original_tag = FAU
 					}
 				}
 				strength_ratio = {
@@ -6168,7 +6168,7 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 							OR = {
 								exists = no
 								is_subject_of = GER
-								is_subject_of = CZE
+								is_subject_of = FCZ
 								is_subject_of = FRA
 								has_government = fascism
 							}
@@ -6239,7 +6239,7 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 						set_nationality = ROOT
 					}
 				}
-				if = { #Sorry he can't keep his CZE base stats on England
+				if = { #Sorry he can't keep his FCZ base stats on England
 					limit = {
 						has_dlc = "La Resistance"
 						has_character = CZE_frantisek_moravec
@@ -6255,7 +6255,7 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 						trait = bold_intelligence_officer_lesser
 					}
 				}
-				if = { #Sorry, he can't keep his CZE base stats on England
+				if = { #Sorry, he can't keep his FCZ base stats on England
 					limit = {
 						NOT = {
 							has_dlc = "La Resistance"
@@ -6281,17 +6281,17 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 		name = MUN_czech_exile.1.a
 		if = {
 			limit = {
-				original_tag = POL
+				original_tag = NPO
 			}
 			add_manpower = 900 #Roughly based on the initial inflex that stayed in Poland
 			if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						is_ai = yes #Don't steal from player
 						has_character = CZE_josef_frantisek
 					}
 				}
-				CZE = {
+				FCZ = {
 					hidden_effect = {
 						retire_character = CZE_josef_frantisek #Can't have two of you running around
 					}
@@ -6341,7 +6341,7 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 
 			if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						NOT = {
 							has_completed_focus = CZE_contact_the_czech_and_slovak_legion
 						}
@@ -6408,7 +6408,7 @@ country_event = { #Exile event for when Czech dies, more sanity checks are on ev
 
 			if = {
 				limit = {
-					CZE = {
+					FCZ = {
 						NOT = {
 							has_completed_focus = CZE_contact_the_czech_and_slovak_legion
 						}
@@ -6478,7 +6478,7 @@ country_event = { #Checking back in with the Soviets to make sure it's still san
 	immediate = {
 		if = {
 			limit = {
-				CZE = {
+				FCZ = {
 					is_government_in_exile = no
 					is_ai = yes #Don't steal from a player
 					OR = {
@@ -6503,8 +6503,8 @@ country_event = { #Checking back in with the Soviets to make sure it's still san
 						NOT = {
 							has_war_with = ENG
 							has_war_with = FRA
-							has_war_with = POL
-							has_war_with = CZE
+							has_war_with = NPO
+							has_war_with = FCZ
 						}
 						#has_war_with = GER
 						surrender_progress < 0.95
@@ -6538,7 +6538,7 @@ news_event = { #Sudetenland Crisis
 		trigger = {
 			NOT = {
 				has_country_flag = CZE_i_caused_the_crisis_TAG
-				tag = CZE
+				tag = FCZ
 				tag = FRA
 				tag = ENG
 			}
@@ -6549,13 +6549,13 @@ news_event = { #Sudetenland Crisis
 		trigger = {
 			has_country_flag = CZE_i_caused_the_crisis_TAG
 			NOT = {
-				tag = CZE
+				tag = FCZ
 				tag = FRA
 				tag = ENG
 			}
 		}
 	}
-	option = { #For CZE
+	option = { #For FCZ
 		name = MUN_czech.news.1.c
 		trigger = {
 			NOT = {
@@ -6563,7 +6563,7 @@ news_event = { #Sudetenland Crisis
 				tag = FRA
 				tag = ENG
 			}
-			tag = CZE
+			tag = FCZ
 		}
 	}
 	option = { #For ENG and FRA
@@ -6571,7 +6571,7 @@ news_event = { #Sudetenland Crisis
 		trigger = {
 			NOT = {
 				has_country_flag = CZE_i_caused_the_crisis_TAG
-				tag = CZE
+				tag = FCZ
 			}
 			OR = {
 				tag = FRA

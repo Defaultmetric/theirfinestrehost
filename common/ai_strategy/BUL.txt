@@ -164,8 +164,8 @@ BUL_befriend_GRE = {
 				option = DEMOCRATIC_SOCIALIST
 			}
 		}
-		country_exists = GRE
-		GRE = {
+		country_exists = NNG
+		NNG = {
 			has_opinion	= {
 				target = ROOT
 				value < 50
@@ -176,9 +176,9 @@ BUL_befriend_GRE = {
 	}
 	abort = {
 		OR = {
-			NOT = { country_exists = GRE }
-			has_war_with = GRE
-			GRE = {
+			NOT = { country_exists = NNG }
+			has_war_with = NNG
+			NNG = {
 				OR = {
 					AND = {
 						is_in_faction = yes
@@ -197,7 +197,7 @@ BUL_befriend_GRE = {
 
 	ai_strategy = {
 		type = diplo_action_desire
-		id = GRE
+		id = NNG
 		target = improve_relation
 		value = 200
 	}
@@ -216,8 +216,8 @@ BUL_befriend_YUG = {
 				option = COMMUNIST_BALKAN_FEDERATION
 			}
 		}
-		country_exists = YUG
-		YUG = {
+		country_exists = FYG
+		FYG = {
 			has_opinion	= {
 				target = ROOT
 				value < 50
@@ -228,9 +228,9 @@ BUL_befriend_YUG = {
 	}
 	abort = {
 		OR = {
-			NOT = { country_exists = YUG }
-			has_war_with = YUG
-			YUG = {
+			NOT = { country_exists = FYG }
+			has_war_with = FYG
+			FYG = {
 				OR = {
 					AND = {
 						is_in_faction = yes
@@ -249,7 +249,7 @@ BUL_befriend_YUG = {
 
 	ai_strategy = {
 		type = diplo_action_desire
-		id = YUG
+		id = FYG
 		target = improve_relation
 		value = 200
 	}
@@ -461,13 +461,13 @@ BUL_we_dont_want_to_fight_sov = {
 	}
 	ai_strategy = {
 		type = dont_join_wars_with
-		id = GRE
+		id = NNG
 		target_country = SOV
 		value = 99999
 	}
 	ai_strategy = {
 		type = dont_join_wars_with
-		id = YUG
+		id = FYG
 		target_country = SOV
 		value = 99999
 	}
@@ -485,7 +485,7 @@ BUL_we_dont_want_to_fight_sov = {
 	}
 	ai_strategy = {
 		type = dont_join_wars_with
-		id = CZE
+		id = FCZ
 		target_country = SOV
 		value = 99999
 	}
@@ -503,7 +503,7 @@ BUL_we_dont_want_to_fight_sov = {
 	}
 	ai_strategy = {
 		type = dont_join_wars_with
-		id = AUS
+		id = FAU
 		target_country = SOV
 		value = 99999
 	}

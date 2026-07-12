@@ -345,8 +345,8 @@ faction_goal_imperial_glory = {
 				original_tag = NZL
 				original_tag = MAL
 				original_tag = FRA
-				original_tag = HOL
-				original_tag = INS
+				original_tag = FNL
+				original_tag = INF
 			}
 		}
 	}
@@ -409,8 +409,8 @@ faction_goal_imperial_glory = {
 				original_tag = NZL
 				original_tag = MAL
 				original_tag = FRA
-				original_tag = HOL
-				original_tag = INS
+				original_tag = FNL
+				original_tag = INF
 			}
 			is_historical_focus_on = yes
 		}
@@ -419,7 +419,7 @@ faction_goal_imperial_glory = {
 			OR = {
 				original_tag = ENG
 				original_tag = FRA
-				original_tag = HOL
+				original_tag = FNL
 			}
 		}
 		modifier = {
@@ -427,7 +427,7 @@ faction_goal_imperial_glory = {
 			OR = {
 				original_tag = ENG
 				original_tag = FRA
-				original_tag = HOL
+				original_tag = FNL
 			}
 			is_historical_focus_on = yes
 		}
@@ -624,7 +624,7 @@ faction_goal_the_northern_mandate = {
 	}
 	visible = {
 		FROM = {
-			original_tag = CHI
+			original_tag = FCH
 			has_government = fascism
 		}
 	}
@@ -669,7 +669,7 @@ faction_goal_the_southern_mandate = {
 	}
 	visible = {
 		FROM = {
-			original_tag = CHI
+			original_tag = FCH
 			has_government = fascism
 		}
 	}
@@ -714,7 +714,7 @@ faction_goal_the_greater_game = {
 	}
 	visible = {
 		FROM = {
-			original_tag = CHI
+			original_tag = FCH
 			has_government = fascism
 		}
 	}
@@ -987,20 +987,20 @@ faction_goal_undoing_brest_litowsk = {
 		count_triggers = {
 			amount = 4
 			OR = {
-				LIT = { exists = no }
-				LIT = { is_in_faction_with = ROOT }
+				NLI = { exists = no }
+				NLI = { is_in_faction_with = ROOT }
 			}
 			OR = {
-				LAT = { exists = no }
-				LAT = { is_in_faction_with = ROOT }
+				NLA = { exists = no }
+				NLA = { is_in_faction_with = ROOT }
 			}
 			OR = {
-				EST = { exists = no }
-				EST = { is_in_faction_with = ROOT }
+				NES = { exists = no }
+				NES = { is_in_faction_with = ROOT }
 			}
 			OR = {
-				POL = { exists = no }
-				POL = { is_in_faction_with = ROOT }
+				NPO = { exists = no }
+				NPO = { is_in_faction_with = ROOT }
 			}
 			OR = {
 				FIN = { exists = no }
@@ -1045,7 +1045,7 @@ faction_goal_the_two_seas = {
 	category = medium_term
 	group = FOCUS_FILTER_NAVY_XP
 	visible = {
-		FROM = { original_tag = POL }
+		FROM = { original_tag = NPO }
 	}
 	
 	completed = {
@@ -2039,8 +2039,8 @@ faction_goal_control_curacao_oil = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = HOL
-				is_in_faction_with = HOL
+				original_tag = FNL
+				is_in_faction_with = FNL
 			}
 		}
 		any_collection_element = {
@@ -2357,8 +2357,8 @@ faction_goal_control_suriname_bauxite = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = HOL
-				is_in_faction_with = HOL
+				original_tag = FNL
+				is_in_faction_with = FNL
 			}
 		}
 		any_collection_element = {
@@ -2449,8 +2449,8 @@ faction_goal_control_lappland_metals = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = SWE
-				is_in_faction_with = SWE
+				original_tag = FSW
+				is_in_faction_with = FSW
 			}
 		}
 		any_collection_element = {
@@ -2931,8 +2931,8 @@ faction_goal_control_persian_oil = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = PER
-				is_in_faction_with = PER
+				original_tag = FPR
+				is_in_faction_with = FPR
 			}
 		}
 		any_collection_element = {
@@ -3351,8 +3351,8 @@ faction_goal_control_indonesian_riches = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = INS
-				is_in_faction_with = INS
+				original_tag = INF
+				is_in_faction_with = INF
 			}
 		}
 		any_collection_element = {
@@ -4194,8 +4194,8 @@ faction_goal_control_azores = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = POR
-				is_in_faction_with = POR
+				original_tag = NPR
+				is_in_faction_with = NPR
 			}
 		}
 		any_collection_element = {
@@ -4330,8 +4330,8 @@ faction_goal_control_iceland = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = DEN
-				is_in_faction_with = DEN
+				original_tag = NDE
+				is_in_faction_with = NDE
 				original_tag = ICE
 				is_in_faction_with = ICE
 			}
@@ -4468,8 +4468,8 @@ faction_goal_control_faroe_islands = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = DEN
-				is_in_faction_with = DEN
+				original_tag = NDE
+				is_in_faction_with = NDE
 			}
 		}
 		any_collection_element = {
@@ -4604,8 +4604,8 @@ faction_goal_control_narvik = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = NOR
-				is_in_faction_with = NOR
+				original_tag = NNO
+				is_in_faction_with = NNO
 			}
 		}
 		any_collection_element = {
@@ -4703,8 +4703,8 @@ faction_goal_control_danish_belts = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = DEN
-				is_in_faction_with = DEN
+				original_tag = NDE
+				is_in_faction_with = NDE
 			}
 		}
 		any_collection_element = {
@@ -5169,8 +5169,8 @@ faction_goal_control_crete = {
 	visible = {
 		FROM = {
 			NOT = {
-				original_tag = GRE
-				is_in_faction_with = GRE
+				original_tag = NNG
+				is_in_faction_with = NNG
 			}
 		}
 		any_collection_element = {

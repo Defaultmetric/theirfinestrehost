@@ -8,12 +8,12 @@ SWI_is_country_to_balance = {
 	}
 	hidden_trigger = {
 		NOT = { 
-			has_war_with = SWI
-			is_in_faction_with = SWI
+			has_war_with = NSW
+			is_in_faction_with = NSW
 		}	
 		OR = {
 			AND = {
-				is_neighbor_of = SWI
+				is_neighbor_of = NSW
 				OR = {
 					is_in_faction = no
 					is_faction_leader = yes 
@@ -21,7 +21,7 @@ SWI_is_country_to_balance = {
 			}
 			AND = {
  				SWI_is_faction_leader_of_neighbor = yes 
-				NOT = { is_neighbor_of = SWI }
+				NOT = { is_neighbor_of = NSW }
 			}
 			SWI_is_at_war_with_neighbor = yes 
 		}
@@ -33,7 +33,7 @@ SWI_is_at_war_with_neighbor = { #Checks if it's at war with your major neighbor
 	is_faction_leader = yes  
 	any_other_country = {
 		is_major = yes 
-		is_neighbor_of = SWI 
+		is_neighbor_of = NSW 
 		has_war_with = PREV
 		
 	}
@@ -52,7 +52,7 @@ SWI_is_fascist_to_balance = {
 SWI_is_faction_leader_of_neighbor = {
 	is_faction_leader = yes 
 	any_allied_country = {
-		is_neighbor_of = SWI 
+		is_neighbor_of = NSW 
 	}
 }
 
@@ -115,10 +115,10 @@ SWI_angriest_country_still_mad = {
 		tooltip = SWI_avoid_failing_country_angry_TT
 	}
 	hidden_trigger = {
-		SWI = { has_variable = SWI_angriest_country }
-		var:SWI.SWI_angriest_country = {
+		NSW = { has_variable = SWI_angriest_country }
+		var:NSW.SWI_angriest_country = {
 			check_variable = {
-				THIS.opinion@SWI < SWI.SWI_no_longer_angry_threshold
+				THIS.opinion@NSW < NSW.SWI_no_longer_angry_threshold
 			}
 			SWI_is_country_to_balance = yes
 		}
@@ -130,7 +130,7 @@ SWI_country_is_happy = {
 		tooltip = SWI_country_is_happy_TT
 	}
 	check_variable = {
-		THIS.opinion@SWI > SWI_good_opinion
+		THIS.opinion@NSW > SWI_good_opinion
 	}
 }
 
@@ -139,20 +139,20 @@ SWI_country_positive_opinion = {
 		tooltip = SWI_country_positive_opinion_TT
 	}
 	check_variable = {
-		THIS.opinion@SWI > 0
+		THIS.opinion@NSW > 0
 	}
 }
 
 SWI_country_opinion_is_good = {
 	check_variable = {
-		var = THIS.opinion@SWI
+		var = THIS.opinion@NSW
 		value = SWI_good_opinion
 		compare = greater_than_or_equals
 	}
 }
 SWI_country_opinion_is_excellent = {
 	check_variable = {
-		var = THIS.opinion@SWI
+		var = THIS.opinion@NSW
 		value = SWI_excellent_opinion
 		compare = greater_than_or_equals
 	}	
@@ -163,13 +163,13 @@ SWI_country_is_angry = {
 		tooltip = SWI_country_is_angry_TT
 	}
 	check_variable = {
-		THIS.opinion@SWI > SWI_bad_opinion
+		THIS.opinion@NSW > SWI_bad_opinion
 	}
 }
 
 SWI_country_opinion_is_dangerous = {
 	check_variable = {
-		THIS.opinion@SWI < SWI_dangerous_opinion
+		THIS.opinion@NSW < SWI_dangerous_opinion
 	}
 }
 
@@ -238,7 +238,7 @@ SWI_council_not_filled = {
 		tooltip = SWI_council_not_filled_TT
 	}
 	hidden_trigger = {
-		SWI = {
+		NSW = {
 			NOT = { has_country_flag = SWI_councilor_recently_removed }
 			OR = {
 				NOT = { has_variable = SWI_councilor_1 }
@@ -457,15 +457,15 @@ SWI_is_fully_centralized = {
 
 SWI_bba = { #Trigger so I don't thave to type has_dlc = "By Blood Alone" every time - Should've done this 6 months ago...  
 	AND = {
-		tag = SWI
-		original_tag = SWI
+		tag = NSW
+		original_tag = NSW
 		has_dlc = "By Blood Alone"
 	}
 }
 
 SWI_bba_lar = { #Trigger for having BBA and LaR, mostly for espionage stuff. 
 	AND = {
-		original_tag = SWI
+		original_tag = NSW
 		has_dlc = "By Blood Alone"	
 		has_dlc = "La Resistance"
 	}
@@ -489,7 +489,7 @@ SWI_country_has_alpine_states = {
 
 SWI_country_about_to_be_angry = {
 	check_variable = {
-		THIS.opinion@SWI < SWI.SWI_dangerous_opinion
+		THIS.opinion@NSW < NSW.SWI_dangerous_opinion
 	}
 }
 
@@ -538,11 +538,11 @@ SWI_can_form_alpine = {
 		controls_state = 850 #Trentino - ITA 
 		controls_state = 39 #Alto Adige - ITA
 		controls_state = 847 #Western Swiss Alps - SWi
-		controls_state = 151 #Eastern Swiss Alps - SWI 
-		controls_state = 846 #Ticino - SWI
-		controls_state = 848 #Vorarlberg - AUS
-		controls_state = 153 #Tyrol - AUS 
-		controls_state = 152 #Upper Austria - AUS 
+		controls_state = 151 #Eastern Swiss Alps - NSW 
+		controls_state = 846 #Ticino - NSW
+		controls_state = 848 #Vorarlberg - FAU
+		controls_state = 153 #Tyrol - FAU 
+		controls_state = 152 #Upper Austria - FAU 
 		controls_state = 4 #Lower Austria 
 	}
 }
@@ -619,18 +619,18 @@ SWI_AI_is_fascist = {
 SWI_character_matches_strategy = {
 	OR = {
 		AND = {
-			SWI = { SWI_is_historical_ai = yes } 
+			NSW = { SWI_is_historical_ai = yes } 
 			OR = {
 				SWI_is_cantons_guy = yes
 				SWI_councilor_is_democratic = yes  
 			}
 		}
 		AND = {
-			SWI = { SWI_AI_is_fascist = yes }
+			NSW = { SWI_AI_is_fascist = yes }
 			SWI_councilor_is_fascist = yes 
 		}
 		AND = {
-			SWI = { SWI_AI_is_dem_exp = yes } 
+			NSW = { SWI_AI_is_dem_exp = yes } 
 			OR = {
 				SWI_councilor_is_democratic = yes 
 				AND = {
@@ -640,12 +640,12 @@ SWI_character_matches_strategy = {
 			} 
 		}
 		AND = {
-			SWI = { SWI_AI_is_imperial = yes }
+			NSW = { SWI_AI_is_imperial = yes }
 			SWI_is_council_guy = yes 
 			SWI_councilor_is_fascist = no 
 		}
 		AND = {
-			SWI = { SWI_AI_is_dem_allied = yes } 
+			NSW = { SWI_AI_is_dem_allied = yes } 
 			SWI_councilor_is_fascist = no 
 			SWI_councilor_is_any_kind_of_communist = no
 		}

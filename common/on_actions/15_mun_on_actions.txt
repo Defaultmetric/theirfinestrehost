@@ -1,7 +1,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			CZE = {
+			FCZ = {
 				every_state = {
 					limit = {
 						OR = {
@@ -34,9 +34,9 @@ on_actions = {
 			if = {
 				limit = {
 					original_tag = GER
-					FROM = { tag = CZE }
+					FROM = { tag = FCZ }
 				}
-				CZE = { set_country_flag = CZE_capitulated_germany }
+				FCZ = { set_country_flag = CZE_capitulated_germany }
 			}
 		}
 	}
@@ -98,7 +98,7 @@ on_actions = {
 		effect = { 
 			if = {
 				limit = {
-					original_tag = CZE
+					original_tag = FCZ
 				}
 				mark_focus_tree_layout_dirty = yes #So dynamic focus icons update right away and don't stick around for a few ticks or when game is paused
 				every_character = { #Remove trait spam to stop a continuity error with Benes's lacky trait after gov change by removing the trait from advisors who have it
@@ -121,7 +121,7 @@ on_actions = {
 			if = {
 				limit = {
 					any_country_with_original_tag = { 
-						original_tag_to_check = CZE
+						original_tag_to_check = FCZ
            				exists = yes
         			}
 					has_global_flag = CZE_skoda_focus_activation
@@ -158,12 +158,12 @@ on_actions = {
 					FROM = {
 						original_tag = SPR
 						has_volunteers_amount_from = {
-							tag = CZE
+							tag = FCZ
 							count > 0
 						}
 					}
 				}
-				CZE = {
+				FCZ = {
 					set_country_flag = CZE_support_scw_faction_lost
 					country_event = MUN_czech.1025
 				}
@@ -172,7 +172,7 @@ on_actions = {
 				limit = {
 					original_tag = SPR
 					has_volunteers_amount_from = {
-						tag = CZE
+						tag = FCZ
 						count > 0
 					}
 					NOT = {
@@ -185,7 +185,7 @@ on_actions = {
 					}
 				}
 				save_event_target_as = CZE_supported_spanish_faction
-				CZE = {
+				FCZ = {
 					set_country_flag = CZE_support_scw_faction_won
 					country_event = MUN_czech.1025
 				}
@@ -233,7 +233,7 @@ on_actions = {
 			if = {
 				limit = {
 					FROM = {
-						original_tag = CZE
+						original_tag = FCZ
 						has_completed_focus = CZE_negotiations_with_the_autonomous_bloc
 						NOT = {
 							has_completed_focus = CZE_form_a_federation
@@ -247,7 +247,7 @@ on_actions = {
 			if = {
 				limit = {
 					FROM = {
-						original_tag = CZE
+						original_tag = FCZ
 						has_completed_focus = CZE_form_a_federation
 					}
 				}
@@ -286,7 +286,7 @@ on_actions = {
 			FROM = {		#Hlinka should never be used as country leader, his name is only there for flavor
 				if = {
 					limit = {
-						original_tag = CZE
+						original_tag = FCZ
 						has_character = CZE_andrej_hlinka
 						has_country_leader = {
 							character = CZE_andrej_hlinka
@@ -298,7 +298,7 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						original_tag = CZE
+						original_tag = FCZ
 						NOT = {
 							has_government = fascism
 						}
@@ -308,7 +308,7 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						original_tag = CZE
+						original_tag = FCZ
 						NOT = {
 							has_government = neutrality
 						}

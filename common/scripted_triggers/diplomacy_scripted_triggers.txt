@@ -119,7 +119,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 				NOT = { has_dlc = "Death or Dishonor" }
 				AND = {
 					NOT = { original_tag = ROM }
-					NOT = { original_tag = YUG }
+					NOT = { original_tag = FYG }
 				}
 			}
 			OR = {
@@ -187,7 +187,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 				option = FREE
 			}
 			has_dlc = "Death or Dishonor"
-			original_tag = YUG
+			original_tag = FYG
 			NOT = { has_completed_focus = YUG_reunite_the_kingdom }
 		}
 		custom_trigger_tooltip = {
@@ -216,7 +216,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 				}
 			}
 			has_dlc = "By Blood Alone"
-			original_tag = ETH
+			original_tag = FET
 		}
 		custom_trigger_tooltip = {
 			tooltip = RULE_ALLOW_RELEASE_NATIONS_NOT_ETHIOPIA_TOOLTIP
@@ -357,7 +357,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			}
 			OR = {
 				original_tag = HUN
-				original_tag = CZE
+				original_tag = FCZ
 			}
 		}
 		custom_trigger_tooltip = {
@@ -422,7 +422,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 				}
 			}
 			OR = {
-				original_tag = POL
+				original_tag = NPO
 				original_tag = GER
 			}
 		}
@@ -444,7 +444,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 				}
 			}
 			OR = {
-				original_tag = POL
+				original_tag = NPO
 				original_tag = GER
 			}
 		}
@@ -467,11 +467,11 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			}
 			has_dlc = "Death or Dishonor"
 			original_tag = ITA
-			FROM = { tag = YUG }
+			FROM = { tag = FYG }
 		}
 		custom_trigger_tooltip = {
 			tooltip = RULE_ALLOW_RELEASE_NATIONS_NOT_ITALY_TOOLTIP
-			NOT = { FROM = { tag = YUG } }
+			NOT = { FROM = { tag = FYG } }
 		}
 	}
 	if = {
@@ -488,7 +488,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			}
 			original_tag = ITA
 			OR = {
-				FROM = { tag = ETH }
+				FROM = { tag = FET }
 				FROM = { tag = HAR }
 				FROM = { tag = TIG }
 				FROM = { tag = AFA }
@@ -501,7 +501,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 		}
 		custom_trigger_tooltip = {
 			tooltip = RULE_ALLOW_RELEASE_NATIONS_NOT_ETHIOPIA_COMPLIANCE_TOOLTIP
-			NOT = { FROM = { tag = ETH } }
+			NOT = { FROM = { tag = FET } }
 			NOT = { FROM = { tag = HAR } }
 			NOT = { FROM = { tag = TIG } }
 			NOT = { FROM = { tag = AFA } }
@@ -705,7 +705,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			OR = { 
 				original_tag = TUR
 				original_tag = SYR
-				original_tag = PER
+				original_tag = FPR
 				original_tag = IRQ
 			}
 		}
@@ -725,7 +725,7 @@ DIPLOMACY_RELEASE_NATION_ENABLE_TRIGGER = {
 			OR = { 
 				original_tag = TUR
 				original_tag = SYR
-				original_tag = PER
+				original_tag = FPR
 				original_tag = IRQ
 			}
 		}
@@ -1054,7 +1054,7 @@ DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
 }
 DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
     AND = {
-        NOT = { OR = { original_tag = CHI FROM = { original_tag = CHI } } }
+        NOT = { OR = { original_tag = FCH FROM = { original_tag = FCH } } }
 
         OR = {
             has_game_rule = { rule = allow_licensing option = FREE }
@@ -1331,8 +1331,8 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 				}
 				NOT = { 
 					AND = {
-						tag = ETH 
-						ETH = {
+						tag = FET 
+						FET = {
 							has_completed_focus = ETH_support_spain
 						}
 					}
@@ -1363,8 +1363,8 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 				}
 				NOT = { 
 					AND = {
-						tag = ETH 
-						ETH = {
+						tag = FET 
+						FET = {
 							has_completed_focus = ETH_support_spain
 						}
 					}
@@ -1378,7 +1378,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		else_if = {
 			limit = {
 				has_dlc = "La Resistance"
-				tag = POR
+				tag = NPR
 				FROM = { original_tag = SPR }
 				NOT = { has_global_flag = scw_over }
 			}
@@ -1490,7 +1490,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 				NOT = {
 					AND = {
 						has_completed_focus = SOV_support_the_kuomintang
-						FROM = { NOT = { tag = CHI } }
+						FROM = { NOT = { tag = FCH } }
 					}
 				}
 			}
@@ -1656,7 +1656,7 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 		#	}
 		#	custom_trigger_tooltip = {
 		#		tooltip = RULE_VOLUNTEERS_ETHIOPIA_ONLY_ONE_TT
-		#		FROM = { tag = ETH } 
+		#		FROM = { tag = FET } 
 		#	}
 		#}
 		else = {
@@ -1679,8 +1679,8 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 				NOT = { tag = SPC }
 				NOT = { 
 					AND = {
-						tag = ETH 
-						ETH = {
+						tag = FET 
+						FET = {
 							has_completed_focus = ETH_support_spain
 						}
 					}
@@ -1808,10 +1808,10 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 			NOT = { has_global_flag = ethiopia_recognized_flag }
 			OR = {
 				ROOT = {
-					tag = ETH
+					tag = FET
 				}
 				FROM = {
-					tag = ETH
+					tag = FET
 				}
 			}
 			
@@ -1848,7 +1848,7 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 		limit = {
 			has_dlc = "Arms Against Tyranny"
 			ROOT = {
-				original_tag = DEN
+				original_tag = NDE
 				has_country_flag = DEN_is_protectorate_flag
 				is_subject = yes 
 			}
@@ -1865,10 +1865,10 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 			NOT = { has_global_flag = ethiopia_recognized_flag }
 			OR = {
 				ROOT = {
-					tag = ETH
+					tag = FET
 				}
 				FROM = {
-					tag = ETH
+					tag = FET
 				}
 			}
 			
@@ -1905,7 +1905,7 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 		limit = {
 			has_dlc = "Arms Against Tyranny"
 			FROM = {
-				original_tag = DEN
+				original_tag = NDE
 				has_country_flag = DEN_is_protectorate_flag
 				is_subject = yes 
 			}
@@ -1920,7 +1920,7 @@ DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
 	if = { 
 		limit = {
 			has_dlc = "Arms Against Tyranny"
-			original_tag = DEN
+			original_tag = NDE
 			has_country_flag = DEN_is_protectorate_flag
 			is_subject = yes 
 
@@ -1936,7 +1936,7 @@ DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER = {
 		limit = {
 			has_dlc = "Arms Against Tyranny"
 			FROM = {
-				original_tag = DEN
+				original_tag = NDE
 				has_country_flag = DEN_is_protectorate_flag
 				is_subject = yes 
 			}

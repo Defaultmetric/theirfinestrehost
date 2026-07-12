@@ -553,7 +553,7 @@ colonial_police = {
 				OR = {
 					AND = {
 						has_completed_focus = ITA_albanian_fascist_militia
-						FROM = { original_tag = ALB }
+						FROM = { original_tag = FAL }
 					}
 					AND = {
 						has_completed_focus = ITA_ministry_of_italian_africa
@@ -562,7 +562,7 @@ colonial_police = {
 				}
 			}
 			AND = {
-				original_tag = BEL
+				original_tag = FBL
 				has_completed_focus = CONGO_force_publique
 				FROM = { capital_scope = { is_on_continent = africa } }
 			}
@@ -613,7 +613,7 @@ colonial_police_improved = {
 		NOT = { has_country_flag = ITA_colonial_police_final_flag }
 		OR = {
 			AND = {
-				FROM = { original_tag = ALB }
+				FROM = { original_tag = FAL }
 				has_completed_focus = ITA_albanian_fascist_militia
 			}
 			FROM = { capital_scope = { is_on_continent = africa } }
@@ -664,7 +664,7 @@ colonial_police_final = {
 		has_completed_focus = ITA_polizia_dell_africa_italiana
 		OR = {
 			AND = {
-				FROM = { original_tag = ALB }
+				FROM = { original_tag = FAL }
 				has_completed_focus = ITA_albanian_fascist_militia
 			}
 			FROM = { capital_scope = { is_on_continent = africa } }
@@ -713,10 +713,10 @@ secretaries_general = {
 
 	visible = {
 		has_dlc = "Gotterdammerung"
-		BEL = {
+		FBL = {
 			has_completed_focus = BEL_secretaries_general
 		}
-		FROM = { original_tag = BEL }
+		FROM = { original_tag = FBL }
 		NOT = {
 			has_global_flag = BEL_no_secretaries_general
 		}

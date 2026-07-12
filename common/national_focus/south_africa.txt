@@ -1494,8 +1494,8 @@ focus_tree = {
 			modifier = {
 				OR = {
 					SOV = { has_war_with = ENG }
-					SOV = { has_war_with = BEL }
-					SOV = { has_war_with = POR }
+					SOV = { has_war_with = FBL }
+					SOV = { has_war_with = NPR }
 				}
 				factor = 20 #now is the time to strike!
 			}
@@ -1528,10 +1528,10 @@ focus_tree = {
 			FRA = { 
 			 		add_opinion_modifier = { target = SAF modifier = SAF_anti_colonialist_crusaders } 
 			 }
-			BEL = { 
+			FBL = { 
 			 		add_opinion_modifier = { target = SAF modifier = SAF_anti_colonialist_crusaders } 
 			 }
-			POR = { 
+			NPR = { 
 			 		add_opinion_modifier = { target = SAF modifier = SAF_anti_colonialist_crusaders } 
 			 }
 		}
@@ -1585,7 +1585,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				POR = { has_war = yes }
+				NPR = { has_war = yes }
 				factor = 10
 			}
 		}
@@ -1609,7 +1609,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = take_state_focus
-				target = POR
+				target = NPR
 				expire = 0
 				generator = { 540 544 }
 			}
@@ -1629,7 +1629,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-				BEL = { has_war = yes }
+				FBL = { has_war = yes }
 				factor = 10
 			}
 		}
@@ -1650,7 +1650,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = take_state_focus
-				target = BEL
+				target = FBL
 				expire = 0
 				generator = { 538 718 295 }
 			}

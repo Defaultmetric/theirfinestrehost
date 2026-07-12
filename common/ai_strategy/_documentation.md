@@ -214,7 +214,7 @@ Negative value makes AI not guarantee independence on target country.
 ```
 ai_strategy = {
 	type = protect
-	id = "CZE"
+	id = "FCZ"
 	value = 200
 }
 ```
@@ -302,7 +302,7 @@ Low-level frontline control. Good for example to force the AI to blitz an area.
 ```
 ai_strategy = {
 	type = front_control
-	tag = HOL				# Can also target country, state, strategic_region, area. Can also specify multiple targets, each on its own line
+	tag = FNL				# Can also target country, state, strategic_region, area. Can also specify multiple targets, each on its own line
 	ratio = 0.25			# At least this ratio of the frontline provinces need to be targeted for the AI strat to apply
 	priority = 100			# Higher prio strats will override lower
 	ordertype = front		# Can be either {front, invasion}

@@ -3054,7 +3054,7 @@ country_event = {
 		trigger = {
 			NOT = {
 				AND = {
-					FROM = { original_tag = PER }
+					FROM = { original_tag = FPR }
 					ROOT = { original_tag = SOV }
 				}
 			}
@@ -3103,7 +3103,7 @@ country_event = {
 			base = 0
 			modifier = {
 				add = 1
-				FROM = { original_tag = PER }
+				FROM = { original_tag = FPR }
 				original_tag = SOV
 			}
 		}
@@ -3113,7 +3113,7 @@ country_event = {
 		name = NSB_soviet_foreign_politics_events.152.c
 
 		trigger = {
-			FROM = { original_tag = PER }
+			FROM = { original_tag = FPR }
 			original_tag = SOV
 			is_subject = no
 		}
@@ -3146,13 +3146,13 @@ country_event = {
 
 		custom_effect_tooltip = SOV_operation_countenance_successful_tt
 		effect_tooltip = {
-			puppet = PER
+			puppet = FPR
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
 			transfer_state = 1000 #East Azerbaijan
 			transfer_state = 1004 #North Khorasan
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = SOV state = 413 }
@@ -3164,7 +3164,7 @@ country_event = {
 		name = NSB_soviet_foreign_politics_events.152.d
 
 		trigger = {
-			FROM = { original_tag = PER }
+			FROM = { original_tag = FPR }
 			original_tag = SOV
 			is_subject = no
 			country_exists = ENG
@@ -3218,7 +3218,7 @@ country_event = {
 
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
 			ENG = {
-				puppet = PER
+				puppet = FPR
 			}
 			SOV = {
 				transfer_state = 419 #Tibriz (AZB)
@@ -3227,7 +3227,7 @@ country_event = {
 				transfer_state = 1000 #East Azerbaijan
 				transfer_state = 1004 #North Khorasan
 			}
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = ENG state = 413 }
@@ -3237,13 +3237,13 @@ country_event = {
 			custom_effect_tooltip = if_they_refuse_tt
 			activate_mission = SOV_preparations_for_operation_countenance
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
+			puppet = FPR
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
 			transfer_state = 1000 #East Azerbaijan
 			transfer_state = 1004 #North Khorasan
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = SOV state = 413 }
@@ -3297,10 +3297,10 @@ country_event = {
 							has_war_with = FROM
 						}
 					}
-					has_war_with = PER
-					has_guaranteed = PER
-					has_non_aggression_pact_with = PER
-					is_in_faction_with = PER
+					has_war_with = FPR
+					has_guaranteed = FPR
+					has_non_aggression_pact_with = FPR
+					is_in_faction_with = FPR
 					is_subject = yes
 					strength_ratio = {
 						tag = FROM
@@ -3325,7 +3325,7 @@ country_event = {
 			custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
 
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
+			puppet = FPR
 			SOV = {
 				transfer_state = 419 #Tibriz (AZB)
 				transfer_state = 420 #Gilan (AZB)
@@ -3333,7 +3333,7 @@ country_event = {
 				transfer_state = 1000 #East Azerbaijan
 				transfer_state = 1004 #North Khorasan
 			}
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = ENG state = 413 }
@@ -3378,14 +3378,14 @@ country_event = {
 		effect_tooltip = {
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
 			ENG = {
-				puppet = PER
+				puppet = FPR
 			}
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
 			transfer_state = 1000 #East Azerbaijan
 			transfer_state = 1004 #North Khorasan
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = ENG state = 413 }
@@ -3419,13 +3419,13 @@ country_event = {
 
 		effect_tooltip = {
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
-			puppet = PER
+			puppet = FPR
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
 			transfer_state = 1000 #East Azerbaijan
 			transfer_state = 1004 #North Khorasan
-			PER = {
+			FPR = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
 				give_resource_rights = { receiver = SOV state = 413 }
@@ -3448,7 +3448,7 @@ country_event = {
 		transfer_state = 416 #Khorasan
 		transfer_state = 1000 #East Azerbaijan
 		transfer_state = 1004 #North Khorasan
-		PER = {
+		FPR = {
 			give_resource_rights = { receiver = SOV state = 411 }
 			give_resource_rights = { receiver = SOV state = 412 }
 			give_resource_rights = { receiver = SOV state = 413 }
@@ -3473,7 +3473,7 @@ country_event = {
 		transfer_state = 416 #Khorasan
 		transfer_state = 1000 #East Azerbaijan
 		transfer_state = 1004 #North Khorasan
-		PER = {
+		FPR = {
 			give_resource_rights = { receiver = SOV state = 411 }
 			give_resource_rights = { receiver = SOV state = 412 }
 			give_resource_rights = { receiver = ENG state = 413 }
@@ -6011,9 +6011,9 @@ country_event = {
 				NOT = { has_war_with = PRC }
 			}
 			AND = {
-				country_exists = CHI
-				CHI = { is_subject = no }
-				NOT = { has_war_with = CHI }
+				country_exists = FCH
+				FCH = { is_subject = no }
+				NOT = { has_war_with = FCH }
 			}
 		}
 	}
@@ -6034,7 +6034,7 @@ country_event = {
 		}
 		modifier = {
 			factor = 2
-			has_full_control_of_state = 613 # NANJING (CHI)
+			has_full_control_of_state = 613 # NANJING (FCH)
 		}
 		modifier = {
 			factor = 2
@@ -6145,12 +6145,12 @@ country_event = {
 			}
 			if = {
 				limit = {
-					CHI = { is_faction_leader = yes }
-					NOT = { has_war_with = CHI }	
+					FCH = { is_faction_leader = yes }
+					NOT = { has_war_with = FCH }	
 				}
 				add_ai_strategy = {
 					type = alliance
-					id = CHI		
+					id = FCH		
 					value = 100
 				}
 			}
@@ -7018,13 +7018,13 @@ country_event = {
 			}
 			modifier = {
 				factor = 4
-				has_guaranteed = POL 
+				has_guaranteed = NPO 
 			}
 			modifier = {
 				factor = 0
 				OR = {
-					NOT = { country_exists = POL }
-					POL = { has_capitulated = yes }
+					NOT = { country_exists = NPO }
+					NPO = { has_capitulated = yes }
 					has_completed_focus = FRA_utilize_the_leagues
 					focus_progress = {
 						focus = FRA_utilize_the_leagues
@@ -7167,7 +7167,7 @@ country_event = {
 			modifier = {
 				factor = 5
 				has_opinion = {
-					target = POL
+					target = NPO
 					value > 25
 				}
 			}
@@ -7178,8 +7178,8 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					has_wargoal_against = POL
-					is_justifying_wargoal_against = POL
+					has_wargoal_against = NPO
+					is_justifying_wargoal_against = NPO
 					has_opinion_modifier = MR_pact
 					has_completed_focus = SOV_claims_on_poland
 					focus_progress = {
@@ -7273,13 +7273,13 @@ country_event = {
 			}
 			modifier = {
 				factor = 2
-				has_guaranteed = POL 
+				has_guaranteed = NPO 
 			}
 			modifier = {
 				factor = 0
 				OR = {
-					NOT = { country_exists = POL }
-					POL = { has_capitulated = yes }
+					NOT = { country_exists = NPO }
+					NPO = { has_capitulated = yes }
 				}
 			}
 		}
@@ -7297,14 +7297,14 @@ country_event = {
 
 	is_triggered_only = yes
 			
-	option = { # Good, let's ask POL
+	option = { # Good, let's ask NPO
 		name = NSB_soviet_policies_of_collective_security.6.a
 
 		if = {
 			limit = {
-				country_exists = POL
+				country_exists = NPO
 			}
-			POL = { country_event = { id = NSB_soviet_policies_of_collective_security.7 hours = 8 random_hours = 4 } } #Don't waste time, send it right away, Poland tends to die
+			NPO = { country_event = { id = NSB_soviet_policies_of_collective_security.7 hours = 8 random_hours = 4 } } #Don't waste time, send it right away, Poland tends to die
 
 			effect_tooltip = {
 				SOV_apply_collective_ageement_on_mutual_assistance_effects_basic = yes
@@ -7321,7 +7321,7 @@ country_event = {
 	}
 }
 
-# Policies of Collective Security - Wanna join Soviet-French <-(potentially) Mutual Assitance pact? - Event for POL
+# Policies of Collective Security - Wanna join Soviet-French <-(potentially) Mutual Assitance pact? - Event for NPO
 country_event = {
 	id = NSB_soviet_policies_of_collective_security.7
 	title = NSB_soviet_policies_of_collective_security.7.t
@@ -7387,7 +7387,7 @@ country_event = {
 				factor = 4
 				any_country = {
 					is_major = yes
-					has_guaranteed = POL
+					has_guaranteed = NPO
 				}
 			}
 			modifier = {
@@ -7658,7 +7658,7 @@ country_event = {
 
 	fire_only_once = yes
 
-	option = { #VAYA POR DIOS
+	option = { #VAYA NPR DIOS
 		name = NSB_soviet_five_year_plan.01.a
 		
 		custom_effect_tooltip = NSB_soviet_five_year_plan_tt
@@ -8099,7 +8099,7 @@ country_event = {
 				set_global_flag = flag_trotsky_returning_to_ussr_from_norway
 				set_global_flag = NOR_trotsky_in_soviet
 				clr_global_flag = NOR_trotsky_in_norway
-				NOR = { country_event = { id = mexico.22 hours = 1} }
+				NNO = { country_event = { id = mexico.22 hours = 1} }
 			}
 		}
 	}

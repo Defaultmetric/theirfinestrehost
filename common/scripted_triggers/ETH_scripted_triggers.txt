@@ -26,7 +26,7 @@ has_anarchist_government = {
 has_military_academy = {
 	IF = {
 		limit = { 
-			original_tag = ETH 
+			original_tag = FET 
 		}
 		custom_trigger_tooltip = {
 			tooltip = has_military_academy_tt 
@@ -41,7 +41,7 @@ has_military_academy = {
 has_naval_academy = {
 	IF = {
 		limit = { 
-			original_tag = ETH 
+			original_tag = FET 
 		}
 		custom_trigger_tooltip = {
 			tooltip = has_naval_academy_tt 
@@ -55,7 +55,7 @@ has_naval_academy = {
 has_air_academy = {
 	IF = {
 		limit = { 
-			original_tag = ETH 
+			original_tag = FET 
 		}
 		custom_trigger_tooltip = {
 			tooltip = has_air_academy_tt 
@@ -68,7 +68,7 @@ has_air_academy = {
 has_air_force_command = {
 	IF = {
 		limit = { 
-			original_tag = ETH 
+			original_tag = FET 
 		}
 		custom_trigger_tooltip = {
 			tooltip = has_air_force_command_tt 
@@ -81,43 +81,43 @@ has_air_force_command = {
 has_war_escalation_level_1 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_1_tt
-		check_variable = { ETH.ETH_war_escalation_level > 0 }
+		check_variable = { FET.ETH_war_escalation_level > 0 }
 	}
 }
 has_war_escalation_level_2 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_2_tt
-		check_variable = { ETH.ETH_war_escalation_level > 1 }
+		check_variable = { FET.ETH_war_escalation_level > 1 }
 	}
 }
 has_war_escalation_level_3 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_3_tt
-		check_variable = { ETH.ETH_war_escalation_level > 2 }
+		check_variable = { FET.ETH_war_escalation_level > 2 }
 	}
 }
 has_war_escalation_level_4 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_4_tt
-		check_variable = { ETH.ETH_war_escalation_level > 3 }
+		check_variable = { FET.ETH_war_escalation_level > 3 }
 	}
 }
 has_war_escalation_level_5 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_5_tt
-		check_variable = { ETH.ETH_war_escalation_level > 4 }
+		check_variable = { FET.ETH_war_escalation_level > 4 }
 	}
 }
 has_war_escalation_level_6 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_6_tt
-		check_variable = { ETH.ETH_war_escalation_level > 5 }
+		check_variable = { FET.ETH_war_escalation_level > 5 }
 	}
 }
 has_war_escalation_level_7 = {
 	custom_trigger_tooltip = {
 		tooltip = has_war_escalation_level_7_tt
-		check_variable = { ETH.ETH_war_escalation_level > 6 }
+		check_variable = { FET.ETH_war_escalation_level > 6 }
 	}
 }
 
@@ -125,7 +125,7 @@ league_of_nations_is_active = {
 	custom_trigger_tooltip = {
 		tooltip = league_of_nations_is_active_tt
 		NOT = { has_global_flag = LoN_disbanded_flag }
-		ETH = { NOT = { has_completed_focus = ETH_international_mediation}}
+		FET = { NOT = { has_completed_focus = ETH_international_mediation}}
 	}
 }
 
@@ -295,7 +295,7 @@ ETH_bop_is_mekwanint_power_or_higher = {
 
 ETH_is_horn_of_africa_original_tag = {
 	OR = {
-		original_tag = ETH
+		original_tag = FET
 		original_tag = SOM
 		original_tag = ERI
 		original_tag = DJI

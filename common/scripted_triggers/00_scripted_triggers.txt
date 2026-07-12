@@ -131,7 +131,7 @@ check_has_focus_tree_to_switch_to_fascism = {
 	}
 	NOT = {
 		AND = {
-			original_tag = CHI
+			original_tag = FCH
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
@@ -147,7 +147,7 @@ check_has_focus_tree_to_switch_to_democratic = {
 	NOT = { tag = AST }
 	NOT = { tag = NZL }
 	NOT = { tag = RAJ }
-	NOT = { tag = CZE }
+	NOT = { tag = FCZ }
 	NOT = {
 		AND = {
 			tag = HUN
@@ -174,7 +174,7 @@ check_has_focus_tree_to_switch_to_democratic = {
 	}
 	NOT = {
 		AND = {
-			original_tag = CHI 
+			original_tag = FCH 
 			has_dlc =  "No Compromise, No Surrender"
 		}
 	}
@@ -229,7 +229,7 @@ check_has_focus_tree_to_switch_to_communism = {
 	}
 	NOT = {
 		AND = {
-			original_tag = NOR
+			original_tag = NNO
 			has_dlc =  "Arms Against Tyranny"
 		}
 	}
@@ -629,12 +629,12 @@ is_available_to_collaboration_government = { # occupied_countries.1 should be up
 		limit = {
 			original_tag = ITA
 		}
-		NOT = { FROM = { original_tag = YUG } }
+		NOT = { FROM = { original_tag = FYG } }
 	}
 
 	if = {
 		limit = {
-			original_tag = POL
+			original_tag = NPO
 		}
 		NOT = { FROM = { original_tag = DNZ } }
 	}
@@ -1007,12 +1007,12 @@ is_alpine_state = {
 			state = 159 #Lombardia - ITA 
 			state = 850 #Trentino - ITA 
 			state = 39 #Alto Adige - ITA
-			state = 847 #Western Swiss Alps - SWI
-			state = 151 #Eastern Swiss Alps - SWI 
-			state = 846 #Ticino - SWI
-			state = 848 #Vorarlberg - AUS
-			state = 153 #Tyrol - AUS 
-			state = 152 #Upper Austria - AUS 
+			state = 847 #Western Swiss Alps - NSW
+			state = 151 #Eastern Swiss Alps - NSW 
+			state = 846 #Ticino - NSW
+			state = 848 #Vorarlberg - FAU
+			state = 153 #Tyrol - FAU 
+			state = 152 #Upper Austria - FAU 
 			state = 4 #Lower Austria 
 			state = 975 #Burgenland
 			state = 976 #Steiermark-Kömten 
@@ -1207,7 +1207,7 @@ has_aat = {
 
 is_aat_sweden = {
 		has_aat = yes
-		original_tag = SWE
+		original_tag = FSW
 }
 
 is_trotsky_valid_for_mexico = {
@@ -1340,14 +1340,14 @@ is_scandinavian_northern_sea_state = {
 is_germanic = {
 	OR = {
 		original_tag = GER
-		original_tag = NOR
-		original_tag = SWE
-		original_tag = DEN
-		original_tag = SWI
-		original_tag = HOL
+		original_tag = NNO
+		original_tag = FSW
+		original_tag = NDE
+		original_tag = NSW
+		original_tag = FNL
 		original_tag = LUX
-		original_tag = BEL
-		original_tag = AUS
+		original_tag = FBL
+		original_tag = FAU
 	}
 }
 

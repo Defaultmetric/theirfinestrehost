@@ -137,7 +137,7 @@ united_netherlands = {
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
-		tag = HOL
+		tag = FNL
 	}
 	
 	happened = {
@@ -259,7 +259,7 @@ poland_can_into_space = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = POL
+		tag = NPO
 	}
 	
 	happened = {
@@ -288,7 +288,7 @@ true_blitzkrieg = {
 				has_global_flag = achievement_france_surrender
 			}
 		}
-		POL = {
+		NPO = {
 			OR = {
 				exists = no
 				has_capitulated = yes
@@ -306,9 +306,9 @@ northern_light = {
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
 		OR = {
-			tag = DEN
-			tag = NOR
-			tag = SWE
+			tag = NDE
+			tag = NNO
+			tag = FSW
 			tag = FIN
 		}
 	}
@@ -316,15 +316,15 @@ northern_light = {
 	happened = {
 		is_faction_leader = yes
 		any_country = {
-			original_tag = NOR
+			original_tag = NNO
 			is_in_faction_with = ROOT
 		}
 		any_country = {
-			original_tag = DEN
+			original_tag = NDE
 			is_in_faction_with = ROOT
 		}
 		any_country = {
-			original_tag = SWE
+			original_tag = FSW
 			is_in_faction_with = ROOT
 		}
 		any_country = {
@@ -414,7 +414,7 @@ forge_of_victory = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = BEL
+		tag = FBL
 	}
 	
 	happened = {
@@ -534,7 +534,7 @@ party_like_its_1520 = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = DEN
+		tag = NDE
 	}
 	
 	happened = {
@@ -552,11 +552,11 @@ med_plutonium = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 	
 	happened = {
-		SWE = {
+		FSW = {
 			has_country_flag = achievement_med_plutonium
 		}
 	}
@@ -638,7 +638,7 @@ vojtek_commander = {
 	id = 31
 	
 	possible = {
-		tag = POL
+		tag = NPO
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -1030,15 +1030,15 @@ death_or_dishonor_or_cake = {
 			is_owned_by = ROOT
 		}
 		any_state = {
-			is_core_of = CZE
+			is_core_of = FCZ
 			is_owned_by = ROOT
 		}
 		any_state = {
-			is_core_of = YUG
+			is_core_of = FYG
 			is_owned_by = ROOT
 		}
 		any_state = {
-			is_core_of = POL
+			is_core_of = NPO
 			is_owned_by = ROOT
 		}
 	}
@@ -1075,7 +1075,7 @@ the_munich_disagreement = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = CZE
+		tag = FCZ
 	}
 	
 	happened = {
@@ -1093,7 +1093,7 @@ czechmate = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = CZE
+		tag = FCZ
 	}
 	
 	happened = {
@@ -1112,7 +1112,7 @@ huge_oslavia = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = YUG
+		tag = FYG
 	}
 	
 	happened = {
@@ -1124,7 +1124,7 @@ huge_oslavia = {
         }
         all_state = {
         	OR = {
-            	NOT = { is_core_of = AUS }
+            	NOT = { is_core_of = FAU }
             	is_controlled_by = ROOT
         	}
         }
@@ -1149,13 +1149,13 @@ huge_oslavia = {
         all_state = {
         	OR = {
         		state = 341
-	            NOT = { is_core_of = GRE }
+	            NOT = { is_core_of = NNG }
 	            is_controlled_by = ROOT
             }
         }
         all_state = {
         	OR = {
-	            NOT = { is_core_of = ALB }
+	            NOT = { is_core_of = FAL }
 	            is_controlled_by = ROOT
             }
         }
@@ -1171,7 +1171,7 @@ the_balkan_powder_keg = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = YUG
+		tag = FYG
 	}
 	
 	happened = {
@@ -1188,7 +1188,7 @@ en_svensk_tiger = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 	
 	happened = {
@@ -1260,7 +1260,7 @@ awake_and_angry = {
 	id = 55
 	
 	possible = {
-		tag = CHI
+		tag = FCH
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -1276,7 +1276,7 @@ awake_and_angry = {
 				OR = {
 					is_owned_by = ROOT
 					AND = {
-						NOT = { is_core_of = CHI }
+						NOT = { is_core_of = FCH }
 						NOT = { is_core_of = MAN }
 					}
 					state = 728
@@ -1292,7 +1292,7 @@ romance_of_the_three_kingdoms = {
 	id = 56
 	
 	possible = {
-		tag = CHI
+		tag = FCH
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -1527,7 +1527,7 @@ battlecry = {
 				OR = {
 					is_owned_by = ROOT
 					AND = {
-						NOT = { is_core_of = CHI }
+						NOT = { is_core_of = FCH }
 						NOT = { is_core_of = MAN }
 						NOT = { is_core_of = JAP }
 					}
@@ -1594,7 +1594,7 @@ panda_monium = {
 			has_war_with = SIK
 		}
 
-		has_war_with = CHI
+		has_war_with = FCH
 		has_war_with = PRC
 	}
 }
@@ -1723,7 +1723,7 @@ i_swear_im_not_a_byzantophile = {
 	id = 72
 	
 	possible = {
-		tag = GRE
+		tag = NNG
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -1965,7 +1965,7 @@ treading_the_narrow_path = {
 	id = 84
 	
 	possible = {
-		tag = HOL
+		tag = FNL
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -1985,7 +1985,7 @@ putting_the_raid_on_the_medway_to_shame = {
 	id = 85
 	
 	possible = {
-		tag = HOL
+		tag = FNL
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -2013,7 +2013,7 @@ bevrijding = {
 	id = 86
 	
 	possible = {
-		tag = HOL
+		tag = FNL
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -2084,7 +2084,7 @@ assuming_direct_control = {
 				tag = FRA
 				tag = SOV
 				tag = JAP
-				tag = CHI
+				tag = FCH
 			}
 		}
 	}
@@ -2121,7 +2121,7 @@ vive_la_jeune_ecole = {
 	id = 91
 	
 	possible = {
-		tag = POL
+		tag = NPO
 		is_ironman = yes
 		difficulty > 1
 		has_start_date > 1939.08.13
@@ -2132,7 +2132,7 @@ vive_la_jeune_ecole = {
 	happened = {
 		GER = {
 			casualties_inflicted_by = {
-				opponent = POL
+				opponent = NPO
 				thousands > 1800
 			}
 		}
@@ -2196,7 +2196,7 @@ portugal_bffs = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = POR
+		tag = NPR
 	}
 	
 	happened = {
@@ -2213,7 +2213,7 @@ portugal_macau_my_day = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = POR
+		tag = NPR
 	}
 	
 	happened = {
@@ -2221,7 +2221,7 @@ portugal_macau_my_day = {
 			tooltip = portugal_macau_my_day_tt
 			any_country = {
 				OR = {
-					original_tag = CHI
+					original_tag = FCH
 					original_tag = PRC
 					original_tag = GXC
 					original_tag = YUN
@@ -2229,7 +2229,7 @@ portugal_macau_my_day = {
 					original_tag = XSM
 					original_tag = SIK
 				}
-				is_subject_of = POR
+				is_subject_of = NPR
 				has_autonomy_state = autonomy_collaboration_government
 				729 = {
 					is_capital = yes
@@ -2238,7 +2238,7 @@ portugal_macau_my_day = {
 					OR = {
 						is_owned_by = PREV
 						AND = {
-							NOT = { is_core_of = CHI }
+							NOT = { is_core_of = FCH }
 							NOT = { is_core_of = MAN }
 						}
 					}
@@ -2600,7 +2600,7 @@ dont_die_for_your_country = {
 			all_state = {
 				OR = {
 					AND = {
-						NOT = { is_core_of = POL }
+						NOT = { is_core_of = NPO }
 						NOT = { is_core_of = FRA }
 					}
 					is_island_state = yes
@@ -2630,7 +2630,7 @@ warsaw_liberates_self = {
 			tooltip = warsaw_liberated_self_tt
 			any_country = {
 				has_war_with = ROOT
-				has_war_with = POL
+				has_war_with = NPO
 			}
 			has_global_flag = warsaw_liberated_self_flag
 		}
@@ -2712,7 +2712,7 @@ lousy_achievement = {
 		game_rules_allow_achievements = yes
 		OR = {
 			original_tag = TUR
-			original_tag = GRE
+			original_tag = NNG
 			original_tag = BUL
 		}
 	}
@@ -2723,7 +2723,7 @@ lousy_achievement = {
 			if = {
 				limit = {
 					OR = {
-						original_tag = GRE
+						original_tag = NNG
 						original_tag = BUL
 					}
 				}
@@ -2741,10 +2741,10 @@ lousy_achievement = {
 						}
 					}
 					OR = {
-						has_subject = GRE
+						has_subject = NNG
 						all_state = {
 							OR = {
-								NOT = { is_core_of = GRE }
+								NOT = { is_core_of = NNG }
 								state = 164
 								is_owned_by = ROOT
 							}
@@ -2765,7 +2765,7 @@ istanbul_is_constantinople_again = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = GRE
+		original_tag = NNG
 	}
 	
 	happened = {
@@ -2783,7 +2783,7 @@ peters_pride = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = YUG
+		original_tag = FYG
 	}
 	
 	happened = {
@@ -2803,7 +2803,7 @@ this_is_madness = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = GRE
+		original_tag = NNG
 	}
 	
 	happened = {
@@ -2869,7 +2869,7 @@ greek_civility = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = GRE
+		original_tag = NNG
 	}
 	
 	happened = {
@@ -2948,7 +2948,7 @@ draculas_revenge = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = YUG
+		original_tag = FYG
 	}
 	
 	happened = {
@@ -2986,9 +2986,9 @@ prussia_of_the_balkans = {
 				OR = {
 					NOT = { 
 						is_core_of = ROM
-						is_core_of = YUG
-						is_core_of = GRE
-						is_core_of = ALB 
+						is_core_of = FYG
+						is_core_of = NNG
+						is_core_of = FAL 
 					}
 					state = 164
 					is_controlled_by = BUL
@@ -3035,7 +3035,7 @@ bad_romeance = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = GRE
+		original_tag = NNG
 	}
 	
 	happened = {
@@ -3082,7 +3082,7 @@ freedom_or_death = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = GRE
+		original_tag = NNG
 	}
 	
 	happened = {
@@ -3103,15 +3103,15 @@ now_this_is_getting_childish = {
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
 		OR = {
-			original_tag = YUG
+			original_tag = FYG
 			original_tag = BUL
 		}
 	}
 	
 	happened = {
-		BUL = { has_war_with = YUG }
+		BUL = { has_war_with = FYG }
 		BUL = { has_country_leader = { character = BUL_regency_council ruling_only = yes } }
-		YUG = { has_country_leader_with_trait = underage_monarch }
+		FYG = { has_country_leader_with_trait = underage_monarch }
 	}
 }
 
@@ -3197,10 +3197,10 @@ master_puppeteer = {
 		count_triggers = {
 			amount = 6
 			ROM = { is_subject_of = ROOT }
-			YUG = { is_subject_of = ROOT }
+			FYG = { is_subject_of = ROOT }
 			HUN = { is_subject_of = ROOT }
-			GRE = { is_subject_of = ROOT }
-			ALB = { is_subject_of = ROOT }
+			NNG = { is_subject_of = ROOT }
+			FAL = { is_subject_of = ROOT }
 			SER = { is_subject_of = ROOT }
 			TUR = { is_subject_of = ROOT }
 			SLV = { is_subject_of = ROOT }
@@ -3328,26 +3328,26 @@ no_more_partitions = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = POL
+		original_tag = NPO
 	}
 	
 	happened = {
 		GER = {
 			OR = {
 				exists = no
-				is_in_faction_with = POL
+				is_in_faction_with = NPO
 			}
 		}
 		SOV = {
 			OR = {
 				exists = no
-				is_in_faction_with = POL
+				is_in_faction_with = NPO
 			}
 		}
-		POL = {
+		NPO = {
 			is_subject = no
 			all_core_state = {
-				is_controlled_by = POL
+				is_controlled_by = NPO
 			}
 		}
 	}
@@ -3362,11 +3362,11 @@ habsburgs_habsburgs_everywhere = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = POL
+		original_tag = NPO
 	}
 	
 	happened = {
-		POL = {
+		NPO = {
 			has_country_leader = {
 				character = POL_karl_albrecht
 				ruling_only = yes
@@ -3378,7 +3378,7 @@ habsburgs_habsburgs_everywhere = {
 				ruling_only = yes
 			}	
 		}
-		POL = { is_in_faction_with = HUN }
+		NPO = { is_in_faction_with = HUN }
 	}
 }
 
@@ -3410,11 +3410,11 @@ this_is_going_to_be_lit = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		original_tag = LIT
+		original_tag = NLI
 	}
 	
 	happened = {
-		LIT = {
+		NLI = {
 			controls_state = 808 #Riga
 			controls_state = 10 #Warsaw
 			controls_state = 64 #Berlin
@@ -3433,9 +3433,9 @@ it_has_my_name_on_it = {
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
 		OR = {
-			original_tag = LIT
-			original_tag = LAT
-			original_tag = EST
+			original_tag = NLI
+			original_tag = NLA
+			original_tag = NES
 		}
 	}
 	
@@ -3488,7 +3488,7 @@ this_achievement_is_cheesy = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		original_tag = LAT
+		original_tag = NLA
 	}
 	
 	happened = {
@@ -3506,111 +3506,111 @@ esti_is_scandi = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		original_tag = EST
+		original_tag = NES
 	}
 	
 	happened = {
 		110 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		142 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		143 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		144 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		666 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		38 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		141 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		139 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		140 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		138 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		124 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		37 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
 		99 = {
 			CONTROLLER = {
 				OR = {
-					original_tag = EST
-					is_subject_of = EST
+					original_tag = NES
+					is_subject_of = NES
 				}
 			}
 		}
@@ -3653,7 +3653,7 @@ one_step_forward = {
 	
 	happened = {
 		SOV = {
-			has_War_with = POL
+			has_War_with = NPO
 			has_war_with = GER
 			NOT = { has_country_flag = achievement_GER_attacked_POL_first }
 		}
@@ -3690,11 +3690,11 @@ crusader_kings_3 = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		original_tag = POL
+		original_tag = NPO
 	}
 	
 	happened = {
-		POL = {
+		NPO = {
 			has_country_flag = achievement_POL_elected_monarch #done this way to avoid spoiling the easteregg character
 			controls_state = 454
 		}
@@ -3888,11 +3888,11 @@ poland_peasant_revolution = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = POL
+		tag = NPO
 	}
 	
 	happened = {
-		POL = { 
+		NPO = { 
 			has_completed_focus = POL_organize_the_peasants_strike
 			has_civil_war = no
 			OR = {
@@ -3917,13 +3917,13 @@ and_you_get_a_canton = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = SWI
+		tag = NSW
 	}
 	
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = you_get_a_canton_tt
-			check_variable = { SWI.num_owned_states > 24 }
+			check_variable = { NSW.num_owned_states > 24 }
 		}
 	}
 }
@@ -3937,7 +3937,7 @@ im_not_locked_in_here_with_you = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = SWI
+		tag = NSW
 	}
 	
 	happened = {
@@ -3955,13 +3955,13 @@ swiss_cheese = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = SWI
+		tag = NSW
 	}
 	
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = swiss_cheese_tt
-			check_variable = { SWI.cheese_states > 4 } #set in on_state_control_changed
+			check_variable = { NSW.cheese_states > 4 } #set in on_state_control_changed
 		}
 	}
 }
@@ -3975,7 +3975,7 @@ you_shall_not_pass = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = SWI
+		tag = NSW
 	}
 	
 	happened = {
@@ -3992,7 +3992,7 @@ the_lion_that_roared = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = ETH
+		tag = FET
 	}
 	
 	happened = {
@@ -4009,7 +4009,7 @@ the_lion_king = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = ETH
+		tag = FET
 	}
 	
 	happened = {
@@ -4032,7 +4032,7 @@ this_time_for_africa = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = ETH
+		tag = FET
 	}
 	
 	happened = {
@@ -4099,7 +4099,7 @@ crusader_kings_4 = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = ETH
+		tag = FET
 	}
 	
 	happened = {
@@ -4118,7 +4118,7 @@ the_red_sea = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes			
-		tag = ETH
+		tag = FET
 	}
 	
 	happened = {
@@ -4378,14 +4378,14 @@ norway_jose = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = NOR
+		tag = NNO
 	}
 
 	happened = {
-		tag = NOR
+		tag = NNO
 		MEX = {
 			all_core_state = {
-				is_owned_and_controlled_by = NOR
+				is_owned_and_controlled_by = NNO
 			}
 		}
 	}
@@ -4399,12 +4399,12 @@ pinot_noirway = {
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = NOR
+		tag = NNO
 	}
 
 	happened = {
-		tag = NOR
-		27 = { is_owned_and_controlled_by = NOR }
+		tag = NNO
+		27 = { is_owned_and_controlled_by = NNO }
 	}
 }
 
@@ -4416,19 +4416,19 @@ cheese_your_fighter = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = NOR
+		tag = NNO
 	}
 
 	happened = {
-		tag = NOR
+		tag = NNO
 		has_country_leader = {
 			character = NOR_peder_anker_wedel_jarlsberg
 		}
-		921 = { is_owned_and_controlled_by = NOR } #Telemark
-		338 = { is_owned_and_controlled_by = NOR } #Glouchestershire
-		15 = { is_owned_and_controlled_by = NOR } #Normandy
-		159 = { is_owned_and_controlled_by = NOR } #Lombaria
-		7 = { is_owned_and_controlled_by = NOR } #Holand
+		921 = { is_owned_and_controlled_by = NNO } #Telemark
+		338 = { is_owned_and_controlled_by = NNO } #Glouchestershire
+		15 = { is_owned_and_controlled_by = NNO } #Normandy
+		159 = { is_owned_and_controlled_by = NNO } #Lombaria
+		7 = { is_owned_and_controlled_by = NNO } #Holand
 	}
 }
 
@@ -4440,12 +4440,12 @@ med_plutonium_2 = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = DEN
+		tag = NDE
 	}
 
 	happened = {
-		tag = DEN
-		DEN = { has_country_flag = achievement_med_plutonium_2 }
+		tag = NDE
+		NDE = { has_country_flag = achievement_med_plutonium_2 }
 	}
 }
 
@@ -4457,11 +4457,11 @@ everything_is_awesome = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = DEN
+		tag = NDE
 	}
 
 	happened = {
-		tag = DEN
+		tag = NDE
 		date > 1941.01.01
 		NOT = { has_global_flag = achievement_den_has_never_been_puppeted }
 		NOT = { has_global_flag = achievement_den_has_never_been_capitulated } 
@@ -4480,14 +4480,14 @@ the_danelaw = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = DEN
+		tag = NDE
 	}
 
 	happened = {
-		tag = DEN
+		tag = NDE
 		ENG = {
 			all_core_state = {
-				is_controlled_by = DEN
+				is_controlled_by = NDE
 			}
 		}
 	}
@@ -4572,7 +4572,7 @@ uralic_brothers_united = {
 	happened = {
 		tag = FIN
 		HUN = { is_subject_of = FIN }
-		EST = { is_subject_of = FIN }
+		NES = { is_subject_of = FIN }
 		SMI = { is_subject_of = FIN }
 		KAR = { is_subject_of = FIN }
 		MEL = { is_subject_of = FIN }
@@ -4677,13 +4677,13 @@ danzig_queen = { # works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 
 	happened = {
-		tag = SWE
+		tag = FSW
 		85 = {
-			is_owned_and_controlled_by = SWE
+			is_owned_and_controlled_by = FSW
 		}
 	}
 }
@@ -4696,12 +4696,12 @@ caramelldansen = { #Works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 
 	happened = {
-		tag = SWE
-		JAP = { is_subject_of = SWE }
+		tag = FSW
+		JAP = { is_subject_of = FSW }
 	}
 }
 
@@ -4713,19 +4713,19 @@ the_return_of_the_king = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 
 	happened = {
-		tag = SWE
+		tag = FSW
 		has_country_leader = {
 			character = SWE_king_gustaf_v
 		}
 		NOT = { has_idea = SWE_escaping_the_mainland }
 		has_global_flag = achivement_has_retreated_from_the_mainland
-		SWE = { 
+		FSW = { 
 			all_core_state = {
-				is_fully_controlled_by = SWE
+				is_fully_controlled_by = FSW
 			}
 
 		}
@@ -4862,11 +4862,11 @@ the_magic_school_bus = { #works
 		has_start_date < 1936.01.02
 		has_any_custom_difficulty_setting = no
 		game_rules_allow_achievements = yes
-		tag = SWE
+		tag = FSW
 	}
 
 	happened = {
-		tag = SWE
+		tag = FSW
 		has_global_flag = achievement_has_managed_to_travel_to_cape_town_in_18_days
 	}
 }
@@ -5771,7 +5771,7 @@ america_decolonized = {
 antischluss = {
 	id = 213
 	possible = {
-		tag = AUS
+		tag = FAU
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -5781,7 +5781,7 @@ antischluss = {
 
 	happened = {
 
-		AUS = {
+		FAU = {
 			custom_trigger_tooltip = {
 				tooltip = antischluss_tt
 				
@@ -5819,7 +5819,7 @@ no_friends_only_family = {
 	id = 214
 	possible = {
 		OR = {
-			tag = AUS
+			tag = FAU
 			tag = HUN
 		}
 		is_ironman = yes
@@ -5833,7 +5833,7 @@ no_friends_only_family = {
 
 		AND = {
 			OR = {
-				original_tag = AUS
+				original_tag = FAU
 				original_tag = HUN
 			}
 			custom_trigger_tooltip = {
@@ -5875,13 +5875,13 @@ no_friends_only_family = {
 
 					AND = {
 						NOT = {
-							tag = AUS
+							tag = FAU
 						}
 						has_country_leader = {
 							ruling_only = yes 
 							character = HUN_otto_von_habsburg
 						}
-						AUS = {
+						FAU = {
 							has_capitulated = no
 							exists = yes
 							has_country_leader = {
@@ -5891,7 +5891,7 @@ no_friends_only_family = {
 						}
 					}
 
-					POL = {
+					NPO = {
 						has_capitulated = no
 						exists = yes
 						has_country_leader = {
@@ -5900,7 +5900,7 @@ no_friends_only_family = {
 						}
 					}
 
-					CZE = {
+					FCZ = {
 						has_capitulated = no
 						exists = yes
 						has_country_leader = {
@@ -5971,7 +5971,7 @@ no_friends_only_family = {
 edelweiss_seedelweiss = {
 	id = 215
 	possible = {
-		tag = AUS
+		tag = FAU
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -5980,7 +5980,7 @@ edelweiss_seedelweiss = {
 	}
 
 	happened = {
-		AUS = {
+		FAU = {
 			any_controlled_state = {
 				is_coastal = yes
 			}
@@ -5997,7 +5997,7 @@ otto-man = {
 	id = 216
 	possible = {
 		OR = {
-			tag = AUS
+			tag = FAU
 			tag = HUN
 		}
 		is_ironman = yes
@@ -6010,7 +6010,7 @@ otto-man = {
 	happened = {
 		AND = {
 			OR = {
-				original_tag = AUS
+				original_tag = FAU
 				original_tag = HUN
 			}
 			has_country_leader = {
@@ -6129,7 +6129,7 @@ otto-man = {
 spaak_of_genius = {
 	id = 217
 	possible = {
-		tag = BEL
+		tag = FBL
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -6138,7 +6138,7 @@ spaak_of_genius = {
 	}
 
 	happened = {
-		original_tag = BEL
+		original_tag = FBL
 		has_country_leader = {
 			ruling_only = yes # default = yes
 			character = BEL_paul_henri_spaak
@@ -6146,7 +6146,7 @@ spaak_of_genius = {
 		
 		custom_trigger_tooltip = {
 			tooltip = spaak_of_genius_tt
-			check_variable = { BEL.special_projects_completed > 9 }
+			check_variable = { FBL.special_projects_completed > 9 }
 		}	
 	}
 }
@@ -6156,9 +6156,9 @@ brentry = {
 	id = 218
 	possible = {
 		OR = {
-			tag = BEL
-			tag = AUS
-			tag = HOL
+			tag = FBL
+			tag = FAU
+			tag = FNL
 		}
 		
 		is_ironman = yes
@@ -6171,8 +6171,8 @@ brentry = {
 	happened = {
 		OR = {
 			AND = {
-				original_tag = BEL
-				BEL = {
+				original_tag = FBL
+				FBL = {
 					is_faction_leader = yes
 					OR = {
 						has_completed_focus = BEL_the_council_of_europe
@@ -6184,8 +6184,8 @@ brentry = {
 			
 
 			AND = {
-				original_tag = AUS
-				AUS = {
+				original_tag = FAU
+				FAU = {
 					is_faction_leader = yes
 					has_completed_focus = AUS_via_danube_to_europe
 					ENG = { is_in_faction_with = ROOT }
@@ -6193,8 +6193,8 @@ brentry = {
 			}
 			
 			AND = {
-				original_tag = HOL
-				HOL = {
+				original_tag = FNL
+				FNL = {
 					is_faction_leader = yes
 					has_completed_focus = HOL_foundations_for_a_european_union
 					ENG = { is_in_faction_with = ROOT }
@@ -6208,7 +6208,7 @@ brentry = {
 the_501st_legion = {
 	id = 219
 	possible = {
-		tag = BEL
+		tag = FBL
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -6217,23 +6217,23 @@ the_501st_legion = {
 	}
 
 	happened = {
-		BEL = {
+		FBL = {
 			has_dynamic_modifier = {
 				modifier = BEL_rexist_legion_dynamic_modifier
 			} 
 			custom_trigger_tooltip = {
 				tooltip = the_501st_legion_tt
 				16 = { #Ile de FRance
-					is_fully_controlled_by = BEL
+					is_fully_controlled_by = FBL
 				}
 				8 = { #Luxembourg
-					is_fully_controlled_by = BEL
+					is_fully_controlled_by = FBL
 				}
 				7 = { #Holland
-					is_fully_controlled_by = BEL
+					is_fully_controlled_by = FBL
 				}
 				64 = { #Brandenburg
-					is_fully_controlled_by = BEL
+					is_fully_controlled_by = FBL
 				}
 			}
 		}
@@ -6681,7 +6681,7 @@ graveyard_of_empires = {
 		OR = {
 			tag = AFG
 			tag = IRQ
-			tag = PER
+			tag = FPR
 			tag = RAJ
 		}
 		is_ironman = yes
@@ -6704,7 +6704,7 @@ graveyard_of_empires = {
 							is_fully_controlled_by = AFG
 						}
 					}
-					PER = {
+					FPR = {
 						all_core_state = {
 							is_fully_controlled_by = AFG
 						}
@@ -6724,7 +6724,7 @@ graveyard_of_empires = {
 							is_fully_controlled_by = IRQ
 						}
 					}
-					PER = {
+					FPR = {
 						all_core_state = {
 							is_fully_controlled_by = IRQ
 						}
@@ -6735,23 +6735,23 @@ graveyard_of_empires = {
 						}
 					}
 				}
-				PER = {
+				FPR = {
 					has_country_flag = GOE_capitulated_AFG
 					has_country_flag = GOE_capitulated_IRQ
 					has_country_flag = GOE_capitulated_RAJ
 					AFG = {
 						all_core_state = {
-							is_fully_controlled_by = PER
+							is_fully_controlled_by = FPR
 						}
 					}
 					IRQ = {
 						all_core_state = {
-							is_fully_controlled_by = PER
+							is_fully_controlled_by = FPR
 						}
 					}
 					RAJ = {
 						all_core_state = {
-							is_fully_controlled_by = PER
+							is_fully_controlled_by = FPR
 						}
 					}
 				}
@@ -6769,7 +6769,7 @@ graveyard_of_empires = {
 							is_fully_controlled_by = RAJ
 						}
 					}
-					PER = {
+					FPR = {
 						all_core_state = {
 							is_fully_controlled_by = RAJ
 						}
@@ -6952,7 +6952,7 @@ thats_sikh = {
 pesky_greeks = {
 	id = 236
 	possible = {
-		tag = PER
+		tag = FPR
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -6963,9 +6963,9 @@ pesky_greeks = {
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = pesky_greeks_tt
-			GRE = {
+			NNG = {
 				all_core_state = {
-					is_owned_by = PER
+					is_owned_by = FPR
 				}
 			}
 		}
@@ -6975,7 +6975,7 @@ pesky_greeks = {
 the_sands_of_time = {
 	id = 237
 	possible = {
-		tag = PER
+		tag = FPR
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -6988,7 +6988,7 @@ the_sands_of_time = {
 			tooltip = the_sands_of_time_tt
 			all_of_scopes = {
 				array = global.GOE_middle_east_array
-				is_owned_by = PER
+				is_owned_by = FPR
 			}
 		}
 	}
@@ -6997,7 +6997,7 @@ the_sands_of_time = {
 the_legacy_of_cyrus_the_great = {
 	id = 238
 	possible = {
-		tag = PER
+		tag = FPR
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -7009,8 +7009,8 @@ the_legacy_of_cyrus_the_great = {
 		custom_trigger_tooltip = {
 			tooltip = the_legacy_of_cyrus_the_great_tt
 			all_of_scopes = {
-				array = PER.PER_achaemenid_empire_states
-				is_owned_by = PER
+				array = FPR.PER_achaemenid_empire_states
+				is_owned_by = FPR
 			}
 		}
 	}
@@ -7019,7 +7019,7 @@ the_legacy_of_cyrus_the_great = {
 from_tehran_with_love = {
 	id = 239
 	possible = {
-		tag = PER
+		tag = FPR
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -7031,10 +7031,10 @@ from_tehran_with_love = {
 		custom_trigger_tooltip = {
 			tooltip = from_tehran_with_love_tt
 			date > 1945.1.1
-			PER = {
-				has_guaranteed = POL
+			FPR = {
+				has_guaranteed = NPO
 			}
-			POL = {
+			NPO = {
 				exists = yes
 				is_subject = no
 				NOT = { has_country_flag = POL_has_capitulated_flag }
@@ -7272,7 +7272,7 @@ master_infiltrator = {
 its_all_coming_together = {
 	id = 254
 	possible = {
-		tag = CHI
+		tag = FCH
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -7283,7 +7283,7 @@ its_all_coming_together = {
 	happened = {
 		custom_trigger_tooltip = {
 			tooltip = its_all_coming_together_tt
-			CHI = {
+			FCH = {
 				all_of_scopes = {
 					array = global.PRC_starting_PRC_core_states
 					state_is_fully_controlled_by_ROOT_or_subject = yes
@@ -7296,7 +7296,7 @@ its_all_coming_together = {
 the_coast_is_clear = {
 	id = 255
 	possible = {
-		tag = CHI
+		tag = FCH
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -7308,7 +7308,7 @@ the_coast_is_clear = {
 		custom_trigger_tooltip = {
 			tooltip = the_coast_is_clear_tt
 			date > 1945.9.2
-			CHI = {
+			FCH = {
 				NOT = { has_country_flag = CHI_lost_a_coastal_state }
 			}
 		}
@@ -7318,7 +7318,7 @@ the_coast_is_clear = {
 a_fullmetal_brotherhood = {
 	id = 256
 	possible = {
-		tag = CHI
+		tag = FCH
 		is_ironman = yes
 		difficulty > 1
 		has_start_date < 1936.01.02
@@ -7327,7 +7327,7 @@ a_fullmetal_brotherhood = {
 	}
 
 	happened = {
-		CHI = {
+		FCH = {
 			has_government = fascism
 			has_resources_in_country = {
 				resource = steel
@@ -7544,7 +7544,7 @@ genghis_khant = {
 	id = 264
 	possible = {
 		OR = {
-			tag = CHI
+			tag = FCH
 			tag = PRC
 			tag = GXC
 			tag = YUN
@@ -7573,7 +7573,7 @@ genghis_khant = {
 	happened = {
 		AND = {
 			OR = {
-				tag = CHI
+				tag = FCH
 				tag = PRC
 				tag = GXC
 				tag = YUN

@@ -22,7 +22,7 @@ country_event = {
 			base = 100
 			modifier = {
 				add = 50 
-				CHI = {
+				FCH = {
 					OR = {
 						has_completed_focus = CHI_inspect_the_troops
 						has_completed_focus = CHI_extend_jurisdiction_to_the_provinces
@@ -33,16 +33,16 @@ country_event = {
 		}
 		trigger = {
 			OR = {
-				is_in_faction_with = CHI
-				is_subject_of = CHI
+				is_in_faction_with = FCH
+				is_subject_of = FCH
 			}
 		}
 		custom_effect_tooltip = GAME_OVER_TT
 		retire_character = SIC_liu_xiang
 		every_army_leader = {
-			set_nationality = CHI
+			set_nationality = FCH
 		}
-		CHI = { 
+		FCH = { 
 			annex_country = {
     			target = SIC
     			transfer_troops = yes
@@ -53,7 +53,7 @@ country_event = {
 			}
 			IF = {
 				limit = {
-					SIC = { is_subject_of = CHI }
+					SIC = { is_subject_of = FCH }
 				}
 				add_faction_influence_ratio = 0.05
 			}
@@ -77,7 +77,7 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.5
-				CHI = {
+				FCH = {
 					has_government = democratic
 				}
 			}
@@ -97,7 +97,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.2
 				hours = 6
@@ -1031,9 +1031,9 @@ country_event = {
 
 		has_dlc = "No Compromise, No Surrender"
 
-		original_tag = CHI
+		original_tag = FCH
 
-		CHI = { 
+		FCH = { 
 			exists = yes
 			is_subject = no
 		}
@@ -1640,10 +1640,10 @@ country_event = {
 		}
 		name = SEA_warlords.36.a
 		retire_character = GXC_chen_jitang
-		CHI = {
+		FCH = {
 			IF = {
 				limit = {
-					ROOT = { is_subject_of = CHI }
+					ROOT = { is_subject_of = FCH }
 				}
 				add_faction_influence_ratio = 0.05
 				IF = {
@@ -1709,7 +1709,7 @@ country_event = {
 				}
 			}
 		}
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.40
 				hours = 6
@@ -1760,7 +1760,7 @@ country_event = {
 			base = 50
 		}
 		name = SEA_warlords.37.a
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.41
 				hours = 6
@@ -1784,10 +1784,10 @@ country_event = {
 
 		add_stability = -0.05
 
-		CHI = {
+		FCH = {
 			IF = {
 				limit = {
-					ROOT = { is_subject_of = CHI }
+					ROOT = { is_subject_of = FCH }
 				}
 				add_faction_influence_ratio = 0.05
 				IF = {
@@ -1829,10 +1829,10 @@ country_event = {
 			IF = {
 				limit = {
 					GXC = {
-						is_subject_of = CHI
+						is_subject_of = FCH
 					}
 					GDC = {
-						is_subject_of = CHI
+						is_subject_of = FCH
 					}
 				}
 				clr_global_flag = lingguang_incident_active
@@ -1867,10 +1867,10 @@ country_event = {
 			IF = {
 				limit = {
 					GXC = {
-						is_subject_of = CHI
+						is_subject_of = FCH
 					}
 					GDC = {
-						is_subject_of = CHI
+						is_subject_of = FCH
 					}
 				}
 				clr_global_flag = lingguang_incident_active
@@ -1947,10 +1947,10 @@ country_event = {
 				set_nationality = ROOT
 			}
 		}
-		CHI = {
+		FCH = {
 			IF = {
 				limit = {
-					SND = { is_subject_of = CHI }
+					SND = { is_subject_of = FCH }
 				}
 				add_faction_influence_ratio = 0.05
 				IF = {
@@ -2060,7 +2060,7 @@ country_event = {
 				freedom_level = 0.5
 			}
 		}
-		CHI = {
+		FCH = {
 			create_wargoal = {
 				type = annex_everything
 				target = ROOT
@@ -2187,7 +2187,7 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.48
 				hours = 2
@@ -2235,7 +2235,7 @@ country_event = {
 			}
 		}
 
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.40
 				hours = 6
@@ -2284,7 +2284,7 @@ country_event = {
 	}
 }
 
-# The South Rallies Against Us - event for CHI 
+# The South Rallies Against Us - event for FCH 
 country_event = {
 	id = SEA_warlords.48
 	title = SEA_warlords.48.t
@@ -2326,7 +2326,7 @@ country_event = {
 	}
 }
 
-# A Stagnating Conflict - event for CHI 
+# A Stagnating Conflict - event for FCH 
 country_event = {
 	id = SEA_warlords.49
 	title = SEA_warlords.49.t
@@ -2556,7 +2556,7 @@ country_event = {
 
 		if = {
 			limit = {
-				CHI = {
+				FCH = {
 					has_completed_focus = CHI_strengthening_our_resolve
 					OR = {
 						NOT = { 
@@ -2569,7 +2569,7 @@ country_event = {
 					}
 				}
 			}
-			CHI = {
+			FCH = {
 				country_event = { id = SEA_warlords.100 days = 1	}
 			}
 		}
@@ -2627,7 +2627,7 @@ country_event = {
 	}	
 }
 
-# [FROM.GetLeader] Requests relocation to [608.GetName] - event for CHI 
+# [FROM.GetLeader] Requests relocation to [608.GetName] - event for FCH 
 country_event = {
 	id = SEA_warlords.56
 	title = SEA_warlords.56.t
@@ -3035,14 +3035,14 @@ country_event = {
 
 		IF = {
 			limit = {
-				is_in_faction_with = CHI
+				is_in_faction_with = FCH
 			}
-			CHI = {
+			FCH = {
 				remove_from_faction = ROOT
 			}
 		}
 
-		CHI = {
+		FCH = {
 			declare_war_on = {
 				target = ROOT
 				type = annex_everything
@@ -3087,7 +3087,7 @@ country_event = {
 			IF = {
 				limit = {
 					608 = {
-						is_owned_and_controlled_by = CHI
+						is_owned_and_controlled_by = FCH
 					}
 				}
 				608 = {
@@ -3097,7 +3097,7 @@ country_event = {
 			IF = {
 				limit = {
 					1039 = {
-						is_owned_and_controlled_by = CHI
+						is_owned_and_controlled_by = FCH
 					}
 				}
 				1039 = {
@@ -3107,7 +3107,7 @@ country_event = {
 			IF = {
 				limit = {
 					614 = {
-						is_owned_and_controlled_by = CHI
+						is_owned_and_controlled_by = FCH
 					}
 				}
 				614 = {
@@ -3164,7 +3164,7 @@ country_event = {
 				}
 			}
 			283 = {
-				transfer_state_to = CHI
+				transfer_state_to = FCH
 				remove_core_of = ROOT
 			}
 		}
@@ -3175,7 +3175,7 @@ country_event = {
 				}
 			}
 			744 = {
-				transfer_state_to = CHI
+				transfer_state_to = FCH
 				remove_core_of = ROOT
 			}
 		}
@@ -3186,7 +3186,7 @@ country_event = {
 				}
 			}
 			1032 = {
-				transfer_state_to = CHI
+				transfer_state_to = FCH
 				remove_core_of = ROOT
 			}
 		}
@@ -3197,7 +3197,7 @@ country_event = {
 				}
 			}
 			622 = {
-				transfer_state_to = CHI
+				transfer_state_to = FCH
 			}
 		}
 		IF = {
@@ -3211,7 +3211,7 @@ country_event = {
 					SHX = {
 						exists = yes
 						NOT = {
-							has_war_with = CHI
+							has_war_with = FCH
 						}
 					}
 				}
@@ -3221,7 +3221,7 @@ country_event = {
 			}
 			ELSE = {
 				1046 = {
-					transfer_state_to = CHI
+					transfer_state_to = FCH
 				}
 			}
 		}
@@ -3229,11 +3229,11 @@ country_event = {
 		custom_effect_tooltip = generic_skip_one_line_tt
 
 		diplomatic_relation = {
-		    country = CHI
+		    country = FCH
 		    relation = military_access
 		    active = yes
 		}
-		CHI = {
+		FCH = {
 			diplomatic_relation = {
 			    country = ROOT
 			    relation = military_access
@@ -3304,14 +3304,14 @@ country_event = {
 		}
 		
 		custom_effect_tooltip = GAME_OVER_TT
-		CHI = {
+		FCH = {
 			country_event = {
 				id = SEA_warlords.62
 				hours = 6
 			}	
 		}
 		effect_tooltip = {
-			CHI = {
+			FCH = {
 				annex_country = {
 					target = ROOT
 					transfer_troops = yes
@@ -3339,7 +3339,7 @@ country_event = {
 
 }
 
-# Dissolution of the Northwest Bandit Suppression Headquarters - event for CHI 
+# Dissolution of the Northwest Bandit Suppression Headquarters - event for FCH 
 country_event = {
 	id = SEA_warlords.62
 	title = SEA_warlords.62.t
@@ -3550,7 +3550,7 @@ country_event = {
 
 }
 
-# Generals Defect to [FROM.GetNameDef] - event for CHI 
+# Generals Defect to [FROM.GetNameDef] - event for FCH 
 country_event = {
 	id = SEA_warlords.68
 	title = SEA_warlords.68.t
@@ -3572,7 +3572,7 @@ country_event = {
 
 }
 
-# The Dissolution of the HBC - event for CHI 
+# The Dissolution of the HBC - event for FCH 
 country_event = {
 	id = SEA_warlords.69
 	title = SEA_warlords.69.t
@@ -3615,10 +3615,10 @@ country_event = {
 
 		}
 
-		CHI = {
+		FCH = {
 			IF = {
 				limit = {
-					HBC = { is_subject_of = CHI }
+					HBC = { is_subject_of = FCH }
 				}
 				add_faction_influence_ratio = 0.05
 				IF = {

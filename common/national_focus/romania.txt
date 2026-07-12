@@ -226,11 +226,11 @@ focus_tree = {
 		}
 
 		available = {
-			POL = { 
+			NPO = { 
 				exists = yes 
 				is_puppet = no
 			}
-			NOT = { has_war_with = POL }
+			NOT = { has_war_with = NPO }
 			is_subject = no
 		}
 
@@ -245,7 +245,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_popularity = { ideology = democratic popularity = 0.05 }
-			POL = { country_event = DOD_romania.1 }
+			NPO = { country_event = DOD_romania.1 }
 		}
 	}
 
@@ -267,8 +267,8 @@ focus_tree = {
 			is_in_faction = no
 			is_subject = no
 			OR = {
-				country_exists = POL
-				country_exists = CZE
+				country_exists = NPO
+				country_exists = FCZ
 			}
 		}
 
@@ -286,34 +286,34 @@ focus_tree = {
 			create_faction = ROM_CORDON_SANITAIRE_FACTION
 			if = {
 				limit = {
-					CZE = { 
+					FCZ = { 
 						exists = yes 
 						has_capitulated = no
 						is_subject = no
 						is_in_faction = no
 					}
 				}
-				CZE = { country_event = DOD_romania.10 }
+				FCZ = { country_event = DOD_romania.10 }
 			}
 			if = {
 				limit = {
-					POL = { 
+					NPO = { 
 						exists = yes 
 						has_capitulated = no
 						is_subject = no
 						is_in_faction = no
 					}
 				}
-				POL = { country_event = DOD_romania.10 }
+				NPO = { country_event = DOD_romania.10 }
 			}
 			if = {
 				limit = {
-					POL = {
+					NPO = {
 						is_faction_leader = yes #Poland did own faction
 						has_capitulated = no
 					}
 				}
-				POL = {
+				NPO = {
 						country_event = generic.2
 					}
 			}
@@ -947,7 +947,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ROM_puppet_bulgaria
-		will_lead_to_war_with = GRE
+		will_lead_to_war_with = NNG
 		cost = 10
 
 		ai_will_do = {
@@ -956,18 +956,18 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			GRE = {
+			NNG = {
 				exists = yes
 				NOT = {
 					is_in_faction_with = ROM
 				}
 			}
-			strength_ratio = { tag = GRE ratio > 1 }
+			strength_ratio = { tag = NNG ratio > 1 }
 			has_army_manpower = { size > 500000 }
 		}
  
 		bypass = {
-			GRE = {
+			NNG = {
 				OR = {
 					is_puppet_of = ROM
 					exists = no 
@@ -982,7 +982,7 @@ focus_tree = {
 		completion_reward = {
 			create_wargoal = {
 				type = puppet_wargoal_focus
-				target = GRE
+				target = NNG
 			}
 		}
 	}
@@ -994,7 +994,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ROM_puppet_bulgaria
-		will_lead_to_war_with = YUG
+		will_lead_to_war_with = FYG
 		cost = 10
 
 		ai_will_do = {
@@ -1003,7 +1003,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			YUG = {
+			FYG = {
 				exists = yes
 				is_subject = no
 				NOT = {
@@ -1011,19 +1011,19 @@ focus_tree = {
 				}
 			}
 			strength_ratio = {
-				tag = YUG
+				tag = FYG
 				ratio > 1.5
 			}
 			has_army_manpower = { size > 500000 }
 		}
 
 		bypass = {
-			YUG = {
+			FYG = {
 				has_war = yes
 			}
-			YUG = { is_subject_of = ROOT }
-			YUG = { exists = no }
-			has_wargoal_against = YUG
+			FYG = { is_subject_of = ROOT }
+			FYG = { exists = no }
+			has_wargoal_against = FYG
 		}
 
 		cancel_if_invalid = yes
@@ -1031,10 +1031,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			#Only split if YUG is not at war
+			#Only split if FYG is not at war
 			if = {
 				limit = {
-					YUG = {
+					FYG = {
 						OR = {
 							has_war = yes
 							is_subject = yes
@@ -1043,7 +1043,7 @@ focus_tree = {
 				}
 				create_wargoal = {
 					type = annex_everything
-					target = YUG
+					target = FYG
 				}
 			}
 			else = {
@@ -1054,21 +1054,21 @@ focus_tree = {
 			hidden_effect = {
 				IF = {
 					limit = {
-						YUG = {
+						FYG = {
 							capital_scope = {
 								NOT = {
 									is_in_array = {
-										array = AUS.expansion_targets
+										array = FAU.expansion_targets
 										value = THIS
 									}
 								}
 							} 
 						}
 					}
-					YUG = {
+					FYG = {
 						capital_scope = {
 							remove_from_array = {
-								array = AUS.expansion_targets
+								array = FAU.expansion_targets
 								value = THIS
 							}
 							log = "[THIS.GetName] was removed from the array"
@@ -1087,7 +1087,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ROM_align_hungary
-		will_lead_to_war_with = CZE
+		will_lead_to_war_with = FCZ
 		cost = 10
 
 		ai_will_do = {
@@ -1096,12 +1096,12 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			CZE = {
+			FCZ = {
 				exists = yes
 				is_puppet = no
 				NOT =  { is_in_faction_with = ROM }
 			}
-			strength_ratio = { tag = CZE ratio > 1.5 }
+			strength_ratio = { tag = FCZ ratio > 1.5 }
 			has_army_manpower = { size > 500000 }
 		}
 
@@ -1586,17 +1586,17 @@ focus_tree = {
 				}
 				#Cancel guarantees
 				diplomatic_relation = {
-					country = YUG
+					country = FYG
 					relation = guarantee
 					active = no
 				}
 				diplomatic_relation = {
-					country = CZE
+					country = FCZ
 					relation = guarantee
 					active = no
 				}
 				diplomatic_relation = {
-					country = GRE
+					country = NNG
 					relation = guarantee
 					active = no
 				}
@@ -5263,7 +5263,7 @@ focus_tree = {
 			unlock_decision_category_tooltip = ROM_change_sides
 			if = {
 				limit = {
-					POL = {
+					NPO = {
 						has_country_leader = {
 							character = ROM_king_michael
 							ruling_only = yes
@@ -5279,7 +5279,7 @@ focus_tree = {
 					ideology = neutrality
 					popularity = 50
 				}
-				POL = {
+				NPO = {
 					set_autonomy = {
 						target = ROM
 						autonomy_state = autonomy_personal_union

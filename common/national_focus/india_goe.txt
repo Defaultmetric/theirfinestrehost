@@ -2934,7 +2934,7 @@ focus_tree = {
         completion_reward = {
             if = {
                 limit = {
-                    PER = {
+                    FPR = {
                         all_core_state = {
                             is_fully_controlled_by = PREV
                         }
@@ -2943,11 +2943,11 @@ focus_tree = {
 
                 create_wargoal = {
                     type = annex_everything
-                    target = PER
+                    target = FPR
                 }
             }
             else = {
-                PER = {
+                FPR = {
                     every_core_state = {
                         if = {
                             limit = {
@@ -3175,7 +3175,7 @@ focus_tree = {
             every_state = {
                 limit = {
                     OR = {
-                        is_core_of = PER
+                        is_core_of = FPR
                         is_core_of = AFG
                         is_core_of = IRQ
                     }
@@ -5280,7 +5280,7 @@ focus_tree = {
 
             if = {
                 limit = {
-                    PER = {
+                    FPR = {
                         exists = yes
                         NOT = { is_subject_of = ROOT }
                     }
@@ -5288,7 +5288,7 @@ focus_tree = {
 
                 create_wargoal = {
                     type = annex_everything
-                    target = PER
+                    target = FPR
                 }
             }
 
@@ -6110,7 +6110,7 @@ focus_tree = {
             try_build_dockyard_in_core_otherwise_build_in_controlled = yes
             create_wargoal = {
                 type = annex_everything
-                target = INS
+                target = INF
                 #generator = { state_id } # optional 
             }
 
@@ -6653,7 +6653,7 @@ focus_tree = {
 
         available = {
             OR = {
-                CHI = {
+                FCH = {
                     controls_state = 743
                     owns_state = 743
                     is_subject = no
@@ -6679,13 +6679,13 @@ focus_tree = {
         completion_reward = {
             if = {
                 limit = {
-                    CHI = {
+                    FCH = {
                         controls_state = 743
                         owns_state = 743
                     }
                 }
 
-                CHI = {
+                FCH = {
                     country_event = { id = GOE_RAJ_eic.3  hours = 2 }
                 }
                 custom_effect_tooltip = if_they_accept_tt
@@ -13465,12 +13465,12 @@ focus_tree = {
             }
             if = {
                 limit = {
-                    CHI = {
+                    FCH = {
                         exists = yes
                         is_subject = no
                     }
                 }
-                CHI = {
+                FCH = {
                     country_event = { id = GOE_RAJ.17 hours = 1 }
                 }
             }
@@ -19112,9 +19112,9 @@ focus = {
 			is_subject_of = ENG
 		}
 		NOT = {
-			is_in_faction_with = PER
-			has_guaranteed = PER
-			has_non_aggression_pact_with = PER
+			is_in_faction_with = FPR
+			has_guaranteed = FPR
+			has_non_aggression_pact_with = FPR
 		}
 	}
 
@@ -19134,7 +19134,7 @@ focus = {
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 				declare_war_on = {
-					target = PER
+					target = FPR
 					type = annex_everything
 				}
 			}
@@ -19142,7 +19142,7 @@ focus = {
 		else = {
 			create_wargoal = {
 				type = annex_everything
-				target = PER
+				target = FPR
 			}
 		}
 	}
@@ -19439,7 +19439,7 @@ focus = {
 			create_equipment_variant = { #Made-up
 				name = "Refitted Destroyer Class" 		
 				type = ship_hull_light_1
-				name_group = "RAJ_DD_HISTORICAL" #Note: Doesn't matter if ROOT is not DEN, the effect will grab the appropriate country-specific name list anyways
+				name_group = "RAJ_DD_HISTORICAL" #Note: Doesn't matter if ROOT is not NDE, the effect will grab the appropriate country-specific name list anyways
 				parent_version = 0
 				modules = {
 					fixed_ship_battery_slot = ship_light_battery_1
@@ -23560,7 +23560,7 @@ focus = {
 
         available = {
             if = {
-                limit = {   #prevent ai from stealing orde from ETH if player
+                limit = {   #prevent ai from stealing orde from FET if player
                     is_ai = yes
                 }
                 OR = {
@@ -23595,9 +23595,9 @@ focus = {
                         has_character_flag = is_in_ethiopia
                     }
                     OR = {
-                        ETH = { is_ai = yes }
+                        FET = { is_ai = yes }
                         AND = {
-                            ETH = { is_ai = no }
+                            FET = { is_ai = no }
                             RAJ = { is_ai = no }
                         }
                     }
@@ -24602,7 +24602,7 @@ focus = {
                 controls_state = 990
                 controls_state = 432
             }
-            CHI = {
+            FCH = {
                 any_enemy_country = {
                     is_major = yes
                     NOT = { 

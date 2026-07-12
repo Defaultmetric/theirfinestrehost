@@ -11339,25 +11339,25 @@ focus_tree = {
 			}
 			if =  {
 				limit = {
-					country_exists = NFL
-					NOT = { NFL = { is_in_faction_with = GER } }
-					NOT = { has_war_with = NFL }
-					NOT = { NFL = { has_completed_focus = HOL_cave_to_the_germans } }
+					country_exists = FNL
+					NOT = { FNL = { is_in_faction_with = GER } }
+					NOT = { has_war_with = FNL }
+					NOT = { FNL = { has_completed_focus = HOL_cave_to_the_germans } }
 				}
 				create_wargoal = {
 					type = take_state_focus
-					target = NFL
+					target = FNL
 					expire = 0
 					generator = { 7 }
 				}
 			}
 			if =  {
 				limit = {
-					country_exists = NFL
-					NOT = { NFL = { is_in_faction_with = GER } }
-					NOT = { has_war_with = NFL }
+					country_exists = FNL
+					NOT = { FNL = { is_in_faction_with = GER } }
+					NOT = { has_war_with = FNL }
 					FNL = { has_completed_focus = HOL_cave_to_the_germans } 
-					NOT = { NFL = { has_completed_focus = HOL_the_netherlands_first } }
+					NOT = { FNL = { has_completed_focus = HOL_the_netherlands_first } }
 				}
 				FNL = {
 					country_event = { id = mtg_germany.1 hours = 6 }

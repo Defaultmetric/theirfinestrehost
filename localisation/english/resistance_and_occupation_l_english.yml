@@ -1,6 +1,6 @@
 ﻿l_english:
- RESISTANCE_TARGET_VALUE: "Resistance Target: $VALUE|H%0$"
- RESISTANCE_TARGET_VALUE_CAPPED: "Resistance Target: $VALUE|H%0$ (Capped from $VALUE_NON_CAPPED|H%0$)"
+ RESISTANCE_TARGET_VALUE:0 "£political_violence_texticon  Resistance Target: $VALUE|H%0$"
+ RESISTANCE_TARGET_VALUE_CAPPED:0 "£political_violence_texticon  Resistance Target: $VALUE|H%0$ (Capped from $VALUE_NON_CAPPED|H%0$)"
  RESISTANCE_TARGET_MODIFIER_HAS_CLAIM: "Controller has claim: $VALUE|-%0$"
  RESISTANCE_TARGET_MODIFIER_IS_AT_PEACE: "Controller is at peace: $VALUE|-%0$"
  RESISTANCE_TARGET_MODIFIER_OCCUPIED_CAPITULATED: "Occupied is capitulated: $VALUE|-%0$"
@@ -14,23 +14,23 @@
 
  RESISTANCE_DECAY_MODIFIER_HAS_CLAIM: "Controller has claim: $VALUE|+%0$"
  RESISTANCE_DECAY_MODIFIER_LOW_RESISTANCE: "Low Resistance: $VALUE|+%0$"
- RESISTANCE_DECAY_VALUE: "Resistance Decay: §G$VALUE|3$%§!"
- RESISTANCE_DECAY_VALUE_CAPPED: "Resistance Decay: §G$VALUE|3$%§! (Capped from §G$VALUE_NON_CAPPED|3$%§!)"
+ RESISTANCE_DECAY_VALUE:0 "£political_violence_loss_texticon  Resistance Decay: §G$VALUE|3$%§!"
+ RESISTANCE_DECAY_VALUE_CAPPED:0 "£political_violence_loss_texticon  Resistance Decay: §G$VALUE|3$%§! (Capped from §G$VALUE_NON_CAPPED|3$%§!)"
  
- RESISTANCE_GROWTH_VALUE: "Resistance Growth: §R$VALUE|3$%§!"
- RESISTANCE_GROWTH_VALUE_CAPPED: "Resistance Growth: §R$VALUE|3$%§! (Capped from §R$VALUE_NON_CAPPED|3$%§!)"
+ RESISTANCE_GROWTH_VALUE:0 "£political_violence_gain_texticon  Resistance Growth: §R$VALUE|3$%§!"
+ RESISTANCE_GROWTH_VALUE_CAPPED:0 "£political_violence_gain_texticon  Resistance Growth: §R$VALUE|3$%§! (Capped from §R$VALUE_NON_CAPPED|3$%§!)"
  
- RESISTANCE_STRENGTH: "Resistance Strength: $TOT|%2-$"
+ RESISTANCE_STRENGTH:1 "£political_violence_texticon  Resistance Strength: $TOT|%2-$"
  RESISTANCE_EFFECTS: "Resistance Effects:"
  COMPLIANCE_EFFECTS: "Compliance Effects:"
  
- COMPLIANCE_STRENGTH: "Compliance Strength: $TOT|%2+$"
+ COMPLIANCE_STRENGTH:0 "£compliance_texticon  Compliance Strength: $TOT|%2+$"
  
- COMPLIANCE_GROWTH_VALUE: "Compliance Growth: §G$VALUE|3$%§!"
- COMPLIANCE_GROWTH_VALUE_CAPPED: "Compliance Growth: §G$VALUE|3$%§! (Capped from §G$VALUE_NON_CAPPED|3$%§!)"
+ COMPLIANCE_GROWTH_VALUE:0 "£compliance_gain_texticon  Compliance Growth: §G$VALUE|3$%§!"
+ COMPLIANCE_GROWTH_VALUE_CAPPED:0 "£compliance_gain_texticon  Compliance Growth: §G$VALUE|3$%§! (Capped from §G$VALUE_NON_CAPPED|3$%§!)"
  
- COMPLIANCE_DECAY_VALUE: "Compliance Growth: §R$VALUE|3$%§!"
- COMPLIANCE_DECAY_VALUE_CAPPED: "Compliance Growth: §R$VALUE|3$%§! (Capped from §R$VALUE_NON_CAPPED|3$%§!)"
+ COMPLIANCE_DECAY_VALUE:0 "£compliance_gain_texticon  Compliance Growth: §R$VALUE|3$%§!"
+ COMPLIANCE_DECAY_VALUE_CAPPED:0 "£compliance_gain_texticon  Compliance Growth: §R$VALUE|3$%§! (Capped from §R$VALUE_NON_CAPPED|3$%§!)"
  
  COMPLIANCE_GROWTH_HAS_CLAIM: "Controller has claim: $VALUE|+%0$"
  COMPLIANCE_GROWTH_IS_AT_PEACE: "Controller is at peace: $VALUE|+%0$"
@@ -45,10 +45,10 @@
  LOCAL_RESISTANCE: "Local Resistance"
  LOCAL_COMPLIANCE: "Local Compliance"
  
- ADDITIONAL_RECRUITABLE_POPULATION_ENTRY: "Additional Recruitable Population: $VALUE|+%3$"
- RECRUITABLE_POPULATION_ENTRY: "Recruitable Population Factor: $VALUE|+%0$"
+ ADDITIONAL_RECRUITABLE_POPULATION_ENTRY:0 "£manpower_texticon  Additional Recruitable Population: $VALUE|+%3$"
+ RECRUITABLE_POPULATION_ENTRY:0 "£manpower_texticon  Recruitable Population Factor: $VALUE|+%0$"
  
- RESISTANCE_TARGET_FLOW: "Resistance spread from $STATE|H$: $FLOW|-%1$"
+ RESISTANCE_TARGET_FLOW:0 "£political_violence_texticon  Resistance spread from $STATE|H$: $FLOW|-%1$"
  RESISTANCE_DISABLED_INFO: "Resistance is currently being suppressed successfully and won't be able to grow further unless §HResistance Target§! reaches $LIMIT|%0H$"
  
  OCCUPATION_POLICY_AVAILABLE: "Available:"
@@ -86,7 +86,7 @@
  secretaries_general: "Secretaries General"
  senbu_occupation_law: "Senbu"
  
- COMPLIANCE_ADDITIONAL_DAILY_GAIN: "Additional Daily Compliance Gain: $GAIN$"
+ COMPLIANCE_ADDITIONAL_DAILY_GAIN:0 "£compliance_gain_texticon  Additional Daily Compliance Gain: $GAIN$"
  COMPLIANCE_GAIN_IS_DISABLED: "§RDisabled due to insufficient garrison§!"
  COMPLIANCE_GAIN_IS_SCALED: "Scaled by $RATIO|R.0%$ due to insufficient garrison!"
  
@@ -177,8 +177,8 @@
  sabotage_chromium: "Sabotage Chromium Resources"
  sabotage_coal: "Sabotage Coal Resources"
  
- RESISTANCE_CHANCE_FOR_ACTIVITY: "Chance for resistance activity: $CHANCE|%.1H$"
- RESISTANCE_CHANCE_FOR_GARRISON_PENETRATE: "Chance for resistance to penetrate garrisons: $CHANCE|%.0H$"
+ RESISTANCE_CHANCE_FOR_ACTIVITY:0 "£political_violence_texticon  Chance for resistance activity: $CHANCE|%.1H$"
+ RESISTANCE_CHANCE_FOR_GARRISON_PENETRATE:0 "£political_violence_texticon  Chance for resistance to penetrate garrisons: $CHANCE|%.0H$"
  RESISTANCE_ACTIVITY_LIST_TITLE: "One of the following effects will apply when the resistance penetrates the garrisons:"
  RESISTANCE_ACTIVITY_LIST_ENTRY: "  $NAME$: $CHANCE|%.0H$"
 
@@ -201,8 +201,9 @@
  
  SCALED_LAW_MODIFIER: "$LAW$ (Effect scaled by $RATIO|R.0%$ due to Garrison fulfillment)"
  
- STABILITY_RESISTANCE_PENALTY: "Resistance Target in Occupied Territories: $PENALTY|%%.0R$"
+ STABILITY_RESISTANCE_PENALTY:0 "£political_violence_texticon  Resistance Target in Occupied Territories: $PENALTY|%%.0R$"
  
+ MAIN_GARRISON_TEMPLATE: "Territory Management"
  OCCUPATION_SHOW_NO_RESISTING_COUNTRIES: "Show non-resisting countries ($NUM$)"
  DEFAULT_LAW_SELECTION: "Default Law"
  FOREIGN_SUPPORT: "Foreign Support"

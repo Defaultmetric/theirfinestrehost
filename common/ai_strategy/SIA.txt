@@ -277,3 +277,222 @@ SIA_save_for_partial = {
     	value = 500
 	}
 }
+
+# Historical TAOG foreign-policy support
+SIA_prep_fra_for_limited_war = {
+	allowed = {
+		has_dlc = "Thunder at Our Gates"
+		original_tag = FRA
+	}
+	enable = {
+		SIA = {
+			focus_progress = {
+				focus = SIA_recover_indochina
+				progress > 0
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = SIA
+		value = 200
+	}
+}
+
+SIA_dont_join_axis_historical = {
+	allowed = { original_tag = SIA }
+	enable = {
+		is_historical_focus_on = yes
+		date < 1942.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = GER
+		value = -60
+	}
+}
+
+SIA_stay_independent = {
+	allowed = { original_tag = SIA }
+	enable = {
+		is_historical_focus_on = yes
+		NOT = { has_truce_with = JAP }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = JAP
+		value = -80
+	}
+}
+
+SIA_ger_dont_invite_siam_historical = {
+	allowed = { original_tag = GER }
+	enable = {
+		is_historical_focus_on = yes
+		date < 1944.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = SIA
+		value = -60
+	}
+}
+
+FRA_dont_get_involved_in_limited_war = {
+	allowed = { original_tag = FRA }
+	enable = { threat < 0.98 }
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = ENG
+		value = 500
+		target_country = SIA
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = BRM
+		value = 500
+		target_country = SIA
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = MAL
+		value = 500
+		target_country = SIA
+	}
+}
+
+ENG_dont_get_involved_in_limited_war = {
+	allowed = { original_tag = ENG }
+	enable = { SIA = { is_in_faction = no } }
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = FRA
+		value = 500
+		target_country = SIA
+	}
+}
+
+GER_dont_get_involved_in_limited_war = {
+	allowed = {
+		OR = {
+			original_tag = GER
+			original_tag = HUN
+			original_tag = JAP
+			original_tag = ROM
+			original_tag = BUL
+			original_tag = ITA
+		}
+	}
+	enable = {
+		country_exists = VIC
+		SIA = { has_war_with = VIC }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = VIC
+		value = 9999
+		target_country = SIA
+	}
+}
+
+VIC_dont_call_allies_in_limited_war = {
+	allowed = { original_tag = VIC }
+	enable = {
+		VIC = { has_war_with = SIA }
+		SIA = { has_active_mission = SIA_limited_war_indochina }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = diplo_action_desire
+		id = VIC
+		value = -9999
+		target = call_allies
+	}
+}
+
+VIC_prep_for_war_with_SIA = {
+	allowed = { original_tag = VIC }
+	enable = {
+		SIA = {
+			focus_progress = {
+				focus = SIA_recover_indochina
+				progress > 0
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = SIA
+		value = 800
+	}
+}
+
+SIA_prep_for_war_with_VIC = {
+	allowed = { original_tag = SIA }
+	enable = {
+		country_exists = VIC
+		focus_progress = {
+			focus = SIA_recover_indochina
+			progress > 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = prepare_for_war
+		id = VIC
+		value = 800
+	}
+}
+
+SIA_reject_invitations_on_historical = {
+	allowed = { original_tag = SIA }
+	enable = { is_historical_focus_on = yes }
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = alliance
+		id = GER
+		value = -50
+	}
+}
+
+SIA_no_european_involvement = {
+	allowed = { original_tag = SIA }
+	enable = { is_historical_focus_on = yes }
+	abort = { always = no }
+
+	ai_strategy = { type = diplo_action_acceptance id = GER target = docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = ITA target = docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = ROM target = docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = HUN target = docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = BUL target = docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = SPR target = docking_rights value = -5000 }
+
+	ai_strategy = { type = diplo_action_desire id = GER target = offer_docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = ITA target = offer_docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = ROM target = offer_docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = HUN target = offer_docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = BUL target = offer_docking_rights value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = SPR target = offer_docking_rights value = -5000 }
+
+	ai_strategy = { type = diplo_action_acceptance id = GER target = air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = ITA target = air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = ROM target = air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = HUN target = air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = BUL target = air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_acceptance id = SPR target = air_base_access value = -5000 }
+
+	ai_strategy = { type = diplo_action_desire id = GER target = offer_air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = ITA target = offer_air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = ROM target = offer_air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = HUN target = offer_air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = BUL target = offer_air_base_access value = -5000 }
+	ai_strategy = { type = diplo_action_desire id = SPR target = offer_air_base_access value = -5000 }
+}

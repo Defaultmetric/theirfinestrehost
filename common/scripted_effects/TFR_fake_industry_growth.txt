@@ -1,0 +1,4020 @@
+# Monthly industry growth for fake replacement countries.
+# Generated from game.log (February 1936 through February 1941).
+# Only positive month-to-month changes are applied; decreases are intentionally ignored.
+
+TFR_fake_add_civilian_factory = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+		}
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = industrial_complex
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+TFR_fake_add_military_factory = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+		}
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = arms_factory
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+TFR_fake_add_dockyard = {
+	random_owned_controlled_state = {
+		limit = {
+			is_core_of = PREV
+			is_coastal = yes
+		}
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+			type = dockyard
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+TFR_apply_logged_fake_industry_growth = {
+	# Dispatch the logged monthly growth to every existing fake replacement country.
+	if = {
+		limit = {
+			FAL = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FAL
+					is_core_of = FAL
+				}
+			}
+		}
+		FAL = {
+			TFR_FAL_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FAU = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FAU
+					is_core_of = FAU
+				}
+			}
+		}
+		FAU = {
+			TFR_FAU_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FBL = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FBL
+					is_core_of = FBL
+				}
+			}
+		}
+		FBL = {
+			TFR_FBL_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FCZ = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FCZ
+					is_core_of = FCZ
+				}
+			}
+		}
+		FCZ = {
+			TFR_FCZ_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NDE = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NDE
+					is_core_of = NDE
+				}
+			}
+		}
+		NDE = {
+			TFR_NDE_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NES = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NES
+					is_core_of = NES
+				}
+			}
+		}
+		NES = {
+			TFR_NES_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FET = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FET
+					is_core_of = FET
+				}
+			}
+		}
+		FET = {
+			TFR_FET_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NNG = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NNG
+					is_core_of = NNG
+				}
+			}
+		}
+		NNG = {
+			TFR_NNG_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FNL = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FNL
+					is_core_of = FNL
+				}
+			}
+		}
+		FNL = {
+			TFR_FNL_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			INF = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = INF
+					is_core_of = INF
+				}
+			}
+		}
+		INF = {
+			TFR_INF_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NLA = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NLA
+					is_core_of = NLA
+				}
+			}
+		}
+		NLA = {
+			TFR_NLA_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NLI = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NLI
+					is_core_of = NLI
+				}
+			}
+		}
+		NLI = {
+			TFR_NLI_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NNO = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NNO
+					is_core_of = NNO
+				}
+			}
+		}
+		NNO = {
+			TFR_NNO_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FPR = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FPR
+					is_core_of = FPR
+				}
+			}
+		}
+		FPR = {
+			TFR_FPR_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NPO = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NPO
+					is_core_of = NPO
+				}
+			}
+		}
+		NPO = {
+			TFR_NPO_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NPR = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NPR
+					is_core_of = NPR
+				}
+			}
+		}
+		NPR = {
+			TFR_NPR_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FSW = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FSW
+					is_core_of = FSW
+				}
+			}
+		}
+		FSW = {
+			TFR_FSW_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			NSW = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = NSW
+					is_core_of = NSW
+				}
+			}
+		}
+		NSW = {
+			TFR_NSW_apply_logged_industry_growth = yes
+		}
+	}
+	if = {
+		limit = {
+			FYG = {
+				exists = yes
+				any_owned_state = {
+					is_owned_and_controlled_by = FYG
+					is_core_of = FYG
+				}
+			}
+		}
+		FYG = {
+			TFR_FYG_apply_logged_industry_growth = yes
+		}
+	}
+}
+
+TFR_FAL_apply_logged_industry_growth = {
+	# ALB -> FAL
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.7.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1936_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1936_08
+	}
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1936_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1937_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1937_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.12.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1938_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1938_01
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1938_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1939_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1940_06 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_FAL_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1940_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_FAL_logged_industry_1940_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAL_logged_industry_1940_12
+	}
+}
+
+TFR_FAU_apply_logged_industry_growth = {
+	# AUS -> FAU
+	if = {
+		limit = {
+			date > 1936.11.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1936_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1936_12
+	}
+	if = {
+		limit = {
+			date > 1937.2.28
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_03
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.6.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_07
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.9.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_10
+	}
+	if = {
+		limit = {
+			date > 1937.11.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1937_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1937_12
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.3.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_04
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.8.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_09
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1938_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1939_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1940_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1940_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_FAU_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FAU_logged_industry_1941_01
+	}
+}
+
+TFR_FBL_apply_logged_industry_growth = {
+	# BEL -> FBL
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.7.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1936_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1936_08
+	}
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1936_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1937.2.28
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1937_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1937_03
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1937_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1937_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.12.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1938_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1938_01
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1938_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1938_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1939_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_FBL_logged_industry_1941_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FBL_logged_industry_1941_01
+	}
+}
+
+TFR_FCZ_apply_logged_industry_growth = {
+	# CZE -> FCZ
+	if = {
+		limit = {
+			date > 1936.2.29
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1936_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1936_03
+	}
+	if = {
+		limit = {
+			date > 1936.6.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1936_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1936_07
+	}
+	if = {
+		limit = {
+			date > 1936.8.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1936_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1936_09
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.2.28
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1937_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1937_03
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1937_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1937_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.9.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1937_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1937_10
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1938_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1938_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1938_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.8.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1938_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1938_09
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1938_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1939_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_FCZ_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FCZ_logged_industry_1941_01
+	}
+}
+
+TFR_NDE_apply_logged_industry_growth = {
+	# DEN -> NDE
+	if = {
+		limit = {
+			date > 1936.4.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1936_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1936_05
+	}
+	if = {
+		limit = {
+			date > 1936.6.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1936_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1936_07
+	}
+	if = {
+		limit = {
+			date > 1936.9.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1936_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1936_10
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1937_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1937_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1938_02 }
+		}
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NDE_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.2.28
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1938_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1938_03
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1938_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1938_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1938_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1939_12 }
+		}
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NDE_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NDE_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NDE_logged_industry_1941_01
+	}
+}
+
+TFR_NES_apply_logged_industry_growth = {
+	# EST -> NES
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1937_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.6.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1937_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1937_07
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.9.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1937_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1937_10
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1938_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1939_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1940_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_NES_logged_industry_1940_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1940_05 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NES_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1940_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_NES_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1941_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1941_01
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NES_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NES_logged_industry_1941_02
+	}
+}
+
+TFR_FET_apply_logged_industry_growth = {
+	# ETH -> FET
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_FET_logged_industry_1938_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1939_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FET_logged_industry_1939_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1940_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_FET_logged_industry_1940_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_FET_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_FET_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FET_logged_industry_1941_02
+	}
+}
+
+TFR_NNG_apply_logged_industry_growth = {
+	# GRE -> NNG
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1936_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NNG_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1938_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1938_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1938_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1939_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1939_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NNG_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNG_logged_industry_1941_02
+	}
+}
+
+TFR_FNL_apply_logged_industry_growth = {
+	# HOL -> FNL
+	if = {
+		limit = {
+			date > 1936.2.29
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1936_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1936_03
+	}
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1936_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1936.11.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1936_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1936_12
+	}
+	if = {
+		limit = {
+			date > 1936.12.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1937_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1937_01
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.4.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1937_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1937_05
+	}
+	if = {
+		limit = {
+			date > 1937.9.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1937_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_FNL_logged_industry_1937_10
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.2.28
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_03
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.8.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_09
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1938_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1939_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_FNL_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FNL_logged_industry_1941_01
+	}
+}
+
+TFR_INF_apply_logged_industry_growth = {
+	# INS -> INF
+	if = {
+		limit = {
+			date > 1936.3.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1936_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1936_04
+	}
+	if = {
+		limit = {
+			date > 1936.7.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1936_08 }
+		}
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_INF_logged_industry_1936_08
+	}
+	if = {
+		limit = {
+			date > 1936.9.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1936_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1936_10
+	}
+	if = {
+		limit = {
+			date > 1937.9.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1937_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1937_10
+	}
+	if = {
+		limit = {
+			date > 1937.12.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1938_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1938_01
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1939_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1940_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1940_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_INF_logged_industry_1940_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_INF_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_INF_logged_industry_1941_01
+	}
+}
+
+TFR_NLA_apply_logged_industry_growth = {
+	# LAT -> NLA
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.3.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1938_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1938_04
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1938_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1938_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1939_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1939_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1939_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1941_01
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NLA_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLA_logged_industry_1941_02
+	}
+}
+
+TFR_NLI_apply_logged_industry_growth = {
+	# LIT -> NLI
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1939_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1939_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1940_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1940_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NLI_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NLI_logged_industry_1941_01
+	}
+}
+
+TFR_NNO_apply_logged_industry_growth = {
+	# NOR -> NNO
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1936_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1937.11.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1937_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1937_12
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.2.28
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_03
+	}
+	if = {
+		limit = {
+			date > 1938.3.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_04
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.8.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_09
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_10 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1938_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1939_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1939_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1939_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1940_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1940_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1940_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NNO_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NNO_logged_industry_1941_02
+	}
+}
+
+TFR_FPR_apply_logged_industry_growth = {
+	# PER -> FPR
+	if = {
+		limit = {
+			date > 1936.7.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1936_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1936_08
+	}
+	if = {
+		limit = {
+			date > 1936.12.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1937_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1937_01
+	}
+	if = {
+		limit = {
+			date > 1937.2.28
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1937_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1937_03
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1937_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.11.30
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1937_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1937_12
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1938_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1938_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1939_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1939_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1939_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1939_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1940_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_FPR_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FPR_logged_industry_1940_12
+	}
+}
+
+TFR_NPO_apply_logged_industry_growth = {
+	# POL -> NPO
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.6.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1936_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1936_07
+	}
+	if = {
+		limit = {
+			date > 1936.9.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1936_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1936_10
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1937_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.6.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1937_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1937_07
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1937_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.8.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1937_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1937_09
+	}
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1937.12.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_01
+	}
+	if = {
+		limit = {
+			date > 1938.2.28
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_03
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_07 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1938_12 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPO_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1939_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1941_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1941_01
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NPO_logged_industry_1941_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPO_logged_industry_1941_02
+	}
+}
+
+TFR_NPR_apply_logged_industry_growth = {
+	# POR -> NPR
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1936_11 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPR_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1936.12.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1937_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1937_01
+	}
+	if = {
+		limit = {
+			date > 1937.5.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1937_06 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPR_logged_industry_1937_06
+	}
+	if = {
+		limit = {
+			date > 1937.7.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1937_08 }
+		}
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPR_logged_industry_1937_08
+	}
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1937.12.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_01
+	}
+	if = {
+		limit = {
+			date > 1938.2.28
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_03
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1938_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1939_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1939_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1939_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_03 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_09 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1940_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_NPR_logged_industry_1941_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NPR_logged_industry_1941_01
+	}
+}
+
+TFR_FSW_apply_logged_industry_growth = {
+	# SWE -> FSW
+	if = {
+		limit = {
+			date > 1936.3.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1936_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1936_04
+	}
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_FSW_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.12.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1937_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1937_01
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1937_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1937.6.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1937_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1937_07
+	}
+	if = {
+		limit = {
+			date > 1937.11.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1937_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1937_12
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.5.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1938_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1938_06
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1938_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.7.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1938_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1938_08
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1938_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.2.28
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_03
+	}
+	if = {
+		limit = {
+			date > 1939.4.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_05
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.8.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_09
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.11.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1939_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1939_12
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.2.29
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_03 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_03
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.6.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_07
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1940.10.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_11 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_11
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1940_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1940.12.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1941_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1941_01
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_FSW_logged_industry_1941_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FSW_logged_industry_1941_02
+	}
+}
+
+TFR_NSW_apply_logged_industry_growth = {
+	# SWI -> NSW
+	if = {
+		limit = {
+			date > 1936.4.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1936_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1936_05
+	}
+	if = {
+		limit = {
+			date > 1936.6.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1936_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1936_07
+	}
+	if = {
+		limit = {
+			date > 1936.9.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1936_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1936_10
+	}
+	if = {
+		limit = {
+			date > 1937.3.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1937_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1937_04
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1938_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.10.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1938_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1938_11
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.1.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_02
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_04 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.6.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_07
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.10.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1939_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1939_11
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_01 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.1.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_02 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_02
+	}
+	if = {
+		limit = {
+			date > 1940.4.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_05 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_05
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.8.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_09 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_09
+	}
+	if = {
+		limit = {
+			date > 1940.11.30
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1940_12 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1940_12
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_NSW_logged_industry_1941_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_NSW_logged_industry_1941_02
+	}
+}
+
+TFR_FYG_apply_logged_industry_growth = {
+	# YUG -> FYG
+	if = {
+		limit = {
+			date > 1936.5.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1936_06 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1936_06
+	}
+	if = {
+		limit = {
+			date > 1936.7.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1936_08 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1936_08
+	}
+	if = {
+		limit = {
+			date > 1936.10.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1936_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1936_11
+	}
+	if = {
+		limit = {
+			date > 1937.1.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1937_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1937_02
+	}
+	if = {
+		limit = {
+			date > 1937.6.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1937_07 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1937_07
+	}
+	if = {
+		limit = {
+			date > 1937.10.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1937_11 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1937_11
+	}
+	if = {
+		limit = {
+			date > 1938.1.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1938_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1938_02
+	}
+	if = {
+		limit = {
+			date > 1938.4.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1938_05 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1938_05
+	}
+	if = {
+		limit = {
+			date > 1938.6.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1938_07 }
+		}
+		TFR_fake_add_military_factory = yes
+		TFR_fake_add_dockyard = yes
+		TFR_fake_add_dockyard = yes
+		set_country_flag = TFR_FYG_logged_industry_1938_07
+	}
+	if = {
+		limit = {
+			date > 1938.9.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1938_10 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1938_10
+	}
+	if = {
+		limit = {
+			date > 1938.11.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1938_12 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1938_12
+	}
+	if = {
+		limit = {
+			date > 1938.12.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1939_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1939_01
+	}
+	if = {
+		limit = {
+			date > 1939.3.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1939_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1939_04
+	}
+	if = {
+		limit = {
+			date > 1939.5.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1939_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1939_06
+	}
+	if = {
+		limit = {
+			date > 1939.7.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1939_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1939_08
+	}
+	if = {
+		limit = {
+			date > 1939.9.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1939_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1939_10
+	}
+	if = {
+		limit = {
+			date > 1939.12.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1940_01 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1940_01
+	}
+	if = {
+		limit = {
+			date > 1940.3.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1940_04 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1940_04
+	}
+	if = {
+		limit = {
+			date > 1940.5.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1940_06 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1940_06
+	}
+	if = {
+		limit = {
+			date > 1940.7.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1940_08 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1940_08
+	}
+	if = {
+		limit = {
+			date > 1940.9.30
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1940_10 }
+		}
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1940_10
+	}
+	if = {
+		limit = {
+			date > 1941.1.31
+			NOT = { has_country_flag = TFR_FYG_logged_industry_1941_02 }
+		}
+		TFR_fake_add_civilian_factory = yes
+		TFR_fake_add_military_factory = yes
+		set_country_flag = TFR_FYG_logged_industry_1941_02
+	}
+}

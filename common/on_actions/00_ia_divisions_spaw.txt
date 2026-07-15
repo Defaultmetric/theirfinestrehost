@@ -155,4 +155,94 @@ on_actions = {
             }
         }
     }
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = { 
+                        tag = FYG 
+                    }
+                }
+                every_state = {
+					limit = {	
+                        is_controlled_by = FYG
+					}
+					create_unit = {
+						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
+						owner = FYG
+					}
+					create_unit = {
+						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
+						owner = FYG
+					}						
+				}
+            }
+        }
+    }
+    on_war_relations_added = {
+        effect = {  #DEN is being attacked
+			if = { 
+				limit = {
+					FROM = {
+						original_tag = NDE
+					}
+					ROOT = { 
+						NOT = { #Don't trigger event in Civil War
+							original_tag = NDE
+						}
+						strength_ratio = { #Gotta be strong enough to intimidate Denmark
+						    tag = NDE
+						    ratio > 0.5
+						}
+						OR = {
+							is_neighbor_of = NDE
+							any_subject_country = {
+								is_subject_of = ROOT
+								is_neighbor_of = NDE
+							}
+							AND = {
+								naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+								    tag = NDE
+								    ratio > 0.5
+								}
+								any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+									is_coastal = yes
+									state_is_in_the_mediterranean_sea = no
+									BUL_state_is_in_the_black_sea = no
+									distance_to = {
+										target = 37
+										value < 2451
+									}
+								}
+							}
+							any_subject_country = {
+								is_subject_of = ROOT
+								naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+								    tag = NDE
+								    ratio > 0.5
+								}
+								any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+									is_coastal = yes
+									state_is_in_the_mediterranean_sea = no
+									BUL_state_is_in_the_black_sea = no
+									distance_to = {
+										target = 37
+										value < 2451
+									}
+								}
+							}
+						}
+					}
+				}
+				
+				ROOT = {
+					NDE = { 
+						country_event = { id = denmark_occupation_event.1 hours = 6 } 
+						set_country_flag = DEN_attacked #Used to check if DEN was attacked by GER in Tests
+					}
+				}	
+            }
+			
+		}
+    }
 }

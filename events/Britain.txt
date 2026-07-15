@@ -1,5 +1,6 @@
 ﻿add_namespace = britain 
 add_namespace = AAT_britain_narvik
+add_namespace = swissevent
 
 # Tizard mission event for USA
 country_event = {
@@ -1275,4 +1276,23 @@ country_event = {
 			clear_variable = GER_narvik_shipments
 		}
 	}
+}
+country_event = {
+	id = swissevent.1
+	title = swissevent.1.t
+	desc = swissevent.1.d
+	picture = GFX_report_event_king_speech
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		ENG = {
+			has_war = yes
+		}
+	}
+	option = {
+		name = swi_gold_eng.1.a
+		add_ideas = SWI_trading_with_switzerland_military
+	}
+
 }

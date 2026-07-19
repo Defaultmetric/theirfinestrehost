@@ -1286,7 +1286,20 @@ country_event = {
 
 	trigger = {
 		tag = ENG
-		date > 1936.1.1
+		has_war = yes
+		OR = {
+			has_global_flag = fall_of_france
+			FRA = { surrender_progress > 0.1 }
+			FNL = { surrender_progress > 0.1 }
+			FBL = { surrender_progress > 0.1 }
+			LUX = { surrender_progress > 0.1 }
+			NDE = { surrender_progress > 0.1 }
+			NNO = { surrender_progress > 0.1 }
+			AND = {
+				110 = { is_controlled_by = GER }
+				NOT = { is_in_faction_with = GER }
+			}
+		}
 	}
 	option = {
 		name = swissevent.1.a

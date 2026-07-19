@@ -1282,16 +1282,14 @@ country_event = {
 	title = swissevent.1.t
 	desc = swissevent.1.d
 	picture = GFX_report_event_king_speech
-	is_triggered_only = yes
 	fire_only_once = yes
 
 	trigger = {
-		ENG = {
-			has_war = yes
-		}
+		tag = ENG
+		date > 1936.1.1
 	}
 	option = {
-		name = swi_gold_eng.1.a
+		name = swissevent.1.a
 		add_ideas = SWI_trading_with_switzerland_military
 	}
 

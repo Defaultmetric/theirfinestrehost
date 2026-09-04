@@ -203,6 +203,10 @@ NDefines.NAI.LAND_COMBAT_OUR_COMBATS_AIR_IMPORTANCE = 55		-- Strategic importanc
 NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 10000		-- bonus to make ai more likely to assign low prio units to garrisons
 NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 10000		-- penalty to make ai less likely to assign low prio units to fronts
 NDefines.NAI.SCREENS_TO_CAPITAL_RATIO = 2.0					-- screens to capital/carrier count in carrier & capital taskforces
+NDefines.NAI.CARRIER_TASKFORCE_MAX_CARRIER_COUNT = 3		-- optimum carrier count for carrier taskforces (reduced from 4 to 3)
+NDefines.NAI.SUGGESTED_NUM_MAX_CARRIERS = 3					-- suggested max carriers for AI and task force templates (reduced from 4 to 3)
+NDefines.NAI.MIN_CAPITALS_FOR_CARRIER_TASKFORCE = 4			-- carrier fleets will at least have this amount of capitals (adjusted for 3 carriers)
+NDefines.NNavy.NAVAL_COMBAT_PLANE_MIN_STACKING_PENALTY = 60	-- plane threshold before battle penalty (scaled for 3 carriers: 3x20=60 instead of 80)
 NDefines.NAI.MAX_SCREEN_FORCES_FOR_INVASION_SUPPORT = 0.0 -- max ratio of screens forces to be used in naval invasion missions
 NDefines.NAI.MAX_CAPITAL_FORCES_FOR_INVASION_SUPPORT = 0.4 -- max ratio of capital forces to be used in naval invasion missions
 NDefines.NAI.FUEL_RATIO_TO_EXIST_FUEL_SAVING_MODE = 0.10 					-- countries will exit fuel saving mode if they have more fuel ratio than this

@@ -2538,6 +2538,20 @@ equipment_modules = {
 		dismantle_cost_ic = 250
 	}
 
+	ship_extra_fuel_tank = {
+		abbreviation = "sdb"
+		category = ship_extra_fuel_tank
+		
+		add_stats = {
+			naval_range = 500
+		}
+		multiply_stats = {
+			build_cost_ic = 0.05
+		}
+		dismantle_cost_ic = 700
+		critical_parts = { leaking_fuel_tanks }
+	}
+
 # Rocket Modules
 
 	sub_missile_launcher = {

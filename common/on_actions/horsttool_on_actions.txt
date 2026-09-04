@@ -129,6 +129,43 @@ on_actions = {
 				limit = {has_game_rule = {rule = horst_host_country option = HON}}
 				set_variable={host = HON.id}
 			}
+			if = {
+				limit = {
+					has_game_rule = { rule = TFR_fifi_settings option = ENABLED }
+					NOT = { has_global_flag = TFR_fifi_settings_enabled }
+				}
+				set_global_flag = TFR_fifi_settings_enabled
+				every_country = {
+					limit = {
+						NOT = {
+							OR = {
+								original_tag = ADT
+								original_tag = FAL
+								original_tag = FAU
+								original_tag = FBL
+								original_tag = FCH
+								original_tag = FCZ
+								original_tag = FET
+								original_tag = FNL
+								original_tag = FPR
+								original_tag = FSW
+								original_tag = FYG
+								original_tag = INF
+								original_tag = NDE
+								original_tag = NES
+								original_tag = NLA
+								original_tag = NLI
+								original_tag = NNG
+								original_tag = NNO
+								original_tag = NPO
+								original_tag = NPR
+								original_tag = NSW
+							}
+						}
+					}
+					add_research_slot = 1
+				}
+			}
 			var:host = {
 				set_variable = { marked_states = 0 }
 				set_country_flag = host

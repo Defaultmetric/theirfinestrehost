@@ -1053,6 +1053,7 @@ DIPLOMACY_INCOMING_LEND_LEASE_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
+    NOT = { has_global_flag = TFR_fifi_settings_enabled }
     AND = {
         NOT = { OR = { original_tag = FCH FROM = { original_tag = FCH } } }
 

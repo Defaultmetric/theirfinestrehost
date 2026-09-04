@@ -5681,6 +5681,51 @@ on_actions = {
 	# from scope state that the invasion started
 	on_naval_invasion = {
 	 	effect = {
+			# Naval invasion popup adapted from Makeshift Bridges (3412397442).
+			if = {
+				limit = { NOT = { CONTROLLER = { tag = ROOT } } }
+				CONTROLLER = {
+					if = {
+						limit = {
+							is_ai = no
+							NOT = { has_country_flag = notif_disable_inv_warning }
+						}
+						set_country_flag = ui_show_invasion_warning
+						set_variable = { ui_invaded_state = PREV }
+						set_variable = { ui_invaded_country = PREV.CONTROLLER }
+						set_variable = { ui_invader_country = ROOT }
+					}
+				}
+				if = {
+					limit = { CONTROLLER = { is_puppet = yes } }
+					CONTROLLER = {
+						OVERLORD = {
+							if = {
+								limit = {
+									is_ai = no
+									NOT = { has_country_flag = notif_disable_inv_warning }
+								}
+								set_country_flag = ui_show_invasion_warning
+								set_variable = { ui_invaded_state = PREV.PREV }
+								set_variable = { ui_invaded_country = PREV.PREV.CONTROLLER }
+								set_variable = { ui_invader_country = ROOT }
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_ai = no
+						is_in_faction_with = PREV.CONTROLLER
+						NOT = { has_country_flag = notif_disable_inv_warning }
+					}
+					set_country_flag = ui_show_invasion_warning
+					set_variable = { ui_invaded_state = PREV }
+					set_variable = { ui_invaded_country = PREV.CONTROLLER }
+					set_variable = { ui_invader_country = ROOT }
+				}
+			}
+
 		 	if = {
 				limit = {
 					ROOT = {
@@ -5709,6 +5754,51 @@ on_actions = {
 	# from scope state that the paradrop started
 	on_paradrop = {
 	    effect = {
+			# Paradrop popup adapted from Makeshift Bridges (3412397442).
+			if = {
+				limit = { NOT = { CONTROLLER = { tag = ROOT } } }
+				CONTROLLER = {
+					if = {
+						limit = {
+							is_ai = no
+							NOT = { has_country_flag = notif_disable_para_warning }
+						}
+						set_country_flag = ui_show_paradrop_warning
+						set_variable = { ui_paradrop_state = PREV }
+						set_variable = { ui_paradrop_country = PREV.CONTROLLER }
+						set_variable = { ui_paradrop_invader_country = ROOT }
+					}
+				}
+				if = {
+					limit = { CONTROLLER = { is_puppet = yes } }
+					CONTROLLER = {
+						OVERLORD = {
+							if = {
+								limit = {
+									is_ai = no
+									NOT = { has_country_flag = notif_disable_para_warning }
+								}
+								set_country_flag = ui_show_paradrop_warning
+								set_variable = { ui_paradrop_state = PREV.PREV }
+								set_variable = { ui_paradrop_country = PREV.PREV.CONTROLLER }
+								set_variable = { ui_paradrop_invader_country = ROOT }
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_ai = no
+						is_in_faction_with = PREV.CONTROLLER
+						NOT = { has_country_flag = notif_disable_para_warning }
+					}
+					set_country_flag = ui_show_paradrop_warning
+					set_variable = { ui_paradrop_state = PREV }
+					set_variable = { ui_paradrop_country = PREV.CONTROLLER }
+					set_variable = { ui_paradrop_invader_country = ROOT }
+				}
+			}
+
 		    ROOT = { set_country_flag = has_paradropped_flag }
 		}
 	}

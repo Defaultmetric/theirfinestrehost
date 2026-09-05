@@ -3230,17 +3230,19 @@ joint_focus = {
 
 	available = {
 		has_country_flag = accessible_shared_tree
-		if = 
-		{
-			OR = 
-			{
-				tag = ITA
-				tag = GER
+		OR = {
+			GER = {
+				has_full_control_of_state = 30
+				has_full_control_of_state = 24
+				has_full_control_of_state = 16
+				has_full_control_of_state = 785
 			}
-			has_full_control_of_state = 30
-			has_full_control_of_state = 24
-			has_full_control_of_state = 16
-			has_full_control_of_state = 785
+			ITA = {
+				has_full_control_of_state = 30
+				has_full_control_of_state = 24
+				has_full_control_of_state = 16
+				has_full_control_of_state = 785
+			}
 		}
 	}
 

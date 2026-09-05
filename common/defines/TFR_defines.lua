@@ -158,6 +158,9 @@ NDefines.NCountry.COMPLIANCE_PER_COLLABORATION = 1.0				--each percent of collab
 -- some optimization stuff
 
 NDefines.NDiplomacy.VOLUNTEERS_DIVISIONS_REQUIRED = 0						-- 30 This many divisons are required for the country to be able to send volunteers.
+NDefines.NDiplomacy.VOLUNTEERS_PER_TARGET_PROVINCE = 1.0						-- 0.05 Each province owned by the target contributes this much to the volunteer limit.
+NDefines.NDiplomacy.VOLUNTEERS_PER_COUNTRY_ARMY = 1.0						-- 0.05 Each of your own divisions contributes this much to the volunteer limit (1.0 = you may send your whole army).
+NDefines.NAI.MAX_VOLUNTEER_ARMY_FRACTION = 1.0								-- 0.25 AI will also send as many volunteers as it can.
 NDefines.NDiplomacy.DIPLOMACY_HOURS_BETWEEN_REQUESTS = 12
 NDefines.NDiplomacy.GUARANTEE_COST = 12
 NDefines.NDiplomacy.TRUCE_PERIOD_AFTER_KICKING_FROM_FACTION = 0

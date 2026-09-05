@@ -1,320 +1,144 @@
 on_actions = {
+    # 1. War declaration (manual or via scripted declare_war_on)
     on_declare_war = {
         effect = {
             if = {
                 limit = {
-                    FROM = { 
-                        tag = FBL 
+                    FROM = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
                     }
                 }
-                every_state = {
-					limit = {	
-                        is_controlled_by = FBL
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FBL
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FBL
-					}						
-				}
+                FROM = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
             }
         }
     }
-    on_declare_war = {
+
+    # 2. Fires whenever any two countries enter a war (via alliance, guarantee, focus, event or DOW)
+    on_war_relation_added = {
         effect = {
             if = {
                 limit = {
-                    FROM = { 
-                        tag = FNL 
+                    ROOT = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
                     }
                 }
-                every_state = {
-					limit = {	
-                        is_controlled_by = FNL
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FNL
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FNL
-					}
-                    create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FNL
-					}						
-				}
+                ROOT = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
             }
-        }
-    }
-    on_declare_war = {
-        effect = {
             if = {
                 limit = {
-                    FROM = { 
-                        tag = NDE 
+                    FROM = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
                     }
                 }
-                every_state = {
-					limit = {	
-                        is_controlled_by = NDE
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NDE
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NDE
-					}						
-				}
+                FROM = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
             }
-        }
-    }
-    on_declare_war = {
-        effect = {
-            if = {
+
+            # Denmark occupation event
+            if = { 
                 limit = {
-                    FROM = { 
-                        tag = NNO 
+                    FROM = {
+                        original_tag = NDE
+                    }
+                    ROOT = { 
+                        NOT = { #Don't trigger event in Civil War
+                            original_tag = NDE
+                        }
+                        strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                            tag = NDE
+                            ratio > 0.5
+                        }
+                        OR = {
+                            is_neighbor_of = NDE
+                            any_subject_country = {
+                                is_subject_of = ROOT
+                                is_neighbor_of = NDE
+                            }
+                            AND = {
+                                naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                                    tag = NDE
+                                    ratio > 0.5
+                                }
+                                any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+                                    is_coastal = yes
+                                    state_is_in_the_mediterranean_sea = no
+                                    BUL_state_is_in_the_black_sea = no
+                                    distance_to = {
+                                        target = 37
+                                        value < 2451
+                                    }
+                                }
+                            }
+                            any_subject_country = {
+                                is_subject_of = ROOT
+                                naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                                    tag = NDE
+                                    ratio > 0.5
+                                }
+                                any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+                                    is_coastal = yes
+                                    state_is_in_the_mediterranean_sea = no
+                                    BUL_state_is_in_the_black_sea = no
+                                    distance_to = {
+                                        target = 37
+                                        value < 2451
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                every_state = {
-					limit = {	
-                        is_controlled_by = NNO
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NNO
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NNO
-					}						
-				}
-            }
-        }
-    }
-    on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = NPO 
+                ROOT = {
+                    NDE = { 
+                        country_event = { id = denmark_occupation_event.1 hours = 6 } 
+                        set_country_flag = DEN_attacked #Used to check if DEN was attacked by GER in Tests
                     }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = NPO
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NPO
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NPO
-					}
-                    create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NPO
-					}						
-				}
+                }	
             }
         }
-    }
-    on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = FCZ 
-                    }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = FCZ
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FCZ
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FCZ
-					}
-                    create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FCZ
-					}						
-				}
-            }
-        }
-    }
-    on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = FYG 
-                    }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = FYG
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FYG
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FYG
-					}						
-				}
-            }
-        }
-    }
-	on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = NNG 
-                    }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = NNG
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NNG
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NNG
-					}						
-				}
-            }
-        }
-    }
-	on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = FPR 
-                    }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = FPR
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FPR
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = FPR
-					}						
-				}
-            }
-        }
-    }
-	on_declare_war = {
-        effect = {
-            if = {
-                limit = {
-                    FROM = { 
-                        tag = NPR 
-                    }
-                }
-                every_state = {
-					limit = {	
-                        is_controlled_by = NPR
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NPR
-					}
-					create_unit = {
-						division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1 start_equipment_factor = 1.0"
-						owner = NPR
-					}						
-				}
-            }
-        }
-    }
-    on_war_relations_added = {
-        effect = {  #DEN is being attacked
-			if = { 
-				limit = {
-					FROM = {
-						original_tag = NDE
-					}
-					ROOT = { 
-						NOT = { #Don't trigger event in Civil War
-							original_tag = NDE
-						}
-						strength_ratio = { #Gotta be strong enough to intimidate Denmark
-						    tag = NDE
-						    ratio > 0.5
-						}
-						OR = {
-							is_neighbor_of = NDE
-							any_subject_country = {
-								is_subject_of = ROOT
-								is_neighbor_of = NDE
-							}
-							AND = {
-								naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
-								    tag = NDE
-								    ratio > 0.5
-								}
-								any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
-									is_coastal = yes
-									state_is_in_the_mediterranean_sea = no
-									BUL_state_is_in_the_black_sea = no
-									distance_to = {
-										target = 37
-										value < 2451
-									}
-								}
-							}
-							any_subject_country = {
-								is_subject_of = ROOT
-								naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
-								    tag = NDE
-								    ratio > 0.5
-								}
-								any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
-									is_coastal = yes
-									state_is_in_the_mediterranean_sea = no
-									BUL_state_is_in_the_black_sea = no
-									distance_to = {
-										target = 37
-										value < 2451
-									}
-								}
-							}
-						}
-					}
-				}
-				
-				ROOT = {
-					NDE = { 
-						country_event = { id = denmark_occupation_event.1 hours = 6 } 
-						set_country_flag = DEN_attacked #Used to check if DEN was attacked by GER in Tests
-					}
-				}	
-            }
-			
-		}
     }
 }

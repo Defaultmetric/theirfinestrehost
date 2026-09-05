@@ -639,6 +639,7 @@ scripted_gui = {
 			add_cheat_click = {
 				owner = {
 					set_variable = { ROOT.target_country = this }
+					set_variable = { horst_last_cheat = ROOT.selected_cheat }
 					if = { limit = { check_variable = { ROOT.selected_cheat = 1 } } generic_bonus_1 = yes }
 					if = { limit = { check_variable = { ROOT.selected_cheat = 2 } } generic_bonus_3 = yes }
 					if = { limit = { check_variable = { ROOT.selected_cheat = 3 } } generic_bonus_2y = yes }
@@ -762,6 +763,7 @@ scripted_gui = {
 			add_color_click = {
 				owner = {
 					set_variable = { ROOT.target_country = this }
+					set_variable = { horst_last_color = ROOT.selected_color }
 					if = { limit = { check_variable = { ROOT.selected_color = 1 } } set_cosmetic_tag = COLORBLIND_RED }
 					if = { limit = { check_variable = { ROOT.selected_color = 2 } } set_cosmetic_tag = COLORBLIND_ORANGE }
 					if = { limit = { check_variable = { ROOT.selected_color = 3 } } set_cosmetic_tag = COLORBLIND_YELLOW }

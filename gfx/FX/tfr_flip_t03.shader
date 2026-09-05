@@ -40,31 +40,32 @@ PixelShader =
 {
 	MainCode PixelShaderFlipbook
 	[[
-		// 84 frames of 576x324 packed 7 across, 12 down. The atlas is 4032x3888
-		// because the engine refuses any texture over 4096 (texturehandler.cpp
-		// MAX_TEXTURE_SIZE), which caps total pixels and therefore frame count.
-		// 10 fps off the engine Time uniform: an 8.4 second loop.
+		// Screen cell (3,0) of a 4x4 grid. A single texture is capped at
+		// 4096 by the engine (texturehandler.cpp MAX_TEXTURE_SIZE), so 16 windows
+		// each carry their own 4032x4000 atlas. Together they hold 350 frames of
+		// a 1152x640 picture: 12 fps, a 29.2 second loop.
 		float4 main( VS_OUTPUT input ) : PDX_COLOR
 		{
-			const float COLS   = 7.0;
-			const float ROWS   = 12.0;
-			const float FRAMES = 84.0;
-			const float LOOP   = 8.4;
+			const float COLS   = 14.0;
+			const float ROWS   = 25.0;
+			const float FRAMES = 350.0;
+			const float LOOP   = 29.1666667;
+			const float2 CELL  = float2( 3.0, 0.0 );
 
 			float f  = floor( frac( abs( Time ) / LOOP ) * FRAMES );
 			float cy = floor( f / COLS );
 			float cx = f - cy * COLS;
 
-			// The background quad is 1920x1440 scaled to cover the screen, so its
-			// own vTexCoord does not line up with what is actually visible. Going
-			// through normalised device coords instead maps one video frame onto
-			// exactly the viewport, whatever the quad is doing.
-			float  w2 = max( abs( input.vScreenPos.w ), 0.00001 );
+			// Normalised device coords give the position on the SCREEN, which is
+			// what we want here: each window covers one 4x4 cell of the viewport.
+			float  w2  = max( abs( input.vScreenPos.w ), 0.00001 );
 			float2 ndc = input.vScreenPos.xy / w2;
-			float2 frameUV = float2( ndc.x * 0.5 + 0.5, -ndc.y * 0.5 + 0.5 );
+			float2 screenUV = float2( ndc.x * 0.5 + 0.5, -ndc.y * 0.5 + 0.5 );
 
-			// half texel of one tile, so bilinear never samples the next frame
-			float2 halfTexel = float2( 0.5 / 576.0, 0.5 / 324.0 );
+			// Stretch this cell back out to the full 0..1 range of its own tile.
+			float2 frameUV = screenUV * 4.0 - CELL;
+
+			float2 halfTexel = float2( 0.5 / 288.0, 0.5 / 160.0 );
 			float2 tile = clamp( saturate( frameUV ), halfTexel, 1.0 - halfTexel );
 
 			float2 uv = ( tile + float2( cx, cy ) ) / float2( COLS, ROWS );
@@ -80,8 +81,6 @@ BlendState BlendState
 	DestBlend = "inv_src_alpha"
 }
 
-# Without these the engine binds no effect at all and just blits the raw
-# texture, which is why the whole atlas showed up on screen at once.
 Effect Up
 {
 	VertexShader = "VertexShader"

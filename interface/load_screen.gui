@@ -1,11 +1,12 @@
 guiTypes = {
 
 	# TFR loading screen.
-	# NOTE: this is a legacy windowType. It only accepts iconType,
-	# instantTextBoxType and nested windowType children - nothing else parses.
+	# Kept byte-for-byte close to vanilla on purpose: this is a legacy
+	# windowType, it only accepts iconType / instantTextBoxType / windowType
+	# children, and its backGround field must stay an empty string.
 	windowType = {
 		name = "load_screen"
-		backGround ="GFX_TFR_load_black"
+		backGround =""
 		position = { x = 0 y = 0 }
 		size = { x = 1024 y = 768 }
 		moveable = 0
@@ -15,7 +16,6 @@ guiTypes = {
 		fullScreen = yes
 		Orientation = "UPPER_LEFT"
 
-		# Black plate, drawn first so everything below sits on top of it.
 		iconType = {
 			name = "TFR_loading_black"
 			spriteType = "GFX_TFR_load_black"
@@ -24,8 +24,6 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		# The animated wordmark. Reveal, travelling light and cast shadows all
-		# live in gfx/FX/tfr_loading.shader.
 		iconType = {
 			name = "TFR_loading_logo"
 			spriteType = "GFX_TFR_load_logo"
@@ -48,8 +46,6 @@ guiTypes = {
 			Orientation = "LOWER_RIGHT"
 		}
 
-		# Progress bar, moved to the bottom of the screen. The decorated vanilla
-		# panel behind it is gone, the bar itself stays.
 		windowType = {
 			name = "status"
 			backGround =""
@@ -83,7 +79,6 @@ guiTypes = {
 			}
 		}
 
-		# Tips are pushed off-screen; the engine still has a textbox to write into.
 		windowType = {
 			name = "tip"
 			backGround =""

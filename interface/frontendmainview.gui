@@ -14,293 +14,1107 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		# Outer quarter 0. It only exists so its four children land on the right
-		# sixteenth of the screen: percentages are relative to the parent, and
-		# position does not take them, so corners are the only way to tile.
-		containerWindowType = {
-			name = "tfr_bg_quarter0"
-			position = { x = 0 y = 0 }
-			size = { width = 50% height = 50% }
-			Orientation = upper_left
-			origo = upper_left
-			clipping = no
+		# 8x8 grid of screen cells. Percent sizes are relative to the parent and
+		# position does not take percentages, so three levels of corner-anchored
+		# 50%x50% windows are the only way to tile the screen evenly.
+			# tfr_bg_q0
+			containerWindowType = {
+				name = "tfr_bg_q0"
+				position = { x = 0 y = 0 }
+				size = { width = 50% height = 50% }
+				Orientation = upper_left
+				origo = upper_left
+				clipping = no
 
+				# tfr_bg_h00
 				containerWindowType = {
-					name = "tfr_bg_t00"
+					name = "tfr_bg_h00"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_left
 					origo = upper_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t00"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c00"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c00"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c01"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c01"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c08"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c08"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c09"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c09"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h01
 				containerWindowType = {
-					name = "tfr_bg_t01"
+					name = "tfr_bg_h01"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_right
 					origo = upper_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t01"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c02"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c02"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c03"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c03"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c10"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c10"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c11"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c11"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h02
 				containerWindowType = {
-					name = "tfr_bg_t04"
+					name = "tfr_bg_h02"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_left
 					origo = lower_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t04"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c16"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c16"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c17"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c17"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c24"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c24"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c25"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c25"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h03
 				containerWindowType = {
-					name = "tfr_bg_t05"
+					name = "tfr_bg_h03"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_right
 					origo = lower_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t05"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c18"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c18"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c19"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c19"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c26"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c26"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c27"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c27"
+							alwaystransparent = yes
+						}
 					}
 				}
-		}
+			}
+			# tfr_bg_q1
+			containerWindowType = {
+				name = "tfr_bg_q1"
+				position = { x = 0 y = 0 }
+				size = { width = 50% height = 50% }
+				Orientation = upper_right
+				origo = upper_right
+				clipping = no
 
-		# Outer quarter 1. It only exists so its four children land on the right
-		# sixteenth of the screen: percentages are relative to the parent, and
-		# position does not take them, so corners are the only way to tile.
-		containerWindowType = {
-			name = "tfr_bg_quarter1"
-			position = { x = 0 y = 0 }
-			size = { width = 50% height = 50% }
-			Orientation = upper_right
-			origo = upper_right
-			clipping = no
-
+				# tfr_bg_h10
 				containerWindowType = {
-					name = "tfr_bg_t02"
+					name = "tfr_bg_h10"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_left
 					origo = upper_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t02"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c04"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c04"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c05"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c05"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c12"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c12"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c13"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c13"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h11
 				containerWindowType = {
-					name = "tfr_bg_t03"
+					name = "tfr_bg_h11"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_right
 					origo = upper_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t03"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c06"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c06"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c07"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c07"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c14"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c14"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c15"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c15"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h12
 				containerWindowType = {
-					name = "tfr_bg_t06"
+					name = "tfr_bg_h12"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_left
 					origo = lower_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t06"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c20"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c20"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c21"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c21"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c28"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c28"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c29"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c29"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h13
 				containerWindowType = {
-					name = "tfr_bg_t07"
+					name = "tfr_bg_h13"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_right
 					origo = lower_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t07"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c22"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c22"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c23"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c23"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c30"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c30"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c31"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c31"
+							alwaystransparent = yes
+						}
 					}
 				}
-		}
+			}
+			# tfr_bg_q2
+			containerWindowType = {
+				name = "tfr_bg_q2"
+				position = { x = 0 y = 0 }
+				size = { width = 50% height = 50% }
+				Orientation = lower_left
+				origo = lower_left
+				clipping = no
 
-		# Outer quarter 2. It only exists so its four children land on the right
-		# sixteenth of the screen: percentages are relative to the parent, and
-		# position does not take them, so corners are the only way to tile.
-		containerWindowType = {
-			name = "tfr_bg_quarter2"
-			position = { x = 0 y = 0 }
-			size = { width = 50% height = 50% }
-			Orientation = lower_left
-			origo = lower_left
-			clipping = no
-
+				# tfr_bg_h20
 				containerWindowType = {
-					name = "tfr_bg_t08"
+					name = "tfr_bg_h20"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_left
 					origo = upper_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t08"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c32"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c32"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c33"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c33"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c40"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c40"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c41"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c41"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h21
 				containerWindowType = {
-					name = "tfr_bg_t09"
+					name = "tfr_bg_h21"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_right
 					origo = upper_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t09"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c34"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c34"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c35"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c35"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c42"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c42"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c43"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c43"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h22
 				containerWindowType = {
-					name = "tfr_bg_t12"
+					name = "tfr_bg_h22"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_left
 					origo = lower_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t12"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c48"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c48"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c49"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c49"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c56"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c56"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c57"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c57"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h23
 				containerWindowType = {
-					name = "tfr_bg_t13"
+					name = "tfr_bg_h23"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_right
 					origo = lower_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t13"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c50"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c50"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c51"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c51"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c58"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c58"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c59"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c59"
+							alwaystransparent = yes
+						}
 					}
 				}
-		}
+			}
+			# tfr_bg_q3
+			containerWindowType = {
+				name = "tfr_bg_q3"
+				position = { x = 0 y = 0 }
+				size = { width = 50% height = 50% }
+				Orientation = lower_right
+				origo = lower_right
+				clipping = no
 
-		# Outer quarter 3. It only exists so its four children land on the right
-		# sixteenth of the screen: percentages are relative to the parent, and
-		# position does not take them, so corners are the only way to tile.
-		containerWindowType = {
-			name = "tfr_bg_quarter3"
-			position = { x = 0 y = 0 }
-			size = { width = 50% height = 50% }
-			Orientation = lower_right
-			origo = lower_right
-			clipping = no
-
+				# tfr_bg_h30
 				containerWindowType = {
-					name = "tfr_bg_t10"
+					name = "tfr_bg_h30"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_left
 					origo = upper_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t10"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c36"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c36"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c37"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c37"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c44"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c44"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c45"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c45"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h31
 				containerWindowType = {
-					name = "tfr_bg_t11"
+					name = "tfr_bg_h31"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = upper_right
 					origo = upper_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t11"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c38"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c38"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c39"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c39"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c46"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c46"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c47"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c47"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h32
 				containerWindowType = {
-					name = "tfr_bg_t14"
+					name = "tfr_bg_h32"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_left
 					origo = lower_left
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t14"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c52"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c52"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c53"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c53"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c60"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c60"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c61"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c61"
+							alwaystransparent = yes
+						}
 					}
 				}
-
+				# tfr_bg_h33
 				containerWindowType = {
-					name = "tfr_bg_t15"
+					name = "tfr_bg_h33"
 					position = { x = 0 y = 0 }
 					size = { width = 50% height = 50% }
 					Orientation = lower_right
 					origo = lower_right
 					clipping = no
 
-					background = {
-						name = "Background"
-						quadTextureSprite = "GFX_tfr_bg_t15"
-						alwaystransparent = yes
+					containerWindowType = {
+						name = "tfr_c54"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_left
+						origo = upper_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c54"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c55"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = upper_right
+						origo = upper_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c55"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c62"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_left
+						origo = lower_left
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c62"
+							alwaystransparent = yes
+						}
+					}
+					containerWindowType = {
+						name = "tfr_c63"
+						position = { x = 0 y = 0 }
+						size = { width = 50% height = 50% }
+						Orientation = lower_right
+						origo = lower_right
+						clipping = no
+
+						background = {
+							name = "Background"
+							quadTextureSprite = "GFX_tfr_c63"
+							alwaystransparent = yes
+						}
 					}
 				}
-		}
+			}
+
+
 	}
 
 	containerWindowType = {

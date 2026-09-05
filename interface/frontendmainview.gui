@@ -4,22 +4,15 @@ guiTypes = {
 		name ="frontend_background"
 		position = { x=0 y =0 }	
 		size = { 
-			width = 1920 
-			height = 1440 
-			min = { width = 100% height = 100% }
-			max = { width = 100% height = 10000 }
-			preserve_aspect_ratio = yes
+			width = 100% 
+			height = 100% 
 		}
-		Orientation = center
-		Origo = center
-		clipping = no 
 		
 		background = {
 			name = "Background"		
 			quadTextureSprite ="GFX_frontend_bg"
 			alwaystransparent = yes
 		}
-		
 	}
 	
 	containerWindowType = {
@@ -64,11 +57,10 @@ guiTypes = {
 	
 	containerWindowType = {
 		name = "change_background"
-		size = { width = 1 height = 1 }
-		position = { x = 0 y = 6000 }
+		size = { width = 100 height = 40 }
+		position = { x = -20 y = -20 }
 		Orientation = lower_right
 		Origo = lower_right
-		hide = yes
 
 		buttonType = {
 			name ="change_background_button"
@@ -503,26 +495,55 @@ guiTypes = {
 		# parked off-screen instead of being deleted outright.
 		containerWindowType = {
 			name = "subscription_widget"
-			position = { x = 0 y = 6000 }
+			position = { x = -50000 y = -50000 }
 			size = { width = 1 height = 1 }
 			hide = yes
+
+			ButtonType = {
+				name = "show_subscription"
+				position = { x = 0 y = 0 }
+				quadTextureSprite ="GFX_subscription_widget"
+				buttonText = "SUBSCRIPTION_WIDGET"
+				buttonFont = "hoi_24header"
+				multiline = yes
+			}
 		}
 
 		containerWindowType = {
 			name = "subscription_widget_simp_chinese"
-			position = { x = 0 y = 6000 }
+			position = { x = -50000 y = -50000 }
 			size = { width = 1 height = 1 }
 			hide = yes
+
+			ButtonType = {
+				name = "show_subscription"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "GFX_subscription_widget_chinese"
+				frame = 10
+				buttonText = "SUBSCRIPTION_WIDGET_SIMP_CHINESE"
+				buttonFont = "hoi_24header"
+				multiline = yes
+				web_link = "https://cn.heartsofiron.com/add-ons"
+			}
 		}
 
 		containerWindowType = {
 			name = "subscription_widget_subscribed"
-			position = { x = 0 y = 6000 }
+			position = { x = -50000 y = -50000 }
 			size = { width = 1 height = 1 }
 			hide = yes
+
+			ButtonType = {
+				name = "show_subscription"
+				position = { x = 0 y = 0 }
+				quadTextureSprite ="GFX_subscription_widget_active"
+				frame = 1
+				buttonText = "SUBSCRIPTION_WIDGET_SUBSCRIBED"
+				buttonFont = "hoi_24header"
+				multiline = yes
+			}
 		}
 	}
-
 
 	## This position needs updated
 	containerWindowType = {
@@ -538,5 +559,157 @@ guiTypes = {
 			quadTextureSprite ="achievements"
 			pdx_tooltip = "MENU_ACHIEVEMENTS"
 		}		
+	}
+
+	containerWindowType = {
+		name = "mainmenu_social_buttons"
+		position = { x = -50000 y = -50000 }
+		size = { width = 240 height = 90 }
+		Orientation = center
+		origo = center
+		hide = yes
+
+		positionType = {
+			name = "position_without_social_gui"
+			position = { x = -50000 y = -50000 }
+		}
+
+		positionType = {
+			name = "subscription_position"
+			position = { x = -50000 y = -50000 }
+		}
+
+		positionType = {
+			name = "subscription_position_without_social_gui"
+			position = { x = -50000 y = -50000 }
+		}
+
+		containerWindowType = {
+			name = "social_view_interface_window"
+			position = { x = -50000 y = -50000 }
+			size = { width = 60 height = 40 }
+
+			buttonType = {
+				name = "toggle_button"
+				quadTextureSprite = "GFX_sort_button_83x29"
+				position = { x = 0 y = 0 }
+				buttonFont = "hoi_16mbs"
+			}
+
+			iconType = {
+				name = "button_toggle_socialview_icon"
+				spriteType = "GFX_socialview_icon"
+				position = { x = 0 y = 0 }
+				alwaystransparent = yes
+			}
+
+			instantTextBoxType = {
+				name = "friends_online"
+				font = "cg_16b"
+				position = { x = 20 y = 15 }
+				text = "0"
+				maxWidth = 30
+				maxHeight = 16
+				alwaysTransparent = yes
+				format = center
+			}
+
+			iconType = {
+				name = "new_message"
+				position = { x = 42 y = 5 }
+				spriteType = "GFX_new_message_icon"
+				pdx_tooltip = "SOCIAL_NEW_MESSAGE"
+			}
+
+			iconType = {
+				name = "new_friend"
+				position = { x = 42 y = 17 }
+				spriteType = "GFX_new_friend_icon"
+				pdx_tooltip = "SOCIAL_NEW_FRIEND"
+			}
+		}
+
+		containerWindowType = {
+			name = "first_row"
+			position = { x = -50000 y = -50000 }
+			ButtonType = {
+				name = "homepage_button"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "homepage"
+				clicksound = click_default
+				pdx_tooltip = "MENU_HOMEPAGE"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "forum_button"
+				position = { x = 36 y = 0 }
+				quadTextureSprite = "forum"
+				clicksound = click_default
+				pdx_tooltip = "MENU_FORUM"
+				web_link = "http://forum.paradoxplaza.com/forum/forumdisplay.php?844-Hearts-of-Iron-IV"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "discord_button"
+				position = { x = 72 y = 0 }
+				quadTextureSprite = "discord"
+				pdx_tooltip = "MENU_DISCORD"
+				web_link = "https://discord.gg/hoi4"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "privacy_policy_button"
+				position = { x = 108 y = 0 }
+				quadTextureSprite = "privacy"
+				pdx_tooltip = "MENU_PRIVACY_POLICY"
+				scale = 0.9
+			}
+		}
+
+		containerWindowType = {
+			name = "second_row"
+			position = { x = -50000 y = -50000 }
+			ButtonType = {
+				name = "bluesky_button"
+				position = { x = 0 y = 0 }
+				quadTextureSprite = "bluesky"
+				pdx_tooltip = "MENU_BLUESKY"
+				web_link = "https://bsky.app/profile/hoi.paradoxinteractive.com"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "twitter_button"
+				position = { x = 36 y = 0 }
+				quadTextureSprite = "x"
+				pdx_tooltip = "MENU_X"
+				web_link = "https://x.com/hoi_game"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "facebook_button"
+				position = { x = 72 y = 0 }
+				quadTextureSprite = "facebook"
+				clicksound = click_default
+				pdx_tooltip = "MENU_FACEBOOK"
+				web_link = "https://www.facebook.com/Heartsofiron"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "instagram_button"
+				position = { x = 108 y = 0 }
+				quadTextureSprite = "instagram"
+				pdx_tooltip = "MENU_INSTAGRAM"
+				web_link = "https://www.instagram.com/hearts_of_iron_pdx"
+				scale = 0.9
+			}
+			ButtonType = {
+				name = "youtube_button"
+				position = { x = 144 y = 0 }
+				quadTextureSprite = "youtube"
+				pdx_tooltip = "MENU_YOUTUBE"
+				web_link = "https://www.youtube.com/@HeartsOfIronOfficial"
+				scale = 0.9
+			}
+		}
 	}
 }

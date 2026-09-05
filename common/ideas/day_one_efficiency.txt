@@ -1,14 +1,42 @@
 ideas = {
 	country = {
-		day_one_max_efficiency_cap = {
+		day_one_max_efficiency_cap_dispersed_bmt = {
 			picture = generic_production_bonus
-			allowed = {
-				always = yes
-			}
+			allowed = { always = yes }
 			removal_cost = -1
 			cancel_if_invalid = no
 			modifier = {
-				production_factory_start_efficiency_factor = 20.0
+				production_factory_start_efficiency_factor = 0.45
+				line_change_production_efficiency_factor = 1.0
+			}
+		}
+		day_one_max_efficiency_cap_concentrated_bmt = {
+			picture = generic_production_bonus
+			allowed = { always = yes }
+			removal_cost = -1
+			cancel_if_invalid = no
+			modifier = {
+				production_factory_start_efficiency_factor = 0.50
+				line_change_production_efficiency_factor = 1.0
+			}
+		}
+		day_one_max_efficiency_cap_dispersed_basic = {
+			picture = generic_production_bonus
+			allowed = { always = yes }
+			removal_cost = -1
+			cancel_if_invalid = no
+			modifier = {
+				production_factory_start_efficiency_factor = 0.35
+				line_change_production_efficiency_factor = 1.0
+			}
+		}
+		day_one_max_efficiency_cap_basic = {
+			picture = generic_production_bonus
+			allowed = { always = yes }
+			removal_cost = -1
+			cancel_if_invalid = no
+			modifier = {
+				production_factory_start_efficiency_factor = 0.40
 				line_change_production_efficiency_factor = 1.0
 			}
 		}

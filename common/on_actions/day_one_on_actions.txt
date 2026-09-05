@@ -2,9 +2,39 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				add_timed_idea = {
-					idea = day_one_max_efficiency_cap
-					days = 1
+				if = {
+					limit = {
+						has_tech = basic_machine_tools
+						has_tech = dispersed_industry
+					}
+					add_timed_idea = {
+						idea = day_one_max_efficiency_cap_dispersed_bmt
+						days = 1
+					}
+				}
+				else_if = {
+					limit = {
+						has_tech = basic_machine_tools
+					}
+					add_timed_idea = {
+						idea = day_one_max_efficiency_cap_concentrated_bmt
+						days = 1
+					}
+				}
+				else_if = {
+					limit = {
+						has_tech = dispersed_industry
+					}
+					add_timed_idea = {
+						idea = day_one_max_efficiency_cap_dispersed_basic
+						days = 1
+					}
+				}
+				else = {
+					add_timed_idea = {
+						idea = day_one_max_efficiency_cap_basic
+						days = 1
+					}
 				}
 			}
 		}

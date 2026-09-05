@@ -1,11 +1,13 @@
 spriteTypes = {
 
-	# Full-screen black plate for the loading screen.
+	# Full-screen black plate. corneredTileSpriteType renders at the size
+	# declared here regardless of how small the texture is, so 3840x2160
+	# covers everything up to 4K.
 	corneredTileSpriteType = {
 		name = "GFX_TFR_load_black"
 		texturefile = "gfx/interface/tfr_load_black.dds"
 		borderSize = { x = 0 y = 0 }
-		size = { x = 1920 y = 1080 }
+		size = { x = 3840 y = 2160 }
 		tilingCenter = no
 	}
 

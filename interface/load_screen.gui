@@ -1,8 +1,11 @@
 guiTypes = {
 
+	# TFR loading screen.
+	# NOTE: this is a legacy windowType. It only accepts iconType,
+	# instantTextBoxType and nested windowType children - nothing else parses.
 	windowType = {
 		name = "load_screen"
-		backGround =""
+		backGround ="GFX_TFR_load_black"
 		position = { x = 0 y = 0 }
 		size = { x = 1024 y = 768 }
 		moveable = 0
@@ -12,30 +15,23 @@ guiTypes = {
 		fullScreen = yes
 		Orientation = "UPPER_LEFT"
 
-		# ---- TFR animated loading screen -------------------------------
-		# Black plate over the whole screen, with the animated wordmark on top.
-		# The reveal, the travelling light and the shadows all live in
-		# gfx/FX/tfr_loading.shader - this is just where it gets placed.
-		containerWindowType = {
-			name = "TFR_loading_plate"
-			position = { x = 0 y = 0 }
-			size = { width = 100%% height = 100%% }
-			clipping = no
-			Orientation = "UPPER_LEFT"
+		# Black plate, drawn first so everything below sits on top of it.
+		iconType = {
+			name = "TFR_loading_black"
+			spriteType = "GFX_TFR_load_black"
+			position = { x = -1920 y = -1080 }
+			Orientation = "CENTER"
+			alwaystransparent = yes
+		}
 
-			background = {
-				name = "TFR_loading_black"
-				quadTextureSprite = "GFX_TFR_load_black"
-				alwaystransparent = yes
-			}
-
-			iconType = {
-				name = "TFR_loading_logo"
-				spriteType = "GFX_TFR_load_logo"
-				position = { x = -700 y = -350 }
-				Orientation = "CENTER"
-				alwaystransparent = yes
-			}
+		# The animated wordmark. Reveal, travelling light and cast shadows all
+		# live in gfx/FX/tfr_loading.shader.
+		iconType = {
+			name = "TFR_loading_logo"
+			spriteType = "GFX_TFR_load_logo"
+			position = { x = -700 y = -390 }
+			Orientation = "CENTER"
+			alwaystransparent = yes
 		}
 
 		iconType = {
@@ -52,23 +48,23 @@ guiTypes = {
 			Orientation = "LOWER_RIGHT"
 		}
 
-		# The engine still writes the loading status and the tip into these,
-		# they are just kept off-screen so the screen stays black.
+		# Progress bar, moved to the bottom of the screen. The decorated vanilla
+		# panel behind it is gone, the bar itself stays.
 		windowType = {
 			name = "status"
 			backGround =""
-			position = { x = 0 y = 6000 }
+			position = { x = 0 y = 0 }
 			size = { x = 1024 y = 768 }
 			moveable = 0
 			dontRender = ""
 			horizontalBorder = "0"
 			verticalBorder = ""
 			fullScreen = no
-			Orientation = "CENTER_UP"
+			Orientation = "CENTER_DOWN"
 
 			instantTextBoxType = {
 				name = "text"
-				position = { x = -400 y = 13 }
+				position = { x = -400 y = -148 }
 				textureFile = ""
 				font = "loadscreen_header"
 				borderSize = {x = 0 y = 0}
@@ -83,10 +79,11 @@ guiTypes = {
 			{
 				name = "progressbar"
 				spriteType = "GFX_loadingstatus_progress"
-				position = { x=-468 y=62 }
+				position = { x=-467 y=-105 }
 			}
 		}
 
+		# Tips are pushed off-screen; the engine still has a textbox to write into.
 		windowType = {
 			name = "tip"
 			backGround =""

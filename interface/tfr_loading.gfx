@@ -1,0 +1,21 @@
+spriteTypes = {
+
+	# Full-screen black plate for the loading screen.
+	corneredTileSpriteType = {
+		name = "GFX_TFR_load_black"
+		texturefile = "gfx/interface/tfr_load_black.dds"
+		borderSize = { x = 0 y = 0 }
+		size = { x = 1920 y = 1080 }
+		tilingCenter = no
+	}
+
+	# The animated TFR wordmark. The shader does the reveal, the bulb and the shadows.
+	spriteType = {
+		name = "GFX_TFR_load_logo"
+		texturefile = "gfx/interface/tfr_load_logo.dds"
+		effectFile = "gfx/FX/tfr_loading.shader"
+		legacy_lazy_load = no
+		noOfFrames = 1
+		alwaystransparent = yes
+	}
+}

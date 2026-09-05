@@ -1,0 +1,15 @@
+spriteTypes = {
+
+	# Flat main menu button. Three frames of 300x46:
+	#   1 - idle    : dark translucent bar, thin red accent on the left
+	#   2 - active  : lighter bar, brighter and wider red accent
+	#   3 - muted   : dimmed, grey accent (disabled)
+	# The fill fades out towards the right so it never reads as a hard box.
+	# buttonstate.shader is vanilla and gives the hover brighten for free.
+	spriteType = {
+		name = "GFX_TFR_menu_button"
+		texturefile = "gfx/interface/tfr_menu_button.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate.shader"
+	}
+}

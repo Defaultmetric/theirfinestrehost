@@ -1,5 +1,5 @@
 NDefines.NGraphics.WEATHER_DISTANCE_CUTOFF = 50
-NDefines.NGraphics.WEATHER_DISTANCE_FADE_LENGTH = 100		-- FPS BOOSTER (was 400)
+NDefines.NGraphics.WEATHER_DISTANCE_FADE_LENGTH = 400
 NDefines.NGraphics.WEATHER_ZOOM_IN_CUTOFF = 1
 NDefines.NGraphics.WEATHER_ZOOM_IN_FADE_LENGTH = 220
 NDefines.NGraphics.WEATHER_ZOOM_IN_FADE_FACTOR = 0.0
@@ -96,8 +96,8 @@ NDefines.NGraphics.DRAW_SHADOWS_FADE_LENGTH = 0
 NDefines.NGraphics.DRAW_FOW_CUTOFF = 0
 NDefines.NGraphics.DRAW_FOW_FADE_LENGTH = 0
 
-NDefines.NGraphics.TREE_FADE_NEAR = 0				-- FPS BOOSTER (was 150): trees off
-NDefines.NGraphics.TREE_FADE_FAR = 0				-- FPS BOOSTER (was 250): trees off
+NDefines.NGraphics.TREE_FADE_NEAR = 150.0
+NDefines.NGraphics.TREE_FADE_FAR = 250.0
 
 
 -- some spot stuff

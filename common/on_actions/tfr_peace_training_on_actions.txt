@@ -1,0 +1,82 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					is_playable_country = yes
+				}
+				add_ideas = peace_training
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = tradebacks
+						option = on
+					}
+				}
+				every_country = {
+					limit = {
+						is_playable_country = yes
+					}
+					add_ideas = tradeback_is_cancer
+				}
+			}
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = tradebacks
+						option = until_1938
+					}
+				}
+				every_country = {
+					limit = {
+						is_playable_country = yes
+					}
+					add_timed_idea = {
+						idea = tradeback_is_cancer
+						days = 730
+					}
+				}
+			}
+		}
+	}
+
+	on_weekly = {
+		effect = {
+			if = { 
+				limit = { has_idea = peace_training }
+				add_daily_mastery = {
+					amount = 2
+					days = 7
+					name = Mastery
+				}
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					is_playable_country = yes
+					NOT = {
+						OR = {
+							has_war = yes
+							has_idea = peace_training
+							AND = {
+								tag = SPR
+								any_country = {
+									has_volunteers_amount_from = {
+										tag = SPR
+										count > 0
+									} 
+								}	
+							}
+						}
+					}
+				}
+				add_ideas = peace_training
+			}
+		}
+	}
+}

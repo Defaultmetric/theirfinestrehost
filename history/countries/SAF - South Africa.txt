@@ -1,10 +1,16 @@
-﻿capital = 275
+capital = 275
 
 
 oob = "SAF_1936"
 if = {
 	limit = { has_dlc = "By Blood Alone" }
 		set_air_oob = "SAF_1936_air_bba"
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe_0
+			amount = 30
+			producer = ENG
+			version_name = "Hawker Fury"
+		}
 	else = {
 		set_air_oob = "SAF_1936_air_legacy"
 		set_technology = {

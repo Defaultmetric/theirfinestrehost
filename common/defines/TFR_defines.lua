@@ -248,8 +248,25 @@ NDefines.NDoctrines.MASTERY_BANK_MAX = 500.0 	-- Vanilla value 200
 
 NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 80						    -- Unlimited special forces
 
-NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 10000000	-- How many deployment lines minimum can be training
+-- 1 Div Training removed (from MSB)
+NDefines.NMilitary.UNIT_EXPERIENCE_PER_TRAINING_DAY = 0.000000001
+NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 15000000
 NDefines.NProduction.MIN_FIELD_TO_TRAINING_MANPOWER_RATIO = 100	-- Ratio which % of army in field can be trained
+
+-- Free Templates (from MSB)
+NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 0 	--Base cost to unlock a regiment slot
+NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 0	--Base cost to change a regiment column
+NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0 	    --Base cost to unlock a support slot
+
+-- Free Designs (from MSB)
+NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0
+NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0
+NDefines.NProduction.EQUIPMENT_MODULE_CONVERT_XP_COST = 0
+NDefines.NProduction.EQUIPMENT_MODULE_REMOVE_XP_COST = 0
+
+-- Training levels (from MSB)
+NDefines.NMilitary.TRAINING_MAX_LEVEL = 10
+NDefines.NMilitary.DEPLOY_TRAINING_MAX_LEVEL = 10
 
 -- Air Rework
 NDefines.NAir.DISRUPTION_FACTOR = 5.5 --cas enters battle at 30+%

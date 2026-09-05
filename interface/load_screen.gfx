@@ -55,10 +55,12 @@ spriteTypes = {
 		alwaystransparent = yes
 	}
 
+	# No effectFile here on purpose: the boot loading screen only repaints when
+	# the progress bar ticks and its Time uniform does not advance, so a shader
+	# just freezes on frame 0. The animated version lives on the main menu.
 	spriteType = {
 		name = "GFX_TFR_load_logo"
 		texturefile = "gfx/interface/tfr_load_logo.dds"
-		effectFile = "gfx/FX/tfr_loading.shader"
 		legacy_lazy_load = no
 		noOfFrames = 1
 		alwaystransparent = yes

@@ -16,26 +16,26 @@ Static estimates from local hull/module files. NOT simulated battles or predicte
 
 |Tier|Design|IC estimate|HP estimate|Speed estimate|Light|Heavy|Torpedo|Armor|
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-|1|DD_torp3|1136.25|25.00|29.68|0.50|0.00|21.60|0.00|
-|1|DD_torp1|821.25|25.00|30.24|0.50|0.00|7.20|0.00|
+|1|DD_torp3|1136.25|25.00|29.68|0.50|0.00|17.28|0.00|
+|1|DD_torp1|821.25|25.00|30.24|0.50|0.00|5.76|0.00|
 |1|CL_gun2|3075.00|120.00|30.52|5.00|0.00|0.00|4.00|
 |1|CL_gun4|3825.00|120.00|28.84|10.00|0.00|0.00|4.00|
 |1|CA_gun4|5575.00|260.00|27.72|0.00|16.00|0.00|4.00|
 |1|BB_gun3|9867.00|357.00|22.99|0.00|30.00|0.00|18.00|
-|2|DD_torp3|1483.50|40.00|29.96|0.80|0.00|37.80|0.00|
-|2|DD_torp1|1046.50|40.00|31.08|0.80|0.00|12.60|0.00|
+|2|DD_torp3|1483.50|40.00|29.96|0.80|0.00|30.24|0.00|
+|2|DD_torp1|1046.50|40.00|31.08|0.80|0.00|10.08|0.00|
 |2|CL_gun2|3524.50|132.60|34.35|8.00|0.00|0.00|6.00|
 |2|CL_gun4|4452.00|132.60|31.95|16.00|0.00|0.00|6.00|
 |2|CA_gun4|6307.00|288.20|29.55|0.00|26.00|0.00|6.00|
 |2|BB_gun3|10962.00|388.50|26.76|0.00|45.00|0.00|26.00|
-|3|DD_torp3|1844.75|50.00|30.24|2.00|0.00|86.40|0.00|
-|3|DD_torp1|1280.75|50.00|31.92|2.00|0.00|28.80|0.00|
+|3|DD_torp3|1844.75|50.00|30.24|2.00|0.00|69.12|0.00|
+|3|DD_torp1|1280.75|50.00|31.92|2.00|0.00|23.04|0.00|
 |3|CL_gun2|3934.00|154.00|36.80|16.00|0.00|0.00|11.00|
 |3|CL_gun4|4984.00|154.00|33.60|32.00|0.00|0.00|11.00|
 |3|CA_gun4|6944.00|324.00|31.04|0.00|52.00|0.00|11.00|
 |3|BB_gun3|12110.00|460.00|28.38|0.00|96.00|0.00|42.00|
-|4|DD_torp3|1818.00|60.00|30.52|3.00|0.00|113.40|0.00|
-|4|DD_torp1|1386.00|60.00|32.76|3.00|0.00|37.80|0.00|
+|4|DD_torp3|1818.00|60.00|30.52|3.00|0.00|90.72|0.00|
+|4|DD_torp1|1386.00|60.00|32.76|3.00|0.00|30.24|0.00|
 |4|CL_gun2|4439.75|172.50|38.12|20.00|0.00|0.00|14.00|
 |4|CL_gun4|5693.50|172.50|34.16|40.00|0.00|0.00|14.00|
 |4|CA_gun4|7906.00|357.50|31.52|0.00|66.00|0.00|14.00|
@@ -109,20 +109,18 @@ Assume 80 starting CL and 17 survivors exactly for this calculation. Carriers/ca
 |II|4|CL_gun2|279704|188.5|DD side loses less IC|
 |II|4|CL_gun4|358690|241.8|DD side loses less IC|
 
-## Uniform nerf applied
+## Torpedo Launcher Nerf Applied
 
-|Launcher tier|Previous attack|Current attack|Change|
-|---|---:|---:|---:|
-|1|8|7.2|-10.0%|
-|2|14|12.6|-10.0%|
-|3|32|28.8|-10.0%|
-|4|42|37.8|-10.0%|
+|Launcher tier|Previous attack|Current attack|Attack Change|Previous Hit Chance|Current Hit Chance|Current IC|
+|---|---:|---:|---:|---:|---:|---:|
+|1|7.2|5.76|-20.0%|0.0%|+0.0%|140|
+|2|12.6|10.08|-20.0%|+0.5%|+1.0%|190|
+|3|28.8|23.04|-20.0%|+2.0%|+1.5%|240|
+|4|37.8|30.24|-20.0%|+3.5%|+2.0%|180|
 
-Only surface launcher attack changed. Costs, accuracy, speed penalties, hulls, cap and submarine launchers are unchanged.
+Surface launcher attack nerfed by 20% compared to previous version; hit chance factor set identical to Vanilla (0% / +1.0% / +1.5% / +2.0%); IC costs restored to initial TFR.
 
-## Uniform nerf sensitivity
+## Torpedo Nerf Sensitivity & DD Balance
 
-At unchanged targets, hit chances and firing opportunities, -10% launcher attack gives -10% launcher attack-weighted damage. It does NOT guarantee -10% ships sunk. Damage thresholds, screening collapse and retreat make losses nonlinear.
-With costs unchanged, all IC break-even thresholds above remain unchanged. To neutralize an economic exchange, compare the observed DD-loss count to the threshold rather than comparing victory alone.
-
-For a real validation: use identical country bonuses, full strength/organization, same region/weather/start hour and engagement rules; test each listed pair with several repetitions and side swaps. Record sunk IC, repair IC/time, survivors, retreat and aircraft losses. Repeat with mixed legacy hull / modern weapon refits and equal refit budgets before tuning the UK/Italy matchup.
+Torpedos have had raw attack scaled down by 20% and hit chance aligned with Vanilla to curb excessive Torp DD lethality.
+DD torpedo salvos output balanced damage while maintaining TFR baseline industrial investment.

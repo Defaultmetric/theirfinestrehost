@@ -411,50 +411,6 @@ economy_decisions = {
 		}
 	}
 
-	restructure_supply_system = { #one time boost to get a few cheap supply hubs
-
-		icon = GFX_decision_generic_construction
-
-		visible = { 
-			OR = {
-				original_tag = CAN
-				original_tag = BRA
-				original_tag = SAF
-				original_tag = RAJ
-				original_tag = AST
-				original_tag = MON
-				original_tag = FIN
-				original_tag = HUN
-				original_tag = ROM
-				original_tag = BUL
-			}
-		}
-		fire_only_once = yes
-
-		days_remove = 120
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				num_of_factories < 30
-				factor = 0
-			}
-		}
-
-		modifier = {
-			production_speed_supply_node_factor = 3
-		}
-
-		complete_effect = {
-			set_variable = { node_goal = num_of_supply_nodes }
-			add_to_variable = { node_goal = 3 } #maximum 3 additional nodes
-		}
-
-		cancel_trigger = {
-			
-			 check_variable = { node_goal < num_of_supply_nodes } #if the number of supply nodes exceeds the old number by +3, immediately cancel
-		}
-	}
 	seize_some_trains_woo = { #repeating train seize
 
 		icon = GFX_decision_hol_draw_up_staff_plans	

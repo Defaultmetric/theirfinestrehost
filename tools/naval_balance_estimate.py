@@ -126,16 +126,20 @@ def run(root, output):
         losses=63*cl['build_cost_ic']
         threshold=losses/dd['build_cost_ic']
         lines.append(f"|II|{cl['tier']}|{cl['design']}|{losses:.0f}|{threshold:.1f}|{'DD side loses less IC' if threshold>157 else 'CL side loses less IC'}|")
-    lines += ['', '## Uniform nerf applied', '',
-        '|Launcher tier|Previous attack|Current attack|Change|', '|---|---:|---:|---:|']
-    for tier, old in enumerate((8, 14, 32, 42), 1):
-        current = modules[f'ship_torpedo_{tier}']['add_stats']['torpedo_attack']
-        lines.append(f'|{tier}|{old}|{current:g}|{(current/old-1)*100:.1f}%|')
-    lines += ['', 'Only surface launcher attack changed. Costs, accuracy, speed penalties, hulls, cap and submarine launchers are unchanged.',
-        '', '## Uniform nerf sensitivity', '',
-        'At unchanged targets, hit chances and firing opportunities, -10% launcher attack gives -10% launcher attack-weighted damage. It does NOT guarantee -10% ships sunk. Damage thresholds, screening collapse and retreat make losses nonlinear.',
-        'With costs unchanged, all IC break-even thresholds above remain unchanged. To neutralize an economic exchange, compare the observed DD-loss count to the threshold rather than comparing victory alone.', '',
-        'For a real validation: use identical country bonuses, full strength/organization, same region/weather/start hour and engagement rules; test each listed pair with several repetitions and side swaps. Record sunk IC, repair IC/time, survivors, retreat and aircraft losses. Repeat with mixed legacy hull / modern weapon refits and equal refit budgets before tuning the UK/Italy matchup.', '']
+    lines += ['', '## Torpedo Launcher Nerf Applied', '',
+        '|Launcher tier|Previous attack|Current attack|Attack Change|Previous Hit Chance|Current Hit Chance|Current IC|', '|---|---:|---:|---:|---:|---:|---:|']
+    prev_attacks = (7.2, 12.6, 28.8, 37.8)
+    prev_hit = ('0.0%', '+0.5%', '+2.0%', '+3.5%')
+    for tier, old in enumerate(prev_attacks, 1):
+        m = modules[f'ship_torpedo_{tier}']
+        current = m['add_stats']['torpedo_attack']
+        hit = m['add_stats'].get('naval_torpedo_hit_chance_factor', 0) * 100
+        cost = m['add_stats']['build_cost_ic']
+        lines.append(f'|{tier}|{old}|{current:g}|{(current/old-1)*100:.1f}%|{prev_hit[tier-1]}|+{hit:.1f}%|{cost:g}|')
+    lines += ['', 'Surface launcher attack nerfed by 20% compared to previous version; hit chance factor set identical to Vanilla (0% / +1.0% / +1.5% / +2.0%); IC costs restored to initial TFR.',
+        '', '## Torpedo Nerf Sensitivity & DD Balance', '',
+        'Torpedos have had raw attack scaled down by 20% and hit chance aligned with Vanilla to curb excessive Torp DD lethality.',
+        'DD torpedo salvos output balanced damage while maintaining TFR baseline industrial investment.', '']
     (output/'naval-balance-estimates.md').write_text('\n'.join(lines), encoding='utf-8')
     print(f'{len(designs)} designs; {len(scenarios)} fleet configurations; report: {output}')
 

@@ -11,6 +11,8 @@ NDefines.NGame.TRADE_ROUTE_RECALCULATE_FREQUENCY_DAYS = 7 -- Max recalculation t
 
 NDefines.NCountry.EVENT_PROCESS_OFFSET = 40						-- Events are checked every X day per country or state (1 is ideal but CPU heavy)
 NDefines.NCountry.AIR_SCORE_MULTIPLIER = 0.0						-- Based on number of planes (which is typically a lot).
+NDefines.NCountry.AIR_VOLUNTEER_PLANES_RATIO = 1.0				-- Ratio for volunteer planes available for sending in relation to sender air force (100%)
+NDefines.NCountry.AIR_VOLUNTEER_BASES_CAPACITY_LIMIT = 1.0		-- Ratio for volunteer planes available for sending in relation to receiver air base capacity (100%)
 
 NDefines.NProduction.BASE_LICENSE_IC_COST = 0
 NDefines.NProduction.LICENSE_IC_COST_YEAR_INCREASE = 0
@@ -111,7 +113,6 @@ NDefines.NProduction.BASE_FACTORY_SPEED_MIL = 3.5				-- Base factory speed multi
 NDefines.NResistance.GARRISON_STR_POW_EQUIPMENT = 1.5	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 10000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
-NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.5                     -- How much training contributes to doctrine mastery relative to combat/missions
 NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 50                       -- Monthly mastery gain will not exceed this value
 NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.5		-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
 NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 75

@@ -40,6 +40,14 @@ ITA_end_the_italo_ethiopian_war = {
 			set_country_flag = ITA_defeat_in_ethiopia_flag
 		}
 	}
+	ITA = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = ITA_missiolinis_system_active_flag }
+			}
+			ITA_missiolinis_initialize_missiolinis_system = yes
+		}
+	}
 }
 
 

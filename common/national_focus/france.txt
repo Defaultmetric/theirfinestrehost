@@ -127,16 +127,14 @@ focus_tree = {
 	focus = {
 		id = FRA_intervention_in_spain
 		icon = GFX_focus_intervention_spain_republic
-		x = -4
-		y = 1
-
-		
+		x = 2
+		y = 0
 
 		prerequisite = {
-			focus = FRA_reform_the_labour_laws
+			focus = FRA_form_the_popular_front
 		}
 		
-		relative_position_id = FRA_reform_the_labour_laws
+		relative_position_id = FRA_ban_communism
 		cost = 5
 
 		ai_will_do = {
@@ -145,10 +143,6 @@ focus_tree = {
 
 		available = {
 			SPR_scw_in_progress = yes
-			NOT = 
-			{
-				has_completed_focus = FRA_intervention_in_china
-			}
 		}
 		
 		bypass = {
@@ -160,56 +154,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_timed_idea = {
-				idea = GER_legion_condor_ns
-				days = 270
-			}
-		}
-	}
-
-	focus = {
-		id = FRA_intervention_in_china
-		icon = GFX_focus_generic_china1
-		x = 4
-		y = 1
-
-		
-
-		prerequisite = {
-			focus = FRA_reform_the_labour_laws
-		}
-		
-		relative_position_id = FRA_reform_the_labour_laws
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			JAP = 
-			{
-				has_war_with = FCH
-			}
-			NOT = 
-			{
-				has_completed_focus = FRA_intervention_in_spain
-			}
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_timed_idea = {
-				idea = GER_legion_condor_ns
-				days = 270
-			}
+			custom_effect_tooltip = FRA_intervention_in_spain_tt
 		}
 	}
 
@@ -857,7 +802,7 @@ focus_tree = {
 		}
 		x = 0
 		y = 2
-		cost = 7
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}		
@@ -1532,48 +1477,7 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 2
 		}
-		random_owned_state = {
-				limit = {
-						is_owned_or_subject_trigger = yes
-						NOT = {
-						state = 29
-						state = 785
-						state = 15
-						state = 30
-						state = 14
-						state = 18
-						state = 23
-						state = 17
-						state = 28
-						state = 27
-						state = 24
-						state = 19
-						state = 806
-						state = 16
-						state = 1
-						state = 31
-						state = 25
-						state = 22
-						state = 21
-						state = 735
-						state = 851
-						state = 32
-						state = 20
-						state = 26
-						state = 33
-						}
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 2
 		}
-		
-
-}
-
 	}
 
 	focus = {
@@ -1603,7 +1507,7 @@ focus_tree = {
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -2409,16 +2313,6 @@ focus_tree = {
 				uses = 1
 				category = artillery
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = FRA_french_army_tt
-		add_to_variable = {
-			FRA_arty_att = 0.05
-			tooltip = army_artillery_attack_factor_tt
-		}
-		add_to_variable = {
-			FRA_arty_def = 0.05
-			tooltip = army_artillery_defence_factor_tt
-		}
 		}
 	}
 
@@ -5426,7 +5320,7 @@ focus_tree = {
 			focus = FRA_general_work_council
 		}
 		relative_position_id = FRA_general_work_council
-		cost = 5
+		cost = 7
 
 		ai_will_do = {
 			factor = 1

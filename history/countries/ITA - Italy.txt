@@ -1,4 +1,4 @@
-﻿capital = 2 # Rome
+capital = 2 # Rome
 
 ETH_set_up_lon_arms_resolution_effect = yes 
 
@@ -495,6 +495,7 @@ if = {
 		type = annex_everything
 	}
 	give_guarantee = FAL
+	set_global_flag = second_italo_ethiopian_war_flag
 }
 
 1939.1.1 = {
@@ -869,12 +870,7 @@ recruit_character = ITA_curio_bernardis
 ########################################
 
 ### IF NOT BBA, trigger the first Missiolini from here
-if = {
-	limit = {
-		NOT = { has_dlc = "By Blood Alone" }
-	}
-	ITA_benito_mussolini = { unit_leader_event = { id = BBA_italo_ethiopian_war_events.01 days = 14 } }  # JAN 36 - Conquer Ethiopia  - APR/JUNE 36 - (120-170 days)
-}
+ITA_benito_mussolini = { unit_leader_event = { id = BBA_italo_ethiopian_war_events.01 days = 14 } }  # JAN 36 - Conquer Ethiopia  - APR/JUNE 36 - (120-170 days)
 
 ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.11 days = 185 random_days = 5 } } # JUN 36 - Conquer Ethiopia  - DEC 36 - (170 days)
 #ITA_benito_mussolini = { unit_leader_event = { id = BBA_italy_missiolinis.21 days = 370 random_days = 5 } } # JAN 37 - Pacify Ethiopia - DEC 39 - (720 days) #MM: This is now triggered after war with MTTH

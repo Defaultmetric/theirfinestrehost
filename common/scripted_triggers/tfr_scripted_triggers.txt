@@ -21,3 +21,30 @@ is_playable_country = {
 		tag = SIA
 	}
 }
+
+is_australian_mainland_or_new_zealand = {
+	OR = {
+		# Mainland Australia & Tasmania (14 states)
+		state = 285 # Austraila (New South Wales)
+		state = 517 # Victoria
+		state = 518 # Tasmania
+		state = 519 # South Australia
+		state = 520 # Northern Territory
+		state = 521 # Queensland
+		state = 522 # Western Australia
+		state = 674 # Central Australia
+		state = 870 # North West Australia
+		state = 871 # South West Australia
+		state = 872 # North Queensland
+		state = 873 # South West Queensland
+		state = 1074 # Central West Australia
+		state = 1075 # West Queensland
+
+		# New Zealand (5 states)
+		state = 284 # New Zealand (Wellington)
+		state = 723 # Southern Island
+		state = 1079 # Auckland
+		state = 1080 # Marlborough
+		state = 1081 # Otago
+	}
+}

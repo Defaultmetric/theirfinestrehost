@@ -758,6 +758,76 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
+			custom_effect_tooltip = ENG_home_defence_tt
+
+			hidden_effect = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = obsolete_focus_branches_visibility
+							option = HIDE
+						}
+					}
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+
+		}
+
+	}
+
+	focus = {
+		id = uk_ireland_focus
+		available = {
+			date > 1939.1.1	
+		} 
+
+		prerequisite = { focus = ENG_home_defence }
+		icon = GFX_focus_generic_annex_country
+		x = 3
+		y = 1
+		relative_position_id = ENG_home_defence
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}	
+
+		available = 
+		{
+			NOT = 
+			{
+				113 = 
+				{
+					is_core_of = ENG
+				}
+			}
+		}
+		completion_reward = {
+			ENG = {
+				annex_country = { target = IRE }
+				add_state_core = 113
+				add_state_core = 135
+				add_state_core = 134
+    		}
+		}
+	}
+
+	focus = {
+		id = uk_fortify_the_isles
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = ENG_home_defence }
+		x = 2
+		y = 0
+		relative_position_id = uk_ireland_focus
+		cost = 1
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
 			# East Anglia
 			125 = {
 				if = {
@@ -852,60 +922,6 @@ focus_tree = {
 					}
 				}
 			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			custom_effect_tooltip = ENG_home_defence_tt
-
-			hidden_effect = {
-				if = {
-					limit = {
-						has_game_rule = {
-							rule = obsolete_focus_branches_visibility
-							option = HIDE
-						}
-					}
-					mark_focus_tree_layout_dirty = yes
-				}
-			}
-
-		}
-
-	}
-
-	focus = {
-		id = uk_ireland_focus
-		available = {
-			date > 1939.1.1	
-		} 
-
-		prerequisite = { focus = ENG_home_defence }
-		icon = GFX_focus_generic_annex_country
-		x = 3
-		y = 1
-		relative_position_id = ENG_home_defence
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}	
-
-		available = 
-		{
-			NOT = 
-			{
-				113 = 
-				{
-					is_core_of = ENG
-				}
-			}
-		}
-		completion_reward = {
-			ENG = {
-				annex_country = { target = IRE }
-				add_state_core = 113
-				add_state_core = 135
-				add_state_core = 134
-    		}
 		}
 	}
 

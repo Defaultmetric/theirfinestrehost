@@ -375,43 +375,190 @@ defined_text = {
 defined_text = {
 	name = horst_cheat_name
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 1 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 1 }
+				check_variable = { global.horst_last_cheat = 1 }
+			}
+		}
 		localization_key = CHEAT1
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 2 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 2 }
+				check_variable = { global.horst_last_cheat = 2 }
+			}
+		}
 		localization_key = CHEAT2
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 3 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 3 }
+				check_variable = { global.horst_last_cheat = 3 }
+			}
+		}
 		localization_key = CHEAT3
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 4 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 4 }
+				check_variable = { global.horst_last_cheat = 4 }
+			}
+		}
 		localization_key = CHEAT4
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 5 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 5 }
+				check_variable = { global.horst_last_cheat = 5 }
+			}
+		}
 		localization_key = CHEAT5
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 6 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 6 }
+				check_variable = { global.horst_last_cheat = 6 }
+			}
+		}
 		localization_key = CHEAT6
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 7 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 7 }
+				check_variable = { global.horst_last_cheat = 7 }
+			}
+		}
 		localization_key = CHEAT7
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 10 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 10 }
+				check_variable = { global.horst_last_cheat = 10 }
+			}
+		}
 		localization_key = CHEAT10
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 11 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 11 }
+				check_variable = { global.horst_last_cheat = 11 }
+			}
+		}
 		localization_key = CHEAT11
 	}
 	text = {
-		trigger = { check_variable = { horst_last_cheat = 12 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 12 }
+				check_variable = { global.horst_last_cheat = 12 }
+			}
+		}
+		localization_key = CHEAT12
+	}
+	text = {
+		localization_key = CHEAT_UNKNOWN
+	}
+}
+
+defined_text = {
+	name = GetHorstCheatName
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 1 }
+				check_variable = { global.horst_last_cheat = 1 }
+			}
+		}
+		localization_key = CHEAT1
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 2 }
+				check_variable = { global.horst_last_cheat = 2 }
+			}
+		}
+		localization_key = CHEAT2
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 3 }
+				check_variable = { global.horst_last_cheat = 3 }
+			}
+		}
+		localization_key = CHEAT3
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 4 }
+				check_variable = { global.horst_last_cheat = 4 }
+			}
+		}
+		localization_key = CHEAT4
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 5 }
+				check_variable = { global.horst_last_cheat = 5 }
+			}
+		}
+		localization_key = CHEAT5
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 6 }
+				check_variable = { global.horst_last_cheat = 6 }
+			}
+		}
+		localization_key = CHEAT6
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 7 }
+				check_variable = { global.horst_last_cheat = 7 }
+			}
+		}
+		localization_key = CHEAT7
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 10 }
+				check_variable = { global.horst_last_cheat = 10 }
+			}
+		}
+		localization_key = CHEAT10
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 11 }
+				check_variable = { global.horst_last_cheat = 11 }
+			}
+		}
+		localization_key = CHEAT11
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_cheat = 12 }
+				check_variable = { global.horst_last_cheat = 12 }
+			}
+		}
 		localization_key = CHEAT12
 	}
 	text = {
@@ -422,39 +569,172 @@ defined_text = {
 defined_text = {
 	name = horst_color_name
 	text = {
-		trigger = { check_variable = { horst_last_color = 1 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 1 }
+				check_variable = { global.horst_last_color = 1 }
+			}
+		}
 		localization_key = COLOR1
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 2 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 2 }
+				check_variable = { global.horst_last_color = 2 }
+			}
+		}
 		localization_key = COLOR2
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 3 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 3 }
+				check_variable = { global.horst_last_color = 3 }
+			}
+		}
 		localization_key = COLOR3
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 4 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 4 }
+				check_variable = { global.horst_last_color = 4 }
+			}
+		}
 		localization_key = COLOR4
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 5 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 5 }
+				check_variable = { global.horst_last_color = 5 }
+			}
+		}
 		localization_key = COLOR5
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 6 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 6 }
+				check_variable = { global.horst_last_color = 6 }
+			}
+		}
 		localization_key = COLOR6
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 7 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 7 }
+				check_variable = { global.horst_last_color = 7 }
+			}
+		}
 		localization_key = COLOR7
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 8 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 8 }
+				check_variable = { global.horst_last_color = 8 }
+			}
+		}
 		localization_key = COLOR8
 	}
 	text = {
-		trigger = { check_variable = { horst_last_color = 9 } }
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 9 }
+				check_variable = { global.horst_last_color = 9 }
+			}
+		}
+		localization_key = COLOR9
+	}
+	text = {
+		localization_key = COLOR_UNKNOWN
+	}
+}
+
+defined_text = {
+	name = GetHorstColorName
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 1 }
+				check_variable = { global.horst_last_color = 1 }
+			}
+		}
+		localization_key = COLOR1
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 2 }
+				check_variable = { global.horst_last_color = 2 }
+			}
+		}
+		localization_key = COLOR2
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 3 }
+				check_variable = { global.horst_last_color = 3 }
+			}
+		}
+		localization_key = COLOR3
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 4 }
+				check_variable = { global.horst_last_color = 4 }
+			}
+		}
+		localization_key = COLOR4
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 5 }
+				check_variable = { global.horst_last_color = 5 }
+			}
+		}
+		localization_key = COLOR5
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 6 }
+				check_variable = { global.horst_last_color = 6 }
+			}
+		}
+		localization_key = COLOR6
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 7 }
+				check_variable = { global.horst_last_color = 7 }
+			}
+		}
+		localization_key = COLOR7
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 8 }
+				check_variable = { global.horst_last_color = 8 }
+			}
+		}
+		localization_key = COLOR8
+	}
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { horst_last_color = 9 }
+				check_variable = { global.horst_last_color = 9 }
+			}
+		}
 		localization_key = COLOR9
 	}
 	text = {

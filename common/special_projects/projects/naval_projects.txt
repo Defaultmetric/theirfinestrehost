@@ -70,6 +70,7 @@ sp_naval_cruiser_submarine = {
 		}
 		
 		country_effects = {
+			set_technology = { cruiser_submarines = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -226,6 +227,7 @@ sp_naval_fleet_submarine = {
 
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_fleet_submarine = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -403,6 +405,7 @@ sp_naval_nuclear_submarine = {
 
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_nuclear_submarine = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -1116,6 +1119,7 @@ sp_naval_midget_submarine = {
 		}
 
 		country_effects = {
+			set_technology = { tfr_card_naval_midget_submarine = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -1725,6 +1729,7 @@ specialization = specialization_naval
 	prototype_time = sp_time.prototype.medium
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_submarine_carrier = 1 popup = no }	# TFR: mark the naval tab card as researched
 				add_design_template_bonus = {
 					name = sp_naval_submarine_carrier_free_design
 					uses = 1
@@ -1887,6 +1892,7 @@ sp_naval_torpedo_cruiser = {
 	}
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_torpedo_cruiser = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -2102,6 +2108,7 @@ sp_naval_super_heavy_battleship = {
 	}
 	project_output = {
 		country_effects = {
+			set_technology = { ship_hull_super_heavy = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 				NOT = {has_dlc = "Man the Guns"}
@@ -2454,6 +2461,7 @@ sp_naval_modern_battleship = {
 
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_modern_battleship = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -2796,6 +2804,7 @@ sp_naval_modern_carrier = {
 	
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_modern_carrier = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -3129,6 +3138,7 @@ sp_naval_ice_carrier = {
 	
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_ice_carrier = 1 popup = no }	# TFR: mark the naval tab card as researched
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -3588,6 +3598,7 @@ sp_naval_support_ships = {
 	prototype_time = sp_time.prototype.medium 
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_repair_ship = 1 tfr_card_naval_support_ship = 1 popup = no }	# TFR: mark the naval tab cards as researched
 		}
 
 		enable_equipments = {
@@ -3787,6 +3798,7 @@ specialization = specialization_naval
 	prototype_time = sp_time.prototype.medium 
 	project_output = {
 		country_effects = {
+			set_technology = { tfr_card_naval_escort_carrier = 1 popup = no }	# TFR: mark the naval tab card as researched
 			add_design_template_bonus = {
 				name = sp_naval_escort_carrier_free_design
 				uses = 1

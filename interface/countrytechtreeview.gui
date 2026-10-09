@@ -545,6 +545,53 @@ guiTypes = {
 				format = "LEFT"
 			}
 
+			instantTextBoxType = {	# TFR: vertical naval tab
+				name = "tfr_transport_year_1922"
+				position = { x = 1560 y = 165 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1922"
+				maxWidth = 120
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR: vertical naval tab
+				name = "tfr_transport_year_1940"
+				position = { x = 1560 y = 465 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1940"
+				maxWidth = 120
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR: vertical naval tab
+				name = "tfr_transport_year_1944"
+				position = { x = 1560 y = 765 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1944"
+				maxWidth = 120
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			gridboxtype = {
+				name = "mtg_transport_tree"	# TFR: naval transports moved here from the naval tab
+				position = { x = 1700 y = 160 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
 		}
 
 		containerWindowType = {
@@ -1848,147 +1895,310 @@ guiTypes = {
 				position = { x=0 y=0 }
 			}
 
-				instantTextBoxType = {
-					name = "naval_year1"
-					position = { x = 210 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1922"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_year1"
+				position = { x = 17 y = 182 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1922"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year2"
-					position = { x = 630 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1936"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_year2"
+				position = { x = 17 y = 322 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1936"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year3"
-					position = { x = 1050 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1939"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_year3"
+				position = { x = 17 y = 502 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1938"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year4"
-					position = { x = 1470 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1943"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_year4"
+				position = { x = 17 y = 762 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1942"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_destroyer"
-					position = { x = 30 y = 55 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DESTROYERS"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "destroyer_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_head1"
+				position = { x = 140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_DD"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_cruiser"
-					position = { x = 30 y = 310 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CRUISERS"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "both_cruisers_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_head2"
+				position = { x = 640 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_SS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_armor"
-					position = { x = 30 y = 425 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_ARMOR"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "armor_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_head3"
+				position = { x = 1140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_battleship"
-					position = { x = 30 y = 545 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_BATTLESHIPS"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "battleship_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_head4"
+				position = { x = 1640 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_CV"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_carrier"
-					position = { x = 30 y = 660 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_CARRIERS"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "carrier_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_head5"
+				position = { x = 2140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_sub"
-					position = { x = 30 y = 835 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_SUBMARINES"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-					pdx_tooltip = "submarine_desc"
-				}
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_section1"
+				position = { x = 17 y = 50 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_SECTION_NON_ARMORED"
+				maxWidth = 900
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_section2"
+				position = { x = 17 y = 950 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_SECTION_ARMORED"
+				maxWidth = 900
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "naval_tfr_section3"
+				position = { x = 17 y = 1800 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_SECTION_SUPPORT"
+				maxWidth = 900
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_year1"
+				position = { x = 17 y = 1082 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1922"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_year2"
+				position = { x = 17 y = 1222 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1936"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_year3"
+				position = { x = 17 y = 1402 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1938"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_year4"
+				position = { x = 17 y = 1662 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1942"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_head1"
+				position = { x = 140 y = 1010 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_CR"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_head2"
+				position = { x = 640 y = 1010 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_head3"
+				position = { x = 1140 y = 1010 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_BB"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_head4"
+				position = { x = 1640 y = 1010 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_in_naval_tfr_head5"
+				position = { x = 2140 y = 1010 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_NATIONAL"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "support_in_naval_tfr_head1"
+				position = { x = 140 y = 1860 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_REPAIR"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "support_in_naval_tfr_head2"
+				position = { x = 1140 y = 1860 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_SUPPORT"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
 			containerWindowType = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = {
-					width=1700 height=1300
+					width=2700 height=2200	# TFR: wider scroll area for the vertical naval tab
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -2001,52 +2211,100 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "early_ship_hull_light_tree"
-				position = { x = 70 y = 60}
+				position = { x = 0 y = 0 }
 				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "early_ship_hull_cruiser_tree"
-				position = { x = 70 y = 380 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "basic_cruiser_armor_scheme_tree"
-				position = { x = 70 y = 395 }
-				size = { width = 100 height = 210 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "early_ship_hull_heavy_tree"
-				position = { x = 70 y = 550 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "early_ship_hull_carrier_tree"
-				position = { x = 70 y = 730 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
 			}
 
 			gridboxtype = {
 				name = "early_ship_hull_submarine_tree"
-				position = { x = 70 y = 975 }
+				position = { x = 0 y = 0 }
 				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
 			}
-			
+
+			gridboxtype = {
+				name = "early_ship_hull_carrier_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "tfr_card_naval_nuclear_submarine_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "tfr_card_naval_submarine_carrier_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "early_ship_hull_cruiser_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "early_ship_hull_heavy_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "panzerschiffe_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "coastal_defense_ships_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "pre_dreadnoughts_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "tfr_card_naval_repair_ship_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
+			gridboxtype = {
+				name = "tfr_card_naval_support_ship_tree"
+				position = { x = 0 y = 0 }
+				size = { width = 100 height = 140 }
+				slotsize = { width = 10 height = 10 }
+				format = "UP"
+			}
+
 		}
 
 		containerWindowType = {
@@ -2070,139 +2328,128 @@ guiTypes = {
 				position = { x=0 y=0 }
 			}
 
-				instantTextBoxType = {
-					name = "naval_year1"
-					position = { x = 224 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1922"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_year1"
+				position = { x = 17 y = 182 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1922"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year2"
-					position = { x = 644 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1936"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_year2"
+				position = { x = 17 y = 322 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1936"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year3"
-					position = { x = 1064 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1940"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_year3"
+				position = { x = 17 y = 502 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1938"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_year4"
-					position = { x = 1484 y = 20 }
-					textureFile = ""
-					font = "hoi_36header"
-					borderSize = {x = 0 y = 4}
-					text = "1944"
-					maxWidth = 170
-					maxHeight = 32
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_year4"
+				position = { x = 17 y = 762 }
+				textureFile = ""
+				font = "hoi_36header"
+				borderSize = {x = 0 y = 4}
+				text = "1942"
+				maxWidth = 95
+				maxHeight = 40
+				format = left
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_armaments"
-					position = { x = 30 y = 55 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_ARMAMENT"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_head1"
+				position = { x = 140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_CR"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_torpedoes"
-					position = { x = 30 y = 385 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TORPEDOES"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_head2"
+				position = { x = 640 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_damage_control"
-					position = { x = 30 y = 515 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_DAMAGE_CONTROL"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
-				instantTextBoxType = {
-					name = "naval_subtitle_fire_control"
-					position = { x = 30 y = 655 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_FIRE_CONTROL"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
-				instantTextBoxType = {
-					name = "naval_subtitle_transport"
-					position = { x = 30 y = 795 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_TRANSPORTS"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_head3"
+				position = { x = 1140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_BB"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
-				instantTextBoxType = {
-					name = "naval_subtitle_mines"
-					position = { x = 30 y = 1005 }
-					textureFile = ""
-					font = "hoi_33"
-					borderSize = {x = 0 y = 4}
-					text = "NAVAL_TITLE_MINES"
-					maxWidth = 600
-					maxHeight = 62
-					format = left
-					Orientation = "UPPER_LEFT"
-				}
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_head4"
+				position = { x = 1640 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_PROJECTS"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
+
+			instantTextBoxType = {	# TFR
+				name = "armored_tfr_head5"
+				position = { x = 2140 y = 110 }
+				textureFile = ""
+				font = "hoi_33"
+				borderSize = {x = 0 y = 4}
+				text = "TFR_NAVAL_HEAD_NATIONAL"
+				maxWidth = 323
+				maxHeight = 40
+				format = centre
+				Orientation = "UPPER_LEFT"
+			}
 
 			containerWindowType = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = {
-					width=1700 height=1300
+					width=2700 height=1300
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
@@ -2211,70 +2458,6 @@ guiTypes = {
 					name = "Background"
 					quadTextureSprite ="GFX_tiled_window_transparent_transparent"
 				}
-			}
-
-			gridboxtype = {
-				name = "basic_battery_tree"
-				position = { x = 150 y = 150 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 35 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "basic_torpedo_tree"
-				position = { x = 150 y = 395 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "damage_control_1_tree"
-				position = { x = 150 y = 535 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "fire_control_methods_1_tree"
-				position = { x = 150 y = 675 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			gridboxtype = {
-				name = "mtg_transport_tree"
-				position = { x = 150 y = 815 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
-			}
-
-			#gridboxtype = {
-				#name = "sp_multi_product_supply_ships_tree"
-				#position = { x = 150 y = 1255 }
-				#size = { width = 100 height = 140 }
-				#slotsize = { width = 70 height = 70 }
-				#format = "LEFT"
-			#}
-
-			#gridboxtype = {
-				#name = "sp_shock_hardening_techniques_tree"
-				#position = { x = 150 y = 1030 }
-				#size = { width = 100 height = 140 }
-				#slotsize = { width = 70 height = 70 }
-				#format = "LEFT"
-			#}						
-
-			gridboxtype = {
-				name = "basic_naval_mines_tree"
-				position = { x = 150 y = 1020 }
-				size = { width = 100 height = 140 }
-				slotsize = { width = 70 height = 70 }
-				format = "LEFT"
 			}
 
 		}
@@ -3849,27 +4032,27 @@ guiTypes = {
 			}
 			buttonType = {
 				name = "mtgnavalsupportfolder_tab"
-				position = { x = 467 y = 0 }
+				position = { x = -5000 y = 0 }	# TFR: naval support tab removed
 				quadTextureSprite = "GFX_naval_support_tab"
 				frame = 1
 				clicksound = ui_research_tab_naval
 			}
 			buttonType = {
 				name = "air_techs_folder_tab"
-				position = { x = 556 y = 0 }
+				position = { x = 467 y = 0 }
 				quadTextureSprite = "GFX_air_techs_folder_tab"
 				frame = 1
 				clicksound = ui_research_tab_air
 			}
 			buttonType = {
 				name = "bba_air_techs_folder_tab"
-				position = { x = 556 y = 0 }
+				position = { x = 467 y = 0 }
 				quadTextureSprite = "GFX_air_techs_folder_tab"
 				frame = 1
 				clicksound = ui_research_tab_air
 			}
 			buttonType = {
-				position = { x = 645 y = 0 }
+				position = { x = 556 y = 0 }
 				name = "electronics_folder_tab"
 				quadTextureSprite = "GFX_techtree_engineering_tab"
 				frame = 1
@@ -3879,13 +4062,13 @@ guiTypes = {
 			iconType = {
 				name = "highlight_engineering_folder"
 				spriteType = "GFX_tutorial_research_folder_icon_glow"
-				position = { x=645 y=0}
+				position = { x=556 y=0}
 				hide = yes
 				alwaystransparent = yes
 			}
 
 			buttonType = {
-				position = { x = 734 y = 0 }
+				position = { x = 645 y = 0 }
 				name = "industry_folder_tab"
 				quadTextureSprite = "GFX_industry_folder_tab"
 				frame = 1
@@ -3895,7 +4078,7 @@ guiTypes = {
 			iconType = {
 				name = "highlight_industry_folder"
 				spriteType = "GFX_tutorial_research_folder_icon_glow"
-				position = { x=734 y=0}
+				position = { x=645 y=0}
 				hide = yes
 				alwaystransparent = yes
 			}

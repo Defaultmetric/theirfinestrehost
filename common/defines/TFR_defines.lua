@@ -283,3 +283,16 @@ NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = 0 --Vanilla -0.12
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_TACTICAL_BOMBER = 0.06    -- How much efficiency to regain per day. Gain applied hourly.
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_FIGHTER = 1.5            -- How much efficiency to regain per day. Gain applied hourly.
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_PENALTY_FACTOR = 1.0                -- Penalty applied for changing region
+
+-- Mihai's Navy Simplified: naval mines removed (no planting, no sweeping, AI never asks for them)
+NDefines.NAI.NAVAL_MISSION_MINES_PLANTING_NEAR_OWNED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_PLANTING_NEAR_CONTROLLED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_SWEEPING_NEAR_OWNED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_SWEEPING_NEAR_CONTROLLED = 0
+NDefines.NAI.MINES_PLANTING_PLANES_PER_MAX_DESIRE = 0
+NDefines.NAI.MINES_SWEEPING_PLANES_PER_MAX_MINES = 0
+NDefines.NNavy.NAVAL_MINES_PLANTING_SPEED_MULT = 0.0		-- vanilla 0.01
+NDefines.NAir.NAVAL_MINES_PLANTING_SPEED_MULT = 0.0		-- vanilla 0.025
+
+-- Mihai's Navy Simplified: bigger fleet in a battle loses positioning faster, so DD spam and doomstacks get diminishing returns
+NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 0.5	-- vanilla 0.25, -50% positioning per +100% more ships than the enemy

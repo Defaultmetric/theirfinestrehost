@@ -26,7 +26,7 @@ All countries with deployed ships in the active 1936 Man the Guns start have one
 
 19 countries, 976 ships, 31 fleets. Eleven naval OOBs needed regrouping; the other eight already had the requested organization.
 
-Every ship entry is preserved, including model, owner, name, experience, officer, and pride-of-the-fleet status. All non-naval effects and removed-production markers remain intact. Regrouped task forces use existing starting naval bases; no new base locations are introduced. The 1939 scenario is unchanged.
+Names, owners, experience, officers, and pride-of-the-fleet status are preserved. The later standard-design cleanup changes only model references for 83 ships in eleven smaller fleets; this migration is recorded in `naval-standard-start-designs.json`. All non-naval effects and removed-production markers remain intact. Regrouped task forces use existing starting naval bases; no new base locations are introduced. The 1939 scenario is unchanged.
 
 Original source snapshots and ship fingerprints are archived in `naval-starting-fleet-grouping.json`. The earlier fleet-compaction ledger only updates OOB hashes and records the organization-only migration. Its ship counts, model costs and IC budgets are unchanged.
 

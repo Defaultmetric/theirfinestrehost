@@ -16,7 +16,7 @@ REPORT = ROOT / 'docs/naval-starting-fleet-grouping.json'
 
 def freeze(block):
     return [[e.key, e.op, freeze(e.value) if isinstance(e.value, Block) else e.value]
-            if hasattr(e, 'key') else e for e in block.items]
+            if hasattr(e, 'key') else freeze(e) if isinstance(e, Block) else e for e in block.items]
 
 
 def ship_hashes(tree):

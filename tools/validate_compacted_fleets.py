@@ -84,11 +84,24 @@ def main():
         assert digest((ROOT / path).read_text(encoding='utf-8-sig')) == hashes['after'], path
     grouping_path = ROOT / 'docs/naval-starting-fleet-grouping.json'
     regrouped = {r['source']: r for r in json.loads(grouping_path.read_text(encoding='utf-8'))['countries'] if r['changed']} if grouping_path.exists() else {}
-    unchanged, organization_only = 0, 0
+    standard_path = ROOT / 'docs/naval-standard-start-designs.json'
+    standard_files = json.loads(standard_path.read_text(encoding='utf-8'))['files'] if standard_path.exists() else {}
+    unchanged, organization_only, standardized = 0, 0, 0
     for path, sha256 in original['untouched_history_hashes'].items():
         current = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
         if current == sha256:
             unchanged += 1
+            continue
+        if path in standard_files:
+            migration = standard_files[path]
+            assert migration['raw_after_sha256'] == current
+            if path in regrouped:
+                row = regrouped[path]
+                assert row['raw_before_sha256'] == sha256
+                assert row['raw_after_before_standardization'] == migration['raw_before_sha256']
+            else:
+                assert migration['raw_before_sha256'] == sha256
+            standardized += 1
             continue
         assert path in regrouped, ('Out-of-scope history changed', path)
         row = regrouped[path]
@@ -101,7 +114,7 @@ def main():
     print(f'PASS: 8 countries, {totals["old_ships"]} -> {totals["new_ships"]} ships; only standard 1936 deployed models.')
     print('PASS: per-role compaction and pooled rounding IC; no class sacrifices; all budgets respected; no affordable remainder.')
     print('PASS: variants/flags precede OOB loading; names and flagships preserved; no empty fleets or duplicate ship names.')
-    print(f'PASS: {unchanged} other history files unchanged; {organization_only} explicitly regrouped with identical ships; 1939 OOBs unchanged; no starting production.')
+    print(f'PASS: {unchanged} other history files unchanged; {organization_only} regrouped; {standardized} explicit standard-design migrations; 1939 OOBs unchanged; no starting production.')
 
 
 if __name__ == '__main__':

@@ -475,6 +475,635 @@ if = {
 }
 
 1939.1.1 = {
+# TFR: historical designs retained only for the 1939 scenario.
+if = {
+	limit = { has_dlc = "Man the Guns" }
+if = {
+limit = { not = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
+		name = "O/P/R Class"
+		type = submarine_1
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 3
+			sub_engine_upgrade = 2
+			sub_stealth_upgrade = 2
+			sub_torpedo_upgrade = 3
+		}
+	}
+create_equipment_variant = {
+		name = "S Class"
+		type = submarine_1
+		parent_version = 1
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 2
+			sub_engine_upgrade = 0
+			sub_stealth_upgrade = 2
+			sub_torpedo_upgrade = 3
+		}
+	}
+create_equipment_variant = {
+		name = "A/B/C/D Class"
+		type = destroyer_1
+		parent_version = 0
+		design_team = mio:ENG_yarrow_shipbuilders_organization
+		upgrades = {
+			ship_torpedo_upgrade = 1
+			destroyer_engine_upgrade = 3
+			ship_ASW_upgrade = 2
+			ship_anti_air_upgrade = 1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Emerald Class"
+		type = light_cruiser_1
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 3
+			ship_engine_upgrade = 3
+			ship_gun_upgrade = 2
+			ship_anti_air_upgrade = 3
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Amphion Class"
+		type = light_cruiser_1
+		parent_version = 1
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 3
+			ship_engine_upgrade = 3
+			ship_gun_upgrade = 3
+			ship_anti_air_upgrade = 3
+		}
+	}
+create_equipment_variant = {
+		name = "County Class"
+		type = heavy_cruiser_1
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 2
+			ship_engine_upgrade = 3
+			ship_armor_upgrade = 3
+			ship_gun_upgrade = 3
+		}
+	}
+create_equipment_variant = {
+		name = "Admiral Class"
+		type = battle_cruiser_1
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		upgrades = {
+			ship_reliability_upgrade = 3
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 3
+			ship_gun_upgrade = 2
+		}
+	}
+create_equipment_variant = {
+		name = "Nelson Class"
+		type = battleship_1
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		upgrades = {
+			ship_reliability_upgrade = 3
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 3
+			ship_gun_upgrade = 3
+		}
+	}
+create_equipment_variant = {
+		name = "Queen Elizabeth Class"
+		type = battleship_1
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 1
+		}
+	}
+}
+if = {
+limit = { has_dlc = "Man the Guns" }
+create_equipment_variant = {
+		name = "O/P/R Class"
+		type = ship_hull_submarine_1
+		name_group = ENG_SS_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+create_equipment_variant = {
+		name = "S Class"
+		type = ship_hull_submarine_1
+		name_group = ENG_SS_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = ship_torpedo_sub_1
+		}
+	}
+create_equipment_variant = {
+		name = "A/B/C/D Class"
+		type = ship_hull_light_1
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_yarrow_shipbuilders_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "E/F/G/H Class"
+		type = ship_hull_light_2
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_yarrow_shipbuilders_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+create_equipment_variant = {
+		name = "V/W Class"
+		type = ship_hull_light_1
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = dp_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_destroyer_vampire"
+				model = "commonwealth_gfx_destroyer_1_entity"
+			}
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "S Class"
+		type = ship_hull_light_1
+		name_group = ENG_DD_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "C-Class"
+		type = ship_hull_cruiser_1
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Danae Class"
+		type = ship_hull_cruiser_1
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Emerald Class"
+		type = ship_hull_cruiser_2
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Leander Class"
+		type = ship_hull_cruiser_2
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_airplane_launcher_1
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_light_cruiser_hobart"
+				model = "commonwealth_gfx_light_cruiser_entity"
+			}
+		}
+	}
+create_equipment_variant = {
+		name = "Adventure Class"						# cruiser minelayer
+		type = ship_hull_cruiser_1
+		name_group = ENG_MINELAYERS_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+create_equipment_variant = {
+		name = "Town Class"
+		type = ship_hull_cruiser_2
+		name_group = ENG_CL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			front_1_custom_slot = ship_anti_air_2
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_secondaries_2
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+	}
+create_equipment_variant = {
+		name = "County Class"
+		type = ship_hull_cruiser_1
+		name_group = ENG_CA_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_john_brown_organization
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_medium_battery_2
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_heavy_cruiser_australia"
+				model = "commonwealth_gfx_heavy_cruiser_entity"
+			}
+		}
+	}
+create_equipment_variant = {
+		name = "York Class"
+		type = ship_hull_cruiser_1
+		name_group = ENG_CA_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+	}
+create_equipment_variant = {
+		name = "Hawkins Class"
+		type = ship_hull_cruiser_1
+		name_group = ENG_CA_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_2
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Renown Class"
+		type = ship_hull_heavy_1
+		name_group = ENG_BC_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bc_1
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Admiral Class"
+		type = ship_hull_heavy_1
+		name_group = ENG_BC_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bc_2
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+	}
+create_equipment_variant = {
+		name = "G3 Design"
+		type = ship_hull_heavy_1
+		name_group = ENG_BC_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bc_2
+			front_1_custom_slot = ship_heavy_battery_2
+			mid_1_custom_slot = dp_ship_secondaries_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = empty
+		}
+	}
+create_equipment_variant = {
+		name = "Erebus Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = ENG_BM_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = empty
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_heavy_cruiser_erebus"
+				model = "commonwealth_gfx_heavy_cruiser_2_entity"
+			}
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Nelson Class"
+		type = ship_hull_heavy_1
+		name_group = ENG_BB_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_armor_slot = ship_armor_bb_2
+			front_1_custom_slot = ship_heavy_battery_2
+			mid_1_custom_slot = dp_ship_secondaries_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Queen Elizabeth Class"
+		type = ship_hull_heavy_1
+		name_group = ENG_BB_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		optional_assets = {
+			{
+				icon = "GFX_commonwealth_battleship_warspite"
+				model = "commonwealth_gfx_battleship_entity"
+			}
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Revenge Class"
+		type = ship_hull_heavy_1
+		name_group = ENG_BB_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_cammell_laird_organization
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Eagle Class"
+		type = ship_hull_carrier_conversion_bb
+		name_group = ENG_CV_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Hermes Class"
+		type = ship_hull_carrier_conversion_ca
+		name_group = ENG_CVL_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = empty
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Courageous Class"
+		type = ship_hull_carrier_conversion_bb
+		name_group = ENG_CV_HISTORICAL
+		parent_version = 0
+		design_team = mio:ENG_harland_wolff_organization
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_2
+			fixed_ship_secondaries_slot = dp_ship_secondaries_1
+			mid_1_custom_slot = ship_deck_space
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+			name = "Ark Royal Class"
+			type = ship_hull_carrier_1
+			name_group = ENG_CV_HISTORICAL
+			parent_version = 0
+			design_team = mio:ENG_harland_wolff_organization
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_radar_slot = empty
+				fixed_ship_engine_slot = carrier_ship_engine_2
+				fixed_ship_secondaries_slot = dp_ship_secondaries_2
+				front_1_custom_slot = ship_deck_space
+			}
+		}
+}
+}
+
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -878,7 +1507,9 @@ if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	### Variants ###
 	# Submarines #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "O/P/R Class"
 		type = submarine_1
 		parent_version = 0
@@ -890,7 +1521,10 @@ if = {
 			sub_torpedo_upgrade = 3
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "S Class"
 		type = submarine_1
 		parent_version = 1
@@ -902,8 +1536,11 @@ if = {
 			sub_torpedo_upgrade = 3
 		}
 	}
+}
 	# Destroyers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "A/B/C/D Class"
 		type = destroyer_1
 		parent_version = 0
@@ -916,8 +1553,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	# Light Cruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Emerald Class"
 		type = light_cruiser_1
 		parent_version = 0
@@ -930,7 +1570,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Amphion Class"
 		type = light_cruiser_1
 		parent_version = 1
@@ -942,8 +1585,11 @@ if = {
 			ship_anti_air_upgrade = 3
 		}
 	}
+}
 	# Heavy Cruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "County Class"
 		type = heavy_cruiser_1
 		parent_version = 0
@@ -955,8 +1601,11 @@ if = {
 			ship_gun_upgrade = 3
 		}
 	}
+}
 	# Battlecruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Admiral Class"
 		type = battle_cruiser_1
 		parent_version = 0
@@ -968,8 +1617,11 @@ if = {
 			ship_gun_upgrade = 2
 		}
 	}
+}
 	# Battleships #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Nelson Class"
 		type = battleship_1
 		parent_version = 0
@@ -981,7 +1633,10 @@ if = {
 			ship_gun_upgrade = 3
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Queen Elizabeth Class"
 		type = battleship_1
 		parent_version = 0
@@ -993,12 +1648,15 @@ if = {
 		}
 	}
 }
+}
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	### Variants ###
 	# Submarines #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "O/P/R Class"
 		type = ship_hull_submarine_1
 		name_group = ENG_SS_HISTORICAL
@@ -1010,7 +1668,10 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "S Class"
 		type = ship_hull_submarine_1
 		name_group = ENG_SS_HISTORICAL
@@ -1022,8 +1683,11 @@ if = {
 			rear_1_custom_slot = ship_torpedo_sub_1
 		}
 	}
+}
 	# Destroyers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "A/B/C/D Class"
 		type = ship_hull_light_1
 		name_group = ENG_DD_HISTORICAL
@@ -1041,7 +1705,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "E/F/G/H Class"
 		type = ship_hull_light_2
 		name_group = ENG_DD_HISTORICAL
@@ -1058,7 +1725,10 @@ if = {
 			rear_1_custom_slot = ship_depth_charge_1
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "V/W Class"
 		type = ship_hull_light_1
 		name_group = ENG_DD_HISTORICAL
@@ -1082,7 +1752,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "S Class"
 		type = ship_hull_light_1
 		name_group = ENG_DD_HISTORICAL
@@ -1100,8 +1773,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	# Light Cruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "C-Class"
 		type = ship_hull_cruiser_1
 		name_group = ENG_CL_HISTORICAL
@@ -1120,7 +1796,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Danae Class"
 		type = ship_hull_cruiser_1
 		name_group = ENG_CL_HISTORICAL
@@ -1139,7 +1818,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Emerald Class"
 		type = ship_hull_cruiser_2
 		name_group = ENG_CL_HISTORICAL
@@ -1159,7 +1841,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Leander Class"
 		type = ship_hull_cruiser_2
 		name_group = ENG_CL_HISTORICAL
@@ -1185,7 +1870,10 @@ if = {
 			}
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Adventure Class"						# cruiser minelayer
 		type = ship_hull_cruiser_1
 		name_group = ENG_MINELAYERS_HISTORICAL
@@ -1204,7 +1892,10 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Town Class"
 		type = ship_hull_cruiser_2
 		name_group = ENG_CL_HISTORICAL
@@ -1224,8 +1915,11 @@ if = {
 			rear_1_custom_slot = ship_light_medium_battery_2
 		}
 	}
+}
 	# Heavy Cruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "County Class"
 		type = ship_hull_cruiser_1
 		name_group = ENG_CA_HISTORICAL
@@ -1250,7 +1944,10 @@ if = {
 			}
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "York Class"
 		type = ship_hull_cruiser_1
 		name_group = ENG_CA_HISTORICAL
@@ -1269,7 +1966,10 @@ if = {
 			rear_1_custom_slot = ship_airplane_launcher_1
 		}
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Hawkins Class"
 		type = ship_hull_cruiser_1
 		name_group = ENG_CA_HISTORICAL
@@ -1288,8 +1988,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	# Battlecruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Renown Class"
 		type = ship_hull_heavy_1
 		name_group = ENG_BC_HISTORICAL
@@ -1310,8 +2013,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	# Battlecruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Admiral Class"
 		type = ship_hull_heavy_1
 		name_group = ENG_BC_HISTORICAL
@@ -1331,8 +2037,11 @@ if = {
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
 	}
+}
 
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "G3 Design"
 		type = ship_hull_heavy_1
 		name_group = ENG_BC_HISTORICAL
@@ -1352,9 +2061,12 @@ if = {
 			rear_1_custom_slot = empty
 		}
 	}
+}
 
 	# Monitors
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Erebus Class"
 		type = ship_hull_cruiser_coastal_defense_ship
 		name_group = ENG_BM_HISTORICAL
@@ -1380,9 +2092,12 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 
 	# Battleships #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Nelson Class"
 		type = ship_hull_heavy_1
 		name_group = ENG_BB_HISTORICAL
@@ -1403,7 +2118,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Queen Elizabeth Class"
 		type = ship_hull_heavy_1
 		name_group = ENG_BB_HISTORICAL
@@ -1430,7 +2148,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Revenge Class"
 		type = ship_hull_heavy_1
 		name_group = ENG_BB_HISTORICAL
@@ -1451,7 +2172,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Eagle Class"
 		type = ship_hull_carrier_conversion_bb
 		name_group = ENG_CV_HISTORICAL
@@ -1468,8 +2192,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Hermes Class"
 		type = ship_hull_carrier_conversion_ca
 		name_group = ENG_CVL_HISTORICAL
@@ -1485,7 +2212,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Courageous Class"
 		type = ship_hull_carrier_conversion_bb
 		name_group = ENG_CV_HISTORICAL
@@ -1502,7 +2232,10 @@ if = {
 		}
 		obsolete = yes
 	}
-	create_equipment_variant = {
+}
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 			name = "Ark Royal Class"
 			type = ship_hull_carrier_1
 			name_group = ENG_CV_HISTORICAL
@@ -1518,6 +2251,7 @@ if = {
 				front_1_custom_slot = ship_deck_space
 			}
 		}
+}
 	}
 	if = {
 		limit = {

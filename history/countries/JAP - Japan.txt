@@ -1034,6 +1034,734 @@ JAP_isoroku_yamamoto = {
 
 # Setup 1939 Start Date
 1939.1.1 = {
+# TFR: historical designs retained only for the 1939 scenario.
+if = {
+	limit = { has_dlc = "Man the Guns" }
+create_equipment_variant = {
+	name = "Akagi Class"
+	type = ship_hull_carrier_conversion_bb
+	name_group = JAP_CV_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_2
+		mid_1_custom_slot = ship_deck_space
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Kaga Class"
+	type = ship_hull_carrier_conversion_bb
+	name_group = JAP_CV_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_2
+		mid_1_custom_slot = ship_deck_space
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Soryu Class"
+	type = ship_hull_carrier_1
+	name_group = JAP_CV_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = carrier_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = ship_deck_space
+	}
+}
+create_equipment_variant = {
+	name = "Zuiho Class"
+	type = ship_hull_carrier_conversion_ca
+	name_group = JAP_CVL_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = carrier_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+	}
+}
+create_equipment_variant = {
+	name = "Hosho Class"
+	name_group = JAP_CVL_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	type = ship_hull_carrier_conversion_ca
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = empty
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = carrier_ship_engine_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = empty
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_carrier_hoso"
+			model = "JAP_carrier_entity"
+		}
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Ryujo Class"
+	name_group = JAP_CVL_HISTORICAL
+	design_team = mio:JAP_yokosuka_naval_arsenal_organization
+	type = ship_hull_carrier_1
+	parent_version = 0
+	modules = {
+		fixed_ship_deck_slot_1 = ship_deck_space
+		fixed_ship_deck_slot_2 = ship_deck_space
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = carrier_ship_engine_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Nagato Class"
+	name_group = JAP_BB_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	type = ship_hull_heavy_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_2
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = ship_anti_air_1
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_2
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_nagato"
+			model = "JAP_battleship_3_entity"
+		}
+	}
+}
+create_equipment_variant = {
+	name = "Kongo Class"
+	name_group = JAP_BB_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	type = ship_hull_heavy_1
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bc_2
+		front_1_custom_slot = ship_anti_air_1
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_1
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_kongo"
+			model = "JAP_battleship_0_entity"
+		}
+	}
+}
+create_equipment_variant = {
+	name = "Fuso Class"
+	type = ship_hull_heavy_1
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	name_group = JAP_BB_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = ship_heavy_battery_1
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_1
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_fuso"
+			model = "JAP_battleship_1_entity"
+		}
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Ise Class"
+	type = ship_hull_heavy_1
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	name_group = JAP_BB_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = heavy_ship_engine_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		fixed_ship_armor_slot = ship_armor_bb_1
+		front_1_custom_slot = ship_heavy_battery_1
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_heavy_battery_1
+	}
+	obsolete = yes
+	optional_assets = {
+		{
+			icon = "GFX_JAP_battleship_ise"
+			model = "JAP_battleship_2_entity"
+		}
+	}
+}
+create_equipment_variant = {
+	name = "Takao Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = ship_medium_battery_2
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Myoko Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = ship_medium_battery_2
+		mid_1_custom_slot = ship_torpedo_2
+		mid_2_custom_slot = ship_torpedo_2
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Furutaka/Aoba Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		mid_1_custom_slot = ship_torpedo_2
+		mid_2_custom_slot = ship_torpedo_2
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Chikuma Class"
+	type = ship_hull_cruiser_1
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Izumo Class"
+	type = ship_hull_cruiser_coastal_defense_ship
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_secondaries_1
+		rear_1_custom_slot = ship_torpedo_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Tone Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_2
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = ship_medium_battery_1
+		mid_1_custom_slot = ship_torpedo_2
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_heavy_cruiser_tone"
+			model = "JAP_heavy_cruiser_1_entity"
+		}
+	}
+}
+create_equipment_variant = {
+	name = "Tokiwa Class"
+	type = ship_hull_cruiser_coastal_defense_ship
+	name_group = JAP_CA_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		mid_1_custom_slot = ship_secondaries_1
+		mid_2_custom_slot = ship_secondaries_1
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Mogami Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_2
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_2
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		front_1_custom_slot = ship_light_medium_battery_2
+		mid_1_custom_slot = ship_torpedo_2
+		mid_2_custom_slot = ship_torpedo_2
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+}
+create_equipment_variant = {
+	name = "Yubari Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Sendai Class"
+	type = ship_hull_cruiser_1
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		fixed_ship_secondaries_slot = ship_secondaries_1
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = empty
+	}
+	optional_assets = {
+		{
+			icon = "GFX_JAP_light_cruiser_sendai"
+			model = "JAP_light_cruiser_entity"
+		}
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Tenryu Class"
+	type = ship_hull_cruiser_1
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Kuma/Nagara Class"
+	type = ship_hull_cruiser_1
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_2
+		fixed_ship_armor_slot = ship_armor_cruiser_1
+		mid_1_custom_slot = ship_torpedo_1
+		mid_2_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Okinoshima Class"					# cruiser minelayer
+	type = ship_hull_cruiser_1
+	name_group = JAP_MINELAYERS_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = empty
+		mid_1_custom_slot = empty
+		mid_2_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "Chitose/Mizuho Class"
+	type = ship_hull_cruiser_2
+	name_group = JAP_CL_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_medium_battery_1
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = cruiser_ship_engine_1
+		fixed_ship_armor_slot = empty
+		mid_1_custom_slot = ship_airplane_launcher_1
+		mid_2_custom_slot = ship_airplane_launcher_1
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "Mutsuki Class" #collection of various WWI and early interwar ships with similiar capabilities
+	type = ship_hull_light_1
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Minekaze Class" 
+	type = ship_hull_light_1
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Momi Class" 
+	type = ship_hull_light_1
+	name_group = JAP_DD_HISTORICAL
+	parent_version = 0
+	design_team = mio:JAP_kawasaki_dockyards_organization
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Chidori/Otori Class"
+	type = ship_hull_light_1
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = empty
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+}
+create_equipment_variant = {
+	name = "Fubuki Class"
+	type = ship_hull_light_2
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_2
+		mid_1_custom_slot = ship_torpedo_2
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+}
+create_equipment_variant = {
+	name = "Sokuten Class" 				# collection of interwar DD-sized minelayers
+	type = ship_hull_light_1
+	name_group = JAP_MINELAYERS_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = empty
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = empty
+		mid_1_custom_slot = empty
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "Momo Class" # Momo-class destroyers, successors to the Kaba's, one of which is transferred to Manchukuo in 1937
+	type = ship_hull_light_1
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_1
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_1
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = empty
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Asashio Class"
+	type = ship_hull_light_2
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_2
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_2
+		mid_1_custom_slot = ship_torpedo_2
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+}
+create_equipment_variant = {
+	name = "Hatsuharu Class"
+	type = ship_hull_light_2
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_1
+		mid_1_custom_slot = empty
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Shiratsuyu Class"
+	type = ship_hull_light_2
+	name_group = JAP_DD_HISTORICAL
+	design_team = mio:JAP_maizuru_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_2
+		fixed_ship_anti_air_slot = empty
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = empty
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_2
+		mid_1_custom_slot = ship_torpedo_1
+		rear_1_custom_slot = ship_depth_charge_1
+	}
+	obsolete = yes
+}
+create_equipment_variant = {
+	name = "Kaidai III Class"
+	type = ship_hull_submarine_2
+	name_group = JAP_SS_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+		fixed_ship_engine_slot = sub_ship_engine_1
+		rear_1_custom_slot = ship_torpedo_sub_1
+	}
+}
+create_equipment_variant = {
+	name = "Kaichū IV Class"
+	type = ship_hull_submarine_1
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+		fixed_ship_engine_slot = sub_ship_engine_1
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "Kiraisen Class"
+	type = ship_hull_submarine_2
+	name_group = JAP_SS_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+		fixed_ship_engine_slot = sub_ship_engine_1
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "I-1 Class"
+	type = ship_hull_cruiser_submarine
+	name_group = JAP_SS_HISTORICAL
+	design_team = mio:JAP_sasebo_naval_arsenal_organization
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+		fixed_ship_engine_slot = sub_ship_engine_1
+		front_1_custom_slot = ship_light_battery_sub
+		mid_1_custom_slot = empty
+		rear_1_custom_slot = ship_torpedo_sub_1
+	}
+}
+}
+
 
 	set_country_flag = JAP_1939_start_date_initiated
 
@@ -1466,6 +2194,8 @@ IF = {
 # 1936 Start #
 
 ### Carrier Variants
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Akagi Class"
 	type = ship_hull_carrier_conversion_bb
@@ -1484,6 +2214,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kaga Class"
 	type = ship_hull_carrier_conversion_bb
@@ -1502,6 +2235,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Soryu Class"
 	type = ship_hull_carrier_1
@@ -1518,6 +2254,9 @@ create_equipment_variant = {
 		front_1_custom_slot = ship_deck_space
 	}
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Zuiho Class"
 	type = ship_hull_carrier_conversion_ca
@@ -1533,6 +2272,9 @@ create_equipment_variant = {
 		fixed_ship_secondaries_slot = ship_secondaries_1
 	}
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Hosho Class"
 	name_group = JAP_CVL_HISTORICAL
@@ -1556,6 +2298,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Ryujo Class"
 	name_group = JAP_CVL_HISTORICAL
@@ -1573,8 +2318,11 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
 ### Battleship Variants	
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Nagato Class"
 	name_group = JAP_BB_HISTORICAL
@@ -1601,6 +2349,9 @@ create_equipment_variant = {
 		}
 	}
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kongo Class"
 	name_group = JAP_BB_HISTORICAL
@@ -1627,6 +2378,9 @@ create_equipment_variant = {
 		}
 	}
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Fuso Class"
 	type = ship_hull_heavy_1
@@ -1654,6 +2408,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Ise Class"
 	type = ship_hull_heavy_1
@@ -1681,8 +2438,11 @@ create_equipment_variant = {
 		}
 	}
 }
+}
 	
 ### Cruiser Variants			
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Takao Class"
 	type = ship_hull_cruiser_2
@@ -1704,6 +2464,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Myoko Class"
 	type = ship_hull_cruiser_2
@@ -1725,7 +2488,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Furutaka/Aoba Class"
 	type = ship_hull_cruiser_2
@@ -1746,7 +2512,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Chikuma Class"
 	type = ship_hull_cruiser_1
@@ -1767,6 +2536,9 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Izumo Class"
 	type = ship_hull_cruiser_coastal_defense_ship
@@ -1786,7 +2558,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Tone Class"
 	type = ship_hull_cruiser_2
@@ -1813,7 +2588,10 @@ create_equipment_variant = {
 		}
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Tokiwa Class"
 	type = ship_hull_cruiser_coastal_defense_ship
@@ -1833,7 +2611,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Mogami Class"
 	type = ship_hull_cruiser_2
@@ -1854,7 +2635,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_airplane_launcher_1
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Yubari Class"
 	type = ship_hull_cruiser_2
@@ -1874,7 +2658,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Sendai Class"
 	type = ship_hull_cruiser_1
@@ -1901,7 +2688,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Tenryu Class"
 	type = ship_hull_cruiser_1
@@ -1921,7 +2711,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kuma/Nagara Class"
 	type = ship_hull_cruiser_1
@@ -1941,7 +2734,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Okinoshima Class"					# cruiser minelayer
 	type = ship_hull_cruiser_1
@@ -1960,7 +2756,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = empty
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Chitose/Mizuho Class"
 	type = ship_hull_cruiser_2
@@ -1979,8 +2778,11 @@ create_equipment_variant = {
 		rear_1_custom_slot = empty
 	}
 }
+}
 
 ### Destroyer Variants
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Mutsuki Class" #collection of various WWI and early interwar ships with similiar capabilities
 	type = ship_hull_light_1
@@ -1999,7 +2801,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Minekaze Class" 
 	type = ship_hull_light_1
@@ -2018,7 +2823,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Momi Class" 
 	type = ship_hull_light_1
@@ -2037,7 +2845,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Chidori/Otori Class"
 	type = ship_hull_light_1
@@ -2055,7 +2866,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_depth_charge_1
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Fubuki Class"
 	type = ship_hull_light_2
@@ -2073,7 +2887,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_depth_charge_1
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Sokuten Class" 				# collection of interwar DD-sized minelayers
 	type = ship_hull_light_1
@@ -2090,8 +2907,11 @@ create_equipment_variant = {
 		mid_1_custom_slot = empty
 		rear_1_custom_slot = empty
 	}
+}
 }	
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Momo Class" # Momo-class destroyers, successors to the Kaba's, one of which is transferred to Manchukuo in 1937
 	type = ship_hull_light_1
@@ -2110,7 +2930,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Asashio Class"
 	type = ship_hull_light_2
@@ -2128,7 +2951,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = ship_depth_charge_1
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Hatsuharu Class"
 	type = ship_hull_light_2
@@ -2147,7 +2973,10 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Shiratsuyu Class"
 	type = ship_hull_light_2
@@ -2166,8 +2995,11 @@ create_equipment_variant = {
 	}
 	obsolete = yes
 }
+}
 
 ### Submarine Variants	
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kaidai III Class"
 	type = ship_hull_submarine_2
@@ -2179,8 +3011,11 @@ create_equipment_variant = {
 		fixed_ship_engine_slot = sub_ship_engine_1
 		rear_1_custom_slot = ship_torpedo_sub_1
 	}
+}
 }	
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kaichū IV Class"
 	type = ship_hull_submarine_1
@@ -2192,7 +3027,10 @@ create_equipment_variant = {
 		rear_1_custom_slot = empty
 	}
 }
+}
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "Kiraisen Class"
 	type = ship_hull_submarine_2
@@ -2204,8 +3042,11 @@ create_equipment_variant = {
 		fixed_ship_engine_slot = sub_ship_engine_1
 		rear_1_custom_slot = empty
 	}
+}
 }	
 
+if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
 create_equipment_variant = {
 	name = "I-1 Class"
 	type = ship_hull_cruiser_submarine
@@ -2219,6 +3060,7 @@ create_equipment_variant = {
 		mid_1_custom_slot = empty
 		rear_1_custom_slot = ship_torpedo_sub_1
 	}
+}
 }
 
 

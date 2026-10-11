@@ -6,11 +6,11 @@ import re
 from hoi4_script import Block, parse, walk
 
 ROOT = Path(__file__).resolve().parents[1]
-GER_STATES = {851, 21, 32, 20, 26, 33, 25, 31}
+GER_STATES = {851, 21, 22, 32, 20, 26, 33, 25, 31}
 ITA_STATES = {735, 1}
 AFRICA_STATES = {665, 458, 513, 460, 459, 461, 462}
 TARGETS = GER_STATES | ITA_STATES | AFRICA_STATES
-OTHER_STATES = {22, 448, 554, 670, 999}
+OTHER_STATES = {448, 554, 670, 999}
 
 
 def load(relative):
@@ -157,7 +157,7 @@ def main():
     assert len(keys) == len(set(keys)) == 6
     assert 'Free France is not required' in loc.read_text(encoding='utf-8-sig')
     assert 'United Kingdom (ENG)' in loc.read_text(encoding='utf-8-sig')
-    print('PASS: all 17 states, 2,040 routing scenarios, fixed/dynamic Vichy tags,')
+    print('PASS: all 18 states, 2,160 routing scenarios, fixed/dynamic Vichy tags,')
     print('FRA present/absent and ENG fallback; Italy control of 448 retains priority; occupied states unchanged,')
     print('unlisted states unchanged, repeat safety, legacy missions, seven-day fleet window, localisation.')
 

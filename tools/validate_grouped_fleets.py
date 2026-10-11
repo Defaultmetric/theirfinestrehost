@@ -42,7 +42,8 @@ def main():
             changed += 1
             before = row['source_before']
             original = parse(before)
-            assert ship_hashes(original) == ship_hashes(tree)
+            expected = row.get('ship_fingerprints_before_standardization', row['ship_fingerprints'])
+            assert dict(ship_hashes(original)) == expected
             before_unit, before_groups = fleets(original)
             assert before[:before_unit.start] + before[before_unit.end:] == source[:unit.start] + source[unit.end:]
             raw = (b'\xef\xbb\xbf' if row['source_before_bom'] else b'') + before.replace('\n', row['source_before_newline']).encode('utf-8')
@@ -51,8 +52,8 @@ def main():
             old_ports = {f.value.get('naval_base') for f in before_groups}
             assert set(row['bases_after'].values()) <= old_ports
     assert seen == set(rows), 'Starting naval country was omitted'
-    print(f'PASS: {len(seen)} countries, {ships} identical ships, {fleet_count} fleets; one task force per fleet; surface/submarines separated.')
-    print(f'PASS: {changed} OOBs regrouped; ship models/names/experience/officers/flagships and non-naval effects preserved; original ports retained; 1939 unchanged.')
+    print(f'PASS: {len(seen)} countries, {ships} ships with preserved identity/counts, {fleet_count} fleets; one task force per fleet; surface/submarines separated.')
+    print(f'PASS: {changed} OOBs regrouped; names/experience/officers/flagships and non-naval effects preserved; model migrations audited; original ports retained; 1939 unchanged.')
 
 
 if __name__ == '__main__':

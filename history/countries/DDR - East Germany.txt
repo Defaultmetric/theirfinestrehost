@@ -110,6 +110,76 @@ set_convoys = 50
 set_stability = 0.75
 
 1939.1.1 = {
+# TFR: historical designs retained only for the 1939 scenario.
+if = {
+	limit = { has_dlc = "Man the Guns" }
+if = {
+limit = { has_dlc = "Man the Guns" }
+create_equipment_variant = {
+		name = "Deutschland Class"
+		type = ship_hull_cruiser_panzerschiff
+		name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+        	fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			rear_1_custom_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+    	}
+	}
+create_equipment_variant = {
+		name = "Königsberg Class"
+		type = ship_hull_cruiser_2
+		name_group = GER_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_light_medium_battery_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+}
+if = {
+limit = {
+			not = { has_dlc = "Man the Guns" }
+		}
+create_equipment_variant = {
+		name = "Königsberg Class"
+		type = light_cruiser_1
+		parent_version = 0
+		upgrades = {
+			ship_reliability_upgrade = 2
+			ship_engine_upgrade = 2
+			ship_gun_upgrade = 2
+			ship_anti_air_upgrade = 2
+		}
+		obsolete = yes
+	}
+create_equipment_variant = {
+		name = "Deutschland Class"
+		type = heavy_cruiser_1
+		parent_version = 0
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_armor_upgrade = 1
+			ship_gun_upgrade = 2
+		}
+	}
+}
+}
+
 
 	add_political_power = 1197
 	add_command_power = 100
@@ -244,7 +314,9 @@ create_country_leader = {
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Deutschland Class"
 		type = ship_hull_cruiser_panzerschiff
 		name_group = GER_CA_HISTORICAL
@@ -260,8 +332,11 @@ if = {
 			mid_1_custom_slot = ship_airplane_launcher_1
     	}
 	}
+}
 
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Königsberg Class"
 		type = ship_hull_cruiser_2
 		name_group = GER_CL_HISTORICAL
@@ -280,6 +355,7 @@ if = {
 		obsolete = yes
 	}
 }
+}
 
 
 ### Ship Variants ###
@@ -290,7 +366,9 @@ if = {
 		limit = {
 			not = { has_dlc = "Man the Guns" }
 		}
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Königsberg Class"
 		type = light_cruiser_1
 		parent_version = 0
@@ -302,8 +380,11 @@ if = {
 		}
 		obsolete = yes
 	}
+}
 	# Heavy Cruisers #
-	create_equipment_variant = {
+	if = {
+	limit = { NOT = { has_dlc = "Man the Guns" } }
+create_equipment_variant = {
 		name = "Deutschland Class"
 		type = heavy_cruiser_1
 		parent_version = 0
@@ -314,6 +395,7 @@ if = {
 			ship_gun_upgrade = 2
 		}
 	}
+}
 }
 ## 1939 Start ##
 1939.1.1 = {

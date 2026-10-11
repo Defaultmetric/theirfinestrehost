@@ -117,6 +117,7 @@ NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 10000.0           -- Bey
 NDefines.NDoctrines.MAX_MONTHLY_MASTERY_GAIN = 50                       -- Monthly mastery gain will not exceed this value
 NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.5		-- If we have any mastery gain, it will be boosted to be at least this much per day (lower cap)
 NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 75
+NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.1                   -- Vanilla: training contributes 10% of combat/mission mastery, including special forces
 
 NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 30								-- base days needed to prepare a naval invasion
 NDefines.NNavy.NAVAL_INVASION_PLAN_CAP = 4									-- base cap of naval invasions can be planned at the same time
@@ -208,10 +209,10 @@ NDefines.NAI.LAND_COMBAT_OUR_COMBATS_AIR_IMPORTANCE = 55		-- Strategic importanc
 NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 10000		-- bonus to make ai more likely to assign low prio units to garrisons
 NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 10000		-- penalty to make ai less likely to assign low prio units to fronts
 NDefines.NAI.SCREENS_TO_CAPITAL_RATIO = 2.0					-- screens to capital/carrier count in carrier & capital taskforces
-NDefines.NAI.CARRIER_TASKFORCE_MAX_CARRIER_COUNT = 3		-- optimum carrier count for carrier taskforces (reduced from 4 to 3)
-NDefines.NAI.SUGGESTED_NUM_MAX_CARRIERS = 3					-- suggested max carriers for AI and task force templates (reduced from 4 to 3)
-NDefines.NAI.MIN_CAPITALS_FOR_CARRIER_TASKFORCE = 4			-- carrier fleets will at least have this amount of capitals (adjusted for 3 carriers)
-NDefines.NNavy.NAVAL_COMBAT_PLANE_MIN_STACKING_PENALTY = 60	-- plane threshold before battle penalty (scaled for 3 carriers: 3x20=60 instead of 80)
+NDefines.NAI.CARRIER_TASKFORCE_MAX_CARRIER_COUNT = 4		-- vanilla optimum carrier count for AI carrier taskforces
+NDefines.NAI.SUGGESTED_NUM_MAX_CARRIERS = 4					-- vanilla carrier count for AI and task force suggestions
+NDefines.NAI.MIN_CAPITALS_FOR_CARRIER_TASKFORCE = 6			-- vanilla minimum capitals for AI carrier taskforces
+NDefines.NNavy.NAVAL_COMBAT_PLANE_MIN_STACKING_PENALTY = 80	-- vanilla naval combat aircraft stacking threshold
 NDefines.NAI.MAX_SCREEN_FORCES_FOR_INVASION_SUPPORT = 0.0 -- max ratio of screens forces to be used in naval invasion missions
 NDefines.NAI.MAX_CAPITAL_FORCES_FOR_INVASION_SUPPORT = 0.4 -- max ratio of capital forces to be used in naval invasion missions
 NDefines.NAI.FUEL_RATIO_TO_EXIST_FUEL_SAVING_MODE = 0.10 					-- countries will exit fuel saving mode if they have more fuel ratio than this
@@ -284,3 +285,16 @@ NDefines.NAir.AA_INDUSTRY_AIR_DAMAGE_FACTOR = 0 --Vanilla -0.12
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_TACTICAL_BOMBER = 0.06    -- How much efficiency to regain per day. Gain applied hourly.
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_DAILY_GAIN_FIGHTER = 1.5            -- How much efficiency to regain per day. Gain applied hourly.
  NDefines.NAir.EFFICIENCY_REGION_CHANGE_PENALTY_FACTOR = 1.0                -- Penalty applied for changing region
+
+-- Mihai's Navy Simplified: naval mines removed (no planting, no sweeping, AI never asks for them)
+NDefines.NAI.NAVAL_MISSION_MINES_PLANTING_NEAR_OWNED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_PLANTING_NEAR_CONTROLLED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_SWEEPING_NEAR_OWNED = 0
+NDefines.NAI.NAVAL_MISSION_MINES_SWEEPING_NEAR_CONTROLLED = 0
+NDefines.NAI.MINES_PLANTING_PLANES_PER_MAX_DESIRE = 0
+NDefines.NAI.MINES_SWEEPING_PLANES_PER_MAX_MINES = 0
+NDefines.NNavy.NAVAL_MINES_PLANTING_SPEED_MULT = 0.0		-- vanilla 0.01
+NDefines.NAir.NAVAL_MINES_PLANTING_SPEED_MULT = 0.0		-- vanilla 0.025
+
+-- Mihai's Navy Simplified: bigger fleet in a battle loses positioning faster, so DD spam and doomstacks get diminishing returns
+NDefines.NNavy.HIGHER_SHIP_RATIO_POSITIONING_PENALTY_FACTOR = 0.5	-- vanilla 0.25, -50% positioning per +100% more ships than the enemy

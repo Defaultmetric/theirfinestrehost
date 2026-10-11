@@ -1,0 +1,242 @@
+{
+  "removed_ideas": [
+    "JAP_the_london_naval_treaty",
+    "MTG_naval_treaty_adherent",
+    "MTG_naval_treaty_adherent_reduced",
+    "MTG_naval_treaty_cheating",
+    "MTG_naval_treaty_cheating_reduced"
+  ],
+  "removed_focuses": [
+    "ENG_enforce_the_naval_treaties",
+    "JAP_join_the_london_naval_treaty"
+  ],
+  "files": [
+    {
+      "source": "common/decisions/MTG_naval_treaty.txt",
+      "vanilla_override": true,
+      "before": "4fd5ce58490fadfea0a111d56b06e3cc7df681e697f71434b0da03bd7f68a653",
+      "after": "a957809cd9a938f6af8ad520125001bc1834fa72e9cb44afedda7491910ae0b3",
+      "changes": [
+        "removed entire treaty subsystem"
+      ]
+    },
+    {
+      "source": "events/MTG_naval_treaty_events.txt",
+      "vanilla_override": true,
+      "before": "8171ab0bb3cb55ad7a9c75f70c63ce8576066a7c021af546b1fa2290d5f37db1",
+      "after": "a957809cd9a938f6af8ad520125001bc1834fa72e9cb44afedda7491910ae0b3",
+      "changes": [
+        "removed entire treaty subsystem"
+      ]
+    },
+    {
+      "source": "common/decisions/categories/00_decision_categories.txt",
+      "vanilla_override": true,
+      "before": "4fabf2151a0728b70f3a0cdaa11342aac0bb2e1bdce3811fad64e980f606eb39",
+      "after": "ef6f2f350791b8546932be0075a0a603a8203e59b854cd37749720fe4a36ff67",
+      "changes": [
+        "MTG_naval_treaties"
+      ]
+    },
+    {
+      "source": "common/decisions/categories/ENG_decision_categories.txt",
+      "vanilla_override": false,
+      "before": "fdbc19893edeeb17b6fb32c92267ada01726b38fb50dbe35a34e98fd260375f2",
+      "after": "6d429bef18261d240c3c6c77e15e88482f2b147235ddb92f4aed35b830fa3ef1",
+      "changes": [
+        "ENG_enforce_the_naval_treaties"
+      ]
+    },
+    {
+      "source": "common/decisions/ENG.txt",
+      "vanilla_override": false,
+      "before": "4f6efbaa0608b14562377865074f5a03bfbf4a5463396fcb80c20d9d4ff2d785",
+      "after": "a215326a4edcb00214f9af8ebb04cbbe7a7dc36bdafc81f42c984b5d5de48c54",
+      "changes": [
+        "ENG_britain_demands_treaty_compliance",
+        "ENG_enforce_the_naval_treaties"
+      ]
+    },
+    {
+      "source": "common/decisions/JAP.txt",
+      "vanilla_override": false,
+      "before": "c2eb6e9cea1b6d80a7430a997f203a5267b549590da38f363611e83bdb15fae5",
+      "after": "2771e171db66bb10d5bc48646f84da74e9af8f7d40a121fc9372a3a4766f8fe7",
+      "changes": [
+        "remove_ideas",
+        "JAP_break_the_london_naval_treaty"
+      ]
+    },
+    {
+      "source": "common/ideas/zzz_generic.txt",
+      "vanilla_override": true,
+      "before": "076e121d8ee597f4b03036c7e1584f3cbf7920090747b924896d496659ac0d21",
+      "after": "0d9be1a37a7e35c2357fb14d7639d7c22f3fc4ac22cbddcd6e828ac0846de67a",
+      "changes": [
+        "MTG_naval_treaty_adherent",
+        "MTG_naval_treaty_adherent_reduced",
+        "MTG_naval_treaty_cheating",
+        "MTG_naval_treaty_cheating_reduced"
+      ]
+    },
+    {
+      "source": "common/ideas/japan.txt",
+      "vanilla_override": true,
+      "before": "f9f0cefbcd54f5c68fe92df8d700e4e9c9c4aef488056ee917c64c99ffa882e8",
+      "after": "1531390f33af86034e7ae9a5d8c52d1fa99a6457c4667f44f05948d2a0031679",
+      "changes": [
+        "JAP_the_london_naval_treaty"
+      ]
+    },
+    {
+      "source": "common/ideas/TOA_shared_ideas.txt",
+      "vanilla_override": true,
+      "before": "3306ce4df335bfe3b319f1a73b59af936074b2d8c6a1f99d5b3ce81cec8e5d29",
+      "after": "d5705a2493ff8b3cdafe46375980da9c53190ca2e913cc2902dc513746b54ced",
+      "changes": [
+        "production_cost_max_ship_hull_cruiser",
+        "production_cost_max_ship_hull_heavy",
+        "production_cost_max_ship_hull_carrier"
+      ]
+    },
+    {
+      "source": "history/countries/ENG - Britain.txt",
+      "vanilla_override": false,
+      "before": "82417d5f91ec9ed27868816b494fd51baf685e83e7322a0ce221cb33f3933e89",
+      "after": "c74bc99965e9456ce37025da2258b8cc8c5b49d0db292f5358c34ecde9086618",
+      "changes": [
+        "add_ideas",
+        "set_global_flag",
+        "set_global_flag",
+        "remove_ideas",
+        "add_ideas",
+        "clr_global_flag",
+        "modify_global_flag"
+      ]
+    },
+    {
+      "source": "history/countries/ITA - Italy.txt",
+      "vanilla_override": false,
+      "before": "7039c7408639390bae9128b31e4e2a6ee5a68d4cf8cefb4c1b56abd86e7218ed",
+      "after": "f4300e46edeeae5d79005e397b719c532f2b6f867374ee0cb7c6a3159db69ddd",
+      "changes": [
+        "add_ideas",
+        "remove_ideas",
+        "remove_naval_treaty_effect"
+      ]
+    },
+    {
+      "source": "history/countries/JAP - Japan.txt",
+      "vanilla_override": false,
+      "before": "5333ba1cd105430ebcf9aacff0e6f2b810ae4f184b5b5c731263258a95b3cb2c",
+      "after": "257317a2f65b77a06d072fe767e34f6b8b811e67eef963f0dc19ed679b9c56fe",
+      "changes": [
+        "add_ideas",
+        "remove_ideas"
+      ]
+    },
+    {
+      "source": "history/countries/USA - USA.txt",
+      "vanilla_override": false,
+      "before": "d51069472985350832e977893024cca69d853405ead8a9f1fbc8211dc1efeb17",
+      "after": "73acf22de963850e6e1ae422ac63c89ef8d6d879f98a4c57cfef844b6fa12379",
+      "changes": [
+        "add_ideas",
+        "remove_ideas",
+        "add_ideas"
+      ]
+    },
+    {
+      "source": "common/scripted_triggers/00_scripted_triggers.txt",
+      "vanilla_override": false,
+      "before": "dd309725fb329b817a952dc26c9a3baabdd699c8d9109e847b03dcc916bbc5af",
+      "after": "561c6fb14631732995deb02349d2264aa7d10b04bb77193e73cc3d34b64f69e6",
+      "changes": [
+        "treaty trigger permanently false"
+      ]
+    },
+    {
+      "source": "common/scripted_effects/00_scripted_effects.txt",
+      "vanilla_override": true,
+      "before": "93ddd0d2e9f7a1a5640cfdafbae6b9ff0e1b4ee57e829c81d13b0cac23ad90bf",
+      "after": "5f3508524bf924595c9623b7b72b7e6f87ea4a3edd6d7e7726d069bc80e1dcfd",
+      "changes": [
+        "inert compatibility helper"
+      ]
+    },
+    {
+      "source": "common/national_focus/japan.txt",
+      "vanilla_override": false,
+      "before": "7e03242b506674fcff6a3ad694056f09c56b905922672fc0b20b8299779b475b",
+      "after": "5fd426adbd43d2805106424cb6e412ee43820e72eb38821e7d9c42cd293d882b",
+      "changes": [
+        "focus",
+        "rewired downstream focus to removed treaty focus parent",
+        "removed obsolete treaty restriction from naval focus",
+        "removed obsolete treaty restriction from naval focus",
+        "removed obsolete treaty restriction from naval focus",
+        "removed obsolete treaty restriction from naval focus"
+      ]
+    },
+    {
+      "source": "common/national_focus/uk.txt",
+      "vanilla_override": false,
+      "before": "3753e3a8859810d5c595abbe588ac5e162a3472148b4f0bce6f3c018bd91df79",
+      "after": "fe1bafa8953aaa8b539d583ea25de606ae6c60ed0f0f8dbaa980b275107b149a",
+      "changes": [
+        "focus"
+      ]
+    },
+    {
+      "source": "common/ai_strategy_plans/JAP_alternate_strategy_plan.txt",
+      "vanilla_override": true,
+      "before": "80d7c091cc09390094334226e1c43b8a56d32f2b3ce3af3dfb3283010c40f1d8",
+      "after": "09c8c3ec2419d6aed4ff66f3f7b5f1ad5628987667569474d1a5fb9ed807a73d",
+      "changes": [
+        "removed deleted focus from AI plan"
+      ]
+    },
+    {
+      "source": "events/MTG_Britain.txt",
+      "vanilla_override": false,
+      "before": "0b397f210a4cf0fe593cb9b5795dfc92b1b84b65b5a30d92ac15c38cfe57e998",
+      "after": "5585fe4f23337a53a9ea6412ca9efa71ada27ce46abcb32949b4773b848676c0",
+      "changes": [
+        "country_event",
+        "country_event",
+        "country_event"
+      ]
+    },
+    {
+      "source": "events/MTG_NewsEvents.txt",
+      "vanilla_override": true,
+      "before": "5ea5c7a3c369ed0cedd4ee5e9c80afad788ab5e33842d9a742c5c5909e01b11b",
+      "after": "12a2b4162acf26deef4b1aa8548c7ad4bc464b934c37001c0abff4210de290ac",
+      "changes": [
+        "news_event",
+        "news_event",
+        "news_event"
+      ]
+    },
+    {
+      "source": "events/WarJustification.txt",
+      "vanilla_override": true,
+      "before": "c26235942cce4ca526aa4123c5691824e96740de06ec3903b0e5f20f768e36a7",
+      "after": "963c65ce924e1385cbe86393691714d7044b03c4a0de3618bf2d3e27636cb9bf",
+      "changes": [
+        "NOT"
+      ]
+    },
+    {
+      "source": "common/factions/goals/faction_goals_long_term.txt",
+      "vanilla_override": false,
+      "before": "9c8bde6a18955cd2ec3b69915e48f14947330c2a2604c92d95771cffda191ff1",
+      "after": "ae268e57351a2aa6d213ae54018f50e0f6be5af94d9d0d3ea6e15b2dc9c6aa83",
+      "changes": [
+        "removed obsolete treaty gate from Rule the Waves goal"
+      ]
+    }
+  ],
+  "hidden_support_migration": "Engine copies removed; original treaty removals unchanged.",
+  "standard_design_migration": "docs/naval-standard-start-designs.json; history template cleanup, original compaction budgets unchanged."
+}

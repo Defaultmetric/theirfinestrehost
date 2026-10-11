@@ -1,26 +1,15 @@
 units = {
-	##### NAVAL UNITS #####
-	### CANADIAN ATLANTIC SQUADRON (1.2 CP) ###
+	# TFR: one surface fleet and one separate submarine fleet at the 1936 start.
 	fleet = {
-		name = "Canadian Atlantic Squadron"
+		name = "Main Fleet"
 		naval_base = 7361
 		task_force = {
-			name = "Halifax Destroyer Division"
+			name = "Main Task Force"
 			location = 7361
-			ship = { name = "HMCS Saguenay" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CAN version_name = "River Class" } } }
-			ship = { name = "HMCS Skeena" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CAN version_name = "River Class" } } }
-		}
-	}
-
-	### CANADIAN PACIFIC SQUADRON (1.2 CP) ###
-	fleet = {
-		name = "Canadian Pacific Squadron"
-		naval_base = 1408
-		task_force = {
-			name = "Pacific Destroyer Division"
-			location = 1408
-			ship = { name = "HMCS Champlain" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CAN version_name = "S Class" } } }
-			ship = { name = "HMCS Vancouver" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = CAN version_name = "S Class" } } }
+			ship = { name = "HMCS Saguenay" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = CAN version_name = "Torpedo Destroyer 1936" } } }
+			ship = { name = "HMCS Skeena" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = CAN version_name = "Torpedo Destroyer 1936" } } }
+			ship = { name = "HMCS Champlain" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = CAN version_name = "Light Destroyer 1936" } } }
+			ship = { name = "HMCS Vancouver" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = CAN version_name = "Light Destroyer 1936" } } }
 		}
 	}
 }

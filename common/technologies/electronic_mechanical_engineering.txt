@@ -253,7 +253,9 @@ technologies = {
 
 	}
 	
-	cavity_magnatron = { #was decimetric radar
+	cavity_magnatron = {
+		on_research_complete = { TFR_navy_create_designs = yes } # TFR: fixed ship designs
+ #was decimetric radar
 
 		# can build radars/radar boost in air/sea combat depends on radar level
 		allow = {
@@ -413,6 +415,8 @@ technologies = {
 	}
 	
 	phased_array = {
+		on_research_complete = { TFR_navy_create_designs = yes } # TFR: fixed ship designs
+
 		is_special_project_tech = yes
 		# radar boost in air/sea combat depends on radar level
 		allow = {

@@ -3515,9 +3515,14 @@ GER_case_anton_category = {
 			original_tag = GER
 			has_war = yes
 			has_government = fascism
-			any_country_with_original_tag = {
-				original_tag_to_check = FRA
+			any_country = {
+				OR = { original_tag = FRA tag = VIC }
 				has_government = fascism
+				OR = { # Match Vichy, not another French collaboration government.
+					tag = VIC
+					has_focus_tree = vichy_french_focus
+					has_country_flag = vichy_france
+				}
 				OR = {
 					is_subject_of = GER
 					has_focus_tree = vichy_french_focus
@@ -3560,9 +3565,14 @@ GER_case_anton_category = {
 		visible = {
 			original_tag = GER
 			has_government = fascism
-			any_country_with_original_tag = {
-				original_tag_to_check = FRA
+			any_country = {
+				OR = { original_tag = FRA tag = VIC }
 				has_government = fascism
+				OR = { # Match Vichy, not another French collaboration government.
+					tag = VIC
+					has_focus_tree = vichy_french_focus
+					has_country_flag = vichy_france
+				}
 				OR = {
 					is_subject_of = GER
 					has_focus_tree = vichy_french_focus
@@ -3583,15 +3593,24 @@ GER_case_anton_category = {
 			hidden_effect = {
 				random_other_country = {
 					limit = {
-						original_tag = FRA
+						OR = { original_tag = FRA tag = VIC }
 						has_government = fascism
+						OR = { # Match Vichy, not another French collaboration government.
+							tag = VIC
+							has_focus_tree = vichy_french_focus
+							has_country_flag = vichy_france
+						}
 						OR = {
 							is_subject_of = GER
 							has_focus_tree = vichy_french_focus
 						}
+						NOT = { has_war_with = GER }
+						NOT = { has_country_flag = case_anton }
 					}
 					set_country_flag = case_anton
 					activate_mission = FRA_case_anton_mission
+					set_country_flag = TFR_case_anton_states_transferred
+					TFR_case_anton_transfer_states = yes
 				}
 			}
 		}

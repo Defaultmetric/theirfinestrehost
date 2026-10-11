@@ -1,0 +1,89 @@
+# Country scope: the selected Vichy country (including a dynamic French tag).
+# PREV inside each state iterator is Vichy; ROOT remains the German decision taker.
+TFR_case_anton_transfer_states = {
+	# Choose North Africa's recipient before transferring any states.
+	if = {
+		limit = { 448 = { is_controlled_by = ITA } }
+		every_state = {
+			limit = {
+				is_controlled_by = PREV
+				OR = {
+					state = 665
+					state = 458
+					state = 513
+					state = 460
+					state = 459
+					state = 461
+					state = 462
+				}
+			}
+			transfer_state_to = ITA
+		}
+	}
+	else_if = {
+		limit = { country_exists = FRA }
+		every_state = {
+			limit = {
+				is_controlled_by = PREV
+				OR = {
+					state = 665
+					state = 458
+					state = 513
+					state = 460
+					state = 459
+					state = 461
+					state = 462
+				}
+			}
+			transfer_state_to = FRA
+		}
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_controlled_by = PREV
+				OR = {
+					state = 665
+					state = 458
+					state = 513
+					state = 460
+					state = 459
+					state = 461
+					state = 462
+				}
+			}
+			transfer_state_to = ENG
+		}
+	}
+
+	# Only the requested mainland states go to Germany.
+	every_state = {
+		limit = {
+			is_controlled_by = PREV
+			OR = {
+				state = 851
+				state = 21
+				state = 22
+				state = 32
+				state = 20
+				state = 26
+				state = 33
+				state = 25
+				state = 31
+			}
+		}
+		transfer_state_to = GER
+	}
+
+	# Savoy and Corsica always go to Italy if still controlled by Vichy.
+	every_state = {
+		limit = {
+			is_controlled_by = PREV
+			OR = {
+				state = 735
+				state = 1
+			}
+		}
+		transfer_state_to = ITA
+	}
+}

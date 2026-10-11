@@ -741,14 +741,7 @@ faction_goal_rule_the_waves = {
 			}
 		}
 	}
-	available = {
-		FROM = {
-			OR = {
-				NOT = { has_government = democratic }
-				NOT = { has_idea = MTG_naval_treaty_adherent }
-			}
-		}
-	}
+	available = { always = yes }
 	completed = {
 		has_war = yes
 		count_in_collection = {

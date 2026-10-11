@@ -8,10 +8,10 @@ units= {
 		task_force = {				
 			name = "Flota Romania de Mare"			
 			location = 657 # Constanta
-			ship = { name = "NMS Marasti" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ROM version_name = "Marasti Class" } } }
-			ship = { name = "NMS Marasesti" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ROM version_name = "Marasti Class" } } }
-			ship = { name = "NMS Regele Ferdinand" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ROM version_name = "Regele Ferdinand Class" } } }
-			ship = { name = "NMS Regina Maria" definition = destroyer equipment = { ship_hull_light_1 = { amount = 1 owner = ROM version_name = "Regele Ferdinand Class" } } }
+			ship = { name = "NMS Marasti" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = ROM version_name = "Light Destroyer 1936" } } }
+			ship = { name = "NMS Marasesti" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = ROM version_name = "Light Destroyer 1936" } } }
+			ship = { name = "NMS Regele Ferdinand" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = ROM version_name = "Light Destroyer 1936" } } }
+			ship = { name = "NMS Regina Maria" definition = destroyer equipment = { ship_hull_light_2 = { amount = 1 owner = ROM version_name = "Light Destroyer 1936" } } }
 		}				
 	}
 } 
@@ -25,23 +25,7 @@ instant_effect = {
 
 	### Under Contruction Notes ###
 	# SS: Delfinul class (x1) ("NMS Delfinul")
-	add_equipment_production = {
-		equipment = {
-			type = ship_hull_submarine_2
-			creator = "ROM"
-			version_name = "Delfinul Class"
-		}
-		name = "NMS Delfinul" 
-		requested_factories = 10
-		progress = 0.50
-		amount = 1
-	}
+	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
 
-	add_equipment_production = {
-		equipment = {
-			type = convoy_1
-			creator = "ROM"
-		}
-		requested_factories = 3
-	}
+	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
 }

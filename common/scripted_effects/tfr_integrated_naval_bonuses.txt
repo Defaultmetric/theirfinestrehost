@@ -1,0 +1,27 @@
+# Country scope; research/startup hooks call this through TFR_navy_create_designs.
+TFR_navy_apply_integrated_global_bonuses = {
+	if = {
+		limit = { OR = { has_tech = basic_ship_hull_light has_tech = basic_ship_hull_cruiser has_tech = basic_ship_hull_heavy has_tech = basic_ship_hull_submarine has_tech = basic_ship_hull_carrier } NOT = { has_tech = tfr_naval_damage_control_1936 } }
+		set_technology = { popup = no tfr_naval_damage_control_1936 = 1 }
+	}
+	if = {
+		limit = { OR = { has_tech = improved_ship_hull_light has_tech = improved_ship_hull_cruiser has_tech = improved_ship_hull_heavy has_tech = improved_ship_hull_submarine has_tech = improved_ship_hull_carrier } NOT = { has_tech = tfr_naval_damage_control_1938 } }
+		set_technology = { popup = no tfr_naval_damage_control_1938 = 1 }
+	}
+	if = {
+		limit = { OR = { has_tech = advanced_ship_hull_light has_tech = advanced_ship_hull_cruiser has_tech = advanced_ship_hull_heavy has_tech = advanced_ship_hull_submarine has_tech = advanced_ship_hull_carrier } NOT = { has_tech = tfr_naval_damage_control_1942 } }
+		set_technology = { popup = no tfr_naval_damage_control_1942 = 1 }
+	}
+	if = {
+		limit = { OR = { has_tech = advanced_ship_hull_light has_tech = advanced_ship_hull_cruiser has_tech = advanced_ship_hull_submarine } NOT = { has_tech = tfr_naval_torpedo_concealment_1942 } }
+		set_technology = { popup = no tfr_naval_torpedo_concealment_1942 = 1 }
+	}
+	if = {
+		limit = { has_dlc = "Gotterdammerung" is_special_project_completed = sp:sp_naval_underway_replenishment OR = { has_tech = improved_ship_hull_light has_tech = improved_ship_hull_cruiser has_tech = improved_ship_hull_heavy has_tech = improved_ship_hull_submarine has_tech = improved_ship_hull_carrier } NOT = { has_tech = tfr_naval_replenishment_1938 } }
+		set_technology = { popup = no tfr_naval_replenishment_1938 = 1 }
+	}
+	if = {
+		limit = { has_dlc = "Gotterdammerung" is_special_project_completed = sp:sp_naval_underway_replenishment OR = { has_tech = advanced_ship_hull_light has_tech = advanced_ship_hull_cruiser has_tech = advanced_ship_hull_heavy has_tech = advanced_ship_hull_submarine has_tech = advanced_ship_hull_carrier } NOT = { has_tech = tfr_naval_replenishment_1942 } }
+		set_technology = { popup = no tfr_naval_replenishment_1942 = 1 }
+	}
+}

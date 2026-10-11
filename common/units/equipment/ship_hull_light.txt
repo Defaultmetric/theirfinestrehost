@@ -36,7 +36,7 @@ equipments = {
 		module_slots = {
 			fixed_ship_battery_slot = {
 				required = yes
-				allowed_module_categories = { ship_light_battery dp_light_battery}
+				allowed_module_categories = { ship_light_battery dp_light_battery }
 			}
 			fixed_ship_anti_air_slot = {
 				required = no
@@ -61,24 +61,18 @@ equipments = {
 
 			mid_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_anti_air
-					ship_depth_charge
-				}
+				allowed_module_categories = { ship_torpedo ship_anti_air ship_depth_charge }
 			}
 			rear_1_custom_slot = mid_1_custom_slot
 		}
 		
 		module_count_limit = {
-			category = ship_radar
+			category = ship_radar_1
 			count < 2
 		}
 		
 		module_count_limit = {
-			category = ship_sonar
+			category = ship_sonar_1
 			count < 2
 		}
 		
@@ -134,6 +128,37 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+		# TFR: legacy historical hulls retain their original fitted modules.
+
+
+
+
 		#alias = destroyer_1
 		
 		module_slots = inherit
@@ -145,28 +170,106 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = ship_hull_light_1
+		module_count_limit = {
+			module = ship_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_4
+			count < 1
+		}
+
+
+
+
+		#parent = ship_hull_light_1 # Removed to prevent module_count_limit inheritance
 		#alias = destroyer_2
 		
 		module_slots = {
-			fixed_ship_battery_slot = inherit
-			fixed_ship_anti_air_slot = inherit
-			fixed_ship_fire_control_system_slot = inherit
-			fixed_ship_radar_slot = inherit
-			fixed_ship_torpedo_slot = inherit
-			fixed_ship_engine_slot = inherit
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
 
 			mid_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
 			}
 			rear_1_custom_slot = mid_1_custom_slot
 		}
@@ -187,6 +290,8 @@ equipments = {
 			steel = 2
 		}
 		manpower = 325
+	
+		upgrades = { ship_torpedo_upgrade destroyer_engine_upgrade ship_ASW_upgrade ship_anti_air_upgrade tfr_hidden_support_ld_2 tfr_hidden_support_td_2 tfr_hidden_support_asw_2 }
 	}
 
 	ship_hull_light_3 = {
@@ -195,50 +300,80 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = ship_hull_light_2
+		module_count_limit = {
+			module = ship_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_4
+			count < 1
+		}
+
+
+
+
+		#parent = ship_hull_light_2 # Removed to prevent module_count_limit inheritance
 		#alias = destroyer_3
 
 		module_slots = {
-			fixed_ship_battery_slot = inherit
-			fixed_ship_anti_air_slot = inherit
-			fixed_ship_fire_control_system_slot = inherit
-			fixed_ship_radar_slot = inherit
-			fixed_ship_torpedo_slot = inherit
-			fixed_ship_engine_slot = inherit
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
 
 			front_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
+				allowed_module_categories = { ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
 			}
 			mid_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
 			}
-			rear_1_custom_slot = {
-				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
-			}
+			rear_1_custom_slot = mid_1_custom_slot
 		}
 
 		
@@ -259,6 +394,8 @@ equipments = {
 			rear_1_custom_slot = empty
 			fixed_ship_engine_slot = light_ship_engine_3
 		}
+	
+		upgrades = { ship_torpedo_upgrade destroyer_engine_upgrade ship_ASW_upgrade ship_anti_air_upgrade tfr_hidden_support_ld_3 tfr_hidden_support_td_3 tfr_hidden_support_asw_3 }
 	}
 
 	ship_hull_light_4 = {
@@ -267,50 +404,44 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = ship_hull_light_3
+		#parent = ship_hull_light_3 # Removed to prevent module_count_limit inheritance
 		#alias = destroyer_4
 		
 		module_slots = {
-			fixed_ship_battery_slot = inherit
-			fixed_ship_anti_air_slot = inherit
-			fixed_ship_fire_control_system_slot = inherit
-			fixed_ship_radar_slot = inherit
-			fixed_ship_torpedo_slot = inherit
-			fixed_ship_engine_slot = inherit
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
 			front_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
+				allowed_module_categories = { ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
 			}
 			mid_1_custom_slot = {
 				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
 			}
 			mid_2_custom_slot = mid_1_custom_slot
-			rear_1_custom_slot = {
-				required = no
-				allowed_module_categories = {
-					ship_torpedo
-					ship_mine_warfare
-					ship_mine_layer
-					ship_depth_charge
-					ship_anti_air
-					ship_light_battery
-					dp_light_battery
-				}
-			}
+			rear_1_custom_slot = mid_1_custom_slot
 		}
 
 		sub_detection = 4
@@ -324,12 +455,128 @@ equipments = {
 			chromium = 1
 		}
 		manpower = 500
+	
+		naval_torpedo_hit_chance_factor = 0.1
+	
+		upgrades = { ship_torpedo_upgrade destroyer_engine_upgrade ship_ASW_upgrade ship_anti_air_upgrade tfr_hidden_support_ld_4 tfr_hidden_support_td_4 tfr_hidden_support_asw_4 }
 	}
 	destroyer_1 = {
 		year = 1922
 
 		archetype = ship_hull_light
 		priority = 2000
+		module_count_limit = {
+			module = ship_light_battery_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_1
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_2
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_sonar_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_1
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_1
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_2
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_4
+			count < 1
+		}
+
+
+
+
 		module_slots = inherit
 		default_modules = {
 			fixed_ship_battery_slot = ship_light_battery_1
@@ -378,8 +625,107 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = destroyer_1
-		module_slots = inherit
+		module_count_limit = {
+			module = ship_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_3
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_3
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_2
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_4
+			count < 1
+		}
+
+
+
+
+		#parent = destroyer_1 # Removed to prevent module_count_limit inheritance
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
+			}
+			rear_1_custom_slot = mid_1_custom_slot
+		}
 		default_modules = {
 			fixed_ship_battery_slot = ship_light_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_2
@@ -430,8 +776,79 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = destroyer_2
-		module_slots = inherit
+		module_count_limit = {
+			module = ship_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = dp_light_battery_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_anti_air_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_torpedo_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_depth_charge_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_radar_4
+			count < 1
+		}
+		module_count_limit = {
+			module = ship_fire_control_system_3
+			count < 1
+		}
+		module_count_limit = {
+			module = light_ship_engine_4
+			count < 1
+		}
+
+
+
+
+		#parent = destroyer_2 # Removed to prevent module_count_limit inheritance
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
+			}
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
+			}
+			rear_1_custom_slot = mid_1_custom_slot
+		}
 		default_modules = {
 			fixed_ship_battery_slot = ship_light_battery_3
 			fixed_ship_anti_air_slot = ship_anti_air_3
@@ -481,8 +898,43 @@ equipments = {
 
 		archetype = ship_hull_light
 		priority = 2000
-		parent = destroyer_3
-		module_slots = inherit
+		#parent = destroyer_3 # Removed to prevent module_count_limit inheritance
+		module_slots = {
+			fixed_ship_battery_slot = {
+				required = yes
+				allowed_module_categories = { ship_light_battery dp_light_battery }
+			}
+			fixed_ship_anti_air_slot = {
+				required = no
+				allowed_module_categories = { ship_anti_air }
+			}
+			fixed_ship_fire_control_system_slot = {
+				required = no
+				allowed_module_categories = { ship_fire_control_system ship_sonar }
+			}
+			fixed_ship_radar_slot = {
+				required = no
+				allowed_module_categories = { ship_radar ship_sonar }
+			}
+			fixed_ship_torpedo_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { light_ship_engine }
+			}
+			front_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
+			}
+			mid_1_custom_slot = {
+				required = no
+				allowed_module_categories = { ship_torpedo ship_depth_charge ship_anti_air ship_light_battery dp_light_battery }
+			}
+			mid_2_custom_slot = mid_1_custom_slot
+			rear_1_custom_slot = mid_1_custom_slot
+		}
 		default_modules = {
 			fixed_ship_battery_slot = ship_light_battery_4
 			fixed_ship_anti_air_slot = ship_anti_air_4

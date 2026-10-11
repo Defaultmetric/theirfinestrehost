@@ -2109,51 +2109,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = JAP_join_the_london_naval_treaty
-		icon = GFX_focus_generic_diplomatic_treaty
-		prerequisite = { focus = JAP_prepare_for_war_with_the_soviet_union }
-		x = -1
-		y = 1
-		relative_position_id = JAP_prepare_for_war_with_the_soviet_union
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {			
-			NOT = { has_war_with = FRA }
-			NOT = { has_war_with = ENG }
-			NOT = { has_war_with = USA }
-		}
-
-		bypass = {
-			has_naval_treaty_trigger = yes 
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			if = {
-				limit = { not = { has_dlc = "Man the Guns" } }
-				add_ideas = JAP_the_london_naval_treaty
-				unlock_decision_tooltip = { decision = JAP_break_the_london_naval_treaty show_effect_tooltip = yes }
-			}
-			else = {
-				add_ideas = MTG_naval_treaty_adherent
-			}
-			FRA = { add_opinion_modifier = { target = ROOT modifier = JAP_join_the_london_naval_treaty } }
-			USA = { add_opinion_modifier = { target = ROOT modifier = JAP_join_the_london_naval_treaty } }
-			ENG = { add_opinion_modifier = { target = ROOT modifier = JAP_join_the_london_naval_treaty } }
-			add_opinion_modifier = { target = FRA modifier = JAP_join_the_london_naval_treaty }
-			add_opinion_modifier = { target = USA modifier = JAP_join_the_london_naval_treaty }
-			add_opinion_modifier = { target = ENG modifier = JAP_join_the_london_naval_treaty }
-		}
-	}
+	
 
 	focus = {
 		id = JAP_build_up_the_manchurian_army
@@ -2313,10 +2269,10 @@ focus_tree = {
 	focus = {
 		id = JAP_non_aggression_pact_with_china
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = JAP_join_the_london_naval_treaty }
-		x = 0
+		prerequisite = { focus = JAP_prepare_for_war_with_the_soviet_union }
+		x = -1
 		y = 1
-		relative_position_id = JAP_join_the_london_naval_treaty
+		relative_position_id = JAP_prepare_for_war_with_the_soviet_union
 
 		cost = 10
 
@@ -31110,12 +31066,7 @@ focus_tree = {
 
 		available = {
 			has_tech = improved_ship_hull_carrier
-			custom_trigger_tooltip = {
-				tooltip = JAP_expand_hiratsuka_navy_arsenal_tt
-				NOT = {
-					has_idea = MTG_naval_treaty_adherent
-				}
-			}
+			
 		}
 
 		bypass = {
@@ -31398,12 +31349,7 @@ focus_tree = {
 
 		available = {
 			is_special_project_completed = sp:sp_naval_super_heavy_battleship
-			custom_trigger_tooltip = {
-				tooltip = JAP_expand_hiratsuka_navy_arsenal_tt
-				NOT = {
-					has_idea = MTG_naval_treaty_adherent
-				}
-			}
+			
 		}
 
 		bypass = {
@@ -31589,12 +31535,7 @@ focus_tree = {
 		}
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = JAP_expand_hiratsuka_navy_arsenal_tt
-				NOT = {
-					has_idea = MTG_naval_treaty_adherent
-				}
-			}
+			
 		}
 
 		bypass = {
@@ -31637,12 +31578,7 @@ focus_tree = {
 		}
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = JAP_expand_hiratsuka_navy_arsenal_tt
-				NOT = {
-					has_idea = MTG_naval_treaty_adherent
-				}
-			}
+			
 		}
 
 		bypass = {

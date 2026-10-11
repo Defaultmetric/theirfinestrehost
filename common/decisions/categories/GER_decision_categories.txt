@@ -92,9 +92,14 @@ GER_case_anton_category = {
 
 	visible = {
 		has_government = fascism
-		any_country_with_original_tag = {
-			original_tag_to_check = FRA
+		any_country = {
+			OR = { original_tag = FRA tag = VIC }
 			has_government = fascism
+			OR = { # Match Vichy, not another French collaboration government.
+				tag = VIC
+				has_focus_tree = vichy_french_focus
+				has_country_flag = vichy_france
+			}
 			OR = {
 				is_subject_of = GER
 				has_focus_tree = vichy_french_focus

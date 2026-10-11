@@ -1,0 +1,1743 @@
+{
+  "vanilla_source": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Hearts of Iron IV\\common\\technologies\\MTG_naval_Support.txt",
+  "vanilla_sha256": "f7e47beda19860cadbc57a7bf23b5562c57c7244eeb7fa04952cc517538ce453",
+  "fire_control_mapping": "Undated vanilla levels 1/2/3 assigned to mod hull generations 1936/1938/1942.",
+  "global_policy": "Research driven, not calendar driven. Ordinary hull generations grant one global tier each; torpedo concealment requires advanced light/cruiser/submarine. Replenishment also requires completed special project.",
+  "designs": [
+    {
+      "name": "Light Destroyer 1936",
+      "hull": "ship_hull_light_2",
+      "year": 1936,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1259.25,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Destroyer 1936\"\n\t\t\ttype = ship_hull_light_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tmid_1_custom_slot = ship_light_battery_2\n\t\t\t\trear_1_custom_slot = ship_light_battery_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "2.4",
+        "lg_armor_piercing": "1.0",
+        "torpedo_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "2.520",
+        "lg_armor_piercing": "1.050",
+        "torpedo_attack": "0.0"
+      },
+      "engine_before": "light_ship_engine_2",
+      "engine_after": "tfr_integrated_ld_2",
+      "hidden_upgrade": "tfr_hidden_support_ld_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Torpedo Destroyer 1936",
+      "hull": "ship_hull_light_2",
+      "year": 1936,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1604.2499999999998,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Torpedo Destroyer 1936\"\n\t\t\ttype = ship_hull_light_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 8\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_2\n\t\t\t\tmid_1_custom_slot = ship_torpedo_2\n\t\t\t\trear_1_custom_slot = ship_torpedo_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0.5",
+        "lg_armor_piercing": "0.5",
+        "torpedo_attack": "30.24"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.525",
+        "lg_armor_piercing": "0.525",
+        "torpedo_attack": "36.288"
+      },
+      "engine_before": "light_ship_engine_2",
+      "engine_after": "tfr_integrated_td_2",
+      "hidden_upgrade": "tfr_hidden_support_td_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "ASW Destroyer 1936",
+      "hull": "ship_hull_light_2",
+      "year": 1936,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1454.75,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"ASW Destroyer 1936\"\n\t\t\ttype = ship_hull_light_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 3\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_2\n\t\t\t\tfixed_ship_radar_slot = ship_sonar_2\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tmid_1_custom_slot = ship_depth_charge_2\n\t\t\t\trear_1_custom_slot = ship_depth_charge_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0.8",
+        "lg_armor_piercing": "1.0",
+        "torpedo_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.840",
+        "lg_armor_piercing": "1.050",
+        "torpedo_attack": "0.0"
+      },
+      "engine_before": "light_ship_engine_2",
+      "engine_after": "tfr_integrated_asw_2",
+      "hidden_upgrade": "tfr_hidden_support_asw_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Light Destroyer 1938",
+      "hull": "ship_hull_light_3",
+      "year": 1938,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      },
+      "cost_before": 1721.375,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Destroyer 1938\"\n\t\t\ttype = ship_hull_light_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tfront_1_custom_slot = ship_light_battery_3\n\t\t\t\tmid_1_custom_slot = ship_light_battery_3\n\t\t\t\trear_1_custom_slot = ship_light_battery_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "8",
+        "lg_armor_piercing": "2.5",
+        "torpedo_attack": "0",
+        "sub_detection": "3.5"
+      },
+      "expected_stats_after": {
+        "lg_attack": "8.40",
+        "lg_armor_piercing": "2.625",
+        "torpedo_attack": "0.0",
+        "sub_detection": "3.85"
+      },
+      "engine_before": "light_ship_engine_3",
+      "engine_after": "tfr_integrated_ld_3",
+      "hidden_upgrade": "tfr_hidden_support_ld_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "Torpedo Destroyer 1938",
+      "hull": "ship_hull_light_3",
+      "year": 1938,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      },
+      "cost_before": 1968.125,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Torpedo Destroyer 1938\"\n\t\t\ttype = ship_hull_light_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 8\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_3\n\t\t\t\tfront_1_custom_slot = empty\n\t\t\t\tmid_1_custom_slot = ship_torpedo_3\n\t\t\t\trear_1_custom_slot = ship_torpedo_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0.5",
+        "lg_armor_piercing": "0.5",
+        "torpedo_attack": "69.12",
+        "sub_detection": "3.5"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.525",
+        "lg_armor_piercing": "0.525",
+        "torpedo_attack": "82.944",
+        "sub_detection": "3.85"
+      },
+      "engine_before": "light_ship_engine_3",
+      "engine_after": "tfr_integrated_td_3",
+      "hidden_upgrade": "tfr_hidden_support_td_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "ASW Destroyer 1938",
+      "hull": "ship_hull_light_3",
+      "year": 1938,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      },
+      "cost_before": 1979.875,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"ASW Destroyer 1938\"\n\t\t\ttype = ship_hull_light_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 3\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_3\n\t\t\t\tfixed_ship_radar_slot = ship_sonar_3\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tfront_1_custom_slot = ship_depth_charge_3\n\t\t\t\tmid_1_custom_slot = ship_depth_charge_3\n\t\t\t\trear_1_custom_slot = ship_depth_charge_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "2",
+        "lg_armor_piercing": "2.5",
+        "torpedo_attack": "0",
+        "sub_detection": "19.5"
+      },
+      "expected_stats_after": {
+        "lg_attack": "2.10",
+        "lg_armor_piercing": "2.625",
+        "torpedo_attack": "0.0",
+        "sub_detection": "21.45"
+      },
+      "engine_before": "light_ship_engine_3",
+      "engine_after": "tfr_integrated_asw_3",
+      "hidden_upgrade": "tfr_hidden_support_asw_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "Light Destroyer 1942",
+      "hull": "ship_hull_light_4",
+      "year": 1942,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.05"
+      },
+      "cost_before": 2280.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Destroyer 1942\"\n\t\t\ttype = ship_hull_light_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_4\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tfront_1_custom_slot = ship_light_battery_4\n\t\t\t\tmid_1_custom_slot = ship_light_battery_4\n\t\t\t\tmid_2_custom_slot = ship_light_battery_4\n\t\t\t\trear_1_custom_slot = ship_light_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "15.0",
+        "lg_armor_piercing": "3.0",
+        "torpedo_attack": "0",
+        "sub_detection": "4",
+        "naval_torpedo_hit_chance_factor": "0",
+        "hg_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "17.250",
+        "lg_armor_piercing": "3.300",
+        "torpedo_attack": "0.0",
+        "sub_detection": "4.4",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.00"
+      },
+      "engine_before": "light_ship_engine_4",
+      "engine_after": "tfr_integrated_ld_4",
+      "hidden_upgrade": "tfr_hidden_support_ld_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "hg_attack": "0.05"
+      }
+    },
+    {
+      "name": "Torpedo Destroyer 1942",
+      "hull": "ship_hull_light_4",
+      "year": 1942,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.05"
+      },
+      "cost_before": 2202.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Torpedo Destroyer 1942\"\n\t\t\ttype = ship_hull_light_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 8\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_4\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_4\n\t\t\t\tfront_1_custom_slot = empty\n\t\t\t\tmid_1_custom_slot = ship_torpedo_4\n\t\t\t\tmid_2_custom_slot = ship_torpedo_4\n\t\t\t\trear_1_custom_slot = ship_torpedo_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0.5",
+        "lg_armor_piercing": "0.5",
+        "torpedo_attack": "120.96",
+        "sub_detection": "4",
+        "naval_torpedo_hit_chance_factor": "0.08",
+        "hg_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.575",
+        "lg_armor_piercing": "0.550",
+        "torpedo_attack": "145.152",
+        "sub_detection": "4.4",
+        "naval_torpedo_hit_chance_factor": "0.18",
+        "hg_attack": "0.00"
+      },
+      "engine_before": "light_ship_engine_4",
+      "engine_after": "tfr_integrated_td_4",
+      "hidden_upgrade": "tfr_hidden_support_td_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "hg_attack": "0.05"
+      }
+    },
+    {
+      "name": "ASW Destroyer 1942",
+      "hull": "ship_hull_light_4",
+      "year": 1942,
+      "ship_class": "destroyer",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.05"
+      },
+      "cost_before": 2628.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"ASW Destroyer 1942\"\n\t\t\ttype = ship_hull_light_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 3\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_engine_slot = light_ship_engine_4\n\t\t\t\tfixed_ship_radar_slot = ship_sonar_4\n\t\t\t\tfixed_ship_torpedo_slot = empty\n\t\t\t\tfront_1_custom_slot = ship_depth_charge_4\n\t\t\t\tmid_1_custom_slot = ship_depth_charge_4\n\t\t\t\tmid_2_custom_slot = ship_depth_charge_4\n\t\t\t\trear_1_custom_slot = ship_depth_charge_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "3.0",
+        "lg_armor_piercing": "3.0",
+        "torpedo_attack": "0",
+        "sub_detection": "24.0",
+        "naval_torpedo_hit_chance_factor": "0",
+        "hg_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "3.450",
+        "lg_armor_piercing": "3.300",
+        "torpedo_attack": "0.0",
+        "sub_detection": "26.40",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.00"
+      },
+      "engine_before": "light_ship_engine_4",
+      "engine_after": "tfr_integrated_asw_4",
+      "hidden_upgrade": "tfr_hidden_support_asw_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.15",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "hg_attack": "0.05"
+      }
+    },
+    {
+      "name": "Submarine 1936",
+      "hull": "ship_hull_submarine_2",
+      "year": 1936,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 731.25,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine 1936\"\n\t\t\ttype = ship_hull_submarine_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_2\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_2\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "34"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "40.8"
+      },
+      "engine_before": "sub_ship_engine_2",
+      "engine_after": "tfr_integrated_ss_2",
+      "hidden_upgrade": "tfr_hidden_support_ss_2",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Cruiser Submarine 1936",
+      "hull": "ship_hull_cruiser_submarine",
+      "year": 1936,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1012.5,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Cruiser Submarine 1936\"\n\t\t\ttype = ship_hull_cruiser_submarine\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_2\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_2\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_2\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "51"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "61.2"
+      },
+      "engine_before": "sub_ship_engine_2",
+      "engine_after": "tfr_integrated_cs_2",
+      "hidden_upgrade": "tfr_hidden_support_cs_2",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Submarine 1938",
+      "hull": "ship_hull_submarine_3",
+      "year": 1938,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 896.9999999999999,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine 1938\"\n\t\t\ttype = ship_hull_submarine_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_3\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_3\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_3\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_3\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "60"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "72.0"
+      },
+      "engine_before": "sub_ship_engine_3",
+      "engine_after": "tfr_integrated_ss_3",
+      "hidden_upgrade": "tfr_hidden_support_ss_3",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Submarine 1938 Radar",
+      "hull": "ship_hull_submarine_3",
+      "year": 1938,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1046.5,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine 1938 Radar\"\n\t\t\ttype = ship_hull_submarine_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_3\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_3\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_3\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_3\n\t\t\t\tmid_1_custom_slot = ship_radar_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "60"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "72.0"
+      },
+      "engine_before": "sub_ship_engine_3",
+      "engine_after": "tfr_integrated_ss_3_radar",
+      "hidden_upgrade": "tfr_hidden_support_ss_3_radar",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Submarine 1942",
+      "hull": "ship_hull_submarine_4",
+      "year": 1942,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2",
+        "naval_torpedo_hit_chance_factor": "0.1"
+      },
+      "cost_before": 1164.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine 1942\"\n\t\t\ttype = ship_hull_submarine_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_4\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_4\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_4\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_4\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "75",
+        "naval_torpedo_hit_chance_factor": "0.045"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "90.0",
+        "naval_torpedo_hit_chance_factor": "0.145"
+      },
+      "engine_before": "sub_ship_engine_4",
+      "engine_after": "tfr_integrated_ss_4",
+      "hidden_upgrade": "tfr_hidden_support_ss_4",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Submarine 1942 Radar",
+      "hull": "ship_hull_submarine_4",
+      "year": 1942,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2",
+        "naval_torpedo_hit_chance_factor": "0.1"
+      },
+      "cost_before": 1356.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine 1942 Radar\"\n\t\t\ttype = ship_hull_submarine_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_4\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_4\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_4\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_4\n\t\t\t\tmid_1_custom_slot = ship_radar_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "75",
+        "naval_torpedo_hit_chance_factor": "0.045"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "90.0",
+        "naval_torpedo_hit_chance_factor": "0.145"
+      },
+      "engine_before": "sub_ship_engine_4",
+      "engine_after": "tfr_integrated_ss_4_radar",
+      "hidden_upgrade": "tfr_hidden_support_ss_4_radar",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Fleet Submarine",
+      "hull": "ship_hull_fleet_submarine",
+      "year": 1938,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1161.5,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Fleet Submarine\"\n\t\t\ttype = ship_hull_fleet_submarine\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_3\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_3\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_3\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t\trear_1_custom_slot = ship_torpedo_sub_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "60"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "72.0"
+      },
+      "engine_before": "sub_ship_engine_3",
+      "engine_after": "tfr_integrated_fleet_ss",
+      "hidden_upgrade": "tfr_hidden_support_fleet_ss",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Midget Submarine",
+      "hull": "ship_hull_midget_submarine",
+      "year": 1938,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 310.5,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Midget Submarine\"\n\t\t\ttype = ship_hull_midget_submarine\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_3\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "20"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "24.0"
+      },
+      "engine_before": "sub_ship_engine_3",
+      "engine_after": "tfr_integrated_midget_ss",
+      "hidden_upgrade": "tfr_hidden_support_midget_ss",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Nuclear Submarine",
+      "hull": "ship_hull_nuclear_submarine",
+      "year": 1954,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2",
+        "naval_torpedo_hit_chance_factor": "0.1"
+      },
+      "cost_before": 6125.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Nuclear Submarine\"\n\t\t\ttype = ship_hull_nuclear_submarine\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 6\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_nuclear\n\t\t\t\tfixed_ship_engine_slot = sub_ship_nuclear_engine_1\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_nuclear\n\t\t\t\tmid_1_custom_slot = ship_radar_4\n\t\t\t\trear_1_custom_slot = slbm_launcher\n\t\t\t\trear_2_custom_slot = ship_torpedo_sub_nuclear\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "132",
+        "naval_torpedo_hit_chance_factor": "0.15"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "158.4",
+        "naval_torpedo_hit_chance_factor": "0.25"
+      },
+      "engine_before": "sub_ship_nuclear_engine_1",
+      "engine_after": "tfr_integrated_nuc_ss",
+      "hidden_upgrade": "tfr_hidden_support_nuc_ss",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Light Cruiser 1936",
+      "hull": "ship_hull_cruiser_2",
+      "year": 1936,
+      "ship_class": "light_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 5478.875,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Cruiser 1936\"\n\t\t\ttype = ship_hull_cruiser_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_medium_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_2\n\t\t\t\tfront_1_custom_slot = ship_light_medium_battery_2\n\t\t\t\tmid_1_custom_slot = ship_light_medium_battery_2\n\t\t\t\tmid_2_custom_slot = ship_light_medium_battery_2\n\t\t\t\trear_1_custom_slot = ship_light_medium_battery_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "24.0",
+        "lg_armor_piercing": "5.333333333333333333333333333",
+        "torpedo_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "25.200",
+        "lg_armor_piercing": "5.600000000000000000000000000",
+        "torpedo_attack": "0.0"
+      },
+      "engine_before": "cruiser_ship_engine_2",
+      "engine_after": "tfr_integrated_lc_2",
+      "hidden_upgrade": "tfr_hidden_support_lc_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Heavy Cruiser 1936",
+      "hull": "ship_hull_cruiser_2",
+      "year": 1936,
+      "ship_class": "heavy_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.05",
+        "hg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 7797.625,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Heavy Cruiser 1936\"\n\t\t\ttype = ship_hull_cruiser_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_medium_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_2\n\t\t\t\tfront_1_custom_slot = ship_medium_battery_2\n\t\t\t\tmid_1_custom_slot = ship_medium_battery_2\n\t\t\t\tmid_2_custom_slot = ship_medium_battery_2\n\t\t\t\trear_1_custom_slot = ship_medium_battery_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "32.5",
+        "hg_armor_piercing": "20",
+        "torpedo_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.20",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "34.125",
+        "hg_armor_piercing": "21.00",
+        "torpedo_attack": "0.0"
+      },
+      "engine_before": "cruiser_ship_engine_2",
+      "engine_after": "tfr_integrated_hc_2",
+      "hidden_upgrade": "tfr_hidden_support_hc_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.05",
+        "hg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Light Cruiser 1938",
+      "hull": "ship_hull_cruiser_3",
+      "year": 1938,
+      "ship_class": "light_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      },
+      "cost_before": 6797.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Cruiser 1938\"\n\t\t\ttype = ship_hull_cruiser_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_medium_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_3\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_3\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_3\n\t\t\t\tfront_1_custom_slot = ship_light_medium_battery_3\n\t\t\t\tmid_1_custom_slot = ship_light_medium_battery_3\n\t\t\t\tmid_2_custom_slot = ship_light_medium_battery_3\n\t\t\t\trear_1_custom_slot = ship_light_medium_battery_3\n\t\t\t\trear_2_custom_slot = ship_light_medium_battery_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "52.0",
+        "lg_armor_piercing": "8.714285714285714285714285714",
+        "torpedo_attack": "0",
+        "sub_detection": "2"
+      },
+      "expected_stats_after": {
+        "lg_attack": "54.600",
+        "lg_armor_piercing": "9.150000000000000000000000000",
+        "torpedo_attack": "0.0",
+        "sub_detection": "2.2"
+      },
+      "engine_before": "cruiser_ship_engine_3",
+      "engine_after": "tfr_integrated_lc_3",
+      "hidden_upgrade": "tfr_hidden_support_lc_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "Heavy Cruiser 1938",
+      "hull": "ship_hull_cruiser_3",
+      "year": 1938,
+      "ship_class": "heavy_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      },
+      "cost_before": 9737.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Heavy Cruiser 1938\"\n\t\t\ttype = ship_hull_cruiser_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_medium_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_3\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_3\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_3\n\t\t\t\tfront_1_custom_slot = ship_medium_battery_3\n\t\t\t\tmid_1_custom_slot = ship_medium_battery_3\n\t\t\t\tmid_2_custom_slot = ship_medium_battery_3\n\t\t\t\trear_1_custom_slot = ship_medium_battery_3\n\t\t\t\trear_2_custom_slot = ship_medium_battery_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "78.0",
+        "hg_armor_piercing": "34",
+        "torpedo_attack": "0",
+        "sub_detection": "2"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.40",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "85.800",
+        "hg_armor_piercing": "35.70",
+        "torpedo_attack": "0.0",
+        "sub_detection": "2.2"
+      },
+      "engine_before": "cruiser_ship_engine_3",
+      "engine_after": "tfr_integrated_hc_3",
+      "hidden_upgrade": "tfr_hidden_support_hc_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "Light Cruiser 1942",
+      "hull": "ship_hull_cruiser_4",
+      "year": 1942,
+      "ship_class": "light_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.1"
+      },
+      "cost_before": 7972.375000000001,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Light Cruiser 1942\"\n\t\t\ttype = ship_hull_cruiser_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 2\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_medium_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_4\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_4\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_4\n\t\t\t\tfront_1_custom_slot = ship_light_medium_battery_4\n\t\t\t\tmid_1_custom_slot = ship_light_medium_battery_4\n\t\t\t\tmid_2_custom_slot = ship_light_medium_battery_4\n\t\t\t\trear_1_custom_slot = ship_light_medium_battery_4\n\t\t\t\trear_2_custom_slot = ship_light_medium_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "64.5",
+        "lg_armor_piercing": "11.28571428571428571428571429",
+        "torpedo_attack": "0",
+        "sub_detection": "2.5",
+        "naval_torpedo_hit_chance_factor": "0",
+        "hg_attack": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "77.400",
+        "lg_armor_piercing": "12.41428571428571428571428572",
+        "torpedo_attack": "0.0",
+        "sub_detection": "2.75",
+        "naval_torpedo_hit_chance_factor": "0.1",
+        "hg_attack": "0.0"
+      },
+      "engine_before": "cruiser_ship_engine_4",
+      "engine_after": "tfr_integrated_lc_4",
+      "hidden_upgrade": "tfr_hidden_support_lc_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "hg_attack": "0.1"
+      }
+    },
+    {
+      "name": "Heavy Cruiser 1942",
+      "hull": "ship_hull_cruiser_4",
+      "year": 1942,
+      "ship_class": "heavy_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.25",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.25",
+        "hg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1",
+        "naval_torpedo_hit_chance_factor": "0.1"
+      },
+      "cost_before": 11291.125,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Heavy Cruiser 1942\"\n\t\t\ttype = ship_hull_cruiser_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_medium_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_4\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_4\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_4\n\t\t\t\tfront_1_custom_slot = ship_medium_battery_4\n\t\t\t\tmid_1_custom_slot = ship_medium_battery_4\n\t\t\t\tmid_2_custom_slot = ship_medium_battery_4\n\t\t\t\trear_1_custom_slot = ship_medium_battery_4\n\t\t\t\trear_2_custom_slot = ship_medium_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4.5",
+        "lg_armor_piercing": "7",
+        "hg_attack": "99.0",
+        "hg_armor_piercing": "42",
+        "torpedo_attack": "0",
+        "sub_detection": "2.5",
+        "naval_torpedo_hit_chance_factor": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "5.625",
+        "lg_armor_piercing": "7.70",
+        "hg_attack": "123.750",
+        "hg_armor_piercing": "46.20",
+        "torpedo_attack": "0.0",
+        "sub_detection": "2.75",
+        "naval_torpedo_hit_chance_factor": "0.1"
+      },
+      "engine_before": "cruiser_ship_engine_4",
+      "engine_after": "tfr_integrated_hc_4",
+      "hidden_upgrade": "tfr_hidden_support_hc_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.25",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.25",
+        "hg_armor_piercing": "0.10",
+        "torpedo_attack": "0.2",
+        "sub_detection": "0.1"
+      }
+    },
+    {
+      "name": "Torpedo Cruiser 1936",
+      "hull": "ship_hull_torpedo_cruiser",
+      "year": 1936,
+      "ship_class": "light_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 3690.125,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Torpedo Cruiser 1936\"\n\t\t\ttype = ship_hull_torpedo_cruiser\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 8\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_light_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = empty\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = empty\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_2\n\t\t\t\tfront_1_custom_slot = ship_torpedo_2\n\t\t\t\tmid_1_custom_slot = ship_torpedo_2\n\t\t\t\tmid_2_custom_slot = ship_torpedo_2\n\t\t\t\trear_1_custom_slot = ship_torpedo_2\n\t\t\t\trear_2_custom_slot = empty\n\t\t\t\tfixed_ship_radar_slot = ship_radar_1\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0.5",
+        "lg_armor_piercing": "0.5",
+        "torpedo_attack": "40.32"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.525",
+        "lg_armor_piercing": "0.525",
+        "torpedo_attack": "48.384"
+      },
+      "engine_before": "cruiser_ship_engine_2",
+      "engine_after": "tfr_integrated_tc_2",
+      "hidden_upgrade": "tfr_hidden_support_tc_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05",
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Battleship 1936",
+      "hull": "ship_hull_heavy_2",
+      "year": 1936,
+      "ship_class": "battleship",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05"
+      },
+      "cost_before": 15842.250000000002,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battleship 1936\"\n\t\t\ttype = ship_hull_heavy_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bb_2\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_2\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_2\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_2\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "75",
+        "hg_armor_piercing": "29"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.40",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "82.50",
+        "hg_armor_piercing": "30.45"
+      },
+      "engine_before": "heavy_ship_engine_2",
+      "engine_after": "tfr_integrated_bb_2",
+      "hidden_upgrade": "tfr_hidden_support_bb_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Battlecruiser 1936",
+      "hull": "ship_hull_heavy_2",
+      "year": 1936,
+      "ship_class": "battle_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05"
+      },
+      "cost_before": 15548.875,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battlecruiser 1936\"\n\t\t\ttype = ship_hull_heavy_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bc_2\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_2\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_2\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_2\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_2\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "75",
+        "hg_armor_piercing": "29"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.40",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "82.50",
+        "hg_armor_piercing": "30.45"
+      },
+      "engine_before": "heavy_ship_engine_2",
+      "engine_after": "tfr_integrated_bc_2",
+      "hidden_upgrade": "tfr_hidden_support_bc_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.10",
+        "hg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Battleship 1938",
+      "hull": "ship_hull_heavy_3",
+      "year": 1938,
+      "ship_class": "battleship",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      },
+      "cost_before": 20027.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battleship 1938\"\n\t\t\ttype = ship_hull_heavy_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_3\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_3\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bb_3\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_3_custom_slot = ship_heavy_battery_3\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "192",
+        "hg_armor_piercing": "48"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.80",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "230.40",
+        "hg_armor_piercing": "50.40"
+      },
+      "engine_before": "heavy_ship_engine_3",
+      "engine_after": "tfr_integrated_bb_3",
+      "hidden_upgrade": "tfr_hidden_support_bb_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Battlecruiser 1938",
+      "hull": "ship_hull_heavy_3",
+      "year": 1938,
+      "ship_class": "battle_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      },
+      "cost_before": 19311.75,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battlecruiser 1938\"\n\t\t\ttype = ship_hull_heavy_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_3\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_3\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_3\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bc_3\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_3\n\t\t\t\tmid_3_custom_slot = ship_heavy_battery_3\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_3\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "192",
+        "hg_armor_piercing": "48"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.80",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "230.40",
+        "hg_armor_piercing": "50.40"
+      },
+      "engine_before": "heavy_ship_engine_3",
+      "engine_after": "tfr_integrated_bc_3",
+      "hidden_upgrade": "tfr_hidden_support_bc_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Super-Heavy Battleship 1938",
+      "hull": "ship_hull_super_heavy_1",
+      "year": 1938,
+      "ship_class": "battleship",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      },
+      "cost_before": 24374.375,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Super-Heavy Battleship 1938\"\n\t\t\ttype = ship_hull_super_heavy_1\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_super_heavy_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_3\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_2\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_3\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_3\n\t\t\t\tfixed_ship_armor_slot = ship_armor_shbb\n\t\t\t\tfront_1_custom_slot = ship_super_heavy_battery_1\n\t\t\t\tfront_2_custom_slot = ship_super_heavy_battery_1\n\t\t\t\tmid_1_custom_slot = ship_anti_air_3\n\t\t\t\tmid_2_custom_slot = ship_anti_air_3\n\t\t\t\tmid_3_custom_slot = ship_anti_air_3\n\t\t\t\trear_1_custom_slot = ship_super_heavy_battery_1\n\t\t\t\trear_2_custom_slot = ship_super_heavy_battery_1\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4",
+        "lg_armor_piercing": "7",
+        "hg_attack": "220",
+        "hg_armor_piercing": "58"
+      },
+      "expected_stats_after": {
+        "lg_attack": "4.80",
+        "lg_armor_piercing": "7.35",
+        "hg_attack": "264.00",
+        "hg_armor_piercing": "60.90"
+      },
+      "engine_before": "heavy_ship_engine_3",
+      "engine_after": "tfr_integrated_shbb_3",
+      "hidden_upgrade": "tfr_hidden_support_shbb_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.20",
+        "lg_armor_piercing": "0.05",
+        "hg_attack": "0.20",
+        "hg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Battleship 1942",
+      "hull": "ship_hull_heavy_4",
+      "year": 1942,
+      "ship_class": "battleship",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      },
+      "cost_before": 21738.375,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battleship 1942\"\n\t\t\ttype = ship_hull_heavy_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_4\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_4\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bb_3\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_3_custom_slot = ship_heavy_battery_4\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4.5",
+        "lg_armor_piercing": "7",
+        "hg_attack": "240",
+        "hg_armor_piercing": "55"
+      },
+      "expected_stats_after": {
+        "lg_attack": "6.300",
+        "lg_armor_piercing": "7.70",
+        "hg_attack": "336.00",
+        "hg_armor_piercing": "60.50"
+      },
+      "engine_before": "heavy_ship_engine_4",
+      "engine_after": "tfr_integrated_bb_4",
+      "hidden_upgrade": "tfr_hidden_support_bb_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      }
+    },
+    {
+      "name": "Battlecruiser 1942",
+      "hull": "ship_hull_heavy_4",
+      "year": 1942,
+      "ship_class": "battle_cruiser",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      },
+      "cost_before": 20975.625,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Battlecruiser 1942\"\n\t\t\ttype = ship_hull_heavy_4\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_4\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_4\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bc_3\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_3_custom_slot = ship_heavy_battery_4\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4.5",
+        "lg_armor_piercing": "7",
+        "hg_attack": "240",
+        "hg_armor_piercing": "55"
+      },
+      "expected_stats_after": {
+        "lg_attack": "6.300",
+        "lg_armor_piercing": "7.70",
+        "hg_attack": "336.00",
+        "hg_armor_piercing": "60.50"
+      },
+      "engine_before": "heavy_ship_engine_4",
+      "engine_after": "tfr_integrated_bc_4",
+      "hidden_upgrade": "tfr_hidden_support_bc_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      }
+    },
+    {
+      "name": "Modern Battleship",
+      "hull": "ship_hull_heavy_modern",
+      "year": 1954,
+      "ship_class": "battleship",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      },
+      "cost_before": 22593.375,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Modern Battleship\"\n\t\t\ttype = ship_hull_heavy_modern\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_4\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_4\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_3\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_4\n\t\t\t\tfixed_ship_secondaries_slot = dp_ship_secondaries_4\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bb_3\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_2_custom_slot = ship_heavy_battery_4\n\t\t\t\tmid_3_custom_slot = ship_heavy_battery_4\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_4\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "4.5",
+        "lg_armor_piercing": "7",
+        "hg_attack": "240",
+        "hg_armor_piercing": "55"
+      },
+      "expected_stats_after": {
+        "lg_attack": "6.300",
+        "lg_armor_piercing": "7.70",
+        "hg_attack": "336.00",
+        "hg_armor_piercing": "60.50"
+      },
+      "engine_before": "heavy_ship_engine_4",
+      "engine_after": "tfr_integrated_mbb",
+      "hidden_upgrade": "tfr_hidden_support_mbb",
+      "upgrade_modifiers": {
+        "lg_attack": "0.40",
+        "lg_armor_piercing": "0.10",
+        "hg_attack": "0.40",
+        "hg_armor_piercing": "0.10"
+      }
+    },
+    {
+      "name": "Carrier 1936",
+      "hull": "ship_hull_carrier_1",
+      "year": 1936,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      },
+      "cost_before": 9105.75,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Carrier 1936\"\n\t\t\ttype = ship_hull_carrier_1\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_2\n\t\t\t\tfixed_ship_deck_slot_1 = ship_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = ship_deck_space\n\t\t\t\tfront_1_custom_slot = ship_deck_space\n\t\t\t\tmid_1_custom_slot = ship_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_2",
+      "engine_after": "tfr_integrated_cv_2",
+      "hidden_upgrade": "tfr_hidden_support_cv_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Escort Carrier 1936",
+      "hull": "ship_hull_escort_carrier",
+      "year": 1936,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      },
+      "cost_before": 4837.5,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Escort Carrier 1936\"\n\t\t\ttype = ship_hull_escort_carrier\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_2\n\t\t\t\tfixed_ship_deck_slot_1 = ship_escort_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = ship_escort_deck_space\n\t\t\t\tfront_1_custom_slot = ship_escort_deck_space\n\t\t\t\tmid_1_custom_slot = ship_escort_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_2",
+      "engine_after": "tfr_integrated_ecv_2",
+      "hidden_upgrade": "tfr_hidden_support_ecv_2",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Carrier 1938",
+      "hull": "ship_hull_carrier_2",
+      "year": 1938,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      },
+      "cost_before": 11615.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Carrier 1938\"\n\t\t\ttype = ship_hull_carrier_2\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_3\n\t\t\t\tfixed_ship_deck_slot_1 = ship_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = ship_deck_space\n\t\t\t\tfront_1_custom_slot = ship_deck_space\n\t\t\t\tmid_1_custom_slot = ship_deck_space\n\t\t\t\tmid_2_custom_slot = ship_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_3",
+      "engine_after": "tfr_integrated_cv_3",
+      "hidden_upgrade": "tfr_hidden_support_cv_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Ice Carrier 1938",
+      "hull": "ship_hull_mega_carrier",
+      "year": 1938,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2"
+      ],
+      "bonuses": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      },
+      "cost_before": 18975.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Ice Carrier 1938\"\n\t\t\ttype = ship_hull_mega_carrier\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_3\n\t\t\t\tfixed_ship_deck_slot_1 = big_ship_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = big_ship_deck_space\n\t\t\t\tfront_1_custom_slot = big_ship_deck_space\n\t\t\t\tmid_1_custom_slot = big_ship_deck_space\n\t\t\t\tmid_2_custom_slot = big_ship_deck_space\n\t\t\t\trear_1_custom_slot = big_ship_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_3",
+      "engine_after": "tfr_integrated_icv_3",
+      "hidden_upgrade": "tfr_hidden_support_icv_3",
+      "upgrade_modifiers": {
+        "lg_attack": "0.05",
+        "lg_armor_piercing": "0.05"
+      }
+    },
+    {
+      "name": "Submarine Carrier 1936",
+      "hull": "ship_hull_carrier_submarine",
+      "year": 1936,
+      "ship_class": "submarine",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1"
+      ],
+      "bonuses": {
+        "torpedo_attack": "0.2"
+      },
+      "cost_before": 1575.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Submarine Carrier 1936\"\n\t\t\ttype = ship_hull_carrier_submarine\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_torpedo_slot = ship_torpedo_sub_2\n\t\t\t\tfixed_ship_engine_slot = sub_ship_engine_2\n\t\t\t\tfront_1_custom_slot = ship_torpedo_sub_2\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t\trear_1_custom_slot = ship_submarine_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "torpedo_attack": "34"
+      },
+      "expected_stats_after": {
+        "torpedo_attack": "40.8"
+      },
+      "engine_before": "sub_ship_engine_2",
+      "engine_after": "tfr_integrated_sscv_2",
+      "hidden_upgrade": "tfr_hidden_support_sscv_2",
+      "upgrade_modifiers": {
+        "torpedo_attack": "0.2"
+      }
+    },
+    {
+      "name": "Carrier 1942",
+      "hull": "ship_hull_carrier_3",
+      "year": 1942,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.10"
+      },
+      "cost_before": 14393.75,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Carrier 1942\"\n\t\t\ttype = ship_hull_carrier_3\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_4\n\t\t\t\tfixed_ship_deck_slot_1 = ship_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = ship_deck_space\n\t\t\t\tfront_1_custom_slot = ship_deck_space\n\t\t\t\tmid_1_custom_slot = ship_deck_space\n\t\t\t\tmid_2_custom_slot = ship_deck_space\n\t\t\t\trear_1_custom_slot = ship_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_4",
+      "engine_after": "tfr_integrated_cv_4",
+      "hidden_upgrade": "tfr_hidden_support_cv_4",
+      "upgrade_modifiers": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.10"
+      }
+    },
+    {
+      "name": "Modern Carrier",
+      "hull": "ship_hull_carrier_modern",
+      "year": 1948,
+      "ship_class": "carrier",
+      "vanilla_techs": [
+        "basic_light_shell",
+        "basic_heavy_shell",
+        "magnetic_detonator",
+        "fire_control_methods_1",
+        "degaussing",
+        "fire_control_methods_2",
+        "improved_light_shell",
+        "improved_heavy_shell",
+        "homing_torpedo",
+        "fire_control_methods_3"
+      ],
+      "bonuses": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.10"
+      },
+      "cost_before": 15568.75,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Modern Carrier\"\n\t\t\ttype = ship_hull_carrier_modern\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 7\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_engine_slot = carrier_ship_engine_4\n\t\t\t\tfixed_ship_deck_slot_1 = ship_deck_space\n\t\t\t\tfixed_ship_deck_slot_2 = ship_deck_space\n\t\t\t\tfront_1_custom_slot = ship_deck_space\n\t\t\t\tmid_1_custom_slot = ship_deck_space\n\t\t\t\tmid_2_custom_slot = ship_deck_space\n\t\t\t\trear_1_custom_slot = ship_deck_space\n\t\t\t}\n\t\t}",
+      "stats_before": {
+        "lg_attack": "0",
+        "lg_armor_piercing": "0"
+      },
+      "expected_stats_after": {
+        "lg_attack": "0.00",
+        "lg_armor_piercing": "0.00"
+      },
+      "engine_before": "carrier_ship_engine_4",
+      "engine_after": "tfr_integrated_mcv",
+      "hidden_upgrade": "tfr_hidden_support_mcv",
+      "upgrade_modifiers": {
+        "lg_attack": "0.10",
+        "lg_armor_piercing": "0.10"
+      }
+    },
+    {
+      "name": "Panzerschiff",
+      "hull": "ship_hull_cruiser_panzerschiff",
+      "year": 1929,
+      "ship_class": "heavy_cruiser",
+      "vanilla_techs": [],
+      "bonuses": {},
+      "cost_before": 6844.375,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Panzerschiff\"\n\t\t\ttype = ship_hull_cruiser_panzerschiff\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = empty\n\t\t\t\tfront_1_custom_slot = empty\n\t\t\t\tmid_1_custom_slot = empty\n\t\t\t\tmid_2_custom_slot = empty\n\t\t\t\trear_1_custom_slot = ship_torpedo_2\n\t\t\t}\n\t\t}"
+    },
+    {
+      "name": "Coastal Defense Ship",
+      "hull": "ship_hull_cruiser_coastal_defense_ship",
+      "year": 1929,
+      "ship_class": "heavy_cruiser",
+      "vanilla_techs": [],
+      "bonuses": {},
+      "cost_before": 8831.125,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Coastal Defense Ship\"\n\t\t\ttype = ship_hull_cruiser_coastal_defense_ship\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_2\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_2\n\t\t\t\tfixed_ship_fire_control_system_slot = ship_fire_control_system_1\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = cruiser_ship_engine_2\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_2\n\t\t\t\tfixed_ship_armor_slot = ship_armor_cruiser_2\n\t\t\t\tfront_1_custom_slot = ship_anti_air_2\n\t\t\t\tmid_1_custom_slot = ship_anti_air_2\n\t\t\t\tmid_2_custom_slot = ship_anti_air_2\n\t\t\t\trear_1_custom_slot = ship_medium_battery_2\n\t\t\t}\n\t\t}"
+    },
+    {
+      "name": "Pre-Dreadnought",
+      "hull": "ship_hull_pre_dreadnought",
+      "year": 1905,
+      "ship_class": "battleship",
+      "vanilla_techs": [],
+      "bonuses": {},
+      "cost_before": 11778.0,
+      "script_before": "create_equipment_variant = {\n\t\t\tname = \"Pre-Dreadnought\"\n\t\t\ttype = ship_hull_pre_dreadnought\n\t\t\tparent_version = 0\n\t\t\trole_icon_index = 1\n\t\t\tallow_without_tech = yes\n\t\t\tmodules = {\n\t\t\t\tfixed_ship_battery_slot = ship_heavy_battery_1\n\t\t\t\tfixed_ship_anti_air_slot = ship_anti_air_1\n\t\t\t\tfixed_ship_fire_control_system_slot = empty\n\t\t\t\tfixed_ship_radar_slot = empty\n\t\t\t\tfixed_ship_engine_slot = heavy_ship_engine_1\n\t\t\t\tfixed_ship_secondaries_slot = ship_secondaries_1\n\t\t\t\tfixed_ship_armor_slot = ship_armor_bb_1\n\t\t\t\tfront_1_custom_slot = ship_heavy_battery_1\n\t\t\t\tmid_1_custom_slot = ship_heavy_battery_1\n\t\t\t\trear_1_custom_slot = ship_heavy_battery_1\n\t\t\t}\n\t\t}"
+    }
+  ],
+  "history_updates": [
+    {
+      "source": "history/countries/ENG - Britain.txt",
+      "before": "ace4efa2f0d3763ffff3fdad6e0718e0aa251029b773080f6a09476ca5c99e7a",
+      "after": "82417d5f91ec9ed27868816b494fd51baf685e83e7322a0ce221cb33f3933e89"
+    },
+    {
+      "source": "history/countries/FRA - France.txt",
+      "before": "1290996a86eaba99b760faa17a121d21fc2a6d7ed092ba1df1a99a10fa17eff3",
+      "after": "7853d5018cbe032fb3d7c02dc76f61fcca9b3025e68437b9704c774899d0786e"
+    },
+    {
+      "source": "history/countries/GER - Germany.txt",
+      "before": "accf91f6cacf9ff12669c394d7f6f3d9df1aa1d5965c9aed4ff878f59c80db10",
+      "after": "a622e2e5f624fa07bd9d7d9e07475451973813584edd9282718f2aaba6081d8c"
+    },
+    {
+      "source": "history/countries/ITA - Italy.txt",
+      "before": "3ab44c229065dd9d44375de6388884228b1b46bb96e7aafb215ef42331bbc1b4",
+      "after": "7039c7408639390bae9128b31e4e2a6ee5a68d4cf8cefb4c1b56abd86e7218ed"
+    },
+    {
+      "source": "history/countries/JAP - Japan.txt",
+      "before": "d1c6807bde007104fb2375448b34bcf97989d81a0fc8b69d678d00702d8e1b0f",
+      "after": "5333ba1cd105430ebcf9aacff0e6f2b810ae4f184b5b5c731263258a95b3cb2c"
+    },
+    {
+      "source": "history/countries/SOV - Soviet union.txt",
+      "before": "ed376bbeb1c3c28e1c53668ca3d94c80d5aff54990962384f128f8186e4fbefc",
+      "after": "67ee0b254957588f255ff6dcd793abe45ecc01fda9d2fcfd2c74a02b7e821b7e"
+    },
+    {
+      "source": "history/countries/SPR - Spain.txt",
+      "before": "2ea811bb5c82847553c082eba352560ae27cf4a6595be8582d8b786d2139f9f2",
+      "after": "867955881ad80008eab392f94c432f863789dc2ea390b1feaa7d6c0ce18806b1"
+    },
+    {
+      "source": "history/countries/USA - USA.txt",
+      "before": "41bacf1729e018b4762728813287ad1bce569359e5700bb7ed3a9b649fa377fe",
+      "after": "d51069472985350832e977893024cca69d853405ead8a9f1fbc8211dc1efeb17"
+    }
+  ],
+  "hidden_variant_migration": {
+    "history_updates": [
+      {
+        "source": "history/countries/ENG - Britain.txt",
+        "before": "1f581dbdf7ebe5f9aa225ad104582909f10b50dbab2ab0c02a00c6371e1aaff2",
+        "after": "e21c64602156bfcaa121fc9899b6b0b23b930f000a59212c4ecc18a661c28479"
+      },
+      {
+        "source": "history/countries/FRA - France.txt",
+        "before": "7853d5018cbe032fb3d7c02dc76f61fcca9b3025e68437b9704c774899d0786e",
+        "after": "4bad1f1dd79ad88eecad07baf9c3002c79dd2d177fe5c23c63ef55ace7f3e244"
+      },
+      {
+        "source": "history/countries/GER - Germany.txt",
+        "before": "a622e2e5f624fa07bd9d7d9e07475451973813584edd9282718f2aaba6081d8c",
+        "after": "0e48608db1cd1683cf7882ba4af72428c3e23d843a04decc023b7a0769105a25"
+      },
+      {
+        "source": "history/countries/ITA - Italy.txt",
+        "before": "2f7dc1e7cb8f304034f1e1345b533995e0c389bff01c7019ac6ba4b1b7d0743b",
+        "after": "e2dc8aa9fbbabc715b5e92487a08c0e8596c672ff8e0be496a8debbab7a84202"
+      },
+      {
+        "source": "history/countries/JAP - Japan.txt",
+        "before": "67bb32fbe37d69a176a00d674fd37e4524806511f9fc570af787c8c546b0395d",
+        "after": "351d41baad9a39bd375a04285bbb6881dc16d955cfac6547c90cbe3ccb98ea85"
+      },
+      {
+        "source": "history/countries/SOV - Soviet union.txt",
+        "before": "67ee0b254957588f255ff6dcd793abe45ecc01fda9d2fcfd2c74a02b7e821b7e",
+        "after": "a79c4c429afcf75afc10cd7e0487730d6296482c6480287255c05d0598f0327e"
+      },
+      {
+        "source": "history/countries/SPR - Spain.txt",
+        "before": "867955881ad80008eab392f94c432f863789dc2ea390b1feaa7d6c0ce18806b1",
+        "after": "40fce90eb7b2938c458d5610b66cb942c6f81b75b0489f94a6539942db7c7766"
+      },
+      {
+        "source": "history/countries/USA - USA.txt",
+        "before": "2d8ade8e88393afa7d17d2de83d2c51684cbe78545d654d54d78df40a64b47f1",
+        "after": "9fa815ec355f499eabec22ac7c04809f2f2feabb482b82f3b35a2d178fde5397"
+      }
+    ],
+    "policy": "Original engines; locked native variant upgrades for percentage bonuses; additive homing chance on eligible 1942+ hulls. No new modules."
+  }
+}

@@ -72,6 +72,7 @@ technologies = {
 	}
 
 	basic_ship_hull_light = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_light_2
@@ -120,6 +121,7 @@ technologies = {
 	}
 
 	improved_ship_hull_light = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_light_3
@@ -175,6 +177,7 @@ technologies = {
 	}
 
 	advanced_ship_hull_light = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_light_4
@@ -743,6 +746,7 @@ technologies = {
 	}
 
 	basic_ship_hull_cruiser = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_2
@@ -791,6 +795,7 @@ technologies = {
 	}
 
 	improved_ship_hull_cruiser = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_3
@@ -845,6 +850,7 @@ technologies = {
 	}
 
 	advanced_ship_hull_cruiser = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_4
@@ -995,11 +1001,6 @@ technologies = {
 
 
 	early_ship_hull_heavy = {
-		path = {	# TFR: line to the special project card
-			leads_to_tech = ship_hull_super_heavy
-			research_cost_coeff = 1
-		}
-
 		enable_equipments = {
 			ship_hull_heavy_1
 		}
@@ -1015,12 +1016,6 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		on_research_complete = {
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_naval_super_heavy_battleship	
-			}
-		}
 		research_cost = 1.75
 
 		start_year = 1922
@@ -1061,6 +1056,7 @@ technologies = {
 	}
 
 	basic_ship_hull_heavy = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_heavy_2
@@ -1121,6 +1117,7 @@ technologies = {
 		}
 	}
 	ship_hull_super_heavy = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_super_heavy_1
@@ -1137,7 +1134,7 @@ technologies = {
 		}
 		research_cost = 1.5
 
-		start_year = 1936
+		start_year = 1938
 
 		ai_will_do = {
 			factor = 1
@@ -1158,11 +1155,26 @@ technologies = {
 		special_project_specialization = { specialization_naval }
 			folder = {	# TFR: armored section of the naval tab
 			name = mtgnavalfolder
-			position = { x = 172 y = 107 }
+			position = { x = 172 y = 139 }
 		}
 	}
 
 	improved_ship_hull_heavy = {
+		on_research_complete = {
+			TFR_navy_create_designs = yes	# TFR: fixed ship designs
+			if = {
+				limit = { has_dlc = "Gotterdammerung" }
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_super_heavy_battleship	
+				}
+			}
+		}
+
+		path = {	# TFR: line to the special project card
+			leads_to_tech = ship_hull_super_heavy
+			research_cost_coeff = 1
+		}
 
 		enable_equipments = {
 			ship_hull_heavy_3
@@ -1216,6 +1228,16 @@ technologies = {
 	}
 
 	advanced_ship_hull_heavy = {
+		on_research_complete = {
+			TFR_navy_create_designs = yes
+			if = {
+				limit = {has_dlc = "Gotterdammerung"}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_modern_battleship	
+				}
+			}
+		}	# TFR: fixed ship designs
 		path = {	# TFR: line to the special project card
 			leads_to_tech = tfr_card_naval_modern_battleship
 			research_cost_coeff = 1
@@ -1227,15 +1249,7 @@ technologies = {
 		enable_equipment_modules = {
 			heavy_ship_engine_4
 		}
-		on_research_complete = {
-			if = {
-				limit = {has_dlc = "Gotterdammerung"}
-				custom_effect_tooltip = {
-					localization_key = SP_UNLOCK_PROJECT
-					PROJECT = sp_naval_modern_battleship	
-				}
-			}	
-		}
+		# TFR: research effects merged into the single hook above.
 		research_cost = 1.5
 
 		start_year = 1942
@@ -1435,6 +1449,16 @@ early_ship_hull_carrier = {
 	}
 
 	basic_ship_hull_carrier = {
+		on_research_complete = {
+			TFR_navy_create_designs = yes
+			if = {
+				limit = {has_dlc = "No Compromise, No Surrender"}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_escort_carrier	
+				}
+			}
+		}	# TFR: fixed ship designs
 		path = {	# TFR: line to the special project card
 			leads_to_tech = tfr_card_naval_escort_carrier
 			research_cost_coeff = 1
@@ -1450,15 +1474,7 @@ early_ship_hull_carrier = {
 			leads_to_tech = improved_ship_hull_carrier
 			research_cost_coeff = 1
 		}
-		on_research_complete = {
-			if = {
-				limit = {has_dlc = "No Compromise, No Surrender"}
-				custom_effect_tooltip = {
-					localization_key = SP_UNLOCK_PROJECT
-					PROJECT = sp_naval_escort_carrier	
-				}
-			}
-		}		
+		# TFR: research effects merged into the single hook above.		
 
 		research_cost = 1.5
 
@@ -1491,18 +1507,8 @@ early_ship_hull_carrier = {
 	}
 
 	improved_ship_hull_carrier = {
-		path = {	# TFR: line to the special project card
-			leads_to_tech = tfr_card_naval_ice_carrier
-			research_cost_coeff = 1
-		}
-
-		enable_equipments = {
-			ship_hull_carrier_2
-		}
-		enable_equipment_modules = {
-			carrier_ship_engine_3
-		}
 		on_research_complete = {
+			TFR_navy_create_designs = yes
 			if = {
 				limit = {has_dlc = "Gotterdammerung"}
 				custom_effect_tooltip = {
@@ -1520,7 +1526,19 @@ early_ship_hull_carrier = {
 				set_country_flag = PHI_did_carrier_tech
 				mark_focus_tree_layout_dirty = yes
 			}
-		}		
+		}	# TFR: fixed ship designs
+		path = {	# TFR: line to the special project card
+			leads_to_tech = tfr_card_naval_ice_carrier
+			research_cost_coeff = 1
+		}
+
+		enable_equipments = {
+			ship_hull_carrier_2
+		}
+		enable_equipment_modules = {
+			carrier_ship_engine_3
+		}
+		# TFR: research effects merged into the single hook above.		
 		path = {
 			leads_to_tech = advanced_ship_hull_carrier
 			research_cost_coeff = 1
@@ -1572,6 +1590,16 @@ early_ship_hull_carrier = {
 	}
 
 	advanced_ship_hull_carrier = {
+		on_research_complete = {
+			TFR_navy_create_designs = yes
+			if = {
+				limit = { has_dlc = "Gotterdammerung"}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_modern_carrier	
+				}
+			}
+		}	# TFR: fixed ship designs
 		path = {	# TFR: line to the special project card
 			leads_to_tech = tfr_card_naval_modern_carrier
 			research_cost_coeff = 1
@@ -1583,15 +1611,7 @@ early_ship_hull_carrier = {
 		enable_equipment_modules = {
 			carrier_ship_engine_4
 		}
-		on_research_complete = {
-			if = {
-				limit = { has_dlc = "Gotterdammerung"}
-				custom_effect_tooltip = {
-					localization_key = SP_UNLOCK_PROJECT
-					PROJECT = sp_naval_modern_carrier	
-				}
-			}
-		}
+		# TFR: research effects merged into the single hook above.
 		research_cost = 1.5
 
 		start_year = 1942
@@ -1688,18 +1708,8 @@ early_ship_hull_carrier = {
 	}
 
 	basic_ship_hull_submarine = {
-		path = {	# TFR: line to the special project card
-			leads_to_tech = tfr_card_naval_midget_submarine
-			research_cost_coeff = 1
-		}
-
-		enable_equipments = {
-			ship_hull_submarine_2
-		}
-		enable_equipment_modules = {
-			sub_ship_engine_2
-		}
 		on_research_complete = {
+			TFR_navy_create_designs = yes
 			if = {
 				limit = { has_dlc = "Gotterdammerung"}
 				custom_effect_tooltip = {
@@ -1711,7 +1721,19 @@ early_ship_hull_carrier = {
 					PROJECT = sp_naval_anechoic_tiles
 				}				
 			}
+		}	# TFR: fixed ship designs
+		path = {	# TFR: line to the special project card
+			leads_to_tech = tfr_card_naval_midget_submarine
+			research_cost_coeff = 1
 		}
+
+		enable_equipments = {
+			ship_hull_submarine_2
+		}
+		enable_equipment_modules = {
+			sub_ship_engine_2
+		}
+		# TFR: research effects merged into the single hook above.
 	
 		path = {
 			leads_to_tech = improved_ship_hull_submarine
@@ -1754,6 +1776,7 @@ early_ship_hull_carrier = {
 	}
 
 	improved_ship_hull_submarine = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 		path = {	# TFR: line to the special project card
 			leads_to_tech = tfr_card_naval_fleet_submarine
 			research_cost_coeff = 1
@@ -1817,6 +1840,7 @@ early_ship_hull_carrier = {
 	}
 
 	advanced_ship_hull_submarine = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_submarine_4
@@ -1870,6 +1894,7 @@ early_ship_hull_carrier = {
 	}
 	###Special snowflake hulls for special snowflake nations
 	panzerschiffe = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_panzerschiff
@@ -1888,6 +1913,7 @@ early_ship_hull_carrier = {
 		}
 	}
 	torpedo_cruiser_mtg = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_torpedo_cruiser
@@ -1902,6 +1928,7 @@ early_ship_hull_carrier = {
 		}
 	}
 	pre_dreadnoughts = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_pre_dreadnought
@@ -1920,6 +1947,7 @@ early_ship_hull_carrier = {
 		}
 	}
 	coastal_defense_ships = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_coastal_defense_ship
@@ -1938,6 +1966,7 @@ early_ship_hull_carrier = {
 		}
 	}
 	cruiser_submarines = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_cruiser_submarine
@@ -1961,6 +1990,7 @@ early_ship_hull_carrier = {
 		}
 	}
 	midget_submarines = {
+		on_research_complete = { TFR_navy_create_designs = yes }	# TFR: fixed ship designs
 
 		enable_equipments = {
 			ship_hull_midget_submarine

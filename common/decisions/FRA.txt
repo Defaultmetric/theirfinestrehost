@@ -197,11 +197,10 @@ FRA_vichy_france = {
 		fire_only_once = yes
 
 		activation = {
-			OR = { original_tag = FRA original_tag = VIC }
-			has_government = fascism
 			OR = {
-				is_subject_of = GER
+				tag = VIC
 				has_focus_tree = vichy_french_focus
+				has_country_flag = vichy_france
 			}
 			has_country_flag = case_anton
 		}

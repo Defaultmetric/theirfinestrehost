@@ -76,7 +76,7 @@ NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 1.75	-- Balancing val
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.5	-- DO NOT LET THE CIS B1 BATTLE DROIDS TOUCH THIS Maximum damage reduction factor applied to incoming air attacks against units with AA.
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.035    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
-NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 3 -- max 2 CAS per combat width (2/w)
+NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- max 2 CAS per combat width (2/w)
 NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.060        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
 NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier
 NDefines.NMilitary.COMBAT_STACKING_PENALTY = -0.05                -- how much stackign penalty per division
@@ -125,6 +125,10 @@ NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 5							-- base cap of divisio
 NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_MALUS = -0.5		-- Malus in percentage for the planning bonus gain for naval invasions
 
 --navy
+-- Naval pacing: all aircraft deal 10% of their original damage to ships.
+NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 0.1 -- installed vanilla 1.0 * 0.1
+NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 0.15 -- installed vanilla 1.5 * 0.1
+NDefines.NAir.NAVAL_STRIKE_CARRIER_MULTIPLIER = 12.0 -- preserve carrier bonus; global air-to-ship damage already scaled
 NDefines.NNavy.COMBAT_DAMAGE_RANDOMNESS = 0.20								-- random factor in damage. So if max damage is fe. 10 and randomness is 30% then damage will be between 7-10.
 NDefines.NNavy.CONVOY_EFFICIENCY_LOSS_MODIFIER = 1.00							-- How much efficiency drops when losing convoys. If modifier is 0.5 then losing 100% of convoys in short period the efficiency will drop by 50%.
 NDefines.NNavy.CONVOY_EFFICIENCY_REGAIN_AFTER_DAYS = 3						-- Convoy starts regaining it's efficiency after X days without any convoys being sink.

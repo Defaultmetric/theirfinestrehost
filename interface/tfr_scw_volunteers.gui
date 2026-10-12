@@ -1,0 +1,937 @@
+guiTypes = {
+containerWindowType = {
+	name = "TFR_scw_open_window"
+	position = { x = -620 y = 4 }
+	size = { width = 108 height = 30 }
+	orientation = UPPER_RIGHT
+	buttonType = {
+	 name = "open"
+	 quadTextureSprite = "GFX_generic_box_96"
+	 position = { x = 0 y = 0 }
+	 scale = 1.1
+	 pdx_tooltip = "TFR_SCW_OPEN_TT"
+	 clicksound = click_ok
+	 oversound = ui_menu_over
+	}
+	instantTextboxType = { name = "open_title" position = { x = 3 y = 4 } font = "hoi_18mbs" text = "TFR_SCW_OPEN" maxWidth = 104 maxHeight = 23 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+}
+containerWindowType = {
+	name = "TFR_scw_axis_window"
+	position = { x = -500 y = -296 }
+	orientation = CENTER
+	size = { width = 1000 height = 592 }
+	moveable = yes
+	background = { name = "background" spriteType = "GFX_tiled_window_thin_border" }
+	instantTextboxType = { name = "title" position = { x = 24 y = 13 } font = "hoi_24header" text = "TFR_SCW_AXIS_TITLE" maxWidth = 900 maxHeight = 28 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "tab_axis" position = { x = 24 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_AXIS" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_allies" position = { x = 182 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_ALLIES" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_soviet" position = { x = 340 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_SOVIET" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	instantTextboxType = { name = "draft" position = { x = 24 y = 84 } font = "hoi_18mbs" text = "TFR_SCW_DRAFT_AXIS" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "read_only" position = { x = 24 y = 84 } font = "hoi_16mbs" text = "TFR_SCW_READ_ONLY" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "live" position = { x = 24 y = 108 } font = "hoi_18mbs" text = "TFR_SCW_LIVE_AXIS" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "monthly" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_MONTHLY_HELP" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	containerWindowType = {
+		name = "countries_viewport"
+		position = { x = 20 y = 168 }
+		size = { width = 970 height = 340 }
+		containerWindowType = {
+			name = "countries_content"
+			position = { x = 0 y = 0 }
+			size = { width = 966 height = 340 }
+			containerWindowType = {
+				name = "card_GER"
+				position = { x = 0 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_GER" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_GER" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_GER" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[GER.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_GER" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_GER" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_GER" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?GER.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_GER" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?GER.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "GER_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "GER_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "GER_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "GER_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "GER_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "GER_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "GER_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "GER_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "GER_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "GER_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "GER_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "GER_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "GER_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_13" position = { x = 181 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_13_TT" }
+				iconType = { name = "GER_land_set_13_fill" position = { x = 181 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_14" position = { x = 194 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_14_TT" }
+				iconType = { name = "GER_land_set_14_fill" position = { x = 194 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_15" position = { x = 207 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_15_TT" }
+				iconType = { name = "GER_land_set_15_fill" position = { x = 207 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_land_set_16" position = { x = 220 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_16_TT" }
+				iconType = { name = "GER_land_set_16_fill" position = { x = 220 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "GER_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_GER" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?GER.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_GER" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?GER.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_0" position = { x = 263 y = 134 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "GER_air_set_100" position = { x = 263 y = 121 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "GER_air_set_100_fill" position = { x = 263 y = 121 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_200" position = { x = 263 y = 108 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "GER_air_set_200_fill" position = { x = 263 y = 108 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_300" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "GER_air_set_300_fill" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_400" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_400_TT" }
+				iconType = { name = "GER_air_set_400_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_500" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_500_TT" }
+				iconType = { name = "GER_air_set_500_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "GER_air_set_600" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_600_TT" }
+				iconType = { name = "GER_air_set_600_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "GER_air_thumb" position = { x = 263 y = 134 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "GER_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "GER_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "GER_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "GER_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "GER_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_ITA"
+				position = { x = 322 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_ITA" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_ITA" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_ITA" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[ITA.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_ITA" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_ITA" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_ITA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ITA.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_ITA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ITA.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "ITA_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "ITA_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "ITA_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "ITA_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "ITA_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "ITA_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "ITA_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "ITA_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "ITA_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "ITA_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "ITA_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "ITA_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "ITA_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_13" position = { x = 181 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_13_TT" }
+				iconType = { name = "ITA_land_set_13_fill" position = { x = 181 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_14" position = { x = 194 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_14_TT" }
+				iconType = { name = "ITA_land_set_14_fill" position = { x = 194 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_15" position = { x = 207 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_15_TT" }
+				iconType = { name = "ITA_land_set_15_fill" position = { x = 207 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_land_set_16" position = { x = 220 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_16_TT" }
+				iconType = { name = "ITA_land_set_16_fill" position = { x = 220 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "ITA_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_ITA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ITA.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_ITA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ITA.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_0" position = { x = 263 y = 134 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "ITA_air_set_100" position = { x = 263 y = 121 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "ITA_air_set_100_fill" position = { x = 263 y = 121 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_200" position = { x = 263 y = 108 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "ITA_air_set_200_fill" position = { x = 263 y = 108 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_300" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "ITA_air_set_300_fill" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_400" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_400_TT" }
+				iconType = { name = "ITA_air_set_400_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_500" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_500_TT" }
+				iconType = { name = "ITA_air_set_500_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ITA_air_set_600" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_600_TT" }
+				iconType = { name = "ITA_air_set_600_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "ITA_air_thumb" position = { x = 263 y = 134 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "ITA_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ITA_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ITA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ITA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ITA_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_ROM"
+				position = { x = 644 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_ROM" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_ROM" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_ROM" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[ROM.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_ROM" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_ROM" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_ROM" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ROM.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_ROM" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ROM.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "ROM_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "ROM_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "ROM_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "ROM_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "ROM_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "ROM_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "ROM_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "ROM_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "ROM_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "ROM_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "ROM_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "ROM_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "ROM_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_13" position = { x = 181 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_13_TT" }
+				iconType = { name = "ROM_land_set_13_fill" position = { x = 181 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_14" position = { x = 194 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_14_TT" }
+				iconType = { name = "ROM_land_set_14_fill" position = { x = 194 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_15" position = { x = 207 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_15_TT" }
+				iconType = { name = "ROM_land_set_15_fill" position = { x = 207 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_land_set_16" position = { x = 220 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_16_TT" }
+				iconType = { name = "ROM_land_set_16_fill" position = { x = 220 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "ROM_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_ROM" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ROM.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_ROM" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ROM.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_0" position = { x = 263 y = 134 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "ROM_air_set_100" position = { x = 263 y = 121 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "ROM_air_set_100_fill" position = { x = 263 y = 121 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_200" position = { x = 263 y = 108 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "ROM_air_set_200_fill" position = { x = 263 y = 108 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_300" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "ROM_air_set_300_fill" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_400" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_400_TT" }
+				iconType = { name = "ROM_air_set_400_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_500" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_500_TT" }
+				iconType = { name = "ROM_air_set_500_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ROM_air_set_600" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_600_TT" }
+				iconType = { name = "ROM_air_set_600_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "ROM_air_thumb" position = { x = 263 y = 134 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "ROM_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ROM_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ROM_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ROM_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ROM_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_HUN"
+				position = { x = 0 y = 170 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_HUN" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_HUN" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_HUN" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[HUN.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_HUN" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_HUN" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_HUN" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?HUN.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_HUN" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?HUN.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "HUN_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "HUN_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "HUN_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "HUN_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "HUN_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "HUN_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "HUN_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "HUN_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "HUN_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "HUN_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "HUN_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "HUN_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "HUN_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_13" position = { x = 181 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_13_TT" }
+				iconType = { name = "HUN_land_set_13_fill" position = { x = 181 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_14" position = { x = 194 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_14_TT" }
+				iconType = { name = "HUN_land_set_14_fill" position = { x = 194 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_15" position = { x = 207 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_15_TT" }
+				iconType = { name = "HUN_land_set_15_fill" position = { x = 207 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_land_set_16" position = { x = 220 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_16_TT" }
+				iconType = { name = "HUN_land_set_16_fill" position = { x = 220 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "HUN_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_HUN" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?HUN.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_HUN" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?HUN.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_0" position = { x = 263 y = 134 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "HUN_air_set_100" position = { x = 263 y = 121 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "HUN_air_set_100_fill" position = { x = 263 y = 121 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_200" position = { x = 263 y = 108 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "HUN_air_set_200_fill" position = { x = 263 y = 108 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_300" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "HUN_air_set_300_fill" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_400" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_400_TT" }
+				iconType = { name = "HUN_air_set_400_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_500" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_500_TT" }
+				iconType = { name = "HUN_air_set_500_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "HUN_air_set_600" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_600_TT" }
+				iconType = { name = "HUN_air_set_600_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "HUN_air_thumb" position = { x = 263 y = 134 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "HUN_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "HUN_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "HUN_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "HUN_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "HUN_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_BUL"
+				position = { x = 322 y = 170 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_BUL" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_BUL" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_BUL" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[BUL.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_BUL" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_BUL" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_BUL" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?BUL.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_BUL" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?BUL.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "BUL_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "BUL_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "BUL_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "BUL_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "BUL_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "BUL_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "BUL_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "BUL_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "BUL_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "BUL_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "BUL_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "BUL_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "BUL_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_13" position = { x = 181 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_13_TT" }
+				iconType = { name = "BUL_land_set_13_fill" position = { x = 181 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_14" position = { x = 194 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_14_TT" }
+				iconType = { name = "BUL_land_set_14_fill" position = { x = 194 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_15" position = { x = 207 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_15_TT" }
+				iconType = { name = "BUL_land_set_15_fill" position = { x = 207 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_land_set_16" position = { x = 220 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_16_TT" }
+				iconType = { name = "BUL_land_set_16_fill" position = { x = 220 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "BUL_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_BUL" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?BUL.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_BUL" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?BUL.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_0" position = { x = 263 y = 134 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "BUL_air_set_100" position = { x = 263 y = 121 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "BUL_air_set_100_fill" position = { x = 263 y = 121 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_200" position = { x = 263 y = 108 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "BUL_air_set_200_fill" position = { x = 263 y = 108 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_300" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "BUL_air_set_300_fill" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_400" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_400_TT" }
+				iconType = { name = "BUL_air_set_400_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_500" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_500_TT" }
+				iconType = { name = "BUL_air_set_500_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BUL_air_set_600" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_600_TT" }
+				iconType = { name = "BUL_air_set_600_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "BUL_air_thumb" position = { x = 263 y = 134 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "BUL_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BUL_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BUL_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BUL_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BUL_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+		}
+	}
+	instantTextboxType = { name = "help" position = { x = 24 y = 512 } font = "hoi_16mbs" text = "TFR_SCW_HELP" maxWidth = 940 maxHeight = 34 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "locked" position = { x = 200 y = 558 } font = "hoi_18mbs" text = "TFR_SCW_LOCKED" maxWidth = 450 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "apply" position = { x = 24 y = 552 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_APPLY" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_APPLY_TT" }
+	buttonType = { name = "close" position = { x = 826 y = 552 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_CLOSE" buttonFont = "hoi_18mbs" clicksound = click_ok }
+}
+containerWindowType = {
+	name = "TFR_scw_allies_window"
+	position = { x = -500 y = -381 }
+	orientation = CENTER
+	size = { width = 1000 height = 762 }
+	moveable = yes
+	background = { name = "background" spriteType = "GFX_tiled_window_thin_border" }
+	instantTextboxType = { name = "title" position = { x = 24 y = 13 } font = "hoi_24header" text = "TFR_SCW_ALLIES_TITLE" maxWidth = 900 maxHeight = 28 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "tab_axis" position = { x = 24 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_AXIS" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_allies" position = { x = 182 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_ALLIES" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_soviet" position = { x = 340 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_SOVIET" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	instantTextboxType = { name = "draft" position = { x = 24 y = 84 } font = "hoi_18mbs" text = "TFR_SCW_DRAFT_ALLIES" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "read_only" position = { x = 24 y = 84 } font = "hoi_16mbs" text = "TFR_SCW_READ_ONLY" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "live" position = { x = 24 y = 108 } font = "hoi_18mbs" text = "TFR_SCW_LIVE_ALLIES" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "priority" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_ALLIED_HELP" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "soviet_pending" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_SOV_PENDING" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "soviet_pending_august" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_SOV_PENDING_AUGUST" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	containerWindowType = {
+		name = "countries_viewport"
+		position = { x = 20 y = 168 }
+		size = { width = 970 height = 510 }
+		containerWindowType = {
+			name = "countries_content"
+			position = { x = 0 y = 0 }
+			size = { width = 966 height = 510 }
+			containerWindowType = {
+				name = "card_ENG"
+				position = { x = 0 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_ENG" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_ENG" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_ENG" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[ENG.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_ENG" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_ENG" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_ENG" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ENG.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_ENG" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?ENG.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "ENG_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "ENG_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "ENG_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "ENG_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "ENG_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "ENG_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "ENG_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "ENG_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "ENG_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "ENG_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "ENG_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "ENG_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "ENG_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "ENG_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_ENG" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ENG.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_ENG" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?ENG.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "ENG_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "ENG_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "ENG_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "ENG_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "ENG_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "ENG_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "ENG_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "ENG_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ENG_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ENG_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "ENG_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_FRA"
+				position = { x = 322 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_FRA" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_FRA" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_FRA" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[FRA.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_FRA" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_FRA" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_FRA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?FRA.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_FRA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?FRA.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "FRA_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "FRA_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "FRA_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "FRA_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "FRA_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "FRA_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "FRA_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "FRA_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "FRA_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "FRA_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "FRA_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "FRA_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "FRA_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "FRA_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_FRA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?FRA.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_FRA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?FRA.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "FRA_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "FRA_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "FRA_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "FRA_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "FRA_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "FRA_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "FRA_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "FRA_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "FRA_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "FRA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "FRA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_CAN"
+				position = { x = 644 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_CAN" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_CAN" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_CAN" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[CAN.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_CAN" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_CAN" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_CAN" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?CAN.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_CAN" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?CAN.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "CAN_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "CAN_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "CAN_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "CAN_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "CAN_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "CAN_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "CAN_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "CAN_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "CAN_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "CAN_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "CAN_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "CAN_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "CAN_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "CAN_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_CAN" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?CAN.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_CAN" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?CAN.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "CAN_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "CAN_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "CAN_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "CAN_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "CAN_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "CAN_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "CAN_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "CAN_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "CAN_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "CAN_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "CAN_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_AST"
+				position = { x = 0 y = 170 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_AST" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_AST" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_AST" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[AST.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_AST" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_AST" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_AST" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?AST.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_AST" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?AST.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "AST_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "AST_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "AST_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "AST_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "AST_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "AST_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "AST_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "AST_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "AST_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "AST_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "AST_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "AST_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "AST_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "AST_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_AST" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?AST.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_AST" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?AST.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "AST_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "AST_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "AST_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "AST_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "AST_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "AST_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "AST_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "AST_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "AST_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "AST_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "AST_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_SAF"
+				position = { x = 322 y = 170 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_SAF" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_SAF" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_SAF" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[SAF.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_SAF" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_SAF" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_SAF" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?SAF.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_SAF" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?SAF.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "SAF_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "SAF_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "SAF_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "SAF_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "SAF_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "SAF_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "SAF_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "SAF_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "SAF_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "SAF_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "SAF_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "SAF_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "SAF_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SAF_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_SAF" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?SAF.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_SAF" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?SAF.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "SAF_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "SAF_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "SAF_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "SAF_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "SAF_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "SAF_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "SAF_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "SAF_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SAF_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SAF_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SAF_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_RAJ"
+				position = { x = 644 y = 170 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_RAJ" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_RAJ" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_RAJ" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[RAJ.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_RAJ" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_RAJ" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_RAJ" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?RAJ.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_RAJ" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?RAJ.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "RAJ_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "RAJ_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "RAJ_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "RAJ_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "RAJ_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "RAJ_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "RAJ_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "RAJ_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "RAJ_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "RAJ_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "RAJ_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "RAJ_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "RAJ_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "RAJ_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_RAJ" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?RAJ.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_RAJ" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?RAJ.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "RAJ_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "RAJ_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "RAJ_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "RAJ_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "RAJ_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "RAJ_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "RAJ_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "RAJ_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "RAJ_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "RAJ_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "RAJ_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_BRA"
+				position = { x = 0 y = 340 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_BRA" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_BRA" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_BRA" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[BRA.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_BRA" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_BRA" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_BRA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?BRA.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_BRA" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?BRA.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "BRA_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "BRA_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "BRA_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "BRA_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "BRA_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "BRA_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "BRA_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "BRA_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "BRA_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "BRA_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "BRA_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "BRA_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "BRA_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "BRA_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_BRA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?BRA.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_BRA" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?BRA.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "BRA_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "BRA_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "BRA_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "BRA_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "BRA_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "BRA_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "BRA_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "BRA_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BRA_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BRA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "BRA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_MEX"
+				position = { x = 322 y = 340 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_MEX" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_MEX" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_MEX" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[MEX.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_MEX" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_MEX" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_MEX" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?MEX.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_MEX" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?MEX.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "MEX_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "MEX_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "MEX_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "MEX_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "MEX_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "MEX_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "MEX_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_7" position = { x = 103 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_7_TT" }
+				iconType = { name = "MEX_land_set_7_fill" position = { x = 103 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_8" position = { x = 116 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_8_TT" }
+				iconType = { name = "MEX_land_set_8_fill" position = { x = 116 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_9" position = { x = 129 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_9_TT" }
+				iconType = { name = "MEX_land_set_9_fill" position = { x = 129 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_10" position = { x = 142 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_10_TT" }
+				iconType = { name = "MEX_land_set_10_fill" position = { x = 142 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_11" position = { x = 155 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_11_TT" }
+				iconType = { name = "MEX_land_set_11_fill" position = { x = 155 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_land_set_12" position = { x = 168 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_12_TT" }
+				iconType = { name = "MEX_land_set_12_fill" position = { x = 168 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "MEX_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_MEX" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?MEX.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_MEX" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?MEX.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "MEX_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "MEX_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "MEX_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "MEX_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "MEX_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "MEX_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "MEX_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "MEX_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "MEX_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "MEX_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "MEX_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+			containerWindowType = {
+				name = "card_SOV"
+				position = { x = 644 y = 340 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_SOV" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_SOV" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_SOV" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[SOV.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_SOV" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_SOV" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_SOV" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_0" position = { x = 12 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_1" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_2" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_3" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_4" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_5" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_6" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_step" alwaystransparent = yes }
+				iconType = { name = "SOV_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_SOV" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_0" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_step" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_100" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_step" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_200" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_step" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_300" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_step" alwaystransparent = yes }
+				iconType = { name = "SOV_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_max" position = { x = 86 y = 125 } font = "hoi_16mbs" text = "6" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "soviet_readonly_note" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SOV_READ_ONLY" maxWidth = 230 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+		}
+	}
+	instantTextboxType = { name = "help" position = { x = 24 y = 682 } font = "hoi_16mbs" text = "TFR_SCW_HELP" maxWidth = 940 maxHeight = 34 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "locked" position = { x = 200 y = 728 } font = "hoi_18mbs" text = "TFR_SCW_LOCKED" maxWidth = 450 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "apply" position = { x = 24 y = 722 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_APPLY" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_APPLY_TT" }
+	buttonType = { name = "close" position = { x = 826 y = 722 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_CLOSE" buttonFont = "hoi_18mbs" clicksound = click_ok }
+}
+containerWindowType = {
+	name = "TFR_scw_soviet_window"
+	position = { x = -500 y = -211 }
+	orientation = CENTER
+	size = { width = 1000 height = 422 }
+	moveable = yes
+	background = { name = "background" spriteType = "GFX_tiled_window_thin_border" }
+	instantTextboxType = { name = "title" position = { x = 24 y = 13 } font = "hoi_24header" text = "TFR_SCW_SOVIET_TITLE" maxWidth = 900 maxHeight = 28 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "tab_axis" position = { x = 24 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_AXIS" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_allies" position = { x = 182 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_ALLIES" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	buttonType = { name = "tab_soviet" position = { x = 340 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_SOVIET" buttonFont = "hoi_18mbs" clicksound = click_ok }
+	instantTextboxType = { name = "draft" position = { x = 24 y = 84 } font = "hoi_18mbs" text = "TFR_SCW_DRAFT_SOVIET" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "read_only" position = { x = 24 y = 84 } font = "hoi_16mbs" text = "TFR_SCW_READ_ONLY" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "monthly" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_MONTHLY_HELP" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	containerWindowType = {
+		name = "countries_viewport"
+		position = { x = 20 y = 168 }
+		size = { width = 970 height = 170 }
+		containerWindowType = {
+			name = "countries_content"
+			position = { x = 0 y = 0 }
+			size = { width = 966 height = 170 }
+			containerWindowType = {
+				name = "card_SOV"
+				position = { x = 0 y = 0 }
+				size = { width = 312 height = 160 }
+				iconType = { name = "background_SOV" position = { x = 0 y = 0 } spriteType = "GFX_TFR_scw_card" alwaystransparent = yes }
+				iconType = { name = "flag_SOV" position = { x = 12 y = 14 } spriteType = "GFX_flag_small2" alwaystransparent = yes }
+				instantTextboxType = { name = "name_SOV" position = { x = 65 y = 13 } font = "hoi_16mbs" text = "[SOV.GetName]" maxWidth = 174 maxHeight = 38 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "land_label_SOV" position = { x = 12 y = 60 } font = "hoi_16mbs" text = "TFR_SCW_DIVISIONS" maxWidth = 140 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "air_label_SOV" position = { x = 242 y = 13 } font = "hoi_16mbs" text = "TFR_SCW_AIRCRAFT" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "land_live_SOV" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				instantTextboxType = { name = "land_draft_SOV" position = { x = 183 y = 60 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_draft_land|0]" maxWidth = 48 maxHeight = 24 fixedsize = yes multiline = yes format = right alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_0" position = { x = 12 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_0_TT" }
+				buttonType = { name = "SOV_land_set_1" position = { x = 25 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_1_TT" }
+				iconType = { name = "SOV_land_set_1_fill" position = { x = 25 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_2" position = { x = 38 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_2_TT" }
+				iconType = { name = "SOV_land_set_2_fill" position = { x = 38 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_3" position = { x = 51 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_3_TT" }
+				iconType = { name = "SOV_land_set_3_fill" position = { x = 51 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_4" position = { x = 64 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_4_TT" }
+				iconType = { name = "SOV_land_set_4_fill" position = { x = 64 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_5" position = { x = 77 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_5_TT" }
+				iconType = { name = "SOV_land_set_5_fill" position = { x = 77 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_land_set_6" position = { x = 90 y = 92 } quadTextureSprite = "GFX_TFR_scw_land_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_LAND_6_TT" }
+				iconType = { name = "SOV_land_set_6_fill" position = { x = 90 y = 92 } spriteType = "GFX_TFR_scw_land_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_land_thumb" position = { x = 12 y = 90 } spriteType = "GFX_TFR_scw_land_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "air_live_SOV" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				instantTextboxType = { name = "air_draft_SOV" position = { x = 242 y = 34 } font = "hoi_18mbs" text = "[?SOV.TFR_scw_draft_air|0]" maxWidth = 66 maxHeight = 24 fixedsize = yes multiline = yes format = center alwaystransparent = yes }
+				buttonType = { name = "SOV_air_set_0" position = { x = 263 y = 95 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_0_TT" }
+				buttonType = { name = "SOV_air_set_100" position = { x = 263 y = 82 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_100_TT" }
+				iconType = { name = "SOV_air_set_100_fill" position = { x = 263 y = 82 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_air_set_200" position = { x = 263 y = 69 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_200_TT" }
+				iconType = { name = "SOV_air_set_200_fill" position = { x = 263 y = 69 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				buttonType = { name = "SOV_air_set_300" position = { x = 263 y = 56 } quadTextureSprite = "GFX_TFR_scw_air_step" buttonText = "" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_AIR_300_TT" }
+				iconType = { name = "SOV_air_set_300_fill" position = { x = 263 y = 56 } spriteType = "GFX_TFR_scw_air_fill" alwaystransparent = yes }
+				iconType = { name = "SOV_air_thumb" position = { x = 263 y = 95 } spriteType = "GFX_TFR_scw_air_thumb" alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "SOV_tick_max" position = { x = 86 y = 125 } font = "hoi_16mbs" text = "6" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+			}
+		}
+	}
+	instantTextboxType = { name = "help" position = { x = 24 y = 342 } font = "hoi_16mbs" text = "TFR_SCW_HELP" maxWidth = 940 maxHeight = 34 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "locked" position = { x = 200 y = 388 } font = "hoi_18mbs" text = "TFR_SCW_LOCKED" maxWidth = 450 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "apply" position = { x = 24 y = 382 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_APPLY" buttonFont = "hoi_18mbs" clicksound = click_ok pdx_tooltip = "TFR_SCW_APPLY_TT" }
+	buttonType = { name = "close" position = { x = 826 y = 382 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_CLOSE" buttonFont = "hoi_18mbs" clicksound = click_ok }
+}
+}

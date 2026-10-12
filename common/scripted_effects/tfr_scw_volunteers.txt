@@ -1,0 +1,654 @@
+# Scope: donor. Refresh native limits without creating free capacity from other ideas.
+TFR_scw_refresh_native_limits = {
+ if = {
+  limit = { has_country_flag = TFR_scw_committed_donor TFR_scw_manager_in_period = yes }
+  set_temp_variable = { TFR_scw_other_land = modifier@send_volunteer_size }
+  subtract_from_temp_variable = { TFR_scw_other_land = TFR_scw_land_adjustment }
+  set_variable = { TFR_scw_land_adjustment = TFR_scw_land }
+  subtract_from_variable = { TFR_scw_land_adjustment = TFR_scw_other_land }
+  set_temp_variable = { TFR_scw_other_air = modifier@air_volunteer_cap }
+  subtract_from_temp_variable = { TFR_scw_other_air = TFR_scw_air_adjustment }
+  set_temp_variable = { TFR_scw_native_air_base = num_deployed_planes }
+  divide_temp_variable = { TFR_scw_native_air_base = 100 }
+  round_temp_variable = TFR_scw_native_air_base
+  add_to_temp_variable = { TFR_scw_native_air_base = 1 }
+  set_variable = { TFR_scw_air_adjustment = TFR_scw_air }
+  divide_variable = { TFR_scw_air_adjustment = 100 }
+  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_native_air_base }
+  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_other_air }
+  force_update_dynamic_modifier = yes
+ }
+}
+TFR_scw_remove_native_limits = {
+ if = {
+  limit = { has_dynamic_modifier = TFR_scw_volunteer_limits }
+  remove_dynamic_modifier = { modifier = TFR_scw_volunteer_limits }
+ }
+ remove_ideas = TFR_scw_volunteer_authority
+}
+TFR_scw_apply_donor = {
+ set_variable = { TFR_scw_land = TFR_scw_draft_land }
+ set_variable = { TFR_scw_air = TFR_scw_draft_air }
+ if = {
+  limit = { OR = { check_variable = { TFR_scw_land > 0 } check_variable = { TFR_scw_air > 0 } } }
+  set_country_flag = TFR_scw_committed_donor
+  if = {
+   limit = { NOT = { has_dynamic_modifier = TFR_scw_volunteer_limits } }
+   set_variable = { TFR_scw_land_adjustment = 0 }
+   set_variable = { TFR_scw_air_adjustment = 0 }
+   add_dynamic_modifier = { modifier = TFR_scw_volunteer_limits }
+  }
+  add_ideas = TFR_scw_volunteer_authority
+  TFR_scw_refresh_native_limits = yes
+ }
+ else = {
+  clr_country_flag = TFR_scw_committed_donor
+  TFR_scw_remove_native_limits = yes
+  set_variable = { TFR_scw_land_adjustment = 0 }
+  set_variable = { TFR_scw_air_adjustment = 0 }
+ }
+}
+TFR_scw_copy_live_to_draft = {
+ set_variable = { TFR_scw_draft_land = TFR_scw_land }
+ set_variable = { TFR_scw_draft_air = TFR_scw_air }
+}
+TFR_scw_cleanup = {
+ set_global_flag = TFR_scw_manager_finished
+ every_country = {
+  limit = { has_country_flag = TFR_scw_managed_donor }
+  TFR_scw_remove_native_limits = yes
+  clr_country_flag = TFR_scw_committed_donor
+  clr_country_flag = TFR_scw_panel_open
+  add_to_variable = { TFR_scw_ui_dirty = 1 }
+ }
+}
+TFR_scw_axis_recount = {
+	set_variable = { TFR_scw_draft_total_land = 0 }
+	set_variable = { TFR_scw_draft_total_air = 0 }
+	add_to_variable = { TFR_scw_draft_total_land = GER.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = GER.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = ITA.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = ITA.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = ROM.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = ROM.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = HUN.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = HUN.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = BUL.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = BUL.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_ui_dirty = 1 }
+}
+TFR_scw_axis_prepare = {
+	TFR_scw_axis_recount = yes
+	GER = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_GER_land_x = GER.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_GER_land_x = 13 }
+	add_to_variable = { TFR_scw_GER_land_x = 12 }
+	set_variable = { TFR_scw_GER_air_y = GER.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_GER_air_y = 100 }
+	multiply_variable = { TFR_scw_GER_air_y = -13 }
+	add_to_variable = { TFR_scw_GER_air_y = 134 }
+	set_variable = { TFR_scw_GER_land_available = 16 }
+	subtract_from_variable = { TFR_scw_GER_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_GER_land_available = GER.TFR_scw_draft_land }
+	set_variable = { TFR_scw_GER_air_available = 600 }
+	subtract_from_variable = { TFR_scw_GER_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_GER_air_available = GER.TFR_scw_draft_air }
+	ITA = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_ITA_land_x = ITA.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_ITA_land_x = 13 }
+	add_to_variable = { TFR_scw_ITA_land_x = 12 }
+	set_variable = { TFR_scw_ITA_air_y = ITA.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_ITA_air_y = 100 }
+	multiply_variable = { TFR_scw_ITA_air_y = -13 }
+	add_to_variable = { TFR_scw_ITA_air_y = 134 }
+	set_variable = { TFR_scw_ITA_land_available = 16 }
+	subtract_from_variable = { TFR_scw_ITA_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_ITA_land_available = ITA.TFR_scw_draft_land }
+	set_variable = { TFR_scw_ITA_air_available = 600 }
+	subtract_from_variable = { TFR_scw_ITA_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_ITA_air_available = ITA.TFR_scw_draft_air }
+	ROM = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_ROM_land_x = ROM.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_ROM_land_x = 13 }
+	add_to_variable = { TFR_scw_ROM_land_x = 12 }
+	set_variable = { TFR_scw_ROM_air_y = ROM.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_ROM_air_y = 100 }
+	multiply_variable = { TFR_scw_ROM_air_y = -13 }
+	add_to_variable = { TFR_scw_ROM_air_y = 134 }
+	set_variable = { TFR_scw_ROM_land_available = 16 }
+	subtract_from_variable = { TFR_scw_ROM_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_ROM_land_available = ROM.TFR_scw_draft_land }
+	set_variable = { TFR_scw_ROM_air_available = 600 }
+	subtract_from_variable = { TFR_scw_ROM_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_ROM_air_available = ROM.TFR_scw_draft_air }
+	HUN = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_HUN_land_x = HUN.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_HUN_land_x = 13 }
+	add_to_variable = { TFR_scw_HUN_land_x = 12 }
+	set_variable = { TFR_scw_HUN_air_y = HUN.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_HUN_air_y = 100 }
+	multiply_variable = { TFR_scw_HUN_air_y = -13 }
+	add_to_variable = { TFR_scw_HUN_air_y = 134 }
+	set_variable = { TFR_scw_HUN_land_available = 16 }
+	subtract_from_variable = { TFR_scw_HUN_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_HUN_land_available = HUN.TFR_scw_draft_land }
+	set_variable = { TFR_scw_HUN_air_available = 600 }
+	subtract_from_variable = { TFR_scw_HUN_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_HUN_air_available = HUN.TFR_scw_draft_air }
+	BUL = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_BUL_land_x = BUL.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_BUL_land_x = 13 }
+	add_to_variable = { TFR_scw_BUL_land_x = 12 }
+	set_variable = { TFR_scw_BUL_air_y = BUL.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_BUL_air_y = 100 }
+	multiply_variable = { TFR_scw_BUL_air_y = -13 }
+	add_to_variable = { TFR_scw_BUL_air_y = 134 }
+	set_variable = { TFR_scw_BUL_land_available = 16 }
+	subtract_from_variable = { TFR_scw_BUL_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_BUL_land_available = BUL.TFR_scw_draft_land }
+	set_variable = { TFR_scw_BUL_air_available = 600 }
+	subtract_from_variable = { TFR_scw_BUL_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_BUL_air_available = BUL.TFR_scw_draft_air }
+}
+TFR_scw_axis_commit = {
+	TFR_scw_axis_prepare = yes
+	if = {
+	 limit = { TFR_scw_axis_can_commit = yes }
+	 GER = { TFR_scw_apply_donor = yes }
+	 ITA = { TFR_scw_apply_donor = yes }
+	 ROM = { TFR_scw_apply_donor = yes }
+	 HUN = { TFR_scw_apply_donor = yes }
+	 BUL = { TFR_scw_apply_donor = yes }
+	 set_country_flag = TFR_scw_month_committed
+	 TFR_scw_recount_live = yes
+	}
+}
+TFR_scw_allies_recount = {
+	set_variable = { TFR_scw_draft_total_land = 0 }
+	set_variable = { TFR_scw_draft_total_air = 0 }
+	add_to_variable = { TFR_scw_draft_total_land = ENG.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = ENG.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = FRA.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = FRA.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = CAN.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = CAN.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = AST.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = AST.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = SAF.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = SAF.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = RAJ.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = RAJ.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = BRA.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = BRA.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = MEX.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = MEX.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_draft_total_land = SOV.TFR_scw_land }
+	add_to_variable = { TFR_scw_draft_total_air = SOV.TFR_scw_air }
+	add_to_variable = { TFR_scw_ui_dirty = 1 }
+}
+TFR_scw_allies_prepare = {
+	TFR_scw_allies_recount = yes
+	ENG = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_ENG_land_x = ENG.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_ENG_land_x = 13 }
+	add_to_variable = { TFR_scw_ENG_land_x = 12 }
+	set_variable = { TFR_scw_ENG_air_y = ENG.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_ENG_air_y = 100 }
+	multiply_variable = { TFR_scw_ENG_air_y = -13 }
+	add_to_variable = { TFR_scw_ENG_air_y = 95 }
+	set_variable = { TFR_scw_ENG_land_available = 12 }
+	subtract_from_variable = { TFR_scw_ENG_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_ENG_land_available = ENG.TFR_scw_draft_land }
+	set_variable = { TFR_scw_ENG_air_available = 300 }
+	subtract_from_variable = { TFR_scw_ENG_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_ENG_air_available = ENG.TFR_scw_draft_air }
+	FRA = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_FRA_land_x = FRA.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_FRA_land_x = 13 }
+	add_to_variable = { TFR_scw_FRA_land_x = 12 }
+	set_variable = { TFR_scw_FRA_air_y = FRA.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_FRA_air_y = 100 }
+	multiply_variable = { TFR_scw_FRA_air_y = -13 }
+	add_to_variable = { TFR_scw_FRA_air_y = 95 }
+	set_variable = { TFR_scw_FRA_land_available = 12 }
+	subtract_from_variable = { TFR_scw_FRA_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_FRA_land_available = FRA.TFR_scw_draft_land }
+	set_variable = { TFR_scw_FRA_air_available = 300 }
+	subtract_from_variable = { TFR_scw_FRA_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_FRA_air_available = FRA.TFR_scw_draft_air }
+	CAN = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_CAN_land_x = CAN.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_CAN_land_x = 13 }
+	add_to_variable = { TFR_scw_CAN_land_x = 12 }
+	set_variable = { TFR_scw_CAN_air_y = CAN.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_CAN_air_y = 100 }
+	multiply_variable = { TFR_scw_CAN_air_y = -13 }
+	add_to_variable = { TFR_scw_CAN_air_y = 95 }
+	set_variable = { TFR_scw_CAN_land_available = 12 }
+	subtract_from_variable = { TFR_scw_CAN_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_CAN_land_available = CAN.TFR_scw_draft_land }
+	set_variable = { TFR_scw_CAN_air_available = 300 }
+	subtract_from_variable = { TFR_scw_CAN_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_CAN_air_available = CAN.TFR_scw_draft_air }
+	AST = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_AST_land_x = AST.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_AST_land_x = 13 }
+	add_to_variable = { TFR_scw_AST_land_x = 12 }
+	set_variable = { TFR_scw_AST_air_y = AST.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_AST_air_y = 100 }
+	multiply_variable = { TFR_scw_AST_air_y = -13 }
+	add_to_variable = { TFR_scw_AST_air_y = 95 }
+	set_variable = { TFR_scw_AST_land_available = 12 }
+	subtract_from_variable = { TFR_scw_AST_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_AST_land_available = AST.TFR_scw_draft_land }
+	set_variable = { TFR_scw_AST_air_available = 300 }
+	subtract_from_variable = { TFR_scw_AST_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_AST_air_available = AST.TFR_scw_draft_air }
+	SAF = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_SAF_land_x = SAF.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_SAF_land_x = 13 }
+	add_to_variable = { TFR_scw_SAF_land_x = 12 }
+	set_variable = { TFR_scw_SAF_air_y = SAF.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_SAF_air_y = 100 }
+	multiply_variable = { TFR_scw_SAF_air_y = -13 }
+	add_to_variable = { TFR_scw_SAF_air_y = 95 }
+	set_variable = { TFR_scw_SAF_land_available = 12 }
+	subtract_from_variable = { TFR_scw_SAF_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_SAF_land_available = SAF.TFR_scw_draft_land }
+	set_variable = { TFR_scw_SAF_air_available = 300 }
+	subtract_from_variable = { TFR_scw_SAF_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_SAF_air_available = SAF.TFR_scw_draft_air }
+	RAJ = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_RAJ_land_x = RAJ.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_RAJ_land_x = 13 }
+	add_to_variable = { TFR_scw_RAJ_land_x = 12 }
+	set_variable = { TFR_scw_RAJ_air_y = RAJ.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_RAJ_air_y = 100 }
+	multiply_variable = { TFR_scw_RAJ_air_y = -13 }
+	add_to_variable = { TFR_scw_RAJ_air_y = 95 }
+	set_variable = { TFR_scw_RAJ_land_available = 12 }
+	subtract_from_variable = { TFR_scw_RAJ_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_RAJ_land_available = RAJ.TFR_scw_draft_land }
+	set_variable = { TFR_scw_RAJ_air_available = 300 }
+	subtract_from_variable = { TFR_scw_RAJ_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_RAJ_air_available = RAJ.TFR_scw_draft_air }
+	BRA = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_BRA_land_x = BRA.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_BRA_land_x = 13 }
+	add_to_variable = { TFR_scw_BRA_land_x = 12 }
+	set_variable = { TFR_scw_BRA_air_y = BRA.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_BRA_air_y = 100 }
+	multiply_variable = { TFR_scw_BRA_air_y = -13 }
+	add_to_variable = { TFR_scw_BRA_air_y = 95 }
+	set_variable = { TFR_scw_BRA_land_available = 12 }
+	subtract_from_variable = { TFR_scw_BRA_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_BRA_land_available = BRA.TFR_scw_draft_land }
+	set_variable = { TFR_scw_BRA_air_available = 300 }
+	subtract_from_variable = { TFR_scw_BRA_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_BRA_air_available = BRA.TFR_scw_draft_air }
+	MEX = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_MEX_land_x = MEX.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_MEX_land_x = 13 }
+	add_to_variable = { TFR_scw_MEX_land_x = 12 }
+	set_variable = { TFR_scw_MEX_air_y = MEX.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_MEX_air_y = 100 }
+	multiply_variable = { TFR_scw_MEX_air_y = -13 }
+	add_to_variable = { TFR_scw_MEX_air_y = 95 }
+	set_variable = { TFR_scw_MEX_land_available = 12 }
+	subtract_from_variable = { TFR_scw_MEX_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_MEX_land_available = MEX.TFR_scw_draft_land }
+	set_variable = { TFR_scw_MEX_air_available = 300 }
+	subtract_from_variable = { TFR_scw_MEX_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_MEX_air_available = MEX.TFR_scw_draft_air }
+}
+TFR_scw_allies_commit = {
+	TFR_scw_allies_prepare = yes
+	if = {
+	 limit = { TFR_scw_allies_can_commit = yes }
+	 ENG = { TFR_scw_apply_donor = yes }
+	 FRA = { TFR_scw_apply_donor = yes }
+	 CAN = { TFR_scw_apply_donor = yes }
+	 AST = { TFR_scw_apply_donor = yes }
+	 SAF = { TFR_scw_apply_donor = yes }
+	 RAJ = { TFR_scw_apply_donor = yes }
+	 BRA = { TFR_scw_apply_donor = yes }
+	 MEX = { TFR_scw_apply_donor = yes }
+	 set_country_flag = TFR_scw_month_committed
+	 TFR_scw_recount_live = yes
+	}
+}
+TFR_scw_soviet_recount = {
+	set_variable = { TFR_scw_draft_total_land = 0 }
+	set_variable = { TFR_scw_draft_total_air = 0 }
+	add_to_variable = { TFR_scw_draft_total_land = SOV.TFR_scw_draft_land }
+	add_to_variable = { TFR_scw_draft_total_air = SOV.TFR_scw_draft_air }
+	add_to_variable = { TFR_scw_ui_dirty = 1 }
+}
+TFR_scw_soviet_prepare = {
+	TFR_scw_soviet_recount = yes
+	SOV = { set_variable = { TFR_scw_air_check_ceiling = TFR_scw_draft_air } add_to_variable = { TFR_scw_air_check_ceiling = 1 } }
+	set_variable = { TFR_scw_SOV_land_x = SOV.TFR_scw_draft_land }
+	multiply_variable = { TFR_scw_SOV_land_x = 13 }
+	add_to_variable = { TFR_scw_SOV_land_x = 12 }
+	set_variable = { TFR_scw_SOV_air_y = SOV.TFR_scw_draft_air }
+	divide_variable = { TFR_scw_SOV_air_y = 100 }
+	multiply_variable = { TFR_scw_SOV_air_y = -13 }
+	add_to_variable = { TFR_scw_SOV_air_y = 95 }
+	set_variable = { TFR_scw_SOV_land_available = 6 }
+	subtract_from_variable = { TFR_scw_SOV_land_available = TFR_scw_draft_total_land }
+	add_to_variable = { TFR_scw_SOV_land_available = SOV.TFR_scw_draft_land }
+	set_variable = { TFR_scw_SOV_air_available = 300 }
+	subtract_from_variable = { TFR_scw_SOV_air_available = TFR_scw_draft_total_air }
+	add_to_variable = { TFR_scw_SOV_air_available = SOV.TFR_scw_draft_air }
+	set_variable = { TFR_scw_allied_new_land = ENG.TFR_scw_live_total_land }
+	subtract_from_variable = { TFR_scw_allied_new_land = TFR_scw_land }
+	add_to_variable = { TFR_scw_allied_new_land = TFR_scw_draft_land }
+	set_variable = { TFR_scw_allied_new_air = ENG.TFR_scw_live_total_air }
+	subtract_from_variable = { TFR_scw_allied_new_air = TFR_scw_air }
+	add_to_variable = { TFR_scw_allied_new_air = TFR_scw_draft_air }
+	set_variable = { TFR_scw_SOV_land_available = 12 }
+	subtract_from_variable = { TFR_scw_SOV_land_available = ENG.TFR_scw_live_total_land }
+	add_to_variable = { TFR_scw_SOV_land_available = TFR_scw_land }
+	clamp_variable = { var = TFR_scw_SOV_land_available min = 0 max = 6 }
+	set_variable = { TFR_scw_SOV_air_available = 300 }
+	subtract_from_variable = { TFR_scw_SOV_air_available = ENG.TFR_scw_live_total_air }
+	add_to_variable = { TFR_scw_SOV_air_available = TFR_scw_air }
+	clamp_variable = { var = TFR_scw_SOV_air_available min = 0 max = 300 }
+}
+TFR_scw_soviet_commit = {
+	TFR_scw_soviet_prepare = yes
+	if = {
+	 limit = { TFR_scw_soviet_can_commit = yes }
+	 SOV = { TFR_scw_apply_donor = yes }
+	 set_country_flag = TFR_scw_month_committed
+	 set_global_flag = TFR_scw_soviet_confirmed
+	 TFR_scw_recount_live = yes
+	}
+}
+TFR_scw_recount_live = {
+	GER = {
+	 set_variable = { TFR_scw_live_total_land = 0 }
+	 set_variable = { TFR_scw_live_total_air = 0 }
+	 add_to_variable = { TFR_scw_live_total_land = GER.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = GER.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = ITA.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = ITA.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = ROM.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = ROM.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = HUN.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = HUN.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = BUL.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = BUL.TFR_scw_air }
+	 TFR_scw_axis_prepare = yes
+	}
+	ENG = {
+	 set_variable = { TFR_scw_live_total_land = 0 }
+	 set_variable = { TFR_scw_live_total_air = 0 }
+	 add_to_variable = { TFR_scw_live_total_land = ENG.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = ENG.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = FRA.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = FRA.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = CAN.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = CAN.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = AST.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = AST.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = SAF.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = SAF.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = RAJ.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = RAJ.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = BRA.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = BRA.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = MEX.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = MEX.TFR_scw_air }
+	 add_to_variable = { TFR_scw_live_total_land = SOV.TFR_scw_land }
+	 add_to_variable = { TFR_scw_live_total_air = SOV.TFR_scw_air }
+	 TFR_scw_allies_prepare = yes
+	}
+	SOV = { TFR_scw_soviet_prepare = yes }
+	TFR_scw_refresh_views = yes
+}
+TFR_scw_initialize = {
+	if = {
+	 limit = { NOT = { has_global_flag = TFR_scw_manager_initialized } TFR_scw_manager_in_period = yes }
+	 set_global_flag = TFR_scw_manager_initialized
+	 GER = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_axis_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 ITA = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_axis_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 ROM = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_axis_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 HUN = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_axis_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 BUL = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_axis_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 ENG = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 FRA = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 CAN = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 AST = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 SAF = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 RAJ = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 BRA = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 MEX = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 SOV = {
+	  set_country_flag = TFR_scw_managed_donor
+	  set_country_flag = TFR_scw_allied_donor
+	  set_variable = { TFR_scw_land = 0 }
+	  set_variable = { TFR_scw_air = 0 }
+	  TFR_scw_copy_live_to_draft = yes
+	 }
+	 TFR_scw_recount_live = yes
+	 SOV = { TFR_scw_soviet_prepare = yes }
+	}
+}
+TFR_scw_sync_view = {
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_GER_land_position = GER.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_axis_GER_land_position = GER.TFR_scw_land } }
+	multiply_variable = { TFR_scw_axis_GER_land_position = 13 }
+	add_to_variable = { TFR_scw_axis_GER_land_position = 12 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_GER_air_position = GER.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_axis_GER_air_position = GER.TFR_scw_air } }
+	divide_variable = { TFR_scw_axis_GER_air_position = 100 }
+	multiply_variable = { TFR_scw_axis_GER_air_position = -13 }
+	add_to_variable = { TFR_scw_axis_GER_air_position = 134 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_ITA_land_position = ITA.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_axis_ITA_land_position = ITA.TFR_scw_land } }
+	multiply_variable = { TFR_scw_axis_ITA_land_position = 13 }
+	add_to_variable = { TFR_scw_axis_ITA_land_position = 12 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_ITA_air_position = ITA.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_axis_ITA_air_position = ITA.TFR_scw_air } }
+	divide_variable = { TFR_scw_axis_ITA_air_position = 100 }
+	multiply_variable = { TFR_scw_axis_ITA_air_position = -13 }
+	add_to_variable = { TFR_scw_axis_ITA_air_position = 134 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_ROM_land_position = ROM.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_axis_ROM_land_position = ROM.TFR_scw_land } }
+	multiply_variable = { TFR_scw_axis_ROM_land_position = 13 }
+	add_to_variable = { TFR_scw_axis_ROM_land_position = 12 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_ROM_air_position = ROM.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_axis_ROM_air_position = ROM.TFR_scw_air } }
+	divide_variable = { TFR_scw_axis_ROM_air_position = 100 }
+	multiply_variable = { TFR_scw_axis_ROM_air_position = -13 }
+	add_to_variable = { TFR_scw_axis_ROM_air_position = 134 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_HUN_land_position = HUN.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_axis_HUN_land_position = HUN.TFR_scw_land } }
+	multiply_variable = { TFR_scw_axis_HUN_land_position = 13 }
+	add_to_variable = { TFR_scw_axis_HUN_land_position = 12 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_HUN_air_position = HUN.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_axis_HUN_air_position = HUN.TFR_scw_air } }
+	divide_variable = { TFR_scw_axis_HUN_air_position = 100 }
+	multiply_variable = { TFR_scw_axis_HUN_air_position = -13 }
+	add_to_variable = { TFR_scw_axis_HUN_air_position = 134 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_BUL_land_position = BUL.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_axis_BUL_land_position = BUL.TFR_scw_land } }
+	multiply_variable = { TFR_scw_axis_BUL_land_position = 13 }
+	add_to_variable = { TFR_scw_axis_BUL_land_position = 12 }
+	if = { limit = { original_tag = GER } set_variable = { TFR_scw_axis_BUL_air_position = BUL.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_axis_BUL_air_position = BUL.TFR_scw_air } }
+	divide_variable = { TFR_scw_axis_BUL_air_position = 100 }
+	multiply_variable = { TFR_scw_axis_BUL_air_position = -13 }
+	add_to_variable = { TFR_scw_axis_BUL_air_position = 134 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_ENG_land_position = ENG.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_ENG_land_position = ENG.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_ENG_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_ENG_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_ENG_air_position = ENG.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_ENG_air_position = ENG.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_ENG_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_ENG_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_ENG_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_FRA_land_position = FRA.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_FRA_land_position = FRA.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_FRA_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_FRA_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_FRA_air_position = FRA.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_FRA_air_position = FRA.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_FRA_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_FRA_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_FRA_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_CAN_land_position = CAN.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_CAN_land_position = CAN.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_CAN_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_CAN_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_CAN_air_position = CAN.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_CAN_air_position = CAN.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_CAN_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_CAN_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_CAN_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_AST_land_position = AST.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_AST_land_position = AST.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_AST_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_AST_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_AST_air_position = AST.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_AST_air_position = AST.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_AST_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_AST_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_AST_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_SAF_land_position = SAF.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_SAF_land_position = SAF.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_SAF_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_SAF_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_SAF_air_position = SAF.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_SAF_air_position = SAF.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_SAF_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_SAF_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_SAF_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_RAJ_land_position = RAJ.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_RAJ_land_position = RAJ.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_RAJ_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_RAJ_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_RAJ_air_position = RAJ.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_RAJ_air_position = RAJ.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_RAJ_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_RAJ_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_RAJ_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_BRA_land_position = BRA.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_BRA_land_position = BRA.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_BRA_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_BRA_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_BRA_air_position = BRA.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_BRA_air_position = BRA.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_BRA_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_BRA_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_BRA_air_position = 95 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_MEX_land_position = MEX.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_allies_MEX_land_position = MEX.TFR_scw_land } }
+	multiply_variable = { TFR_scw_allies_MEX_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_MEX_land_position = 12 }
+	if = { limit = { original_tag = ENG } set_variable = { TFR_scw_allies_MEX_air_position = MEX.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_allies_MEX_air_position = MEX.TFR_scw_air } }
+	divide_variable = { TFR_scw_allies_MEX_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_MEX_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_MEX_air_position = 95 }
+	set_variable = { TFR_scw_allies_SOV_land_position = SOV.TFR_scw_land }
+	multiply_variable = { TFR_scw_allies_SOV_land_position = 13 }
+	add_to_variable = { TFR_scw_allies_SOV_land_position = 12 }
+	set_variable = { TFR_scw_allies_SOV_air_position = SOV.TFR_scw_air }
+	divide_variable = { TFR_scw_allies_SOV_air_position = 100 }
+	multiply_variable = { TFR_scw_allies_SOV_air_position = -13 }
+	add_to_variable = { TFR_scw_allies_SOV_air_position = 95 }
+	if = { limit = { original_tag = SOV } set_variable = { TFR_scw_soviet_SOV_land_position = SOV.TFR_scw_draft_land } }
+	else = { set_variable = { TFR_scw_soviet_SOV_land_position = SOV.TFR_scw_land } }
+	multiply_variable = { TFR_scw_soviet_SOV_land_position = 13 }
+	add_to_variable = { TFR_scw_soviet_SOV_land_position = 12 }
+	if = { limit = { original_tag = SOV } set_variable = { TFR_scw_soviet_SOV_air_position = SOV.TFR_scw_draft_air } }
+	else = { set_variable = { TFR_scw_soviet_SOV_air_position = SOV.TFR_scw_air } }
+	divide_variable = { TFR_scw_soviet_SOV_air_position = 100 }
+	multiply_variable = { TFR_scw_soviet_SOV_air_position = -13 }
+	add_to_variable = { TFR_scw_soviet_SOV_air_position = 95 }
+	add_to_variable = { TFR_scw_ui_dirty = 1 }
+}
+TFR_scw_refresh_views = {
+	every_country = { limit = { TFR_scw_can_view = yes has_country_flag = TFR_scw_panel_open } TFR_scw_sync_view = yes }
+}

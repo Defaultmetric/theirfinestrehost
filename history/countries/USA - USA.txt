@@ -1,4 +1,4 @@
-﻿capital = 361 # Washington DC
+capital = 361 # Washington DC
 
 if = {
     limit = {
@@ -13,6 +13,14 @@ starting_train_buffer = 5
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
+		# TFR: initialize standard fleet hulls before creating designs.
+		set_technology = {
+			basic_ship_hull_cruiser = 1
+			basic_ship_hull_heavy = 1
+			basic_ship_hull_light = 1
+			basic_ship_hull_submarine = 1
+			basic_ship_hull_carrier = 1
+		}
 		# TFR: standard 1936 designs must exist before the starting naval OOB loads.
 		create_equipment_variant = {
 			name = "Torpedo Destroyer 1936"

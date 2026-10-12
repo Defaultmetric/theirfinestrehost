@@ -6,7 +6,7 @@ TFR_case_anton_transfer_states = {
 		limit = { 448 = { is_controlled_by = ITA } }
 		every_state = {
 			limit = {
-				is_controlled_by = PREV
+				is_owned_by = PREV
 				OR = {
 					state = 665
 					state = 458
@@ -24,7 +24,7 @@ TFR_case_anton_transfer_states = {
 		limit = { country_exists = FRA }
 		every_state = {
 			limit = {
-				is_controlled_by = PREV
+				is_owned_by = PREV
 				OR = {
 					state = 665
 					state = 458
@@ -41,7 +41,7 @@ TFR_case_anton_transfer_states = {
 	else = {
 		every_state = {
 			limit = {
-				is_controlled_by = PREV
+				is_owned_by = PREV
 				OR = {
 					state = 665
 					state = 458
@@ -59,7 +59,7 @@ TFR_case_anton_transfer_states = {
 	# Only the requested mainland states go to Germany.
 	every_state = {
 		limit = {
-			is_controlled_by = PREV
+			is_owned_by = PREV
 			OR = {
 				state = 851
 				state = 21
@@ -75,10 +75,10 @@ TFR_case_anton_transfer_states = {
 		transfer_state_to = GER
 	}
 
-	# Savoy and Corsica always go to Italy if still controlled by Vichy.
+	# Savoy and Corsica always go to Italy if still owned by Vichy.
 	every_state = {
 		limit = {
-			is_controlled_by = PREV
+			is_owned_by = PREV
 			OR = {
 				state = 735
 				state = 1

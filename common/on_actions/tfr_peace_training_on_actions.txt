@@ -27,15 +27,13 @@ on_actions = {
 						rule = tradebacks
 						option = until_1938
 					}
+					date < 1938.1.1
 				}
 				every_country = {
 					limit = {
 						is_playable_country = yes
 					}
-					add_timed_idea = {
-						idea = tradeback_is_cancer
-						days = 730
-					}
+					add_ideas = tradeback_is_cancer
 				}
 			}
 		}

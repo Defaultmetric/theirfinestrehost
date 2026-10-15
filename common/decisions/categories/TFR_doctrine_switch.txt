@@ -1,0 +1,12 @@
+tfr_doctrine_reorganization = {
+    icon = army_reform
+    allowed = { always = yes }
+    visible = {
+        is_ai = no
+        OR = {
+            has_any_grand_doctrine = land
+            has_any_grand_doctrine = naval
+            has_any_grand_doctrine = air
+        }
+    }
+}

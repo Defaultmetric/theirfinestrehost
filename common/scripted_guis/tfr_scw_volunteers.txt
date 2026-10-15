@@ -4,9 +4,8 @@ scripted_gui = {
 	ai_enabled = { always = no }
 		window_name = "TFR_scw_open_window"
 		dirty = TFR_scw_ui_dirty
-		visible = {
-		 TFR_scw_can_view = yes
-		}
+		# No visible trigger: the button is always shown. When the quota panels do not apply (war over, period ended, or the
+		# country takes no part), TFR_scw_info explains why instead.
 		effects = {
 			open_click = {
 			 if = { limit = { has_country_flag = TFR_scw_panel_open } clr_country_flag = TFR_scw_panel_open }
@@ -22,6 +21,20 @@ scripted_gui = {
 			 if = { limit = { tag = SOV } TFR_scw_soviet_prepare = yes }
 			 TFR_scw_sync_view = yes
 			}
+		}
+	}
+	TFR_scw_info = {
+		context_type = player_context
+	ai_enabled = { always = no }
+		window_name = "TFR_scw_info_window"
+		dirty = TFR_scw_ui_dirty
+		visible = { has_country_flag = TFR_scw_panel_open NOT = { TFR_scw_can_view = yes } }
+		effects = {
+			close_click = { clr_country_flag = TFR_scw_panel_open add_to_variable = { TFR_scw_ui_dirty = 1 } }
+		}
+		triggers = {
+			over_text_visible = { NOT = { TFR_scw_manager_in_period = yes } }
+			none_text_visible = { TFR_scw_manager_in_period = yes }
 		}
 	}
 	TFR_scw_axis = {
@@ -1057,6 +1070,8 @@ scripted_gui = {
 			GER_air_set_500_fill_visible = { OR = { AND = { original_tag = GER GER = { check_variable = { TFR_scw_draft_air > 499 } } } AND = { NOT = { original_tag = GER } GER = { check_variable = { TFR_scw_air > 499 } } } } }
 			GER_air_set_600_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } GER = { exists = yes } OR = { check_variable = { TFR_scw_GER_air_available > 599 } GER = { check_variable = { TFR_scw_draft_air > 599 } } } }
 			GER_air_set_600_fill_visible = { OR = { AND = { original_tag = GER GER = { check_variable = { TFR_scw_draft_air > 599 } } } AND = { NOT = { original_tag = GER } GER = { check_variable = { TFR_scw_air > 599 } } } } }
+			sent_GER_visible = { NOT = { GER = { has_country_flag = TFR_scw_over_quota } } }
+			over_GER_visible = { GER = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_ITA_visible = { original_tag = GER }
 			land_live_ITA_visible = { NOT = { original_tag = GER } }
 			ITA_land_set_0_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } ITA = { exists = yes } OR = { check_variable = { TFR_scw_ITA_land_available > -1 } ITA = { check_variable = { TFR_scw_draft_land > -1 } } } }
@@ -1107,6 +1122,8 @@ scripted_gui = {
 			ITA_air_set_500_fill_visible = { OR = { AND = { original_tag = GER ITA = { check_variable = { TFR_scw_draft_air > 499 } } } AND = { NOT = { original_tag = GER } ITA = { check_variable = { TFR_scw_air > 499 } } } } }
 			ITA_air_set_600_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } ITA = { exists = yes } OR = { check_variable = { TFR_scw_ITA_air_available > 599 } ITA = { check_variable = { TFR_scw_draft_air > 599 } } } }
 			ITA_air_set_600_fill_visible = { OR = { AND = { original_tag = GER ITA = { check_variable = { TFR_scw_draft_air > 599 } } } AND = { NOT = { original_tag = GER } ITA = { check_variable = { TFR_scw_air > 599 } } } } }
+			sent_ITA_visible = { NOT = { ITA = { has_country_flag = TFR_scw_over_quota } } }
+			over_ITA_visible = { ITA = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_ROM_visible = { original_tag = GER }
 			land_live_ROM_visible = { NOT = { original_tag = GER } }
 			ROM_land_set_0_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } ROM = { exists = yes } OR = { check_variable = { TFR_scw_ROM_land_available > -1 } ROM = { check_variable = { TFR_scw_draft_land > -1 } } } }
@@ -1157,6 +1174,8 @@ scripted_gui = {
 			ROM_air_set_500_fill_visible = { OR = { AND = { original_tag = GER ROM = { check_variable = { TFR_scw_draft_air > 499 } } } AND = { NOT = { original_tag = GER } ROM = { check_variable = { TFR_scw_air > 499 } } } } }
 			ROM_air_set_600_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } ROM = { exists = yes } OR = { check_variable = { TFR_scw_ROM_air_available > 599 } ROM = { check_variable = { TFR_scw_draft_air > 599 } } } }
 			ROM_air_set_600_fill_visible = { OR = { AND = { original_tag = GER ROM = { check_variable = { TFR_scw_draft_air > 599 } } } AND = { NOT = { original_tag = GER } ROM = { check_variable = { TFR_scw_air > 599 } } } } }
+			sent_ROM_visible = { NOT = { ROM = { has_country_flag = TFR_scw_over_quota } } }
+			over_ROM_visible = { ROM = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_HUN_visible = { original_tag = GER }
 			land_live_HUN_visible = { NOT = { original_tag = GER } }
 			HUN_land_set_0_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } HUN = { exists = yes } OR = { check_variable = { TFR_scw_HUN_land_available > -1 } HUN = { check_variable = { TFR_scw_draft_land > -1 } } } }
@@ -1207,6 +1226,8 @@ scripted_gui = {
 			HUN_air_set_500_fill_visible = { OR = { AND = { original_tag = GER HUN = { check_variable = { TFR_scw_draft_air > 499 } } } AND = { NOT = { original_tag = GER } HUN = { check_variable = { TFR_scw_air > 499 } } } } }
 			HUN_air_set_600_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } HUN = { exists = yes } OR = { check_variable = { TFR_scw_HUN_air_available > 599 } HUN = { check_variable = { TFR_scw_draft_air > 599 } } } }
 			HUN_air_set_600_fill_visible = { OR = { AND = { original_tag = GER HUN = { check_variable = { TFR_scw_draft_air > 599 } } } AND = { NOT = { original_tag = GER } HUN = { check_variable = { TFR_scw_air > 599 } } } } }
+			sent_HUN_visible = { NOT = { HUN = { has_country_flag = TFR_scw_over_quota } } }
+			over_HUN_visible = { HUN = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_BUL_visible = { original_tag = GER }
 			land_live_BUL_visible = { NOT = { original_tag = GER } }
 			BUL_land_set_0_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } BUL = { exists = yes } OR = { check_variable = { TFR_scw_BUL_land_available > -1 } BUL = { check_variable = { TFR_scw_draft_land > -1 } } } }
@@ -1257,6 +1278,8 @@ scripted_gui = {
 			BUL_air_set_500_fill_visible = { OR = { AND = { original_tag = GER BUL = { check_variable = { TFR_scw_draft_air > 499 } } } AND = { NOT = { original_tag = GER } BUL = { check_variable = { TFR_scw_air > 499 } } } } }
 			BUL_air_set_600_click_enabled = { original_tag = GER TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } BUL = { exists = yes } OR = { check_variable = { TFR_scw_BUL_air_available > 599 } BUL = { check_variable = { TFR_scw_draft_air > 599 } } } }
 			BUL_air_set_600_fill_visible = { OR = { AND = { original_tag = GER BUL = { check_variable = { TFR_scw_draft_air > 599 } } } AND = { NOT = { original_tag = GER } BUL = { check_variable = { TFR_scw_air > 599 } } } } }
+			sent_BUL_visible = { NOT = { BUL = { has_country_flag = TFR_scw_over_quota } } }
+			over_BUL_visible = { BUL = { has_country_flag = TFR_scw_over_quota } }
 		}
 		properties = {
 			flag_GER = { image = "[GER.GetFlag]" }
@@ -2426,6 +2449,8 @@ scripted_gui = {
 			ENG_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG ENG = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } ENG = { check_variable = { TFR_scw_air > 199 } } } } }
 			ENG_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } ENG = { exists = yes } OR = { check_variable = { TFR_scw_ENG_air_available > 299 } ENG = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			ENG_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG ENG = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } ENG = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_ENG_visible = { NOT = { ENG = { has_country_flag = TFR_scw_over_quota } } }
+			over_ENG_visible = { ENG = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_FRA_visible = { original_tag = ENG }
 			land_live_FRA_visible = { NOT = { original_tag = ENG } }
 			FRA_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } FRA = { exists = yes } OR = { check_variable = { TFR_scw_FRA_land_available > -1 } FRA = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2462,6 +2487,8 @@ scripted_gui = {
 			FRA_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG FRA = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } FRA = { check_variable = { TFR_scw_air > 199 } } } } }
 			FRA_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } FRA = { exists = yes } OR = { check_variable = { TFR_scw_FRA_air_available > 299 } FRA = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			FRA_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG FRA = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } FRA = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_FRA_visible = { NOT = { FRA = { has_country_flag = TFR_scw_over_quota } } }
+			over_FRA_visible = { FRA = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_CAN_visible = { original_tag = ENG }
 			land_live_CAN_visible = { NOT = { original_tag = ENG } }
 			CAN_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } CAN = { exists = yes } OR = { check_variable = { TFR_scw_CAN_land_available > -1 } CAN = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2498,6 +2525,8 @@ scripted_gui = {
 			CAN_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG CAN = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } CAN = { check_variable = { TFR_scw_air > 199 } } } } }
 			CAN_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } CAN = { exists = yes } OR = { check_variable = { TFR_scw_CAN_air_available > 299 } CAN = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			CAN_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG CAN = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } CAN = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_CAN_visible = { NOT = { CAN = { has_country_flag = TFR_scw_over_quota } } }
+			over_CAN_visible = { CAN = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_AST_visible = { original_tag = ENG }
 			land_live_AST_visible = { NOT = { original_tag = ENG } }
 			AST_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } AST = { exists = yes } OR = { check_variable = { TFR_scw_AST_land_available > -1 } AST = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2534,6 +2563,8 @@ scripted_gui = {
 			AST_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG AST = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } AST = { check_variable = { TFR_scw_air > 199 } } } } }
 			AST_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } AST = { exists = yes } OR = { check_variable = { TFR_scw_AST_air_available > 299 } AST = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			AST_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG AST = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } AST = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_AST_visible = { NOT = { AST = { has_country_flag = TFR_scw_over_quota } } }
+			over_AST_visible = { AST = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_SAF_visible = { original_tag = ENG }
 			land_live_SAF_visible = { NOT = { original_tag = ENG } }
 			SAF_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } SAF = { exists = yes } OR = { check_variable = { TFR_scw_SAF_land_available > -1 } SAF = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2570,6 +2601,8 @@ scripted_gui = {
 			SAF_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG SAF = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } SAF = { check_variable = { TFR_scw_air > 199 } } } } }
 			SAF_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } SAF = { exists = yes } OR = { check_variable = { TFR_scw_SAF_air_available > 299 } SAF = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			SAF_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG SAF = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } SAF = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_SAF_visible = { NOT = { SAF = { has_country_flag = TFR_scw_over_quota } } }
+			over_SAF_visible = { SAF = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_RAJ_visible = { original_tag = ENG }
 			land_live_RAJ_visible = { NOT = { original_tag = ENG } }
 			RAJ_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } RAJ = { exists = yes } OR = { check_variable = { TFR_scw_RAJ_land_available > -1 } RAJ = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2606,6 +2639,8 @@ scripted_gui = {
 			RAJ_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG RAJ = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } RAJ = { check_variable = { TFR_scw_air > 199 } } } } }
 			RAJ_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } RAJ = { exists = yes } OR = { check_variable = { TFR_scw_RAJ_air_available > 299 } RAJ = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			RAJ_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG RAJ = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } RAJ = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_RAJ_visible = { NOT = { RAJ = { has_country_flag = TFR_scw_over_quota } } }
+			over_RAJ_visible = { RAJ = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_BRA_visible = { original_tag = ENG }
 			land_live_BRA_visible = { NOT = { original_tag = ENG } }
 			BRA_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } BRA = { exists = yes } OR = { check_variable = { TFR_scw_BRA_land_available > -1 } BRA = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2642,6 +2677,8 @@ scripted_gui = {
 			BRA_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG BRA = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } BRA = { check_variable = { TFR_scw_air > 199 } } } } }
 			BRA_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } BRA = { exists = yes } OR = { check_variable = { TFR_scw_BRA_air_available > 299 } BRA = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			BRA_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG BRA = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } BRA = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_BRA_visible = { NOT = { BRA = { has_country_flag = TFR_scw_over_quota } } }
+			over_BRA_visible = { BRA = { has_country_flag = TFR_scw_over_quota } }
 			land_draft_MEX_visible = { original_tag = ENG }
 			land_live_MEX_visible = { NOT = { original_tag = ENG } }
 			MEX_land_set_0_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } MEX = { exists = yes } OR = { check_variable = { TFR_scw_MEX_land_available > -1 } MEX = { check_variable = { TFR_scw_draft_land > -1 } } } TFR_scw_uk_priority_ready = yes }
@@ -2678,6 +2715,8 @@ scripted_gui = {
 			MEX_air_set_200_fill_visible = { OR = { AND = { original_tag = ENG MEX = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = ENG } MEX = { check_variable = { TFR_scw_air > 199 } } } } }
 			MEX_air_set_300_click_enabled = { original_tag = ENG TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } MEX = { exists = yes } OR = { check_variable = { TFR_scw_MEX_air_available > 299 } MEX = { check_variable = { TFR_scw_draft_air > 299 } } } TFR_scw_uk_priority_ready = yes }
 			MEX_air_set_300_fill_visible = { OR = { AND = { original_tag = ENG MEX = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = ENG } MEX = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_MEX_visible = { NOT = { MEX = { has_country_flag = TFR_scw_over_quota } } }
+			over_MEX_visible = { MEX = { has_country_flag = TFR_scw_over_quota } }
 			SOV_land_set_1_fill_visible = { SOV = { check_variable = { TFR_scw_land > 0 } } }
 			SOV_land_set_2_fill_visible = { SOV = { check_variable = { TFR_scw_land > 1 } } }
 			SOV_land_set_3_fill_visible = { SOV = { check_variable = { TFR_scw_land > 2 } } }
@@ -2687,6 +2726,8 @@ scripted_gui = {
 			SOV_air_set_100_fill_visible = { SOV = { check_variable = { TFR_scw_air > 99 } } }
 			SOV_air_set_200_fill_visible = { SOV = { check_variable = { TFR_scw_air > 199 } } }
 			SOV_air_set_300_fill_visible = { SOV = { check_variable = { TFR_scw_air > 299 } } }
+			sent_SOV_visible = { NOT = { SOV = { has_country_flag = TFR_scw_over_quota } } }
+			over_SOV_visible = { SOV = { has_country_flag = TFR_scw_over_quota } }
 		}
 		properties = {
 			flag_ENG = { image = "[ENG.GetFlag]" }
@@ -2853,6 +2894,8 @@ scripted_gui = {
 			SOV_air_set_200_fill_visible = { OR = { AND = { original_tag = SOV SOV = { check_variable = { TFR_scw_draft_air > 199 } } } AND = { NOT = { original_tag = SOV } SOV = { check_variable = { TFR_scw_air > 199 } } } } }
 			SOV_air_set_300_click_enabled = { original_tag = SOV TFR_scw_manager_in_period = yes NOT = { has_country_flag = TFR_scw_month_committed } SOV = { exists = yes } OR = { check_variable = { TFR_scw_SOV_air_available > 299 } SOV = { check_variable = { TFR_scw_draft_air > 299 } } } }
 			SOV_air_set_300_fill_visible = { OR = { AND = { original_tag = SOV SOV = { check_variable = { TFR_scw_draft_air > 299 } } } AND = { NOT = { original_tag = SOV } SOV = { check_variable = { TFR_scw_air > 299 } } } } }
+			sent_SOV_visible = { NOT = { SOV = { has_country_flag = TFR_scw_over_quota } } }
+			over_SOV_visible = { SOV = { has_country_flag = TFR_scw_over_quota } }
 		}
 		properties = {
 			flag_SOV = { image = "[SOV.GetFlag]" }

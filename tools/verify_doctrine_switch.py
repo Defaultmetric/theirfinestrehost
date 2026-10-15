@@ -254,7 +254,9 @@ def main():
         check_calls(body)
     category = get(read(ROOT / 'common/decisions/categories/TFR_doctrine_switch.txt'),
                    'tfr_doctrine_reorganization')
-    for fields in [category] + [fields for _, fields in DECISIONS]:
+    assert get(category, 'allowed') == [('always', 'yes')]
+    assert get(category, 'visible') == [('always', 'no')]
+    for _, fields in DECISIONS:
         assert get(fields, 'allowed') == [('always', 'yes')]
         assert ('is_ai', 'no') in get(fields, 'visible')
     gui = get(read(ROOT / 'common/scripted_guis/TFR_doctrine_switch.txt'), 'scripted_gui')

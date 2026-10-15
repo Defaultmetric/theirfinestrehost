@@ -7,7 +7,8 @@ naval and air Grand Doctrines. Clicking a choice switches immediately for
 100 XP from that service. The current doctrine and choices without an existing
 Grand Doctrine or sufficient XP are disabled. Doctrine cost discounts do not
 change this cost. Click the doctrine tab after switching to refresh the native
-header. The preserving decisions remain available as an alternative.
+header. The Doctrine Reorganization decision category is hidden; switching is
+available only through the doctrine-screen selector.
 
 The selector reads the selected subdoctrines and their total mastery before
 switching. It then restores them to their original slots, including partial

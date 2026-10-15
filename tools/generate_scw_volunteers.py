@@ -30,15 +30,22 @@ TFR_scw_managed_recipient = {
  original_tag = SPR
  has_civil_war = yes
 }
+# Tolerant on purpose: other send_volunteer_size sources (ideas, advisors) must not turn a committed donor into "not approved".
+# Over-quota situations are handled by TFR_scw_update_limits (cap + warning + grace), not by this trigger.
 TFR_scw_approved_sender = {
  TFR_scw_eligible_donor = yes
  has_country_flag = TFR_scw_committed_donor
  has_dynamic_modifier = TFR_scw_volunteer_limits
- check_variable = { modifier@send_volunteer_size = TFR_scw_land }
- check_variable = { modifier@send_volunteer_factor < -1 }
  OR = {
   check_variable = { TFR_scw_land > 0 }
   check_variable = { TFR_scw_air > 0 }
+ }
+}
+# Scope: donor. Room left under its own quota and the remaining bloc pool (computed by TFR_scw_update_limits).
+TFR_scw_has_room = {
+ OR = {
+  check_variable = { TFR_scw_land_room > 0 }
+  check_variable = { TFR_scw_air_room > 0 }
  }
 }
 TFR_scw_axis_recipient = {
@@ -55,8 +62,11 @@ TFR_scw_allied_recipient = {
   has_country_flag = scw_no_lar_republicans
  }
 }
+# ROOT = Spanish receiver, FROM = sender (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
+# or its bloc has no room left, so a human Spain cannot accept volunteers beyond the limit.
 TFR_scw_volunteer_permission = {
  FROM = { TFR_scw_approved_sender = yes }
+ FROM = { TFR_scw_has_room = yes }
  OR = {
   AND = {
    TFR_scw_axis_recipient = yes
@@ -79,24 +89,27 @@ triggers += '''TFR_scw_uk_priority_ready = {
 }
 '''
 
-effects = '''# Scope: donor. Refresh native limits without creating free capacity from other ideas.
+effects = '''# Scope: donor. Native limits follow TFR_scw_cap_land (own quota clamped to what is left in the bloc pool, see
+# TFR_scw_update_limits). send_volunteer_factor = -1000 removes the proportional part, so the native land limit is the
+# total send_volunteer_size; other sources (ideas, advisors) are cancelled out so they cannot create free capacity.
+# ASSUMPTION (verify in game): the engine clamps the proportional part at 0 before adding send_volunteer_size.
+# Air: the native air formula (sender planes x ratio, receiver air base capacity) cannot be read from script, so no
+# guessed conversion is used: while there is air room the native air limit is left as is (over-quota air is caught by
+# TFR_scw_update_limits), and once the air quota is used up air_volunteer_cap is pushed far negative to block more.
 TFR_scw_refresh_native_limits = {
  if = {
   limit = { has_country_flag = TFR_scw_committed_donor TFR_scw_manager_in_period = yes }
   set_temp_variable = { TFR_scw_other_land = modifier@send_volunteer_size }
   subtract_from_temp_variable = { TFR_scw_other_land = TFR_scw_land_adjustment }
-  set_variable = { TFR_scw_land_adjustment = TFR_scw_land }
+  set_variable = { TFR_scw_land_adjustment = TFR_scw_cap_land }
   subtract_from_variable = { TFR_scw_land_adjustment = TFR_scw_other_land }
-  set_temp_variable = { TFR_scw_other_air = modifier@air_volunteer_cap }
-  subtract_from_temp_variable = { TFR_scw_other_air = TFR_scw_air_adjustment }
-  set_temp_variable = { TFR_scw_native_air_base = num_deployed_planes }
-  divide_temp_variable = { TFR_scw_native_air_base = 100 }
-  round_temp_variable = TFR_scw_native_air_base
-  add_to_temp_variable = { TFR_scw_native_air_base = 1 }
-  set_variable = { TFR_scw_air_adjustment = TFR_scw_air }
-  divide_variable = { TFR_scw_air_adjustment = 100 }
-  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_native_air_base }
-  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_other_air }
+  if = {
+   limit = { check_variable = { TFR_scw_air_room > 0 } }
+   set_variable = { TFR_scw_air_adjustment = 0 }
+  }
+  else = {
+   set_variable = { TFR_scw_air_adjustment = -100000 }
+  }
   force_update_dynamic_modifier = yes
  }
 }
@@ -206,8 +219,129 @@ clamp_variable = { var = TFR_scw_SOV_air_available min = 0 max = 300 }
         commit += f' {tag} = {{ TFR_scw_apply_donor = yes }}\n'
     commit += ' set_country_flag = TFR_scw_month_committed\n'
     if side == 'soviet': commit += ' set_global_flag = TFR_scw_soviet_confirmed\n'
-    commit += ' TFR_scw_recount_live = yes\n}\n'
+    commit += ' TFR_scw_recount_live = yes\n TFR_scw_update_limits = yes\n}\n'
     effects += block(f'TFR_scw_{side}_commit', commit)
+
+# Live volunteer accounting. Blocs share one pool: Axis (GER holds the totals) and Allies incl. USSR (ENG holds the totals).
+# Everything runs from one place (TFR_scw_update_limits) in this fixed donor order, so every MP client resolves ties the same way.
+SPAIN_REGIONS = '41 209 210'
+GRACE_DAYS = 7
+BLOCS = [('axis', 'GER', AXIS, 16, 600), ('allies', 'ENG', ALLIES + ['SOV'], 12, 300)]
+
+count = '''# Divisions really sent to every Spanish tag. has_volunteers_amount_from only compares, so a ladder reads the value.
+# ASSUMPTION (verify in game): divisions still in transit are counted. The native per-donor limit counts them anyway.
+set_variable = { TFR_scw_sent_land = 0 }
+every_country = {
+ limit = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 0 } }
+'''
+for n in range(17, 0, -1):
+    head = 'if' if n == 17 else ('else' if n == 1 else 'else_if')
+    lim = '' if n == 1 else f'limit = {{ has_volunteers_amount_from = {{ tag = PREV count > {n-1} }} }} '
+    count += f' {head} = {{ {lim}PREV = {{ add_to_variable = {{ TFR_scw_sent_land = {n} }} }} }}\n'
+count += '''}
+# Planes based in the Spanish regions, rounded down to 10 (display and bloc accounting; the quota check is exact).
+# A donor that controls a state in those regions (UK: Gibraltar is in region 210) has its own planes there, so its
+# volunteer planes cannot be told apart: air is then not counted and not punished (quota 0 still blocks air natively).
+set_variable = { TFR_scw_sent_air = 0 }
+if = {
+ limit = { TFR_scw_air_untracked = yes }
+}
+'''
+for n in range(610, 0, -10):
+    count += f'else_if = {{ limit = {{ num_planes_stationed_in_regions = {{ value > {n-1} regions = {{ {SPAIN_REGIONS} }} }} }} set_variable = {{ TFR_scw_sent_air = {n} }} }}\n'
+effects += '# Scope: donor.\n' + block('TFR_scw_count_sent', count)
+region_or = ' '.join(f'region = {r}' for r in SPAIN_REGIONS.split())
+triggers += '# Scope: donor. Owns/controls a state in the Spanish regions, so planes based there are not only volunteers.\n'
+triggers += block('TFR_scw_air_untracked', f'any_controlled_state = {{ OR = {{ {region_or} }} }}')
+triggers += block('TFR_scw_air_over_quota', 'NOT = { TFR_scw_air_untracked = yes }\n' + block('OR', '\n'.join(
+    f'AND = {{ check_variable = {{ TFR_scw_air = {q} }} num_planes_stationed_in_regions = {{ value > {q} regions = {{ {SPAIN_REGIONS} }} }} }}' for q in range(0, 601, 100))))
+
+update = ''
+for side, leader, tags, land_pool, air_pool in BLOCS:
+    update += f'# {side} bloc: {land_pool} divisions / {air_pool} aircraft, totals on {leader}.\n'
+    update += f'{leader} = {{ set_variable = {{ TFR_scw_bloc_sent_land = 0 }} set_variable = {{ TFR_scw_bloc_sent_air = 0 }} }}\n'
+    for tag in tags:
+        update += f'{tag} = {{ TFR_scw_count_sent = yes }}\n'
+        update += f'{leader} = {{ add_to_variable = {{ TFR_scw_bloc_sent_land = {tag}.TFR_scw_sent_land }} add_to_variable = {{ TFR_scw_bloc_sent_air = {tag}.TFR_scw_sent_air }} }}\n'
+    update += f'''{leader} = {{
+ set_variable = {{ TFR_scw_bloc_free_land = {land_pool} }}
+ subtract_from_variable = {{ TFR_scw_bloc_free_land = TFR_scw_bloc_sent_land }}
+ clamp_variable = {{ var = TFR_scw_bloc_free_land min = 0 }}
+ set_variable = {{ TFR_scw_bloc_free_air = {air_pool} }}
+ subtract_from_variable = {{ TFR_scw_bloc_free_air = TFR_scw_bloc_sent_air }}
+ clamp_variable = {{ var = TFR_scw_bloc_free_air min = 0 }}
+ set_variable = {{ TFR_scw_bloc_left_land = {land_pool} }}
+ set_variable = {{ TFR_scw_bloc_left_air = {air_pool} }}
+}}
+'''
+    for tag in tags:
+        update += f'''{tag} = {{
+ # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+ set_variable = {{ TFR_scw_cap_land = TFR_scw_sent_land }}
+ add_to_variable = {{ TFR_scw_cap_land = {leader}.TFR_scw_bloc_free_land }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_cap_land > TFR_scw_land }} }} set_variable = {{ TFR_scw_cap_land = TFR_scw_land }} }}
+ set_variable = {{ TFR_scw_land_room = TFR_scw_cap_land }}
+ subtract_from_variable = {{ TFR_scw_land_room = TFR_scw_sent_land }}
+ clamp_variable = {{ var = TFR_scw_land_room min = 0 }}
+ set_variable = {{ TFR_scw_cap_air = TFR_scw_sent_air }}
+ add_to_variable = {{ TFR_scw_cap_air = {leader}.TFR_scw_bloc_free_air }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_cap_air > TFR_scw_air }} }} set_variable = {{ TFR_scw_cap_air = TFR_scw_air }} }}
+ set_variable = {{ TFR_scw_air_room = TFR_scw_cap_air }}
+ subtract_from_variable = {{ TFR_scw_air_room = TFR_scw_sent_air }}
+ clamp_variable = {{ var = TFR_scw_air_room min = 0 }}
+ # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+ set_variable = {{ TFR_scw_left_land = {leader}.TFR_scw_bloc_left_land }}
+ set_variable = {{ TFR_scw_ok_land = TFR_scw_sent_land }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_ok_land > TFR_scw_land }} }} set_variable = {{ TFR_scw_ok_land = TFR_scw_land }} }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_ok_land > TFR_scw_left_land }} }} set_variable = {{ TFR_scw_ok_land = TFR_scw_left_land }} }}
+ set_variable = {{ TFR_scw_left_air = {leader}.TFR_scw_bloc_left_air }}
+ set_variable = {{ TFR_scw_ok_air = TFR_scw_sent_air }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_ok_air > TFR_scw_air }} }} set_variable = {{ TFR_scw_ok_air = TFR_scw_air }} }}
+ if = {{ limit = {{ check_variable = {{ TFR_scw_ok_air > TFR_scw_left_air }} }} set_variable = {{ TFR_scw_ok_air = TFR_scw_left_air }} }}
+ if = {{
+  limit = {{
+   OR = {{
+    check_variable = {{ TFR_scw_sent_land > TFR_scw_ok_land }}
+    check_variable = {{ TFR_scw_sent_air > TFR_scw_ok_air }}
+    TFR_scw_air_over_quota = yes
+   }}
+  }}
+  if = {{
+   limit = {{ NOT = {{ has_country_flag = TFR_scw_over_quota }} }}
+   set_country_flag = TFR_scw_over_quota
+   set_variable = {{ TFR_scw_over_days = 0 }}
+   country_event = {{ id = tfr_scw_volunteers.2 }}
+  }}
+ }}
+ else = {{ clr_country_flag = TFR_scw_over_quota }}
+ TFR_scw_refresh_native_limits = yes
+}}
+{leader} = {{
+ subtract_from_variable = {{ TFR_scw_bloc_left_land = {tag}.TFR_scw_ok_land }}
+ subtract_from_variable = {{ TFR_scw_bloc_left_air = {tag}.TFR_scw_ok_air }}
+}}
+'''
+update += 'TFR_scw_refresh_views = yes\n'
+effects += '# Scope: any. Recount live volunteers, recompute caps/room, flag over-quota donors. Deterministic order.\n' + block('TFR_scw_update_limits', update)
+
+tick = ''
+for tag in DONORS:
+    tick += f'''{tag} = {{
+ if = {{
+  limit = {{ has_country_flag = TFR_scw_over_quota }}
+  add_to_variable = {{ TFR_scw_over_days = 1 }}
+  if = {{
+   limit = {{ check_variable = {{ TFR_scw_over_days > {GRACE_DAYS - 1} }} }}
+   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+   every_country = {{ limit = {{ original_tag = SPR exists = yes }} PREV = {{ recall_volunteers_from = PREV }} }}
+   clr_country_flag = TFR_scw_over_quota
+   country_event = {{ id = tfr_scw_volunteers.3 }}
+  }}
+ }}
+}}
+'''
+tick += 'TFR_scw_update_limits = yes\n'
+effects += f'# Scope: any. Called once a day from GER: {GRACE_DAYS} days of grace after the warning, then recall.\n' + block('TFR_scw_daily_enforce', tick)
 
 live = ''
 for side, leader, tags, _, _ in GROUPS[:2]:
@@ -234,19 +368,17 @@ for tag in DONORS:
 '''
 init += ''' TFR_scw_recount_live = yes
  SOV = { TFR_scw_soviet_prepare = yes }
+ TFR_scw_update_limits = yes
 }
 '''
 effects += block('TFR_scw_initialize', init)
 
 ground_checks = []
-over_checks = []
 for quota in range(17):
     ground_checks.append(f'AND = {{ check_variable = {{ TFR_scw_draft_land = {quota} }} NOT = {{ any_country = {{ original_tag = SPR has_volunteers_amount_from = {{ tag = PREV count > {quota} }} }} }} }}')
-    over_checks.append(f'AND = {{ check_variable = {{ TFR_scw_land = {quota} }} FROM = {{ has_volunteers_amount_from = {{ tag = ROOT count > {quota} }} }} }}')
 triggers += block('TFR_scw_ground_within_draft', block('OR', chr(10).join(ground_checks)))
-triggers += block('TFR_scw_sent_above_quota', block('OR', chr(10).join(over_checks)))
 air_checks = [f'AND = {{ check_variable = {{ TFR_scw_draft_air = {quota} }} num_planes_stationed_in_regions = {{ value < {quota+1} regions = {{ 41 209 210 }} }} }}' for quota in range(0,601,100)]
-triggers += block('TFR_scw_air_within_draft', block('OR', chr(10).join(air_checks)))
+triggers += block('TFR_scw_air_within_draft', block('OR', 'TFR_scw_air_untracked = yes' + chr(10) + chr(10).join(air_checks)))
 
 write('common/scripted_effects/tfr_scw_volunteers.txt', effects)
 write('common/scripted_triggers/tfr_scw_volunteers.txt', triggers)
@@ -289,8 +421,8 @@ daily = '''if = {
  else = { TFR_scw_initialize = yes }
 }
 if = {
- limit = { has_country_flag = TFR_scw_committed_donor TFR_scw_manager_in_period = yes }
- TFR_scw_refresh_native_limits = yes
+ limit = { tag = GER TFR_scw_manager_in_period = yes has_global_flag = TFR_scw_manager_initialized }
+ TFR_scw_daily_enforce = yes
 }
 if = {
  limit = { NOT = { TFR_scw_eligible_donor = yes } has_country_flag = TFR_scw_managed_donor }
@@ -312,19 +444,22 @@ daily += '''if = {
  TFR_scw_refresh_views = yes
 }
 '''
-on_send = """if = {
+on_send = """# ROOT = sender, FROM = receiver. Immediate recall only when the sender may not send at all (no confirmed quota,
+# not a managed donor, or the wrong side). Over-quota sends go through the cap/warning/grace path of TFR_scw_update_limits.
+if = {
  limit = { FROM = { TFR_scw_managed_recipient = yes } }
  if = {
   limit = {
    OR = {
     NOT = { TFR_scw_approved_sender = yes }
-    TFR_scw_sent_above_quota = yes
     AND = { has_country_flag = TFR_scw_axis_donor FROM = { NOT = { TFR_scw_axis_recipient = yes } } }
     AND = { has_country_flag = TFR_scw_allied_donor FROM = { NOT = { TFR_scw_allied_recipient = yes } } }
    }
   }
   recall_volunteers_from = FROM
+  country_event = { id = tfr_scw_volunteers.4 }
  }
+ else = { TFR_scw_update_limits = yes }
 }
 """
 write('common/on_actions/tfr_scw_volunteers.txt', block('on_actions', block('on_startup', block('effect', 'GER = { TFR_scw_initialize = yes }')) + block('on_daily', block('effect', daily)) + block('on_monthly', block('effect', monthly)) + block('on_send_volunteers', block('effect', on_send))))
@@ -336,6 +471,33 @@ country_event = {
  hidden = yes
  is_triggered_only = yes
  immediate = { TFR_scw_initialize = yes }
+}
+# Donor is over its quota or over its share of the bloc pool.
+country_event = {
+ id = tfr_scw_volunteers.2
+ title = tfr_scw_volunteers.2.t
+ desc = tfr_scw_volunteers.2.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.2.a }
+}
+# Grace period over: the whole contingent was recalled.
+country_event = {
+ id = tfr_scw_volunteers.3
+ title = tfr_scw_volunteers.3.t
+ desc = tfr_scw_volunteers.3.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.3.a }
+}
+# Sender had no right to send (no confirmed quota or wrong side): recalled at once.
+country_event = {
+ id = tfr_scw_volunteers.4
+ title = tfr_scw_volunteers.4.t
+ desc = tfr_scw_volunteers.4.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.4.a }
 }
 ''')
 
@@ -383,7 +545,9 @@ textures = [
     ('air_fill', (24,13), (52,108,115,255), (95,177,187,255), False),
     ('air_thumb', (24,13), (81,155,172,255), (173,231,241,255), True),
 ]
-gfx = ''
+# scw_volunteers_button.dds (2 frames 55x41, TFR toolbar box + Spanish-coloured helmet from vanilla
+# goal_generic_axis_build_infantry.dds) is hand-made; it is not regenerated here.
+gfx = block('spriteType', 'name = "GFX_TFR_scw_volunteers_button"\ntexturefile = "gfx/interface/tfr_scw/scw_volunteers_button.dds"\nnoOfFrames = 2\n')
 for name, size, fill, border, thumb in textures:
     ui_texture(name, size, fill, border, thumb)
     gfx += block('spriteType', f'name = "GFX_TFR_scw_{name}"\ntexturefile = "gfx/interface/tfr_scw/{name}.dds"\n' + ('effectFile = "gfx/FX/buttonstate.lua"\n' if name in ('open_button','land_step','air_step') else ''))
@@ -413,19 +577,23 @@ def icon(name, sprite, x, y):
     return f'iconType = {{ name = "{name}" position = {{ x = {x} y = {y} }} spriteType = "{sprite}" alwaystransparent = yes }}\n'
 
 gui = 'guiTypes = {\n' + block('containerWindowType', '''name = "TFR_scw_open_window"
-position = { x = -620 y = 4 }
-size = { width = 108 height = 30 }
-orientation = UPPER_RIGHT
+# Last button of the topbar menu row. interface/topbar.gui (TFR override) hides the International Market button and moves
+# trade..officer_corp one slot left, so Officer Corps ends at screen x 621: topbar { x = -4 y = -1 } -> country_menu_window
+# { x = 217 y = 36 } -> after_faction_button { x = 17 } -> after_intel_agency_button { x = 55 } -> officer_corp_button { x = 281 } = 566.
+# This button takes the freed slot: x 621..676, y 35..76, 55x41, on the vanilla row panel; alerts keep their vanilla start.
+# UPPER_LEFT like the menu row, so it is the same at every resolution.
+position = { x = 621 y = 35 }
+size = { width = 55 height = 41 }
+orientation = UPPER_LEFT
 buttonType = {
  name = "open"
- quadTextureSprite = "GFX_generic_box_96"
+ quadTextureSprite = "GFX_TFR_scw_volunteers_button"
  position = { x = 0 y = 0 }
- scale = 1.1
  pdx_tooltip = "TFR_SCW_OPEN_TT"
  clicksound = click_ok
  oversound = ui_menu_over
 }
-''' + textbox('open_title', 'TFR_SCW_OPEN', 3, 4, 104, h=23))
+''')
 open_effect = '''open_click = {
  if = { limit = { has_country_flag = TFR_scw_panel_open } clr_country_flag = TFR_scw_panel_open }
  else = { set_country_flag = TFR_scw_panel_open }
@@ -442,10 +610,25 @@ open_effect += ' TFR_scw_sync_view = yes\n}\n'
 script_gui = block('TFR_scw_open', '''context_type = player_context
 window_name = "TFR_scw_open_window"
 dirty = TFR_scw_ui_dirty
-visible = {
- TFR_scw_can_view = yes
-}
+# No visible trigger: the button is always shown. When the quota panels do not apply (war over, period ended, or the
+# country takes no part), TFR_scw_info explains why instead.
 ''' + block('effects', open_effect))
+gui += block('containerWindowType', 'name = "TFR_scw_info_window"\nposition = { x = -270 y = -95 }\norientation = CENTER\nsize = { width = 540 height = 190 }\nmoveable = yes\nbackground = { name = "background" spriteType = "GFX_tiled_window_thin_border" }\n'
+    + textbox('title', 'TFR_SCW_INFO_TITLE', 24, 13, 490, 'hoi_24header', 28)
+    + textbox('over_text', 'TFR_SCW_INFO_OVER', 24, 56, 490, 'hoi_18mbs', 80)
+    + textbox('none_text', 'TFR_SCW_INFO_NONE', 24, 56, 490, 'hoi_18mbs', 80)
+    + button('close', 'TFR_SCW_CLOSE', 196, 140, 'GFX_button_148x34'))
+script_gui += block('TFR_scw_info', '''context_type = player_context
+window_name = "TFR_scw_info_window"
+dirty = TFR_scw_ui_dirty
+visible = { has_country_flag = TFR_scw_panel_open NOT = { TFR_scw_can_view = yes } }
+''' + block('effects', 'close_click = { clr_country_flag = TFR_scw_panel_open add_to_variable = { TFR_scw_ui_dirty = 1 } }')
+    + block('triggers', 'over_text_visible = { NOT = { TFR_scw_manager_in_period = yes } }\nnone_text_visible = { TFR_scw_manager_in_period = yes }'))
+loc.update({
+    'TFR_SCW_INFO_TITLE': 'SPANISH VOLUNTEERS',
+    'TFR_SCW_INFO_OVER': 'The Spanish Civil War is over. Volunteer quotas are no longer managed.',
+    'TFR_SCW_INFO_NONE': 'Your country takes no part in the Spanish volunteer quotas. Germany allocates the Axis pool, the United Kingdom the Allied pool and the USSR its own reservation.',
+})
 
 # Synchronize positions in each viewer's own scope. Observers see approved quotas.
 sync = ''
@@ -479,9 +662,26 @@ loc.update({
     'TFR_SCW_APPLY_TT': 'Confirm this month\'s quotas. Withdraw excess volunteers before reducing a quota. Before 1 August 1936, UK must wait for the Soviet reservation.',
     'TFR_SCW_HELP': 'Click a slider step to set a quota, then confirm.\nChoose actual divisions and air wings in the normal volunteer menus.',
 })
-for side, leader, _, _, _ in GROUPS:
+loc.update({
+    'TFR_SCW_HELP': f'Set quotas with the sliders, then confirm. Send the actual divisions and air wings from the normal volunteer menus.\nAbove quota or bloc pool: {GRACE_DAYS} days to withdraw the excess, then the whole contingent is recalled.',
+    'TFR_SCW_MONTHLY_HELP': f'Quotas can be revised each calendar month. Above quota: {GRACE_DAYS} days to withdraw, then the whole contingent is recalled.',
+    'TFR_SCW_PERMISSION_TT': 'Requires a confirmed quota with room left (own quota and bloc pool). Axis may send only to Nationalist Spain; Allies and USSR only to Republican Spain.',
+    'tfr_scw_volunteers.2.t': 'Volunteers above the Spanish quota',
+    'tfr_scw_volunteers.2.d': f'Our volunteers in Spain exceed our confirmed quota or our share of the bloc pool.\nDivisions: [?ROOT.TFR_scw_sent_land|0] sent, [?ROOT.TFR_scw_ok_land|0] allowed. Aircraft based in Spain: about [?ROOT.TFR_scw_sent_air|0], [?ROOT.TFR_scw_ok_air|0] allowed (quota [?ROOT.TFR_scw_air|0]).\nWithdraw the excess within {GRACE_DAYS} days, otherwise the whole contingent will be recalled.',
+    'tfr_scw_volunteers.2.a': 'We will withdraw the excess.',
+    'tfr_scw_volunteers.3.t': 'Spanish volunteers recalled',
+    'tfr_scw_volunteers.3.d': f'Our volunteers stayed above the quota for {GRACE_DAYS} days. The whole contingent has been recalled from Spain.',
+    'tfr_scw_volunteers.3.a': 'Understood.',
+    'tfr_scw_volunteers.4.t': 'Volunteers sent back',
+    'tfr_scw_volunteers.4.d': 'We have no confirmed Spanish volunteer quota, or we sent volunteers to the wrong side. They have been recalled.',
+    'tfr_scw_volunteers.4.a': 'Understood.',
+})
+for side, leader, _, land_pool, air_pool in GROUPS:
     loc[f'TFR_SCW_DRAFT_{side.upper()}'] = loc[f'TFR_SCW_DRAFT_{side.upper()}'].replace('[?TFR_scw','[?'+leader+'.TFR_scw')
-    loc[f'TFR_SCW_LIVE_{side.upper()}'] = f'Approved: [?{leader}.TFR_scw_live_total_land|0] divisions    [?{leader}.TFR_scw_live_total_air|0] aircraft'
+    if side == 'soviet':
+        loc['TFR_SCW_LIVE_SOVIET'] = 'Reserved: [?SOV.TFR_scw_land|0] div / [?SOV.TFR_scw_air|0] aircraft    Sent: [?SOV.TFR_scw_sent_land|0] div, ~[?SOV.TFR_scw_sent_air|0] aircraft'
+    else:
+        loc[f'TFR_SCW_LIVE_{side.upper()}'] = f'Approved: [?{leader}.TFR_scw_live_total_land|0] div / [?{leader}.TFR_scw_live_total_air|0] aircraft    Sent: [?{leader}.TFR_scw_bloc_sent_land|0]/{land_pool} div, ~[?{leader}.TFR_scw_bloc_sent_air|0]/{air_pool} aircraft'
 
 for view, (side, leader, donors, landmax, airmax) in enumerate(GROUPS,1):
     tags = donors + (['SOV'] if side == 'allies' else [])
@@ -509,7 +709,7 @@ background = {{ name = "background" spriteType = "GFX_tiled_window_thin_border" 
         tg += f'tab_{tab_side}_click_enabled = {{ {authority} }}\n'
     layout += textbox('draft', f'TFR_SCW_DRAFT_{side.upper()}', 24, 84, 940, h=22)
     layout += textbox('read_only', 'TFR_SCW_READ_ONLY', 24, 84, 940, 'hoi_16mbs', 22)
-    if side != 'soviet': layout += textbox('live', f'TFR_SCW_LIVE_{side.upper()}', 24, 108, 940, h=22)
+    layout += textbox('live', f'TFR_SCW_LIVE_{side.upper()}', 24, 108, 940, h=22)
     if side == 'allies':
         layout += textbox('priority', 'TFR_SCW_ALLIED_HELP', 24, 134, 940, 'hoi_16mbs', 24)
         layout += textbox('soviet_pending', 'TFR_SCW_SOV_PENDING', 24, 134, 940, 'hoi_16mbs', 24)
@@ -568,7 +768,13 @@ soviet_pending_august_visible = { NOT = { has_global_flag = TFR_scw_soviet_confi
         for value in range(0,cardland+1,4):
             card += textbox(f'{tag}_tick_{value}',str(value),8+value*13,125,26,'hoi_16mbs')
         if cardland%4: card += textbox(f'{tag}_tick_max',str(cardland),8+cardland*13,125,26,'hoi_16mbs')
-        if readonly: card += textbox('soviet_readonly_note','TFR_SCW_SOV_READ_ONLY',12,142,230,'hoi_16mbs',18)
+        # Live sent / allowed (allowed = own quota clamped to what is left in the bloc pool). Red while over quota.
+        loc[f'TFR_SCW_SENT_{tag}'] = f'Sent [?{tag}.TFR_scw_sent_land|0]/[?{tag}.TFR_scw_cap_land|0] div  ~[?{tag}.TFR_scw_sent_air|0]/[?{tag}.TFR_scw_cap_air|0] air'
+        loc[f'TFR_SCW_OVER_{tag}'] = f'§ROver: [?{tag}.TFR_scw_sent_land|0]/[?{tag}.TFR_scw_ok_land|0] div  ~[?{tag}.TFR_scw_sent_air|0]/[?{tag}.TFR_scw_ok_air|0] air§!'
+        card += textbox(f'sent_{tag}', f'TFR_SCW_SENT_{tag}', 12, 142, 228, 'hoi_16mbs', 18)
+        card += textbox(f'over_{tag}', f'TFR_SCW_OVER_{tag}', 12, 142, 228, 'hoi_16mbs', 18)
+        tg += f'sent_{tag}_visible = {{ NOT = {{ {tag} = {{ has_country_flag = TFR_scw_over_quota }} }} }}\n'
+        tg += f'over_{tag}_visible = {{ {tag} = {{ has_country_flag = TFR_scw_over_quota }} }}\n'
         content += block('containerWindowType',card)
     viewport=f'name = "countries_viewport"\nposition = {{ x = 20 y = 168 }}\nsize = {{ width = 970 height = {view_height} }}\n'
     if rows>3: viewport+='verticalScrollbar = "right_vertical_slider"\n'

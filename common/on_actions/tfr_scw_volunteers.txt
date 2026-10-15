@@ -15,8 +15,8 @@ on_actions = {
 			 else = { TFR_scw_initialize = yes }
 			}
 			if = {
-			 limit = { has_country_flag = TFR_scw_committed_donor TFR_scw_manager_in_period = yes }
-			 TFR_scw_refresh_native_limits = yes
+			 limit = { tag = GER TFR_scw_manager_in_period = yes has_global_flag = TFR_scw_manager_initialized }
+			 TFR_scw_daily_enforce = yes
 			}
 			if = {
 			 limit = { NOT = { TFR_scw_eligible_donor = yes } has_country_flag = TFR_scw_managed_donor }
@@ -76,19 +76,22 @@ on_actions = {
 	}
 	on_send_volunteers = {
 		effect = {
+			# ROOT = sender, FROM = receiver. Immediate recall only when the sender may not send at all (no confirmed quota,
+			# not a managed donor, or the wrong side). Over-quota sends go through the cap/warning/grace path of TFR_scw_update_limits.
 			if = {
 			 limit = { FROM = { TFR_scw_managed_recipient = yes } }
 			 if = {
 			  limit = {
 			   OR = {
 			    NOT = { TFR_scw_approved_sender = yes }
-			    TFR_scw_sent_above_quota = yes
 			    AND = { has_country_flag = TFR_scw_axis_donor FROM = { NOT = { TFR_scw_axis_recipient = yes } } }
 			    AND = { has_country_flag = TFR_scw_allied_donor FROM = { NOT = { TFR_scw_allied_recipient = yes } } }
 			   }
 			  }
 			  recall_volunteers_from = FROM
+			  country_event = { id = tfr_scw_volunteers.4 }
 			 }
+			 else = { TFR_scw_update_limits = yes }
 			}
 		}
 	}

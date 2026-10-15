@@ -1,21 +1,24 @@
-# Scope: donor. Refresh native limits without creating free capacity from other ideas.
+# Scope: donor. Native limits follow TFR_scw_cap_land (own quota clamped to what is left in the bloc pool, see
+# TFR_scw_update_limits). send_volunteer_factor = -1000 removes the proportional part, so the native land limit is the
+# total send_volunteer_size; other sources (ideas, advisors) are cancelled out so they cannot create free capacity.
+# ASSUMPTION (verify in game): the engine clamps the proportional part at 0 before adding send_volunteer_size.
+# Air: the native air formula (sender planes x ratio, receiver air base capacity) cannot be read from script, so no
+# guessed conversion is used: while there is air room the native air limit is left as is (over-quota air is caught by
+# TFR_scw_update_limits), and once the air quota is used up air_volunteer_cap is pushed far negative to block more.
 TFR_scw_refresh_native_limits = {
  if = {
   limit = { has_country_flag = TFR_scw_committed_donor TFR_scw_manager_in_period = yes }
   set_temp_variable = { TFR_scw_other_land = modifier@send_volunteer_size }
   subtract_from_temp_variable = { TFR_scw_other_land = TFR_scw_land_adjustment }
-  set_variable = { TFR_scw_land_adjustment = TFR_scw_land }
+  set_variable = { TFR_scw_land_adjustment = TFR_scw_cap_land }
   subtract_from_variable = { TFR_scw_land_adjustment = TFR_scw_other_land }
-  set_temp_variable = { TFR_scw_other_air = modifier@air_volunteer_cap }
-  subtract_from_temp_variable = { TFR_scw_other_air = TFR_scw_air_adjustment }
-  set_temp_variable = { TFR_scw_native_air_base = num_deployed_planes }
-  divide_temp_variable = { TFR_scw_native_air_base = 100 }
-  round_temp_variable = TFR_scw_native_air_base
-  add_to_temp_variable = { TFR_scw_native_air_base = 1 }
-  set_variable = { TFR_scw_air_adjustment = TFR_scw_air }
-  divide_variable = { TFR_scw_air_adjustment = 100 }
-  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_native_air_base }
-  subtract_from_variable = { TFR_scw_air_adjustment = TFR_scw_other_air }
+  if = {
+   limit = { check_variable = { TFR_scw_air_room > 0 } }
+   set_variable = { TFR_scw_air_adjustment = 0 }
+  }
+  else = {
+   set_variable = { TFR_scw_air_adjustment = -100000 }
+  }
   force_update_dynamic_modifier = yes
  }
 }
@@ -161,6 +164,7 @@ TFR_scw_axis_commit = {
 	 BUL = { TFR_scw_apply_donor = yes }
 	 set_country_flag = TFR_scw_month_committed
 	 TFR_scw_recount_live = yes
+	 TFR_scw_update_limits = yes
 	}
 }
 TFR_scw_allies_recount = {
@@ -315,6 +319,7 @@ TFR_scw_allies_commit = {
 	 MEX = { TFR_scw_apply_donor = yes }
 	 set_country_flag = TFR_scw_month_committed
 	 TFR_scw_recount_live = yes
+	 TFR_scw_update_limits = yes
 	}
 }
 TFR_scw_soviet_recount = {
@@ -363,7 +368,974 @@ TFR_scw_soviet_commit = {
 	 set_country_flag = TFR_scw_month_committed
 	 set_global_flag = TFR_scw_soviet_confirmed
 	 TFR_scw_recount_live = yes
+	 TFR_scw_update_limits = yes
 	}
+}
+# Scope: donor.
+TFR_scw_count_sent = {
+	# Divisions really sent to every Spanish tag. has_volunteers_amount_from only compares, so a ladder reads the value.
+	# ASSUMPTION (verify in game): divisions still in transit are counted. The native per-donor limit counts them anyway.
+	set_variable = { TFR_scw_sent_land = 0 }
+	every_country = {
+	 limit = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 0 } }
+	 if = { limit = { has_volunteers_amount_from = { tag = PREV count > 16 } } PREV = { add_to_variable = { TFR_scw_sent_land = 17 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 15 } } PREV = { add_to_variable = { TFR_scw_sent_land = 16 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 14 } } PREV = { add_to_variable = { TFR_scw_sent_land = 15 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 13 } } PREV = { add_to_variable = { TFR_scw_sent_land = 14 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 12 } } PREV = { add_to_variable = { TFR_scw_sent_land = 13 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 11 } } PREV = { add_to_variable = { TFR_scw_sent_land = 12 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 10 } } PREV = { add_to_variable = { TFR_scw_sent_land = 11 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 9 } } PREV = { add_to_variable = { TFR_scw_sent_land = 10 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 8 } } PREV = { add_to_variable = { TFR_scw_sent_land = 9 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 7 } } PREV = { add_to_variable = { TFR_scw_sent_land = 8 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 6 } } PREV = { add_to_variable = { TFR_scw_sent_land = 7 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 5 } } PREV = { add_to_variable = { TFR_scw_sent_land = 6 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 4 } } PREV = { add_to_variable = { TFR_scw_sent_land = 5 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 3 } } PREV = { add_to_variable = { TFR_scw_sent_land = 4 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 2 } } PREV = { add_to_variable = { TFR_scw_sent_land = 3 } } }
+	 else_if = { limit = { has_volunteers_amount_from = { tag = PREV count > 1 } } PREV = { add_to_variable = { TFR_scw_sent_land = 2 } } }
+	 else = { PREV = { add_to_variable = { TFR_scw_sent_land = 1 } } }
+	}
+	# Planes based in the Spanish regions, rounded down to 10 (display and bloc accounting; the quota check is exact).
+	# A donor that controls a state in those regions (UK: Gibraltar is in region 210) has its own planes there, so its
+	# volunteer planes cannot be told apart: air is then not counted and not punished (quota 0 still blocks air natively).
+	set_variable = { TFR_scw_sent_air = 0 }
+	if = {
+	 limit = { TFR_scw_air_untracked = yes }
+	}
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 609 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 610 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 599 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 600 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 589 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 590 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 579 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 580 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 569 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 570 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 559 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 560 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 549 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 550 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 539 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 540 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 529 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 530 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 519 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 520 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 509 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 510 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 499 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 500 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 489 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 490 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 479 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 480 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 469 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 470 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 459 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 460 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 449 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 450 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 439 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 440 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 429 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 430 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 419 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 420 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 409 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 410 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 399 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 400 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 389 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 390 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 379 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 380 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 369 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 370 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 359 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 360 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 349 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 350 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 339 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 340 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 329 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 330 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 319 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 320 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 309 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 310 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 299 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 300 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 289 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 290 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 279 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 280 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 269 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 270 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 259 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 260 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 249 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 250 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 239 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 240 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 229 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 230 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 219 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 220 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 209 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 210 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 199 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 200 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 189 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 190 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 179 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 180 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 169 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 170 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 159 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 160 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 149 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 150 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 139 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 140 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 129 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 130 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 119 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 120 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 109 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 110 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 99 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 100 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 89 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 90 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 79 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 80 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 69 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 70 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 59 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 60 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 49 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 50 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 39 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 40 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 29 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 30 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 19 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 20 } }
+	else_if = { limit = { num_planes_stationed_in_regions = { value > 9 regions = { 41 209 210 } } } set_variable = { TFR_scw_sent_air = 10 } }
+}
+# Scope: any. Recount live volunteers, recompute caps/room, flag over-quota donors. Deterministic order.
+TFR_scw_update_limits = {
+	# axis bloc: 16 divisions / 600 aircraft, totals on GER.
+	GER = { set_variable = { TFR_scw_bloc_sent_land = 0 } set_variable = { TFR_scw_bloc_sent_air = 0 } }
+	GER = { TFR_scw_count_sent = yes }
+	GER = { add_to_variable = { TFR_scw_bloc_sent_land = GER.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = GER.TFR_scw_sent_air } }
+	ITA = { TFR_scw_count_sent = yes }
+	GER = { add_to_variable = { TFR_scw_bloc_sent_land = ITA.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = ITA.TFR_scw_sent_air } }
+	ROM = { TFR_scw_count_sent = yes }
+	GER = { add_to_variable = { TFR_scw_bloc_sent_land = ROM.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = ROM.TFR_scw_sent_air } }
+	HUN = { TFR_scw_count_sent = yes }
+	GER = { add_to_variable = { TFR_scw_bloc_sent_land = HUN.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = HUN.TFR_scw_sent_air } }
+	BUL = { TFR_scw_count_sent = yes }
+	GER = { add_to_variable = { TFR_scw_bloc_sent_land = BUL.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = BUL.TFR_scw_sent_air } }
+	GER = {
+	 set_variable = { TFR_scw_bloc_free_land = 16 }
+	 subtract_from_variable = { TFR_scw_bloc_free_land = TFR_scw_bloc_sent_land }
+	 clamp_variable = { var = TFR_scw_bloc_free_land min = 0 }
+	 set_variable = { TFR_scw_bloc_free_air = 600 }
+	 subtract_from_variable = { TFR_scw_bloc_free_air = TFR_scw_bloc_sent_air }
+	 clamp_variable = { var = TFR_scw_bloc_free_air min = 0 }
+	 set_variable = { TFR_scw_bloc_left_land = 16 }
+	 set_variable = { TFR_scw_bloc_left_air = 600 }
+	}
+	GER = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = GER.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = GER.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = GER.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = GER.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	GER = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = GER.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = GER.TFR_scw_ok_air }
+	}
+	ITA = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = GER.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = GER.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = GER.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = GER.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	GER = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = ITA.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = ITA.TFR_scw_ok_air }
+	}
+	ROM = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = GER.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = GER.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = GER.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = GER.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	GER = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = ROM.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = ROM.TFR_scw_ok_air }
+	}
+	HUN = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = GER.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = GER.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = GER.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = GER.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	GER = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = HUN.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = HUN.TFR_scw_ok_air }
+	}
+	BUL = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = GER.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = GER.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = GER.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = GER.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	GER = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = BUL.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = BUL.TFR_scw_ok_air }
+	}
+	# allies bloc: 12 divisions / 300 aircraft, totals on ENG.
+	ENG = { set_variable = { TFR_scw_bloc_sent_land = 0 } set_variable = { TFR_scw_bloc_sent_air = 0 } }
+	ENG = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = ENG.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = ENG.TFR_scw_sent_air } }
+	FRA = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = FRA.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = FRA.TFR_scw_sent_air } }
+	CAN = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = CAN.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = CAN.TFR_scw_sent_air } }
+	AST = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = AST.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = AST.TFR_scw_sent_air } }
+	SAF = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = SAF.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = SAF.TFR_scw_sent_air } }
+	RAJ = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = RAJ.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = RAJ.TFR_scw_sent_air } }
+	BRA = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = BRA.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = BRA.TFR_scw_sent_air } }
+	MEX = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = MEX.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = MEX.TFR_scw_sent_air } }
+	SOV = { TFR_scw_count_sent = yes }
+	ENG = { add_to_variable = { TFR_scw_bloc_sent_land = SOV.TFR_scw_sent_land } add_to_variable = { TFR_scw_bloc_sent_air = SOV.TFR_scw_sent_air } }
+	ENG = {
+	 set_variable = { TFR_scw_bloc_free_land = 12 }
+	 subtract_from_variable = { TFR_scw_bloc_free_land = TFR_scw_bloc_sent_land }
+	 clamp_variable = { var = TFR_scw_bloc_free_land min = 0 }
+	 set_variable = { TFR_scw_bloc_free_air = 300 }
+	 subtract_from_variable = { TFR_scw_bloc_free_air = TFR_scw_bloc_sent_air }
+	 clamp_variable = { var = TFR_scw_bloc_free_air min = 0 }
+	 set_variable = { TFR_scw_bloc_left_land = 12 }
+	 set_variable = { TFR_scw_bloc_left_air = 300 }
+	}
+	ENG = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = ENG.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = ENG.TFR_scw_ok_air }
+	}
+	FRA = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = FRA.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = FRA.TFR_scw_ok_air }
+	}
+	CAN = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = CAN.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = CAN.TFR_scw_ok_air }
+	}
+	AST = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = AST.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = AST.TFR_scw_ok_air }
+	}
+	SAF = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = SAF.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = SAF.TFR_scw_ok_air }
+	}
+	RAJ = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = RAJ.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = RAJ.TFR_scw_ok_air }
+	}
+	BRA = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = BRA.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = BRA.TFR_scw_ok_air }
+	}
+	MEX = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = MEX.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = MEX.TFR_scw_ok_air }
+	}
+	SOV = {
+	 # Cap shown to the native volunteer UI: what is already there + what still fits in quota and bloc pool.
+	 set_variable = { TFR_scw_cap_land = TFR_scw_sent_land }
+	 add_to_variable = { TFR_scw_cap_land = ENG.TFR_scw_bloc_free_land }
+	 if = { limit = { check_variable = { TFR_scw_cap_land > TFR_scw_land } } set_variable = { TFR_scw_cap_land = TFR_scw_land } }
+	 set_variable = { TFR_scw_land_room = TFR_scw_cap_land }
+	 subtract_from_variable = { TFR_scw_land_room = TFR_scw_sent_land }
+	 clamp_variable = { var = TFR_scw_land_room min = 0 }
+	 set_variable = { TFR_scw_cap_air = TFR_scw_sent_air }
+	 add_to_variable = { TFR_scw_cap_air = ENG.TFR_scw_bloc_free_air }
+	 if = { limit = { check_variable = { TFR_scw_cap_air > TFR_scw_air } } set_variable = { TFR_scw_cap_air = TFR_scw_air } }
+	 set_variable = { TFR_scw_air_room = TFR_scw_cap_air }
+	 subtract_from_variable = { TFR_scw_air_room = TFR_scw_sent_air }
+	 clamp_variable = { var = TFR_scw_air_room min = 0 }
+	 # Who is over: the pool is handed out in the fixed donor order, so a same-day race always penalises the later donor.
+	 set_variable = { TFR_scw_left_land = ENG.TFR_scw_bloc_left_land }
+	 set_variable = { TFR_scw_ok_land = TFR_scw_sent_land }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_land } } set_variable = { TFR_scw_ok_land = TFR_scw_land } }
+	 if = { limit = { check_variable = { TFR_scw_ok_land > TFR_scw_left_land } } set_variable = { TFR_scw_ok_land = TFR_scw_left_land } }
+	 set_variable = { TFR_scw_left_air = ENG.TFR_scw_bloc_left_air }
+	 set_variable = { TFR_scw_ok_air = TFR_scw_sent_air }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_air } } set_variable = { TFR_scw_ok_air = TFR_scw_air } }
+	 if = { limit = { check_variable = { TFR_scw_ok_air > TFR_scw_left_air } } set_variable = { TFR_scw_ok_air = TFR_scw_left_air } }
+	 if = {
+	  limit = {
+	   OR = {
+	    check_variable = { TFR_scw_sent_land > TFR_scw_ok_land }
+	    check_variable = { TFR_scw_sent_air > TFR_scw_ok_air }
+	    TFR_scw_air_over_quota = yes
+	   }
+	  }
+	  if = {
+	   limit = { NOT = { has_country_flag = TFR_scw_over_quota } }
+	   set_country_flag = TFR_scw_over_quota
+	   set_variable = { TFR_scw_over_days = 0 }
+	   country_event = { id = tfr_scw_volunteers.2 }
+	  }
+	 }
+	 else = { clr_country_flag = TFR_scw_over_quota }
+	 TFR_scw_refresh_native_limits = yes
+	}
+	ENG = {
+	 subtract_from_variable = { TFR_scw_bloc_left_land = SOV.TFR_scw_ok_land }
+	 subtract_from_variable = { TFR_scw_bloc_left_air = SOV.TFR_scw_ok_air }
+	}
+	TFR_scw_refresh_views = yes
+}
+# Scope: any. Called once a day from GER: 7 days of grace after the warning, then recall.
+TFR_scw_daily_enforce = {
+	GER = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	ITA = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	ROM = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	HUN = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	BUL = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	ENG = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	FRA = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	CAN = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	AST = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	SAF = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	RAJ = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	BRA = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	MEX = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	SOV = {
+	 if = {
+	  limit = { has_country_flag = TFR_scw_over_quota }
+	  add_to_variable = { TFR_scw_over_days = 1 }
+	  if = {
+	   limit = { check_variable = { TFR_scw_over_days > 6 } }
+	   # Last resort: recall_volunteers_from takes back the whole contingent in that country.
+	   every_country = { limit = { original_tag = SPR exists = yes } PREV = { recall_volunteers_from = PREV } }
+	   clr_country_flag = TFR_scw_over_quota
+	   country_event = { id = tfr_scw_volunteers.3 }
+	  }
+	 }
+	}
+	TFR_scw_update_limits = yes
 }
 TFR_scw_recount_live = {
 	GER = {
@@ -511,6 +1483,7 @@ TFR_scw_initialize = {
 	 }
 	 TFR_scw_recount_live = yes
 	 SOV = { TFR_scw_soviet_prepare = yes }
+	 TFR_scw_update_limits = yes
 	}
 }
 TFR_scw_sync_view = {

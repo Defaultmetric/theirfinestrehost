@@ -1,19 +1,34 @@
 guiTypes = {
 containerWindowType = {
 	name = "TFR_scw_open_window"
-	position = { x = -620 y = 4 }
-	size = { width = 108 height = 30 }
-	orientation = UPPER_RIGHT
+	# Last button of the topbar menu row. interface/topbar.gui (TFR override) hides the International Market button and moves
+	# trade..officer_corp one slot left, so Officer Corps ends at screen x 621: topbar { x = -4 y = -1 } -> country_menu_window
+	# { x = 217 y = 36 } -> after_faction_button { x = 17 } -> after_intel_agency_button { x = 55 } -> officer_corp_button { x = 281 } = 566.
+	# This button takes the freed slot: x 621..676, y 35..76, 55x41, on the vanilla row panel; alerts keep their vanilla start.
+	# UPPER_LEFT like the menu row, so it is the same at every resolution.
+	position = { x = 621 y = 35 }
+	size = { width = 55 height = 41 }
+	orientation = UPPER_LEFT
 	buttonType = {
 	 name = "open"
-	 quadTextureSprite = "GFX_generic_box_96"
+	 quadTextureSprite = "GFX_TFR_scw_volunteers_button"
 	 position = { x = 0 y = 0 }
-	 scale = 1.1
 	 pdx_tooltip = "TFR_SCW_OPEN_TT"
 	 clicksound = click_ok
 	 oversound = ui_menu_over
 	}
-	instantTextboxType = { name = "open_title" position = { x = 3 y = 4 } font = "hoi_18mbs" text = "TFR_SCW_OPEN" maxWidth = 104 maxHeight = 23 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+}
+containerWindowType = {
+	name = "TFR_scw_info_window"
+	position = { x = -270 y = -95 }
+	orientation = CENTER
+	size = { width = 540 height = 190 }
+	moveable = yes
+	background = { name = "background" spriteType = "GFX_tiled_window_thin_border" }
+	instantTextboxType = { name = "title" position = { x = 24 y = 13 } font = "hoi_24header" text = "TFR_SCW_INFO_TITLE" maxWidth = 490 maxHeight = 28 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "over_text" position = { x = 24 y = 56 } font = "hoi_18mbs" text = "TFR_SCW_INFO_OVER" maxWidth = 490 maxHeight = 80 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "none_text" position = { x = 24 y = 56 } font = "hoi_18mbs" text = "TFR_SCW_INFO_NONE" maxWidth = 490 maxHeight = 80 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	buttonType = { name = "close" position = { x = 196 y = 140 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_CLOSE" buttonFont = "hoi_18mbs" clicksound = click_ok }
 }
 containerWindowType = {
 	name = "TFR_scw_axis_window"
@@ -104,6 +119,8 @@ containerWindowType = {
 				instantTextboxType = { name = "GER_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "GER_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "GER_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_GER" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_GER" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_GER" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_GER" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_ITA"
@@ -171,6 +188,8 @@ containerWindowType = {
 				instantTextboxType = { name = "ITA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ITA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ITA_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_ITA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_ITA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_ITA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_ITA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_ROM"
@@ -238,6 +257,8 @@ containerWindowType = {
 				instantTextboxType = { name = "ROM_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ROM_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ROM_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_ROM" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_ROM" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_ROM" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_ROM" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_HUN"
@@ -305,6 +326,8 @@ containerWindowType = {
 				instantTextboxType = { name = "HUN_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "HUN_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "HUN_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_HUN" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_HUN" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_HUN" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_HUN" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_BUL"
@@ -372,6 +395,8 @@ containerWindowType = {
 				instantTextboxType = { name = "BUL_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "BUL_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "BUL_tick_16" position = { x = 216 y = 125 } font = "hoi_16mbs" text = "16" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_BUL" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_BUL" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_BUL" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_BUL" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 		}
 	}
@@ -456,6 +481,8 @@ containerWindowType = {
 				instantTextboxType = { name = "ENG_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ENG_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "ENG_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_ENG" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_ENG" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_ENG" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_ENG" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_FRA"
@@ -508,6 +535,8 @@ containerWindowType = {
 				instantTextboxType = { name = "FRA_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "FRA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "FRA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_FRA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_FRA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_FRA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_FRA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_CAN"
@@ -560,6 +589,8 @@ containerWindowType = {
 				instantTextboxType = { name = "CAN_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "CAN_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "CAN_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_CAN" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_CAN" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_CAN" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_CAN" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_AST"
@@ -612,6 +643,8 @@ containerWindowType = {
 				instantTextboxType = { name = "AST_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "AST_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "AST_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_AST" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_AST" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_AST" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_AST" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_SAF"
@@ -664,6 +697,8 @@ containerWindowType = {
 				instantTextboxType = { name = "SAF_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SAF_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SAF_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_SAF" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_SAF" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_SAF" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_SAF" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_RAJ"
@@ -716,6 +751,8 @@ containerWindowType = {
 				instantTextboxType = { name = "RAJ_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "RAJ_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "RAJ_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_RAJ" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_RAJ" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_RAJ" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_RAJ" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_BRA"
@@ -768,6 +805,8 @@ containerWindowType = {
 				instantTextboxType = { name = "BRA_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "BRA_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "BRA_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_BRA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_BRA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_BRA" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_BRA" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_MEX"
@@ -820,6 +859,8 @@ containerWindowType = {
 				instantTextboxType = { name = "MEX_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "MEX_tick_8" position = { x = 112 y = 125 } font = "hoi_16mbs" text = "8" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "MEX_tick_12" position = { x = 164 y = 125 } font = "hoi_16mbs" text = "12" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_MEX" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_MEX" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_MEX" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_MEX" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 			containerWindowType = {
 				name = "card_SOV"
@@ -857,7 +898,8 @@ containerWindowType = {
 				instantTextboxType = { name = "SOV_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SOV_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SOV_tick_max" position = { x = 86 y = 125 } font = "hoi_16mbs" text = "6" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
-				instantTextboxType = { name = "soviet_readonly_note" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SOV_READ_ONLY" maxWidth = 230 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_SOV" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_SOV" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_SOV" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_SOV" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 		}
 	}
@@ -879,6 +921,7 @@ containerWindowType = {
 	buttonType = { name = "tab_soviet" position = { x = 340 y = 44 } quadTextureSprite = "GFX_button_148x34" buttonText = "TFR_SCW_TAB_SOVIET" buttonFont = "hoi_18mbs" clicksound = click_ok }
 	instantTextboxType = { name = "draft" position = { x = 24 y = 84 } font = "hoi_18mbs" text = "TFR_SCW_DRAFT_SOVIET" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 	instantTextboxType = { name = "read_only" position = { x = 24 y = 84 } font = "hoi_16mbs" text = "TFR_SCW_READ_ONLY" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+	instantTextboxType = { name = "live" position = { x = 24 y = 108 } font = "hoi_18mbs" text = "TFR_SCW_LIVE_SOVIET" maxWidth = 940 maxHeight = 22 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 	instantTextboxType = { name = "monthly" position = { x = 24 y = 134 } font = "hoi_16mbs" text = "TFR_SCW_MONTHLY_HELP" maxWidth = 940 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 	containerWindowType = {
 		name = "countries_viewport"
@@ -926,6 +969,8 @@ containerWindowType = {
 				instantTextboxType = { name = "SOV_tick_0" position = { x = 8 y = 125 } font = "hoi_16mbs" text = "0" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SOV_tick_4" position = { x = 60 y = 125 } font = "hoi_16mbs" text = "4" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 				instantTextboxType = { name = "SOV_tick_max" position = { x = 86 y = 125 } font = "hoi_16mbs" text = "6" maxWidth = 26 maxHeight = 24 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "sent_SOV" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_SENT_SOV" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
+				instantTextboxType = { name = "over_SOV" position = { x = 12 y = 142 } font = "hoi_16mbs" text = "TFR_SCW_OVER_SOV" maxWidth = 228 maxHeight = 18 fixedsize = yes multiline = yes format = left alwaystransparent = yes }
 			}
 		}
 	}

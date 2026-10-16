@@ -131,36 +131,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ROM_romanian_volunteer_brigades
-		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = ROM_basing_rights_for_soviet_union }
-		x = -1
-		y = 3
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
-			add_ideas = ROM_romanian_volunteer_brigades
-		}
-	}
 
 	focus = {
 		id = ROM_join_comintern
@@ -323,44 +293,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ROM_legion_condor
-		icon = GFX_focus_SWE_refuge_for_revolutionaries
-		prerequisite = { focus = ROM_root_out_corruption}
-		x = 5
-		y = 1
-		relative_position_id = ROM_root_out_corruption
-
-		cost = 1
-
-
-		available = {
-			any_other_country = {
-					original_tag = SPR
-					OR = {
-					has_government = fascism
-					has_government = neutrality
-					}
-					has_volunteers_amount_from = {
-						tag = ROOT
-						count > 1
-					}
-				}
-		}
-
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-
-		completion_reward = {
-			add_timed_idea = {
-				idea = GER_legion_condor_ns
-				days = 545
-			}
-		}
-	}
 
 	focus = {
 		id = ROM_reach_out_to_the_allies
@@ -1834,10 +1766,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-		
-			air_experience = 75
-			navy_experience = 75
-			army_experience = 75
+			add_tech_bonus = {
+				name = TFR_ROM_german_infantry_research
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = TFR_ROM_german_support_research
+				bonus = 0.5
+				uses = 1
+				category = support_tech
+			}
 		}
 	}
 

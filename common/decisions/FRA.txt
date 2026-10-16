@@ -1005,7 +1005,6 @@ FRA_spanish_intervention_category = {
 		complete_effect = { 
 			set_country_flag = FRA_covert_intervention_allowed 
 			clr_country_flag = FRA_non_intervention
-			set_rule = { can_send_volunteers = yes }
 		}
 
 		cost = 25
@@ -1024,21 +1023,10 @@ FRA_spanish_intervention_category = {
 		modifier = {
 			stability_factor = -0.25
 			war_support_factor = 0.125
-			send_volunteers_tension = -0.9
 		}
 	}
 
 	FRA_ban_covert_intervention = {
-		available = { 
-			NOT = {
-				any_other_country = {
-					has_volunteers_amount_from = {
-						tag = ROOT
-						count > 0
-					}
-				}
-			}
-		}
 
 		visible = { has_country_flag = FRA_covert_intervention_allowed }
 

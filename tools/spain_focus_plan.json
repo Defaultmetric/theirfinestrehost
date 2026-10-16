@@ -1,0 +1,2517 @@
+{
+  "title": "Spania TFR — arbore naționalist implementat",
+  "status": "Implementat; reechilibrare a specializărilor și focusurilor finale.",
+  "target": "115 focusuri naționaliste; aviație compactă și bonusuri cumulate reechilibrate.",
+  "focusDays": 7,
+  "baseResearchSlots": 3,
+  "dates": {
+    "portugal": "1939.1.1",
+    "research5": "1939.1.1",
+    "advancedCapstones": "1940.1.1"
+  },
+  "sections": [
+    {
+      "code": "D",
+      "name": "Rol internațional și diplomație",
+      "count": 14
+    },
+    {
+      "code": "P",
+      "name": "Reconstrucție și administrație",
+      "count": 12
+    },
+    {
+      "code": "E",
+      "name": "Economie: 12 comune + 20 de specializare",
+      "count": 32
+    },
+    {
+      "code": "M",
+      "name": "Armată: 12 comune + 20 de specializare",
+      "count": 32
+    },
+    {
+      "code": "A",
+      "name": "Aviație",
+      "count": 5
+    },
+    {
+      "code": "N",
+      "name": "Marină",
+      "count": 20
+    }
+  ],
+  "focuses": [
+    {
+      "code": "D01",
+      "id": "TFR_SPA_volunteer_spain",
+      "name": "Arsenal of the Axis",
+      "days": 14,
+      "prerequisites": [],
+      "effect": "Alegere permanentă: sprijin prin voluntari; blochează intrarea voluntară în facțiuni/războaie externe și anexarea Portugaliei. Activează cele patru dynamic modifiers.",
+      "exclusiveWith": [
+        "D02"
+      ],
+      "conditions": [
+        "Țara naționalistă spaniolă; războiul civil încheiat. Alegerea este la începutul părții refăcute."
+      ],
+      "mode": "volunteer",
+      "x": 29,
+      "y": 0,
+      "icon": "GFX_focus_generic_military_industry"
+    },
+    {
+      "code": "D02",
+      "id": "TFR_SPA_war_spain",
+      "name": "Our Place in the New Order",
+      "days": 14,
+      "prerequisites": [],
+      "effect": "Alegere permanentă: pregătire pentru participarea directă la războiul Axei; activează cele patru dynamic modifiers. Nu declară imediat război.",
+      "exclusiveWith": [
+        "D01"
+      ],
+      "conditions": [
+        "Țara naționalistă spaniolă; războiul civil încheiat. Alegerea este la începutul părții refăcute."
+      ],
+      "mode": "war",
+      "reuse": "SPA_join_the_axis; funcția efectivă de aderare este mutată în D04",
+      "x": 33,
+      "y": 0,
+      "icon": "GFX_goal_support_fascism"
+    },
+    {
+      "code": "D03",
+      "id": "TFR_SPA_axis_liaison_office",
+      "name": "Axis Liaison Office",
+      "days": 21,
+      "prerequisites": [
+        [
+          "D01"
+        ]
+      ],
+      "effect": "+75 PP; deblochează cooperarea bilaterală cu Germania și Italia, păstrând Spania în afara facțiunii.",
+      "politics": {
+        "pp": 75
+      },
+      "x": 27,
+      "y": 1,
+      "icon": "GFX_goal_generic_intelligence_exchange"
+    },
+    {
+      "code": "D04",
+      "id": "TFR_SPA_join_the_axis",
+      "name": "Join the Axis",
+      "days": 14,
+      "prerequisites": [
+        [
+          "D02"
+        ]
+      ],
+      "effect": "Solicitare de aderare către Germania; aderarea permite ulterior chemarea/participarea la război.",
+      "conditions": [
+        "Germania există, conduce facțiunea Axei și acceptă aderarea. Refuzul nu acordă avantajele de membru."
+      ],
+      "x": 35,
+      "y": 1,
+      "icon": "GFX_goal_tripartite_pact"
+    },
+    {
+      "code": "D05",
+      "id": "TFR_SPA_iberian_economic_agreement",
+      "name": "Iberian Economic Agreement",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D03"
+        ]
+      ],
+      "effect": "Resource rights pentru Spania în toate statele NPR; infrastructura acestora devine 5/5, cu respectarea maximului jocului.",
+      "conditions": [
+        "Data >= 1939.1.1; NPR independent, în pace cu Spania și deținător al statelor acordului."
+      ],
+      "x": 17,
+      "y": 2,
+      "icon": "GFX_focus_generic_befriend_portugal"
+    },
+    {
+      "code": "D06",
+      "id": "TFR_SPA_portuguese_industrial_relocation",
+      "name": "Portuguese Industrial Relocation",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D05"
+        ]
+      ],
+      "effect": "Transferă o singură dată în Spania fabricile civile/militare și șantierele existente efectiv în NPR, cu sloturi. Le elimină din NPR; oprește spawnurile NPR ulterioare.",
+      "conditions": [
+        "NPR controlează statele transferului. Transfer exclusiv economic, fără teritorii sau cores."
+      ],
+      "portugal": "relocation",
+      "x": 17,
+      "y": 3,
+      "icon": "GFX_focus_generic_industry_investment"
+    },
+    {
+      "code": "D07",
+      "id": "TFR_SPA_attack_portugal",
+      "name": "Attack Portugal",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D04"
+        ]
+      ],
+      "effect": "Păstrează wargoal-ul de anexare împotriva NPR și campania actuală.",
+      "conditions": [
+        "Data >= 1939.1.1; NPR există; fără acord de relocare."
+      ],
+      "reuse": "SPA_attack_portugal",
+      "x": 42,
+      "y": 2,
+      "icon": "GFX_focus_generic_attack_portugal"
+    },
+    {
+      "code": "D08",
+      "id": "TFR_SPA_integrate_portugal",
+      "name": "Integrate Portugal",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D07"
+        ]
+      ],
+      "effect": "Păstrează anexarea la capitulare și cores în 112, 179, 180, 181, 795; cosmetic tag-ul iberic existent.",
+      "conditions": [
+        "Spania deține și controlează integral cele cinci state. Anexarea se execută prin mecanica de capitulare protejată pentru War Spain."
+      ],
+      "reuse": "SPA_core_portugal",
+      "portugal": "annexation",
+      "x": 42,
+      "y": 3,
+      "icon": "GFX_focus_ARG_strengthening_the_concordancia"
+    },
+    {
+      "code": "D09",
+      "id": "TFR_SPA_german_military_mission",
+      "name": "German Military Mission",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P01"
+        ]
+      ],
+      "effect": "+5% planning speed și 1×50% research pentru support tech.",
+      "modifiers": {
+        "army.planning_speed": 0.05
+      },
+      "x": 20,
+      "y": 3,
+      "icon": "GFX_focus_chi_mission_to_germany"
+    },
+    {
+      "code": "D10",
+      "id": "TFR_SPA_italian_naval_mission",
+      "name": "Italian Naval Mission",
+      "days": 28,
+      "prerequisites": [
+        [
+          "D09"
+        ]
+      ],
+      "effect": "+5% dockyard output și 1×50% research pentru hull-uri de distrugătoare active.",
+      "modifiers": {
+        "economy.industrial_capacity_dockyard": 0.05
+      },
+      "x": 21,
+      "y": 4,
+      "icon": "GFX_focus_befriend_italy"
+    },
+    {
+      "code": "D11",
+      "id": "TFR_SPA_foreign_aviation_mission",
+      "name": "Foreign Aviation Mission",
+      "days": 28,
+      "prerequisites": [
+        [
+          "D09"
+        ]
+      ],
+      "effect": "+5% air mission efficiency și 1×50% research pentru small airframes.",
+      "modifiers": {
+        "air.air_mission_efficiency": 0.05
+      },
+      "x": 19,
+      "y": 4,
+      "icon": "GFX_goal_generic_air_doctrine"
+    },
+    {
+      "code": "D12",
+      "id": "TFR_SPA_full_war_commitment",
+      "name": "Full War Commitment",
+      "days": 35,
+      "prerequisites": [
+        [
+          "D04"
+        ]
+      ],
+      "effect": "industrial_capacity_factory: 5.0%; army_org_factor: 2.5% (numai în războiul principal al Axei). Fabricile și sloturile existente sunt păstrate.",
+      "buildings": {
+        "mil": 4
+      },
+      "conditionalModifiers": {
+        "economy.industrial_capacity_factory": 0.05,
+        "army.army_org_factor": 0.025
+      },
+      "conditions": [
+        "Aderare acceptată; Spania și Germania luptă efectiv împotriva aceleiași mari puteri adverse. Războiul exclusiv cu NPR nu califică. Respectă calendarul/ruleset-ul existent al războiului."
+      ],
+      "x": 44,
+      "y": 2,
+      "icon": "GFX_focus_generic_total_war",
+      "buildingStates": [
+        {
+          "state": 41,
+          "kind": "mil",
+          "count": 2
+        },
+        {
+          "state": 169,
+          "kind": "mil",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "code": "D13",
+      "id": "TFR_SPA_continental_war_coordination",
+      "name": "Continental War Coordination",
+      "days": 28,
+      "prerequisites": [
+        [
+          "D12"
+        ]
+      ],
+      "effect": "army_morale_factor: 2.5% (numai în războiul principal al Axei).",
+      "conditionalModifiers": {
+        "army.army_morale_factor": 0.025
+      },
+      "x": 44,
+      "y": 3,
+      "icon": "GFX_focus_generic_military_mission"
+    },
+    {
+      "code": "D14",
+      "id": "TFR_SPA_enduring_industrial_partnership",
+      "name": "Enduring Industrial Partnership",
+      "days": 28,
+      "prerequisites": [
+        [
+          "D09"
+        ]
+      ],
+      "effect": "+100 PP și +5% research speed; cooperare pe termen lung după soluționarea acordului portughez.",
+      "politics": {
+        "pp": 100
+      },
+      "modifiers": {
+        "economy.research_speed_factor": 0.05
+      },
+      "x": 17,
+      "y": 5,
+      "icon": "GFX_focus_usa_reestablish_the_gold_standard"
+    },
+    {
+      "code": "P01",
+      "id": "TFR_SPA_national_reconstruction_commission",
+      "name": "National Reconstruction Commission",
+      "days": 28,
+      "prerequisites": [
+        [
+          "D01",
+          "D02"
+        ]
+      ],
+      "effect": "Importă o singură dată nivelul existent de recuperare în Spanish Economy și înlocuiește ideea economică veche echivalentă; +50 PP.",
+      "politics": {
+        "pp": 50
+      },
+      "recovery": "import_current",
+      "x": 31,
+      "y": 2,
+      "icon": "GFX_focus_generic_public_works"
+    },
+    {
+      "code": "P02",
+      "id": "TFR_SPA_restore_civil_administration",
+      "name": "Restore Civil Administration",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P01"
+        ]
+      ],
+      "effect": "+5 puncte procentuale stabilitate; −10% cost consilieri politici.",
+      "politics": {
+        "stability_pp": 5
+      },
+      "modifiers": {
+        "economy.political_advisor_cost_factor": -0.1
+      },
+      "x": 29,
+      "y": 3,
+      "icon": "GFX_focus_generic_self_management"
+    },
+    {
+      "code": "P03",
+      "id": "TFR_SPA_integrate_the_autonomous_regions",
+      "name": "Integrate the Autonomous Regions",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P02"
+        ]
+      ],
+      "effect": "Mută integrarea Cataloniei, Galiciei și Țării Bascilor din Adopt the 26 Points: elimină autonomous_state acolo unde există și sunt deținute/controlate; +50 PP.",
+      "politics": {
+        "pp": 50
+      },
+      "x": 29,
+      "y": 4,
+      "icon": "GFX_focus_generic_treaty"
+    },
+    {
+      "code": "P04",
+      "id": "TFR_SPA_demobilisation_and_reemployment",
+      "name": "Demobilisation and Reemployment",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P01"
+        ]
+      ],
+      "effect": "Avansează recuperarea cu o singură treaptă spre nivelul 2; dacă recuperarea este deja mai avansată, nu o înrăutățește. +50 PP.",
+      "politics": {
+        "pp": 50
+      },
+      "recovery": "advance_to_at_least_2",
+      "x": 33,
+      "y": 3,
+      "icon": "GFX_focus_generic_workers_and_farmers_rise"
+    },
+    {
+      "code": "P05",
+      "id": "TFR_SPA_national_labour_accords",
+      "name": "National Labour Accords",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P04"
+        ]
+      ],
+      "effect": "National Recovery avansează la profilul 3; −5% consumer goods permanent. Un eveniment oferă alegerea dintre stabilitate și mobilizarea muncii.",
+      "politics": {},
+      "modifiers": {
+        "economy.consumer_goods_factor": -0.05
+      },
+      "x": 33,
+      "y": 4,
+      "icon": "GFX_focus_eng_concessions_to_the_trade_unions"
+    },
+    {
+      "code": "P06",
+      "id": "TFR_SPA_rebuild_the_universities",
+      "name": "Rebuild the Universities",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P03"
+        ],
+        [
+          "P05"
+        ]
+      ],
+      "effect": "Deblochează al patrulea research slot dacă lipsește; +1×50% research pentru electronics. Fără pierderea sloturilor existente.",
+      "researchSlotTarget": 4,
+      "x": 34,
+      "y": 5,
+      "icon": "GFX_focus_research"
+    },
+    {
+      "code": "P07",
+      "id": "TFR_SPA_national_mobilisation_framework",
+      "name": "National Mobilisation Framework",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P03"
+        ]
+      ],
+      "effect": "Mută accesul la War Economy din Adopt the 26 Points; aplică legea numai dacă este o îmbunătățire față de cea curentă. +50 PP.",
+      "politics": {
+        "pp": 50
+      },
+      "x": 28,
+      "y": 5,
+      "icon": "GFX_goal_generic_propaganda"
+    },
+    {
+      "code": "P08",
+      "id": "TFR_SPA_organise_national_service",
+      "name": "Organise National Service",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P07"
+        ]
+      ],
+      "effect": "+5 puncte procentuale war support. Volunteer: minimum Limited Conscription; War: minimum Extensive Conscription. Nu retrogradează legi existente.",
+      "politics": {
+        "war_support_pp": 5
+      },
+      "x": 28,
+      "y": 6,
+      "icon": "GFX_goal_generic_axis_build_infantry"
+    },
+    {
+      "code": "P09",
+      "id": "TFR_SPA_the_postwar_settlement",
+      "name": "The Postwar Settlement",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P05"
+        ],
+        [
+          "P03"
+        ]
+      ],
+      "effect": "Avansează recuperarea la cel puțin treapta 3, fără regres; +5 puncte procentuale stabilitate.",
+      "politics": {
+        "stability_pp": 5
+      },
+      "recovery": "advance_to_at_least_3",
+      "x": 31,
+      "y": 5,
+      "icon": "GFX_focus_generic_diplomatic_treaty"
+    },
+    {
+      "code": "P10",
+      "id": "TFR_SPA_national_stabilisation",
+      "name": "National Stabilisation",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P09"
+        ],
+        [
+          "P08"
+        ]
+      ],
+      "effect": "Finalizează recuperarea: elimină penalizările economice de război civil din modifier; −10% consumer goods factor suplimentar.",
+      "modifiers": {
+        "economy.consumer_goods_factor": -0.1
+      },
+      "recovery": "complete",
+      "x": 29,
+      "y": 7,
+      "icon": "GFX_goal_generic_neutrality_focus"
+    },
+    {
+      "code": "P11",
+      "id": "TFR_SPA_national_research_council",
+      "name": "National Research Council",
+      "days": 42,
+      "prerequisites": [
+        [
+          "P06"
+        ],
+        [
+          "P10"
+        ]
+      ],
+      "effect": "Deblochează al cincilea research slot dacă lipsește și +2,5% research speed.",
+      "researchSlotTarget": 5,
+      "modifiers": {
+        "economy.research_speed_factor": 0.025
+      },
+      "conditions": [
+        "Data >= 1939.1.1. Nu multiplică sloturile deja obținute prin vechile focusuri."
+      ],
+      "x": 32,
+      "y": 8,
+      "icon": "GFX_focus_research2"
+    },
+    {
+      "code": "P12",
+      "id": "TFR_SPA_a_reconstructed_spain",
+      "name": "A Reconstructed Spain",
+      "days": 35,
+      "prerequisites": [
+        [
+          "P11"
+        ]
+      ],
+      "effect": "+5% production efficiency gain, +5 puncte procentuale stabilitate și +50 PP.",
+      "modifiers": {
+        "economy.production_factory_efficiency_gain_factor": 0.05
+      },
+      "politics": {
+        "stability_pp": 5,
+        "pp": 50
+      },
+      "x": 32,
+      "y": 9,
+      "icon": "GFX_focus_spa_the_spanish_miracle"
+    },
+    {
+      "code": "E01",
+      "id": "TFR_SPA_national_economic_plan",
+      "name": "National Economic Plan",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P02"
+        ]
+      ],
+      "effect": "+5% construction speed; nucleul comun al Spanish Economy.",
+      "modifiers": {
+        "economy.production_speed_buildings_factor": 0.05
+      },
+      "x": 23,
+      "y": 4,
+      "icon": "GFX_focus_generic_central_planning"
+    },
+    {
+      "code": "E02",
+      "id": "TFR_SPA_reopen_northern_industry",
+      "name": "Reopen Northern Industry",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E01"
+        ]
+      ],
+      "effect": "+2 fabrici civile cu sloturi.",
+      "buildings": {
+        "civ": 2
+      },
+      "x": 21,
+      "y": 5,
+      "icon": "GFX_focus_ITA_northern_industry",
+      "buildingStates": [
+        {
+          "state": 790,
+          "kind": "civ",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "code": "E03",
+      "id": "TFR_SPA_restore_transport_links",
+      "name": "Restore Transport Links",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E01"
+        ]
+      ],
+      "effect": "+1 infrastructură în trei state spaniole proprii/controlate distincte, sub 5/5; 25 PP pentru fiecare plasare imposibilă.",
+      "x": 25,
+      "y": 5,
+      "icon": "GFX_goal_generic_construct_infrastructure"
+    },
+    {
+      "code": "E04",
+      "id": "TFR_SPA_hydroelectric_development",
+      "name": "Hydroelectric Development",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E03"
+        ]
+      ],
+      "effect": "+10% local resources factor în Spania.",
+      "modifiers": {
+        "economy.local_resources_factor": 0.1
+      },
+      "x": 26,
+      "y": 6,
+      "icon": "GFX_focus_generic_hydroelectric_energy"
+    },
+    {
+      "code": "E05",
+      "id": "TFR_SPA_industrial_credit_programme",
+      "name": "Industrial Credit Programme",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E02"
+        ]
+      ],
+      "effect": "1 fabrică civilă în Burgos și 1×50% research pentru construcții.",
+      "buildings": {
+        "civ": 1
+      },
+      "x": 20,
+      "y": 6,
+      "icon": "GFX_focus_generic_industry_1",
+      "buildingStates": [
+        {
+          "state": 176,
+          "kind": "civ",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "E06",
+      "id": "TFR_SPA_reopen_the_national_arsenals",
+      "name": "Reopen the National Arsenals",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E02"
+        ]
+      ],
+      "effect": "3 fabrici militare în Madrid.",
+      "buildings": {
+        "mil": 3
+      },
+      "x": 22,
+      "y": 6,
+      "icon": "GFX_goal_generic_construct_mil_factory",
+      "buildingStates": [
+        {
+          "state": 41,
+          "kind": "mil",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "E07",
+      "id": "TFR_SPA_regional_armament_workshops",
+      "name": "Regional Armament Workshops",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E06"
+        ]
+      ],
+      "effect": "1 fabrică militară în Basque Country și +2.5% eficiență maximă de producție.",
+      "buildings": {
+        "mil": 1
+      },
+      "x": 22,
+      "y": 7,
+      "icon": "GFX_focus_generic_military_industry",
+      "buildingStates": [
+        {
+          "state": 792,
+          "kind": "mil",
+          "count": 1
+        }
+      ],
+      "modifiers": {
+        "economy.production_factory_max_efficiency_factor": 0.025
+      }
+    },
+    {
+      "code": "E08",
+      "id": "TFR_SPA_national_supply_railways",
+      "name": "National Supply Railways",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E03"
+        ]
+      ],
+      "effect": "Modernizează cu un nivel două conexiuni feroviare interne pentru aprovizionare, până la nivelul 3; ținte Madrid–nord și Madrid–Mediterana. Dacă sunt deja dezvoltate, 50 PP/conexiune.",
+      "x": 24,
+      "y": 7,
+      "icon": "GFX_focus_generic_railroad"
+    },
+    {
+      "code": "E09",
+      "id": "TFR_SPA_domestic_chemical_industry",
+      "name": "Domestic Chemical Industry",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E04"
+        ]
+      ],
+      "effect": "+1 rafinărie sintetică cu slot și 1×50% research pentru synthetic resources.",
+      "buildings": {
+        "refinery": 1
+      },
+      "x": 27,
+      "y": 7,
+      "icon": "GFX_goal_generic_oil_refinery",
+      "buildingStates": [
+        {
+          "state": 166,
+          "kind": "refinery",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "E10",
+      "id": "TFR_SPA_german_machine_tools",
+      "name": "German Machine Tools",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E05"
+        ]
+      ],
+      "effect": "3 fabrici civile în Basque Country; cooperare cu Germania. Cercetarea industrială se mută la Industrial Coordination.",
+      "buildings": {
+        "civ": 3
+      },
+      "x": 20,
+      "y": 7,
+      "icon": "GFX_goal_generic_construct_civilian",
+      "buildingStates": [
+        {
+          "state": 792,
+          "kind": "civ",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "E11",
+      "id": "TFR_SPA_national_labour_productivity",
+      "name": "National Labour Productivity",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E07"
+        ]
+      ],
+      "effect": "+10% factory output; mută bonusul util din The Duty to Work.",
+      "modifiers": {
+        "economy.industrial_capacity_factory": 0.1
+      },
+      "x": 22,
+      "y": 8,
+      "icon": "GFX_goal_generic_production"
+    },
+    {
+      "code": "E12",
+      "id": "TFR_SPA_industrial_coordination",
+      "name": "Industrial Coordination",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E10"
+        ],
+        [
+          "E11"
+        ],
+        [
+          "E08"
+        ]
+      ],
+      "effect": "+2.5% eficiență maximă de producție și 1×50% research industrial.",
+      "modifiers": {
+        "economy.production_factory_max_efficiency_factor": 0.025
+      },
+      "x": 23,
+      "y": 9,
+      "icon": "GFX_focus_generic_mass_production"
+    },
+    {
+      "code": "E13",
+      "id": "TFR_SPA_civilian_development_priority",
+      "name": "Civilian Development Priority",
+      "days": 14,
+      "prerequisites": [
+        [
+          "E12"
+        ],
+        [
+          "M12"
+        ]
+      ],
+      "effect": "Alege permanent specializarea economică; +5% civilian factory construction speed. Blochează M13–M32.",
+      "exclusiveWith": [
+        "M13"
+      ],
+      "specialization": "economy",
+      "modifiers": {
+        "economy.production_speed_industrial_complex_factor": 0.05
+      },
+      "x": 26,
+      "y": 10,
+      "icon": "GFX_focus_AUS_courting_the_princess_of_industry"
+    },
+    {
+      "code": "E14",
+      "id": "TFR_SPA_public_works_programme",
+      "name": "Public Works Programme",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E13"
+        ]
+      ],
+      "effect": "production_speed_buildings_factor: 2.5%.",
+      "modifiers": {
+        "economy.production_speed_buildings_factor": 0.025
+      },
+      "x": 25,
+      "y": 11,
+      "icon": "GFX_goal_generic_construction"
+    },
+    {
+      "code": "E15",
+      "id": "TFR_SPA_metropolitan_industrial_expansion",
+      "name": "Metropolitan Industrial Expansion",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E14"
+        ]
+      ],
+      "effect": "3 fabrici civile în Madrid.",
+      "buildings": {
+        "civ": 3
+      },
+      "x": 23,
+      "y": 12,
+      "icon": "GFX_focus_generic_industry_2",
+      "buildingStates": [
+        {
+          "state": 41,
+          "kind": "civ",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "E16",
+      "id": "TFR_SPA_expand_the_industrial_towns",
+      "name": "Expand the Industrial Towns",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E15"
+        ]
+      ],
+      "effect": "1 fabrică civilă și 1 infrastructură în Ciudad Real.",
+      "buildings": {
+        "civ": 1
+      },
+      "x": 21,
+      "y": 13,
+      "icon": "GFX_focus_generic_industry_3",
+      "buildingStates": [
+        {
+          "state": 175,
+          "kind": "civ",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "code": "E17",
+      "id": "TFR_SPA_civil_engineering_institutes",
+      "name": "Civil Engineering Institutes",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E14"
+        ]
+      ],
+      "effect": "1×50% research pentru construction tech și +5% civilian factory construction speed.",
+      "modifiers": {
+        "economy.production_speed_industrial_complex_factor": 0.05
+      },
+      "x": 27,
+      "y": 12,
+      "icon": "GFX_focus_generic_university_2"
+    },
+    {
+      "code": "E18",
+      "id": "TFR_SPA_integrated_electricity_network",
+      "name": "Integrated Electricity Network",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E17"
+        ]
+      ],
+      "effect": "+10% local resources factor suplimentar și +1 infrastructură în două state distincte sub maxim; 25 PP/plasare imposibilă.",
+      "modifiers": {
+        "economy.local_resources_factor": 0.1
+      },
+      "x": 28,
+      "y": 13,
+      "icon": "GFX_focus_ARG_develop_the_electricity_sector"
+    },
+    {
+      "code": "E19",
+      "id": "TFR_SPA_mass_production_standards",
+      "name": "Mass Production Standards",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E15"
+        ]
+      ],
+      "effect": "+5% factory output.",
+      "modifiers": {
+        "economy.industrial_capacity_factory": 0.05
+      },
+      "x": 24,
+      "y": 13,
+      "icon": "GFX_focus_generic_combined_arms"
+    },
+    {
+      "code": "E20",
+      "id": "TFR_SPA_interchangeable_components",
+      "name": "Interchangeable Components",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E19"
+        ]
+      ],
+      "effect": "+5% production efficiency cap.",
+      "modifiers": {
+        "economy.production_factory_max_efficiency_factor": 0.05
+      },
+      "x": 24,
+      "y": 14,
+      "icon": "GFX_focus_HUN_expand_the_diosgyor_machinery_factory"
+    },
+    {
+      "code": "E21",
+      "id": "TFR_SPA_factory_technical_schools",
+      "name": "Factory Technical Schools",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E19"
+        ]
+      ],
+      "effect": "production_factory_efficiency_gain_factor: 7.5%.",
+      "modifiers": {
+        "economy.production_factory_efficiency_gain_factor": 0.075
+      },
+      "x": 26,
+      "y": 14,
+      "icon": "GFX_focus_generic_university_3"
+    },
+    {
+      "code": "E22",
+      "id": "TFR_SPA_flexible_production_lines",
+      "name": "Flexible Production Lines",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E21"
+        ]
+      ],
+      "effect": "+10% production efficiency retention, prin line_change_production_efficiency_factor.",
+      "modifiers": {
+        "economy.line_change_production_efficiency_factor": 0.1
+      },
+      "x": 27,
+      "y": 15,
+      "icon": "GFX_focus_DEN_no_regulations"
+    },
+    {
+      "code": "E23",
+      "id": "TFR_SPA_national_armament_contracts",
+      "name": "National Armament Contracts",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E19"
+        ]
+      ],
+      "effect": "+2 fabrici militare cu sloturi.",
+      "buildings": {
+        "mil": 2
+      },
+      "x": 22,
+      "y": 14,
+      "icon": "GFX_goal_generic_construct_military",
+      "buildingStates": [
+        {
+          "state": 165,
+          "kind": "mil",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "code": "E24",
+      "id": "TFR_SPA_industrial_subcontracting",
+      "name": "Industrial Subcontracting",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E23"
+        ]
+      ],
+      "effect": "+5% military factory construction speed și −10% cost de conversie civil→militar.",
+      "modifiers": {
+        "economy.production_speed_arms_factory_factor": 0.05,
+        "economy.conversion_cost_civ_to_mil_factor": -0.1
+      },
+      "x": 21,
+      "y": 15,
+      "icon": "GFX_goal_generic_production2"
+    },
+    {
+      "code": "E25",
+      "id": "TFR_SPA_spanish_industrial_research",
+      "name": "Spanish Industrial Research",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E17"
+        ]
+      ],
+      "effect": "research_speed_factor: 2.5%.",
+      "modifiers": {
+        "economy.research_speed_factor": 0.025
+      },
+      "x": 28,
+      "y": 14,
+      "icon": "GFX_focus_CZE_military_research_institute"
+    },
+    {
+      "code": "E26",
+      "id": "TFR_SPA_advanced_machine_tooling",
+      "name": "Advanced Machine Tooling",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E20"
+        ],
+        [
+          "E22"
+        ]
+      ],
+      "effect": "industrial_capacity_factory: 2.5%.",
+      "modifiers": {
+        "economy.industrial_capacity_factory": 0.025
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 25,
+      "y": 16,
+      "icon": "GFX_focus_generic_modernize_industry"
+    },
+    {
+      "code": "E27",
+      "id": "TFR_SPA_domestic_materials_programme",
+      "name": "Domestic Materials Programme",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E18"
+        ]
+      ],
+      "effect": "+12 steel distribuit în două state spaniole proprii/controlate cu industrie și 1×50% research pentru excavation. Resursele se adaugă o singură dată.",
+      "x": 29,
+      "y": 15,
+      "icon": "GFX_focus_generic_mining_industry"
+    },
+    {
+      "code": "E28",
+      "id": "TFR_SPA_production_scheduling",
+      "name": "Production Scheduling",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E26"
+        ]
+      ],
+      "effect": "production_factory_efficiency_gain_factor: 2.5%.",
+      "modifiers": {
+        "economy.production_factory_efficiency_gain_factor": 0.025
+      },
+      "x": 25,
+      "y": 17,
+      "icon": "GFX_goal_generic_construction2"
+    },
+    {
+      "code": "E29",
+      "id": "TFR_SPA_industrial_conversion_offices",
+      "name": "Industrial Conversion Offices",
+      "days": 28,
+      "prerequisites": [
+        [
+          "E24"
+        ]
+      ],
+      "effect": "−5% cost conversie civil→militar suplimentar; +5% military factory construction speed.",
+      "modifiers": {
+        "economy.conversion_cost_civ_to_mil_factor": -0.05,
+        "economy.production_speed_arms_factory_factor": 0.05
+      },
+      "x": 21,
+      "y": 16,
+      "icon": "GFX_goal_generic_build_tank"
+    },
+    {
+      "code": "E30",
+      "id": "TFR_SPA_war_industry_expansion",
+      "name": "War Industry Expansion",
+      "days": 42,
+      "prerequisites": [
+        [
+          "E29"
+        ],
+        [
+          "E26"
+        ]
+      ],
+      "effect": "+2 fabrici militare cu sloturi.",
+      "buildings": {
+        "mil": 2
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 23,
+      "y": 17,
+      "icon": "GFX_goal_generic_construct_mil_factory",
+      "buildingStates": [
+        {
+          "state": 169,
+          "kind": "mil",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "code": "E31",
+      "id": "TFR_SPA_national_industrial_network",
+      "name": "National Industrial Network",
+      "days": 35,
+      "prerequisites": [
+        [
+          "E25"
+        ],
+        [
+          "E27"
+        ]
+      ],
+      "effect": "production_speed_buildings_factor: 2.5%. Fabricile și sloturile existente sunt păstrate.",
+      "modifiers": {
+        "economy.production_speed_buildings_factor": 0.025
+      },
+      "buildings": {
+        "civ": 2
+      },
+      "x": 28,
+      "y": 17,
+      "icon": "GFX_focus_generic_industry_investment",
+      "buildingStates": [
+        {
+          "state": 167,
+          "kind": "civ",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "code": "E32",
+      "id": "TFR_SPA_an_iberian_economic_powerhouse",
+      "name": "An Iberian Economic Powerhouse",
+      "days": 42,
+      "prerequisites": [
+        [
+          "E30"
+        ],
+        [
+          "E31"
+        ],
+        [
+          "E28"
+        ]
+      ],
+      "effect": "industrial_capacity_factory: 2.5%.",
+      "modifiers": {
+        "economy.industrial_capacity_factory": 0.025
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 25,
+      "y": 18,
+      "icon": "GFX_focus_GER_wirtschaftswunder"
+    },
+    {
+      "code": "M01",
+      "id": "TFR_SPA_establish_a_unified_command",
+      "name": "Establish a Unified Command",
+      "days": 28,
+      "prerequisites": [
+        [
+          "P04"
+        ]
+      ],
+      "effect": "+5% planning speed; nucleul comun al Spanish Armed Forces.",
+      "modifiers": {
+        "army.planning_speed": 0.05
+      },
+      "x": 40,
+      "y": 4,
+      "icon": "GFX_focus_NORDIC_mon_selector_army"
+    },
+    {
+      "code": "M02",
+      "id": "TFR_SPA_officer_training_programme",
+      "name": "Officer Training Programme",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M01"
+        ]
+      ],
+      "effect": "+5% army recovery rate.",
+      "modifiers": {
+        "army.army_morale_factor": 0.05
+      },
+      "x": 38,
+      "y": 5,
+      "icon": "GFX_focus_generic_military_academy"
+    },
+    {
+      "code": "M03",
+      "id": "TFR_SPA_infantry_equipment_modernisation",
+      "name": "Infantry Equipment Modernisation",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M01"
+        ]
+      ],
+      "effect": "1×50% research pentru infantry weapons și 1×50% pentru support tech.",
+      "x": 42,
+      "y": 5,
+      "icon": "GFX_goal_generic_small_arms"
+    },
+    {
+      "code": "M04",
+      "id": "TFR_SPA_artillery_modernisation",
+      "name": "Artillery Modernisation",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M03"
+        ]
+      ],
+      "effect": "1×50% research pentru artillery și +5% artillery defence.",
+      "modifiers": {
+        "army.army_artillery_defence_factor": 0.05
+      },
+      "x": 42,
+      "y": 6,
+      "icon": "GFX_goal_generic_army_artillery2"
+    },
+    {
+      "code": "M05",
+      "id": "TFR_SPA_army_supply_service",
+      "name": "Army Supply Service",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M02"
+        ]
+      ],
+      "effect": "−5% supply consumption.",
+      "modifiers": {
+        "army.supply_consumption_factor": -0.05
+      },
+      "x": 36,
+      "y": 6,
+      "icon": "GFX_focus_CHI_combined_logistics_command"
+    },
+    {
+      "code": "M06",
+      "id": "TFR_SPA_army_motor_transport",
+      "name": "Army Motor Transport",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M05"
+        ]
+      ],
+      "effect": "1×50% research pentru motorised/mechanised și +5% motorized defence.",
+      "modifiers": {
+        "army.motorized_defence_factor": 0.05
+      },
+      "x": 36,
+      "y": 7,
+      "icon": "GFX_goal_generic_army_motorized"
+    },
+    {
+      "code": "M07",
+      "id": "TFR_SPA_field_communications",
+      "name": "Field Communications",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M02"
+        ]
+      ],
+      "effect": "+1 punct procentual reinforce rate.",
+      "modifiers": {
+        "army.land_reinforce_rate": 0.01
+      },
+      "x": 39,
+      "y": 6,
+      "icon": "GFX_focus_generic_radio_communication"
+    },
+    {
+      "code": "M08",
+      "id": "TFR_SPA_mobile_maintenance_workshops",
+      "name": "Mobile Maintenance Workshops",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M06"
+        ]
+      ],
+      "effect": "−5% army fuel consumption.",
+      "modifiers": {
+        "army.army_fuel_consumption_factor": -0.05
+      },
+      "x": 36,
+      "y": 8,
+      "icon": "GFX_focus_generic_truck"
+    },
+    {
+      "code": "M09",
+      "id": "TFR_SPA_mountain_warfare_schools",
+      "name": "Mountain Warfare Schools",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M03"
+        ]
+      ],
+      "effect": "1×50% research pentru mountaineers; +10% special forces cap, relativ la plafon.",
+      "modifiers": {
+        "army.special_forces_cap": 0.1
+      },
+      "x": 44,
+      "y": 6,
+      "icon": "GFX_focus_SMB_a_land_of_mountains"
+    },
+    {
+      "code": "M10",
+      "id": "TFR_SPA_amphibious_warfare_school",
+      "name": "Amphibious Warfare School",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M09"
+        ]
+      ],
+      "effect": "1×50% research pentru marines; +2,5% special forces attack.",
+      "modifiers": {
+        "army.special_forces_attack_factor": 0.025
+      },
+      "x": 44,
+      "y": 7,
+      "icon": "GFX_focus_generic_naval_invasion"
+    },
+    {
+      "code": "M11",
+      "id": "TFR_SPA_general_staff_exercises",
+      "name": "General Staff Exercises",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M04"
+        ],
+        [
+          "M07"
+        ]
+      ],
+      "effect": "+5% maximum planning.",
+      "modifiers": {
+        "army.max_planning_factor": 0.05
+      },
+      "x": 40,
+      "y": 7,
+      "icon": "GFX_goal_generic_army_doctrines"
+    },
+    {
+      "code": "M12",
+      "id": "TFR_SPA_modern_army_standards",
+      "name": "Modern Army Standards",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M08"
+        ],
+        [
+          "M11"
+        ]
+      ],
+      "effect": "+5% army organization.",
+      "modifiers": {
+        "army.army_org_factor": 0.05
+      },
+      "x": 38,
+      "y": 9,
+      "icon": "GFX_goal_generic_special_forces"
+    },
+    {
+      "code": "M13",
+      "id": "TFR_SPA_military_development_priority",
+      "name": "Military Development Priority",
+      "days": 14,
+      "prerequisites": [
+        [
+          "E12"
+        ],
+        [
+          "M12"
+        ]
+      ],
+      "effect": "Alege permanent specializarea militară; +5% planning speed. Blochează E13–E32.",
+      "exclusiveWith": [
+        "E13"
+      ],
+      "specialization": "military",
+      "modifiers": {
+        "army.planning_speed": 0.05
+      },
+      "x": 32,
+      "y": 10,
+      "icon": "GFX_goal_generic_major_war"
+    },
+    {
+      "code": "M14",
+      "id": "TFR_SPA_the_staff_academy",
+      "name": "The Staff Academy",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M13"
+        ]
+      ],
+      "effect": "army_org_factor: 2.5%.",
+      "modifiers": {
+        "army.army_org_factor": 0.025
+      },
+      "x": 37,
+      "y": 11,
+      "icon": "GFX_focus_chi_whampoa_military_academy"
+    },
+    {
+      "code": "M15",
+      "id": "TFR_SPA_professional_nco_corps",
+      "name": "Professional NCO Corps",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M14"
+        ]
+      ],
+      "effect": "army_morale_factor: 2.5%.",
+      "modifiers": {
+        "army.army_morale_factor": 0.025
+      },
+      "x": 33,
+      "y": 12,
+      "icon": "GFX_focus_FIN_strengthen_military_administration"
+    },
+    {
+      "code": "M16",
+      "id": "TFR_SPA_infantry_fire_coordination",
+      "name": "Infantry Fire Coordination",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M14"
+        ]
+      ],
+      "effect": "+5% infantry attack.",
+      "modifiers": {
+        "army.army_infantry_attack_factor": 0.05
+      },
+      "x": 38,
+      "y": 12,
+      "icon": "GFX_focus_generic_anti_tank_guns"
+    },
+    {
+      "code": "M17",
+      "id": "TFR_SPA_artillery_liaison_officers",
+      "name": "Artillery Liaison Officers",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M15"
+        ]
+      ],
+      "effect": "+5% artillery attack.",
+      "modifiers": {
+        "army.army_artillery_attack_factor": 0.05
+      },
+      "x": 35,
+      "y": 13,
+      "icon": "GFX_goal_generic_army_artillery"
+    },
+    {
+      "code": "M18",
+      "id": "TFR_SPA_assault_engineering",
+      "name": "Assault Engineering",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M16"
+        ]
+      ],
+      "effect": "+5% special forces attack și 1×50% research pentru support tech.",
+      "modifiers": {
+        "army.special_forces_attack_factor": 0.05
+      },
+      "x": 37,
+      "y": 13,
+      "icon": "GFX_focus_SMB_mountain_guns"
+    },
+    {
+      "code": "M19",
+      "id": "TFR_SPA_armoured_formations",
+      "name": "Armoured Formations",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M14"
+        ]
+      ],
+      "effect": "+5% armour attack și 1×50% research pentru tank hulls.",
+      "modifiers": {
+        "army.army_armor_attack_factor": 0.05
+      },
+      "x": 43,
+      "y": 12,
+      "icon": "GFX_focus_generic_tank_production"
+    },
+    {
+      "code": "M20",
+      "id": "TFR_SPA_mobile_repair_columns",
+      "name": "Mobile Repair Columns",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M19"
+        ]
+      ],
+      "effect": "−5% army fuel consumption suplimentar și +5% armour speed.",
+      "modifiers": {
+        "army.army_fuel_consumption_factor": -0.05,
+        "army.army_armor_speed_factor": 0.05
+      },
+      "x": 43,
+      "y": 13,
+      "icon": "GFX_focus_generic_tank_assembly"
+    },
+    {
+      "code": "M21",
+      "id": "TFR_SPA_motorised_combat_groups",
+      "name": "Motorised Combat Groups",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M19"
+        ]
+      ],
+      "effect": "+5% motorized attack și +5% mechanized attack.",
+      "modifiers": {
+        "army.motorized_attack_factor": 0.05,
+        "army.mechanized_attack_factor": 0.05
+      },
+      "x": 45,
+      "y": 13,
+      "icon": "GFX_focus_generic_combined_arms"
+    },
+    {
+      "code": "M22",
+      "id": "TFR_SPA_deep_supply_depots",
+      "name": "Deep Supply Depots",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M15"
+        ]
+      ],
+      "effect": "−5% supply consumption suplimentar.",
+      "modifiers": {
+        "army.supply_consumption_factor": -0.05
+      },
+      "x": 31,
+      "y": 13,
+      "icon": "GFX_goal_generic_position_armies"
+    },
+    {
+      "code": "M23",
+      "id": "TFR_SPA_integrated_signal_companies",
+      "name": "Integrated Signal Companies",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M15"
+        ]
+      ],
+      "effect": "+1 punct procentual reinforce rate suplimentar.",
+      "modifiers": {
+        "army.land_reinforce_rate": 0.01
+      },
+      "x": 33,
+      "y": 13,
+      "icon": "GFX_goal_generic_radar"
+    },
+    {
+      "code": "M24",
+      "id": "TFR_SPA_operational_planning",
+      "name": "Operational Planning",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M16"
+        ]
+      ],
+      "effect": "+5% maximum planning.",
+      "modifiers": {
+        "army.max_planning_factor": 0.05
+      },
+      "x": 39,
+      "y": 13,
+      "icon": "GFX_goal_generic_military_sphere"
+    },
+    {
+      "code": "M25",
+      "id": "TFR_SPA_special_forces_command",
+      "name": "Special Forces Command",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M18"
+        ]
+      ],
+      "effect": "special_forces_cap: 5.0%; special_forces_defence_factor: 2.5%.",
+      "modifiers": {
+        "army.special_forces_cap": 0.05,
+        "army.special_forces_defence_factor": 0.025
+      },
+      "x": 37,
+      "y": 14,
+      "icon": "GFX_focus_generic_naval_discipline"
+    },
+    {
+      "code": "M26",
+      "id": "TFR_SPA_rapid_force_concentration",
+      "name": "Rapid Force Concentration",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M21"
+        ]
+      ],
+      "effect": "−10% organization loss while moving.",
+      "modifiers": {
+        "army.org_loss_when_moving": -0.1
+      },
+      "x": 45,
+      "y": 14,
+      "icon": "GFX_goal_generic_occupy_states_ongoing_war"
+    },
+    {
+      "code": "M27",
+      "id": "TFR_SPA_modern_fire_support",
+      "name": "Modern Fire Support",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M17"
+        ]
+      ],
+      "effect": "army_artillery_attack_factor: 2.5%; army_artillery_defence_factor: 2.5%.",
+      "modifiers": {
+        "army.army_artillery_attack_factor": 0.025,
+        "army.army_artillery_defence_factor": 0.025
+      },
+      "x": 35,
+      "y": 14,
+      "icon": "GFX_focus_SWE_let_fly_all_guns"
+    },
+    {
+      "code": "M28",
+      "id": "TFR_SPA_unified_operational_doctrine",
+      "name": "Unified Operational Doctrine",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M23"
+        ],
+        [
+          "M24"
+        ]
+      ],
+      "effect": "army_morale_factor: 2.5%; planning_speed: 5.0%.",
+      "modifiers": {
+        "army.army_morale_factor": 0.025,
+        "army.planning_speed": 0.05
+      },
+      "x": 35,
+      "y": 15,
+      "icon": "GFX_focus_generic_military_mission"
+    },
+    {
+      "code": "M29",
+      "id": "TFR_SPA_armoured_breakthrough",
+      "name": "Armoured Breakthrough",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M20"
+        ],
+        [
+          "M26"
+        ]
+      ],
+      "effect": "army_armor_attack_factor: 2.5%; breakthrough_factor: 2.5%.",
+      "modifiers": {
+        "army.army_armor_attack_factor": 0.025,
+        "army.breakthrough_factor": 0.025
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 43,
+      "y": 15,
+      "icon": "GFX_goal_continuous_armor_production"
+    },
+    {
+      "code": "M30",
+      "id": "TFR_SPA_expanded_officer_corps",
+      "name": "Expanded Officer Corps",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M28"
+        ]
+      ],
+      "effect": "army_org_factor: 2.5%.",
+      "modifiers": {
+        "army.army_org_factor": 0.025
+      },
+      "x": 35,
+      "y": 16,
+      "icon": "GFX_goal_generic_allies_build_infantry"
+    },
+    {
+      "code": "M31",
+      "id": "TFR_SPA_a_war_of_manoeuvre",
+      "name": "A War of Manoeuvre",
+      "days": 35,
+      "prerequisites": [
+        [
+          "M29"
+        ]
+      ],
+      "effect": "breakthrough_factor: 2.5%; org_loss_when_moving: -5.0%.",
+      "modifiers": {
+        "army.breakthrough_factor": 0.025,
+        "army.org_loss_when_moving": -0.05
+      },
+      "x": 42,
+      "y": 16,
+      "icon": "GFX_goal_generic_army_tanks"
+    },
+    {
+      "code": "M32",
+      "id": "TFR_SPA_a_professional_spanish_army",
+      "name": "A Professional Spanish Army",
+      "days": 42,
+      "prerequisites": [
+        [
+          "M30"
+        ],
+        [
+          "M31"
+        ],
+        [
+          "M25"
+        ]
+      ],
+      "effect": "army_attack_factor: 2.5%; army_defence_factor: 2.5%.",
+      "modifiers": {
+        "army.army_attack_factor": 0.025,
+        "army.army_defence_factor": 0.025
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 38,
+      "y": 17,
+      "icon": "GFX_goal_generic_demand_territory"
+    },
+    {
+      "code": "A01",
+      "id": "TFR_SPA_establish_the_air_command",
+      "name": "Reorganise the Air Command",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M01"
+        ]
+      ],
+      "effect": "Comandament aerian: +5% eficiență a misiunilor.",
+      "modifiers": {
+        "air.air_mission_efficiency": 0.05
+      },
+      "buildings": {},
+      "x": 48,
+      "y": 5,
+      "icon": "GFX_focus_generic_air_bases"
+    },
+    {
+      "code": "A02",
+      "id": "TFR_SPA_reopen_aeronautical_works",
+      "name": "Rebuild Aeronautical Industry",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A01"
+        ]
+      ],
+      "effect": "Reconstruirea industriei aeronautice: 3 fabrici militare, cu sloturi.",
+      "buildings": {
+        "mil": 3
+      },
+      "modifiers": {},
+      "x": 47,
+      "y": 6,
+      "icon": "GFX_focus_generic_aircraft_production",
+      "buildingStates": [
+        {
+          "state": 165,
+          "kind": "mil",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "A03",
+      "id": "TFR_SPA_national_aircraft_design_bureaus",
+      "name": "Lessons of the Condor Legion",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A01"
+        ]
+      ],
+      "effect": "Lecții operaționale: +5% agilitate și +5% sprijin aerian apropiat; cercetare pentru avioane ușoare.",
+      "modifiers": {
+        "air.air_agility_factor": 0.05,
+        "air.air_cas_present_factor": 0.05
+      },
+      "buildings": {},
+      "x": 49,
+      "y": 6,
+      "icon": "GFX_focus_usa_escort_fighters"
+    },
+    {
+      "code": "A04",
+      "id": "TFR_SPA_pilot_training_schools",
+      "name": "Pilot Training and Maintenance",
+      "days": 21,
+      "prerequisites": [
+        [
+          "A02"
+        ]
+      ],
+      "effect": "−10% probabilitate de accidente aeriene.",
+      "modifiers": {
+        "air.air_accidents_factor": -0.1
+      },
+      "x": 47,
+      "y": 7,
+      "icon": "GFX_focus_generic_military_academy"
+    },
+    {
+      "code": "A05",
+      "id": "TFR_SPA_forward_airfield_network",
+      "name": "Forward Airfield Network",
+      "days": 28,
+      "prerequisites": [
+        [
+          "A03"
+        ]
+      ],
+      "effect": "−5% consum de combustibil aerian; câte 2 niveluri de aerodrom în Valencia și Sevilla, până la plafonul local.",
+      "modifiers": {
+        "air.air_fuel_consumption_factor": -0.05
+      },
+      "x": 49,
+      "y": 7,
+      "icon": "GFX_goal_generic_air_production"
+    },
+    {
+      "code": "N01",
+      "id": "TFR_SPA_establish_the_naval_staff",
+      "name": "Establish the Naval Staff",
+      "days": 28,
+      "prerequisites": [
+        [
+          "M01"
+        ]
+      ],
+      "effect": "+5% naval detection.",
+      "modifiers": {
+        "navy.naval_detection": 0.05
+      },
+      "x": 56,
+      "y": 5,
+      "icon": "GFX_goal_generic_navy_doctrines_tactics"
+    },
+    {
+      "code": "N02",
+      "id": "TFR_SPA_reopen_the_ferrol_shipyards",
+      "name": "Reopen the Ferrol Shipyards",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N01"
+        ]
+      ],
+      "effect": "+3 șantiere cu sloturi în state spaniole de coastă; mută industria din vechiul Naval Infrastructure.",
+      "buildings": {
+        "dock": 3
+      },
+      "x": 56,
+      "y": 6,
+      "icon": "GFX_goal_generic_construct_naval_dockyard",
+      "buildingStates": [
+        {
+          "state": 171,
+          "kind": "dock",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "N03",
+      "id": "TFR_SPA_shipyard_coordination",
+      "name": "Shipyard Coordination",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N02"
+        ]
+      ],
+      "effect": "+5% dockyard output, centralizat în Spanish Economy.",
+      "modifiers": {
+        "economy.industrial_capacity_dockyard": 0.05
+      },
+      "x": 54,
+      "y": 7,
+      "icon": "GFX_goal_continuous_naval_production"
+    },
+    {
+      "code": "N04",
+      "id": "TFR_SPA_naval_bases_programme",
+      "name": "Naval Bases Programme",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N02"
+        ]
+      ],
+      "effect": "Câte +2 niveluri de naval base la Ferrol, Cadiz și Cartagena, până la plafon; 25 PP/plasare complet imposibilă.",
+      "x": 59,
+      "y": 7,
+      "icon": "GFX_focus_SOV_reinforce_western_naval_bases"
+    },
+    {
+      "code": "N05",
+      "id": "TFR_SPA_rebuild_the_merchant_marine",
+      "name": "Rebuild the Merchant Marine",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N03"
+        ]
+      ],
+      "effect": "+40 convoaie, o singură dată.",
+      "x": 52,
+      "y": 8,
+      "icon": "GFX_goal_generic_navy_cruiser"
+    },
+    {
+      "code": "N06",
+      "id": "TFR_SPA_convoy_escort_procedures",
+      "name": "Convoy Escort Procedures",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N05"
+        ]
+      ],
+      "effect": "+10% convoy escort efficiency.",
+      "modifiers": {
+        "navy.convoy_escort_efficiency": 0.1
+      },
+      "x": 52,
+      "y": 9,
+      "icon": "GFX_focus_ger_accept_british_naval_dominance"
+    },
+    {
+      "code": "N07",
+      "id": "TFR_SPA_anti_submarine_patrols",
+      "name": "Anti Submarine Patrols",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N06"
+        ]
+      ],
+      "effect": "+5% naval detection suplimentar.",
+      "modifiers": {
+        "navy.naval_detection": 0.05
+      },
+      "x": 52,
+      "y": 10,
+      "icon": "GFX_focus_PHI_philippine_naval_patrol"
+    },
+    {
+      "code": "N08",
+      "id": "TFR_SPA_coastal_air_coordination",
+      "name": "Coastal Air Coordination",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N04"
+        ]
+      ],
+      "effect": "+5% spotting chance.",
+      "modifiers": {
+        "navy.spotting_chance": 0.05
+      },
+      "x": 61,
+      "y": 8,
+      "icon": "GFX_goal_generic_air_naval_bomber"
+    },
+    {
+      "code": "N09",
+      "id": "TFR_SPA_the_destroyer_programme",
+      "name": "The Destroyer Programme",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N03"
+        ]
+      ],
+      "effect": "1×50% research pentru hull-uri de distrugătoare și +5% screening efficiency.",
+      "modifiers": {
+        "navy.screening_efficiency": 0.05
+      },
+      "x": 55,
+      "y": 8,
+      "icon": "GFX_focus_generic_destroyer"
+    },
+    {
+      "code": "N10",
+      "id": "TFR_SPA_the_cruiser_programme",
+      "name": "The Cruiser Programme",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N09"
+        ]
+      ],
+      "effect": "1×50% research pentru hull-uri de crucișătoare și +5% naval coordination.",
+      "modifiers": {
+        "navy.naval_coordination": 0.05
+      },
+      "x": 55,
+      "y": 9,
+      "icon": "GFX_focus_generic_cruiser2"
+    },
+    {
+      "code": "N11",
+      "id": "TFR_SPA_fleet_repair_service",
+      "name": "Fleet Repair Service",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N04"
+        ]
+      ],
+      "effect": "+10% naval repair speed.",
+      "modifiers": {
+        "navy.repair_speed_factor": 0.1
+      },
+      "x": 59,
+      "y": 8,
+      "icon": "GFX_focus_generic_navy_research_bonus"
+    },
+    {
+      "code": "N12",
+      "id": "TFR_SPA_expand_the_naval_arsenals",
+      "name": "Expand the Naval Arsenals",
+      "days": 42,
+      "prerequisites": [
+        [
+          "N10"
+        ],
+        [
+          "N11"
+        ],
+        [
+          "N07"
+        ]
+      ],
+      "effect": "+6 șantiere cu sloturi, în două state spaniole de coastă. Împreună cu N02 păstrează cele 9 șantiere ale vechii ramuri.",
+      "buildings": {
+        "dock": 6
+      },
+      "x": 55,
+      "y": 11,
+      "icon": "GFX_focus_JAP_naval_armaments_program",
+      "buildingStates": [
+        {
+          "state": 790,
+          "kind": "dock",
+          "count": 3
+        },
+        {
+          "state": 169,
+          "kind": "dock",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "code": "N13",
+      "id": "TFR_SPA_submarine_design_bureau",
+      "name": "Submarine Design Bureau",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N03"
+        ]
+      ],
+      "effect": "1×50% research pentru submarine hulls și +5% convoy raiding efficiency.",
+      "modifiers": {
+        "navy.convoy_raiding_efficiency_factor": 0.05
+      },
+      "x": 57,
+      "y": 8,
+      "icon": "GFX_goal_generic_navy_submarine"
+    },
+    {
+      "code": "N14",
+      "id": "TFR_SPA_silent_patrol_tactics",
+      "name": "Silent Patrol Tactics",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N13"
+        ]
+      ],
+      "effect": "+5% naval torpedo hit chance.",
+      "modifiers": {
+        "navy.naval_torpedo_hit_chance_factor": 0.05
+      },
+      "x": 57,
+      "y": 9,
+      "icon": "GFX_focus_generic_torpedo_production"
+    },
+    {
+      "code": "N15",
+      "id": "TFR_SPA_atlantic_operations",
+      "name": "Atlantic Operations",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N14"
+        ]
+      ],
+      "effect": "+10% navy max range factor.",
+      "modifiers": {
+        "navy.navy_max_range_factor": 0.1
+      },
+      "x": 58,
+      "y": 10,
+      "icon": "GFX_focus_DEN_naval_power_projection"
+    },
+    {
+      "code": "N16",
+      "id": "TFR_SPA_escort_fleet_doctrine",
+      "name": "Escort Fleet Doctrine",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N12"
+        ]
+      ],
+      "effect": "convoy_escort_efficiency: 5.0%.",
+      "exclusiveWith": [
+        "N17"
+      ],
+      "navalDoctrine": "escort",
+      "modifiers": {
+        "navy.convoy_escort_efficiency": 0.05
+      },
+      "x": 53,
+      "y": 12,
+      "icon": "GFX_focus_JAP_balanced_naval_approach"
+    },
+    {
+      "code": "N17",
+      "id": "TFR_SPA_surface_fleet_doctrine",
+      "name": "Surface Fleet Doctrine",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N12"
+        ]
+      ],
+      "effect": "naval_hit_chance: 2.5%.",
+      "exclusiveWith": [
+        "N16"
+      ],
+      "navalDoctrine": "surface",
+      "modifiers": {
+        "navy.naval_hit_chance": 0.025
+      },
+      "x": 57,
+      "y": 12,
+      "icon": "GFX_goal_generic_navy_battleship"
+    },
+    {
+      "code": "N18",
+      "id": "TFR_SPA_integrated_naval_logistics",
+      "name": "Integrated Naval Logistics",
+      "days": 28,
+      "prerequisites": [
+        [
+          "N15"
+        ]
+      ],
+      "effect": "navy_fuel_consumption_factor: -7.5%; repair_speed_factor: 2.5%.",
+      "modifiers": {
+        "navy.navy_fuel_consumption_factor": -0.075,
+        "navy.repair_speed_factor": 0.025
+      },
+      "x": 59,
+      "y": 12,
+      "icon": "GFX_focus_CHI_northern_naval_logistics"
+    },
+    {
+      "code": "N19",
+      "id": "TFR_SPA_fleet_cooperation",
+      "name": "Fleet Cooperation",
+      "days": 35,
+      "prerequisites": [
+        [
+          "N16",
+          "N17"
+        ]
+      ],
+      "effect": "navy_anti_air_attack_factor: 5.0%.",
+      "modifiers": {
+        "navy.navy_anti_air_attack_factor": 0.05
+      },
+      "x": 55,
+      "y": 13,
+      "icon": "GFX_focus_GER_japanese_naval_cooperation"
+    },
+    {
+      "code": "N20",
+      "id": "TFR_SPA_an_iberian_naval_power",
+      "name": "An Iberian Naval Power",
+      "days": 42,
+      "prerequisites": [
+        [
+          "N18"
+        ],
+        [
+          "N19"
+        ]
+      ],
+      "effect": "industrial_capacity_dockyard: 2.5%.",
+      "modifiers": {
+        "economy.industrial_capacity_dockyard": 0.025
+      },
+      "conditions": [
+        "Data >= 1940.1.1."
+      ],
+      "x": 57,
+      "y": 14,
+      "icon": "GFX_focus_SMB_reescalate_the_naval_arms_race"
+    }
+  ],
+  "assumptions": [
+    "115 este numărul total implementat, incluzând focusurile mutual exclusive; pe un parcurs complet reușit sunt accesibile 88 focusuri Volunteer sau 90 War, înainte de alte condiții dinamice.",
+    "Specializarea economică/militară este independentă de modul Volunteer/War. E01–E12 și M01–M12 rămân comune; E13–E32 și M13–M32 sunt exclusive permanent.",
+    "Accesul de bază este la începutul părții jucabile naționaliste după războiul civil. Schema nu rescrie și nu reactivează ramurile războiului civil.",
+    "Toate valorile din tabele reprezintă bugetul final al părții refăcute: bonusurile vechi migrate nu se adaugă încă o dată peste ele.",
+    "Resource rights și infrastructura 5/5 sunt efecte ale acordului din 1939, nu avantaje acordate în 1936.",
+    "Industria transferată se scoate din NPR. Nu se adaugă o copie peste fabricile portugheze și nu se continuă gratuit spawnurile NPR după transfer.",
+    "Reper NPR la 1 ianuarie 1939: 15 fabrici civile, 5 militare, 10 șantiere. La data reală a transferului se citește industria efectivă, care poate diferi.",
+    "War Spain primește bonusurile condiționate numai pentru războiul principal al Axei cu o mare putere adversă. Participarea exclusivă împotriva Portugaliei nu califică.",
+    "Fabricile fizice D12 rămân după acordarea unică; procentele D12/D13 se dezactivează dacă nu mai este îndeplinită condiția participării la războiul Axei.",
+    "Nu există XP army/navy/air, multiplicatori de acumulare XP, creșteri de capacitate de voluntari, cercetare pentru mine sau module navale eliminate.",
+    "Consumer goods factor −15% înseamnă modificator relativ −0.15, nu minus 15 puncte procentuale din fabricile rezervate bunurilor de consum.",
+    "Special forces cap este relativ; +20% nu înseamnă +20 batalioane. Ratele reinforce sunt exprimate explicit în puncte procentuale.",
+    "Research slots cresc la pragurile 4 și 5, fără dublarea sloturilor deja existente; bonusurile suplimentare păstrează utilitatea focusurilor dacă pragul este deja atins.",
+    "Industry/army modifiers se instalează și se inițializează o singură dată. Atașarea unui modifier nu resetează variabile deja modificate de alte focusuri.",
+    "Spanish Economy centralizează toate procentele economice, inclusiv dockyard output. Spanish Armed Forces, Spanish Air Force și Spanish Navy centralizează celelalte efecte permanente.",
+    "Intrarea în Volunteer este blocată dacă Spania este deja membru al unei facțiuni sau angajată într-un război extern; războiul civil este tratat separat.",
+    "Volunteer blochează inițierea/acceptarea participării la războaie externe și aderarea în facțiuni; apărarea la un atac rămâne normală. Un atac nu transformă automat țara în War Spain.",
+    "Beneficiile naționale utile condiționate acum de Axă sunt migrate. Nu se presupune că un flag poate forța accesul la mecanicile native joint focus ale facțiunii pentru o Spanie din afara ei.",
+    "Activezi D01 sau D02, E13 sau M13 și N16 sau N17; nicio resetare, bypass ori schimbare de guvern nu acordă ambele alternative.",
+    "Valorile sunt o propunere de echilibrare pentru o campanie nouă, nu rezultate validate într-un joc. Compatibilitatea salvărilor existente se verifică separat."
+  ],
+  "recovery": [
+    {
+      "stage": "1 — recuperare inițială",
+      "factory_output": -0.2,
+      "dockyard_output": -0.2,
+      "construction": -0.1,
+      "consumer_goods_factor": 0.2
+    },
+    {
+      "stage": "2",
+      "factory_output": -0.14,
+      "dockyard_output": -0.14,
+      "construction": -0.07,
+      "consumer_goods_factor": 0.15
+    },
+    {
+      "stage": "3",
+      "factory_output": -0.07,
+      "dockyard_output": -0.07,
+      "construction": -0.04,
+      "consumer_goods_factor": 0.1
+    },
+    {
+      "stage": "finalizată",
+      "factory_output": 0,
+      "dockyard_output": 0,
+      "construction": 0,
+      "consumer_goods_factor": 0
+    }
+  ],
+  "sourceFiles": [
+    "common/national_focus/spain.txt",
+    "common/ideas/spain_nationalist.txt",
+    "common/scripted_effects/TFR_fake_industry_growth.txt",
+    "common/on_actions/00_factory_spawner.txt",
+    "common/on_actions/00_tfr_on_action_peaced.txt",
+    "common/on_actions/shared_tree_optimization.txt",
+    "common/national_focus/axis_shared.txt",
+    "history/countries/SPR - Spain.txt",
+    "history/states/112-Lisbon.txt",
+    "history/states/179-Beja.txt",
+    "history/states/180-Porto.txt",
+    "history/states/181-Guarda.txt",
+    "history/states/795-Santarem.txt",
+    "common/dynamic_modifiers/ROM_dynamic_modifiers.txt",
+    "common/dynamic_modifiers/MON_dynamic_modifiers.txt",
+    "common/dynamic_modifiers/FRA_dynamic_modifiers.txt"
+  ],
+  "migration": [
+    [
+      "SPA_join_the_axis",
+      "D02/D04",
+      "D02 devine alegerea War; aderarea efectivă și verificările de membru se mută în D04. Referințele se retargetează după sens, nu prin înlocuire globală."
+    ],
+    [
+      "SPA_attack_portugal / SPA_core_portugal",
+      "D07/D08",
+      "Exclusiv War Spain; capitularea NPR verifică ruta. Toate căile alternative de anexare/cores sunt auditate."
+    ],
+    [
+      "SPA_fascist_economic_aid",
+      "E10/E12/P04",
+      "Se mută research-ul industrial și progresia recuperării. Vechea idee de +10% construcție militară este înlocuită de bugetul economic explicit E24/E29."
+    ],
+    [
+      "SPA_national_recovery / autarky / spanish_austerity",
+      "P01/P04/P09/P10/E01–E12",
+      "Recuperarea devine o componentă negativă în Spanish Economy; acordările de fabrici sunt redistribuite în bugetul comun."
+    ],
+    [
+      "SPA_the_duty_to_work",
+      "E11",
+      "+10% factory output se mută în Spanish Economy; vechea idee este eliminată din acordări și din țară când este migrată."
+    ],
+    [
+      "SPA_adopt_the_26_points",
+      "P03/P07/P08",
+      "Integrarea statelor, War Economy și conscripția se păstrează; creșterea popularității fasciste nu mai justifică o ramură separată."
+    ],
+    [
+      "SPA_direct_the_universities / SPA_utilize_the_intellectuals",
+      "P06/P11",
+      "Accesul la research slots se mută la pragurile 4/5; se recunosc sloturile deja acordate."
+    ],
+    [
+      "SPA_dictator_for_life",
+      "P02/P09/P12",
+      "Stabilitatea și efectele utile ale conducerii sunt contabilizate separat; niciun bonus militar/economic vechi nu rămâne ascuns peste noul buget."
+    ],
+    [
+      "SPA_la_division_azul și dependențele ei",
+      "D01/D09/M14–M32",
+      "Identitatea de corp voluntar este păstrată prin ruta Volunteer și specializare, fără bonusuri de capacitate sau XP."
+    ],
+    [
+      "Vechea ramură militară",
+      "M01–M32",
+      "Se păstrează bugetul de echipare/cercetare util, se elimină XP și ideile duplicate, iar efectele procentuale se centralizează."
+    ],
+    [
+      "SPA_invest_in_naval_infrastructure / SPA_expand_the_slipways",
+      "N02/N12",
+      "Cele 9 șantiere existente sunt redistribuite ca 3+6, fără dublare."
+    ],
+    [
+      "SPA_the_plan_imperial / SPA_restart_small_scale_shipbuilding / SPA_italian_shipbuilding_expertise",
+      "N03/N09/N10/N13/N16/N17/N20/D10",
+      "Cercetare doar pentru hull-uri active; bonusurile de output intră în Spanish Economy."
+    ],
+    [
+      "Focusuri naționale cu is_in_faction_with și arborele AXIS comun",
+      "D03/D04 și ramurile naționale",
+      "Beneficiile naționale de bază rămân accesibile ambelor moduri. Volunteer nu primește automat contribuțiile native la joint focus sau întregul arbore comun."
+    ],
+    [
+      "TFR_NPR_apply_logged_industry_growth",
+      "D06 / mecanica actuală War",
+      "D06 oprește exclusiv NPR după transfer, păstrând celelalte țări false. În War se păstrează încetarea naturală după anexare."
+    ],
+    [
+      "Ramuri alternate history blocate",
+      "Rămân blocate",
+      "Nu sunt incluse în cele 113 și nu sunt reactivate ca scurtături către Portugalia ori bonusuri."
+    ],
+    [
+      "Misiuni, decizii, consilieri, MIO-uri, lideri și on_actions",
+      "Audit de dependențe înaintea migrării",
+      "Niciun focus vechi nu este șters doar pentru recompensa vizibilă. Se inventariază separat has_completed_focus, bypass, complete_national_focus și unlock_national_focus."
+    ]
+  ]
+}

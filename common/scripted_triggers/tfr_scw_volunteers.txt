@@ -41,19 +41,19 @@ TFR_scw_allied_recipient = {
   has_country_flag = scw_no_lar_republicans
  }
 }
-# ROOT = Spanish receiver, FROM = sender (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
+# ROOT = sender, FROM = Spanish receiver (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
 # or its bloc has no room left, so a human Spain cannot accept volunteers beyond the limit.
 TFR_scw_volunteer_permission = {
- FROM = { TFR_scw_approved_sender = yes }
- FROM = { TFR_scw_has_room = yes }
+ TFR_scw_approved_sender = yes
+ TFR_scw_has_room = yes
  OR = {
   AND = {
-   TFR_scw_axis_recipient = yes
-   FROM = { has_country_flag = TFR_scw_axis_donor }
+   FROM = { TFR_scw_axis_recipient = yes }
+   has_country_flag = TFR_scw_axis_donor
   }
   AND = {
-   TFR_scw_allied_recipient = yes
-   FROM = { has_country_flag = TFR_scw_allied_donor }
+   FROM = { TFR_scw_allied_recipient = yes }
+   has_country_flag = TFR_scw_allied_donor
   }
  }
 }

@@ -41,6 +41,9 @@ DIPLOMACY_GUARANTEE_ENABLE_TRIGGER_OVERRIDES_GAME_TRIGGER = {
 }
 
 DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	ROOT = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = {
 		limit = {
 			has_game_rule = {
@@ -1088,6 +1091,9 @@ DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 }
 
 DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	ROOT = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = {
 		limit = {
 			has_game_rule = {
@@ -1317,7 +1323,7 @@ DIPLOMACY_KICK_FROM_FACTION_ENABLE_TRIGGER = {
 }
 DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 	if = {
-		limit = { TFR_scw_managed_recipient = yes }
+		limit = { FROM = { TFR_scw_managed_recipient = yes } }
 		custom_trigger_tooltip = {
 			tooltip = TFR_SCW_PERMISSION_TT
 			TFR_scw_volunteer_permission = yes
@@ -1410,64 +1416,6 @@ DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = {
 					AND = {
 						has_completed_focus = POR_support_a_spanish_monarchy_in_the_war
 						FROM = { NOT = { tag = SPB } }
-					}
-				}
-			}
-		}
-		else_if = { #Bulgarian volunteers in SCW (with La Resistance)
-			limit = {
-				has_dlc = "Battle for the Bosporus"
-				tag = BUL
-				FROM = { original_tag = SPR }
-				has_dlc = "La Resistance"
-				NOT = { has_global_flag = scw_over }
-				
-			}
-			custom_trigger_tooltip = {
-				tooltip = RULE_VOLUNTEERS_BULGARIA_SCW_TT
-				NOT = {
-					AND = {
-#						has_completed_focus = BUL_the_spanish_struggle
-						FROM = { NOT = { tag = SPD } }
-					}
-				}
-				NOT = {
-					AND = {
-#						has_completed_focus = BUL_support_the_spanish_coup
-						FROM = { NOT = { tag = SPA } }
-					}
-				}
-			}
-		}
-		else_if = { #Bulgarian volunteers in SCW (without La Resistance)
-			limit = {
-				has_dlc = "Battle for the Bosporus"
-				NOT = { has_dlc = "La Resistance" }
-				tag = BUL
-				FROM = { original_tag = SPR }	
-				any_country = {
-					original_tag = SPR
-					has_civil_war = yes
-				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = RULE_VOLUNTEERS_BULGARIA_SCW_TT
-				NOT = {
-					AND = {
-#						has_completed_focus = BUL_the_spanish_struggle
-						FROM = {
-							NOT = { has_government = communism }
-							NOT = { has_government = democratic }
-						}
-					}
-				}
-				NOT = {
-					AND = {
-#						has_completed_focus = BUL_support_the_spanish_coup
-						FROM = {
-							NOT = { has_government = fascism }
-							NOT = { has_government = neutrality }
-						}
 					}
 				}
 			}
@@ -1815,6 +1763,9 @@ game_weight_can_add_communist = {
 }
 
 DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	ROOT = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = { 
 		limit = {
 			NOT = { has_global_flag = ethiopia_recognized_flag }
@@ -1872,6 +1823,9 @@ DIPLOMACY_JOIN_ALLY_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	FROM = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = { 
 		limit = {
 			NOT = { has_global_flag = ethiopia_recognized_flag }
@@ -1929,6 +1883,9 @@ DIPLOMACY_CALL_ALLY_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	ROOT = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = { 
 		limit = {
 			has_dlc = "Arms Against Tyranny"
@@ -1944,6 +1901,9 @@ DIPLOMACY_JOIN_FACTION_ENABLE_TRIGGER = {
 	}
 }
 DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	FROM = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+
 	if = { 
 		limit = {
 			has_dlc = "Arms Against Tyranny"
@@ -1961,3 +1921,8 @@ DIPLOMACY_OFFER_JOIN_FACTION_ENABLE_TRIGGER = {
 }
 
 
+
+DIPLOMACY_WAR_ENABLE_TRIGGER = {
+	# TFR_SPA volunteer role
+	ROOT = { NOT = { has_country_flag = TFR_SPA_volunteer_mode } }
+}

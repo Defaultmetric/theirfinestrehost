@@ -62,19 +62,19 @@ TFR_scw_allied_recipient = {
   has_country_flag = scw_no_lar_republicans
  }
 }
-# ROOT = Spanish receiver, FROM = sender (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
+# ROOT = sender, FROM = Spanish receiver (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
 # or its bloc has no room left, so a human Spain cannot accept volunteers beyond the limit.
 TFR_scw_volunteer_permission = {
- FROM = { TFR_scw_approved_sender = yes }
- FROM = { TFR_scw_has_room = yes }
+ TFR_scw_approved_sender = yes
+ TFR_scw_has_room = yes
  OR = {
   AND = {
-   TFR_scw_axis_recipient = yes
-   FROM = { has_country_flag = TFR_scw_axis_donor }
+   FROM = { TFR_scw_axis_recipient = yes }
+   has_country_flag = TFR_scw_axis_donor
   }
   AND = {
-   TFR_scw_allied_recipient = yes
-   FROM = { has_country_flag = TFR_scw_allied_donor }
+   FROM = { TFR_scw_allied_recipient = yes }
+   has_country_flag = TFR_scw_allied_donor
   }
  }
 }
@@ -802,9 +802,16 @@ write('localisation/english/tfr_scw_volunteers_l_english.yml', 'l_english:' + ch
 
 # Preserve all original rules outside the managed Spanish Civil War.
 rel = 'common/scripted_triggers/diplomacy_scripted_triggers.txt'
-original = (ROOT/rel).read_bytes().decode('utf-8-sig')
-marker = 'TFR_scw_managed_recipient = yes'
-if marker not in original:
+def prepare_volunteer_diplomacy(original):
+    # Bulgaria uses Germany's confirmed SCW allocation, without legacy focus gates.
+    original = re.sub(
+        r'\t\telse_if = \{ #Bulgarian volunteers in SCW \(with La Resistance\).*?(?=\t\telse_if = \{ #Soviet volunteers to China)',
+        '', original, flags=re.S)
+    marker = 'TFR_scw_managed_recipient = yes'
+    if marker in original:
+        # Upgrade files already wrapped by older versions of this generator.
+        return original.replace('limit = { TFR_scw_managed_recipient = yes }',
+                                'limit = { FROM = { TFR_scw_managed_recipient = yes } }')
     match = re.search(r'(?m)^DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER\s*=\s*\{', original)
     start = original.index('{', match.start())
     depth = 0
@@ -816,8 +823,10 @@ if marker not in original:
                 end=start+tok.start()
                 break
     body = original[start+1:end]
-    replacement = '\n\tif = {\n\t\tlimit = { TFR_scw_managed_recipient = yes }\n\t\tcustom_trigger_tooltip = {\n\t\t\ttooltip = TFR_SCW_PERMISSION_TT\n\t\t\tTFR_scw_volunteer_permission = yes\n\t\t}\n\t}\n\telse = {\n' + body + '\n\t}\n'
-    write(rel, original[:start+1]+replacement+original[end:])
+    replacement = '\n\tif = {\n\t\tlimit = { FROM = { TFR_scw_managed_recipient = yes } }\n\t\tcustom_trigger_tooltip = {\n\t\t\ttooltip = TFR_SCW_PERMISSION_TT\n\t\t\tTFR_scw_volunteer_permission = yes\n\t\t}\n\t}\n\telse = {\n' + body + '\n\t}\n'
+    return original[:start+1]+replacement+original[end:]
+
+write(rel, prepare_volunteer_diplomacy((ROOT/rel).read_bytes().decode('utf-8-sig')))
 
 backup = Path(r'C:\Users\mihai\.codex\backups\tfr-scw-volunteers') / datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 backup.mkdir(parents=True, exist_ok=False)

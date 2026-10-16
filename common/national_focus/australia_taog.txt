@@ -2399,39 +2399,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 	}
 
-	focus = {
-		id = AST_volunteers
-		icon = GFX_goal_generic_political_pressure
-
-		prerequisite = { focus = AST_no_foreign_battlefields }
-#		mutually_exclusive = { }
-		relative_position_id = 	AST_no_foreign_battlefields
-		x = 1
-		y = 1
-	
-		cost = 5
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		available_if_capitulated = no
-	
-		completion_reward = {
-			set_rule = {
-				can_send_volunteers = yes
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = {
-				AST_voluntary_foreign_service_idea
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-	}
 
 	focus = {
 		id = AST_ratify_westminster_adoption_act
@@ -3722,14 +3689,8 @@ focus_tree = {
 			add_to_variable = { AST_australia_first_war_support_factor = 0.05 tooltip = war_support_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
-			set_rule = {
-				can_send_volunteers = yes
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = {
-				AST_voluntary_foreign_service_idea
-			}
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
@@ -5654,10 +5615,6 @@ focus_tree = {
 
 					SPR_scw_in_progress = yes
 				}
-				add_relation_rule_override = {
-					target = SPD
-					can_send_volunteers = yes
-				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5665,10 +5622,6 @@ focus_tree = {
 			}
 
 			ELSE = { #this is for tooltip reasons before and after the scw
-				add_relation_rule_override = {
-					target = SPR
-					can_send_volunteers = yes
-				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -5758,7 +5711,6 @@ focus_tree = {
 		icon = GFX_focus_AST_from_picket_line_to_front_line
 
 		prerequisite = { focus = AST_workers_defence_corps_sparks_anew }
-		mutually_exclusive = { }
 		relative_position_id = AST_workers_defence_corps_sparks_anew
 		overlay = GFX_focus_fast_overlay_conscription
 		dynamic = yes
@@ -5809,7 +5761,6 @@ focus_tree = {
 		icon = GFX_focus_AST_dalfram_dispute
 
 		prerequisite = { focus = AST_workers_defence_corps_sparks_anew }
-		mutually_exclusive = { }
 		relative_position_id = AST_workers_defence_corps_sparks_anew
 
 		x = 0
@@ -5883,7 +5834,6 @@ focus_tree = {
 		icon = GFX_focus_AST_part_with_colonizer
 
 		prerequisite = { focus = AST_pig_iron_protests }
-		mutually_exclusive = { }
 		relative_position_id = AST_pig_iron_protests
 
 		x = 0
@@ -6196,9 +6146,6 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = ast_support_for_comrades_idea
 				add_idea = ast_support_for_comrades_idea_improved
-			}
-			set_rule = {
-				can_send_volunteers = yes
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6771,10 +6718,6 @@ focus = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_relation_rule_override = {
-				  	target = PRC
-				  	can_send_volunteers = yes
-				}	
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6916,7 +6859,6 @@ focus = {
 		icon = GFX_focus_SWE_refuge_for_revolutionaries
 
 		prerequisite = { focus = AST_against_war_and_fascism }
-		mutually_exclusive = { }
 		relative_position_id = AST_against_war_and_fascism
 
 		x = 10
@@ -6952,7 +6894,6 @@ focus = {
 		icon = GFX_focus_research
 
 		prerequisite = { focus = AST_take_it_to_the_streets }
-		mutually_exclusive = { }
 		relative_position_id = AST_take_it_to_the_streets
 
 		x = -4
@@ -6991,7 +6932,6 @@ focus = {
 		icon = GFX_focus_AST_off_leash
 
 		prerequisite = { focus = AST_take_it_to_the_streets }
-		mutually_exclusive = { }
 		relative_position_id = AST_take_it_to_the_streets
 
 		x = -2
@@ -7053,7 +6993,6 @@ focus = {
 		icon = GFX_focus_generic_low_cost_housing
 
 		prerequisite = { focus = AST_take_it_to_the_streets }
-		mutually_exclusive = { }
 		relative_position_id = AST_take_it_to_the_streets
 
 		x = 0
@@ -7102,7 +7041,6 @@ focus = {
 		icon = GFX_focus_generic_full_employment
 
 		prerequisite = { focus = AST_take_it_to_the_streets }
-		mutually_exclusive = { }
 		relative_position_id = AST_take_it_to_the_streets
 
 		x = 2
@@ -7164,7 +7102,6 @@ focus = {
 		icon = GFX_focus_JAP_central_agricultural_association
 
 		prerequisite = { focus = AST_take_it_to_the_streets }
-		mutually_exclusive = { }
 		relative_position_id = AST_take_it_to_the_streets
 
 		x = 4
@@ -7206,7 +7143,6 @@ focus = {
 		prerequisite = { focus = AST_off_leash }
 		prerequisite = { focus = AST_a_national_housing_commission }	
 		prerequisite = { focus = AST_guaranteed_employment }	
-		mutually_exclusive = { }
 		relative_position_id = AST_off_leash
 
 		x = 2
@@ -7276,7 +7212,6 @@ focus = {
 		icon = GFX_focus_AST_abolition_of_private_property
 
 		prerequisite = { focus = AST_all_for_one_one_for_all }
-		mutually_exclusive = { }
 		relative_position_id = AST_all_for_one_one_for_all
 
 		x = 0
@@ -7315,7 +7250,6 @@ focus = {
 		icon = GFX_focus_generic_public_works
 
 		prerequisite = { focus = AST_abolition_of_private_property }
-		mutually_exclusive = { }
 		relative_position_id = AST_abolition_of_private_property
 
 		x = -2
@@ -7372,7 +7306,6 @@ focus = {
 		icon = GFX_focus_CHI_planned_economy
 
 		prerequisite = { focus = AST_abolition_of_private_property }
-		mutually_exclusive = { }
 		relative_position_id = AST_abolition_of_private_property
 
 		x = 2
@@ -7444,7 +7377,6 @@ focus = {
 		icon = GFX_focus_generic_military_academy
 
 		prerequisite = { focus = AST_public_institutions }
-		mutually_exclusive = { }
 		relative_position_id = AST_public_institutions
 
 		x = -1
@@ -7477,7 +7409,6 @@ focus = {
 		icon = GFX_focus_generic_bad_medical
 
 		prerequisite = { focus = AST_public_institutions }
-		mutually_exclusive = { }
 		relative_position_id = AST_public_institutions
 
 		x = 1
@@ -7510,7 +7441,6 @@ focus = {
 		icon = GFX_focus_generic_resource_extraction
 
 		prerequisite = { focus = AST_centralized_production }
-		mutually_exclusive = { }
 		relative_position_id = AST_centralized_production
 
 		x = -1
@@ -7575,7 +7505,6 @@ focus = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 
 		prerequisite = { focus = AST_centralized_production }
-		mutually_exclusive = { }
 		relative_position_id = AST_centralized_production
 
 		x = 1
@@ -7627,7 +7556,6 @@ focus = {
 		icon = GFX_goal_generic_scientific_exchange
 
 		prerequisite = { focus = AST_abolition_of_private_property }
-		mutually_exclusive = { }
 		relative_position_id = AST_abolition_of_private_property
 
 		x = -4
@@ -7656,7 +7584,6 @@ focus = {
 		icon = GFX_focus_PRC_bolshevik_urbanization
 
 		prerequisite = { focus = AST_abolition_of_private_property }
-		mutually_exclusive = { }
 		relative_position_id = AST_abolition_of_private_property
 
 		x = 4
@@ -7688,7 +7615,6 @@ focus = {
 		icon = GFX_focus_AST_the_publics_australia
 
 		prerequisite = { focus = AST_free_school_policy focus = AST_free_healthcare_policy focus = AST_maritime_commission focus = AST_planned_extraction }
-		mutually_exclusive = { }
 		relative_position_id = AST_free_school_policy
 
 		x = 3

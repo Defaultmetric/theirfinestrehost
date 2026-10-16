@@ -3118,6 +3118,9 @@ TFR_NPO_apply_logged_industry_growth = {
 }
 
 TFR_NPR_apply_logged_industry_growth = {
+	if = {
+		limit = { NOT = { has_country_flag = TFR_SPA_stop_portuguese_industry_growth } NOT = { has_global_flag = TFR_SPA_portugal_relocation_started } }
+
 	# POR -> NPR
 	if = {
 		limit = {
@@ -3325,6 +3328,8 @@ TFR_NPR_apply_logged_industry_growth = {
 		TFR_fake_add_military_factory = yes
 		TFR_fake_add_military_factory = yes
 		set_country_flag = TFR_NPR_logged_industry_1941_01
+	}
+
 	}
 }
 

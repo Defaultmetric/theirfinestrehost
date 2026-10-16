@@ -77,9 +77,10 @@ on_actions = {
             if = {
                 limit = {
                     original_tag = NPR
-                    from = { TAG = SPR }
+                    FROM = { has_country_flag = TFR_SPA_war_mode }
+                    NOT = { has_global_flag = TFR_SPA_portugal_relocation_started }
                 }
-                SPR = {
+                FROM = {
                     annex_country = {
                         target = NPR
                         transfer_troops = no

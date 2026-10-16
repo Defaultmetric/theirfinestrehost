@@ -25,7 +25,7 @@ SPR_historical_plan = {
 			}
 		}
 	}
-	abort = {
+	abort = { OR = { TFR_SPA_postwar_tree_ready = yes AND = {
 		OR = {
 			tag = SPD
 			tag = SPC
@@ -35,7 +35,7 @@ SPR_historical_plan = {
 			}
 		}
 		
-	}
+	} } }
 
 	ai_national_focuses = {
 		SPA_a_great_spain
@@ -132,7 +132,7 @@ SPR_historical_plan_war_with_allies = {
 		}
 		NOT = { has_war_with = GER }
 	}
-	abort = {
+	abort = { OR = { TFR_SPA_postwar_tree_ready = yes AND = {
 		OR = {
 			AND = {
 				NOT = { tag = SPR }
@@ -148,7 +148,7 @@ SPR_historical_plan_war_with_allies = {
 			has_war_with = GER
 		}
 		
-	}
+	} } }
 
 	ai_national_focuses = {
 		SPA_fascist_economic_aid
@@ -253,7 +253,7 @@ SPR_historical_plan_war_with_axis = {
 			has_war_with = USA
 		}
 	}
-	abort = {
+	abort = { OR = { TFR_SPA_postwar_tree_ready = yes AND = {
 		OR = {
 			AND = {
 				NOT = { tag = SPR }
@@ -271,7 +271,7 @@ SPR_historical_plan_war_with_axis = {
 				has_war_with = USA
 			}
 		}
-	}
+	} } }
 
 	ai_national_focuses = {
 		SPA_a_great_spain

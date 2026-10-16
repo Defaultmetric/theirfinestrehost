@@ -9975,9 +9975,6 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			set_rule = {
-				can_send_volunteers = yes
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
@@ -10135,31 +10132,11 @@ focus_tree = {
 						has_global_flag = spanish_civil_war
 					}
 				}
-				add_relation_rule_override = {	#purely for tooltip, cant ever fire due to available
-					target = SPR
-					can_send_volunteers = no
-				}
 			}
 			else = {
-				add_relation_rule_override = {
-					target = SPD
-					can_send_volunteers = no
-				}
-				add_relation_rule_override = {
-					target = SPA
-					can_send_volunteers = no
-				}
 				if = {
 					limit = {
 						has_dlc = "La Resistance"
-					}
-					add_relation_rule_override = {
-						target = SPB
-						can_send_volunteers = no
-					}
-					add_relation_rule_override = {
-						target = SPC
-						can_send_volunteers = no
 					}
 				}
 			}

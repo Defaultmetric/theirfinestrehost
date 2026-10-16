@@ -16,6 +16,19 @@ SPA/SPD aliases. The original SPR tag and ruling ideology do not identify a camp
 The send-volunteers permission tooltip explains the destinations. The on-send
 guard also recalls ground volunteers sent to the wrong camp through a bypass.
 
+Bulgaria uses Germany's confirmed allocation without Bulgarian focus or rearmament
+requirements. Zero or unconfirmed allocations and exhausted quotas cannot authorize
+new sends. The diplomatic entry point evaluates ROOT as the sender and FROM as the
+Spanish receiver; the managed branch takes priority over the general game rules.
+The obsolete Bulgarian SCW focus restrictions have been removed. The generator
+also upgrades the scope check in previously generated files.
+
+Legacy capacity rewards and focus permissions have also been removed from loaded
+country scripts while retaining their other rewards and decision mechanics. The
+French intervention focus still unlocks its war-support/stability policies. See
+[volunteer-capacity-cleanup.md](volunteer-capacity-cleanup.md) for the removed focus
+nodes, preserved mechanics, inherited overrides, backups, and acceptance checks.
+
 USSR must explicitly confirm its first reservation, including a zero reservation,
 before UK can edit or confirm Allied allocations. While waiting, the Allied tab
 shows "Soviet has not picked". From 1 August 1936, UK can allocate without waiting
@@ -54,11 +67,14 @@ the interface, scripts, localization and eight small DDS interface textures.
 Existing generated files are backed up outside the mod before replacement.
 
 Validation: tools/test_scw_volunteers.py executes the generated effects, GUI click
-handlers and triggers in a small scoped state evaluator. Eight tests cover Soviet
+handlers and triggers in a small scoped state evaluator. Ten tests cover Soviet
 priority, explicit zero selection, the August boundary, shared ground/air budgets,
 late Soviet selection, observer permissions and reducing a draft after a Soviet
 commit, recipient routing for both original and dynamic Spanish countries and
-on-send rejection of the wrong camp and guarded zero-quota modifier cleanup.
+on-send rejection of the wrong camp, guarded zero-quota modifier cleanup, Bulgaria's
+actual diplomatic entry point with confirmed/unconfirmed/exhausted quotas, and
+generator migration/idempotence. Camp tests use sender scope and available quota;
+native deployed-unit updates and notification rendering are outside this evaluator.
 Native deployed-unit checks, modifier arithmetic and GUI rendering are outside this
 evaluator. Effective native volunteer and aircraft caps still require full gameplay
 validation.

@@ -5534,25 +5534,15 @@ focus = {
 
 					SPR_scw_in_progress = yes
 				}
-				add_relation_rule_override = {
-					target = SPD
-					can_send_volunteers = yes
-				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				add_ideas = BEL_volunteer_effort1_ns
 			}
 
 			ELSE = { #this is for tooltip reasons before and after the scw
-				add_relation_rule_override = {
-					target = SPR
-					can_send_volunteers = yes
-				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				add_ideas = BEL_volunteer_effort1_ns
 			}
 		}
 	}
@@ -5895,9 +5885,6 @@ focus = {
 				add_ideas = BEL_volunteer_effort2_ns
 			}
 
-			set_rule = { 
-				can_send_volunteers = yes
-			}
 		}
 
 	}
@@ -6887,8 +6874,6 @@ focus = {
 	
 		prerequisite = { focus = BEL_military_service_for_all_in_exile focus = BEL_consolidate_resistance_groups focus = BEL_expand_the_belgian_legion }
 
-		mutually_exclusive = { 
-		}
 
 		relative_position_id = BEL_consolidate_resistance_groups
 

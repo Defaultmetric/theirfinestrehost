@@ -754,7 +754,6 @@ focus_tree = {
 				}
 			}
 
-			set_rule = { can_send_volunteers = yes }
 
 		}
 	}
@@ -11523,42 +11522,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = wuw_HUN_officialize_the_rakosi_battalion
-		icon = GFX_focus_HUN_officialize_the_rakosi_battalion
-		prerequisite = { focus = wuw_HUN_reviving_the_spirit_of_1848 }
-		
-		x = 2
-		y = 1
-		relative_position_id = wuw_HUN_reviving_the_spirit_of_1848
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 15
-		}
-
-		available = {
-			has_war = no
-			OR = {
-				has_government = democratic
-				has_government = communism
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = HUN_the_rakosi_battalion_idea
-			set_rule = { can_send_volunteers = yes }
-		}
-	}
 
 	focus = {
 		id = wuw_HUN_elections_in_the_revolutionary_council
@@ -15207,17 +15170,9 @@ focus_tree = {
 
 		completion_reward = {
 
-			add_timed_idea = {
-				idea = HUN_pan_ugric_volunteer_force
-				days = 1095
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_relation_rule_override = {
-			    target = FIN
-			    can_send_volunteers = yes
-			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 

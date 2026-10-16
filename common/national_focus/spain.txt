@@ -10,6 +10,10 @@
 ### search_filters = {FOCUS_FILTER_SPA_ANARCHIST_UPRISING}
 
 focus_tree = {
+	# TFR_SPA_POSTWAR_REWORK: shared roots include their connected descendants.
+	shared_focus = TFR_SPA_volunteer_spain
+	shared_focus = TFR_SPA_war_spain
+
 	id = spanish_focus
 	
 	country = {
@@ -264,9 +268,7 @@ focus_tree = {
 		relative_position_id = SPA_secure_the_northern_garrisons
 		cost = 4
 
-		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -324,26 +326,7 @@ focus_tree = {
 		}
 		mutually_exclusive = { focus = SPA_a_great_spain }
 		cancel_if_invalid = yes
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR = {
-					NOT = {
-						has_global_flag = spanish_civil_war
-					}
-					AND = {
-						NOT = { has_completed_focus = SPA_a_great_spain }
-						has_global_flag = spanish_civil_war
-					}
-				}
-			}
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 		
 		icon = GFX_goal_generic_national_unity
 		x = 33
@@ -579,9 +562,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_sin_paquito }
 		mutually_exclusive = { focus = SPA_unify_the_nationalist_front focus = SPA_supremacy_of_the_communion }
 		
-		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 
 		icon = GFX_focus_spa_the_phalanx_ascendant
 		x = -10
@@ -2336,8 +2317,6 @@ focus_tree = {
 			focus = SPA_retake_the_americas
 		}
 
-		mutually_exclusive = {
-		} 
 		
 		ai_will_do = {
 			base = 2
@@ -2534,6 +2513,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_the_national_and_popular_army_of_spain
 		available = {
 			has_global_flag = scw_over
@@ -2620,6 +2600,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_the_army_of_africa_model
 		available = {
 		}
@@ -2647,6 +2628,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_equipment_modernization
 		available = {
 		}
@@ -2673,6 +2655,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_artillery_modernization
 		available = {
 		}
@@ -2699,6 +2682,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_expand_the_air_branch
 		available = {
 		}
@@ -2733,6 +2717,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_expand_the_special_forces
 		available = {
 		}
@@ -2765,6 +2750,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_motorization
 		available = {
 		}
@@ -2792,6 +2778,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_an_armored_corps
 		available = {
 		}
@@ -2822,6 +2809,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_join_the_axis
 		available = {
 			has_global_flag = scw_over
@@ -2894,6 +2882,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_attack_portugal
 		available = {
 			has_global_flag = scw_over
@@ -2931,6 +2920,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_core_portugal
 		available = {
 			has_full_control_of_state = 180
@@ -3010,6 +3000,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_fascist_economic_aid
 		available = {
 			any_country = {
@@ -3052,6 +3043,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_facilitate_pyrenees_freight_transports
 		available = {
 			has_full_control_of_state = 793
@@ -3142,6 +3134,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_improve_cross_country_railways
 		available = {
 			any_allied_country = {
@@ -3187,6 +3180,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_support_the_war_industry
 		available = {
 			any_country = {
@@ -3280,6 +3274,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_italian_shipbuilding_expertise
 		available = {
 			is_in_faction_with = ITA
@@ -3308,6 +3303,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_the_duty_to_work
 		available = {
 			any_country = {
@@ -3334,6 +3330,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_expand_the_war_industry
 		available = {
 			any_country = {
@@ -3404,6 +3401,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_national_recovery
 		available = {
 			has_global_flag = scw_over
@@ -3455,6 +3453,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_autarky
 		available = {
 		}
@@ -3498,6 +3497,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_spanish_austerity
 		available = {
 		}
@@ -3562,6 +3562,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_reduce_reliance_on_foreign_resources
 		available = {
 		}
@@ -3589,6 +3590,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_expand_the_axis_gold_trade
 		available = {
 			NOT = { has_completed_focus = SPA_the_stabilization_plan }
@@ -3612,6 +3614,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_ensure_agricultural_self_sufficiency
 		available = {
 		}
@@ -4151,10 +4154,7 @@ focus_tree = {
 		}
 		prerequisite = { focus = SPA_portuguese_aid }
 
-		allow_branch = 
-		{
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 		
 		icon = GFX_goal_generic_major_alliance
 		x = 0
@@ -4362,10 +4362,7 @@ focus_tree = {
 			fascism < 0.4		
 			NOT = { has_global_flag = POR_iberian_summit_in_progress_flag }
 		}
-		allow_branch = 
-		{
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 		bypass = {
 			OR = {
 				AND = {
@@ -4947,6 +4944,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_adopt_the_26_points
 		available = {
 			has_global_flag = scw_over
@@ -5003,6 +5001,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_direct_the_universities
 		available = {
 			num_of_factories > 50
@@ -5025,6 +5024,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_dictator_for_life
 
 		available = {
@@ -5087,6 +5087,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_invest_in_naval_infrastructure
 		available = {
 			has_completed_focus = SPA_unify_the_nationalist_front
@@ -5138,6 +5139,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_expand_the_slipways
 		available = {
 		}
@@ -5205,6 +5207,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_the_plan_imperial
 		available = {
 		}
@@ -5239,6 +5242,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_restart_small_scale_shipbuilding
 		available = {
 		}
@@ -5278,6 +5282,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_la_division_azul
 		available = {
 			has_completed_focus = SPA_adopt_the_26_points
@@ -5295,19 +5300,16 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_ideas = SPA_la_division_azul
 			if = {
 				limit = {
 					has_government = neutrality
-				}
-				set_rule = {
-					can_send_volunteers = yes
 				}
 			}
 		}
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_the_tangiers_enclave
 		available = {
 			has_full_control_of_state = 290
@@ -5357,6 +5359,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_demand_french_north_africa
 		available = {
 			any_country = {
@@ -5424,10 +5427,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_adopt_the_26_points focus = SPA_settle_the_succession_question }
 		mutually_exclusive = { focus = SPA_dictator_for_life }
 		
-		allow_branch = 
-		{
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		x = 3
@@ -5466,6 +5466,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_stamp_out_the_maquis
 		available = {
 		}
@@ -5487,6 +5488,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_defenses_against_strategic_bombing
 		available = {
 		}
@@ -5540,6 +5542,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
 		id = SPA_defenses_against_invasion
 		available = {
 		}
@@ -5605,8 +5608,7 @@ focus_tree = {
 		relative_position_id = SPA_demand_french_north_africa
 		cost = 10
 
-		allow_branch = 
-		{has_completed_focus = SOV_the_fourth_international}
+		allow_branch = { always = no }
 
 		available_if_capitulated = yes
 
@@ -5730,9 +5732,7 @@ focus_tree = {
 		relative_position_id = SPA_con_paquito
 		cost = 5
 
-		allow_branch = {
-			has_completed_focus = SOV_the_fourth_international
-		}
+		allow_branch = { always = no }
 
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}

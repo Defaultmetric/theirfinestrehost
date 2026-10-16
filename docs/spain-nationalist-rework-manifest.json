@@ -1,0 +1,263 @@
+{
+  "implemented_at": "2026-10-16T14:31:41",
+  "scope": "Franco / nationalist Spain after the civil war",
+  "backup_directory": "C:\\Users\\mihai\\.codex\\backups\\tfr-spain-rework\\20261016T140857",
+  "focus_count": 128,
+  "other_spanish_focuses_unchanged": 210,
+  "automated_tests_passed": 52,
+  "reviewed_complete_paths_tested": 8,
+  "missing_sprite_references": [],
+  "game_runtime_tested": false,
+  "modified_existing_files": [
+    {
+      "path": "common/national_focus/spain.txt",
+      "original_sha256": "51accab4beadbaaac41522eeedf40ad69af54fe6cf62ac83db953edcda9a699d",
+      "sha256": "483362589d52a1d8faec407cf2a1e0c032e9d3d0657697997ddfc587dd3d6eee"
+    },
+    {
+      "path": "common/national_focus/axis_shared.txt",
+      "original_sha256": "d97404df3eafa8ffc3459d1c400de96bcccdfe53a39c8be60621ec99efcc7499",
+      "sha256": "6ae48e403a5d59be26c7da4c732a81c482403460693c38daa8e648f563fbc3bd"
+    },
+    {
+      "path": "common/scripted_triggers/diplomacy_scripted_triggers.txt",
+      "original_sha256": "f99d37f1a72054dc8b1b4901e0668ba6a46fe0c14e064a06a6cfc58e595f68be",
+      "sha256": "124ea05bed8c1f39d3b7211958ed866b911191bc05571ef3701e14b8634c04c2"
+    },
+    {
+      "path": "common/scripted_effects/TFR_fake_industry_growth.txt",
+      "original_sha256": "2021d2df9314d0fba6312b315a99f8953a6723a61272add912006a859cd6485a",
+      "sha256": "ef1bec4b9eaa3d2d00241436dfe7e0993d7b207ec68c5160b0f4b56bd2c47d09"
+    },
+    {
+      "path": "common/on_actions/00_tfr_on_action_peaced.txt",
+      "original_sha256": "5a8157cd5364f025740e4cfb15cabe8658b76737fccb37c862f934aa27f45bf2",
+      "sha256": "ce4b81f7c7d431788172e6453fa5a9824c1134d58dc83eded4a2ce651cd8c366"
+    },
+    {
+      "path": "common/on_actions/05_lar_on_actions.txt",
+      "original_sha256": "14b7321f551bfb85bb8b77b1dcfe64d51ab44c728bb0f6f94f11d26a5782606d",
+      "sha256": "9ad8841d33a342b6b42b230dd820598ee6c531b8548bff93632f41deb3baa634"
+    },
+    {
+      "path": "common/ai_strategy_plans/SPR_historical_strategy_plan.txt",
+      "original_sha256": "b8e7c768609a435bf3438bc5054ef4627bbddd4f9e1603cd9585a09d57a8b687",
+      "sha256": "c0b92186d0eb56c77e733162568aeaa802067ab02cdd559cff8486d1c4266abd"
+    }
+  ],
+  "created_files": [
+    {
+      "path": "common/national_focus/TFR_spain_rework.txt",
+      "sha256": "17f1ec5ecbaf5315aaa2ca02a8df6471d349d12de135b78907f06ac7728a06ca"
+    },
+    {
+      "path": "common/dynamic_modifiers/TFR_spain_rework.txt",
+      "sha256": "c0ee7debc81b831ec3920a8aad43bfa5ddc9276675a09c177f8da1cf8a9a97ad"
+    },
+    {
+      "path": "common/scripted_effects/TFR_spain_rework.txt",
+      "sha256": "416fe6cedb10064cb82904884f12b80766c1b0806f16d47a1d6c73aba5bf9594"
+    },
+    {
+      "path": "common/scripted_triggers/TFR_spain_rework.txt",
+      "sha256": "5bc1122bbf50efd5eee869fd5ba2ea9ad0dbd1ff5e117b08de295b490a705a01"
+    },
+    {
+      "path": "common/on_actions/TFR_spain_rework.txt",
+      "sha256": "48d38f9cd71398b5676c0271ee614828664a8c3bfb40a6522b9a4955e5907a98"
+    },
+    {
+      "path": "events/TFR_spain_rework.txt",
+      "sha256": "b1a065d95955794b4bdb07be579b44a0cafd0e7b6d3b5044206e2927f7eb9f7a"
+    },
+    {
+      "path": "common/decisions/categories/TFR_spain_rework.txt",
+      "sha256": "262fddc4d2bb129acc180a2931e1c59b4ff179050eb3b2f37822436a7865698c"
+    },
+    {
+      "path": "common/decisions/TFR_spain_rework.txt",
+      "sha256": "161cb125d3f4f49224c0c1bc735306b523e8537a1fd6e7a04195746bfae029ea"
+    },
+    {
+      "path": "common/ai_strategy_plans/TFR_spain_rework.txt",
+      "sha256": "b3fc5cc778e494cbadf0e2bb4ce0ebda15ddc42d71d8f7a97575ecb6eafbba5b"
+    },
+    {
+      "path": "localisation/replace/TFR_spain_rework_l_english.yml",
+      "sha256": "eeb37008b91f2cb62261ec8393c5fb0196b0ff0670a14a64ead2bce1b84bda99"
+    },
+    {
+      "path": "tools/generate_spain_rework.py",
+      "sha256": "596113dcefea3c6d19b2f795502889cf14cc98e8fe28e8a7d938b6f5ccedac2b"
+    },
+    {
+      "path": "tools/test_spain_rework.py",
+      "sha256": "d6f556d093735fbd7981905605b318e07c043cb0dceb4c17a64bddf8bd8c2c69"
+    },
+    {
+      "path": "tools/spain_focus_plan.json",
+      "sha256": "81b96fdfb1fd1ea6ec5a6152f8f68236388fd78464d45866071ff707427e2ee3"
+    },
+    {
+      "path": "tools/spain_focus_expected_totals.json",
+      "sha256": "87e8f9b49a953aeb2fc1b5c1e21d255d9391e7e7091d23a6210d7cf9b78713ca"
+    },
+    {
+      "path": "tools/spain_rework_legacy_scope.json",
+      "sha256": "d4de9e5dad2ee07b2f4c94b9c5ea745a3fb5e65114375bf9d9e61562fa031374"
+    },
+    {
+      "path": "tools/spain_rework_backup_path.txt",
+      "sha256": "790d0d82c9991d83a67d6b6a2b205a59cbdee2f986901acc6dfa2b68d11992df"
+    },
+    {
+      "path": "docs/spain-nationalist-rework.md",
+      "sha256": "fc127690f527c34eb5e0d384438bea5b7433fceb9bc68a6867a8626b73fbf04e"
+    },
+    {
+      "path": "docs/spain-load-fix.json",
+      "sha256": "71901a958fad6524b7b895d14e524c6130f6c34a6b6bc03068f8d005384ac6b5"
+    },
+    {
+      "path": "docs/spain-recovery-modifiers.json",
+      "sha256": "a5634bac9d90401d176e56ba11bca620b368036271d099e0d5dba69fcc3da062"
+    },
+    {
+      "path": "tools/spain_load_fix_backup_path.txt",
+      "sha256": "3f1ef1fd6aa7e44bdad2feca91d75d735e4e2092e3ca411a4562e4eabd5c48e8"
+    },
+    {
+      "path": "docs/spain-visibility-fix.json",
+      "sha256": "7061dfaa1ab0de78a3b936078f0c3816530a42033e42f47ae795fef65de37d16"
+    },
+    {
+      "path": "tools/spain_visibility_backup_path.txt",
+      "sha256": "1d59430c428ed5c80d525e0fe16b953a973d266519b63ccc935d9e19f32abdd2"
+    }
+  ],
+  "load_error_fix": {
+    "date": "2026-10-16",
+    "backup_directory": "C:\\Users\\mihai\\.codex\\backups\\tfr-spain-load-fix\\20261016T144252",
+    "original_log_sha256": "2558719f041ac137f6e0587c77a0d41509e4641b78e31d65c152e0669ae9d13b",
+    "native_load_check_log": "C:\\Users\\mihai\\.codex\\backups\\tfr-spain-load-fix\\20261016T144252\\error-after-load-fix.log",
+    "native_load_check_log_sha256": "517822083e5c41cbfc1367e848e53a47f826dcceec75939d1912c889e5ea91fe",
+    "original_parser_failure": "Compact >= / <= variable comparisons at the first D09 reward; use explicit compare fields",
+    "original_unexpected_shared_focus_errors": 119,
+    "empty_relation_overrides_removed": 32,
+    "relation_override_files": 19,
+    "native_focus_load_errors_after_fix": 0,
+    "native_empty_rule_errors_after_fix": 0,
+    "automated_tests_passed": 50,
+    "latest_names": {
+      "support": "Arsenal of the Axis",
+      "direct_war": "Our Place in the New Order"
+    },
+    "latest_recovery_integration_runtime_checked": false,
+    "remaining_log_messages": {
+      "dlc_or_checksum": 10,
+      "missing_tank_entities": 5,
+      "localization_collision_warning": 1
+    }
+  },
+  "empty_relation_override_cleanup_files": [
+    {
+      "path": "common/ideas/chile.txt",
+      "count": 1
+    },
+    {
+      "path": "common/national_focus/argentina.txt",
+      "count": 2
+    },
+    {
+      "path": "common/national_focus/australia_taog.txt",
+      "count": 3
+    },
+    {
+      "path": "common/national_focus/austria.txt",
+      "count": 3
+    },
+    {
+      "path": "common/national_focus/belgium.txt",
+      "count": 2
+    },
+    {
+      "path": "common/national_focus/chile.txt",
+      "count": 1
+    },
+    {
+      "path": "common/national_focus/china_warlord_sea.txt",
+      "count": 2
+    },
+    {
+      "path": "common/national_focus/czechoslovakia_mu.txt",
+      "count": 5
+    },
+    {
+      "path": "common/national_focus/ethiopia.txt",
+      "count": 1
+    },
+    {
+      "path": "common/national_focus/hungary_wuw.txt",
+      "count": 1
+    },
+    {
+      "path": "common/national_focus/japan.txt",
+      "count": 1
+    },
+    {
+      "path": "common/national_focus/philippines.txt",
+      "count": 1
+    },
+    {
+      "path": "common/decisions/ast.txt",
+      "count": 1
+    },
+    {
+      "path": "common/decisions/aus.txt",
+      "count": 1
+    },
+    {
+      "path": "events/aat_finland.txt",
+      "count": 1
+    },
+    {
+      "path": "events/bba_italoethiopianwar.txt",
+      "count": 1
+    },
+    {
+      "path": "events/sea_philippines.txt",
+      "count": 2
+    },
+    {
+      "path": "events/sea_warlords.txt",
+      "count": 1
+    },
+    {
+      "path": "events/toa_chile.txt",
+      "count": 2
+    }
+  ],
+  "visibility_fix": {
+    "date": "2026-10-16",
+    "backup_directory": "C:\\Users\\mihai\\.codex\\backups\\tfr-spain-visibility\\20261016T172848",
+    "rework_focuses_always_visible": 128,
+    "replaced_legacy_focuses_always_hidden": 37,
+    "unchanged_civil_war_focuses": 29,
+    "permanently_disabled_alternate_roots": [
+      "SPA_join_the_allies",
+      "SPA_restore_the_monarchy",
+      "SPA_retake_gibraltar",
+      "SPA_sin_paquito",
+      "SPA_supremacy_of_the_communion",
+      "SPA_the_iberian_pact",
+      "SPA_the_phalanx_ascendant",
+      "SPR_the_popular_front"
+    ],
+    "other_focus_definitions_unchanged": 210,
+    "availability_still_requires_nationalist_victory": true,
+    "layout_overlaps_with_civil_war": 0,
+    "automated_tests_passed": 52,
+    "latest_visibility_runtime_checked": false
+  },
+  "civil_war_focuses_unchanged": 29
+}

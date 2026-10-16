@@ -1,4 +1,5 @@
 from pathlib import Path
+import ast
 import re
 import unittest
 
@@ -30,6 +31,7 @@ TRIGGERS={k:v for k,_,v in parse(ROOT/'common/scripted_triggers/tfr_scw_voluntee
 EFFECTS={k:v for k,_,v in parse(ROOT/'common/scripted_effects/tfr_scw_volunteers.txt')}
 GUIS={k:v for k,_,v in parse(ROOT/'common/scripted_guis/tfr_scw_volunteers.txt')[0][2]}
 ON_ACTIONS={k:v for k,_,v in parse(ROOT/'common/on_actions/tfr_scw_volunteers.txt')[0][2]}
+DIPLOMACY={k:v for k,_,v in parse(ROOT/'common/scripted_triggers/diplomacy_scripted_triggers.txt')}
 AXIS=['GER','ITA','ROM','HUN','BUL']
 ALLIES=['ENG','FRA','CAN','AST','SAF','RAJ','BRA','MEX']
 
@@ -48,6 +50,7 @@ class World:
         self.civil_wars=set()
         self.recalls=[]
         self.modifier_removals=[]
+        self.events=[]
     def value(self,value,scope):
         if value.count('.')>=2 and value.replace('.','').isdigit(): return tuple(map(int,value.split('.')))
         try: return float(value)
@@ -59,6 +62,8 @@ class World:
             if k=='OR': return any(one(*e) for e in v)
             if k=='AND': return self.check(v,scope)
             if k=='NOT': return not self.check(v,scope)
+            if k=='always': return v=='yes'
+            if k=='custom_trigger_tooltip': return self.check([e for e in v if e[0]!='tooltip'],scope)
             if k=='original_tag': return self.original_tags.get(scope,scope)==v
             if k=='tag': return scope==v
             if k=='FROM':
@@ -82,7 +87,18 @@ class World:
             elif re.fullmatch('[A-Z]{3}',k): return self.check(v,k)
             else: raise AssertionError(('unsupported trigger',k))
             return {'=':left==right,'<':left<right,'>':left>right,'<=':left<=right,'>=':left>=right,'!=':left!=right}[op]
-        return all(one(*entry) for entry in entries)
+        results=[]
+        branch_taken=False
+        for k,op,v in entries:
+            if k in ('if','else_if'):
+                if k=='if': branch_taken=False
+                if not branch_taken and self.check(get(v,'limit'),scope):
+                    branch_taken=True
+                    results.append(self.check([e for e in v if e[0]!='limit'],scope))
+            elif k=='else':
+                if not branch_taken: results.append(self.check(v,scope))
+            else: results.append(one(k,op,v))
+        return all(results)
     def effect(self,entries,scope):
         previous_if=None
         for k,_,v in entries:
@@ -111,10 +127,12 @@ class World:
                 self.modifier_removals.append((scope,modifier))
             elif k=='remove_ideas':
                 pass  # Native idea storage is not needed for the cleanup guard test.
-            elif k in ['TFR_scw_apply_donor','TFR_scw_refresh_views']:
+            elif k=='country_event':
+                self.events.append((scope,get(v,'id')))
+            elif k in ['TFR_scw_apply_donor','TFR_scw_refresh_views','TFR_scw_update_limits']:
                 if k=='TFR_scw_apply_donor':
                     for kind in ['land','air']: self.vars[(scope,'TFR_scw_'+kind)]=self.value('TFR_scw_draft_'+kind,scope)
-                # Native modifier installation / GUI drawing are outside this state-machine test.
+                # Native deployed-unit counting, modifier installation and GUI drawing are outside these tests.
             elif k in EFFECTS: self.effect(EFFECTS[k],scope)
             elif re.fullmatch('[A-Z]{3}',k): self.effect(v,k)
             else: raise AssertionError(('unsupported effect',k))
@@ -137,7 +155,7 @@ class VolunteerTests(unittest.TestCase):
             self.assertEqual(len(w.modifier_removals),int(installed))
 
     def test_wrong_camp_is_recalled_on_send(self):
-        for sender,donor_camp in [('GER','axis'),('ENG','allied'),('SOV','allied')]:
+        for sender,donor_camp in [('GER','axis'),('BUL','axis'),('ENG','allied'),('SOV','allied')]:
             for target_camp in ['nationalist','republican','carlist']:
                 w=World('1936.8.6'); w.from_scope='D01'
                 w.global_flags.add('TFR_scw_manager_initialized')
@@ -151,6 +169,7 @@ class VolunteerTests(unittest.TestCase):
                 w.effect(get(ON_ACTIONS['on_send_volunteers'],'effect'),sender)
                 correct=(donor_camp=='axis' and target_camp=='nationalist') or (donor_camp=='allied' and target_camp=='republican')
                 self.assertEqual(w.recalls,[] if correct else [(sender,'D01')],(sender,target_camp))
+                self.assertEqual(w.events,[] if correct else [(sender,'tfr_scw_volunteers.4')])
 
     def test_recipient_camp_including_original_spain_tag(self):
         w=World('1936.8.6')
@@ -158,6 +177,7 @@ class VolunteerTests(unittest.TestCase):
             w.flags[sender]={'TFR_scw_committed_donor', 'TFR_scw_axis_donor' if sender in AXIS else 'TFR_scw_allied_donor'}
             w.dynamic_modifiers[sender]={'TFR_scw_volunteer_limits'}
             w.vars[(sender,'TFR_scw_land')]=4
+            w.vars[(sender,'TFR_scw_land_room')]=4
             w.vars[(sender,'modifier@send_volunteer_size')]=4
             w.vars[(sender,'modifier@send_volunteer_factor')]=-1000
         # Actual country identity can be SPR or a dynamic civil-war country.
@@ -167,16 +187,52 @@ class VolunteerTests(unittest.TestCase):
             for camp_flag,axis_target in [('SPR_nationalist_spain_flag',True),('scw_no_lar_nationalists',True),('SPR_republican_spain_flag',False),('scw_no_lar_republicans',False)]:
                 w.flags[recipient]={camp_flag}
                 for sender in AXIS+ALLIES+['SOV']:
-                    w.from_scope=sender
-                    self.assertEqual(w.check(TRIGGERS['TFR_scw_volunteer_permission'],recipient), (sender in AXIS)==axis_target,(recipient,camp_flag,sender))
+                    w.from_scope=recipient
+                    self.assertEqual(w.check(TRIGGERS['TFR_scw_volunteer_permission'],sender), (sender in AXIS)==axis_target,(recipient,camp_flag,sender))
             for other_flag in [None,'SPR_carlist_spain_flag','SPR_anarchist_spain_flag']:
                 w.flags[recipient]={other_flag} if other_flag else set()
                 for sender in ['GER','ENG','SOV']:
-                    w.from_scope=sender
-                    self.assertFalse(w.check(TRIGGERS['TFR_scw_volunteer_permission'],recipient))
+                    w.from_scope=recipient
+                    self.assertFalse(w.check(TRIGGERS['TFR_scw_volunteer_permission'],sender))
         w.flags['SPR']={'SPR_nationalist_spain_flag'}
-        w.from_scope='GER'; w.flags['GER'].discard('TFR_scw_committed_donor')
-        self.assertFalse(w.check(TRIGGERS['TFR_scw_volunteer_permission'],'SPR'))
+        w.from_scope='SPR'; w.flags['GER'].discard('TFR_scw_committed_donor')
+        self.assertFalse(w.check(TRIGGERS['TFR_scw_volunteer_permission'],'GER'))
+
+    def test_bulgaria_diplomacy_uses_confirmed_quota(self):
+        # Run the actual diplomatic entry point in sender scope, without either Bulgarian focus.
+        for recipient in ['SPR','D01']:
+            for quota,room,committed,allowed in [(0,0,False,False),(4,4,False,False),(4,4,True,True),(4,1,True,True),(4,0,True,False)]:
+                with self.subTest(recipient=recipient,quota=quota,room=room,committed=committed):
+                    w=World('1937.6.1'); w.from_scope=recipient
+                    w.global_flags.add('TFR_scw_manager_initialized')
+                    w.original_tags[recipient]='SPR'; w.civil_wars.add(recipient)
+                    w.flags[recipient]={'SPR_nationalist_spain_flag'}
+                    w.flags['BUL']={'TFR_scw_axis_donor','BUL_refused_arms_restrictions_flag'}
+                    if committed:
+                        w.flags['BUL'].add('TFR_scw_committed_donor')
+                        w.dynamic_modifiers['BUL']={'TFR_scw_volunteer_limits'}
+                    w.vars[('BUL','TFR_scw_land')]=quota
+                    w.vars[('BUL','TFR_scw_land_room')]=room
+                    self.assertEqual(w.check(DIPLOMACY['DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER'],'BUL'),allowed)
+                    w.flags[recipient]={'SPR_republican_spain_flag'}
+                    self.assertFalse(w.check(DIPLOMACY['DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER'],'BUL'))
+
+    def test_generator_preserves_diplomatic_fix(self):
+        source=ast.parse((ROOT/'tools/generate_scw_volunteers.py').read_text(encoding='utf-8'))
+        trigger_source=next(n.value.value for n in source.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='triggers' for t in n.targets))
+        self.assertTrue((ROOT/'common/scripted_triggers/tfr_scw_volunteers.txt').read_text(encoding='utf-8-sig').startswith(trigger_source))
+        function=next(n for n in source.body if isinstance(n,ast.FunctionDef) and n.name=='prepare_volunteer_diplomacy')
+        namespace={'re':re}
+        exec(compile(ast.Module(body=[function],type_ignores=[]),'<generator diplomacy>','exec'),namespace)
+        prepare=namespace['prepare_volunteer_diplomacy']
+        text=(ROOT/'common/scripted_triggers/diplomacy_scripted_triggers.txt').read_text(encoding='utf-8-sig')
+        self.assertEqual(prepare(text),text)
+        old=text.replace('limit = { FROM = { TFR_scw_managed_recipient = yes } }','limit = { TFR_scw_managed_recipient = yes }')
+        self.assertEqual(prepare(old),text)
+        self.assertNotIn('RULE_VOLUNTEERS_BULGARIA_SCW_TT',text)
+        fresh=prepare('DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER = { always = yes }')
+        self.assertIn('limit = { FROM = { TFR_scw_managed_recipient = yes } }',fresh)
+        self.assertEqual(prepare(fresh),fresh)
 
     def test_deadline_and_soviet_priority(self):
         w=World()

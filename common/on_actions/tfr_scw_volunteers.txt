@@ -1,0 +1,98 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			GER = { TFR_scw_initialize = yes }
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+			 limit = { tag = GER }
+			 if = {
+			  limit = { NOT = { TFR_scw_manager_in_period = yes } NOT = { has_global_flag = TFR_scw_manager_finished } }
+			  TFR_scw_cleanup = yes
+			 }
+			 else = { TFR_scw_initialize = yes }
+			}
+			if = {
+			 limit = { tag = GER TFR_scw_manager_in_period = yes has_global_flag = TFR_scw_manager_initialized }
+			 TFR_scw_daily_enforce = yes
+			}
+			if = {
+			 limit = { NOT = { TFR_scw_eligible_donor = yes } has_country_flag = TFR_scw_managed_donor }
+			 TFR_scw_remove_native_limits = yes
+			 clr_country_flag = TFR_scw_committed_donor
+			 clr_country_flag = TFR_scw_axis_donor
+			 clr_country_flag = TFR_scw_allied_donor
+			 clr_country_flag = TFR_scw_managed_donor
+			 set_variable = { TFR_scw_land = 0 }
+			 set_variable = { TFR_scw_air = 0 }
+			 set_variable = { TFR_scw_draft_land = 0 }
+			 set_variable = { TFR_scw_draft_air = 0 }
+			 TFR_scw_recount_live = yes
+			}
+			if = {
+			 limit = { tag = GER TFR_scw_manager_in_period = yes NOT = { date < 1936.8.1 } NOT = { has_global_flag = TFR_scw_august_fallback_notified } }
+			 set_global_flag = TFR_scw_august_fallback_notified
+			 TFR_scw_refresh_views = yes
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+			 limit = { tag = GER TFR_scw_manager_in_period = yes }
+			 clr_country_flag = TFR_scw_month_committed
+			 GER = { TFR_scw_copy_live_to_draft = yes }
+			 ITA = { TFR_scw_copy_live_to_draft = yes }
+			 ROM = { TFR_scw_copy_live_to_draft = yes }
+			 HUN = { TFR_scw_copy_live_to_draft = yes }
+			 BUL = { TFR_scw_copy_live_to_draft = yes }
+			 TFR_scw_axis_prepare = yes
+			 TFR_scw_refresh_views = yes
+			}
+			if = {
+			 limit = { tag = ENG TFR_scw_manager_in_period = yes }
+			 clr_country_flag = TFR_scw_month_committed
+			 ENG = { TFR_scw_copy_live_to_draft = yes }
+			 FRA = { TFR_scw_copy_live_to_draft = yes }
+			 CAN = { TFR_scw_copy_live_to_draft = yes }
+			 AST = { TFR_scw_copy_live_to_draft = yes }
+			 SAF = { TFR_scw_copy_live_to_draft = yes }
+			 RAJ = { TFR_scw_copy_live_to_draft = yes }
+			 BRA = { TFR_scw_copy_live_to_draft = yes }
+			 MEX = { TFR_scw_copy_live_to_draft = yes }
+			 TFR_scw_allies_prepare = yes
+			 TFR_scw_refresh_views = yes
+			}
+			if = {
+			 limit = { tag = SOV TFR_scw_manager_in_period = yes }
+			 clr_country_flag = TFR_scw_month_committed
+			 SOV = { TFR_scw_copy_live_to_draft = yes }
+			 TFR_scw_soviet_prepare = yes
+			 TFR_scw_refresh_views = yes
+			}
+		}
+	}
+	on_send_volunteers = {
+		effect = {
+			# ROOT = sender, FROM = receiver. Immediate recall only when the sender may not send at all (no confirmed quota,
+			# not a managed donor, or the wrong side). Over-quota sends go through the cap/warning/grace path of TFR_scw_update_limits.
+			if = {
+			 limit = { FROM = { TFR_scw_managed_recipient = yes } }
+			 if = {
+			  limit = {
+			   OR = {
+			    NOT = { TFR_scw_approved_sender = yes }
+			    AND = { has_country_flag = TFR_scw_axis_donor FROM = { NOT = { TFR_scw_axis_recipient = yes } } }
+			    AND = { has_country_flag = TFR_scw_allied_donor FROM = { NOT = { TFR_scw_allied_recipient = yes } } }
+			   }
+			  }
+			  recall_volunteers_from = FROM
+			  country_event = { id = tfr_scw_volunteers.4 }
+			 }
+			 else = { TFR_scw_update_limits = yes }
+			}
+		}
+	}
+}

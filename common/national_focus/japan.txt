@@ -868,7 +868,7 @@ focus_tree = {
 		id = JAP_join_comintern
 		icon = GFX_focus_generic_join_comintern
 		prerequisite = { focus = JAP_finish_the_fight }
-		prerequisite = { focus = JAP_communist_volunteers }
+		prerequisite = { focus = JAP_red_brigades }
 		mutually_exclusive = { focus = JAP_asian_communist_solidarity }
 		x = 0
 		y = 3
@@ -965,43 +965,12 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = JAP_communist_volunteers
-		icon = GFX_goal_generic_demand_territory
-		prerequisite = { focus = JAP_red_brigades }
-		x = 0
-		y = 2
-		relative_position_id = JAP_red_brigades
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			has_government = communism
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_MANPOWER }
-		completion_reward = {
-			add_ideas = JAP_communist_volunteers
-		}
-	}
 
 	focus = {
 		id = JAP_asian_communist_solidarity
 		icon = GFX_goal_generic_alliance
 		prerequisite = { focus = JAP_finish_the_fight }
-		prerequisite = { focus = JAP_communist_volunteers }
+		prerequisite = { focus = JAP_red_brigades }
 		mutually_exclusive = { focus = JAP_join_comintern }
 		x = 0
 		y = 3
@@ -3364,44 +3333,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = JAP_anti_communist_volunteers
-		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = JAP_anti_communist_bulwark }
-		x = 0
-		y = 1
-		relative_position_id = JAP_anti_communist_bulwark
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 3
-				any_country = {
-					has_government = democratic
-					has_war_with = SOV
-				}
-			}
-		}
-
-		available = {
-			NOT = { has_government = communism }
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_MANPOWER }
-		completion_reward = {
-			add_ideas = JAP_anti_communist_volunteers
-		}
-	}
 
 	focus = {
 		id = JAP_the_korean_question
@@ -3553,7 +3484,7 @@ focus_tree = {
 		id = JAP_ultimate_deterrence
 		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = JAP_liberate_manchuria }
-		prerequisite = { focus = JAP_anti_communist_volunteers }
+		prerequisite = { focus = JAP_anti_communist_bulwark }
 		x = -2
 		y = 1
 		relative_position_id = JAP_liberate_manchuria
@@ -3984,10 +3915,6 @@ focus_tree = {
 			add_relation_modifier = {
 				target = FET
 				modifier = JAP_support_ethiopia_static_modifier 
-			}
-			add_relation_rule_override = {
-				target = FET
-				can_send_volunteers = yes
 			}
 			FET = {
 				add_opinion_modifier = {
@@ -18864,7 +18791,6 @@ focus_tree = {
 		completion_reward = {
 
 			set_rule = { can_create_factions = yes }
-			set_rule = { can_send_volunteers = yes }
 			create_faction_from_template = faction_template_JAP_pan_asian_revolutuonary_front
 			add_faction_initiative = 1
 
@@ -21394,7 +21320,6 @@ focus_tree = {
 		completion_reward = {
 
 			set_rule = { can_create_factions = yes }
-			set_rule = { can_send_volunteers = yes }
 			create_faction_from_template = faction_template_JAP_alternative_communist_international
 			add_faction_initiative = 1
 			
@@ -23286,7 +23211,6 @@ focus_tree = {
 
 			add_political_power = 50
 			add_command_power = 25
-			set_rule = { can_send_volunteers = yes }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 				
@@ -24737,8 +24661,6 @@ focus_tree = {
 		id = JAP_ministry_of_commerce_and_industry
 		icon = GFX_focus_JAP_ministry_of_commerce_and_industry
 		
-		mutually_exclusive = {
-		}
 		
 		relative_position_id = JAP_sea_purge_the_kodoha_faction
 		x = 17
@@ -27824,8 +27746,6 @@ focus_tree = {
 		id = JAP_the_imperial_defense_plan 
 		icon = GFX_focus_JAP_the_imperial_defense_plan
 		
-		mutually_exclusive = {
-		}
 		
 		relative_position_id = JAP_ministry_of_commerce_and_industry
 		x = 25

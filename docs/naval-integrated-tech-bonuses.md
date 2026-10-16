@@ -1,5 +1,12 @@
 # Integrated naval support bonuses
 
+The 2026-10-12 pacing change scales base gun/torpedo attacks by 0.3 while keeping
+the percentage bonuses below. Historical JSON final-attack estimates predate
+that scaling. A follow-up separately reduces submarine torpedo module IV by
+another 20% and the ordinary submarine IV hull's homing hit bonus from 0.10
+to 0.05, overriding that hull's homing value described below. Other hulls keep
+their homing bonuses. See `naval-combat-pacing.md`.
+
 Compared with the installed vanilla files `MTG_naval_Support.txt` and
 `MTG_naval.txt`. Numeric values come from that installation, not remembered
 technology dates. The JSON audit records its source hash and every design's

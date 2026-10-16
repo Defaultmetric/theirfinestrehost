@@ -1,4 +1,4 @@
-﻿
+
 ####
 #### NO STEP BACK
 ####
@@ -724,6 +724,13 @@ if = {
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
+		# TFR: initialize standard fleet hulls before creating designs.
+		set_technology = {
+			basic_ship_hull_cruiser = 1
+			basic_ship_hull_heavy = 1
+			basic_ship_hull_light = 1
+			basic_ship_hull_submarine = 1
+		}
 		# TFR: standard 1936 designs must exist before the starting naval OOB loads.
 		create_equipment_variant = {
 			name = "Light Destroyer 1936"
@@ -1501,7 +1508,6 @@ create_equipment_variant = {
 	unlock_national_focus = SOV_addressing_internal_affairs #35
 	unlock_national_focus = SOV_the_workers_dictatorship
 	unlock_national_focus = SOV_pc_of_mechanical_engineering #35 -> Aug 1937
-	complete_national_focus = SOV_transpolar_flights #35 -> 1937
 	unlock_national_focus = SOV_the_military_conspiracy #35 -> Mid 1937
 	complete_national_focus = SOV_finish_the_five_year_plan # -> Dec 1937
 

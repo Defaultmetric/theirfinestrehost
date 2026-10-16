@@ -2671,36 +2671,6 @@
 		}
 	}
 
-	focus = {
-		id = AST_citizen_military_forces
-		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = AST_volunteer_defence_corps }
-		x = 2
-		y = 2
-		relative_position_id = AST_establish_advisory_war_council
-
-		cost = 1
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			add_ideas = AST_citizen_military_forces
-		}
-	}
 
 	focus = {
 		id = AST_rats_of_tobruk
@@ -3038,7 +3008,7 @@
 	focus = {
 		id = AST_classify_aliens
 		icon = GFX_goal_generic_defence
-		prerequisite = { focus = AST_citizen_military_forces }
+		prerequisite = { focus = AST_volunteer_defence_corps }
 		x = 2
 		y = 3
 		relative_position_id = AST_establish_advisory_war_council
@@ -4373,7 +4343,6 @@
 				}
 				INF = { country_event = { id = tfv_australia.96 } }
 			}
-			add_ideas = AST_support_indonesian_uprising
 		}
 	}
 

@@ -1,0 +1,34 @@
+add_namespace = tfr_scw_volunteers
+country_event = {
+ id = tfr_scw_volunteers.1
+ hidden = yes
+ is_triggered_only = yes
+ immediate = { TFR_scw_initialize = yes }
+}
+# Donor is over its quota or over its share of the bloc pool.
+country_event = {
+ id = tfr_scw_volunteers.2
+ title = tfr_scw_volunteers.2.t
+ desc = tfr_scw_volunteers.2.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.2.a }
+}
+# Grace period over: the whole contingent was recalled.
+country_event = {
+ id = tfr_scw_volunteers.3
+ title = tfr_scw_volunteers.3.t
+ desc = tfr_scw_volunteers.3.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.3.a }
+}
+# Sender had no right to send (no confirmed quota or wrong side): recalled at once.
+country_event = {
+ id = tfr_scw_volunteers.4
+ title = tfr_scw_volunteers.4.t
+ desc = tfr_scw_volunteers.4.d
+ picture = GFX_report_event_soldiers_marching
+ is_triggered_only = yes
+ option = { name = tfr_scw_volunteers.4.a }
+}

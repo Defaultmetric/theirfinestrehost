@@ -5284,9 +5284,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = BRA_international_crisis 
-			set_rule = {
-				can_send_volunteers = yes
-			}
 			#set_rule = {
 			#	can_join_factions = yes 
 			#}
@@ -6127,29 +6124,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = BRA_international_brigades
-		icon = GFX_focus_ETH_peacekeeping_forces
-		x = 0
-		y = 1
-		relative_position_id = BRA_align_with_moscow
-		prerequisite = { focus = BRA_align_with_moscow focus = BRA_oust_prestes focus = BRA_cangaco_coup }
-		cost = 5
-		ai_will_do = {
-			factor = 3
-		}
-		available = {
-		}
-
-		search_filters = { }
-
-		completion_reward = {
-			set_rule = { can_send_volunteers = yes }
-
-			add_ideas = BRA_international_brigades
-		
-		}
-	}
 
 	focus = {
 		id = BRA_tech_slot_3

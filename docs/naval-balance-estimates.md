@@ -1,5 +1,9 @@
 # TFR naval budget and loss sensitivity
 
+Balance snapshot before the 2026-10-12 pacing change. Multiply the listed light,
+heavy and torpedo attack values by 0.3 for the current balance. See
+`naval-combat-pacing.md` for the carrier-plane damage change and test scope.
+
 Static estimates from local hull/module files. NOT simulated battles or predicted losses.
 
 ## Assumptions and limits

@@ -9,7 +9,8 @@ ruta lui Franco și încheierea războiului civil; descendenții moștenesc acea
 restricție prin prerequisite, fără repetarea ei la fiecare focus. Cele 37 de focusuri vechi
 înlocuite sunt ascunse permanent, păstrând ID-urile pentru compatibilitate cu
 salvările și referințele vechi. Cele 29 de focusuri originale de război civil
-sunt păstrate integral. Opt intrări ale rutelor alternative deja blocate au
+sunt păstrate, cu excepția celor patru ascunse și a recompensei Equipment Shipments
+cerute ulterior. Opt intrări ale rutelor alternative deja blocate au
 acum `always = no`, în locul condiției dependente de un focus sovietic.
 Celelalte 210 definiții păstrează conținutul original.
 
@@ -20,6 +21,8 @@ Celelalte 210 definiții păstrează conținutul original.
 - Specializare economică / specializare militară. Primele 12 focusuri ale
   fiecărei ramuri rămân comune.
 - Escort Fleet Doctrine / Surface Fleet Doctrine.
+- Infantry Fire Coordination / Armoured Formations, în specializarea militară.
+- Artillery Liaison Officers / Special Forces Training, în specializarea militară.
 
 Arsenal of the Axis păstrează Spania în afara facțiunilor; nu poate declara sau accepta
 războaie externe prin diplomație. Sunt blocate și garanțiile noi, care ar putea
@@ -148,10 +151,10 @@ demobilizare, iar aviația și marina din comandamentul comun. Traseele Portugal
 sunt în exteriorul liniilor reconstrucției. German Military Mission urmează
 comisiei comune; condițiile curente privind Germania rămân.
 
-Arborele naționalist ocupă coloanele 17–61 și nivelurile 0–18. Între armata
+Arborele naționalist ocupă coloanele 17–61 și nivelurile 0–19. Între armata
 comună și aviație, respectiv aviație și marină, rămân trei coloane: două pentru
 spațierea obișnuită și una suplimentară pentru separarea vizuală a ramurilor.
-Alegerea specializării este la (28, 10) și (32, 10). Generatorul notifică și
+Alegerea specializării este la (26, 10) și (32, 10). Generatorul notifică și
 arborele principal al Spaniei după modificarea focusurilor comune, pentru ca
 instanța deja deschisă în debug să preia noua poziționare.
 
@@ -216,8 +219,9 @@ plafonul local. Cele două continuări sunt așezate direct sub A02/A03.
 Bonusurile existente de misiune, agilitate și CAS și cele trei fabrici
 militare sunt păstrate.
 
-Bugetele complete ale celor opt trasee includ ambele moduri, specializările
-mutual exclusive și doctrinele navale. Sunt executate și proiectele
+Bugetele complete ale celor 20 de trasee includ ambele moduri, specializările
+economice/militare, doctrinele navale și cele patru combinații de specializare
+a unităților pentru ruta militară. Sunt executate și proiectele
 opționale eligibile. Exemple de totaluri naționale permanente:
 
 | Indicator | Înainte | După |
@@ -249,3 +253,45 @@ opt trasee. Aceste limite sunt criterii de testare, nu clamp-uri arbitrare
 în joc. Ele acoperă rework-ul național și proiectele sale; legile,
 consilierii și bonusurile comune ale facțiunii sunt sisteme separate.
 Rezultatele executate sunt în `spain-air-balance.json`.
+
+## Curățarea focusurilor naționaliste din războiul civil
+
+La cererea explicită a utilizatorului, Portuguese Aid, Obtain Training Staff,
+Doctrinal Advancements și Utilize the Intellectuals sunt ascunse permanent.
+Definițiile rămân pentru salvări și ancorele de poziționare, iar AI-ul nu le mai
+include în coadă. Nicio continuare vizibilă nu depinde de ele. Markerii deja
+completați din salvări și istoricul scenariului 1939 rămân compatibili.
+
+Equipment Shipments acordă direct 1.000 infantry equipment I, 500 support
+equipment și 200 artillery I, în locul spiritelor și preferințelor AI pentru
+lend-lease. Durata, condițiile și poziționarea focusului sunt păstrate.
+
+## Specializări militare mutual exclusive
+
+După The Staff Academy, jucătorul face două alegeri permanente:
+
+| Alegere | Prima variantă | A doua variantă |
+| --- | --- | --- |
+| Formații principale | Infantry Fire Coordination → Operational Planning | Armoured Formations → Mobile Repair Columns / Motorised Combat Groups → Rapid Force Concentration → Armoured Breakthrough → A War of Manoeuvre |
+| Specializare de luptă | Artillery Liaison Officers → Modern Fire Support | Special Forces Training → Special Forces Command |
+
+Professional NCO Corps, Deep Supply Depots și Integrated Signal Companies rămân
+comune. Unified Operational Doctrine cere Integrated Signal Companies și capătul
+fiecărei alegeri: Operational Planning sau A War of Manoeuvre, plus Modern Fire
+Support sau Special Forces Command. Expanded Officer Corps și A Professional
+Spanish Army continuă de aici. Niciun focus nu cere simultan ambele părți ale unei
+alegeri. Bonusurile de instruire din primele 12 focusuri rămân comune.
+
+Nu sunt crescute recompensele pentru a compensa excluderile. În ruta War,
+infanteria/artileria oferă +5% infantry attack și +7.5% artillery attack;
+blindatele/forțele speciale oferă +7.5% armor attack și +7.5% special forces
+attack, incluzând instruirea comună. Atacul și apărarea generale rămân la +2.5%.
+
+Salvările vechi care au deja ambele variante păstrează evidența recompenselor,
+dar actualizarea dynamic modifier activează doar infanteria și artileria în caz
+de conflict. Sunt scăzute numai contribuțiile focusurilor incompatibile deja
+plătite; logistica, pregătirea comună și recuperarea după războiul civil rămân
+intacte. Actualizarea este repetabilă, fără scăderi cumulative.
+
+Verificare: 72 de teste trecute, 20 de trasee complete executate și arborele
+inspectat vizual în joc. Focusurile ambelor opțiuni rămân mereu vizibile.

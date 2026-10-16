@@ -136,8 +136,8 @@ def placements(building, count, levels=1, cap=5, coastal=False, extra=''):
 
 
 SPECIAL = {
-    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nTFR_SPA_initialize = yes\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
-    'D02': 'set_country_flag = TFR_SPA_war_mode\nTFR_SPA_initialize = yes\ncustom_effect_tooltip = TFR_SPA_war_role_tt',
+    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
+    'D02': 'set_country_flag = TFR_SPA_war_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\ncustom_effect_tooltip = TFR_SPA_war_role_tt',
     'D04': 'TFR_SPA_request_axis_membership = yes\ncustom_effect_tooltip = TFR_SPA_membership_tt',
     'D05': 'TFR_SPA_portugal_agreement = yes\ncustom_effect_tooltip = TFR_SPA_resource_rights_tt',
     'D06': 'TFR_SPA_begin_relocation = yes\ncustom_effect_tooltip = TFR_SPA_relocation_tt',
@@ -275,7 +275,10 @@ def generate_focuses():
     text = ''
     for f in FOCUSES:
         c=f['code']
-        body = f'id = {f["id"]}\nicon = {f["icon"]}\nx = {f["x"]}\ny = {f["y"]}\ncost = {f["days"]/7:g}\navailable_if_capitulated = no\ncancel_if_invalid = yes\n'
+        body = f'id = {f["id"]}\nicon = {f["icon"]}\n'
+        if 'relative_position_id' in f:
+            body += f'relative_position_id = {f["relative_position_id"]}\n'
+        body += f'x = {f["x"]}\ny = {f["y"]}\ncost = {f["days"]/7:g}\navailable_if_capitulated = no\ncancel_if_invalid = yes\n'
         # Visibility is static. Dates, identity, civil-war outcome and choices
         # belong in available/prerequisites, never in branch visibility.
         body += 'allow_branch = { always = yes }\n'
@@ -345,6 +348,18 @@ def generate_runtime():
     for stage in (2,3):
         effects+=block(f'TFR_SPA_advance_recovery_programme_{stage}',choose(f'NOT = {{ has_country_flag = TFR_SPA_recovery_programme_expired }} check_variable = {{ TFR_SPA_recovery_programme > 0 }} check_variable = {{ TFR_SPA_recovery_programme < {stage} }}',f'set_variable = {{ TFR_SPA_recovery_programme = {stage} }}'))+'\n'
     refresh = 'TFR_SPA_apply_balance_revision = yes\nTFR_SPA_expire_recovery_programme = yes\n'+'\n'.join(f'set_variable = {{ {v(k)} = {v(k,True)} }}' for k in MODS)+'\n'
+    # Project saved rewards onto the permitted specialisations. Old saves may
+    # have completed both sides before mutual exclusion existed. Resolve those
+    # to infantry/artillery, without rewriting their earned base variables or
+    # touching recovery, logistics, economic upgrades or third-party modifiers.
+    for choice in PLAN.get('militaryChoices',[]):
+        preferred=choice['legacyPreferred']
+        for option in choice['options']:
+            if option['root']==preferred:continue
+            for code in option['focuses']:
+                adjustment='\n'.join(addmod(key,-value,False) for key,value in BY_CODE[code].get('modifiers',{}).items())
+                if adjustment:
+                    refresh+=choose(f'has_country_flag = TFR_SPA_reward_{preferred} has_country_flag = TFR_SPA_reward_{code}',adjustment)
     # Consumer-goods reductions are the same welfare programme as the planned
     # permanent reductions: apply the stronger benefit, without adding a second
     # copy. Other fields remain distinct bonuses, preserving mixed old saves.

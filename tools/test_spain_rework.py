@@ -257,15 +257,21 @@ class SpainStructureTests(unittest.TestCase):
         focuses={get(v,'id'):v for key,_,v in tree if key=='focus'}
         self.assertEqual(len(scope['nationalist']),37)
         self.assertEqual(len(scope['disabled_branch_roots']),8)
-        for name in scope['nationalist']+scope['disabled_branch_roots']:
+        for name in scope['nationalist']+scope['disabled_branch_roots']+scope.get('hidden_civil_war',[]):
             self.assertEqual(get(focuses[name],'allow_branch'),[('always','=','no')],name)
 
-    def test_all_eight_complete_paths_match_the_reviewed_budget(self):
+    def test_all_twenty_complete_paths_match_the_reviewed_budget(self):
         scenarios=json.loads((ROOT/'tools/spain_focus_expected_totals.json').read_text())['scenarios']
+        self.assertEqual(len(scenarios),20)
         for scenario in scenarios:
-            with self.subTest(mode=scenario['mode'],specialization=scenario['specialization'],navy=scenario['navy']):
+            with self.subTest(mode=scenario['mode'],specialization=scenario['specialization'],navy=scenario['navy'],armyLine=scenario['armyLine'],armySupport=scenario['armySupport']):
                 choices={'D01' if scenario['mode']=='volunteer' else 'D02', 'E13' if scenario['specialization']=='economy' else 'M13','N16' if scenario['navy']=='escort' else 'N17'}
-                excluded={'D01','D02','E13','M13','N16','N17'}-choices
+                exclusive={'D01','D02','E13','M13','N16','N17'}
+                if scenario['specialization']=='military':
+                    choices.add('M16' if scenario['armyLine']=='infantry' else 'M19')
+                    choices.add('M17' if scenario['armySupport']=='artillery' else 'M18')
+                    exclusive.update(('M16','M19','M17','M18'))
+                excluded=exclusive-choices
                 reached=[]
                 while True:
                     additions=[]
@@ -277,6 +283,9 @@ class SpainStructureTests(unittest.TestCase):
                         if all(any(value in ids for _,_,value in group) for group in groups):additions.append(f['code'])
                     if not additions:break
                     reached+=additions
+                for code in reached:
+                    self.assertFalse(set(generator.BY_CODE[code].get('exclusiveWith',[])) & set(reached),code)
+                if scenario['specialization']=='military':self.assertIn('M32',reached)
                 self.assertEqual(set(reached),set(scenario['reachable']))
                 self.assertEqual(len(reached),scenario['count'])
                 self.assertEqual(sum(float(get(BY_CODE[c],'cost'))*7 for c in reached),scenario['focus_days'])
@@ -313,30 +322,43 @@ class SpainStructureTests(unittest.TestCase):
 
     def test_nodes_unique_positions_and_references(self):
         self.assertEqual(len(FOCUSES),115)
+        def position(name):
+            f=FOCUSES[name];p=[int(get(f,k)) if any(key==k for key,_,v in f) else 0 for k in ('x','y')]
+            parent=next((v for key,_,v in f if key=='relative_position_id'),None)
+            if parent:
+                q=position(parent);p=[p[i]+q[i] for i in range(2)]
+            return tuple(p)
         positions=set()
         for name,f in FOCUSES.items():
-            pos=(get(f,'x'),get(f,'y'));self.assertNotIn(pos,positions);positions.add(pos)
+            pos=position(name);self.assertNotIn(pos,positions);positions.add(pos)
             for key,_,body in f:
                 if key in ('prerequisite','mutually_exclusive'):
                     for _,_,target in body:self.assertIn(target,FOCUSES)
-        self.assertEqual(sum(key=='mutually_exclusive' for f in FOCUSES.values() for key,_,v in f),6)
+        self.assertEqual(sum(key=='mutually_exclusive' for f in FOCUSES.values() for key,_,v in f),10)
 
     def test_presentation_has_five_air_focuses_and_compact_local_links(self):
+        def abs_pos(f):
+            p=[f['x'],f['y']]
+            if 'relative_position_id' in f:
+                anchor=next(a for a in generator.FOCUSES if a['id']==f['relative_position_id'])
+                q=abs_pos(anchor);p=[p[i]+q[i] for i in range(2)]
+            return tuple(p)
         air=[f for f in generator.FOCUSES if f['code'].startswith('A')]
         self.assertEqual([f['code'] for f in air],['A01','A02','A03','A04','A05'])
         self.assertEqual(sum(len(f.get('modifiers',{})) for f in air),5)
         self.assertGreaterEqual(len({get(f,'icon') for f in FOCUSES.values()}),100)
-        self.assertLessEqual(max(f['x'] for f in generator.FOCUSES)-min(f['x'] for f in generator.FOCUSES),44)
-        self.assertLessEqual(max(f['y'] for f in generator.FOCUSES),18)
+        self.assertLessEqual(max(abs_pos(f)[0] for f in generator.FOCUSES)-min(abs_pos(f)[0] for f in generator.FOCUSES),44)
+        self.assertLessEqual(max(abs_pos(f)[1] for f in generator.FOCUSES),19)
         for f in generator.FOCUSES:
             for group in f['prerequisites']:
                 for c in group:
                     parent=generator.BY_CODE[c]
-                    self.assertLess(parent['y'],f['y'],(c,f['code']))
+                    self.assertLess(abs_pos(parent)[1],abs_pos(f)[1],(c,f['code']))
         for a in generator.FOCUSES:
             for b in generator.FOCUSES:
-                if a['code']!=b['code'] and a['y']==b['y']:
-                    self.assertGreaterEqual(abs(a['x']-b['x']),2,(a['code'],b['code']))
+                pos_a,pos_b=abs_pos(a),abs_pos(b)
+                if a['code']!=b['code'] and pos_a[1]==pos_b[1]:
+                    self.assertGreaterEqual(abs(pos_a[0]-pos_b[0]),2,(a['code'],b['code']))
 
     def test_dynamic_rewards_use_native_variable_tooltips(self):
         for f in generator.FOCUSES:
@@ -350,11 +372,18 @@ class SpainStructureTests(unittest.TestCase):
             self.assertNotIn('%',loc,f['code'])
 
     def test_neighbouring_focuses_have_different_complete_rewards(self):
+        def abs_pos(f):
+            p=[f['x'],f['y']]
+            if 'relative_position_id' in f:
+                anchor=next(a for a in generator.FOCUSES if a['id']==f['relative_position_id'])
+                q=abs_pos(anchor);p=[p[i]+q[i] for i in range(2)]
+            return tuple(p)
         def signature(f):
             return (f.get('modifiers',{}),f.get('conditionalModifiers',{}),f.get('buildings',{}),f.get('politics',{}),generator.RESEARCH.get(f['code'],[]),generator.SPECIAL.get(f['code'],''),f.get('researchSlotTarget'))
         for i,f in enumerate(generator.FOCUSES):
             for g in generator.FOCUSES[i+1:]:
-                if abs(f['x']-g['x'])<=3 and abs(f['y']-g['y'])<=1:
+                pos_f,pos_g=abs_pos(f),abs_pos(g)
+                if abs(pos_f[0]-pos_g[0])<=3 and abs(pos_f[1]-pos_g[1])<=1:
                     self.assertNotEqual(signature(f),signature(g),(f['code'],g['code']))
 
     def test_decision_unlocks_resolve_without_duplicating_existing_diplomacy(self):
@@ -431,7 +460,9 @@ class SpainStructureTests(unittest.TestCase):
         old=parse(backup/'common/national_focus/spain.txt')[0][2];new=parse(ROOT/'common/national_focus/spain.txt')[0][2]
         old={get(v,'id'):v for k,_,v in old if k=='focus'};new={get(v,'id'):v for k,_,v in new if k=='focus'}
         for name in scope['untouched']:self.assertEqual(old[name],new[name],name)
-        for name in scope['civil_war']:self.assertEqual(old[name],new[name],name)
+        for name in scope['civil_war']:
+            allowed=scope.get('civil_war_edits',{}).get(name,[])
+            self.assertEqual([e for e in old[name] if e[0] not in allowed],[e for e in new[name] if e[0] not in allowed],name)
         for name in scope['nationalist']+scope['disabled_branch_roots']:
             self.assertEqual([e for e in old[name] if e[0]!='allow_branch'],[e for e in new[name] if e[0]!='allow_branch'],name)
 
@@ -445,8 +476,14 @@ class SpainStructureTests(unittest.TestCase):
             if parent:
                 q=position(parent);p=[p[i]+q[i] for i in range(2)]
             return p
+        def position_focus(name):
+            f=FOCUSES[name];p=[int(get(f,k)) if any(key==k for key,_,v in f) else 0 for k in ('x','y')]
+            parent=next((v for key,_,v in f if key=='relative_position_id'),None)
+            if parent:
+                q=position_focus(parent);p=[p[i]+q[i] for i in range(2)]
+            return p
         for name,focus in FOCUSES.items():
-            x,y=int(get(focus,'x')),int(get(focus,'y'))
+            x,y=position_focus(name)
             for legacy in scope['civil_war']:
                 a,b=position(legacy)
                 self.assertFalse(y==b and abs(x-a)<2,(name,legacy))
@@ -486,6 +523,38 @@ class SpainStructureTests(unittest.TestCase):
 
 
 class SpainRuntimeTests(unittest.TestCase):
+    def test_military_specialisations_block_the_opposite_and_keep_the_capstone_reachable(self):
+        for line in ('M16','M19'):
+            for support in ('M17','M18'):
+                w=World();w.focus('M13');w.focus('M14')
+                for choice,other in ((line,'M19' if line=='M16' else 'M16'),(support,'M18' if support=='M17' else 'M17')):
+                    self.assertTrue(w.can_start(choice));self.assertTrue(w.can_start(other))
+                    w.focus(choice);self.assertFalse(w.can_start(other))
+                for c in ('M15','M23'):w.focus(c)
+                self.assertFalse(w.can_start('M28'))
+                w.focus('M24' if line=='M16' else 'M31')
+                self.assertFalse(w.can_start('M28'))
+                w.focus('M27' if support=='M17' else 'M25')
+                self.assertTrue(w.can_start('M28'));w.focus('M28')
+                self.assertTrue(w.can_start('M30'));w.focus('M30')
+                self.assertTrue(w.can_start('M32'))
+
+    def test_existing_stacked_military_rewards_keep_only_one_side_of_each_choice(self):
+        w=World();w.focus('D01')
+        for c in ('M16','M24','M19','M20','M21','M26','M29','M31','M17','M27','M18','M25'):w.focus(c)
+        before=dict(w.countries['SPR']['vars'])
+        self.assertAlmostEqual(w.stat('army.army_infantry_attack_factor'),.05)
+        self.assertAlmostEqual(w.stat('army.army_artillery_attack_factor'),.075)
+        self.assertAlmostEqual(w.stat('army.army_artillery_defence_factor'),.025)
+        for key in ('army_armor_attack_factor','army_armor_speed_factor','motorized_attack_factor','mechanized_attack_factor','breakthrough_factor','org_loss_when_moving','army_fuel_consumption_factor','special_forces_attack_factor','special_forces_cap','special_forces_defence_factor'):
+            self.assertAlmostEqual(w.stat('army.'+key),0,msg=key)
+        w.run('TFR_SPA_refresh_modifiers');self.assertEqual(dict(w.countries['SPR']['vars']),before)
+        # Compatible common training/recovery still works around the projection.
+        w.focus('M04');w.focus('M09');w.focus('M10')
+        self.assertAlmostEqual(w.stat('army.special_forces_cap'),.1)
+        self.assertAlmostEqual(w.stat('army.special_forces_attack_factor'),.025)
+        self.assertAlmostEqual(w.stat('army.army_artillery_defence_factor'),.075)
+
     def test_balance_revision_rebases_existing_rewards_once(self):
         w=World();w.focus('D01');country=w.countries['SPR']
         country['flags'].discard('TFR_SPA_balance_revision_1')
@@ -598,6 +667,25 @@ class SpainRuntimeTests(unittest.TestCase):
             w.effect([e for e in options[1-i] if e[0] not in ('name','ai_chance')])
             self.assertAlmostEqual(w.countries['SPR']['stability'],.05 if i==0 else -.025)
             self.assertFalse(w.check(get(event,'trigger')))
+
+    def test_role_tooltips_hide_legacy_idea_removal_without_losing_recovery(self):
+        def visible(entries):
+            for key,_,body in entries:
+                if key=='hidden_effect':continue
+                yield key,body
+                if key in EFFECTS:yield from visible(EFFECTS[key])
+                elif isinstance(body,list):yield from visible(body)
+        for role in ('D01','D02'):
+            shown=list(visible(get(BY_CODE[role],'completion_reward')))
+            self.assertFalse(any(key=='remove_ideas' for key,body in shown))
+            self.assertEqual(sum(key=='custom_effect_tooltip' and body=='TFR_SPA_recovery_import_tt' for key,body in shown),1)
+            for stage,suffix in ((1,''),(2,'_2'),(3,'_3')):
+                w=World();idea='SPA_recovering_from_civil_war'+suffix
+                w.countries['SPR']['ideas'].add(idea);w.focus(role)
+                self.assertNotIn(idea,w.countries['SPR']['ideas'])
+                self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],stage)
+                for key,value in generator.RECOVERY_PENALTIES[stage].items():
+                    self.assertAlmostEqual(w.stat(key),value)
 
     def test_every_original_positive_and_negative_recovery_profile_is_preserved(self):
         # Independent oracle: read the original idea modifiers, rather than the
@@ -803,5 +891,27 @@ class SpainRuntimeTests(unittest.TestCase):
         w=World();w.focus('D01');w.states['165']['dynamic'].add('autonomous_state');w.states['171']['dynamic'].add('semi_autonomous_state');w.states['171']['controller']='ENG'
         w.focus('P03');self.assertFalse(w.states['165']['dynamic']);self.assertIn('semi_autonomous_state',w.states['171']['dynamic'])
 
+    def test_relative_positions_depend_on_public_works_and_staff_academy(self):
+        e14_desc = {'E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32'}
+        m14_desc = {'M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','M32'}
+        for f in generator.FOCUSES:
+            rel = f.get('relative_position_id')
+            if f['code'] in e14_desc:
+                self.assertEqual(rel, 'TFR_SPA_public_works_programme', f['code'])
+            elif f['code'] in m14_desc:
+                self.assertEqual(rel, 'TFR_SPA_the_staff_academy', f['code'])
+            else:
+                self.assertIsNone(rel, f['code'])
+        for name, focus in FOCUSES.items():
+            rel = next((v for k, _, v in focus if k == 'relative_position_id'), None)
+            code = next(c for c, f in generator.BY_CODE.items() if f['id'] == name)
+            if code in e14_desc:
+                self.assertEqual(rel, 'TFR_SPA_public_works_programme', name)
+            elif code in m14_desc:
+                self.assertEqual(rel, 'TFR_SPA_the_staff_academy', name)
+            else:
+                self.assertIsNone(rel, name)
+
 
 if __name__=='__main__':unittest.main()
+

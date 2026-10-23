@@ -42,10 +42,15 @@ its separate "My reservation" tab. Observers see approved quotas, while each
 manager sees its editable draft. Existing excluded donors lose old permissions
 and modifiers on the next daily update.
 
-The opening button sits in the top bar immediately to the left of Host Tool. It
-uses the same GFX_generic_box_96 sprite, scale 1.1, font, vertical alignment and
-hover sound, with the shorter label "Spain Vols" to fit the button. Countries appear
-in three columns of cards with live country flags and names. Ground allocation
+The opening button sits immediately above the native raids header on the right.
+It reuses the native 82 x 39 winged frame and 32 x 32 round button, with the existing
+Spanish-coloured helmet displayed at scale 0.75. Only the round centre is clickable;
+the frame and helmet are transparent to mouse input. The scripted GUI attaches to
+`raid_filter`, with a five-pixel gap above its header, so it follows the native
+panel's dynamic height and resolution anchoring. It no longer occupies a top-bar
+slot. Opening remains country-scoped and therefore shared between co-op players.
+
+Countries appear in three columns of cards with live country flags and names. Ground allocation
 uses a horizontal stepped bar; air allocation uses a vertical stepped bar, with
 higher quotas above lower quotas. Click a step to select it. Dragging is not
 implemented: the game's documented scripted GUI API exposes button clicks and
@@ -86,7 +91,15 @@ of 8 and 16 divisions moved the ground marker correctly; selecting 600 aircraft
 moved the air marker to the top. Extra allocations to Italy were blocked when
 the corresponding shared pool was full. No SCW interface/script errors appeared
 in the game's error log. This predates the revised country lists, tabs and Soviet
-priority deadline. Other resolutions have not been visually checked.
+priority deadline and the raids-style opening button.
+
+Opening-button check (2026-10-23, HOI4 1.19.3, UI scale 1.0): verified in-game
+at 1920 x 1080 and 2560 x 1440 in fresh paused German campaigns. The Spanish
+helmet uses the native raids frame immediately above the raids button, with no
+overlap. Opening and closing the allocation panel worked at both resolutions;
+the taller Allied panel also fitted fully at 1080p. Collapsing and expanding the
+native raids categories moved the Spanish button with the header. No SCW or
+raid_filter errors appeared in error.log. The original video settings were restored.
 
 Current in-game check (HOI4 1.19.3, 2560 x 1440): fresh UK game on 1 January
 1936 shows the red "Soviet has not picked" message, the revised Allied list and

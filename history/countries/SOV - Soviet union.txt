@@ -513,7 +513,7 @@ set_variable = { SOV_fyp_factory_requirement_tier_5 = 200 }
 
 #THIRD FIVE YEAR PLAN NATIONAL SPIRIT VARS
 set_variable = { SOV_fyp_production_factory_efficiency_gain_factor = -0.15 }
-set_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.05 }
+set_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.035 }
 set_variable = { SOV_fyp_consumer_goods_factor = 0.10 }
 set_variable = { SOV_fyp_production_speed_industrial_complex_factor = 0.05 }
 
@@ -568,7 +568,7 @@ set_variable = { SOV_red_fleet_special_forces_cap = 0 } #-> Marines
 
 #DEFENSE INDUSTRY NATIONAL SPIRIT VARS
 set_variable = { SOV_defense_industry_conversion_cost_civ_to_mil_factor = -0.2 }
-set_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 }
+set_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.035 }
 set_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = -0.05 }
 set_variable = { SOV_defense_industry_line_change_production_efficiency_factor = -0.1 }
 
@@ -1535,7 +1535,7 @@ create_equipment_variant = {
 	add_dynamic_modifier = { modifier = SOV_third_five_year_plan_dynamic_modifier }
 
 	#DEFENSE INDUSTRY NS
-	add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 }
+	add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.035 }
 	add_to_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = -0.05 }
 
 	#THE RED ARMY NS
@@ -1656,7 +1656,7 @@ set_popularities = {
 	communism = 88
 }
 
-create_faction = Comintern
+create_faction_from_template = faction_template_tfr_comintern
 add_to_faction = SOV
 add_to_faction = MON
 add_to_faction = TAN

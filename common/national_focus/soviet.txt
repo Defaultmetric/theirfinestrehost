@@ -582,7 +582,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.035 }
 			add_to_variable = { SOV_fyp_line_change_production_efficiency_factor = 0.1 }
 			custom_effect_tooltip = SOV_industrial_modernization_ns_tt
 
@@ -1173,7 +1173,7 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				add_to_variable = { SOV_fyp_consumer_goods_factor = -0.05 } #Bonus to CG
-				add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.05 } #Bonus to max efficicency
+				add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.035 } #Bonus to max efficicency
 				if = {
 					limit = {
 						has_government = communism
@@ -4227,7 +4227,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.035 }
 			add_to_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = -0.05 }
 			custom_effect_tooltip = SOV_pc_of_mechanical_engineering_ns_tt
 
@@ -6777,7 +6777,7 @@ focus_tree = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.05}
+		add_to_variable = { SOV_fyp_production_factory_max_efficiency_factor = 0.035}
 		add_to_variable = { SOV_fyp_line_change_production_efficiency_factor = 0.1 }
 		custom_effect_tooltip = SOV_industrial_modernization_ns_tt
 
@@ -9616,7 +9616,7 @@ focus = {
 				set_rule = { can_join_factions = yes }
 				set_rule = { can_create_factions = yes }
 			}
-			create_faction = FOURTH_INTERNATIONAL_FACTION
+			create_faction_from_template = faction_template_tfr_fourth_international_faction
 		}
 	}
 
@@ -11255,7 +11255,7 @@ focus = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = SOV_international_revolutionary_marxist_centre_faction_name
+				create_faction_from_template = faction_template_tfr_sov_international_revolutionary_marxist_centre_faction_name
 				every_subject_country = {
 					ROOT = { add_to_faction = PREV }
 				}
@@ -18285,7 +18285,7 @@ ai_will_do = {
 						}
 					}
 				}
-				create_faction = TRIPLE_ENTENTE
+				create_faction_from_template = faction_template_tfr_triple_entente
 				ENG = {
 					country_event = { id = NSB_soviet_fascist_tsarist.16 hours = 6 }
 				}
@@ -18294,7 +18294,7 @@ ai_will_do = {
 				}
 			}
 			else = {
-				create_faction = TRIPLE_ENTENTE
+				create_faction_from_template = faction_template_tfr_triple_entente
 			}
 		}
 	}
@@ -18883,7 +18883,7 @@ ai_will_do = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = NPTO
+				create_faction_from_template = faction_template_tfr_npto
 			}
 			
 			every_other_country = {

@@ -4625,7 +4625,7 @@ initial_show_position = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_preemptive_strikes_dynamic_modifier_tt
-			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.035 tooltip = production_factory_max_efficiency_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_navy_org_factor = 0.10 tooltip = navy_org_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_navy_max_range_factor = 0.15 tooltip = navy_max_range_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_industrial_capacity_dockyard = 0.10 tooltip = industrial_capacity_dockyard_tt }
@@ -4795,7 +4795,7 @@ initial_show_position = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_preemptive_strikes_dynamic_modifier_tt
-			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.035 tooltip = production_factory_max_efficiency_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_air_range_factor = 0.10 tooltip = air_range_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_air_mission_efficiency = 0.10 tooltip = air_mission_efficiency_tt }
 		}
@@ -4842,7 +4842,7 @@ initial_show_position = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_preemptive_strikes_dynamic_modifier_tt
-			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+			add_to_variable = { PHI_preemptive_strikes_production_factory_max_efficiency_factor = 0.035 tooltip = production_factory_max_efficiency_factor_tt }
 			add_to_variable = { PHI_preemptive_strikes_industrial_capacity_factory = 0.15 tooltip = industrial_capacity_factory_tt }
 			add_to_variable = { PHI_preemptive_strikes_industrial_capacity_dockyard = 0.05 tooltip = industrial_capacity_dockyard_tt }
 		}
@@ -6171,7 +6171,7 @@ initial_show_position = {
 				limit = {
 					has_completed_focus = PHI_hispanic_overtures
 				}
-				create_faction = PHI_hispanic_coalition
+				create_faction_from_template = faction_template_tfr_phi_hispanic_coalition
 				every_other_country = {
 					limit = {
 						has_country_flag = PHI_agreed_to_ally
@@ -6585,7 +6585,7 @@ initial_show_position = {
 					is_in_faction = no
 					is_subject = no
 				}
-				create_faction = PHI_hispanic_coalition
+				create_faction_from_template = faction_template_tfr_phi_hispanic_coalition
 				every_other_country = {
 					limit = {
 						has_country_flag = PHI_agreed_to_ally
@@ -7978,7 +7978,7 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			create_faction = Pan_pacific_trade_union_secretariat # Loc key
+			create_faction_from_template = faction_template_tfr_pan_pacific_trade_union_secretariat # Loc key
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}

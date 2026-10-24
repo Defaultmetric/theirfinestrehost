@@ -545,9 +545,10 @@ textures = [
     ('air_fill', (24,13), (52,108,115,255), (95,177,187,255), False),
     ('air_thumb', (24,13), (81,155,172,255), (173,231,241,255), True),
 ]
-# scw_volunteers_button.dds (2 frames 55x41, TFR toolbar box + Spanish-coloured helmet from vanilla
+# scw_volunteers_button.dds (2 frames 55x41, Spanish-coloured helmet on a transparent background, from vanilla
 # goal_generic_axis_build_infantry.dds) is hand-made; it is not regenerated here.
 gfx = block('spriteType', 'name = "GFX_TFR_scw_volunteers_button"\ntexturefile = "gfx/interface/tfr_scw/scw_volunteers_button.dds"\nnoOfFrames = 2\n')
+gfx += block('spriteType', 'name = "GFX_TFR_scw_raids_button"\ntexturefile = "gfx/interface/military_raids/map_icons/raid_round_bg_button.dds"\neffectFile = "gfx/FX/buttonstate.lua"\n')
 for name, size, fill, border, thumb in textures:
     ui_texture(name, size, fill, border, thumb)
     gfx += block('spriteType', f'name = "GFX_TFR_scw_{name}"\ntexturefile = "gfx/interface/tfr_scw/{name}.dds"\n' + ('effectFile = "gfx/FX/buttonstate.lua"\n' if name in ('open_button','land_step','air_step') else ''))
@@ -577,21 +578,31 @@ def icon(name, sprite, x, y):
     return f'iconType = {{ name = "{name}" position = {{ x = {x} y = {y} }} spriteType = "{sprite}" alwaystransparent = yes }}\n'
 
 gui = 'guiTypes = {\n' + block('containerWindowType', '''name = "TFR_scw_open_window"
-# Last button of the topbar menu row. interface/topbar.gui (TFR override) hides the International Market button and moves
-# trade..officer_corp one slot left, so Officer Corps ends at screen x 621: topbar { x = -4 y = -1 } -> country_menu_window
-# { x = 217 y = 36 } -> after_faction_button { x = 17 } -> after_intel_agency_button { x = 55 } -> officer_corp_button { x = 281 } = 566.
-# This button takes the freed slot: x 621..676, y 35..76, 55x41, on the vanilla row panel; alerts keep their vanilla start.
-# UPPER_LEFT like the menu row, so it is the same at every resolution.
-position = { x = 621 y = 35 }
-size = { width = 55 height = 41 }
-orientation = UPPER_LEFT
+# Follow the native raid filter, whose height changes with the available raid categories.
+# Its header starts at (-2, -38); leave a five-pixel gap above that header.
+position = { x = -2 y = -82 }
+size = { width = 82 height = 39 }
+iconType = {
+ name = "raids_style_frame"
+ spriteType = "GFX_raids_filter_header_button"
+ position = { x = 0 y = 0 }
+ alwaystransparent = yes
+}
 buttonType = {
  name = "open"
- quadTextureSprite = "GFX_TFR_scw_volunteers_button"
- position = { x = 0 y = 0 }
+ quadTextureSprite = "GFX_TFR_scw_raids_button"
+ position = { x = 25 y = 4 }
  pdx_tooltip = "TFR_SCW_OPEN_TT"
  clicksound = click_ok
  oversound = ui_menu_over
+}
+iconType = {
+ name = "spanish_helmet"
+ spriteType = "GFX_TFR_scw_volunteers_button"
+ frame = 1
+ position = { x = 20 y = 4 }
+ scale = 0.75
+ alwaystransparent = yes
 }
 ''')
 open_effect = '''open_click = {
@@ -609,6 +620,7 @@ for side, leader, _, _, _ in GROUPS:
 open_effect += ' TFR_scw_sync_view = yes\n}\n'
 script_gui = block('TFR_scw_open', '''context_type = player_context
 window_name = "TFR_scw_open_window"
+parent_window_name = "raid_filter"
 dirty = TFR_scw_ui_dirty
 # No visible trigger: the button is always shown. When the quota panels do not apply (war over, period ended, or the
 # country takes no part), TFR_scw_info explains why instead.
@@ -832,6 +844,8 @@ backup = Path(r'C:\Users\mihai\.codex\backups\tfr-scw-volunteers') / datetime.no
 backup.mkdir(parents=True, exist_ok=False)
 for rel, data in FILES.items():
     p = ROOT/rel
+    if p.exists() and (p.read_bytes() == data or (p.suffix in ('.txt', '.gui', '.gfx', '.yml') and p.read_bytes().decode('utf-8-sig').replace('\r\n', '\n') == data.decode('utf-8-sig'))):
+        continue
     if p.exists():
         b = backup/rel
         b.parent.mkdir(parents=True, exist_ok=True)

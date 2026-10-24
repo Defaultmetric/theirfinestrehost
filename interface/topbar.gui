@@ -1,5 +1,5 @@
-# TFR override of vanilla interface/topbar.gui: International Market button hidden, menu row closed up,
-# SCW volunteers button (interface/tfr_scw_volunteers.gui) takes the freed last slot. Re-diff after game updates.
+# TFR override: International Market hidden; ten 55px toolbar buttons on a uniform 58px pitch.
+# SCW volunteers now sit above the right-side raids button. Re-diff after game updates.
 guiTypes = {
 
 	containerWindowType = {
@@ -714,12 +714,13 @@ guiTypes = {
 			containerWindowType= {
 				name="faction_button_container"
 				position = { x=-115 y=0 }
-				size = { width=30 height=30 }
+				size = { width=55 height=41 }
 				
 				buttonType = {
 					name = "faction_button"
 					quadTextureSprite ="GFX_topbar_faction_empty"
-					position = { x= 0 y = -1}
+					position = { x= 0 y = 0}
+					size = { x = 55 y = 41 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_close
 					oversound = ui_menu_over
@@ -728,28 +729,31 @@ guiTypes = {
 	
 				instantTextBoxType = {
 					name ="initiative_text"
-					position = { x= -15 y = 8 }
+					# TFR: counter sits below the raised emblem.
+					position = { x= -27 y = 4 }
 					font = "hoi_16mbs"
 					text = "999"
 					format = center
 					orientation = "CENTER"
-					maxWidth = 30
+					maxWidth = 55
 					maxHeight = 24
 					fixedsize = yes
+					alwaystransparent = yes
 				}
 	
 				iconType = {
 					name = "faction_icon"
 					spriteType = "GFX_faction_logo_generic_democratic_miniature"
-					position = { x = 4 y = 3 }
-					scale = 0.7
+					# TFR: 24px emblem in the top of the box, leaving room for the initiative counter.
+					position = { x = 15 y = 2 }
+					scale = 0.75
 					alwaystransparent = yes
 				}
 			}
 
 			containerWindowType = {
 					name = "after_faction_button"
-					position = { x=17 y=0 }
+					position = { x=47 y=0 }
 
 				iconType = {
 					name ="decision_view_alert_glow"
@@ -810,7 +814,7 @@ guiTypes = {
 				buttonType = {
 					name = "intel_agency_button"
 					quadTextureSprite ="GFX_topbar_intelligence" 
-					position = { x= -49 y = 0 }
+					position = { x = -46 y = 0 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_close
 					oversound = ui_menu_over
@@ -820,14 +824,14 @@ guiTypes = {
 				iconType = {
 					name = "intelview_ops_prepared_or_completed_bg"
 					spriteType = "GFX_topbar_alert_bg"
-					position = { x = -49 y = 4}
+					position = { x = -46 y = 4 }
 					alwaystransparent = yes
 					frame = 4
 				}
 
 				instantTextBoxType = {
 					name ="intelview_ops_prepared_or_completed_items"
-					position = { x= -51 y = 4 }
+					position = { x = -48 y = 4 }
 					font = "hoi_16mbs"
 					text = "9"
 					format = center
@@ -839,14 +843,14 @@ guiTypes = {
 				iconType = {
 					name = "intelview_ops_available_bg"
 					spriteType = "GFX_topbar_alert_bg"
-					position = { x = -49 y = 20}
+					position = { x = -46 y = 20 }
 					alwaystransparent = yes
 					frame = 1
 				}
 
 				instantTextBoxType = {
 					name ="intelview_ops_available_items"
-					position = { x= -51 y = 20 }
+					position = { x = -48 y = 20 }
 					font = "hoi_16mbs"
 					text = "9"
 					format = center
@@ -858,12 +862,12 @@ guiTypes = {
 				# Here, several buttons are put in the container "after_intel_agency_button", to be easily moved if the player don't have the DLC required by "intel_agency_button".
 				containerWindowType = {
 					name = "after_intel_agency_button"
-					position = { x=55 y=0 }
+					position = { x = 58 y = 0 }
 
 					buttonType = {
 						name = "technology_button"
 						quadTextureSprite ="GFX_topbar_technology"
-						position = { x= -49 y = 0 }
+						position = { x = -46 y = 0 }
 						Orientation = "UPPER_LEFT"
 						shortcut = "w"
 						clicksound = click_close
@@ -873,14 +877,14 @@ guiTypes = {
 					iconType = {
 						name = "prototype_rewards_aquired_bg"
 						spriteType = "GFX_topbar_alert_bg"
-						position = { x = -29 y = 20}
+						position = { x = -26 y = 20 }
 						alwaystransparent = yes
 						frame = 1
 					}
 
 					instantTextBoxType = {
 						name ="prototype_rewards_aquired"
-						position = { x= -31 y = 20 }
+						position = { x = -28 y = 20 }
 						font = "hoi_16mbs"
 						text = "999"
 						format = center
@@ -951,9 +955,9 @@ guiTypes = {
 					}
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 61
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "trade_button"
-						position = { x= 6 y = 0 }
+						position = { x = 12 y = 0 }
 						quadTextureSprite ="GFX_topbar_trade_button"
 						Orientation = "UPPER_LEFT"
 						shortcut = "r"
@@ -962,9 +966,9 @@ guiTypes = {
 					}	
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 116
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "construction_button"
-						position = { x = 61 y = 0 }
+						position = { x = 70 y = 0 }
 						quadTextureSprite ="GFX_construction_button"
 						Orientation = "UPPER_LEFT"
 						shortcut = "t"
@@ -973,17 +977,17 @@ guiTypes = {
 					}
 
 					iconType = {
-						# TFR: one slot left (market hidden). vanilla x = 171
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "production_button_glow"
-						position = { x = 116 y = 0 }
+						position = { x = 128 y = 0 }
 						spriteType = "GFX_decisions_glow_yellow"
 						alwaystransparent = yes
 					}
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 171
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "production_button"
-						position = { x = 116 y = 0 }
+						position = { x = 128 y = 0 }
 						quadTextureSprite ="GFX_topbar_production"
 						Orientation = "UPPER_LEFT"
 						shortcut = "y"
@@ -992,9 +996,9 @@ guiTypes = {
 					}
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 226
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "deployment_button"
-						position = { x = 171 y = 0 }
+						position = { x = 186 y = 0 }
 						quadTextureSprite ="GFX_deployment_button"
 						Orientation = "UPPER_LEFT"
 						shortcut = "u"
@@ -1003,9 +1007,9 @@ guiTypes = {
 					}		
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 281
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "logistics_button"
-						position = { x = 226 y = 0 }
+						position = { x = 244 y = 0 }
 						quadTextureSprite ="GFX_ledger_button"
 						Orientation = "UPPER_LEFT"
 						shortcut = "i"
@@ -1014,9 +1018,9 @@ guiTypes = {
 					}
 
 					buttonType = {
-						# TFR: one slot left (market hidden). vanilla x = 336
+						# TFR: uniform 58px toolbar pitch; market hidden.
 						name = "officer_corp_button"
-						position = { x = 281 y = 0 }
+						position = { x = 302 y = 0 }
 						quadTextureSprite ="GFX_staff_office_button"
 						Orientation = "UPPER_LEFT"
 						shortcut = "shift+e"

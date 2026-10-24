@@ -3700,7 +3700,7 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ITA_eco_tt
 			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.10 tooltip = industrial_capacity_factory_tt }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 tooltip = production_factory_max_efficiency_factor_tt}
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.07 tooltip = production_factory_max_efficiency_factor_tt}
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.05 tooltip = production_factory_start_efficiency_factor_tt }
 			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -3810,7 +3810,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_to_variable = { ITA_military_industry_dm_industrial_capacity_factory = 0.05 }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.035 }
 			add_to_variable = { ITA_military_industry_dm_line_change_production_efficiency_factor = 0.2 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = -0.04 }
 			custom_effect_tooltip = ITA_increase_production_military_industry_tt
@@ -10614,7 +10614,7 @@ focus_tree = {
 		completion_reward = {
 			add_to_variable = { ITA_iri_production_speed_arms_factory_factor = 0.05 } 
 			custom_effect_tooltip = ITA_stop_the_squandering_ricostruzione_industriale_tt
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.035 }
 			custom_effect_tooltip = ITA_stop_the_squandering_military_industry_tt
 
 			if = {
@@ -14117,14 +14117,14 @@ focus_tree = {
 					has_completed_focus = ITA_deus_vult
 					is_faction_leader = no
 				}
-				create_faction = ITA_papal_faction 
+				create_faction_from_template = faction_template_tfr_ita_papal_faction 
 			}
 			IF = {
 				limit = {
 					has_completed_focus = ITA_mare_nostrum_bba
 					is_faction_leader = no
 				}
-				create_faction = ITA_roman_faction
+				create_faction_from_template = faction_template_tfr_ita_roman_faction
 			}
 		}
 	}
@@ -15736,7 +15736,7 @@ focus_tree = {
 				}
 				set_rule = { can_create_factions = yes }
 			}
-			create_faction = ITA_italian_league
+			create_faction_from_template = faction_template_tfr_ita_italian_league
 
 			if = {
 				limit = {
@@ -19898,7 +19898,7 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			create_faction = ITA_united_socialist_front
+			create_faction_from_template = faction_template_tfr_ita_united_socialist_front
 
 			custom_effect_tooltip = ITA_defend_the_land_invite_tt
 			if = {
@@ -20088,7 +20088,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.05 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.035 }
 			add_to_variable = { ITA_military_industry_dm_production_factory_efficiency_gain_factor = 0.05 }
 			custom_effect_tooltip = ITA_il_sol_dell_avvenire_military_industry_dm_tt
 
@@ -20389,7 +20389,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_to_variable = { ITA_military_industry_dm_production_factory_start_efficiency_factor = 0.05 }
-			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.1 }
+			add_to_variable = { ITA_military_industry_dm_factory_max_efficiency_factor = 0.07 }
 			custom_effect_tooltip = ITA_production_lines_military_industry_dm_tt
 
 			custom_effect_tooltip = ITA_production_lines_factories_tt
@@ -20676,7 +20676,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			create_faction = ITA_free_states_of_europe
+			create_faction_from_template = faction_template_tfr_ita_free_states_of_europe
 			add_political_power = 50
 			custom_effect_tooltip = ITA_italia_libera_invite_tt
 			if = {
@@ -21625,7 +21625,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			create_faction = ITA_italian_confederation
+			create_faction_from_template = faction_template_tfr_ita_italian_confederation
 			add_ideas = ITA_italian_confederation_leader
 
 			if = {

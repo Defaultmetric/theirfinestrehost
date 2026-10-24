@@ -3284,7 +3284,7 @@ focus_tree = {
 					}
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_anti_fascist_coalition
+				create_faction_from_template = faction_template_tfr_fra_anti_fascist_coalition
 				every_neighbor_country = {
 					limit = {
 						is_in_faction = no
@@ -3755,7 +3755,7 @@ focus_tree = {
 				name = FRA_union_populaire
 			}
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_communist_faction
+			create_faction_from_template = faction_template_tfr_fra_communist_faction
 			create_operative_leader = {
 				name = "Jacques Duclos"
 				GFX = GFX_portrait_jacques_duclos
@@ -5095,7 +5095,7 @@ focus_tree = {
 			}
 			add_to_variable = 
 			{
-				FRA_ind_prod_eff_cap = 0.05
+				FRA_ind_prod_eff_cap = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			hidden_effect = 
@@ -5708,7 +5708,7 @@ focus_tree = {
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_little_entente
+				create_faction_from_template = faction_template_tfr_fra_little_entente
 				FCZ = { custom_effect_tooltip = invite_to_faction_tt }
 				hidden_effect = {
 					FCZ = { country_event = generic.5 }
@@ -7241,7 +7241,7 @@ focus_tree = {
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_latin_entente
+			create_faction_from_template = faction_template_tfr_fra_latin_entente
 			create_country_leader = {
 				name = "François de la Rocque"
 				desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
@@ -9091,7 +9091,7 @@ focus_tree = {
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_orleanist_faction
+			create_faction_from_template = faction_template_tfr_fra_orleanist_faction
 			if = {
 				limit = {
 					GER = { has_government = fascism }
@@ -9297,7 +9297,7 @@ focus_tree = {
 					country_exists = SPB
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_legitimist_faction
+				create_faction_from_template = faction_template_tfr_fra_legitimist_faction
 				SPB = { country_event = generic.5 }
 			}
 			else = {
@@ -9430,7 +9430,7 @@ focus_tree = {
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_legitimist_faction
+				create_faction_from_template = faction_template_tfr_fra_legitimist_faction
 			}
 			if = {
 				limit = {
@@ -9502,7 +9502,7 @@ focus_tree = {
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_continental_system
+				create_faction_from_template = faction_template_tfr_fra_continental_system
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {

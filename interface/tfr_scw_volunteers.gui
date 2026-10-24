@@ -1,21 +1,31 @@
 guiTypes = {
 containerWindowType = {
 	name = "TFR_scw_open_window"
-	# Last button of the topbar menu row. interface/topbar.gui (TFR override) hides the International Market button and moves
-	# trade..officer_corp one slot left, so Officer Corps ends at screen x 621: topbar { x = -4 y = -1 } -> country_menu_window
-	# { x = 217 y = 36 } -> after_faction_button { x = 17 } -> after_intel_agency_button { x = 55 } -> officer_corp_button { x = 281 } = 566.
-	# This button takes the freed slot: x 621..676, y 35..76, 55x41, on the vanilla row panel; alerts keep their vanilla start.
-	# UPPER_LEFT like the menu row, so it is the same at every resolution.
-	position = { x = 621 y = 35 }
-	size = { width = 55 height = 41 }
-	orientation = UPPER_LEFT
+	# Follow the native raid filter, whose height changes with the available raid categories.
+	# Its header starts at (-2, -38); leave a five-pixel gap above that header.
+	position = { x = -2 y = -82 }
+	size = { width = 82 height = 39 }
+	iconType = {
+	 name = "raids_style_frame"
+	 spriteType = "GFX_raids_filter_header_button"
+	 position = { x = 0 y = 0 }
+	 alwaystransparent = yes
+	}
 	buttonType = {
 	 name = "open"
-	 quadTextureSprite = "GFX_TFR_scw_volunteers_button"
-	 position = { x = 0 y = 0 }
+	 quadTextureSprite = "GFX_TFR_scw_raids_button"
+	 position = { x = 25 y = 4 }
 	 pdx_tooltip = "TFR_SCW_OPEN_TT"
 	 clicksound = click_ok
 	 oversound = ui_menu_over
+	}
+	iconType = {
+	 name = "spanish_helmet"
+	 spriteType = "GFX_TFR_scw_volunteers_button"
+	 frame = 1
+	 position = { x = 20 y = 4 }
+	 scale = 0.75
+	 alwaystransparent = yes
 	}
 }
 containerWindowType = {

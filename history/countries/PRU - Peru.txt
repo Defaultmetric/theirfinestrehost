@@ -1,71 +1,4 @@
-﻿# TFR: only standard research designs at the MTG 1936 start.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_technology = { popup = no
-		basic_ship_hull_cruiser = 1
-		basic_ship_hull_light = 1
-		basic_ship_hull_submarine = 1
-	}
-	create_equipment_variant = {
-		name = "Light Cruiser 1936"
-		type = ship_hull_cruiser_2
-		parent_version = 0
-		role_icon_index = 2
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			front_1_custom_slot = ship_light_medium_battery_2
-			mid_1_custom_slot = ship_light_medium_battery_2
-			mid_2_custom_slot = ship_light_medium_battery_2
-			rear_1_custom_slot = ship_light_medium_battery_2
-		}
-		
-		upgrades = { tfr_hidden_support_lc_2 = 1 }
-	}
-	set_country_flag = tfr_dsg_lc_2
-	create_equipment_variant = {
-		name = "Submarine 1936"
-		type = ship_hull_submarine_2
-		parent_version = 0
-		role_icon_index = 6
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = ship_torpedo_sub_2
-		}
-		
-		upgrades = { tfr_hidden_support_ss_2 = 1 }
-	}
-	set_country_flag = tfr_dsg_ss_2
-	create_equipment_variant = {
-		name = "Torpedo Destroyer 1936"
-		type = ship_hull_light_2
-		parent_version = 0
-		role_icon_index = 8
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_radar_slot = empty
-			fixed_ship_torpedo_slot = ship_torpedo_2
-			mid_1_custom_slot = ship_torpedo_2
-			rear_1_custom_slot = ship_torpedo_2
-		}
-		
-		upgrades = { tfr_hidden_support_td_2 = 1 }
-	}
-	set_country_flag = tfr_dsg_td_2
-}
-capital = 303
+﻿capital = 303
 
 oob = "PRU_1936"
 if = {
@@ -150,58 +83,6 @@ set_country_flag = monroe_doctrine
 set_convoys = 5
 
 1939.1.1 = {
-# TFR: historical designs retained only for the 1939 scenario.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-if = {
-limit = { has_dlc = "Man the Guns" }
-create_equipment_variant = {
-		name = "R1 Class"				
-		type = ship_hull_submarine_1
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-	}
-create_equipment_variant = {
-		name = "Almirante Villar Class"				
-		type = ship_hull_light_1
-		name_group = PRU_DD_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = ship_torpedo_1
-		}
-	}
-create_equipment_variant = {
-		name = "Almirante Grau Class"				
-		type = ship_hull_cruiser_coastal_defense_ship
-		name_group = PRU_CA_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = empty
-			fixed_ship_secondaries_slot = empty
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-	}
-}
-}
-
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -299,11 +180,10 @@ if = {
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	# Submarines #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "R1 Class"				
 		type = ship_hull_submarine_1
+		obsolete = yes
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
@@ -311,13 +191,11 @@ create_equipment_variant = {
 			rear_1_custom_slot = empty
 		}
 	}
-}
 	# Destroyers #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Almirante Villar Class"				
 		type = ship_hull_light_1
+		obsolete = yes
 		name_group = PRU_DD_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -327,17 +205,15 @@ create_equipment_variant = {
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = light_ship_engine_1
 			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = empty
+			mid_1_custom_slot = ship_mine_layer_1
 			rear_1_custom_slot = ship_torpedo_1
 		}
 	}
-}
 	# Heavy Cruisers #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Almirante Grau Class"				
 		type = ship_hull_cruiser_coastal_defense_ship
+		obsolete = yes
 		name_group = PRU_CA_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -353,5 +229,4 @@ create_equipment_variant = {
 			rear_1_custom_slot = empty
 		}
 	}
-}
 }

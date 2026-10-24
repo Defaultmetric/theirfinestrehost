@@ -72,13 +72,13 @@ NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 0 	--Base cost to unlock a
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 0	--Base cost to change a regiment column.
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0 	--Base cost to unlock a support slot
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25   -- effect on defense due to enemy air superiorty
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 1.75	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
+NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 1.88	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.5	-- DO NOT LET THE CIS B1 BATTLE DROIDS TOUCH THIS Maximum damage reduction factor applied to incoming air attacks against units with AA.
-NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.035    -- global damage modifier
+NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.030    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- max 2 CAS per combat width (2/w)
-NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.060        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
-NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier
+NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.055        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
+NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048        -- global damage modifier
 NDefines.NMilitary.COMBAT_STACKING_PENALTY = -0.05                -- how much stackign penalty per division
 NDefines.NMilitary.PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 	1.00,
@@ -119,25 +119,7 @@ NDefines.NDoctrines.MIN_MASTERY_GAIN_PER_DAY = 0.5		-- If we have any mastery ga
 NDefines.NDoctrines.DEFAULT_REWARD_MASTERY = 75
 NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.1                   -- Vanilla: training contributes 10% of combat/mission mastery, including special forces
 
-NDefines.NNavy.NAVAL_INVASION_PREPARE_DAYS = 30								-- base days needed to prepare a naval invasion
-NDefines.NNavy.NAVAL_INVASION_PLAN_CAP = 4									-- base cap of naval invasions can be planned at the same time
-NDefines.NNavy.BASE_NAVAL_INVASION_DIVISION_CAP = 5							-- base cap of divisions that can be assigned in a naval invasion
-NDefines.NMilitary.NAVAL_INVASION_PLANNING_BONUS_MALUS = -0.5		-- Malus in percentage for the planning bonus gain for naval invasions
 
---navy
--- Naval pacing: all aircraft deal 10% of their original damage to ships.
-NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_STR = 0.1 -- installed vanilla 1.0 * 0.1
-NDefines.NAir.NAVAL_STRIKE_DAMAGE_TO_ORG = 0.15 -- installed vanilla 1.5 * 0.1
-NDefines.NAir.NAVAL_STRIKE_CARRIER_MULTIPLIER = 12.0 -- preserve carrier bonus; global air-to-ship damage already scaled
-NDefines.NNavy.COMBAT_DAMAGE_RANDOMNESS = 0.20								-- random factor in damage. So if max damage is fe. 10 and randomness is 30% then damage will be between 7-10.
-NDefines.NNavy.CONVOY_EFFICIENCY_LOSS_MODIFIER = 1.00							-- How much efficiency drops when losing convoys. If modifier is 0.5 then losing 100% of convoys in short period the efficiency will drop by 50%.
-NDefines.NNavy.CONVOY_EFFICIENCY_REGAIN_AFTER_DAYS = 3						-- Convoy starts regaining it's efficiency after X days without any convoys being sink.
-NDefines.NNavy.CAPITAL_ONLY_COMBAT_ACTIVATE_TIME = 8                          -- hours from start of combat when only carriers capitals and subs get to attack
-NDefines.NNavy.ALL_SHIPS_ACTIVATE_TIME = 12                                    -- hours where all get to attack
-NDefines.NNavy.HIGHER_CARRIER_RATIO_POSITIONING_PENALTY_FACTOR	= 0.1  		-- penalty if other side has stronger carrier air force
-NDefines.NNavy.MAX_CARRIER_RATIO_POSITIONING_PENALTY_FACTOR = 0.1  			-- max penalty from stronger carrier air force
-NDefines.NNavy.BASE_JOIN_COMBAT_HOURS						= 24				-- the taskforces that wants to join existing combats will wait for at least this amount
-NDefines.NNavy.MAX_POSITIONING_BONUS_FROM_SURFACE_DETECTION					= 0.05  -- will clamp the bonus that you get from detection
 NDefines.NNavy.MISSION_FUEL_COSTS = {  -- fuel cost for each mission
 	0.0, -- HOLD (consumes fuel HOLD_MISSION_MOVEMENT_COST fuel while moving)
 	1.0, -- PATROL
@@ -150,10 +132,6 @@ NDefines.NNavy.MISSION_FUEL_COSTS = {  -- fuel cost for each mission
 	0.0, -- RESERVE_FLEET (consumes fuel HOLD_MISSION_MOVEMENT_COST fuel while moving)
 	1.0, -- NAVAL_INVASION_SUPPORT (does not cost fuel at base, only costs while doing bombardment and escorting units)
 }
-NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO = 0.1		-- Max planes that can join a combat comparing to the total strength of the ships
-NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO_PER_DAY = 0.2 -- max extra plane % that can join every day
-NDefines.NAir.NAVAL_COMBAT_EXTERNAL_PLANES_MIN_CAP = 25			-- Min cap for planes that can join naval combat
-
 
 --agency
 
@@ -199,11 +177,9 @@ NDefines.NAI.START_TRAINING_EQUIPMENT_LEVEL = 0.9               -- ai will not s
 NDefines.NAI.STOP_TRAINING_EQUIPMENT_LEVEL = 0.8                -- ai will not train if equipment drops below this level
 NDefines.NAI.DIVISION_DESIGN_MAX_FAILED_DAYS = 30					-- max days we keep track of since failure of a template design update
 NDefines.NAI.EQUIPMENT_DESIGN_MAX_FAILED_DAYS = 30					-- max days we keep track of since failure of an equipment design update
-NDefines.NAI.INVASION_COASTAL_PROVS_PER_ORDER = 12				-- AI will consider one extra invasion per number of provinces stated here (num orders = total coast / this)
 NDefines.NAI.AREA_DEFENSE_BASE_IMPORTANCE = 3					-- Area defense order base importance value (used for determining order of troop selections)
 NDefines.NAI.AREA_DEFENSE_CIVIL_WAR_IMPORTANCE = 10000			-- Area defense order importance value when a country is in a civil war as target or revolter.
 NDefines.NAI.COMBINED_ARMS_LEVEL = 2							-- 0 = Never 1 = Infantry/Artillery 2 = Go wild
-NDefines.NAI.MAX_DISTANCE_NALAV_INVASION = 200.0				-- AI is extremely unwilling to plan naval invasions above this naval distance limit.
 NDefines.NAI.NEW_LEADER_EXTRA_PP_FACTOR = 2.0					-- Country must have at least this many times extra PP to get new admirals or army leaders
 NDefines.NAI.MAX_UNITS_FACTOR_AREA_ORDER = 1.0					-- Factor for max number of units to assign to area defense orders
 NDefines.NAI.DESIRED_UNITS_FACTOR_AREA_ORDER = 1.0				-- Factor for desired number of units to assign to area defense orders
@@ -212,27 +188,12 @@ NDefines.NAI.DESIRED_UNITS_FACTOR_FRONT_ORDER = 1.5				-- Factor for desired num
 NDefines.NAI.LAND_COMBAT_OUR_COMBATS_AIR_IMPORTANCE = 55		-- Strategic importance of our armies in the combats
 NDefines.NAI.LOW_PRIO_TEMPLATE_BONUS_FOR_GARRISONS = 10000		-- bonus to make ai more likely to assign low prio units to garrisons
 NDefines.NAI.LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 10000		-- penalty to make ai less likely to assign low prio units to fronts
-NDefines.NAI.SCREENS_TO_CAPITAL_RATIO = 2.0					-- screens to capital/carrier count in carrier & capital taskforces
-NDefines.NAI.CARRIER_TASKFORCE_MAX_CARRIER_COUNT = 4		-- vanilla optimum carrier count for AI carrier taskforces
-NDefines.NAI.SUGGESTED_NUM_MAX_CARRIERS = 4					-- vanilla carrier count for AI and task force suggestions
-NDefines.NAI.MIN_CAPITALS_FOR_CARRIER_TASKFORCE = 6			-- vanilla minimum capitals for AI carrier taskforces
-NDefines.NNavy.NAVAL_COMBAT_PLANE_MIN_STACKING_PENALTY = 80	-- vanilla naval combat aircraft stacking threshold
-NDefines.NAI.MAX_SCREEN_FORCES_FOR_INVASION_SUPPORT = 0.0 -- max ratio of screens forces to be used in naval invasion missions
-NDefines.NAI.MAX_CAPITAL_FORCES_FOR_INVASION_SUPPORT = 0.4 -- max ratio of capital forces to be used in naval invasion missions
 NDefines.NAI.FUEL_RATIO_TO_EXIST_FUEL_SAVING_MODE = 0.10 					-- countries will exit fuel saving mode if they have more fuel ratio than this
 NDefines.NAI.MAX_FUEL_CONSUMPTION_RATIO_FOR_AIR_TRAINING = 0.25			-- ai will use at most this ratio of affordable fuel for air training
-NDefines.NAI.MAX_FUEL_CONSUMPTION_RATIO_FOR_NAVY_TRAINING = 0.25		-- ai will use at most this ratio of affordable fuel for naval training
 NDefines.NAI.AGGRESSIVENESS_CHECK_BASE = 2.0							-- front comparison where ai will consider aggressive stance unless it is already then the number above is used
 NDefines.NAI.AGGRESSIVENESS_CHECK_EASY_TARGET = -0.4					-- if target nation is flagged as easy target we also adjust down the front comparison needed
 NDefines.NAI.FRONT_EVAL_UNIT_ACCURACY = 0.7								-- scale how stupid ai will act on fronts. 0 is potato
 NDefines.NAI.FRONT_EVAL_UNIT_SUPPLY_AND_ORG_LACK_IMPACT = 2.0			-- scale how painful the AI thinks a combined lack of supply and organization is for units
-NDefines.NAI.CONVOY_ESCORT_SCORE_FROM_CONVOYS = 15                        -- score for each convoy you have in area
-NDefines.NAI.CONVOY_ESCORT_MUL_FROM_NO_CONVOYS = 0.02                     -- score multiplier when no convoys are around
-NDefines.NAI.MAX_UNIT_RATIO_FOR_INVASIONS = 0.5							-- countries won't use armies more than this ratio of total units for invasions
-NDefines.NAI.MAX_INVASION_FRONT_SCORE = 2000							-- max score for naval invasion front scores
-NDefines.NAI.NAVAL_INVADED_AREA_PRIO_MULT = 2.0									-- fronts that belongs to recent invasions gets more prio
-NDefines.NAI.MIN_NUM_CONQUERED_PROVINCES_TO_DEPRIO_NAVAL_INVADED_FRONTS = 30	-- if you conquer this amount of provinces after a naval invasion it will lose its prio status and will act as a regular front
-NDefines.NAI.MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.2				-- ai will only activate invasions if it is above this
 
 NDefines.NMilitary.UNIT_DIGIN_SPEED = 0.5						   -- how "deep" you can dig a day.
 NDefines.NMilitary.UNIT_DIGIN_CAP = 4.25                          -- how "deep" you can dig you can dig in until hitting max bonus

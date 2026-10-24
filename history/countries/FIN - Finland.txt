@@ -1,50 +1,4 @@
-﻿# TFR: only standard research designs at the MTG 1936 start.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_technology = { popup = no
-		basic_ship_hull_cruiser = 1
-		basic_ship_hull_submarine = 1
-	}
-	create_equipment_variant = {
-		name = "Heavy Cruiser 1936"
-		type = ship_hull_cruiser_2
-		parent_version = 0
-		role_icon_index = 1
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			front_1_custom_slot = ship_medium_battery_2
-			mid_1_custom_slot = ship_medium_battery_2
-			mid_2_custom_slot = ship_medium_battery_2
-			rear_1_custom_slot = ship_medium_battery_2
-		}
-		
-		upgrades = { tfr_hidden_support_hc_2 = 1 }
-	}
-	set_country_flag = tfr_dsg_hc_2
-	create_equipment_variant = {
-		name = "Submarine 1936"
-		type = ship_hull_submarine_2
-		parent_version = 0
-		role_icon_index = 6
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = ship_torpedo_sub_2
-		}
-		
-		upgrades = { tfr_hidden_support_ss_2 = 1 }
-	}
-	set_country_flag = tfr_dsg_ss_2
-}
-capital = 111
+﻿capital = 111
 
 set_oob = "FIN_1936"
 
@@ -205,7 +159,7 @@ if = {
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "FIN_1936_naval_mtg_standard"
+		set_naval_oob = "FIN_1936_naval_mtg"
 	else = {
 		set_naval_oob = "FIN_1936_naval_legacy"
 	}
@@ -498,57 +452,6 @@ if = {
 set_convoys = 5
 
 1939.1.1 = {
-# TFR: historical designs retained only for the 1939 scenario.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-if = {
-limit = { has_dlc = "Man the Guns" }
-create_equipment_variant = {
-		name = "Vetehinen Class"								
-		type = ship_hull_submarine_1
-		name_group = FIN_SS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		design_team = mio:FIN_crichton_vulcan_organization
-	}
-create_equipment_variant = {
-		name = "Vesikko Class"								
-		type = ship_hull_submarine_1
-		name_group = FIN_SS_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		design_team = mio:FIN_crichton_vulcan_organization
-	}
-create_equipment_variant = {
-		name = "Väinämöinen Class"				
-		type = ship_hull_cruiser_coastal_defense_ship
-		name_group = FIN_CA_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-		design_team = mio:FIN_crichton_vulcan_organization
-	}
-}
-}
-
 	add_political_power = 1198
 	add_command_power = 100
 
@@ -748,26 +651,23 @@ if = {
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	# Submarines #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Vetehinen Class"								
 		type = ship_hull_submarine_1
+		obsolete = yes
 		name_group = FIN_SS_HISTORICAL
 		parent_version = 0
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
 			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_sub
 		}
 		design_team = mio:FIN_crichton_vulcan_organization
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Vesikko Class"								
 		type = ship_hull_submarine_1
+		obsolete = yes
 		name_group = FIN_SS_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -777,13 +677,11 @@ create_equipment_variant = {
 		}
 		design_team = mio:FIN_crichton_vulcan_organization
 	}
-}
 	# Heavy Cruisers #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Väinämöinen Class"				
 		type = ship_hull_cruiser_coastal_defense_ship
+		obsolete = yes
 		name_group = FIN_CA_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -800,7 +698,6 @@ create_equipment_variant = {
 		}
 		design_team = mio:FIN_crichton_vulcan_organization
 	}
-}
 }
 
 ### TANKS

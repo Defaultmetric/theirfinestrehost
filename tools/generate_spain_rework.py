@@ -136,7 +136,7 @@ def placements(building, count, levels=1, cap=5, coastal=False, extra=''):
 
 
 SPECIAL = {
-    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
+    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nset_country_flag = accessible_shared_tree\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
     'D02': 'set_country_flag = TFR_SPA_war_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\ncustom_effect_tooltip = TFR_SPA_war_role_tt',
     'D04': 'TFR_SPA_request_axis_membership = yes\ncustom_effect_tooltip = TFR_SPA_membership_tt',
     'D05': 'TFR_SPA_portugal_agreement = yes\ncustom_effect_tooltip = TFR_SPA_resource_rights_tt',
@@ -238,6 +238,10 @@ def reward(f):
 
 def available(f):
     c = f['code']; s = []
+    # Keep the Academy compact: additional training/support requirements appear
+    # in the native tooltip without drawing long lines across other branches.
+    s += ['has_completed_focus = '+BY_CODE[code]['id'] for code in f.get('requiredCompletedFocuses',[])]
+    s += ['OR = { '+' '.join('has_completed_focus = '+BY_CODE[code]['id'] for code in group)+' }' for group in f.get('requiredCompletedFocusGroups',[])]
     if c in ('D01','D02'):
         s = ['custom_trigger_tooltip = { tooltip = TFR_SPA_postwar_ready_tt TFR_SPA_postwar_tree_ready = yes }']
     if c == 'D01':
@@ -798,6 +802,6 @@ if __name__ == '__main__':
                 path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
     if not args.check and 'common/national_focus/TFR_spain_rework.txt' in changed:
         main=ROOT/'common/national_focus/spain.txt'
-        main.write_bytes(main.read_bytes())
+        pass # main.write_bytes(main.read_bytes())
     print(json.dumps({'check':args.check,'changed':changed},indent=2))
     if args.check and changed: raise SystemExit(1)

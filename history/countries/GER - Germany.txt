@@ -1,4 +1,4 @@
-capital = 64 # Berlin/Brandeburg
+﻿capital = 64 # Berlin/Brandeburg
 
 
 if = {
@@ -201,136 +201,6 @@ if = {
 		basic_fire_control_system = 1
 		basic_dp_light_battery = 1
 	}
-	# TFR: initialize standard fleet hulls before creating designs.
-	set_technology = {
-		basic_ship_hull_cruiser = 1
-		basic_ship_hull_heavy = 1
-		basic_ship_hull_light = 1
-		basic_ship_hull_submarine = 1
-		basic_ship_hull_carrier = 1
-	}
-	# TFR: standard 1936 designs must exist before the starting naval OOB loads.
-	create_equipment_variant = {
-		name = "Light Destroyer 1936"
-		type = ship_hull_light_2
-		parent_version = 0
-		role_icon_index = 2
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_radar_slot = empty
-			fixed_ship_torpedo_slot = empty
-			mid_1_custom_slot = ship_light_battery_2
-			rear_1_custom_slot = ship_light_battery_2
-		}
-	
-			upgrades = { tfr_hidden_support_ld_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_ld_2
-	create_equipment_variant = {
-		name = "Light Cruiser 1936"
-		type = ship_hull_cruiser_2
-		parent_version = 0
-		role_icon_index = 2
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			front_1_custom_slot = ship_light_medium_battery_2
-			mid_1_custom_slot = ship_light_medium_battery_2
-			mid_2_custom_slot = ship_light_medium_battery_2
-			rear_1_custom_slot = ship_light_medium_battery_2
-		}
-	
-			upgrades = { tfr_hidden_support_lc_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_lc_2
-	create_equipment_variant = {
-		name = "Heavy Cruiser 1936"
-		type = ship_hull_cruiser_2
-		parent_version = 0
-		role_icon_index = 1
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			front_1_custom_slot = ship_medium_battery_2
-			mid_1_custom_slot = ship_medium_battery_2
-			mid_2_custom_slot = ship_medium_battery_2
-			rear_1_custom_slot = ship_medium_battery_2
-		}
-	
-			upgrades = { tfr_hidden_support_hc_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_hc_2
-	create_equipment_variant = {
-		name = "Battleship 1936"
-		type = ship_hull_heavy_2
-		parent_version = 0
-		role_icon_index = 1
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_2
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
-			fixed_ship_armor_slot = ship_armor_bb_2
-			front_1_custom_slot = ship_heavy_battery_2
-			mid_1_custom_slot = ship_heavy_battery_2
-			mid_2_custom_slot = ship_heavy_battery_2
-			rear_1_custom_slot = ship_heavy_battery_2
-		}
-	
-			upgrades = { tfr_hidden_support_bb_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_bb_2
-	create_equipment_variant = {
-		name = "Carrier 1936"
-		type = ship_hull_carrier_1
-		parent_version = 0
-		role_icon_index = 7
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_engine_slot = carrier_ship_engine_2
-			fixed_ship_deck_slot_1 = ship_deck_space
-			fixed_ship_deck_slot_2 = ship_deck_space
-			front_1_custom_slot = ship_deck_space
-			mid_1_custom_slot = ship_deck_space
-		}
-	
-			upgrades = { tfr_hidden_support_cv_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_cv_2
-	create_equipment_variant = {
-		name = "Submarine 1936"
-		type = ship_hull_submarine_2
-		parent_version = 0
-		role_icon_index = 6
-		allow_without_tech = yes
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_2
-			rear_1_custom_slot = ship_torpedo_sub_2
-		}
-	
-			upgrades = { tfr_hidden_support_ss_2 = 1 }
-		}
-	set_country_flag = tfr_dsg_ss_2
 	set_naval_oob = "GER_1936_naval_mtg"
 }
 if = {
@@ -598,295 +468,6 @@ set_war_support = 0.3
 
 # SETUP THE 1939 SCENARIO
 1939.1.1 = {
-# TFR: historical designs retained only for the 1939 scenario.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-if = {
-limit = {
-		NOT = { has_dlc = "Man the Guns" }
-	}
-create_equipment_variant = {
-		name = "Königsberg"
-		type = light_cruiser_1
-		parent_version = 0
-		upgrades = {
-			ship_reliability_upgrade = 2
-			ship_engine_upgrade = 2
-			ship_gun_upgrade = 2
-			ship_anti_air_upgrade = 2
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Deutschland"
-		type = heavy_cruiser_1
-		parent_version = 0
-		upgrades = {
-			ship_reliability_upgrade = 1
-			ship_engine_upgrade = 1
-			ship_armor_upgrade = 1
-			ship_gun_upgrade = 2
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-}
-if = {
-limit = { has_dlc = "Man the Guns" }
-create_equipment_variant = {
-		name = "Deutschland"
-		type = ship_hull_cruiser_panzerschiff
-		name_group = GER_PZ_HISTORICAL
-		parent_version = 0
-		role_icon_index = 1
-		modules = {
-        	fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_battery_slot = ship_heavy_battery_2
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			rear_1_custom_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_airplane_launcher_1
-    	}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-			name = "Graf Zeppelin"
-			type = ship_hull_carrier_1
-			name_group = GER_CV_HISTORICAL
-			parent_version = 0
-			role_icon_index = 7
-			design_team = mio:GER_deutsche_werke_organization
-			modules = {
-				fixed_ship_deck_slot_1 = ship_deck_space
-				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries_2
-				front_1_custom_slot = ship_deck_space
-			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
-		}
-create_equipment_variant = {
-		name = "Type 24"
-		type = ship_hull_light_1
-		name_group = GER_TB_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_1
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Zerstörer 1934"
-		type = ship_hull_light_2
-		name_group = GER_DD_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Zerstörer 1934A"
-		type = ship_hull_light_2
-		name_group = GER_DD_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = light_ship_engine_2
-			fixed_ship_torpedo_slot = ship_torpedo_1
-			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = ship_depth_charge_1
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-		name = "Type II"
-		type = ship_hull_submarine_1
-		name_group = GER_SS_HISTORICAL
-		parent_version = 0
-		role_icon_index = 6
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_1
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Type VII"
-		type = ship_hull_submarine_2
-		name_group = GER_SS_HISTORICAL
-		parent_version = 0
-		role_icon_index = 6
-		modules = {
-			fixed_ship_torpedo_slot = ship_torpedo_sub_2
-			fixed_ship_engine_slot = sub_ship_engine_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-		name = "Königsberg"
-		type = ship_hull_cruiser_1
-		name_group = GER_CL_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_light_medium_battery_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Emden"
-		type = ship_hull_cruiser_1
-		name_group = GER_CL_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = empty
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			mid_1_custom_slot = ship_light_medium_battery_1
-			mid_2_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Bremse"
-		type = ship_hull_cruiser_1
-		name_group = GER_CL_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = ship_anti_air_1
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-create_equipment_variant = {
-		name = "Leipzig"
-		type = ship_hull_cruiser_2
-		name_group = GER_CL_HISTORICAL
-		parent_version = 0
-		role_icon_index = 2
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			fixed_ship_armor_slot = ship_armor_cruiser_1
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_light_medium_battery_1
-			rear_1_custom_slot = ship_airplane_launcher_1
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-		name = "Admiral Hipper"
-		type = ship_hull_cruiser_2
-		name_group = GER_CA_HISTORICAL
-		parent_version = 0
-		role_icon_index = 1
-		modules = {
-			fixed_ship_battery_slot = ship_medium_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_2
-			fixed_ship_armor_slot = ship_armor_cruiser_2
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_airplane_launcher_1
-			rear_1_custom_slot = ship_medium_battery_2
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-		name = "Scharnhorst"
-		type = ship_hull_heavy_2
-		name_group = GER_BB_HISTORICAL
-		parent_version = 0
-		role_icon_index = 1
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_2
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bc_1
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = empty
-			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_heavy_battery_2
-		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
-	}
-create_equipment_variant = {
-		name = "Deutschland"
-		type = ship_hull_pre_dreadnought
-		name_group = GER_PZ_HISTORICAL
-		parent_version = 0
-		role_icon_index = 1
-		modules = {
-			fixed_ship_battery_slot = ship_heavy_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_1
-			fixed_ship_armor_slot = ship_armor_bb_1
-			front_1_custom_slot = ship_anti_air_1
-			mid_1_custom_slot = empty
-			rear_1_custom_slot = empty
-		}
-		obsolete = yes
-	}
-}
-}
-
 
 	# Setting up the required world tension
 	add_named_threat = { 
@@ -1249,7 +830,7 @@ set_popularities = {
 }
 
 # Wowow nice faction
-create_faction = Axis
+create_faction_from_template = faction_template_tfr_axis
 add_to_faction = GER
 
 # Setup of National Spirits
@@ -1453,9 +1034,7 @@ if = {
 	### Ship Variants ###
 	## 1936 Start ##
 	# Light Cruisers #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Königsberg"
 		type = light_cruiser_1
 		parent_version = 0
@@ -1467,12 +1046,10 @@ create_equipment_variant = {
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Deutschland"
 		type = heavy_cruiser_1
+		obsolete = yes
 		parent_version = 0
 		upgrades = {
 			ship_reliability_upgrade = 1
@@ -1480,9 +1057,7 @@ create_equipment_variant = {
 			ship_armor_upgrade = 1
 			ship_gun_upgrade = 2
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
 }
 if = {
 	limit = {
@@ -1589,14 +1164,12 @@ if = {
 }
 if = {
 	limit = { has_dlc = "Man the Guns" }
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Deutschland"
 		type = ship_hull_cruiser_panzerschiff
+		obsolete = yes
 		name_group = GER_PZ_HISTORICAL
 		parent_version = 0
-		role_icon_index = 1
 		modules = {
         	fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_battery_slot = ship_heavy_battery_2
@@ -1607,18 +1180,14 @@ create_equipment_variant = {
 			rear_1_custom_slot = ship_torpedo_1
 			mid_1_custom_slot = ship_airplane_launcher_1
     	}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
 
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 			name = "Graf Zeppelin"
 			type = ship_hull_carrier_1
+		obsolete = yes
 			name_group = GER_CV_HISTORICAL
 			parent_version = 0
-			role_icon_index = 7
 			design_team = mio:GER_deutsche_werke_organization
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
@@ -1629,18 +1198,13 @@ create_equipment_variant = {
 				fixed_ship_secondaries_slot = dp_ship_secondaries_2
 				front_1_custom_slot = ship_deck_space
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
-}
 	
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Type 24"
 		type = ship_hull_light_1
 		name_group = GER_TB_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_battery_1
 			fixed_ship_anti_air_slot = empty
@@ -1648,19 +1212,15 @@ create_equipment_variant = {
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = light_ship_engine_1
 			fixed_ship_torpedo_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Zerstörer 1934"
 		type = ship_hull_light_2
 		name_group = GER_DD_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1669,19 +1229,16 @@ create_equipment_variant = {
 			fixed_ship_engine_slot = light_ship_engine_2
 			fixed_ship_torpedo_slot = ship_torpedo_1
 			mid_1_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Zerstörer 1934A"
 		type = ship_hull_light_2
+		obsolete = yes
 		name_group = GER_DD_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1692,17 +1249,12 @@ create_equipment_variant = {
 			mid_1_custom_slot = ship_torpedo_1
 			rear_1_custom_slot = ship_depth_charge_1
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Type II"
 		type = ship_hull_submarine_1
 		name_group = GER_SS_HISTORICAL
 		parent_version = 0
-		role_icon_index = 6
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_1
 			fixed_ship_engine_slot = sub_ship_engine_1
@@ -1710,31 +1262,23 @@ create_equipment_variant = {
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Type VII"
 		type = ship_hull_submarine_2
+		obsolete = yes
 		name_group = GER_SS_HISTORICAL
 		parent_version = 0
-		role_icon_index = 6
 		modules = {
 			fixed_ship_torpedo_slot = ship_torpedo_sub_2
 			fixed_ship_engine_slot = sub_ship_engine_1
 			rear_1_custom_slot = empty
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Königsberg"
 		type = ship_hull_cruiser_1
 		name_group = GER_CL_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_medium_battery_1
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1744,19 +1288,15 @@ create_equipment_variant = {
 			fixed_ship_armor_slot = ship_armor_cruiser_1
 			mid_1_custom_slot = ship_torpedo_1
 			mid_2_custom_slot = ship_light_medium_battery_1
-			rear_1_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Emden"
 		type = ship_hull_cruiser_1
 		name_group = GER_CL_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_medium_battery_1
 			fixed_ship_anti_air_slot = empty
@@ -1770,15 +1310,11 @@ create_equipment_variant = {
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Bremse"
 		type = ship_hull_cruiser_1
 		name_group = GER_CL_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_battery_1
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1786,20 +1322,17 @@ create_equipment_variant = {
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = cruiser_ship_engine_1
 			mid_1_custom_slot = ship_anti_air_1
-			mid_2_custom_slot = empty
-			rear_1_custom_slot = empty
+			mid_2_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_mine_layer_1
 		}
 		obsolete = yes
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Leipzig"
 		type = ship_hull_cruiser_2
+		obsolete = yes
 		name_group = GER_CL_HISTORICAL
 		parent_version = 0
-		role_icon_index = 2
 		modules = {
 			fixed_ship_battery_slot = ship_light_medium_battery_1
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1812,17 +1345,13 @@ create_equipment_variant = {
 			mid_2_custom_slot = ship_light_medium_battery_1
 			rear_1_custom_slot = ship_airplane_launcher_1
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Admiral Hipper"
 		type = ship_hull_cruiser_2
+		obsolete = yes
 		name_group = GER_CA_HISTORICAL
 		parent_version = 0
-		role_icon_index = 1
 		modules = {
 			fixed_ship_battery_slot = ship_medium_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1835,17 +1364,13 @@ create_equipment_variant = {
 			mid_2_custom_slot = ship_airplane_launcher_1
 			rear_1_custom_slot = ship_medium_battery_2
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Scharnhorst"
 		type = ship_hull_heavy_2
+		obsolete = yes
 		name_group = GER_BB_HISTORICAL
 		parent_version = 0
-		role_icon_index = 1
 		modules = {
 			fixed_ship_battery_slot = ship_heavy_battery_2
 			fixed_ship_anti_air_slot = ship_anti_air_1
@@ -1859,23 +1384,18 @@ create_equipment_variant = {
 			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_2
 		}
-		obsolete = yes	# TFR: hidden while testing the fixed navy designs
 	}
-}
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Deutschland"
 		type = ship_hull_pre_dreadnought
 		name_group = GER_PZ_HISTORICAL
 		parent_version = 0
-		role_icon_index = 1
 		modules = {
 			fixed_ship_battery_slot = ship_heavy_battery_1
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_engine_slot = heavy_ship_engine_2
 			fixed_ship_secondaries_slot = ship_secondaries_1
 			fixed_ship_armor_slot = ship_armor_bb_1
 			front_1_custom_slot = ship_anti_air_1
@@ -1884,7 +1404,6 @@ create_equipment_variant = {
 		}
 		obsolete = yes
 	}
-}
 }
 if = {
 	limit = {
@@ -2055,6 +1574,7 @@ if = {
 		create_equipment_variant = {
 			name = "Type VIIA"
 			type = submarine_2
+		obsolete = yes
 			parent_version = 0
 			upgrades = {
 				ship_reliability_upgrade = 1
@@ -2062,12 +1582,12 @@ if = {
 				sub_stealth_upgrade = 1
 				sub_torpedo_upgrade = 1
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
 		# Destroyer #
 		create_equipment_variant = {
 			name = "Zerstörer 1936"
 			type = destroyer_2
+		obsolete = yes
 			parent_version = 0
 			upgrades = {
 				ship_torpedo_upgrade = 2
@@ -2075,7 +1595,6 @@ if = {
 				ship_ASW_upgrade = 2
 				ship_anti_air_upgrade = 2
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
 	}
 	if = {
@@ -2085,9 +1604,9 @@ if = {
 		create_equipment_variant = {
 			name = "Zerstörer 1936"
 			type = ship_hull_light_2
+		obsolete = yes
 			name_group = GER_DD_HISTORICAL
 			parent_version = 0
-			role_icon_index = 2
 			modules = {
 				fixed_ship_battery_slot = ship_light_battery_2
 				fixed_ship_anti_air_slot = ship_anti_air_1
@@ -2097,16 +1616,15 @@ if = {
 				fixed_ship_torpedo_slot = ship_torpedo_1
 				rear_1_custom_slot = ship_depth_charge_1
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
 		create_equipment_variant = {
 			name = "Bismarck"
 			type = ship_hull_heavy_2
+		obsolete = yes
 			name_group = GER_BB_HISTORICAL
 			parent_version = 0
-			role_icon_index = 1
 			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_2
+				fixed_ship_battery_slot = ship_heavy_battery_3
 				fixed_ship_anti_air_slot = ship_anti_air_1
 				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
 				fixed_ship_radar_slot = empty
@@ -2116,16 +1634,15 @@ if = {
 				front_1_custom_slot = ship_anti_air_1
 				mid_1_custom_slot = ship_airplane_launcher_1
 				mid_2_custom_slot = ship_secondaries_2
-				rear_1_custom_slot = ship_heavy_battery_2
+				rear_1_custom_slot = ship_heavy_battery_3
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
 		create_equipment_variant = {
 			name = "Graf Zeppelin"
 			type = ship_hull_carrier_1
+		obsolete = yes
 			name_group = GER_CV_HISTORICAL
 			parent_version = 0
-			role_icon_index = 7
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
 				fixed_ship_deck_slot_2 = ship_deck_space
@@ -2135,7 +1652,6 @@ if = {
 				fixed_ship_secondaries_slot = ship_secondaries_1
 				front_1_custom_slot = ship_deck_space
 			}
-			obsolete = yes	# TFR: hidden while testing the fixed navy designs
 		}
 	}
 	if = {

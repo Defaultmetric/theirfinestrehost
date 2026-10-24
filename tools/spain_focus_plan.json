@@ -56,9 +56,10 @@
         "Țara naționalistă spaniolă; războiul civil încheiat. Alegerea este la începutul părții refăcute."
       ],
       "mode": "volunteer",
-      "x": 29,
+      "x": 28,
       "y": 0,
-      "icon": "GFX_focus_generic_military_industry"
+      "icon": "GFX_focus_generic_military_industry",
+      "relative_position_id": "SPA_a_great_spain"
     },
     {
       "code": "D02",
@@ -75,9 +76,10 @@
       ],
       "mode": "war",
       "reuse": "SPA_join_the_axis; funcția efectivă de aderare este mutată în D04",
-      "x": 33,
+      "x": 4,
       "y": 0,
-      "icon": "GFX_goal_support_fascism"
+      "icon": "GFX_goal_support_fascism",
+      "relative_position_id": "TFR_SPA_volunteer_spain"
     },
     {
       "code": "D03",
@@ -93,9 +95,10 @@
       "politics": {
         "pp": 75
       },
-      "x": 27,
+      "x": -2,
       "y": 1,
-      "icon": "GFX_goal_generic_intelligence_exchange"
+      "icon": "GFX_goal_generic_intelligence_exchange",
+      "relative_position_id": "TFR_SPA_volunteer_spain"
     },
     {
       "code": "D04",
@@ -111,9 +114,10 @@
       "conditions": [
         "Germania există, conduce facțiunea Axei și acceptă aderarea. Refuzul nu acordă avantajele de membru."
       ],
-      "x": 35,
+      "x": 2,
       "y": 1,
-      "icon": "GFX_goal_tripartite_pact"
+      "icon": "GFX_goal_tripartite_pact",
+      "relative_position_id": "TFR_SPA_war_spain"
     },
     {
       "code": "D05",
@@ -129,9 +133,10 @@
       "conditions": [
         "Data >= 1939.1.1; NPR independent, în pace cu Spania și deținător al statelor acordului."
       ],
-      "x": 17,
-      "y": 2,
-      "icon": "GFX_focus_generic_befriend_portugal"
+      "x": -10,
+      "y": 1,
+      "icon": "GFX_focus_generic_befriend_portugal",
+      "relative_position_id": "TFR_SPA_axis_liaison_office"
     },
     {
       "code": "D06",
@@ -148,9 +153,10 @@
         "NPR controlează statele transferului. Transfer exclusiv economic, fără teritorii sau cores."
       ],
       "portugal": "relocation",
-      "x": 17,
-      "y": 3,
-      "icon": "GFX_focus_generic_industry_investment"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_industry_investment",
+      "relative_position_id": "TFR_SPA_iberian_economic_agreement"
     },
     {
       "code": "D07",
@@ -167,9 +173,10 @@
         "Data >= 1939.1.1; NPR există; fără acord de relocare."
       ],
       "reuse": "SPA_attack_portugal",
-      "x": 42,
-      "y": 2,
-      "icon": "GFX_focus_generic_attack_portugal"
+      "x": 7,
+      "y": 1,
+      "icon": "GFX_focus_generic_attack_portugal",
+      "relative_position_id": "TFR_SPA_join_the_axis"
     },
     {
       "code": "D08",
@@ -187,9 +194,10 @@
       ],
       "reuse": "SPA_core_portugal",
       "portugal": "annexation",
-      "x": 42,
-      "y": 3,
-      "icon": "GFX_focus_ARG_strengthening_the_concordancia"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_ARG_strengthening_the_concordancia",
+      "relative_position_id": "TFR_SPA_attack_portugal"
     },
     {
       "code": "D09",
@@ -205,9 +213,10 @@
       "modifiers": {
         "army.planning_speed": 0.05
       },
-      "x": 20,
-      "y": 3,
-      "icon": "GFX_focus_chi_mission_to_germany"
+      "x": -11,
+      "y": 1,
+      "icon": "GFX_focus_chi_mission_to_germany",
+      "relative_position_id": "TFR_SPA_national_reconstruction_commission"
     },
     {
       "code": "D10",
@@ -219,13 +228,14 @@
           "D09"
         ]
       ],
-      "effect": "+5% dockyard output și 1×50% research pentru hull-uri de distrugătoare active.",
+      "effect": "+2.5% dockyard output și 1×50% research pentru hull-uri de distrugătoare active.",
       "modifiers": {
-        "economy.industrial_capacity_dockyard": 0.05
+        "economy.industrial_capacity_dockyard": 0.025
       },
-      "x": 21,
-      "y": 4,
-      "icon": "GFX_focus_befriend_italy"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_befriend_italy",
+      "relative_position_id": "TFR_SPA_german_military_mission"
     },
     {
       "code": "D11",
@@ -241,9 +251,10 @@
       "modifiers": {
         "air.air_mission_efficiency": 0.05
       },
-      "x": 19,
-      "y": 4,
-      "icon": "GFX_goal_generic_air_doctrine"
+      "x": -1,
+      "y": 1,
+      "icon": "GFX_goal_generic_air_doctrine",
+      "relative_position_id": "TFR_SPA_german_military_mission"
     },
     {
       "code": "D12",
@@ -266,8 +277,8 @@
       "conditions": [
         "Aderare acceptată; Spania și Germania luptă efectiv împotriva aceleiași mari puteri adverse. Războiul exclusiv cu NPR nu califică. Respectă calendarul/ruleset-ul existent al războiului."
       ],
-      "x": 44,
-      "y": 2,
+      "x": 9,
+      "y": 1,
       "icon": "GFX_focus_generic_total_war",
       "buildingStates": [
         {
@@ -280,7 +291,8 @@
           "kind": "mil",
           "count": 2
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_join_the_axis"
     },
     {
       "code": "D13",
@@ -296,9 +308,10 @@
       "conditionalModifiers": {
         "army.army_morale_factor": 0.025
       },
-      "x": 44,
-      "y": 3,
-      "icon": "GFX_focus_generic_military_mission"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_military_mission",
+      "relative_position_id": "TFR_SPA_full_war_commitment"
     },
     {
       "code": "D14",
@@ -310,16 +323,17 @@
           "D09"
         ]
       ],
-      "effect": "+100 PP și +5% research speed; cooperare pe termen lung după soluționarea acordului portughez.",
+      "effect": "+100 PP și +2.5% research speed; cooperare pe termen lung după soluționarea acordului portughez.",
       "politics": {
         "pp": 100
       },
       "modifiers": {
-        "economy.research_speed_factor": 0.05
+        "economy.research_speed_factor": 0.025
       },
-      "x": 17,
-      "y": 5,
-      "icon": "GFX_focus_usa_reestablish_the_gold_standard"
+      "x": -3,
+      "y": 2,
+      "icon": "GFX_focus_usa_reestablish_the_gold_standard",
+      "relative_position_id": "TFR_SPA_german_military_mission"
     },
     {
       "code": "P01",
@@ -337,9 +351,10 @@
         "pp": 50
       },
       "recovery": "import_current",
-      "x": 31,
+      "x": 2,
       "y": 2,
-      "icon": "GFX_focus_generic_public_works"
+      "icon": "GFX_focus_generic_public_works",
+      "relative_position_id": "TFR_SPA_volunteer_spain"
     },
     {
       "code": "P02",
@@ -358,9 +373,10 @@
       "modifiers": {
         "economy.political_advisor_cost_factor": -0.1
       },
-      "x": 29,
-      "y": 3,
-      "icon": "GFX_focus_generic_self_management"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_focus_generic_self_management",
+      "relative_position_id": "TFR_SPA_national_reconstruction_commission"
     },
     {
       "code": "P03",
@@ -376,9 +392,10 @@
       "politics": {
         "pp": 50
       },
-      "x": 29,
-      "y": 4,
-      "icon": "GFX_focus_generic_treaty"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_treaty",
+      "relative_position_id": "TFR_SPA_restore_civil_administration"
     },
     {
       "code": "P04",
@@ -395,9 +412,10 @@
         "pp": 50
       },
       "recovery": "advance_to_at_least_2",
-      "x": 33,
-      "y": 3,
-      "icon": "GFX_focus_generic_workers_and_farmers_rise"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_focus_generic_workers_and_farmers_rise",
+      "relative_position_id": "TFR_SPA_national_reconstruction_commission"
     },
     {
       "code": "P05",
@@ -414,9 +432,10 @@
       "modifiers": {
         "economy.consumer_goods_factor": -0.05
       },
-      "x": 33,
-      "y": 4,
-      "icon": "GFX_focus_eng_concessions_to_the_trade_unions"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_eng_concessions_to_the_trade_unions",
+      "relative_position_id": "TFR_SPA_demobilisation_and_reemployment"
     },
     {
       "code": "P06",
@@ -433,9 +452,10 @@
       ],
       "effect": "Deblochează al patrulea research slot dacă lipsește; +1×50% research pentru electronics. Fără pierderea sloturilor existente.",
       "researchSlotTarget": 4,
-      "x": 34,
-      "y": 5,
-      "icon": "GFX_focus_research"
+      "x": 5,
+      "y": 1,
+      "icon": "GFX_focus_research",
+      "relative_position_id": "TFR_SPA_integrate_the_autonomous_regions"
     },
     {
       "code": "P07",
@@ -451,9 +471,10 @@
       "politics": {
         "pp": 50
       },
-      "x": 28,
-      "y": 5,
-      "icon": "GFX_goal_generic_propaganda"
+      "x": -1,
+      "y": 1,
+      "icon": "GFX_goal_generic_propaganda",
+      "relative_position_id": "TFR_SPA_integrate_the_autonomous_regions"
     },
     {
       "code": "P08",
@@ -469,9 +490,10 @@
       "politics": {
         "war_support_pp": 5
       },
-      "x": 28,
-      "y": 6,
-      "icon": "GFX_goal_generic_axis_build_infantry"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_axis_build_infantry",
+      "relative_position_id": "TFR_SPA_national_mobilisation_framework"
     },
     {
       "code": "P09",
@@ -491,9 +513,10 @@
         "stability_pp": 5
       },
       "recovery": "advance_to_at_least_3",
-      "x": 31,
-      "y": 5,
-      "icon": "GFX_focus_generic_diplomatic_treaty"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_focus_generic_diplomatic_treaty",
+      "relative_position_id": "TFR_SPA_national_labour_accords"
     },
     {
       "code": "P10",
@@ -508,14 +531,15 @@
           "P08"
         ]
       ],
-      "effect": "Finalizează recuperarea: elimină penalizările economice de război civil din modifier; −10% consumer goods factor suplimentar.",
+      "effect": "Finalizează recuperarea: elimină penalizările economice de război civil din modifier; −5% consumer goods factor suplimentar.",
       "modifiers": {
-        "economy.consumer_goods_factor": -0.1
+        "economy.consumer_goods_factor": -0.05
       },
       "recovery": "complete",
-      "x": 29,
-      "y": 7,
-      "icon": "GFX_goal_generic_neutrality_focus"
+      "x": -2,
+      "y": 2,
+      "icon": "GFX_goal_generic_neutrality_focus",
+      "relative_position_id": "TFR_SPA_the_postwar_settlement"
     },
     {
       "code": "P11",
@@ -538,9 +562,10 @@
       "conditions": [
         "Data >= 1939.1.1. Nu multiplică sloturile deja obținute prin vechile focusuri."
       ],
-      "x": 32,
-      "y": 8,
-      "icon": "GFX_focus_research2"
+      "x": -2,
+      "y": 3,
+      "icon": "GFX_focus_research2",
+      "relative_position_id": "TFR_SPA_rebuild_the_universities"
     },
     {
       "code": "P12",
@@ -552,35 +577,38 @@
           "P11"
         ]
       ],
-      "effect": "+5% production efficiency gain, +5 puncte procentuale stabilitate și +50 PP.",
+      "effect": "−5% consumer goods factor, +5% production efficiency gain, +5 puncte procentuale stabilitate și +50 PP.",
       "modifiers": {
+        "economy.consumer_goods_factor": -0.05,
         "economy.production_factory_efficiency_gain_factor": 0.05
       },
       "politics": {
         "stability_pp": 5,
         "pp": 50
       },
-      "x": 32,
-      "y": 9,
-      "icon": "GFX_focus_spa_the_spanish_miracle"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_spa_the_spanish_miracle",
+      "relative_position_id": "TFR_SPA_national_research_council"
     },
     {
       "code": "E01",
       "id": "TFR_SPA_national_economic_plan",
       "name": "National Economic Plan",
-      "days": 28,
+      "days": 21,
       "prerequisites": [
         [
           "P02"
         ]
       ],
-      "effect": "+5% construction speed; nucleul comun al Spanish Economy.",
+      "effect": "+2.5% construction speed; nucleul comun al Spanish Economy.",
       "modifiers": {
-        "economy.production_speed_buildings_factor": 0.05
+        "economy.production_speed_buildings_factor": 0.025
       },
-      "x": 23,
-      "y": 4,
-      "icon": "GFX_focus_generic_central_planning"
+      "x": -6,
+      "y": 1,
+      "icon": "GFX_focus_generic_central_planning",
+      "relative_position_id": "TFR_SPA_restore_civil_administration"
     },
     {
       "code": "E02",
@@ -596,8 +624,8 @@
       "buildings": {
         "civ": 2
       },
-      "x": 21,
-      "y": 5,
+      "x": -2,
+      "y": 1,
       "icon": "GFX_focus_ITA_northern_industry",
       "buildingStates": [
         {
@@ -605,7 +633,8 @@
           "kind": "civ",
           "count": 2
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_national_economic_plan"
     },
     {
       "code": "E03",
@@ -618,9 +647,10 @@
         ]
       ],
       "effect": "+1 infrastructură în trei state spaniole proprii/controlate distincte, sub 5/5; 25 PP pentru fiecare plasare imposibilă.",
-      "x": 25,
-      "y": 5,
-      "icon": "GFX_goal_generic_construct_infrastructure"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_goal_generic_construct_infrastructure",
+      "relative_position_id": "TFR_SPA_national_economic_plan"
     },
     {
       "code": "E04",
@@ -632,13 +662,14 @@
           "E03"
         ]
       ],
-      "effect": "+10% local resources factor în Spania.",
+      "effect": "+5% local resources factor în Spania.",
       "modifiers": {
-        "economy.local_resources_factor": 0.1
+        "economy.local_resources_factor": 0.05
       },
-      "x": 26,
-      "y": 6,
-      "icon": "GFX_focus_generic_hydroelectric_energy"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_generic_hydroelectric_energy",
+      "relative_position_id": "TFR_SPA_restore_transport_links"
     },
     {
       "code": "E05",
@@ -654,8 +685,8 @@
       "buildings": {
         "civ": 1
       },
-      "x": 20,
-      "y": 6,
+      "x": -1,
+      "y": 1,
       "icon": "GFX_focus_generic_industry_1",
       "buildingStates": [
         {
@@ -663,49 +694,51 @@
           "kind": "civ",
           "count": 1
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_reopen_northern_industry"
     },
     {
       "code": "E06",
       "id": "TFR_SPA_reopen_the_national_arsenals",
       "name": "Reopen the National Arsenals",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E02"
         ]
       ],
-      "effect": "3 fabrici militare în Madrid.",
+      "effect": "2 fabrici militare în Madrid.",
       "buildings": {
-        "mil": 3
+        "mil": 2
       },
-      "x": 22,
-      "y": 6,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_goal_generic_construct_mil_factory",
       "buildingStates": [
         {
           "state": 41,
           "kind": "mil",
-          "count": 3
+          "count": 2
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_reopen_northern_industry"
     },
     {
       "code": "E07",
       "id": "TFR_SPA_regional_armament_workshops",
       "name": "Regional Armament Workshops",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E06"
         ]
       ],
-      "effect": "1 fabrică militară în Basque Country și +2.5% eficiență maximă de producție.",
+      "effect": "1 fabrică militară în Basque Country.",
       "buildings": {
         "mil": 1
       },
-      "x": 22,
-      "y": 7,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_focus_generic_military_industry",
       "buildingStates": [
         {
@@ -714,9 +747,7 @@
           "count": 1
         }
       ],
-      "modifiers": {
-        "economy.production_factory_max_efficiency_factor": 0.025
-      }
+      "relative_position_id": "TFR_SPA_reopen_the_national_arsenals"
     },
     {
       "code": "E08",
@@ -729,9 +760,10 @@
         ]
       ],
       "effect": "Modernizează cu un nivel două conexiuni feroviare interne pentru aprovizionare, până la nivelul 3; ținte Madrid–nord și Madrid–Mediterana. Dacă sunt deja dezvoltate, 50 PP/conexiune.",
-      "x": 24,
-      "y": 7,
-      "icon": "GFX_focus_generic_railroad"
+      "x": -1,
+      "y": 2,
+      "icon": "GFX_focus_generic_railroad",
+      "relative_position_id": "TFR_SPA_restore_transport_links"
     },
     {
       "code": "E09",
@@ -747,8 +779,8 @@
       "buildings": {
         "refinery": 1
       },
-      "x": 27,
-      "y": 7,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_goal_generic_oil_refinery",
       "buildingStates": [
         {
@@ -756,56 +788,59 @@
           "kind": "refinery",
           "count": 1
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_hydroelectric_development"
     },
     {
       "code": "E10",
       "id": "TFR_SPA_german_machine_tools",
       "name": "German Machine Tools",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E05"
         ]
       ],
-      "effect": "3 fabrici civile în Basque Country; cooperare cu Germania. Cercetarea industrială se mută la Industrial Coordination.",
+      "effect": "2 fabrici civile în Basque Country; cooperare cu Germania.",
       "buildings": {
-        "civ": 3
+        "civ": 2
       },
-      "x": 20,
-      "y": 7,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_construct_civilian",
       "buildingStates": [
         {
           "state": 792,
           "kind": "civ",
-          "count": 3
+          "count": 2
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_industrial_credit_programme"
     },
     {
       "code": "E11",
       "id": "TFR_SPA_national_labour_productivity",
       "name": "National Labour Productivity",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E07"
         ]
       ],
-      "effect": "+10% factory output; mută bonusul util din The Duty to Work.",
+      "effect": "+5% factory output; mută bonusul util din The Duty to Work.",
       "modifiers": {
-        "economy.industrial_capacity_factory": 0.1
+        "economy.industrial_capacity_factory": 0.05
       },
-      "x": 22,
-      "y": 8,
-      "icon": "GFX_goal_generic_production"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_production",
+      "relative_position_id": "TFR_SPA_regional_armament_workshops"
     },
     {
       "code": "E12",
       "id": "TFR_SPA_industrial_coordination",
       "name": "Industrial Coordination",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E10"
@@ -821,9 +856,10 @@
       "modifiers": {
         "economy.production_factory_max_efficiency_factor": 0.025
       },
-      "x": 23,
-      "y": 9,
-      "icon": "GFX_focus_generic_mass_production"
+      "x": 3,
+      "y": 2,
+      "icon": "GFX_focus_generic_mass_production",
+      "relative_position_id": "TFR_SPA_german_machine_tools"
     },
     {
       "code": "E13",
@@ -846,15 +882,16 @@
       "modifiers": {
         "economy.production_speed_industrial_complex_factor": 0.05
       },
-      "x": 26,
-      "y": 10,
-      "icon": "GFX_focus_AUS_courting_the_princess_of_industry"
+      "x": 3,
+      "y": 1,
+      "icon": "GFX_focus_AUS_courting_the_princess_of_industry",
+      "relative_position_id": "TFR_SPA_industrial_coordination"
     },
     {
       "code": "E14",
       "id": "TFR_SPA_public_works_programme",
       "name": "Public Works Programme",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E13"
@@ -864,23 +901,24 @@
       "modifiers": {
         "economy.production_speed_buildings_factor": 0.025
       },
-      "x": 23,
-      "y": 11,
-      "icon": "GFX_goal_generic_construction"
+      "x": -3,
+      "y": 1,
+      "icon": "GFX_goal_generic_construction",
+      "relative_position_id": "TFR_SPA_civilian_development_priority"
     },
     {
       "code": "E15",
       "id": "TFR_SPA_metropolitan_industrial_expansion",
       "name": "Metropolitan Industrial Expansion",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E14"
         ]
       ],
-      "effect": "3 fabrici civile în Madrid.",
+      "effect": "2 fabrici civile în Madrid.",
       "buildings": {
-        "civ": 3
+        "civ": 2
       },
       "x": -2,
       "y": 1,
@@ -889,7 +927,7 @@
         {
           "state": 41,
           "kind": "civ",
-          "count": 3
+          "count": 2
         }
       ],
       "relative_position_id": "TFR_SPA_public_works_programme"
@@ -949,9 +987,9 @@
           "E17"
         ]
       ],
-      "effect": "+10% local resources factor suplimentar și +1 infrastructură în două state distincte sub maxim; 25 PP/plasare imposibilă.",
+      "effect": "+15% local resources factor suplimentar și +1 infrastructură în două state distincte sub maxim; 25 PP/plasare imposibilă.",
       "modifiers": {
-        "economy.local_resources_factor": 0.1
+        "economy.local_resources_factor": 0.15
       },
       "x": 3,
       "y": 2,
@@ -962,15 +1000,15 @@
       "code": "E19",
       "id": "TFR_SPA_mass_production_standards",
       "name": "Mass Production Standards",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "E15"
         ]
       ],
-      "effect": "+5% factory output.",
+      "effect": "+2.5% factory output.",
       "modifiers": {
-        "economy.industrial_capacity_factory": 0.05
+        "economy.industrial_capacity_factory": 0.025
       },
       "x": -1,
       "y": 2,
@@ -1006,9 +1044,9 @@
           "E19"
         ]
       ],
-      "effect": "production_factory_efficiency_gain_factor: 7.5%.",
+      "effect": "production_factory_efficiency_gain_factor: 2.5%.",
       "modifiers": {
-        "economy.production_factory_efficiency_gain_factor": 0.075
+        "economy.production_factory_efficiency_gain_factor": 0.025
       },
       "x": 1,
       "y": 3,
@@ -1090,9 +1128,9 @@
           "E17"
         ]
       ],
-      "effect": "research_speed_factor: 2.5%.",
+      "effect": "research_speed_factor: 5.0%.",
       "modifiers": {
-        "economy.research_speed_factor": 0.025
+        "economy.research_speed_factor": 0.05
       },
       "x": 3,
       "y": 3,
@@ -1112,9 +1150,9 @@
           "E22"
         ]
       ],
-      "effect": "industrial_capacity_factory: 2.5%.",
+      "effect": "industrial_capacity_factory: 5.0%.",
       "modifiers": {
-        "economy.industrial_capacity_factory": 0.025
+        "economy.industrial_capacity_factory": 0.05
       },
       "conditions": [
         "Data >= 1940.1.1."
@@ -1150,9 +1188,9 @@
           "E26"
         ]
       ],
-      "effect": "production_factory_efficiency_gain_factor: 2.5%.",
+      "effect": "production_factory_efficiency_gain_factor: 7.5%.",
       "modifiers": {
-        "economy.production_factory_efficiency_gain_factor": 0.025
+        "economy.production_factory_efficiency_gain_factor": 0.075
       },
       "x": 0,
       "y": 6,
@@ -1192,9 +1230,9 @@
           "E26"
         ]
       ],
-      "effect": "+2 fabrici militare cu sloturi.",
+      "effect": "+3 fabrici militare cu sloturi.",
       "buildings": {
-        "mil": 2
+        "mil": 3
       },
       "conditions": [
         "Data >= 1940.1.1."
@@ -1206,7 +1244,7 @@
         {
           "state": 169,
           "kind": "mil",
-          "count": 2
+          "count": 3
         }
       ],
       "relative_position_id": "TFR_SPA_public_works_programme"
@@ -1224,9 +1262,9 @@
           "E27"
         ]
       ],
-      "effect": "production_speed_buildings_factor: 2.5%. Fabricile și sloturile existente sunt păstrate.",
+      "effect": "production_speed_buildings_factor: 5.0%. Fabricile și sloturile existente sunt păstrate.",
       "modifiers": {
-        "economy.production_speed_buildings_factor": 0.025
+        "economy.production_speed_buildings_factor": 0.05
       },
       "buildings": {
         "civ": 2
@@ -1259,9 +1297,9 @@
           "E28"
         ]
       ],
-      "effect": "industrial_capacity_factory: 2.5%.",
+      "effect": "2 fabrici civile în Madrid și +7.5% factory output.",
       "modifiers": {
-        "economy.industrial_capacity_factory": 0.025
+        "economy.industrial_capacity_factory": 0.075
       },
       "conditions": [
         "Data >= 1940.1.1."
@@ -1269,43 +1307,55 @@
       "x": 0,
       "y": 7,
       "icon": "GFX_focus_GER_wirtschaftswunder",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_public_works_programme",
+      "buildings": {
+        "civ": 2
+      },
+      "buildingStates": [
+        {
+          "state": 41,
+          "kind": "civ",
+          "count": 2
+        }
+      ]
     },
     {
       "code": "M01",
       "id": "TFR_SPA_establish_a_unified_command",
       "name": "Establish a Unified Command",
-      "days": 28,
+      "days": 21,
       "prerequisites": [
         [
           "P04"
         ]
       ],
-      "effect": "+5% planning speed; nucleul comun al Spanish Armed Forces.",
+      "effect": "+2.5% planning speed; nucleul comun al Spanish Armed Forces.",
       "modifiers": {
-        "army.planning_speed": 0.05
+        "army.planning_speed": 0.025
       },
-      "x": 40,
-      "y": 4,
-      "icon": "GFX_focus_NORDIC_mon_selector_army"
+      "x": 7,
+      "y": 1,
+      "icon": "GFX_focus_NORDIC_mon_selector_army",
+      "relative_position_id": "TFR_SPA_demobilisation_and_reemployment"
     },
     {
       "code": "M02",
       "id": "TFR_SPA_officer_training_programme",
       "name": "Officer Training Programme",
-      "days": 28,
+      "days": 21,
       "prerequisites": [
         [
           "M01"
         ]
       ],
-      "effect": "+5% army recovery rate.",
+      "effect": "+2.5% army recovery rate.",
       "modifiers": {
-        "army.army_morale_factor": 0.05
+        "army.army_morale_factor": 0.025
       },
-      "x": 38,
-      "y": 5,
-      "icon": "GFX_focus_generic_military_academy"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_focus_generic_military_academy",
+      "relative_position_id": "TFR_SPA_establish_a_unified_command"
     },
     {
       "code": "M03",
@@ -1318,27 +1368,29 @@
         ]
       ],
       "effect": "1×50% research pentru infantry weapons și 1×50% pentru support tech.",
-      "x": 42,
-      "y": 5,
-      "icon": "GFX_goal_generic_small_arms"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_goal_generic_small_arms",
+      "relative_position_id": "TFR_SPA_establish_a_unified_command"
     },
     {
       "code": "M04",
       "id": "TFR_SPA_artillery_modernisation",
       "name": "Artillery Modernisation",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M03"
         ]
       ],
-      "effect": "1×50% research pentru artillery și +5% artillery defence.",
+      "effect": "1×50% research pentru artillery și +2.5% artillery defence.",
       "modifiers": {
-        "army.army_artillery_defence_factor": 0.05
+        "army.army_artillery_defence_factor": 0.025
       },
-      "x": 42,
-      "y": 6,
-      "icon": "GFX_goal_generic_army_artillery2"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_army_artillery2",
+      "relative_position_id": "TFR_SPA_infantry_equipment_modernisation"
     },
     {
       "code": "M05",
@@ -1354,9 +1406,10 @@
       "modifiers": {
         "army.supply_consumption_factor": -0.05
       },
-      "x": 36,
-      "y": 6,
-      "icon": "GFX_focus_CHI_combined_logistics_command"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_focus_CHI_combined_logistics_command",
+      "relative_position_id": "TFR_SPA_officer_training_programme"
     },
     {
       "code": "M06",
@@ -1372,9 +1425,10 @@
       "modifiers": {
         "army.motorized_defence_factor": 0.05
       },
-      "x": 36,
-      "y": 7,
-      "icon": "GFX_goal_generic_army_motorized"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_army_motorized",
+      "relative_position_id": "TFR_SPA_army_supply_service"
     },
     {
       "code": "M07",
@@ -1390,9 +1444,10 @@
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
-      "x": 39,
-      "y": 6,
-      "icon": "GFX_focus_generic_radio_communication"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_generic_radio_communication",
+      "relative_position_id": "TFR_SPA_officer_training_programme"
     },
     {
       "code": "M08",
@@ -1408,9 +1463,10 @@
       "modifiers": {
         "army.army_fuel_consumption_factor": -0.05
       },
-      "x": 36,
-      "y": 8,
-      "icon": "GFX_focus_generic_truck"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_truck",
+      "relative_position_id": "TFR_SPA_army_motor_transport"
     },
     {
       "code": "M09",
@@ -1422,13 +1478,14 @@
           "M03"
         ]
       ],
-      "effect": "1×50% research pentru mountaineers; +10% special forces cap, relativ la plafon.",
+      "effect": "1×50% research pentru mountaineers; +5% special forces cap, relativ la plafon.",
       "modifiers": {
-        "army.special_forces_cap": 0.1
+        "army.special_forces_cap": 0.05
       },
-      "x": 44,
-      "y": 6,
-      "icon": "GFX_focus_SMB_a_land_of_mountains"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_focus_SMB_a_land_of_mountains",
+      "relative_position_id": "TFR_SPA_infantry_equipment_modernisation"
     },
     {
       "code": "M10",
@@ -1444,15 +1501,16 @@
       "modifiers": {
         "army.special_forces_attack_factor": 0.025
       },
-      "x": 44,
-      "y": 7,
-      "icon": "GFX_focus_generic_naval_invasion"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_naval_invasion",
+      "relative_position_id": "TFR_SPA_mountain_warfare_schools"
     },
     {
       "code": "M11",
       "id": "TFR_SPA_general_staff_exercises",
       "name": "General Staff Exercises",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M04"
@@ -1465,15 +1523,16 @@
       "modifiers": {
         "army.max_planning_factor": 0.05
       },
-      "x": 40,
-      "y": 7,
-      "icon": "GFX_goal_generic_army_doctrines"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_goal_generic_army_doctrines",
+      "relative_position_id": "TFR_SPA_artillery_modernisation"
     },
     {
       "code": "M12",
       "id": "TFR_SPA_modern_army_standards",
       "name": "Modern Army Standards",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M08"
@@ -1482,13 +1541,14 @@
           "M11"
         ]
       ],
-      "effect": "+5% army organization.",
+      "effect": "+2.5% army organization.",
       "modifiers": {
-        "army.army_org_factor": 0.05
+        "army.army_org_factor": 0.025
       },
-      "x": 38,
-      "y": 9,
-      "icon": "GFX_goal_generic_special_forces"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_goal_generic_special_forces",
+      "relative_position_id": "TFR_SPA_mobile_maintenance_workshops"
     },
     {
       "code": "M13",
@@ -1503,23 +1563,24 @@
           "M12"
         ]
       ],
-      "effect": "Alege permanent specializarea militară; +5% planning speed. Blochează E13–E32.",
+      "effect": "Alege permanent specializarea militară; +2.5% planning speed. Blochează E13–E32.",
       "exclusiveWith": [
         "E13"
       ],
       "specialization": "military",
       "modifiers": {
-        "army.planning_speed": 0.05
+        "army.planning_speed": 0.025
       },
-      "x": 32,
-      "y": 10,
-      "icon": "GFX_goal_generic_major_war"
+      "x": 9,
+      "y": 1,
+      "icon": "GFX_goal_generic_major_war",
+      "relative_position_id": "TFR_SPA_industrial_coordination"
     },
     {
       "code": "M14",
       "id": "TFR_SPA_the_staff_academy",
       "name": "The Staff Academy",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M13"
@@ -1529,9 +1590,10 @@
       "modifiers": {
         "army.army_org_factor": 0.025
       },
-      "x": 36,
-      "y": 11,
-      "icon": "GFX_focus_chi_whampoa_military_academy"
+      "x": 7,
+      "y": 1,
+      "icon": "GFX_focus_chi_whampoa_military_academy",
+      "relative_position_id": "TFR_SPA_military_development_priority"
     },
     {
       "code": "M15",
@@ -1547,7 +1609,7 @@
       "modifiers": {
         "army.army_morale_factor": 0.025
       },
-      "x": -4,
+      "x": -9,
       "y": 1,
       "icon": "GFX_focus_FIN_strengthen_military_administration",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1556,17 +1618,17 @@
       "code": "M16",
       "id": "TFR_SPA_infantry_fire_coordination",
       "name": "Infantry Fire Coordination",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M14"
         ]
       ],
-      "effect": "+5% infantry attack.",
+      "effect": "+2.5% infantry attack.",
       "modifiers": {
-        "army.army_infantry_attack_factor": 0.05
+        "army.army_infantry_attack_factor": 0.025
       },
-      "x": 0,
+      "x": 3,
       "y": 1,
       "icon": "GFX_focus_generic_anti_tank_guns",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1578,17 +1640,17 @@
       "code": "M17",
       "id": "TFR_SPA_artillery_liaison_officers",
       "name": "Artillery Liaison Officers",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M14"
         ]
       ],
-      "effect": "+5% artillery attack.",
+      "effect": "+2.5% artillery attack.",
       "modifiers": {
-        "army.army_artillery_attack_factor": 0.05
+        "army.army_artillery_attack_factor": 0.025
       },
-      "x": 8,
+      "x": 7,
       "y": 1,
       "icon": "GFX_goal_generic_army_artillery",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1606,11 +1668,11 @@
           "M14"
         ]
       ],
-      "effect": "+5% special forces attack și 1×50% research pentru support tech.",
+      "effect": "+2.5% special forces attack și 1×50% research pentru support tech.",
       "modifiers": {
-        "army.special_forces_attack_factor": 0.05
+        "army.special_forces_attack_factor": 0.025
       },
-      "x": 12,
+      "x": 11,
       "y": 1,
       "icon": "GFX_focus_SMB_mountain_guns",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1622,17 +1684,17 @@
       "code": "M19",
       "id": "TFR_SPA_armoured_formations",
       "name": "Armoured Formations",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M14"
         ]
       ],
-      "effect": "+5% armour attack și 1×50% research pentru tank hulls.",
+      "effect": "+2.5% armour attack și 1×50% research pentru tank hulls.",
       "modifiers": {
-        "army.army_armor_attack_factor": 0.05
+        "army.army_armor_attack_factor": 0.025
       },
-      "x": 4,
+      "x": -3,
       "y": 1,
       "icon": "GFX_focus_generic_tank_production",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1655,8 +1717,8 @@
         "army.army_fuel_consumption_factor": -0.05,
         "army.army_armor_speed_factor": 0.05
       },
-      "x": 3,
-      "y": 2,
+      "x": -4,
+      "y": 3,
       "icon": "GFX_focus_generic_tank_assembly",
       "relative_position_id": "TFR_SPA_the_staff_academy"
     },
@@ -1675,7 +1737,7 @@
         "army.motorized_attack_factor": 0.05,
         "army.mechanized_attack_factor": 0.05
       },
-      "x": 5,
+      "x": -2,
       "y": 2,
       "icon": "GFX_focus_generic_combined_arms",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1694,7 +1756,7 @@
       "modifiers": {
         "army.supply_consumption_factor": -0.05
       },
-      "x": -6,
+      "x": -11,
       "y": 2,
       "icon": "GFX_goal_generic_position_armies",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1713,7 +1775,7 @@
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
-      "x": -4,
+      "x": -9,
       "y": 2,
       "icon": "GFX_goal_generic_radar",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1728,12 +1790,13 @@
           "M16"
         ]
       ],
-      "effect": "+5% maximum planning.",
+      "effect": "+2.5% infantry attack și +5% maximum planning.",
       "modifiers": {
+        "army.army_infantry_attack_factor": 0.025,
         "army.max_planning_factor": 0.05
       },
-      "x": 0,
-      "y": 2,
+      "x": 3,
+      "y": 5,
       "icon": "GFX_goal_generic_military_sphere",
       "relative_position_id": "TFR_SPA_the_staff_academy"
     },
@@ -1747,12 +1810,13 @@
           "M18"
         ]
       ],
-      "effect": "special_forces_cap: 5.0%; special_forces_defence_factor: 2.5%.",
+      "effect": "special_forces_cap: 10.0%; special_forces_attack_factor: 2.5%; special_forces_defence_factor: 2.5%.",
       "modifiers": {
-        "army.special_forces_cap": 0.05,
+        "army.special_forces_cap": 0.1,
+        "army.special_forces_attack_factor": 0.025,
         "army.special_forces_defence_factor": 0.025
       },
-      "x": 12,
+      "x": 11,
       "y": 2,
       "icon": "GFX_focus_generic_naval_discipline",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1761,17 +1825,17 @@
       "code": "M26",
       "id": "TFR_SPA_rapid_force_concentration",
       "name": "Rapid Force Concentration",
-      "days": 35,
+      "days": 28,
       "prerequisites": [
         [
           "M21"
         ]
       ],
-      "effect": "−10% organization loss while moving.",
+      "effect": "−5% organization loss while moving.",
       "modifiers": {
-        "army.org_loss_when_moving": -0.1
+        "army.org_loss_when_moving": -0.05
       },
-      "x": 5,
+      "x": -2,
       "y": 3,
       "icon": "GFX_goal_generic_occupy_states_ongoing_war",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1786,12 +1850,12 @@
           "M17"
         ]
       ],
-      "effect": "army_artillery_attack_factor: 2.5%; army_artillery_defence_factor: 2.5%.",
+      "effect": "army_artillery_attack_factor: 5.0%; army_artillery_defence_factor: 5.0%.",
       "modifiers": {
-        "army.army_artillery_attack_factor": 0.025,
-        "army.army_artillery_defence_factor": 0.025
+        "army.army_artillery_attack_factor": 0.05,
+        "army.army_artillery_defence_factor": 0.05
       },
-      "x": 8,
+      "x": 7,
       "y": 2,
       "icon": "GFX_focus_SWE_let_fly_all_guns",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1803,26 +1867,28 @@
       "days": 35,
       "prerequisites": [
         [
-          "M23"
-        ],
-        [
           "M24",
           "M31"
-        ],
+        ]
+      ],
+      "effect": "army_morale_factor: 5.0%; planning_speed: 5.0%.",
+      "modifiers": {
+        "army.army_morale_factor": 0.05,
+        "army.planning_speed": 0.05
+      },
+      "x": 0,
+      "y": 6,
+      "icon": "GFX_focus_generic_military_mission",
+      "relative_position_id": "TFR_SPA_the_staff_academy",
+      "requiredCompletedFocuses": [
+        "M23"
+      ],
+      "requiredCompletedFocusGroups": [
         [
           "M27",
           "M25"
         ]
-      ],
-      "effect": "army_morale_factor: 2.5%; planning_speed: 5.0%.",
-      "modifiers": {
-        "army.army_morale_factor": 0.025,
-        "army.planning_speed": 0.05
-      },
-      "x": 3,
-      "y": 6,
-      "icon": "GFX_focus_generic_military_mission",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      ]
     },
     {
       "code": "M29",
@@ -1837,15 +1903,15 @@
           "M26"
         ]
       ],
-      "effect": "army_armor_attack_factor: 2.5%; breakthrough_factor: 2.5%.",
+      "effect": "army_armor_attack_factor: 5.0%; breakthrough_factor: 2.5%.",
       "modifiers": {
-        "army.army_armor_attack_factor": 0.025,
+        "army.army_armor_attack_factor": 0.05,
         "army.breakthrough_factor": 0.025
       },
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 3,
+      "x": -3,
       "y": 4,
       "icon": "GFX_goal_continuous_armor_production",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1860,11 +1926,11 @@
           "M28"
         ]
       ],
-      "effect": "army_org_factor: 2.5%.",
+      "effect": "army_org_factor: 5.0%.",
       "modifiers": {
-        "army.army_org_factor": 0.025
+        "army.army_org_factor": 0.05
       },
-      "x": 3,
+      "x": 0,
       "y": 7,
       "icon": "GFX_goal_generic_allies_build_infantry",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1879,12 +1945,12 @@
           "M29"
         ]
       ],
-      "effect": "breakthrough_factor: 2.5%; org_loss_when_moving: -5.0%.",
+      "effect": "breakthrough_factor: 2.5%; org_loss_when_moving: -10.0%.",
       "modifiers": {
         "army.breakthrough_factor": 0.025,
-        "army.org_loss_when_moving": -0.05
+        "army.org_loss_when_moving": -0.1
       },
-      "x": 3,
+      "x": -3,
       "y": 5,
       "icon": "GFX_goal_generic_army_tanks",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1899,15 +1965,15 @@
           "M30"
         ]
       ],
-      "effect": "army_attack_factor: 2.5%; army_defence_factor: 2.5%.",
+      "effect": "army_attack_factor: 5.0%; army_defence_factor: 5.0%.",
       "modifiers": {
-        "army.army_attack_factor": 0.025,
-        "army.army_defence_factor": 0.025
+        "army.army_attack_factor": 0.05,
+        "army.army_defence_factor": 0.05
       },
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 3,
+      "x": 0,
       "y": 8,
       "icon": "GFX_goal_generic_demand_territory",
       "relative_position_id": "TFR_SPA_the_staff_academy"
@@ -1927,9 +1993,10 @@
         "air.air_mission_efficiency": 0.05
       },
       "buildings": {},
-      "x": 48,
-      "y": 5,
-      "icon": "GFX_focus_generic_air_bases"
+      "x": 8,
+      "y": 1,
+      "icon": "GFX_focus_generic_air_bases",
+      "relative_position_id": "TFR_SPA_establish_a_unified_command"
     },
     {
       "code": "A02",
@@ -1946,8 +2013,8 @@
         "mil": 3
       },
       "modifiers": {},
-      "x": 47,
-      "y": 6,
+      "x": -1,
+      "y": 1,
       "icon": "GFX_focus_generic_aircraft_production",
       "buildingStates": [
         {
@@ -1955,7 +2022,8 @@
           "kind": "mil",
           "count": 3
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_establish_the_air_command"
     },
     {
       "code": "A03",
@@ -1973,9 +2041,10 @@
         "air.air_cas_present_factor": 0.05
       },
       "buildings": {},
-      "x": 49,
-      "y": 6,
-      "icon": "GFX_focus_usa_escort_fighters"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_usa_escort_fighters",
+      "relative_position_id": "TFR_SPA_establish_the_air_command"
     },
     {
       "code": "A04",
@@ -1991,9 +2060,10 @@
       "modifiers": {
         "air.air_accidents_factor": -0.1
       },
-      "x": 47,
-      "y": 7,
-      "icon": "GFX_focus_generic_military_academy"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_military_academy",
+      "relative_position_id": "TFR_SPA_reopen_aeronautical_works"
     },
     {
       "code": "A05",
@@ -2009,9 +2079,10 @@
       "modifiers": {
         "air.air_fuel_consumption_factor": -0.05
       },
-      "x": 49,
-      "y": 7,
-      "icon": "GFX_goal_generic_air_production"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_air_production",
+      "relative_position_id": "TFR_SPA_national_aircraft_design_bureaus"
     },
     {
       "code": "N01",
@@ -2027,9 +2098,10 @@
       "modifiers": {
         "navy.naval_detection": 0.05
       },
-      "x": 56,
-      "y": 5,
-      "icon": "GFX_goal_generic_navy_doctrines_tactics"
+      "x": 16,
+      "y": 1,
+      "icon": "GFX_goal_generic_navy_doctrines_tactics",
+      "relative_position_id": "TFR_SPA_establish_a_unified_command"
     },
     {
       "code": "N02",
@@ -2045,8 +2117,8 @@
       "buildings": {
         "dock": 3
       },
-      "x": 56,
-      "y": 6,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_construct_naval_dockyard",
       "buildingStates": [
         {
@@ -2054,25 +2126,27 @@
           "kind": "dock",
           "count": 3
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_establish_the_naval_staff"
     },
     {
       "code": "N03",
       "id": "TFR_SPA_shipyard_coordination",
       "name": "Shipyard Coordination",
-      "days": 28,
+      "days": 21,
       "prerequisites": [
         [
           "N02"
         ]
       ],
-      "effect": "+5% dockyard output, centralizat în Spanish Economy.",
+      "effect": "+2.5% dockyard output, centralizat în Spanish Economy.",
       "modifiers": {
-        "economy.industrial_capacity_dockyard": 0.05
+        "economy.industrial_capacity_dockyard": 0.025
       },
-      "x": 54,
-      "y": 7,
-      "icon": "GFX_goal_continuous_naval_production"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_goal_continuous_naval_production",
+      "relative_position_id": "TFR_SPA_reopen_the_ferrol_shipyards"
     },
     {
       "code": "N04",
@@ -2085,9 +2159,10 @@
         ]
       ],
       "effect": "Câte +2 niveluri de naval base la Ferrol, Cadiz și Cartagena, până la plafon; 25 PP/plasare complet imposibilă.",
-      "x": 59,
-      "y": 7,
-      "icon": "GFX_focus_SOV_reinforce_western_naval_bases"
+      "x": 3,
+      "y": 1,
+      "icon": "GFX_focus_SOV_reinforce_western_naval_bases",
+      "relative_position_id": "TFR_SPA_reopen_the_ferrol_shipyards"
     },
     {
       "code": "N05",
@@ -2100,9 +2175,10 @@
         ]
       ],
       "effect": "+40 convoaie, o singură dată.",
-      "x": 52,
-      "y": 8,
-      "icon": "GFX_goal_generic_navy_cruiser"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_goal_generic_navy_cruiser",
+      "relative_position_id": "TFR_SPA_shipyard_coordination"
     },
     {
       "code": "N06",
@@ -2114,13 +2190,14 @@
           "N05"
         ]
       ],
-      "effect": "+10% convoy escort efficiency.",
+      "effect": "+5% convoy escort efficiency.",
       "modifiers": {
-        "navy.convoy_escort_efficiency": 0.1
+        "navy.convoy_escort_efficiency": 0.05
       },
-      "x": 52,
-      "y": 9,
-      "icon": "GFX_focus_ger_accept_british_naval_dominance"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_ger_accept_british_naval_dominance",
+      "relative_position_id": "TFR_SPA_rebuild_the_merchant_marine"
     },
     {
       "code": "N07",
@@ -2136,9 +2213,10 @@
       "modifiers": {
         "navy.naval_detection": 0.05
       },
-      "x": 52,
-      "y": 10,
-      "icon": "GFX_focus_PHI_philippine_naval_patrol"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_PHI_philippine_naval_patrol",
+      "relative_position_id": "TFR_SPA_convoy_escort_procedures"
     },
     {
       "code": "N08",
@@ -2154,9 +2232,10 @@
       "modifiers": {
         "navy.spotting_chance": 0.05
       },
-      "x": 61,
-      "y": 8,
-      "icon": "GFX_goal_generic_air_naval_bomber"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_goal_generic_air_naval_bomber",
+      "relative_position_id": "TFR_SPA_naval_bases_programme"
     },
     {
       "code": "N09",
@@ -2172,9 +2251,10 @@
       "modifiers": {
         "navy.screening_efficiency": 0.05
       },
-      "x": 55,
-      "y": 8,
-      "icon": "GFX_focus_generic_destroyer"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_generic_destroyer",
+      "relative_position_id": "TFR_SPA_shipyard_coordination"
     },
     {
       "code": "N10",
@@ -2190,9 +2270,10 @@
       "modifiers": {
         "navy.naval_coordination": 0.05
       },
-      "x": 55,
-      "y": 9,
-      "icon": "GFX_focus_generic_cruiser2"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_cruiser2",
+      "relative_position_id": "TFR_SPA_the_destroyer_programme"
     },
     {
       "code": "N11",
@@ -2204,13 +2285,14 @@
           "N04"
         ]
       ],
-      "effect": "+10% naval repair speed.",
+      "effect": "+5% naval repair speed.",
       "modifiers": {
-        "navy.repair_speed_factor": 0.1
+        "navy.repair_speed_factor": 0.05
       },
-      "x": 59,
-      "y": 8,
-      "icon": "GFX_focus_generic_navy_research_bonus"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_navy_research_bonus",
+      "relative_position_id": "TFR_SPA_naval_bases_programme"
     },
     {
       "code": "N12",
@@ -2232,8 +2314,8 @@
       "buildings": {
         "dock": 6
       },
-      "x": 55,
-      "y": 11,
+      "x": 0,
+      "y": 2,
       "icon": "GFX_focus_JAP_naval_armaments_program",
       "buildingStates": [
         {
@@ -2246,7 +2328,8 @@
           "kind": "dock",
           "count": 3
         }
-      ]
+      ],
+      "relative_position_id": "TFR_SPA_the_cruiser_programme"
     },
     {
       "code": "N13",
@@ -2262,9 +2345,10 @@
       "modifiers": {
         "navy.convoy_raiding_efficiency_factor": 0.05
       },
-      "x": 57,
-      "y": 8,
-      "icon": "GFX_goal_generic_navy_submarine"
+      "x": 3,
+      "y": 1,
+      "icon": "GFX_goal_generic_navy_submarine",
+      "relative_position_id": "TFR_SPA_shipyard_coordination"
     },
     {
       "code": "N14",
@@ -2280,9 +2364,10 @@
       "modifiers": {
         "navy.naval_torpedo_hit_chance_factor": 0.05
       },
-      "x": 57,
-      "y": 9,
-      "icon": "GFX_focus_generic_torpedo_production"
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_focus_generic_torpedo_production",
+      "relative_position_id": "TFR_SPA_submarine_design_bureau"
     },
     {
       "code": "N15",
@@ -2298,9 +2383,10 @@
       "modifiers": {
         "navy.navy_max_range_factor": 0.1
       },
-      "x": 58,
-      "y": 10,
-      "icon": "GFX_focus_DEN_naval_power_projection"
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_DEN_naval_power_projection",
+      "relative_position_id": "TFR_SPA_silent_patrol_tactics"
     },
     {
       "code": "N16",
@@ -2312,17 +2398,18 @@
           "N12"
         ]
       ],
-      "effect": "convoy_escort_efficiency: 5.0%.",
+      "effect": "convoy_escort_efficiency: 10.0%.",
       "exclusiveWith": [
         "N17"
       ],
       "navalDoctrine": "escort",
       "modifiers": {
-        "navy.convoy_escort_efficiency": 0.05
+        "navy.convoy_escort_efficiency": 0.1
       },
-      "x": 53,
-      "y": 12,
-      "icon": "GFX_focus_JAP_balanced_naval_approach"
+      "x": -2,
+      "y": 1,
+      "icon": "GFX_focus_JAP_balanced_naval_approach",
+      "relative_position_id": "TFR_SPA_expand_the_naval_arsenals"
     },
     {
       "code": "N17",
@@ -2334,17 +2421,18 @@
           "N12"
         ]
       ],
-      "effect": "naval_hit_chance: 2.5%.",
+      "effect": "naval_hit_chance: 5.0%.",
       "exclusiveWith": [
         "N16"
       ],
       "navalDoctrine": "surface",
       "modifiers": {
-        "navy.naval_hit_chance": 0.025
+        "navy.naval_hit_chance": 0.05
       },
-      "x": 57,
-      "y": 12,
-      "icon": "GFX_goal_generic_navy_battleship"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_goal_generic_navy_battleship",
+      "relative_position_id": "TFR_SPA_expand_the_naval_arsenals"
     },
     {
       "code": "N18",
@@ -2356,14 +2444,15 @@
           "N15"
         ]
       ],
-      "effect": "navy_fuel_consumption_factor: -7.5%; repair_speed_factor: 2.5%.",
+      "effect": "navy_fuel_consumption_factor: -7.5%; repair_speed_factor: 7.5%.",
       "modifiers": {
         "navy.navy_fuel_consumption_factor": -0.075,
-        "navy.repair_speed_factor": 0.025
+        "navy.repair_speed_factor": 0.075
       },
-      "x": 59,
-      "y": 12,
-      "icon": "GFX_focus_CHI_northern_naval_logistics"
+      "x": 1,
+      "y": 2,
+      "icon": "GFX_focus_CHI_northern_naval_logistics",
+      "relative_position_id": "TFR_SPA_atlantic_operations"
     },
     {
       "code": "N19",
@@ -2380,9 +2469,10 @@
       "modifiers": {
         "navy.navy_anti_air_attack_factor": 0.05
       },
-      "x": 55,
-      "y": 13,
-      "icon": "GFX_focus_GER_japanese_naval_cooperation"
+      "x": 2,
+      "y": 1,
+      "icon": "GFX_focus_GER_japanese_naval_cooperation",
+      "relative_position_id": "TFR_SPA_escort_fleet_doctrine"
     },
     {
       "code": "N20",
@@ -2397,16 +2487,17 @@
           "N19"
         ]
       ],
-      "effect": "industrial_capacity_dockyard: 2.5%.",
+      "effect": "industrial_capacity_dockyard: 7.5%.",
       "modifiers": {
-        "economy.industrial_capacity_dockyard": 0.025
+        "economy.industrial_capacity_dockyard": 0.075
       },
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 57,
-      "y": 14,
-      "icon": "GFX_focus_SMB_reescalate_the_naval_arms_race"
+      "x": -2,
+      "y": 2,
+      "icon": "GFX_focus_SMB_reescalate_the_naval_arms_race",
+      "relative_position_id": "TFR_SPA_integrated_naval_logistics"
     }
   ],
   "assumptions": [

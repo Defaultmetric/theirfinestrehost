@@ -52,23 +52,20 @@ if = {
 		has_dlc = "No Compromise, No Surrender"
 		has_dlc = "Arms Against Tyranny"
 	}
-		if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+		create_equipment_variant = {
 			name = "Casco Convoy"
 			type = convoy_1
+		obsolete = yes
 			parent_version = 0
 			design_team = mio:PHI_compania_maritima_de_cebu_organization
 			show_position = no
 			mark_older_equipment_obsolete = yes
 		}
-}
 
-		if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+		create_equipment_variant = {
 			name = "Clemson Class"				# represents Sampson, Caldwell, Clemson, and Wickes classes
 			type = ship_hull_light_1
+		obsolete = yes
 			name_group = PHI_DD_HISTORICAL
 			parent_version = 0
 			design_team = mio:PHI_compania_maritima_de_cebu_organization
@@ -83,24 +80,20 @@ create_equipment_variant = {
 				rear_1_custom_slot = ship_depth_charge_1
 			}
 		}
-}
 	else = {
-		if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+		create_equipment_variant = {
 			name = "Casco Convoy"
 			type = convoy_1
+		obsolete = yes
 			parent_version = 0
 			show_position = no
 			mark_older_equipment_obsolete = yes
 		}
-}
 
-		if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+		create_equipment_variant = {
 			name = "Clemson Class"				# represents Sampson, Caldwell, Clemson, and Wickes classes
 			type = ship_hull_light_1
+		obsolete = yes
 			name_group = PHI_DD_HISTORICAL
 			parent_version = 0
 			show_position = no
@@ -116,7 +109,6 @@ create_equipment_variant = {
 				rear_1_custom_slot = ship_depth_charge_1
 			}
 		}
-}
 	}
 }
 
@@ -335,42 +327,6 @@ IF = {
 
 
 1939.1.1 = {
-# TFR: historical designs retained only for the 1939 scenario.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-if = {
-limit = {
-		has_dlc = "No Compromise, No Surrender"
-		has_dlc = "Arms Against Tyranny"
-	}
-create_equipment_variant = {
-			name = "Casco Convoy"
-			type = convoy_1
-			parent_version = 0
-			design_team = mio:PHI_compania_maritima_de_cebu_organization
-			show_position = no
-			mark_older_equipment_obsolete = yes
-		}
-create_equipment_variant = {
-			name = "Clemson Class"				# represents Sampson, Caldwell, Clemson, and Wickes classes
-			type = ship_hull_light_1
-			name_group = PHI_DD_HISTORICAL
-			parent_version = 0
-			design_team = mio:PHI_compania_maritima_de_cebu_organization
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_1
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_torpedo_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
-}
-}
-
 
 	add_political_power = 1056
 	add_command_power = 100
@@ -479,6 +435,7 @@ create_equipment_variant = {
 			create_equipment_variant = {
 				name = "Patrol Boat"
 				type = ship_hull_light_2
+		obsolete = yes
 				parent_version = 0
 				modules = {
 					fixed_ship_battery_slot = ship_light_battery_1

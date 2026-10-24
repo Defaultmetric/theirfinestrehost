@@ -3,7 +3,8 @@
 shared_focus = {
 	id = TFR_SPA_volunteer_spain
 	icon = GFX_focus_generic_military_industry
-	x = 29
+	relative_position_id = SPA_a_great_spain
+	x = 28
 	y = 0
 	cost = 2
 	available_if_capitulated = no
@@ -24,6 +25,7 @@ shared_focus = {
 			hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 			set_country_flag = TFR_SPA_reward_D01
 			set_country_flag = TFR_SPA_volunteer_mode
+			set_country_flag = accessible_shared_tree
 			hidden_effect = { TFR_SPA_initialize = yes }
 			custom_effect_tooltip = TFR_SPA_recovery_import_tt
 			TFR_SPA_enforce_volunteer_rules = yes
@@ -39,7 +41,8 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_war_spain
 	icon = GFX_goal_support_fascism
-	x = 33
+	relative_position_id = TFR_SPA_volunteer_spain
+	x = 4
 	y = 0
 	cost = 2
 	available_if_capitulated = no
@@ -72,7 +75,8 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_axis_liaison_office
 	icon = GFX_goal_generic_intelligence_exchange
-	x = 27
+	relative_position_id = TFR_SPA_volunteer_spain
+	x = -2
 	y = 1
 	cost = 3
 	available_if_capitulated = no
@@ -98,7 +102,8 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_join_the_axis
 	icon = GFX_goal_tripartite_pact
-	x = 35
+	relative_position_id = TFR_SPA_war_spain
+	x = 2
 	y = 1
 	cost = 2
 	available_if_capitulated = no
@@ -129,8 +134,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_iberian_economic_agreement
 	icon = GFX_focus_generic_befriend_portugal
-	x = 17
-	y = 2
+	relative_position_id = TFR_SPA_axis_liaison_office
+	x = -10
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -164,8 +170,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_portuguese_industrial_relocation
 	icon = GFX_focus_generic_industry_investment
-	x = 17
-	y = 3
+	relative_position_id = TFR_SPA_iberian_economic_agreement
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -198,8 +205,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_attack_portugal
 	icon = GFX_focus_generic_attack_portugal
-	x = 42
-	y = 2
+	relative_position_id = TFR_SPA_join_the_axis
+	x = 7
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -237,8 +245,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_integrate_portugal
 	icon = GFX_focus_ARG_strengthening_the_concordancia
-	x = 42
-	y = 3
+	relative_position_id = TFR_SPA_attack_portugal
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -274,8 +283,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_german_military_mission
 	icon = GFX_focus_chi_mission_to_germany
-	x = 20
-	y = 3
+	relative_position_id = TFR_SPA_national_reconstruction_commission
+	x = -11
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -327,8 +337,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_italian_naval_mission
 	icon = GFX_focus_befriend_italy
-	x = 21
-	y = 4
+	relative_position_id = TFR_SPA_german_military_mission
+	x = 1
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -346,7 +357,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_D10
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.05
+				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025
 				tooltip = industrial_capacity_dockyard_tt
 			}
 
@@ -354,13 +365,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_italian_naval_mission bonus = 0.5 uses = 1 category = dd_tech }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -380,8 +391,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_foreign_aviation_mission
 	icon = GFX_goal_generic_air_doctrine
-	x = 19
-	y = 4
+	relative_position_id = TFR_SPA_german_military_mission
+	x = -1
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -429,8 +441,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_full_war_commitment
 	icon = GFX_focus_generic_total_war
-	x = 44
-	y = 2
+	relative_position_id = TFR_SPA_join_the_axis
+	x = 9
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -516,8 +529,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_continental_war_coordination
 	icon = GFX_focus_generic_military_mission
-	x = 44
-	y = 3
+	relative_position_id = TFR_SPA_full_war_commitment
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -551,8 +565,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_enduring_industrial_partnership
 	icon = GFX_focus_usa_reestablish_the_gold_standard
-	x = 17
-	y = 5
+	relative_position_id = TFR_SPA_german_military_mission
+	x = -3
+	y = 2
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -569,7 +584,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_D14
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_research_speed_factor = 0.05
+				TFR_SPA_base_economy_research_speed_factor = 0.025
 				tooltip = research_speed_factor_tt
 			}
 
@@ -577,13 +592,13 @@ shared_focus = {
 			add_political_power = 100
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_research_speed_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_economy_research_speed_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_research_speed_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_research_speed_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_research_speed_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_research_speed_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_research_speed_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -603,7 +618,8 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_reconstruction_commission
 	icon = GFX_focus_generic_public_works
-	x = 31
+	relative_position_id = TFR_SPA_volunteer_spain
+	x = 2
 	y = 2
 	cost = 4
 	available_if_capitulated = no
@@ -648,8 +664,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_restore_civil_administration
 	icon = GFX_focus_generic_self_management
-	x = 29
-	y = 3
+	relative_position_id = TFR_SPA_national_reconstruction_commission
+	x = -2
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -697,8 +714,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_integrate_the_autonomous_regions
 	icon = GFX_focus_generic_treaty
-	x = 29
-	y = 4
+	relative_position_id = TFR_SPA_restore_civil_administration
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -725,8 +743,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_demobilisation_and_reemployment
 	icon = GFX_focus_generic_workers_and_farmers_rise
-	x = 33
-	y = 3
+	relative_position_id = TFR_SPA_national_reconstruction_commission
+	x = 2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -802,8 +821,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_labour_accords
 	icon = GFX_focus_eng_concessions_to_the_trade_unions
-	x = 33
-	y = 4
+	relative_position_id = TFR_SPA_demobilisation_and_reemployment
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -868,8 +888,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_rebuild_the_universities
 	icon = GFX_focus_research
-	x = 34
-	y = 5
+	relative_position_id = TFR_SPA_integrate_the_autonomous_regions
+	x = 5
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -896,8 +917,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_mobilisation_framework
 	icon = GFX_goal_generic_propaganda
-	x = 28
-	y = 5
+	relative_position_id = TFR_SPA_integrate_the_autonomous_regions
+	x = -1
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -922,8 +944,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_organise_national_service
 	icon = GFX_goal_generic_axis_build_infantry
-	x = 28
-	y = 6
+	relative_position_id = TFR_SPA_national_mobilisation_framework
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -962,8 +985,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_the_postwar_settlement
 	icon = GFX_focus_generic_diplomatic_treaty
-	x = 31
-	y = 5
+	relative_position_id = TFR_SPA_national_labour_accords
+	x = -2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1014,8 +1038,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_stabilisation
 	icon = GFX_goal_generic_neutrality_focus
-	x = 29
-	y = 7
+	relative_position_id = TFR_SPA_the_postwar_settlement
+	x = -2
+	y = 2
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1030,20 +1055,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_P10
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_consumer_goods_factor = -0.1
+				TFR_SPA_base_economy_consumer_goods_factor = -0.05
 				tooltip = consumer_goods_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = TFR_SPA_recovery_clear_tt
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_consumer_goods_factor = -0.1 }
-				set_temp_variable = { TFR_SPA_grant = -0.1 }
+				subtract_from_variable = { TFR_SPA_base_economy_consumer_goods_factor = -0.05 }
+				set_temp_variable = { TFR_SPA_grant = -0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_consumer_goods_factor < 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_consumer_goods_factor value = -0.1 compare = less_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_consumer_goods_factor = -0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_consumer_goods_factor value = -0.05 compare = less_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_consumer_goods_factor = -0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1065,8 +1090,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_research_council
 	icon = GFX_focus_research2
-	x = 32
-	y = 8
+	relative_position_id = TFR_SPA_rebuild_the_universities
+	x = -2
+	y = 3
 	cost = 6
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1118,8 +1144,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_a_reconstructed_spain
 	icon = GFX_focus_spa_the_spanish_miracle
-	x = 32
-	y = 9
+	relative_position_id = TFR_SPA_national_research_council
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1133,6 +1160,11 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_P12
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
+				TFR_SPA_base_economy_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+
+			add_to_variable = {
 				TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.05
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
@@ -1142,6 +1174,22 @@ shared_focus = {
 			add_political_power = 50
 			if = { limit = { has_country_leader = { character = SPA_francisco_franco ruling_only = yes } } swap_ruler_traits = { remove = caudillo_1 add = caudillo_2 } }
 			hidden_effect = {
+				subtract_from_variable = { TFR_SPA_base_economy_consumer_goods_factor = -0.05 }
+				set_temp_variable = { TFR_SPA_grant = -0.05 }
+				if = {
+					limit = { check_variable = { TFR_SPA_credit_economy_consumer_goods_factor < 0 } }
+					if = {
+						limit = { check_variable = { var = TFR_SPA_credit_economy_consumer_goods_factor value = -0.05 compare = less_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_consumer_goods_factor = -0.05 }
+						set_temp_variable = { TFR_SPA_grant = 0 }
+					}
+					else = {
+						subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_consumer_goods_factor }
+						set_variable = { TFR_SPA_credit_economy_consumer_goods_factor = 0 }
+					}
+				}
+				add_to_variable = { TFR_SPA_base_economy_consumer_goods_factor = TFR_SPA_grant }
+
 				subtract_from_variable = { TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.05 }
 				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
@@ -1168,9 +1216,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_economic_plan
 	icon = GFX_focus_generic_central_planning
-	x = 23
-	y = 4
-	cost = 4
+	relative_position_id = TFR_SPA_restore_civil_administration
+	x = -6
+	y = 1
+	cost = 3
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1183,20 +1232,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E01
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_production_speed_buildings_factor = 0.05
+				TFR_SPA_base_economy_production_speed_buildings_factor = 0.025
 				tooltip = production_speed_buildings_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1216,8 +1265,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_reopen_northern_industry
 	icon = GFX_focus_ITA_northern_industry
-	x = 21
-	y = 5
+	relative_position_id = TFR_SPA_national_economic_plan
+	x = -2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1263,8 +1313,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_restore_transport_links
 	icon = GFX_goal_generic_construct_infrastructure
-	x = 25
-	y = 5
+	relative_position_id = TFR_SPA_national_economic_plan
+	x = 2
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1323,8 +1374,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_hydroelectric_development
 	icon = GFX_focus_generic_hydroelectric_energy
-	x = 26
-	y = 6
+	relative_position_id = TFR_SPA_restore_transport_links
+	x = 1
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1338,20 +1390,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E04
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_local_resources_factor = 0.1
+				TFR_SPA_base_economy_local_resources_factor = 0.05
 				tooltip = local_resources_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_local_resources_factor = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_economy_local_resources_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_local_resources_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_local_resources_factor value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_local_resources_factor = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_local_resources_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_local_resources_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1371,8 +1423,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_industrial_credit_programme
 	icon = GFX_focus_generic_industry_1
-	x = 20
-	y = 6
+	relative_position_id = TFR_SPA_reopen_northern_industry
+	x = -1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1419,9 +1472,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_reopen_the_national_arsenals
 	icon = GFX_goal_generic_construct_mil_factory
-	x = 22
-	y = 6
-	cost = 5
+	relative_position_id = TFR_SPA_reopen_northern_industry
+	x = 1
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1434,19 +1488,19 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E06
 			effect_tooltip = {
 				41 = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = { type = arms_factory level = 2 instant_build = yes }
 				}
 			}
 
 
 			hidden_effect = {
-				set_temp_variable = { TFR_SPA_grant = 3 }
+				set_temp_variable = { TFR_SPA_grant = 2 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_building_mil > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_building_mil value = 3 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_building_mil = 3 }
+						limit = { check_variable = { var = TFR_SPA_credit_building_mil value = 2 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_building_mil = 2 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1466,9 +1520,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_regional_armament_workshops
 	icon = GFX_focus_generic_military_industry
-	x = 22
-	y = 7
-	cost = 5
+	relative_position_id = TFR_SPA_reopen_the_national_arsenals
+	x = 0
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1479,13 +1534,6 @@ shared_focus = {
 			limit = { NOT = { has_country_flag = TFR_SPA_reward_E07 } }
 			hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 			set_country_flag = TFR_SPA_reward_E07
-			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
-			add_to_variable = {
-				TFR_SPA_base_economy_production_factory_max_efficiency_factor = 0.025
-				tooltip = production_factory_max_efficiency_factor_tt
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
 				792 = {
 					add_extra_state_shared_building_slots = 1
@@ -1495,22 +1543,6 @@ shared_focus = {
 
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_production_factory_max_efficiency_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
-				if = {
-					limit = { check_variable = { TFR_SPA_credit_economy_production_factory_max_efficiency_factor > 0 } }
-					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_production_factory_max_efficiency_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_production_factory_max_efficiency_factor = 0.025 }
-						set_temp_variable = { TFR_SPA_grant = 0 }
-					}
-					else = {
-						subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_factory_max_efficiency_factor }
-						set_variable = { TFR_SPA_credit_economy_production_factory_max_efficiency_factor = 0 }
-					}
-				}
-				add_to_variable = { TFR_SPA_base_economy_production_factory_max_efficiency_factor = TFR_SPA_grant }
-
 				set_temp_variable = { TFR_SPA_grant = 1 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_building_mil > 0 } }
@@ -1536,8 +1568,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_supply_railways
 	icon = GFX_focus_generic_railroad
-	x = 24
-	y = 7
+	relative_position_id = TFR_SPA_restore_transport_links
+	x = -1
+	y = 2
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1561,8 +1594,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_domestic_chemical_industry
 	icon = GFX_goal_generic_oil_refinery
-	x = 27
-	y = 7
+	relative_position_id = TFR_SPA_hydroelectric_development
+	x = 1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1609,9 +1643,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_german_machine_tools
 	icon = GFX_goal_generic_construct_civilian
-	x = 20
-	y = 7
-	cost = 5
+	relative_position_id = TFR_SPA_industrial_credit_programme
+	x = 0
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1628,19 +1663,19 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E10
 			effect_tooltip = {
 				792 = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = { type = industrial_complex level = 3 instant_build = yes }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
 				}
 			}
 
 
 			hidden_effect = {
-				set_temp_variable = { TFR_SPA_grant = 3 }
+				set_temp_variable = { TFR_SPA_grant = 2 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_building_civ > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_building_civ value = 3 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_building_civ = 3 }
+						limit = { check_variable = { var = TFR_SPA_credit_building_civ value = 2 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_building_civ = 2 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1660,9 +1695,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_labour_productivity
 	icon = GFX_goal_generic_production
-	x = 22
-	y = 8
-	cost = 5
+	relative_position_id = TFR_SPA_regional_armament_workshops
+	x = 0
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1675,20 +1711,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E11
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_factory = 0.1
+				TFR_SPA_base_economy_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_factory > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -1708,9 +1744,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_industrial_coordination
 	icon = GFX_focus_generic_mass_production
-	x = 23
-	y = 9
-	cost = 5
+	relative_position_id = TFR_SPA_german_machine_tools
+	x = 3
+	y = 2
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1759,8 +1796,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_civilian_development_priority
 	icon = GFX_focus_AUS_courting_the_princess_of_industry
-	x = 26
-	y = 10
+	relative_position_id = TFR_SPA_industrial_coordination
+	x = 3
+	y = 1
 	cost = 2
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -1810,9 +1848,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_public_works_programme
 	icon = GFX_goal_generic_construction
-	x = 23
-	y = 11
-	cost = 5
+	relative_position_id = TFR_SPA_civilian_development_priority
+	x = -3
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1861,7 +1900,7 @@ shared_focus = {
 	relative_position_id = TFR_SPA_public_works_programme
 	x = -2
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -1874,19 +1913,19 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E15
 			effect_tooltip = {
 				41 = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = { type = industrial_complex level = 3 instant_build = yes }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
 				}
 			}
 
 
 			hidden_effect = {
-				set_temp_variable = { TFR_SPA_grant = 3 }
+				set_temp_variable = { TFR_SPA_grant = 2 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_building_civ > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_building_civ value = 3 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_building_civ = 3 }
+						limit = { check_variable = { var = TFR_SPA_credit_building_civ value = 2 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_building_civ = 2 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2020,7 +2059,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E18
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_local_resources_factor = 0.1
+				TFR_SPA_base_economy_local_resources_factor = 0.15
 				tooltip = local_resources_factor_tt
 			}
 
@@ -2050,13 +2089,13 @@ shared_focus = {
 			every_owned_state = { clr_state_flag = TFR_SPA_placement }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_local_resources_factor = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_economy_local_resources_factor = 0.15 }
+				set_temp_variable = { TFR_SPA_grant = 0.15 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_local_resources_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_local_resources_factor value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_local_resources_factor = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_local_resources_factor value = 0.15 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_local_resources_factor = 0.15 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2079,7 +2118,7 @@ shared_focus = {
 	relative_position_id = TFR_SPA_public_works_programme
 	x = -1
 	y = 2
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -2092,20 +2131,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E19
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_factory = 0.05
+				TFR_SPA_base_economy_industrial_capacity_factory = 0.025
 				tooltip = industrial_capacity_factory_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_factory > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2190,7 +2229,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E21
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.075
+				TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.025
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 
@@ -2198,13 +2237,13 @@ shared_focus = {
 
 			unlock_decision_tooltip = { decision = TFR_SPA_standardise_subcontractors show_effect_tooltip = yes }
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.075 }
-				set_temp_variable = { TFR_SPA_grant = 0.075 }
+				subtract_from_variable = { TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_production_factory_efficiency_gain_factor value = 0.075 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor = 0.075 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_production_factory_efficiency_gain_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2407,20 +2446,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E25
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_research_speed_factor = 0.025
+				TFR_SPA_base_economy_research_speed_factor = 0.05
 				tooltip = research_speed_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_research_speed_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_research_speed_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_research_speed_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_research_speed_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_research_speed_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_research_speed_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_research_speed_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2460,20 +2499,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E26
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_factory = 0.025
+				TFR_SPA_base_economy_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_factory > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2539,20 +2578,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E28
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.025
+				TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.075
 				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_production_factory_efficiency_gain_factor = 0.075 }
+				set_temp_variable = { TFR_SPA_grant = 0.075 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_production_factory_efficiency_gain_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_production_factory_efficiency_gain_factor value = 0.075 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_production_factory_efficiency_gain_factor = 0.075 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2659,19 +2698,19 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E30
 			effect_tooltip = {
 				169 = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = { type = arms_factory level = 3 instant_build = yes }
 				}
 			}
 
 
 			hidden_effect = {
-				set_temp_variable = { TFR_SPA_grant = 2 }
+				set_temp_variable = { TFR_SPA_grant = 3 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_building_mil > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_building_mil value = 2 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_building_mil = 2 }
+						limit = { check_variable = { var = TFR_SPA_credit_building_mil value = 3 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_building_mil = 3 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2708,7 +2747,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E31
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_production_speed_buildings_factor = 0.025
+				TFR_SPA_base_economy_production_speed_buildings_factor = 0.05
 				tooltip = production_speed_buildings_factor_tt
 			}
 
@@ -2722,13 +2761,13 @@ shared_focus = {
 
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2781,20 +2820,27 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_E32
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_factory = 0.025
+				TFR_SPA_base_economy_industrial_capacity_factory = 0.075
 				tooltip = industrial_capacity_factory_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
+			effect_tooltip = {
+				41 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+				}
+			}
+
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_factory = 0.075 }
+				set_temp_variable = { TFR_SPA_grant = 0.075 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_factory > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_factory value = 0.075 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_factory = 0.075 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2803,6 +2849,21 @@ shared_focus = {
 					}
 				}
 				add_to_variable = { TFR_SPA_base_economy_industrial_capacity_factory = TFR_SPA_grant }
+
+				set_temp_variable = { TFR_SPA_grant = 2 }
+				if = {
+					limit = { check_variable = { TFR_SPA_credit_building_civ > 0 } }
+					if = {
+						limit = { check_variable = { var = TFR_SPA_credit_building_civ value = 2 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_building_civ = 2 }
+						set_temp_variable = { TFR_SPA_grant = 0 }
+					}
+					else = {
+						subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_building_civ }
+						set_variable = { TFR_SPA_credit_building_civ = 0 }
+					}
+				}
+				add_to_variable = { TFR_SPA_pending_41_civ = TFR_SPA_grant }
 
 				TFR_SPA_flush_building_rewards = yes
 				TFR_SPA_refresh_modifiers = yes
@@ -2814,9 +2875,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_establish_a_unified_command
 	icon = GFX_focus_NORDIC_mon_selector_army
-	x = 40
-	y = 4
-	cost = 4
+	relative_position_id = TFR_SPA_demobilisation_and_reemployment
+	x = 7
+	y = 1
+	cost = 3
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -2829,20 +2891,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M01
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_planning_speed = 0.05
+				TFR_SPA_base_army_planning_speed = 0.025
 				tooltip = planning_speed_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_planning_speed = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_planning_speed = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_planning_speed > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_planning_speed value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_planning_speed = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_planning_speed value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_planning_speed = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2862,9 +2924,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_officer_training_programme
 	icon = GFX_focus_generic_military_academy
-	x = 38
-	y = 5
-	cost = 4
+	relative_position_id = TFR_SPA_establish_a_unified_command
+	x = -2
+	y = 1
+	cost = 3
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -2877,20 +2940,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M02
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_morale_factor = 0.05
+				TFR_SPA_base_army_army_morale_factor = 0.025
 				tooltip = army_morale_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_morale_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_morale_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_morale_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_morale_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_morale_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_morale_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_morale_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2910,8 +2973,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_infantry_equipment_modernisation
 	icon = GFX_goal_generic_small_arms
-	x = 42
-	y = 5
+	relative_position_id = TFR_SPA_establish_a_unified_command
+	x = 2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -2937,9 +3001,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_artillery_modernisation
 	icon = GFX_goal_generic_army_artillery2
-	x = 42
-	y = 6
-	cost = 5
+	relative_position_id = TFR_SPA_infantry_equipment_modernisation
+	x = 0
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -2952,7 +3017,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M04
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_artillery_defence_factor = 0.05
+				TFR_SPA_base_army_army_artillery_defence_factor = 0.025
 				tooltip = army_artillery_defence_factor_tt
 			}
 
@@ -2960,13 +3025,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_artillery_modernisation bonus = 0.5 uses = 1 category = artillery }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_artillery_defence_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_artillery_defence_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_artillery_defence_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_defence_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_defence_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_defence_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_defence_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -2986,8 +3051,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_army_supply_service
 	icon = GFX_focus_CHI_combined_logistics_command
-	x = 36
-	y = 6
+	relative_position_id = TFR_SPA_officer_training_programme
+	x = -2
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3034,8 +3100,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_army_motor_transport
 	icon = GFX_goal_generic_army_motorized
-	x = 36
-	y = 7
+	relative_position_id = TFR_SPA_army_supply_service
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3083,8 +3150,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_field_communications
 	icon = GFX_focus_generic_radio_communication
-	x = 39
-	y = 6
+	relative_position_id = TFR_SPA_officer_training_programme
+	x = 1
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3131,8 +3199,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_mobile_maintenance_workshops
 	icon = GFX_focus_generic_truck
-	x = 36
-	y = 8
+	relative_position_id = TFR_SPA_army_motor_transport
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3179,8 +3248,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_mountain_warfare_schools
 	icon = GFX_focus_SMB_a_land_of_mountains
-	x = 44
-	y = 6
+	relative_position_id = TFR_SPA_infantry_equipment_modernisation
+	x = 2
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3194,7 +3264,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M09
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_special_forces_cap = 0.1
+				TFR_SPA_base_army_special_forces_cap = 0.05
 				tooltip = special_forces_cap_tt
 			}
 
@@ -3202,13 +3272,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_mountain_warfare_schools bonus = 0.5 uses = 1 category = mountaineers_tech }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_special_forces_cap = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_army_special_forces_cap = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_special_forces_cap > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_cap value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_special_forces_cap = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_cap value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_special_forces_cap = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3228,8 +3298,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_amphibious_warfare_school
 	icon = GFX_focus_generic_naval_invasion
-	x = 44
-	y = 7
+	relative_position_id = TFR_SPA_mountain_warfare_schools
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3277,9 +3348,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_general_staff_exercises
 	icon = GFX_goal_generic_army_doctrines
-	x = 40
-	y = 7
-	cost = 5
+	relative_position_id = TFR_SPA_artillery_modernisation
+	x = -2
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3326,9 +3398,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_modern_army_standards
 	icon = GFX_goal_generic_special_forces
-	x = 38
-	y = 9
-	cost = 5
+	relative_position_id = TFR_SPA_mobile_maintenance_workshops
+	x = 2
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3342,20 +3415,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M12
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_org_factor = 0.05
+				TFR_SPA_base_army_army_org_factor = 0.025
 				tooltip = army_org_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_org_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_org_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_org_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_org_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_org_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_org_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_org_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3375,8 +3448,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_military_development_priority
 	icon = GFX_goal_generic_major_war
-	x = 32
-	y = 10
+	relative_position_id = TFR_SPA_industrial_coordination
+	x = 9
+	y = 1
 	cost = 2
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3392,20 +3466,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M13
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_planning_speed = 0.05
+				TFR_SPA_base_army_planning_speed = 0.025
 				tooltip = planning_speed_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_planning_speed = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_planning_speed = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_planning_speed > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_planning_speed value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_planning_speed = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_planning_speed value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_planning_speed = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3426,9 +3500,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_the_staff_academy
 	icon = GFX_focus_chi_whampoa_military_academy
-	x = 36
-	y = 11
-	cost = 5
+	relative_position_id = TFR_SPA_military_development_priority
+	x = 7
+	y = 1
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3476,7 +3551,7 @@ shared_focus = {
 	id = TFR_SPA_professional_nco_corps
 	icon = GFX_focus_FIN_strengthen_military_administration
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = -4
+	x = -9
 	y = 1
 	cost = 4
 	available_if_capitulated = no
@@ -3525,9 +3600,9 @@ shared_focus = {
 	id = TFR_SPA_infantry_fire_coordination
 	icon = GFX_focus_generic_anti_tank_guns
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 0
+	x = 3
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3541,20 +3616,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M16
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_infantry_attack_factor = 0.05
+				TFR_SPA_base_army_army_infantry_attack_factor = 0.025
 				tooltip = army_infantry_attack_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_infantry_attack_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_infantry_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_infantry_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_infantry_attack_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_infantry_attack_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_infantry_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_infantry_attack_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3575,9 +3650,9 @@ shared_focus = {
 	id = TFR_SPA_artillery_liaison_officers
 	icon = GFX_goal_generic_army_artillery
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 8
+	x = 7
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3591,20 +3666,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M17
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_artillery_attack_factor = 0.05
+				TFR_SPA_base_army_army_artillery_attack_factor = 0.025
 				tooltip = army_artillery_attack_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_artillery_attack_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_artillery_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_artillery_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_attack_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_attack_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_attack_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3625,7 +3700,7 @@ shared_focus = {
 	id = TFR_SPA_assault_engineering
 	icon = GFX_focus_SMB_mountain_guns
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 12
+	x = 11
 	y = 1
 	cost = 4
 	available_if_capitulated = no
@@ -3641,7 +3716,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M18
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_special_forces_attack_factor = 0.05
+				TFR_SPA_base_army_special_forces_attack_factor = 0.025
 				tooltip = special_forces_attack_factor_tt
 			}
 
@@ -3649,13 +3724,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_assault_engineering bonus = 0.5 uses = 1 category = support_tech }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_special_forces_attack_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_special_forces_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_special_forces_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_attack_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_special_forces_attack_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_special_forces_attack_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3676,9 +3751,9 @@ shared_focus = {
 	id = TFR_SPA_armoured_formations
 	icon = GFX_focus_generic_tank_production
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 4
+	x = -3
 	y = 1
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -3692,7 +3767,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M19
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_armor_attack_factor = 0.05
+				TFR_SPA_base_army_army_armor_attack_factor = 0.025
 				tooltip = army_armor_attack_factor_tt
 			}
 
@@ -3700,13 +3775,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_armoured_formations bonus = 0.5 uses = 1 category = armor }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_armor_attack_factor = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_army_armor_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_armor_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_armor_attack_factor value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_armor_attack_factor = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_armor_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_armor_attack_factor = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -3727,8 +3802,8 @@ shared_focus = {
 	id = TFR_SPA_mobile_repair_columns
 	icon = GFX_focus_generic_tank_assembly
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
-	y = 2
+	x = -4
+	y = 3
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3797,7 +3872,7 @@ shared_focus = {
 	id = TFR_SPA_motorised_combat_groups
 	icon = GFX_focus_generic_combined_arms
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 5
+	x = -2
 	y = 2
 	cost = 5
 	available_if_capitulated = no
@@ -3867,7 +3942,7 @@ shared_focus = {
 	id = TFR_SPA_deep_supply_depots
 	icon = GFX_goal_generic_position_armies
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = -6
+	x = -11
 	y = 2
 	cost = 5
 	available_if_capitulated = no
@@ -3916,7 +3991,7 @@ shared_focus = {
 	id = TFR_SPA_integrated_signal_companies
 	icon = GFX_goal_generic_radar
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = -4
+	x = -9
 	y = 2
 	cost = 4
 	available_if_capitulated = no
@@ -3965,8 +4040,8 @@ shared_focus = {
 	id = TFR_SPA_operational_planning
 	icon = GFX_goal_generic_military_sphere
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 0
-	y = 2
+	x = 3
+	y = 5
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -3980,6 +4055,11 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M24
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
+				TFR_SPA_base_army_army_infantry_attack_factor = 0.025
+				tooltip = army_infantry_attack_factor_tt
+			}
+
+			add_to_variable = {
 				TFR_SPA_base_army_max_planning_factor = 0.05
 				tooltip = max_planning_factor_tt
 			}
@@ -3987,6 +4067,22 @@ shared_focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
+				subtract_from_variable = { TFR_SPA_base_army_army_infantry_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				if = {
+					limit = { check_variable = { TFR_SPA_credit_army_army_infantry_attack_factor > 0 } }
+					if = {
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_infantry_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_infantry_attack_factor = 0.025 }
+						set_temp_variable = { TFR_SPA_grant = 0 }
+					}
+					else = {
+						subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_army_army_infantry_attack_factor }
+						set_variable = { TFR_SPA_credit_army_army_infantry_attack_factor = 0 }
+					}
+				}
+				add_to_variable = { TFR_SPA_base_army_army_infantry_attack_factor = TFR_SPA_grant }
+
 				subtract_from_variable = { TFR_SPA_base_army_max_planning_factor = 0.05 }
 				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
@@ -4014,7 +4110,7 @@ shared_focus = {
 	id = TFR_SPA_special_forces_command
 	icon = GFX_focus_generic_naval_discipline
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 12
+	x = 11
 	y = 2
 	cost = 5
 	available_if_capitulated = no
@@ -4029,8 +4125,13 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M25
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_special_forces_cap = 0.05
+				TFR_SPA_base_army_special_forces_cap = 0.1
 				tooltip = special_forces_cap_tt
+			}
+
+			add_to_variable = {
+				TFR_SPA_base_army_special_forces_attack_factor = 0.025
+				tooltip = special_forces_attack_factor_tt
 			}
 
 			add_to_variable = {
@@ -4041,13 +4142,13 @@ shared_focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_special_forces_cap = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_special_forces_cap = 0.1 }
+				set_temp_variable = { TFR_SPA_grant = 0.1 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_special_forces_cap > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_cap value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_special_forces_cap = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_cap value = 0.1 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_special_forces_cap = 0.1 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4056,6 +4157,22 @@ shared_focus = {
 					}
 				}
 				add_to_variable = { TFR_SPA_base_army_special_forces_cap = TFR_SPA_grant }
+
+				subtract_from_variable = { TFR_SPA_base_army_special_forces_attack_factor = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				if = {
+					limit = { check_variable = { TFR_SPA_credit_army_special_forces_attack_factor > 0 } }
+					if = {
+						limit = { check_variable = { var = TFR_SPA_credit_army_special_forces_attack_factor value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_special_forces_attack_factor = 0.025 }
+						set_temp_variable = { TFR_SPA_grant = 0 }
+					}
+					else = {
+						subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_army_special_forces_attack_factor }
+						set_variable = { TFR_SPA_credit_army_special_forces_attack_factor = 0 }
+					}
+				}
+				add_to_variable = { TFR_SPA_base_army_special_forces_attack_factor = TFR_SPA_grant }
 
 				subtract_from_variable = { TFR_SPA_base_army_special_forces_defence_factor = 0.025 }
 				set_temp_variable = { TFR_SPA_grant = 0.025 }
@@ -4084,9 +4201,9 @@ shared_focus = {
 	id = TFR_SPA_rapid_force_concentration
 	icon = GFX_goal_generic_occupy_states_ongoing_war
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 5
+	x = -2
 	y = 3
-	cost = 5
+	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -4099,20 +4216,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M26
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_org_loss_when_moving = -0.1
+				TFR_SPA_base_army_org_loss_when_moving = -0.05
 				tooltip = org_loss_when_moving_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_org_loss_when_moving = -0.1 }
-				set_temp_variable = { TFR_SPA_grant = -0.1 }
+				subtract_from_variable = { TFR_SPA_base_army_org_loss_when_moving = -0.05 }
+				set_temp_variable = { TFR_SPA_grant = -0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_org_loss_when_moving < 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_org_loss_when_moving value = -0.1 compare = less_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_org_loss_when_moving = -0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_org_loss_when_moving value = -0.05 compare = less_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_org_loss_when_moving = -0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4133,7 +4250,7 @@ shared_focus = {
 	id = TFR_SPA_modern_fire_support
 	icon = GFX_focus_SWE_let_fly_all_guns
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 8
+	x = 7
 	y = 2
 	cost = 5
 	available_if_capitulated = no
@@ -4148,25 +4265,25 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M27
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_artillery_attack_factor = 0.025
+				TFR_SPA_base_army_army_artillery_attack_factor = 0.05
 				tooltip = army_artillery_attack_factor_tt
 			}
 
 			add_to_variable = {
-				TFR_SPA_base_army_army_artillery_defence_factor = 0.025
+				TFR_SPA_base_army_army_artillery_defence_factor = 0.05
 				tooltip = army_artillery_defence_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_artillery_attack_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_artillery_attack_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_artillery_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_attack_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_attack_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_attack_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_attack_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4176,13 +4293,13 @@ shared_focus = {
 				}
 				add_to_variable = { TFR_SPA_base_army_army_artillery_attack_factor = TFR_SPA_grant }
 
-				subtract_from_variable = { TFR_SPA_base_army_army_artillery_defence_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_artillery_defence_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_artillery_defence_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_defence_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_defence_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_artillery_defence_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_artillery_defence_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4203,15 +4320,17 @@ shared_focus = {
 	id = TFR_SPA_unified_operational_doctrine
 	icon = GFX_focus_generic_military_mission
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
+	x = 0
 	y = 6
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
-	prerequisite = { focus = TFR_SPA_integrated_signal_companies }
+	available = {
+		has_completed_focus = TFR_SPA_integrated_signal_companies
+		OR = { has_completed_focus = TFR_SPA_modern_fire_support has_completed_focus = TFR_SPA_special_forces_command }
+	}
 	prerequisite = { focus = TFR_SPA_operational_planning focus = TFR_SPA_a_war_of_manoeuvre }
-	prerequisite = { focus = TFR_SPA_modern_fire_support focus = TFR_SPA_special_forces_command }
 	ai_will_do = { factor = 1 }
 	completion_reward = {
 		if = {
@@ -4220,7 +4339,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M28
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_morale_factor = 0.025
+				TFR_SPA_base_army_army_morale_factor = 0.05
 				tooltip = army_morale_factor_tt
 			}
 
@@ -4232,13 +4351,13 @@ shared_focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_morale_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_morale_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_morale_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_morale_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_morale_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_morale_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_morale_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4275,7 +4394,7 @@ shared_focus = {
 	id = TFR_SPA_armoured_breakthrough
 	icon = GFX_goal_continuous_armor_production
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
+	x = -3
 	y = 4
 	cost = 5
 	available_if_capitulated = no
@@ -4294,7 +4413,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M29
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_armor_attack_factor = 0.025
+				TFR_SPA_base_army_army_armor_attack_factor = 0.05
 				tooltip = army_armor_attack_factor_tt
 			}
 
@@ -4306,13 +4425,13 @@ shared_focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_armor_attack_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_armor_attack_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_armor_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_armor_attack_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_armor_attack_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_armor_attack_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_armor_attack_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4349,7 +4468,7 @@ shared_focus = {
 	id = TFR_SPA_expanded_officer_corps
 	icon = GFX_goal_generic_allies_build_infantry
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
+	x = 0
 	y = 7
 	cost = 5
 	available_if_capitulated = no
@@ -4364,20 +4483,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M30
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_org_factor = 0.025
+				TFR_SPA_base_army_army_org_factor = 0.05
 				tooltip = army_org_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_org_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_org_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_org_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_org_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_org_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_org_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_org_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4398,7 +4517,7 @@ shared_focus = {
 	id = TFR_SPA_a_war_of_manoeuvre
 	icon = GFX_goal_generic_army_tanks
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
+	x = -3
 	y = 5
 	cost = 5
 	available_if_capitulated = no
@@ -4418,7 +4537,7 @@ shared_focus = {
 			}
 
 			add_to_variable = {
-				TFR_SPA_base_army_org_loss_when_moving = -0.05
+				TFR_SPA_base_army_org_loss_when_moving = -0.1
 				tooltip = org_loss_when_moving_tt
 			}
 
@@ -4441,13 +4560,13 @@ shared_focus = {
 				}
 				add_to_variable = { TFR_SPA_base_army_breakthrough_factor = TFR_SPA_grant }
 
-				subtract_from_variable = { TFR_SPA_base_army_org_loss_when_moving = -0.05 }
-				set_temp_variable = { TFR_SPA_grant = -0.05 }
+				subtract_from_variable = { TFR_SPA_base_army_org_loss_when_moving = -0.1 }
+				set_temp_variable = { TFR_SPA_grant = -0.1 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_org_loss_when_moving < 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_org_loss_when_moving value = -0.05 compare = less_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_org_loss_when_moving = -0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_org_loss_when_moving value = -0.1 compare = less_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_org_loss_when_moving = -0.1 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4468,7 +4587,7 @@ shared_focus = {
 	id = TFR_SPA_a_professional_spanish_army
 	icon = GFX_goal_generic_demand_territory
 	relative_position_id = TFR_SPA_the_staff_academy
-	x = 3
+	x = 0
 	y = 8
 	cost = 6
 	available_if_capitulated = no
@@ -4486,25 +4605,25 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_M32
 			custom_effect_tooltip = TFR_SPA_army_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_army_army_attack_factor = 0.025
+				TFR_SPA_base_army_army_attack_factor = 0.05
 				tooltip = army_attack_factor_tt
 			}
 
 			add_to_variable = {
-				TFR_SPA_base_army_army_defence_factor = 0.025
+				TFR_SPA_base_army_army_defence_factor = 0.05
 				tooltip = army_defence_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_army_army_attack_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_attack_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_attack_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_attack_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_attack_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_attack_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_attack_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4514,13 +4633,13 @@ shared_focus = {
 				}
 				add_to_variable = { TFR_SPA_base_army_army_attack_factor = TFR_SPA_grant }
 
-				subtract_from_variable = { TFR_SPA_base_army_army_defence_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_army_army_defence_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_army_army_defence_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_army_army_defence_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_army_army_defence_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_army_army_defence_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_army_army_defence_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4540,8 +4659,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_establish_the_air_command
 	icon = GFX_focus_generic_air_bases
-	x = 48
-	y = 5
+	relative_position_id = TFR_SPA_establish_a_unified_command
+	x = 8
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4588,8 +4708,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_reopen_aeronautical_works
 	icon = GFX_focus_generic_aircraft_production
-	x = 47
-	y = 6
+	relative_position_id = TFR_SPA_establish_the_air_command
+	x = -1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4635,8 +4756,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_national_aircraft_design_bureaus
 	icon = GFX_focus_usa_escort_fighters
-	x = 49
-	y = 6
+	relative_position_id = TFR_SPA_establish_the_air_command
+	x = 1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4705,8 +4827,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_pilot_training_schools
 	icon = GFX_focus_generic_military_academy
-	x = 47
-	y = 7
+	relative_position_id = TFR_SPA_reopen_aeronautical_works
+	x = 0
+	y = 1
 	cost = 3
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4753,8 +4876,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_forward_airfield_network
 	icon = GFX_goal_generic_air_production
-	x = 49
-	y = 7
+	relative_position_id = TFR_SPA_national_aircraft_design_bureaus
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4814,8 +4938,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_establish_the_naval_staff
 	icon = GFX_goal_generic_navy_doctrines_tactics
-	x = 56
-	y = 5
+	relative_position_id = TFR_SPA_establish_a_unified_command
+	x = 16
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4862,8 +4987,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_reopen_the_ferrol_shipyards
 	icon = GFX_goal_generic_construct_naval_dockyard
-	x = 56
-	y = 6
+	relative_position_id = TFR_SPA_establish_the_naval_staff
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4909,9 +5035,10 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_shipyard_coordination
 	icon = GFX_goal_continuous_naval_production
-	x = 54
-	y = 7
-	cost = 4
+	relative_position_id = TFR_SPA_reopen_the_ferrol_shipyards
+	x = -2
+	y = 1
+	cost = 3
 	available_if_capitulated = no
 	cancel_if_invalid = yes
 	allow_branch = { always = yes }
@@ -4924,20 +5051,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N03
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.05
+				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025
 				tooltip = industrial_capacity_dockyard_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025 }
+				set_temp_variable = { TFR_SPA_grant = 0.025 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.025 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.025 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -4957,8 +5084,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_naval_bases_programme
 	icon = GFX_focus_SOV_reinforce_western_naval_bases
-	x = 59
-	y = 7
+	relative_position_id = TFR_SPA_reopen_the_ferrol_shipyards
+	x = 3
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -4982,8 +5110,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_rebuild_the_merchant_marine
 	icon = GFX_goal_generic_navy_cruiser
-	x = 52
-	y = 8
+	relative_position_id = TFR_SPA_shipyard_coordination
+	x = -2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5007,8 +5136,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_convoy_escort_procedures
 	icon = GFX_focus_ger_accept_british_naval_dominance
-	x = 52
-	y = 9
+	relative_position_id = TFR_SPA_rebuild_the_merchant_marine
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5022,20 +5152,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N06
 			custom_effect_tooltip = TFR_SPA_navy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_navy_convoy_escort_efficiency = 0.1
+				TFR_SPA_base_navy_convoy_escort_efficiency = 0.05
 				tooltip = convoy_escort_efficiency_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_navy_convoy_escort_efficiency = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_navy_convoy_escort_efficiency = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_navy_convoy_escort_efficiency value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_navy_convoy_escort_efficiency value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -5055,8 +5185,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_anti_submarine_patrols
 	icon = GFX_focus_PHI_philippine_naval_patrol
-	x = 52
-	y = 10
+	relative_position_id = TFR_SPA_convoy_escort_procedures
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5103,8 +5234,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_coastal_air_coordination
 	icon = GFX_goal_generic_air_naval_bomber
-	x = 61
-	y = 8
+	relative_position_id = TFR_SPA_naval_bases_programme
+	x = 2
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5151,8 +5283,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_the_destroyer_programme
 	icon = GFX_focus_generic_destroyer
-	x = 55
-	y = 8
+	relative_position_id = TFR_SPA_shipyard_coordination
+	x = 1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5200,8 +5333,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_the_cruiser_programme
 	icon = GFX_focus_generic_cruiser2
-	x = 55
-	y = 9
+	relative_position_id = TFR_SPA_the_destroyer_programme
+	x = 0
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5249,8 +5383,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_fleet_repair_service
 	icon = GFX_focus_generic_navy_research_bonus
-	x = 59
-	y = 8
+	relative_position_id = TFR_SPA_naval_bases_programme
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5264,20 +5399,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N11
 			custom_effect_tooltip = TFR_SPA_navy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_navy_repair_speed_factor = 0.1
+				TFR_SPA_base_navy_repair_speed_factor = 0.05
 				tooltip = repair_speed_factor_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_navy_repair_speed_factor = 0.1 }
-				set_temp_variable = { TFR_SPA_grant = 0.1 }
+				subtract_from_variable = { TFR_SPA_base_navy_repair_speed_factor = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_navy_repair_speed_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_navy_repair_speed_factor value = 0.1 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_navy_repair_speed_factor = 0.1 }
+						limit = { check_variable = { var = TFR_SPA_credit_navy_repair_speed_factor value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_navy_repair_speed_factor = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -5297,8 +5432,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_expand_the_naval_arsenals
 	icon = GFX_focus_JAP_naval_armaments_program
-	x = 55
-	y = 11
+	relative_position_id = TFR_SPA_the_cruiser_programme
+	x = 0
+	y = 2
 	cost = 6
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5368,8 +5504,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_submarine_design_bureau
 	icon = GFX_goal_generic_navy_submarine
-	x = 57
-	y = 8
+	relative_position_id = TFR_SPA_shipyard_coordination
+	x = 3
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5417,8 +5554,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_silent_patrol_tactics
 	icon = GFX_focus_generic_torpedo_production
-	x = 57
-	y = 9
+	relative_position_id = TFR_SPA_submarine_design_bureau
+	x = 0
+	y = 1
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5465,8 +5603,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_atlantic_operations
 	icon = GFX_focus_DEN_naval_power_projection
-	x = 58
-	y = 10
+	relative_position_id = TFR_SPA_silent_patrol_tactics
+	x = 1
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5513,8 +5652,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_escort_fleet_doctrine
 	icon = GFX_focus_JAP_balanced_naval_approach
-	x = 53
-	y = 12
+	relative_position_id = TFR_SPA_expand_the_naval_arsenals
+	x = -2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5529,7 +5669,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N16
 			custom_effect_tooltip = TFR_SPA_navy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_navy_convoy_escort_efficiency = 0.05
+				TFR_SPA_base_navy_convoy_escort_efficiency = 0.1
 				tooltip = convoy_escort_efficiency_tt
 			}
 
@@ -5537,13 +5677,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_escort_fleet_doctrine bonus = 0.5 uses = 1 category = dd_tech }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_navy_convoy_escort_efficiency = 0.05 }
-				set_temp_variable = { TFR_SPA_grant = 0.05 }
+				subtract_from_variable = { TFR_SPA_base_navy_convoy_escort_efficiency = 0.1 }
+				set_temp_variable = { TFR_SPA_grant = 0.1 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_navy_convoy_escort_efficiency value = 0.05 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency = 0.05 }
+						limit = { check_variable = { var = TFR_SPA_credit_navy_convoy_escort_efficiency value = 0.1 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_navy_convoy_escort_efficiency = 0.1 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -5563,8 +5703,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_surface_fleet_doctrine
 	icon = GFX_goal_generic_navy_battleship
-	x = 57
-	y = 12
+	relative_position_id = TFR_SPA_expand_the_naval_arsenals
+	x = 2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5579,7 +5720,7 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N17
 			custom_effect_tooltip = TFR_SPA_navy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_navy_naval_hit_chance = 0.025
+				TFR_SPA_base_navy_naval_hit_chance = 0.05
 				tooltip = naval_hit_chance_tt
 			}
 
@@ -5587,13 +5728,13 @@ shared_focus = {
 			add_tech_bonus = { name = TFR_SPA_surface_fleet_doctrine bonus = 0.5 uses = 1 category = bb_tech }
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_navy_naval_hit_chance = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_navy_naval_hit_chance = 0.05 }
+				set_temp_variable = { TFR_SPA_grant = 0.05 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_navy_naval_hit_chance > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_navy_naval_hit_chance value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_navy_naval_hit_chance = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_navy_naval_hit_chance value = 0.05 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_navy_naval_hit_chance = 0.05 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -5613,8 +5754,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_integrated_naval_logistics
 	icon = GFX_focus_CHI_northern_naval_logistics
-	x = 59
-	y = 12
+	relative_position_id = TFR_SPA_atlantic_operations
+	x = 1
+	y = 2
 	cost = 4
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5633,7 +5775,7 @@ shared_focus = {
 			}
 
 			add_to_variable = {
-				TFR_SPA_base_navy_repair_speed_factor = 0.025
+				TFR_SPA_base_navy_repair_speed_factor = 0.075
 				tooltip = repair_speed_factor_tt
 			}
 
@@ -5656,13 +5798,13 @@ shared_focus = {
 				}
 				add_to_variable = { TFR_SPA_base_navy_navy_fuel_consumption_factor = TFR_SPA_grant }
 
-				subtract_from_variable = { TFR_SPA_base_navy_repair_speed_factor = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_navy_repair_speed_factor = 0.075 }
+				set_temp_variable = { TFR_SPA_grant = 0.075 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_navy_repair_speed_factor > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_navy_repair_speed_factor value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_navy_repair_speed_factor = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_navy_repair_speed_factor value = 0.075 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_navy_repair_speed_factor = 0.075 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {
@@ -5682,8 +5824,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_fleet_cooperation
 	icon = GFX_focus_GER_japanese_naval_cooperation
-	x = 55
-	y = 13
+	relative_position_id = TFR_SPA_escort_fleet_doctrine
+	x = 2
+	y = 1
 	cost = 5
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5730,8 +5873,9 @@ shared_focus = {
 shared_focus = {
 	id = TFR_SPA_an_iberian_naval_power
 	icon = GFX_focus_SMB_reescalate_the_naval_arms_race
-	x = 57
-	y = 14
+	relative_position_id = TFR_SPA_integrated_naval_logistics
+	x = -2
+	y = 2
 	cost = 6
 	available_if_capitulated = no
 	cancel_if_invalid = yes
@@ -5749,20 +5893,20 @@ shared_focus = {
 			set_country_flag = TFR_SPA_reward_N20
 			custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 			add_to_variable = {
-				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025
+				TFR_SPA_base_economy_industrial_capacity_dockyard = 0.075
 				tooltip = industrial_capacity_dockyard_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
 			hidden_effect = {
-				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.025 }
-				set_temp_variable = { TFR_SPA_grant = 0.025 }
+				subtract_from_variable = { TFR_SPA_base_economy_industrial_capacity_dockyard = 0.075 }
+				set_temp_variable = { TFR_SPA_grant = 0.075 }
 				if = {
 					limit = { check_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard > 0 } }
 					if = {
-						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.025 compare = greater_than_or_equals } }
-						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.025 }
+						limit = { check_variable = { var = TFR_SPA_credit_economy_industrial_capacity_dockyard value = 0.075 compare = greater_than_or_equals } }
+						subtract_from_variable = { TFR_SPA_credit_economy_industrial_capacity_dockyard = 0.075 }
 						set_temp_variable = { TFR_SPA_grant = 0 }
 					}
 					else = {

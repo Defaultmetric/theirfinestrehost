@@ -1,4 +1,4 @@
-
+﻿
 units= {
 
 	### Marine Francaise (CO: Darlan) ###
@@ -349,17 +349,114 @@ instant_effect = {
 
 	### Ships Under Contruction Notes ###
 	# SS: Aurore variant (x1) ("Aurore")
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_submarine_2
+			creator = "FRA"
+			version_name = "Aurore Class"
+		}
+		name = "Aurore" 
+		requested_factories = 1
+		progress = 0.15
+		amount = 1
+		industrial_manufacturer = mio:FRA_acf_organization
+	}
 	# DD: Le Hardi variant (x6) ("Le Hardi" "Fleuret" "Epée" "Casque" "Lansquenet" "Mameluk")
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Le Hardi" 
+		requested_factories = 1
+		progress = 0.9
+		amount = 1
+		industrial_manufacturer = mio:FRA_acl_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Fleuret" 
+		requested_factories = 1
+		progress = 0.8
+		amount = 1
+		industrial_manufacturer = mio:FRA_fcm_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Epée" 
+		requested_factories = 1
+		progress = 0.7
+		amount = 1
+		industrial_manufacturer = mio:FRA_fcm_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Casque" 
+		requested_factories = 1
+		progress = 0.7
+		amount = 1
+		industrial_manufacturer = mio:FRA_fcm_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Lansquenet" 
+		requested_factories = 1
+		progress = 0.4
+		amount = 1
+		industrial_manufacturer = mio:FRA_fcm_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_light_2
+			creator = "FRA"
+			version_name = "Le Hardi Class"
+		}
+		name = "Mameluk" 
+		requested_factories = 1
+		progress = 0.4
+		amount = 1
+		industrial_manufacturer = mio:FRA_fcm_organization
+	}
 	 # BB: Richelieu class (x1) ("Jean Bart", "Clemenceau")
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
-	# TFR: starting naval production removed; invested IC recorded in docs/naval-starting-production.json
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_heavy_2
+			creator = "FRA"
+			version_name = "Richelieu Class"
+		}
+		requested_factories = 2
+		progress = 0.8
+		amount = 1
+		industrial_manufacturer = mio:FRA_acl_organization
+	}
+	add_equipment_production = {
+		equipment = {
+			type = ship_hull_heavy_2
+			creator = "FRA"
+			version_name = "Richelieu Class"
+		}
+		requested_factories = 2
+		progress = 0.3
+		amount = 1
+		industrial_manufacturer = mio:FRA_acl_organization
+	}
 
 #####################
 }

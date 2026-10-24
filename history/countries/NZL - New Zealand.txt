@@ -134,43 +134,6 @@ set_variable = { NZL_ministry_of_public_works_dynamic_modifier_conscription_fact
 }
 
 1939.1.1 = {
-# TFR: historical designs retained only for the 1939 scenario.
-if = {
-	limit = { has_dlc = "Man the Guns" }
-if = {
-limit = { not = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
-		name = "Leander Class"
-		type = light_cruiser_1
-		upgrades = {
-			ship_reliability_upgrade = 2
-			ship_engine_upgrade = 2
-			ship_gun_upgrade = 2
-			ship_anti_air_upgrade = 2
-		}
-	}
-}
-if = {
-limit = { has_dlc = "Man the Guns" }
-create_equipment_variant = {
-		name = "Danae Class"
-		type = ship_hull_cruiser_1
-		name_group = NZL_CL_HISTORICAL
-		parent_version = 0
-		modules = {
-			fixed_ship_battery_slot = ship_light_medium_battery_1
-			fixed_ship_anti_air_slot = ship_anti_air_1
-			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-			fixed_ship_radar_slot = empty
-			fixed_ship_engine_slot = cruiser_ship_engine_1
-			mid_1_custom_slot = ship_torpedo_1
-			mid_2_custom_slot = ship_torpedo_1
-			rear_1_custom_slot = empty
-		}
-	}
-}
-}
-
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -335,11 +298,10 @@ set_convoys = 70
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	### Ship Variants ###
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Leander Class"
 		type = light_cruiser_1
+		obsolete = yes
 		upgrades = {
 			ship_reliability_upgrade = 2
 			ship_engine_upgrade = 2
@@ -348,15 +310,13 @@ create_equipment_variant = {
 		}
 	}
 }
-}
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	# Light Cruisers #
-	if = {
-	limit = { NOT = { has_dlc = "Man the Guns" } }
-create_equipment_variant = {
+	create_equipment_variant = {
 		name = "Danae Class"
 		type = ship_hull_cruiser_1
+		obsolete = yes
 		name_group = NZL_CL_HISTORICAL
 		parent_version = 0
 		modules = {
@@ -371,7 +331,6 @@ create_equipment_variant = {
 		}
 	}
 }
-}
 
 # 1939 Start #
 1939.1.1 = {
@@ -385,6 +344,7 @@ create_equipment_variant = {
 		create_equipment_variant = {
 			name = "Leander Class"
 			type = ship_hull_cruiser_2
+		obsolete = yes
 			name_group = NZL_CL_HISTORICAL
 			modules = {
 				fixed_ship_battery_slot = ship_light_medium_battery_1

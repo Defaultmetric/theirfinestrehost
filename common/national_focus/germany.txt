@@ -239,7 +239,7 @@ focus_tree = {
 				tooltip = conversion_cost_civ_to_mil_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -505,7 +505,7 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.1
+				GER_industrial_production_factory_max_efficiency_factor = 0.07
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -1006,7 +1006,7 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -1077,7 +1077,7 @@ focus_tree = {
 				tooltip = conversion_cost_civ_to_mil_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -2564,7 +2564,7 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -2800,7 +2800,7 @@ focus_tree = {
 				tooltip = industrial_capacity_dockyard_tt
 			}
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.05
+				GER_industrial_production_factory_max_efficiency_factor = 0.035
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -14130,7 +14130,7 @@ focus_tree = {
 					}
 					remove_from_faction = GER
 				}
-				create_faction = the_berlin_moscow_axis
+				create_faction_from_template = faction_template_tfr_the_berlin_moscow_axis
 				add_timed_idea = {
 					idea = soviet_german_friendship
 					days = 730
@@ -21519,7 +21519,7 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_factory_max_efficiency_factor = 0.025
+				GER_industrial_production_factory_max_efficiency_factor = 0.0175
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = { 
@@ -21883,14 +21883,14 @@ focus_tree = {
 				custom_effect_tooltip = GER_central_european_alliance_tt
 			}
 			effect_tooltip = {
-				create_faction = GER_proletarian_international_alliance
+				create_faction_from_template = faction_template_tfr_ger_proletarian_international_alliance
 			}
 			hidden_effect = {
 				if = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = GER_proletarian_international_alliance
+					create_faction_from_template = faction_template_tfr_ger_proletarian_international_alliance
 				}
 			}
 		}
@@ -26452,7 +26452,7 @@ focus_tree = {
 				custom_effect_tooltip = GER_central_european_alliance_tt
 			}
 			effect_tooltip = {
-				create_faction = GER_mitteleuropa_alliance
+				create_faction_from_template = faction_template_tfr_ger_mitteleuropa_alliance
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -26462,7 +26462,7 @@ focus_tree = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = GER_mitteleuropa_alliance
+					create_faction_from_template = faction_template_tfr_ger_mitteleuropa_alliance
 				}
 			}
 
@@ -34743,7 +34743,7 @@ focus_tree = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = "GER_central_powers_faction"
+				create_faction_from_template = faction_template_tfr_ger_central_powers_faction
 			}
 
 			if = {
@@ -35698,7 +35698,7 @@ focus_tree = {
 				limit = {
 					NOT = { is_in_faction = yes }
 				}
-				create_faction = "GER_anti_communist_bloc"
+				create_faction_from_template = faction_template_tfr_ger_anti_communist_bloc
 			}
 			create_wargoal = {
 				type = annex_everything
@@ -35923,14 +35923,14 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = GER_central_european_alliance_tt
 			effect_tooltip = {
-				create_faction = "GER_central_european_alliance"
+				create_faction_from_template = faction_template_tfr_ger_central_european_alliance
 			}
 			hidden_effect = {
 				if = {
 					limit = {
 						is_in_faction = no
 					}
-					create_faction = "GER_central_european_alliance"
+					create_faction_from_template = faction_template_tfr_ger_central_european_alliance
 				}
 			}
 			every_country = {

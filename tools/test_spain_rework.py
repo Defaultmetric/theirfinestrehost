@@ -22,6 +22,24 @@ BY_CODE = {f['code']:FOCUSES[f['id']] for f in generator.FOCUSES}
 DECISIONS = {name:body for _,_,category in parse(ROOT/'common/decisions/TFR_spain_rework.txt') for name,_,body in category}
 EVENTS = {get(body,'id'):body for kind,_,body in parse(ROOT/'events/TFR_spain_rework.txt') if kind=='country_event'}
 PORTUGAL = (112,179,180,181,795)
+MAIN_FOCUSES = {get(v,'id'):v for k,_,v in parse(ROOT/'common/national_focus/spain.txt')[0][2] if k=='focus'}
+
+
+def absolute_position(name, focuses=None, active=None):
+    focuses = FOCUSES if focuses is None else focuses
+    active = set() if active is None else active
+    if name in active:raise AssertionError(('relative position cycle',name))
+    active.add(name)
+    body=focuses[name] if name in focuses else MAIN_FOCUSES[name]
+    p=[int(next((v for key,_,v in body if key==k),'0')) for k in ('x','y')]
+    if parent:=next((v for key,_,v in body if key=='relative_position_id'),None):
+        q=absolute_position(parent,focuses,active);p=[p[i]+q[i] for i in range(2)]
+    active.remove(name)
+    return tuple(p)
+
+
+def plan_position(f):
+    return absolute_position(f['id'])
 
 
 class World:
@@ -97,6 +115,7 @@ class World:
             if k=='has_country_leader':return obj['leader']
             if k=='has_government':return v=='fascism'
             if k in ('has_civil_war','is_subject'):return v=='no'
+            if k=='is_ai':return (obj.get('is_ai',False))==(v=='yes')
             if k=='exists':return (scope in self.countries)==(v=='yes')
             if k=='is_faction_leader':return (scope=='GER')==(v=='yes')
             if k=='is_major':return obj['major']==(v=='yes')
@@ -323,11 +342,7 @@ class SpainStructureTests(unittest.TestCase):
     def test_nodes_unique_positions_and_references(self):
         self.assertEqual(len(FOCUSES),115)
         def position(name):
-            f=FOCUSES[name];p=[int(get(f,k)) if any(key==k for key,_,v in f) else 0 for k in ('x','y')]
-            parent=next((v for key,_,v in f if key=='relative_position_id'),None)
-            if parent:
-                q=position(parent);p=[p[i]+q[i] for i in range(2)]
-            return tuple(p)
+            return absolute_position(name)
         positions=set()
         for name,f in FOCUSES.items():
             pos=position(name);self.assertNotIn(pos,positions);positions.add(pos)
@@ -337,12 +352,7 @@ class SpainStructureTests(unittest.TestCase):
         self.assertEqual(sum(key=='mutually_exclusive' for f in FOCUSES.values() for key,_,v in f),10)
 
     def test_presentation_has_five_air_focuses_and_compact_local_links(self):
-        def abs_pos(f):
-            p=[f['x'],f['y']]
-            if 'relative_position_id' in f:
-                anchor=next(a for a in generator.FOCUSES if a['id']==f['relative_position_id'])
-                q=abs_pos(anchor);p=[p[i]+q[i] for i in range(2)]
-            return tuple(p)
+        abs_pos=plan_position
         air=[f for f in generator.FOCUSES if f['code'].startswith('A')]
         self.assertEqual([f['code'] for f in air],['A01','A02','A03','A04','A05'])
         self.assertEqual(sum(len(f.get('modifiers',{})) for f in air),5)
@@ -372,12 +382,7 @@ class SpainStructureTests(unittest.TestCase):
             self.assertNotIn('%',loc,f['code'])
 
     def test_neighbouring_focuses_have_different_complete_rewards(self):
-        def abs_pos(f):
-            p=[f['x'],f['y']]
-            if 'relative_position_id' in f:
-                anchor=next(a for a in generator.FOCUSES if a['id']==f['relative_position_id'])
-                q=abs_pos(anchor);p=[p[i]+q[i] for i in range(2)]
-            return tuple(p)
+        abs_pos=plan_position
         def signature(f):
             return (f.get('modifiers',{}),f.get('conditionalModifiers',{}),f.get('buildings',{}),f.get('politics',{}),generator.RESEARCH.get(f['code'],[]),generator.SPECIAL.get(f['code'],''),f.get('researchSlotTarget'))
         for i,f in enumerate(generator.FOCUSES):
@@ -397,8 +402,8 @@ class SpainStructureTests(unittest.TestCase):
 
     def test_reconstruction_is_centered_and_reachable_from_either_role(self):
         a,b,shared=(generator.BY_CODE[c] for c in ('D01','D02','P01'))
-        self.assertEqual(shared['x'],(a['x']+b['x'])/2)
-        self.assertEqual(shared['y'],a['y']+2)
+        self.assertEqual(plan_position(shared)[0],(plan_position(a)[0]+plan_position(b)[0])/2)
+        self.assertEqual(plan_position(shared)[1],plan_position(a)[1]+2)
         self.assertEqual(shared['prerequisites'],[['D01','D02']])
         for role in ('D01','D02'):
             w=World();self.assertFalse(w.can_start('P01'));w.focus(role)
@@ -407,25 +412,25 @@ class SpainStructureTests(unittest.TestCase):
 
     def test_reconstruction_continuation_is_centered_and_branches_do_not_cross_portugal(self):
         by=generator.BY_CODE;root=by['P01'];left=by['P02'];right=by['P04']
-        self.assertEqual(left['y'],root['y']+1)
-        self.assertEqual(right['y'],left['y'])
-        self.assertEqual((left['x']+right['x'])/2,root['x'])
+        self.assertEqual(plan_position(left)[1],plan_position(root)[1]+1)
+        self.assertEqual(plan_position(right)[1],plan_position(left)[1])
+        self.assertEqual((plan_position(left)[0]+plan_position(right)[0])/2,plan_position(root)[0])
         self.assertEqual(left['prerequisites'],[['P01']])
         self.assertEqual(right['prerequisites'],[['P01']])
         self.assertEqual(by['E01']['prerequisites'],[['P02']])
-        self.assertLess(by['E01']['x'],left['x'])
+        self.assertLess(plan_position(by['E01'])[0],plan_position(left)[0])
         self.assertEqual(by['M01']['prerequisites'],[['P04']])
-        self.assertGreater(by['M01']['x'],right['x'])
+        self.assertGreater(plan_position(by['M01'])[0],plan_position(right)[0])
         for code in ('A01','N01'):self.assertEqual(by[code]['prerequisites'],[['M01']])
         # Portugal stays outside the reconstruction connectors at the same levels.
-        self.assertLessEqual(by['D06']['x'],by['D09']['x']-3)
+        self.assertLessEqual(plan_position(by['D06'])[0],plan_position(by['D09'])[0]-3)
         for code in ('D07','D08','D12','D13'):
-            self.assertGreaterEqual(by[code]['x'],by['M01']['x']+2)
+            self.assertGreaterEqual(plan_position(by[code])[0],plan_position(by['M01'])[0]+2)
         common_army=[f for f in generator.FOCUSES if f['code'].startswith('M') and int(f['code'][1:])<=12]
         air=[f for f in generator.FOCUSES if f['code'].startswith('A')]
         navy=[f for f in generator.FOCUSES if f['code'].startswith('N')]
-        self.assertEqual(min(f['x'] for f in air)-max(f['x'] for f in common_army),3)
-        self.assertEqual(min(f['x'] for f in navy)-max(f['x'] for f in air),3)
+        self.assertEqual(min(plan_position(f)[0] for f in air)-max(plan_position(f)[0] for f in common_army),3)
+        self.assertEqual(min(plan_position(f)[0] for f in navy)-max(plan_position(f)[0] for f in air),3)
         self.assertEqual(by['D14']['prerequisites'],[['D09']])
         # The Portugal agreement/integration gate still applies to partnership.
         w=World();w.focus('D01');w.focus('P01');w.focus('D09')
@@ -477,14 +482,12 @@ class SpainStructureTests(unittest.TestCase):
                 q=position(parent);p=[p[i]+q[i] for i in range(2)]
             return p
         def position_focus(name):
-            f=FOCUSES[name];p=[int(get(f,k)) if any(key==k for key,_,v in f) else 0 for k in ('x','y')]
-            parent=next((v for key,_,v in f if key=='relative_position_id'),None)
-            if parent:
-                q=position_focus(parent);p=[p[i]+q[i] for i in range(2)]
-            return p
+            return absolute_position(name)
+        hidden=set(scope.get('hidden_civil_war',[]))
         for name,focus in FOCUSES.items():
             x,y=position_focus(name)
             for legacy in scope['civil_war']:
+                if legacy in hidden:continue
                 a,b=position(legacy)
                 self.assertFalse(y==b and abs(x-a)<2,(name,legacy))
 
@@ -527,14 +530,33 @@ class SpainRuntimeTests(unittest.TestCase):
         for line in ('M16','M19'):
             for support in ('M17','M18'):
                 w=World();w.focus('M13');w.focus('M14')
-                for choice,other in ((line,'M19' if line=='M16' else 'M16'),(support,'M18' if support=='M17' else 'M17')):
-                    self.assertTrue(w.can_start(choice));self.assertTrue(w.can_start(other))
-                    w.focus(choice);self.assertFalse(w.can_start(other))
+                other='M19' if line=='M16' else 'M16'
+                self.assertTrue(w.can_start(line));self.assertTrue(w.can_start(other))
+                w.focus(line);self.assertFalse(w.can_start(other))
+                other='M18' if support=='M17' else 'M17'
+                self.assertTrue(w.can_start(support));self.assertTrue(w.can_start(other))
+                w.focus(support);self.assertFalse(w.can_start(other))
+                for c in (['M24'] if line=='M16' else ['M20','M21','M26','M29','M31']):
+                    self.assertTrue(w.can_start(c),c);w.focus(c)
+                self.assertFalse(w.can_start('M28'))
                 for c in ('M15','M23'):w.focus(c)
                 self.assertFalse(w.can_start('M28'))
-                w.focus('M24' if line=='M16' else 'M31')
+                end='M27' if support=='M17' else 'M25'
+                self.assertTrue(w.can_start(end));w.focus(end)
+                self.assertTrue(w.can_start('M28'));w.focus('M28')
+                self.assertTrue(w.can_start('M30'));w.focus('M30')
+                self.assertTrue(w.can_start('M32'))
+
+    def test_academy_availability_cannot_skip_common_training_or_support(self):
+        # Non-drawn availability conditions remain mandatory in existing saves.
+        for line_end in ('M24','M31'):
+            for support_end in ('M27','M25'):
+                w=World();w.focus(line_end)
                 self.assertFalse(w.can_start('M28'))
-                w.focus('M27' if support=='M17' else 'M25')
+                self.assertFalse(w.can_start('M30'))
+                w.focus('M15');w.focus('M23')
+                self.assertFalse(w.can_start('M28'))
+                w.focus(support_end)
                 self.assertTrue(w.can_start('M28'));w.focus('M28')
                 self.assertTrue(w.can_start('M30'));w.focus('M30')
                 self.assertTrue(w.can_start('M32'))
@@ -545,13 +567,13 @@ class SpainRuntimeTests(unittest.TestCase):
         before=dict(w.countries['SPR']['vars'])
         self.assertAlmostEqual(w.stat('army.army_infantry_attack_factor'),.05)
         self.assertAlmostEqual(w.stat('army.army_artillery_attack_factor'),.075)
-        self.assertAlmostEqual(w.stat('army.army_artillery_defence_factor'),.025)
+        self.assertAlmostEqual(w.stat('army.army_artillery_defence_factor'),.05)
         for key in ('army_armor_attack_factor','army_armor_speed_factor','motorized_attack_factor','mechanized_attack_factor','breakthrough_factor','org_loss_when_moving','army_fuel_consumption_factor','special_forces_attack_factor','special_forces_cap','special_forces_defence_factor'):
             self.assertAlmostEqual(w.stat('army.'+key),0,msg=key)
         w.run('TFR_SPA_refresh_modifiers');self.assertEqual(dict(w.countries['SPR']['vars']),before)
         # Compatible common training/recovery still works around the projection.
         w.focus('M04');w.focus('M09');w.focus('M10')
-        self.assertAlmostEqual(w.stat('army.special_forces_cap'),.1)
+        self.assertAlmostEqual(w.stat('army.special_forces_cap'),.05)
         self.assertAlmostEqual(w.stat('army.special_forces_attack_factor'),.025)
         self.assertAlmostEqual(w.stat('army.army_artillery_defence_factor'),.075)
 
@@ -579,12 +601,12 @@ class SpainRuntimeTests(unittest.TestCase):
         self.assertAlmostEqual(w.stat('economy.industrial_capacity_dockyard'),.1)
         self.assertAlmostEqual(country['vars']['TFR_SPA_credit_economy_industrial_capacity_dockyard'],.075)
         w.focus('D10');w.focus('N03')
-        self.assertAlmostEqual(w.stat('economy.industrial_capacity_dockyard'),.125)
+        self.assertAlmostEqual(w.stat('economy.industrial_capacity_dockyard'),.1)
 
     def test_revision_runs_before_a_new_focus_reward_can_be_reduced_twice(self):
         w=World();w.focus('D01');w.countries['SPR']['flags'].discard('TFR_SPA_balance_revision_1')
-        w.focus('E32');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.025)
-        w.run('TFR_SPA_refresh_modifiers');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.025)
+        w.focus('E32');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.075)
+        w.run('TFR_SPA_refresh_modifiers');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.075)
 
     def test_air_utility_additions_do_not_increase_combat_stats_or_exceed_airfield_cap(self):
         w=World();w.focus('D01');w.focus('A01');w.focus('A02');w.focus('A03')
@@ -719,7 +741,8 @@ class SpainRuntimeTests(unittest.TestCase):
         w.focus('P09');w.focus('P10');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.25)
         self.assertEqual(w.stat('economy.join_faction_tension'),0)
         w.countries['SPR']['flag_ages']['TFR_SPA_recovery_programme_started']=1825;w.run('TFR_SPA_refresh_modifiers')
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.15)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.1)
+        w.focus('P12');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.15)
         self.assertEqual(w.stat('economy.production_speed_infrastructure_factor'),0)
         self.assertIn('TFR_SPA_recovery_programme_expired',w.countries['SPR']['flags'])
 
@@ -891,7 +914,7 @@ class SpainRuntimeTests(unittest.TestCase):
         w=World();w.focus('D01');w.states['165']['dynamic'].add('autonomous_state');w.states['171']['dynamic'].add('semi_autonomous_state');w.states['171']['controller']='ENG'
         w.focus('P03');self.assertFalse(w.states['165']['dynamic']);self.assertIn('semi_autonomous_state',w.states['171']['dynamic'])
 
-    def test_relative_positions_depend_on_public_works_and_staff_academy(self):
+    def test_all_rework_focuses_use_relative_positions_without_moving(self):
         e14_desc = {'E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32'}
         m14_desc = {'M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','M32'}
         for f in generator.FOCUSES:
@@ -901,7 +924,7 @@ class SpainRuntimeTests(unittest.TestCase):
             elif f['code'] in m14_desc:
                 self.assertEqual(rel, 'TFR_SPA_the_staff_academy', f['code'])
             else:
-                self.assertIsNone(rel, f['code'])
+                self.assertIn(rel,set(FOCUSES)|{'SPA_a_great_spain'},f['code'])
         for name, focus in FOCUSES.items():
             rel = next((v for k, _, v in focus if k == 'relative_position_id'), None)
             code = next(c for c, f in generator.BY_CODE.items() if f['id'] == name)
@@ -910,7 +933,23 @@ class SpainRuntimeTests(unittest.TestCase):
             elif code in m14_desc:
                 self.assertEqual(rel, 'TFR_SPA_the_staff_academy', name)
             else:
-                self.assertIsNone(rel, name)
+                self.assertEqual(rel,generator.BY_CODE[code]['relative_position_id'],name)
+        baseline=json.loads((ROOT/'docs/spain-relative-positions.json').read_text())['positionsBefore']
+        self.assertEqual(set(baseline),set(FOCUSES))
+        for name,expected in baseline.items():
+            self.assertEqual(absolute_position(name),tuple(expected),name)
+
+
+    def test_volunteer_spain_unlocks_axis_shared_tree(self):
+        w = World()
+        w.focus('D01')
+        self.assertIn('accessible_shared_tree', w.countries['SPR']['flags'])
+        axis_shared = parse(ROOT/'common/national_focus/axis_shared.txt')
+        joint_alliance = next(v for k, _, v in axis_shared if k == 'shared_focus' and get(v, 'id') == 'AXIS_joint_alliance')
+        bypass = next(v for k, _, v in joint_alliance if k == 'bypass')
+        self.assertTrue(w.check(bypass, 'SPR'))
+        shared_opt = (ROOT/'common/on_actions/shared_tree_optimization.txt').read_text()
+        self.assertIn('has_completed_focus = TFR_SPA_volunteer_spain', shared_opt)
 
 
 if __name__=='__main__':unittest.main()

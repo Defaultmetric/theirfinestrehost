@@ -3,6 +3,7 @@
 Keeps repeated keys, list atoms, comparison operators and character spans.
 """
 from dataclasses import dataclass
+from bisect import bisect_left
 from pathlib import Path
 import re
 
@@ -43,6 +44,7 @@ def unquote(value):
 
 def parse(text):
     tokens = [m for m in TOKEN.finditer(text) if not m.group().startswith('#')]
+    newlines = [m.start() for m in re.finditer('\n', text)]
     pos = 0
 
     def block(nested=False):
@@ -52,7 +54,7 @@ def parse(text):
             t = tokens[pos]
             if t.group() == '}':
                 if not nested:
-                    raise ValueError(f"Extra closing brace at line {text.count(chr(10), 0, t.start()) + 1}")
+                    raise ValueError(f"Extra closing brace at line {bisect_left(newlines, t.start()) + 1}")
                 pos += 1
                 return Block(items), t.end()
             if t.group() == '{':
@@ -77,7 +79,7 @@ def parse(text):
                 raise ValueError(f"Missing value for {key}")
             else:
                 value, end = unquote(val.group()), val.end()
-            items.append(Entry(key, op, value, t.start(), end, text.count('\n', 0, t.start()) + 1))
+            items.append(Entry(key, op, value, t.start(), end, bisect_left(newlines, t.start()) + 1))
         if nested:
             raise ValueError('Unclosed block')
         return Block(items), len(text)

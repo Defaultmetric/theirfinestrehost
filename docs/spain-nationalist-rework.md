@@ -24,6 +24,21 @@ Celelalte 210 definiții păstrează conținutul original.
 - Infantry Fire Coordination / Armoured Formations, în specializarea militară.
 - Artillery Liaison Officers / Special Forces Training, în specializarea militară.
 
+Ramura The Staff Academy are pregătirea comună în stânga, alegerea blindate /
+infanterie în mijloc și artilerie / forțe speciale în dreapta, în paralel.
+Finalul este din nou pe rândul 19. Doar formațiile se reunesc prin legături vizibile
+la Unified Operational Doctrine; pregătirea comună și suportul sunt cerințe de
+disponibilitate afișate în tooltip. Recompensele și duratele rămân identice.
+[Schema amplasării](spain-staff-academy-layout.png) și
+[raportul verificărilor](spain-staff-academy-layout.json) descriu schimbarea;
+schema nu reprezintă o captură din joc.
+
+Toate cele 115 focusuri ale rework-ului folosesc acum `relative_position_id`, cu
+aceleași coordonate absolute ca înainte. Rădăcina rework-ului este ancorată la
+`SPA_a_great_spain`, fără modificarea focusului original. Descendenții existenți
+ai Public Works Programme și The Staff Academy își păstrează ancorele.
+[Raportul conversiei](spain-relative-positions.json) păstrează coordonatele inițiale.
+
 Arsenal of the Axis păstrează Spania în afara facțiunilor; nu poate declara sau accepta
 războaie externe prin diplomație. Sunt blocate și garanțiile noi, care ar putea
 provoca intrarea automată într-un război. Războaiele defensive rămân posibile.
@@ -199,8 +214,7 @@ celelalte efecte dinamice sunt identice pentru ambele opțiuni.
 Recompensele vecine au fost diferențiate fără schimbarea totalului de
 fabrici: E02/E05/E10 acordă 2/1/3 civile, E06/E07 acordă 3/1 militare,
 iar E15/E16 acordă 3/1 civile. E05 primește cercetare pentru construcții;
-cercetarea industrială se mută de la E10 la E12. E07 primește 2.5%
-eficiență maximă din bonusul anterior de 5% al E12; E12 păstrează 2.5%.
+cercetarea industrială se mută de la E10 la E12. Bonusurile de cap de eficiență sunt reduse cu -30%: E07 acordă 1.75% eficiență maximă, E12 acordă 1.75%, iar E20 (Interchangeable Components) acordă 3.5% (total 7% pentru ruta economică, respectiv 3.5% pentru ruta militară).
 E16 adaugă infrastructură în Ciudad Real. Testele verifică separat
 recompensele complete ale focusurilor apropiate.
 
@@ -275,12 +289,17 @@ După The Staff Academy, jucătorul face două alegeri permanente:
 | Formații principale | Infantry Fire Coordination → Operational Planning | Armoured Formations → Mobile Repair Columns / Motorised Combat Groups → Rapid Force Concentration → Armoured Breakthrough → A War of Manoeuvre |
 | Specializare de luptă | Artillery Liaison Officers → Modern Fire Support | Special Forces Training → Special Forces Command |
 
-Professional NCO Corps, Deep Supply Depots și Integrated Signal Companies rămân
-comune. Unified Operational Doctrine cere Integrated Signal Companies și capătul
-fiecărei alegeri: Operational Planning sau A War of Manoeuvre, plus Modern Fire
-Support sau Special Forces Command. Expanded Officer Corps și A Professional
-Spanish Army continuă de aici. Niciun focus nu cere simultan ambele părți ale unei
-alegeri. Bonusurile de instruire din primele 12 focusuri rămân comune.
+Professional NCO Corps și cele două perechi de specializări sunt accesibile în
+paralel după The Staff Academy. Deep Supply Depots rămâne o dezvoltare comună
+opțională după pregătirea subofițerilor. Unified Operational Doctrine reunește
+Operational Planning sau A War of Manoeuvre, cu capetele aliniate pe același rând.
+Disponibilitatea doctrinei cere separat Integrated Signal Companies și Modern Fire
+Support sau Special Forces Command, fără linii lungi prin celelalte ramuri.
+Expanded Officer Corps și A Professional Spanish Army continuă după doctrină.
+Niciun focus nu cere ambele părți ale unei alegeri. Cele patru combinații,
+totalurile de bonusuri, focusurile obligatorii și zilele necesare finalului sunt
+păstrate. Datele minime ale focusurilor avansate sunt păstrate, inclusiv 1940 pentru
+Armoured Breakthrough. Bonusurile de instruire din primele 12 focusuri rămân comune.
 
 Nu sunt crescute recompensele pentru a compensa excluderile. În ruta War,
 infanteria/artileria oferă +5% infantry attack și +7.5% artillery attack;

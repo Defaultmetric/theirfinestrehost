@@ -447,10 +447,14 @@ GER_seize_gold_reserves_cat = {
 						limit = {
 							is_on_continent = europe
 							is_fully_controlled_by = ROOT
+							NOT = { is_core_of = ROOT }
 							NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 						}
-						add_compliance = -5
-						add_resistance = 10
+						if = {
+							limit = { has_resistance = yes }
+							add_compliance = -5
+							add_resistance = 10
+						}
 						set_state_flag = GER_seize_gold_reserves_state_flag
 						add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
 					}
@@ -461,10 +465,14 @@ GER_seize_gold_reserves_cat = {
 					every_core_state = {
 						limit = {
 							is_fully_controlled_by = ROOT
+							NOT = { is_core_of = ROOT }
 							NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
 						}
-						add_compliance = -5
-						add_resistance = 10
+						if = {
+							limit = { has_resistance = yes }
+							add_compliance = -5
+							add_resistance = 10
+						}
 						set_state_flag = GER_seize_gold_reserves_state_flag
 						add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
 					}

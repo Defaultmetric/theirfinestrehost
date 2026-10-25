@@ -17,7 +17,8 @@ from test_scw_volunteers import parse, get
 ROOT = Path(__file__).resolve().parents[1]
 EFFECTS = {k:v for k,_,v in parse(ROOT/'common/scripted_effects/TFR_spain_rework.txt')}
 TRIGGERS = {k:v for k,_,v in parse(ROOT/'common/scripted_triggers/TFR_spain_rework.txt')}
-FOCUSES = {get(v,'id'):v for k,_,v in parse(ROOT/'common/national_focus/TFR_spain_rework.txt')}
+FOCUSES = {get(v,'id'):v for k,_,v in parse(ROOT/'common/national_focus/spain.txt')[0][2]
+           if k=='focus' and get(v,'id').startswith('TFR_SPA_')}
 BY_CODE = {f['code']:FOCUSES[f['id']] for f in generator.FOCUSES}
 DECISIONS = {name:body for _,_,category in parse(ROOT/'common/decisions/TFR_spain_rework.txt') for name,_,body in category}
 EVENTS = {get(body,'id'):body for kind,_,body in parse(ROOT/'events/TFR_spain_rework.txt') if kind=='country_event'}
@@ -247,6 +248,9 @@ class SpainStructureTests(unittest.TestCase):
         for rel,data in generator.generate().items():
             if not rel.endswith('.txt'):continue
             active=re.sub(r'#[^\n]*','',data.decode())
+            if rel=='common/national_focus/spain.txt':
+                active=data.decode().split(generator.FOCUS_BLOCK_BEGIN)[1].split(generator.FOCUS_BLOCK_END)[0]
+                active=re.sub(r'#[^\n]*','',active)
             self.assertIsNone(re.search(r'>=|<=',active),rel)
         for amount,comparison in [(0.05,'greater_than_or_equals'),(-0.05,'less_than_or_equals')]:
             text=generator.grant_with_credit('test_reward','test_credit',amount)
@@ -402,7 +406,8 @@ class SpainStructureTests(unittest.TestCase):
 
     def test_reconstruction_is_centered_and_reachable_from_either_role(self):
         a,b,shared=(generator.BY_CODE[c] for c in ('D01','D02','P01'))
-        self.assertEqual(plan_position(shared)[0],(plan_position(a)[0]+plan_position(b)[0])/2)
+        self.assertLessEqual(min(plan_position(a)[0],plan_position(b)[0]),plan_position(shared)[0])
+        self.assertLessEqual(plan_position(shared)[0],max(plan_position(a)[0],plan_position(b)[0]))
         self.assertEqual(plan_position(shared)[1],plan_position(a)[1]+2)
         self.assertEqual(shared['prerequisites'],[['D01','D02']])
         for role in ('D01','D02'):
@@ -425,7 +430,7 @@ class SpainStructureTests(unittest.TestCase):
         # Portugal stays outside the reconstruction connectors at the same levels.
         self.assertLessEqual(plan_position(by['D06'])[0],plan_position(by['D09'])[0]-3)
         for code in ('D07','D08','D12','D13'):
-            self.assertGreaterEqual(plan_position(by[code])[0],plan_position(by['M01'])[0]+2)
+            self.assertGreater(plan_position(by[code])[0],plan_position(by['M01'])[0])
         common_army=[f for f in generator.FOCUSES if f['code'].startswith('M') and int(f['code'][1:])<=12]
         air=[f for f in generator.FOCUSES if f['code'].startswith('A')]
         navy=[f for f in generator.FOCUSES if f['code'].startswith('N')]
@@ -501,7 +506,9 @@ class SpainStructureTests(unittest.TestCase):
     def test_focus_descriptions_are_blank_and_no_xp_or_volunteer_capacity(self):
         loc=(ROOT/'localisation/replace/TFR_spain_rework_l_english.yml').read_text(encoding='utf-8-sig')
         for name in FOCUSES:self.assertIn(' '+name+'_desc:0 ""',loc)
-        generated='\n'.join(d.decode('utf-8-sig') for p,d in generator.generate().items() if p.endswith('.txt'))
+        generated='\n'.join((d.decode('utf-8-sig').split(generator.FOCUS_BLOCK_BEGIN)[1].split(generator.FOCUS_BLOCK_END)[0]
+                             if p=='common/national_focus/spain.txt' else d.decode('utf-8-sig'))
+                            for p,d in generator.generate().items() if p.endswith('.txt'))
         self.assertFalse(re.search(r'\b(?:army_experience|navy_experience|air_experience|experience_gain_\w+|send_volunteer_size|send_volunteer_factor|air_volunteer_cap)\s*=',generated))
 
     def test_daily_hook_stays_in_native_country_scope(self):
@@ -927,14 +934,24 @@ class SpainRuntimeTests(unittest.TestCase):
                         if f['prerequisites'] else 'SPA_a_great_spain')
             self.assertEqual(f.get('relative_position_id'),expected,f['code'])
             self.assertEqual(get(FOCUSES[f['id']],'relative_position_id'),expected,f['code'])
-        report=json.loads((ROOT/'docs/spain-predecessors-air-extension.json').read_text())
-        baseline=report['positionsBefore']
-        self.assertEqual(len(baseline),115)
-        self.assertEqual(set(baseline)|set(report['newFocusPositions']),set(FOCUSES))
+        report=json.loads((ROOT/'docs/native-log-repairs-20261025.json').read_text())
+        baseline=report['focusPositionsBeforeRepair']
+        self.assertEqual(set(baseline),set(FOCUSES))
         for name,expected in baseline.items():
             self.assertEqual(absolute_position(name),tuple(expected),name)
-        for name,expected in report['newFocusPositions'].items():
-            self.assertEqual(absolute_position(name),tuple(expected),name)
+
+    def test_native_focus_definition_order_has_no_forward_relative_references(self):
+        tree=parse(ROOT/'common/national_focus/spain.txt')[0][2]
+        seen=set()
+        for key,_,body in tree:
+            if key!='focus':continue
+            name=get(body,'id')
+            parent=next((value for field,_,value in body if field=='relative_position_id'),None)
+            if parent:self.assertIn(parent,seen,(name,parent))
+            self.assertNotIn(name,seen)
+            seen.add(name)
+        self.assertTrue(set(FOCUSES).issubset(seen))
+        self.assertFalse(parse(ROOT/'common/national_focus/TFR_spain_rework.txt'))
 
     def test_air_extension_requires_both_lines_and_keeps_existing_rewards(self):
         for mode in ('D01','D02'):

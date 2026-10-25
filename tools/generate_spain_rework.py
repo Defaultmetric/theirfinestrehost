@@ -1,13 +1,14 @@
 """Generate the nationalist post-civil-war tree and its runtime from the reviewed plan.
 
-Run with --check to compare generated files without changing anything. Source-file
-migrations are deliberately separate; regenerating never rewrites the legacy tree.
+Run with --check to compare generated files without changing anything. The generated
+postwar block is merged into the country tree, after its original anchor focuses.
 """
 from pathlib import Path
 import argparse
 import collections
 import json
 import cleanup_volunteer_capacity as script
+from hoi4_script import parse as native_parse, replace_spans
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = json.loads((ROOT / 'tools/spain_focus_plan.json').read_text(encoding='utf-8'))
@@ -34,6 +35,57 @@ MODS = sorted({k for f in FOCUSES for field in ('modifiers', 'conditionalModifie
     {key for values in RECOVERY_PENALTIES.values() for key in values})
 OUT = {}
 LOC = {}
+FOCUS_BLOCK_BEGIN = '# TFR_SPA_GENERATED_FOCUSES_BEGIN'
+FOCUS_BLOCK_END = '# TFR_SPA_GENERATED_FOCUSES_END'
+
+
+def dependency_order(items, identity, parent):
+    """Emit every relative anchor before its children, keeping unrelated order."""
+    by_id = {identity(item): item for item in items}
+    ordered, done, active = [], set(), set()
+    def visit(item):
+        name = identity(item)
+        if name in done:
+            return
+        if name in active:
+            raise ValueError('Relative focus cycle: '+name)
+        active.add(name)
+        anchor = parent(item)
+        if anchor in by_id:
+            visit(by_id[anchor])
+        active.remove(name)
+        done.add(name)
+        ordered.append(item)
+    for item in items:
+        visit(item)
+    return ordered
+
+
+def merge_country_focuses(generated):
+    """Preserve legacy focus bodies while satisfying the native read order."""
+    text = (ROOT/'common/national_focus/spain.txt').read_text(encoding='utf-8-sig')
+    if FOCUS_BLOCK_BEGIN in text:
+        start = text.rfind('\n', 0, text.index(FOCUS_BLOCK_BEGIN))+1
+        end = text.find('\n', text.index(FOCUS_BLOCK_END))+1
+        text = text[:start]+text[end:]
+    tree = native_parse(text).entries('focus_tree')[0]
+    old_links = [e for e in tree.value.entries('shared_focus')
+                 if e.value in ('TFR_SPA_volunteer_spain', 'TFR_SPA_war_spain')]
+    text = replace_spans(text, [(e.start, e.end, '') for e in old_links])
+    text = text.replace('# TFR_SPA_POSTWAR_REWORK: shared roots include their connected descendants.',
+                        '# TFR_SPA_POSTWAR_REWORK: generated focuses follow the original tree.')
+    tree = native_parse(text).entries('focus_tree')[0]
+    focuses = tree.value.entries('focus')
+    ordered = dependency_order(focuses, lambda e:e.value.get('id'),
+                               lambda e:e.value.get('relative_position_id'))
+    text = replace_spans(text, [(slot.start, slot.end, text[item.start:item.end])
+                               for slot,item in zip(focuses,ordered)])
+    tree = native_parse(text).entries('focus_tree')[0]
+    end = tree.end-1
+    addition = '\t'+FOCUS_BLOCK_BEGIN+'\n'
+    addition += ''.join('\t'+line+'\n' if line else '\n' for line in generated.splitlines())
+    addition += '\t'+FOCUS_BLOCK_END+'\n'
+    return text[:end]+addition+text[end:]
 
 
 def block(name, body):
@@ -276,9 +328,10 @@ def available(f):
 
 
 def generate_focuses():
-    # Shared focuses allow a separate file while retaining the original civil-war tree.
+    # Native loading resolves relative anchors immediately. Keep every generated
+    # focus in the country tree, after original anchors, in dependency order.
     text = ''
-    for f in FOCUSES:
+    for f in dependency_order(FOCUSES, lambda f:f['id'], lambda f:f['relative_position_id']):
         c=f['code']
         body = f'id = {f["id"]}\nicon = {f["icon"]}\n'
         if 'relative_position_id' in f:
@@ -296,10 +349,13 @@ def generate_focuses():
         if f.get('exclusiveWith'):
             body += 'mutually_exclusive = { ' + ' '.join('focus = '+BY_CODE[p]['id'] for p in f['exclusiveWith']) + ' }\n'
         body += 'ai_will_do = { factor = 1 }\n' + block('completion_reward',reward(f))
-        text += block('shared_focus',body)+'\n'
+        text += block('focus',body)+'\n'
         LOC[f['id']]=f['name']
         LOC[f['id']+'_desc']=''
-    emit('common/national_focus/TFR_spain_rework.txt',text)
+    OUT['common/national_focus/spain.txt'] = merge_country_focuses(text).encode('utf-8')
+    OUT['common/national_focus/TFR_spain_rework.txt'] = (
+        '# Postwar focuses are generated inside spain.txt, after their relative anchors.\n'
+    ).encode('utf-8')
 
 
 def generate_modifiers():
@@ -793,16 +849,12 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
     changed=[]
     generated=generate()
-    # Shared-focus data is instantiated by the main country tree. Write its
-    # dependencies first, then notify the native watcher about that tree too.
-    for rel,data in sorted(generated.items(),key=lambda item:item[0]=='common/national_focus/TFR_spain_rework.txt'):
+    # Write the country tree last, after its scripted dependencies.
+    for rel,data in sorted(generated.items(),key=lambda item:item[0]=='common/national_focus/spain.txt'):
         path=ROOT/rel
         if not path.exists() or path.read_bytes()!=data:
             changed.append(rel)
             if not args.check:
                 path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(data)
-    if not args.check and 'common/national_focus/TFR_spain_rework.txt' in changed:
-        main=ROOT/'common/national_focus/spain.txt'
-        pass # main.write_bytes(main.read_bytes())
     print(json.dumps({'check':args.check,'changed':changed},indent=2))
     if args.check and changed: raise SystemExit(1)

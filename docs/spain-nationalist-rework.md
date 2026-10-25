@@ -26,18 +26,19 @@ Celelalte 210 definiții păstrează conținutul original.
 
 Ramura The Staff Academy are pregătirea comună în stânga, alegerea blindate /
 infanterie în mijloc și artilerie / forțe speciale în dreapta, în paralel.
-Finalul este din nou pe rândul 19. Doar formațiile se reunesc prin legături vizibile
+Amplasarea curentă importă ajustările locale din Workshop, cu finalul pe rândul 18.
+Doar formațiile se reunesc prin legături vizibile
 la Unified Operational Doctrine; pregătirea comună și suportul sunt cerințe de
 disponibilitate afișate în tooltip. Recompensele și duratele rămân identice.
 [Schema amplasării](spain-staff-academy-layout.png) și
-[raportul verificărilor](spain-staff-academy-layout.json) descriu schimbarea;
-schema nu reprezintă o captură din joc.
+[raportul verificărilor](spain-staff-academy-layout.json) descriu amplasarea anterioară.
+Pozițiile actuale sunt în [raportul reparării încărcării](native-log-repairs-20261025.json).
 
 Toate cele 119 focusuri ale rework-ului folosesc `relative_position_id` către
 primul prerequisite imediat. Cele două rădăcini de rol sunt ancorate la
 `SPA_a_great_spain`, fără modificarea focusului original. Coordonatele relative
-sunt recalculate astfel încât cele 115 focusuri existente să păstreze exact
-pozițiile absolute. Descendenții Public Works Programme și The Staff Academy
+sunt recalculate astfel încât să păstreze pozițiile absolute, inclusiv ajustările
+locale ulterioare din Workshop. Descendenții Public Works Programme și The Staff Academy
 sunt ancorați acum fiecare la propriul predecesor, în locul rădăcinii ramurii.
 [Raportul actualizării](spain-predecessors-air-extension.json) păstrează pozițiile
 de dinainte și cele patru poziții adăugate.
@@ -114,7 +115,11 @@ sunt așezate în dreapta ramurii originale de război civil, fără suprapuneri
 
 Schema și bugetele aprobate sunt în `tools/spain_focus_plan.json` și
 `tools/spain_focus_expected_totals.json`. Generatorul rescrie numai fișierele
-noi generate; nu repetă migrările fișierelor vechi.
+noi generate și blocul delimitat din `common/national_focus/spain.txt`.
+Definițiile originale sunt păstrate și ordonate după ancorele relative, apoi
+sunt generate cele 119 focusuri noi direct în același arbore. Astfel, motorul
+găsește fiecare ancoră înaintea focusului care o folosește. Fișierul vechi
+`common/national_focus/TFR_spain_rework.txt` rămâne un stub gol pentru compatibilitate.
 
 ```powershell
 python -B tools/generate_spain_rework.py --check
@@ -125,6 +130,13 @@ Testele execută scripturile într-un simulator determinist: cele 20 de trasee
 complete, recuperarea, legile, aderarea, transferul și conservarea industriei,
 recompensele în așteptare și izolarea celorlalte rute. Simulatorul nu înlocuiește
 încărcarea modului în executabilul HOI4. Nu a fost rulată o campanie în joc.
+
+Corecția din 25 octombrie a fost verificată prin reîncărcarea nativă a bazei
+de focusuri: la 14:07:39, `error.log` raportează `no errors`. Toate cele 402
+definiții de focus păstrează conținutul lor, iar cele 119 focusuri ale rework-ului
+păstrează pozițiile din Workshop de dinaintea reparării. Cele două legături
+militare ajustate local au fost importate în plan. Nu a fost testată o campanie
+completă după această corecție.
 
 Backupul fișierelor originale este indicat de `tools/spain_rework_backup_path.txt`.
 Manifestul implementării este în `docs/spain-nationalist-rework-manifest.json`.

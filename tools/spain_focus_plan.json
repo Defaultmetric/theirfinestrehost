@@ -56,7 +56,7 @@
         "Țara naționalistă spaniolă; războiul civil încheiat. Alegerea este la începutul părții refăcute."
       ],
       "mode": "volunteer",
-      "x": 28,
+      "x": 29,
       "y": 0,
       "icon": "GFX_focus_generic_military_industry",
       "relative_position_id": "SPA_a_great_spain"
@@ -1590,7 +1590,7 @@
       "modifiers": {
         "army.army_org_factor": 0.025
       },
-      "x": 7,
+      "x": 3,
       "y": 1,
       "icon": "GFX_focus_chi_whampoa_military_academy",
       "relative_position_id": "TFR_SPA_military_development_priority"
@@ -1609,8 +1609,8 @@
       "modifiers": {
         "army.army_morale_factor": 0.025
       },
-      "x": -9,
-      "y": 1,
+      "x": -5,
+      "y": 2,
       "icon": "GFX_focus_FIN_strengthen_military_administration",
       "relative_position_id": "TFR_SPA_the_staff_academy"
     },
@@ -1650,7 +1650,7 @@
       "modifiers": {
         "army.army_artillery_attack_factor": 0.025
       },
-      "x": 7,
+      "x": 5,
       "y": 1,
       "icon": "GFX_goal_generic_army_artillery",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1672,7 +1672,7 @@
       "modifiers": {
         "army.special_forces_attack_factor": 0.025
       },
-      "x": 11,
+      "x": 8,
       "y": 1,
       "icon": "GFX_focus_SMB_mountain_guns",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1694,7 +1694,7 @@
       "modifiers": {
         "army.army_armor_attack_factor": 0.025
       },
-      "x": -3,
+      "x": -1,
       "y": 1,
       "icon": "GFX_focus_generic_tank_production",
       "relative_position_id": "TFR_SPA_the_staff_academy",
@@ -1717,8 +1717,8 @@
         "army.army_fuel_consumption_factor": -0.05,
         "army.army_armor_speed_factor": 0.05
       },
-      "x": -1,
-      "y": 2,
+      "x": -2,
+      "y": 1,
       "icon": "GFX_focus_generic_tank_assembly",
       "relative_position_id": "TFR_SPA_armoured_formations"
     },
@@ -1737,7 +1737,7 @@
         "army.motorized_attack_factor": 0.05,
         "army.mechanized_attack_factor": 0.05
       },
-      "x": 1,
+      "x": 2,
       "y": 1,
       "icon": "GFX_focus_generic_combined_arms",
       "relative_position_id": "TFR_SPA_armoured_formations"
@@ -1756,7 +1756,7 @@
       "modifiers": {
         "army.supply_consumption_factor": -0.05
       },
-      "x": -2,
+      "x": -1,
       "y": 1,
       "icon": "GFX_goal_generic_position_armies",
       "relative_position_id": "TFR_SPA_professional_nco_corps"
@@ -1775,7 +1775,7 @@
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
-      "x": 0,
+      "x": 1,
       "y": 1,
       "icon": "GFX_goal_generic_radar",
       "relative_position_id": "TFR_SPA_professional_nco_corps"
@@ -1796,7 +1796,7 @@
         "army.max_planning_factor": 0.05
       },
       "x": 0,
-      "y": 4,
+      "y": 3,
       "icon": "GFX_goal_generic_military_sphere",
       "relative_position_id": "TFR_SPA_infantry_fire_coordination"
     },
@@ -1828,7 +1828,7 @@
       "days": 28,
       "prerequisites": [
         [
-          "M21"
+          "M19"
         ]
       ],
       "effect": "−5% organization loss while moving.",
@@ -1838,7 +1838,7 @@
       "x": 0,
       "y": 1,
       "icon": "GFX_goal_generic_occupy_states_ongoing_war",
-      "relative_position_id": "TFR_SPA_motorised_combat_groups"
+      "relative_position_id": "TFR_SPA_armoured_formations"
     },
     {
       "code": "M27",
@@ -1876,7 +1876,7 @@
         "army.army_morale_factor": 0.05,
         "army.planning_speed": 0.05
       },
-      "x": -3,
+      "x": -2,
       "y": 1,
       "icon": "GFX_focus_generic_military_mission",
       "relative_position_id": "TFR_SPA_operational_planning",
@@ -1901,6 +1901,9 @@
         ],
         [
           "M26"
+        ],
+        [
+          "M21"
         ]
       ],
       "effect": "army_armor_attack_factor: 5.0%; breakthrough_factor: 2.5%.",
@@ -1911,7 +1914,7 @@
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 1,
+      "x": 2,
       "y": 1,
       "icon": "GFX_goal_continuous_armor_production",
       "relative_position_id": "TFR_SPA_mobile_repair_columns"

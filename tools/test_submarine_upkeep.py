@@ -81,6 +81,17 @@ class Fleet:
 
 
 class SubmarineUpkeepTests(unittest.TestCase):
+    def test_native_effects_use_literal_tiers_without_parameter_expansion(self):
+        text=(ROOT/'common/scripted_effects/tfr_submarine_upkeep.txt').read_text()
+        self.assertNotIn('$',text)
+        for entry,_ in walk(parse(text)):
+            if entry.key in EFFECTS and entry.key!='TFR_submarine_upkeep_refresh':
+                # Top-level definitions contain blocks; invocations use '= yes'.
+                if entry.key.startswith('TFR_submarine_upkeep_apply_tier_') and not isinstance(entry.value,Block):
+                    self.assertEqual(entry.value,'yes')
+        self.assertNotIn('TFR_submarine_upkeep_apply_tier',EFFECTS)
+        self.assertTrue({f'TFR_submarine_upkeep_apply_tier_{i}' for i in range(1,6)}.issubset(EFFECTS))
+
     def test_major_boundaries_and_large_changes_in_both_directions(self):
         for tag in ('GER', 'ENG', 'ITA', 'JAP', 'USA'):
             fleet = Fleet(tag)

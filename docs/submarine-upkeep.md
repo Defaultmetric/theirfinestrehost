@@ -42,4 +42,8 @@ the fixed 1936 submarine design costs 2,587.5 IC before upkeep and
 `tools/test_submarine_upkeep.py` executes the runtime scripts across every major
 threshold, Dutch focus eligibility, large fleet losses, repeated updates,
 inherited-spirit cleanup, exact cost factors and startup/daily wiring.
-These are script-level checks; the change has not been tested in a running game.
+The native parser rejected the parameterized tier helper. It now uses five
+explicit literal tier effects, without macro parameters. Script-level checks
+cover the same transitions and production costs. A live database reload on
+2026-10-25 at 14:07:35 reported no errors after the repair; a complete campaign
+has not been tested.

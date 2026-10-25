@@ -656,13 +656,13 @@
       "code": "E04",
       "id": "TFR_SPA_hydroelectric_development",
       "name": "Hydroelectric Development",
-      "days": 28,
+      "days": 35,
       "prerequisites": [
         [
           "E03"
         ]
       ],
-      "effect": "+5% local resources factor în Spania.",
+      "effect": "+5% local resources factor în Spania și un baraj (dam) în Madrid (858).",
       "modifiers": {
         "economy.local_resources_factor": 0.05
       },
@@ -733,7 +733,7 @@
           "E06"
         ]
       ],
-      "effect": "1 fabrică militară în Basque Country.",
+      "effect": "1 fabrică militară în Basque Country și 1×100% research pentru infantry weapons.",
       "buildings": {
         "mil": 1
       },
@@ -759,11 +759,15 @@
           "E03"
         ]
       ],
-      "effect": "Modernizează cu un nivel două conexiuni feroviare interne pentru aprovizionare, până la nivelul 3; ținte Madrid–nord și Madrid–Mediterana. Dacă sunt deja dezvoltate, 50 PP/conexiune.",
+      "effect": "Modernizează cu un nivel două conexiuni feroviare interne pentru aprovizionare, până la nivelul 3; ținte Madrid–nord și Madrid–Mediterana. Dacă sunt deja dezvoltate, 50 PP/conexiune. De asemenea, +20% viteză de construcție pentru căi ferate și noduri de aprovizionare.",
       "x": -1,
       "y": 2,
       "icon": "GFX_focus_generic_railroad",
-      "relative_position_id": "TFR_SPA_restore_transport_links"
+      "relative_position_id": "TFR_SPA_restore_transport_links",
+      "modifiers": {
+        "economy.production_speed_rail_way_factor": 0.2,
+        "economy.production_speed_supply_node_factor": 0.2
+      }
     },
     {
       "code": "E09",
@@ -775,9 +779,9 @@
           "E04"
         ]
       ],
-      "effect": "+1 rafinărie sintetică cu slot și 1×50% research pentru synthetic resources.",
+      "effect": "+2 rafinării sintetice cu slot și 1×50% research pentru synthetic resources.",
       "buildings": {
-        "refinery": 1
+        "refinery": 2
       },
       "x": 0,
       "y": 2,
@@ -786,7 +790,7 @@
         {
           "state": 166,
           "kind": "refinery",
-          "count": 1
+          "count": 2
         }
       ],
       "relative_position_id": "TFR_SPA_hydroelectric_development"
@@ -874,13 +878,13 @@
           "M12"
         ]
       ],
-      "effect": "Alege permanent specializarea economică; +5% civilian factory construction speed. Blochează M13–M32.",
+      "effect": "Alege permanent specializarea economică; +20% civilian factory construction speed. Blochează M13–M32.",
       "exclusiveWith": [
         "M13"
       ],
       "specialization": "economy",
       "modifiers": {
-        "economy.production_speed_industrial_complex_factor": 0.05
+        "economy.production_speed_industrial_complex_factor": 0.2
       },
       "x": 3,
       "y": 1,
@@ -1188,9 +1192,9 @@
           "E26"
         ]
       ],
-      "effect": "production_factory_efficiency_gain_factor: 7.5%.",
+      "effect": "production_factory_efficiency_gain_factor: 5.0%.",
       "modifiers": {
-        "economy.production_factory_efficiency_gain_factor": 0.075
+        "economy.production_factory_efficiency_gain_factor": 0.05
       },
       "x": 0,
       "y": 1,
@@ -1253,7 +1257,7 @@
       "code": "E31",
       "id": "TFR_SPA_national_industrial_network",
       "name": "National Industrial Network",
-      "days": 35,
+      "days": 49,
       "prerequisites": [
         [
           "E25"
@@ -1262,12 +1266,9 @@
           "E27"
         ]
       ],
-      "effect": "production_speed_buildings_factor: 5.0%. Fabricile și sloturile existente sunt păstrate.",
-      "modifiers": {
-        "economy.production_speed_buildings_factor": 0.05
-      },
+      "effect": "4 fabrici civile (2 în Valencia, 2 în Madrid).",
       "buildings": {
-        "civ": 2
+        "civ": 4
       },
       "x": 0,
       "y": 3,
@@ -1275,6 +1276,11 @@
       "buildingStates": [
         {
           "state": 167,
+          "kind": "civ",
+          "count": 2
+        },
+        {
+          "state": 41,
           "kind": "civ",
           "count": 2
         }
@@ -1297,9 +1303,12 @@
           "E28"
         ]
       ],
-      "effect": "2 fabrici civile în Madrid și +7.5% factory output și -10% consumer goods.",
+      "effect": "+7.5% factory output, +5% construction speed, +5% civilian factory construction speed și +5% military factory construction speed și -10% consumer goods.",
       "modifiers": {
-        "economy.industrial_capacity_factory": 0.075
+        "economy.industrial_capacity_factory": 0.075,
+        "economy.production_speed_buildings_factor": 0.05,
+        "economy.production_speed_industrial_complex_factor": 0.05,
+        "economy.production_speed_arms_factory_factor": 0.05
       },
       "conditions": [
         "Data >= 1940.1.1."
@@ -1307,17 +1316,7 @@
       "x": 2,
       "y": 1,
       "icon": "GFX_focus_GER_wirtschaftswunder",
-      "relative_position_id": "TFR_SPA_war_industry_expansion",
-      "buildings": {
-        "civ": 2
-      },
-      "buildingStates": [
-        {
-          "state": 41,
-          "kind": "civ",
-          "count": 2
-        }
-      ]
+      "relative_position_id": "TFR_SPA_war_industry_expansion"
     },
     {
       "code": "M01",
@@ -1440,7 +1439,7 @@
           "M02"
         ]
       ],
-      "effect": "+1 punct procentual reinforce rate.",
+      "effect": "+1 punct procentual reinforce rate și 1× 100% research pentru electronics.",
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
@@ -1624,9 +1623,10 @@
           "M14"
         ]
       ],
-      "effect": "+2.5% infantry attack.",
+      "effect": "+2.5% infantry attack și +5% infantry defence.",
       "modifiers": {
-        "army.army_infantry_attack_factor": 0.025
+        "army.army_infantry_attack_factor": 0.025,
+        "army.army_infantry_defence_factor": 0.05
       },
       "x": 3,
       "y": 1,
@@ -1690,7 +1690,7 @@
           "M14"
         ]
       ],
-      "effect": "+2.5% armour attack și 1×50% research pentru tank hulls.",
+      "effect": "+2.5% armour attack și 1× 100% (1 an ahead of time) research pentru tank hulls.",
       "modifiers": {
         "army.army_armor_attack_factor": 0.025
       },
@@ -1771,7 +1771,7 @@
           "M15"
         ]
       ],
-      "effect": "+1 punct procentual reinforce rate suplimentar.",
+      "effect": "+1 punct procentual reinforce rate suplimentar și 1× 100% research pentru radar tech.",
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
@@ -1906,9 +1906,9 @@
           "M21"
         ]
       ],
-      "effect": "army_armor_attack_factor: 5.0%; breakthrough_factor: 2.5%.",
+      "effect": "+2.5% armour attack și +2.5% breakthrough.",
       "modifiers": {
-        "army.army_armor_attack_factor": 0.05,
+        "army.army_armor_attack_factor": 0.025,
         "army.breakthrough_factor": 0.025
       },
       "conditions": [
@@ -1923,15 +1923,15 @@
       "code": "M30",
       "id": "TFR_SPA_expanded_officer_corps",
       "name": "Expanded Officer Corps",
-      "days": 35,
+      "days": 21,
       "prerequisites": [
         [
           "M28"
         ]
       ],
-      "effect": "army_org_factor: 5.0%.",
+      "effect": "army_org_factor: 2.5%.",
       "modifiers": {
-        "army.army_org_factor": 0.05
+        "army.army_org_factor": 0.025
       },
       "x": 0,
       "y": 1,
@@ -1948,10 +1948,10 @@
           "M29"
         ]
       ],
-      "effect": "breakthrough_factor: 2.5%; org_loss_when_moving: -10.0%.",
+      "effect": "+2.5% breakthrough și −5% organization loss while moving.",
       "modifiers": {
         "army.breakthrough_factor": 0.025,
-        "army.org_loss_when_moving": -0.1
+        "army.org_loss_when_moving": -0.05
       },
       "x": 0,
       "y": 1,
@@ -1968,10 +1968,10 @@
           "M30"
         ]
       ],
-      "effect": "army_attack_factor: 5.0%; army_defence_factor: 5.0%.",
+      "effect": "+2.5% army attack și +2.5% army defence.",
       "modifiers": {
-        "army.army_attack_factor": 0.05,
-        "army.army_defence_factor": 0.05
+        "army.army_attack_factor": 0.025,
+        "army.army_defence_factor": 0.025
       },
       "conditions": [
         "Data >= 1940.1.1."

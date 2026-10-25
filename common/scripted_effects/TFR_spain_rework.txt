@@ -418,6 +418,7 @@ TFR_SPA_refresh_modifiers = {
 	set_variable = { TFR_SPA_army_army_defence_factor = TFR_SPA_base_army_army_defence_factor }
 	set_variable = { TFR_SPA_army_army_fuel_consumption_factor = TFR_SPA_base_army_army_fuel_consumption_factor }
 	set_variable = { TFR_SPA_army_army_infantry_attack_factor = TFR_SPA_base_army_army_infantry_attack_factor }
+	set_variable = { TFR_SPA_army_army_infantry_defence_factor = TFR_SPA_base_army_army_infantry_defence_factor }
 	set_variable = { TFR_SPA_army_army_morale_factor = TFR_SPA_base_army_army_morale_factor }
 	set_variable = { TFR_SPA_army_army_org_factor = TFR_SPA_base_army_army_org_factor }
 	set_variable = { TFR_SPA_army_breakthrough_factor = TFR_SPA_base_army_breakthrough_factor }
@@ -448,6 +449,8 @@ TFR_SPA_refresh_modifiers = {
 	set_variable = { TFR_SPA_economy_production_speed_buildings_factor = TFR_SPA_base_economy_production_speed_buildings_factor }
 	set_variable = { TFR_SPA_economy_production_speed_industrial_complex_factor = TFR_SPA_base_economy_production_speed_industrial_complex_factor }
 	set_variable = { TFR_SPA_economy_production_speed_infrastructure_factor = TFR_SPA_base_economy_production_speed_infrastructure_factor }
+	set_variable = { TFR_SPA_economy_production_speed_rail_way_factor = TFR_SPA_base_economy_production_speed_rail_way_factor }
+	set_variable = { TFR_SPA_economy_production_speed_supply_node_factor = TFR_SPA_base_economy_production_speed_supply_node_factor }
 	set_variable = { TFR_SPA_economy_research_speed_factor = TFR_SPA_base_economy_research_speed_factor }
 	set_variable = { TFR_SPA_economy_stability_weekly = TFR_SPA_base_economy_stability_weekly }
 	set_variable = { TFR_SPA_navy_convoy_escort_efficiency = TFR_SPA_base_navy_convoy_escort_efficiency }
@@ -483,13 +486,13 @@ TFR_SPA_refresh_modifiers = {
 	}
 	if = {
 		limit = { has_country_flag = TFR_SPA_reward_M16 has_country_flag = TFR_SPA_reward_M29 }
-		add_to_variable = { TFR_SPA_army_army_armor_attack_factor = -0.05 }
+		add_to_variable = { TFR_SPA_army_army_armor_attack_factor = -0.025 }
 		add_to_variable = { TFR_SPA_army_breakthrough_factor = -0.025 }
 	}
 	if = {
 		limit = { has_country_flag = TFR_SPA_reward_M16 has_country_flag = TFR_SPA_reward_M31 }
 		add_to_variable = { TFR_SPA_army_breakthrough_factor = -0.025 }
-		add_to_variable = { TFR_SPA_army_org_loss_when_moving = 0.1 }
+		add_to_variable = { TFR_SPA_army_org_loss_when_moving = 0.05 }
 	}
 	if = {
 		limit = { has_country_flag = TFR_SPA_reward_M17 has_country_flag = TFR_SPA_reward_M18 }
@@ -682,15 +685,17 @@ TFR_SPA_initialize = {
 		set_variable = { TFR_SPA_credit_army_army_fuel_consumption_factor = 0 }
 		set_variable = { TFR_SPA_base_army_army_infantry_attack_factor = 0 }
 		set_variable = { TFR_SPA_credit_army_army_infantry_attack_factor = 0 }
+		set_variable = { TFR_SPA_base_army_army_infantry_defence_factor = 0 }
+		set_variable = { TFR_SPA_credit_army_army_infantry_defence_factor = 0 }
 		set_variable = { TFR_SPA_base_army_army_morale_factor = 0 }
 		set_variable = { TFR_SPA_credit_army_army_morale_factor = 0 }
-		set_variable = { TFR_SPA_base_army_army_org_factor = 0 }
+		set_variable = { TFR_SPA_base_army_army_org_factor = -0.025 }
 		set_variable = { TFR_SPA_credit_army_army_org_factor = 0 }
 		set_variable = { TFR_SPA_base_army_breakthrough_factor = 0 }
 		set_variable = { TFR_SPA_credit_army_breakthrough_factor = 0 }
 		set_variable = { TFR_SPA_base_army_land_reinforce_rate = 0 }
 		set_variable = { TFR_SPA_credit_army_land_reinforce_rate = 0 }
-		set_variable = { TFR_SPA_base_army_max_planning_factor = 0 }
+		set_variable = { TFR_SPA_base_army_max_planning_factor = -0.05 }
 		set_variable = { TFR_SPA_credit_army_max_planning_factor = 0 }
 		set_variable = { TFR_SPA_base_army_mechanized_attack_factor = 0 }
 		set_variable = { TFR_SPA_credit_army_mechanized_attack_factor = 0 }
@@ -708,7 +713,7 @@ TFR_SPA_initialize = {
 		set_variable = { TFR_SPA_credit_army_special_forces_cap = 0 }
 		set_variable = { TFR_SPA_base_army_special_forces_defence_factor = 0 }
 		set_variable = { TFR_SPA_credit_army_special_forces_defence_factor = 0 }
-		set_variable = { TFR_SPA_base_army_supply_consumption_factor = 0 }
+		set_variable = { TFR_SPA_base_army_supply_consumption_factor = 0.05 }
 		set_variable = { TFR_SPA_credit_army_supply_consumption_factor = 0 }
 		set_variable = { TFR_SPA_base_economy_ai_get_ally_desire_factor = 0 }
 		set_variable = { TFR_SPA_credit_economy_ai_get_ally_desire_factor = 0 }
@@ -742,6 +747,10 @@ TFR_SPA_initialize = {
 		set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
 		set_variable = { TFR_SPA_base_economy_production_speed_infrastructure_factor = 0 }
 		set_variable = { TFR_SPA_credit_economy_production_speed_infrastructure_factor = 0 }
+		set_variable = { TFR_SPA_base_economy_production_speed_rail_way_factor = 0 }
+		set_variable = { TFR_SPA_credit_economy_production_speed_rail_way_factor = 0 }
+		set_variable = { TFR_SPA_base_economy_production_speed_supply_node_factor = 0 }
+		set_variable = { TFR_SPA_credit_economy_production_speed_supply_node_factor = 0 }
 		set_variable = { TFR_SPA_base_economy_research_speed_factor = 0 }
 		set_variable = { TFR_SPA_credit_economy_research_speed_factor = 0 }
 		set_variable = { TFR_SPA_base_economy_stability_weekly = 0 }
@@ -778,6 +787,7 @@ TFR_SPA_initialize = {
 		remove_ideas = SPA_recovering_from_civil_war
 		remove_ideas = SPA_recovering_from_civil_war_2
 		remove_ideas = SPA_recovering_from_civil_war_3
+		remove_ideas = SPA_awaiting_the_rebellion
 		if = {
 			limit = { has_idea = SPA_fascist_economic_aid }
 			add_to_variable = { TFR_SPA_base_economy_production_speed_arms_factory_factor = 0.1 }

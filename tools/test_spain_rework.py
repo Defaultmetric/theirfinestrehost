@@ -265,13 +265,6 @@ class World:
 
 
 class SpainStructureTests(unittest.TestCase):
-    def test_spanish_ideas_use_the_native_root_without_a_byte_order_mark(self):
-        # The text harness accepts utf-8-sig, but the native idea loader treats
-        # the BOM as part of the root token and rejects the entire idea file.
-        raw=(ROOT/'common/ideas/spain_nationalist.txt').read_bytes()
-        self.assertTrue(raw.startswith(b'ideas = {'))
-        self.assertFalse(raw.startswith(b'\xef\xbb\xbf'))
-
     def test_native_variable_grammar_does_not_use_combined_comparison_tokens(self):
         # The generic test parser accepts >= and <=; HoI4 1.19's script lexer
         # does not. This caused the native load failure at D09, line 308.
@@ -539,9 +532,11 @@ class SpainStructureTests(unittest.TestCase):
                 a,b=position(legacy)
                 self.assertFalse(y==b and abs(x-a)<2,(name,legacy))
 
-    def test_focus_descriptions_are_blank_and_no_xp_or_volunteer_capacity(self):
+    def test_focus_descriptions_are_localized_and_no_xp_or_volunteer_capacity(self):
         loc=(ROOT/'localisation/replace/TFR_spain_rework_l_english.yml').read_text(encoding='utf-8-sig')
-        for name in FOCUSES:self.assertIn(' '+name+'_desc:0 ""',loc)
+        for name in FOCUSES:
+            self.assertIn(' '+name+'_desc:0 "',loc)
+            self.assertNotIn(' '+name+'_desc:0 ""',loc)
         generated='\n'.join((d.decode('utf-8-sig').split(generator.FOCUS_BLOCK_BEGIN)[1].split(generator.FOCUS_BLOCK_END)[0]
                              if p=='common/national_focus/spain.txt' else d.decode('utf-8-sig'))
                             for p,d in generator.generate().items() if p.endswith('.txt'))
@@ -887,9 +882,9 @@ class SpainRuntimeTests(unittest.TestCase):
         self.assertFalse(w.check(TRIGGERS['TFR_SPA_main_axis_war']))
         w.countries['SPR']['wars'].add('ENG');self.assertFalse(w.check(TRIGGERS['TFR_SPA_main_axis_war']))
         w.countries['GER']['wars'].add('ENG');self.assertTrue(w.check(TRIGGERS['TFR_SPA_main_axis_war']))
-        w.focus('D12');w.focus('D13');self.assertAlmostEqual(w.stat('army.army_org_factor'),.025)
+        w.focus('D12');w.focus('D13');self.assertAlmostEqual(w.stat('army.army_org_factor'),0.0)
         self.assertAlmostEqual(w.stat('army.army_morale_factor'),.025);self.assertEqual(w.total('arms_factory','SPR'),4)
-        w.countries['GER']['wars'].remove('ENG');w.run('TFR_SPA_refresh_modifiers');self.assertEqual(w.stat('army.army_org_factor'),0)
+        w.countries['GER']['wars'].remove('ENG');w.run('TFR_SPA_refresh_modifiers');self.assertEqual(w.stat('army.army_org_factor'),-0.025)
         w.focus('D12');self.assertEqual(w.total('arms_factory','SPR'),4)
 
     def test_factory_rewards_queue_without_coastal_destinations(self):

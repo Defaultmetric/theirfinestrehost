@@ -12,6 +12,7 @@ from hoi4_script import parse as native_parse, replace_spans
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = json.loads((ROOT / 'tools/spain_focus_plan.json').read_text(encoding='utf-8'))
+FOCUS_DESCRIPTIONS = json.loads((ROOT / 'tools/spain_focus_descriptions.json').read_text(encoding='utf-8'))
 FOCUSES = PLAN['focuses']
 BY_CODE = {f['code']: f for f in FOCUSES}
 BRANCH_MODIFIERS = {'air': 'A01', 'navy': 'N01'}
@@ -143,17 +144,25 @@ def grant_with_credit(target, credit, amount):
         f'add_to_variable = {{ {target} = TFR_SPA_grant }}\n')
 
 
-def tech(code, category):
-    return f'add_tech_bonus = {{ name = {BY_CODE[code]["id"]} bonus = 0.5 uses = 1 category = {category} }}'
+def tech(code, item):
+    if isinstance(item, (list, tuple)):
+        cat = item[0]
+        bonus = item[1] if len(item) > 1 else 0.5
+        uses = item[2] if len(item) > 2 else 1
+        ahead = item[3] if len(item) > 3 else 0
+    else:
+        cat, bonus, uses, ahead = item, 0.5, 1, 0
+    ahead_str = f' ahead_reduction = {ahead}' if ahead else ''
+    return f'add_tech_bonus = {{ name = {BY_CODE[code]["id"]} bonus = {bonus:.1f}{ahead_str} uses = {uses} category = {cat} }}'
 
 
 RESEARCH = {
     'D09': ['support_tech'], 'D10': ['dd_tech'], 'D11': ['light_air'],
-    'P06': ['electronics'], 'E05': ['construction_tech'], 'E09': ['synth_resources'], 'E12': ['industry'],
+    'P06': ['electronics'], 'E05': ['construction_tech'], 'E07': [('infantry_weapons', 1.0, 1)], 'E09': ['synth_resources'], 'E12': ['industry'],
     'E17': ['construction_tech'],
     'M03': ['infantry_weapons', 'support_tech'], 'M04': ['artillery'],
-    'M06': ['motorized_equipment'], 'M09': ['mountaineers_tech'], 'M10': ['marine_tech'],
-    'M18': ['support_tech'], 'M19': ['armor'], 'A03': ['light_air'],
+    'M06': ['motorized_equipment'], 'M07': [('electronics', 1.0, 1)], 'M09': ['mountaineers_tech'], 'M10': ['marine_tech'],
+    'M18': ['support_tech'], 'M19': [('armor', 1.0, 1, 1)], 'M23': [('radar_tech', 1.0, 1)], 'A03': ['light_air'],
     'A06': ['light_air'], 'A07': ['medium_air'], 'A08': ['radar_tech'],
     'N09': ['dd_tech'], 'N10': ['ca_tech'], 'N13': ['ss_tech'],
     'N16': ['dd_tech'], 'N17': ['bb_tech'],
@@ -211,6 +220,7 @@ SPECIAL = {
     'P10': 'set_variable = { TFR_SPA_recovery_stage = 4 }\ncustom_effect_tooltip = TFR_SPA_recovery_clear_tt',
     'P12': 'if = { limit = { has_country_leader = { character = SPA_francisco_franco ruling_only = yes } } swap_ruler_traits = { remove = caudillo_1 add = caudillo_2 } }',
     'E03': placements('infrastructure', 3),
+    'E04': '41 = { add_building_construction = { type = dam level = 1 instant_build = yes province = { id = 858 } } }',
     'E18': placements('infrastructure', 2),
     'E16': '175 = { if = { limit = { is_owned_and_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }\nrandom_owned_controlled_state = { limit = { is_core_of = PREV } add_resource = { type = coal amount = 16 } }',
     'E08': 'TFR_SPA_upgrade_supply_railways = yes',
@@ -362,7 +372,7 @@ def generate_focuses():
         body += 'ai_will_do = { factor = 1 }\n' + block('completion_reward',reward(f))
         text += block('focus',body)+'\n'
         LOC[f['id']]=f['name']
-        LOC[f['id']+'_desc']=''
+        LOC[f['id']+'_desc']=FOCUS_DESCRIPTIONS.get(f['id'],'')
     OUT['common/national_focus/spain.txt'] = merge_country_focuses(text).encode('utf-8')
     OUT['common/national_focus/TFR_spain_rework.txt'] = (
         '# Postwar focuses are generated inside spain.txt, after their relative anchors.\n'
@@ -382,7 +392,13 @@ def generate_modifiers():
                 body+= f'{key.split(".")[1]} = var:{v(key)}\n'
         text += block('TFR_SPA_'+bucket+'_dynamic',body)+'\n'
         LOC['TFR_SPA_'+bucket+'_dynamic']=name
-        LOC['TFR_SPA_'+bucket+'_dynamic_desc']='Developed through the national focus tree.'
+        _dyn_descs = {
+            'economy': 'Reflects the structural capacity, factory output, construction speed, and recovery progress of the Spanish economy following the devastations of the civil war.',
+            'army': 'Reflects the doctrine, organizational discipline, combined arms efficiency, and operational firepower of the Spanish Armed Forces.',
+            'air': 'Represents the flight doctrine, aircraft modernization, pilot readiness, and tactical air coordination of the Spanish Air Force.',
+            'navy': 'Represents the naval doctrine, escort protection, convoy interdiction, and dockyard modernization of the Spanish Navy.'
+        }
+        LOC['TFR_SPA_'+bucket+'_dynamic_desc']=_dyn_descs[bucket]
     emit('common/dynamic_modifiers/TFR_spain_rework.txt',text)
 
 
@@ -393,7 +409,7 @@ def generate_runtime():
     # newly completed focus is marked paid, and never touch recovery profiles.
     deltas=BALANCE_REVISION['permanent_reward_deltas']
     rebalance=''
-    positive_keys={key for code in deltas for key,value in BY_CODE[code]['modifiers'].items() if key in deltas[code] and value>0}
+    positive_keys={key for code in deltas for key,value in BY_CODE[code].get('modifiers', {}).items() if key in deltas[code] and value>0}
     for key in sorted(positive_keys):
         rebalance+=f'set_temp_variable = {{ TFR_SPA_balance_before_{key.replace(".","_")} = {v(key,True)} }}\n'
     for code,values in deltas.items():
@@ -477,11 +493,12 @@ def generate_runtime():
     # A country's modifiers are updated immediately after effects, then daily by the engine.
     effects+=block('TFR_SPA_refresh_modifiers',refresh)+'\n'
     init='limit = { NOT = { has_country_flag = TFR_SPA_rework_initialized } }\nset_country_flag = TFR_SPA_rework_initialized\n'
-    init+='\n'.join(f'set_variable = {{ {v(k,True)} = 0 }}\nset_variable = {{ TFR_SPA_credit_{k.replace(".","_")} = 0 }}' for k in MODS)+'\n'
+    INITIAL_MODS = {'army.army_org_factor': -0.025, 'army.supply_consumption_factor': 0.05, 'army.max_planning_factor': -0.05}
+    init+=''.join(f'set_variable = {{ {v(k,True)} = {INITIAL_MODS.get(k, 0):g} }}\nset_variable = {{ TFR_SPA_credit_{k.replace(".","_")} = 0 }}\n' for k in MODS)
     init+='set_variable = { TFR_SPA_recovery_stage = 4 }\nset_variable = { TFR_SPA_recovery_programme = 0 }\n'
     for stage,suffix in [(1,''),(2,'_2'),(3,'_3')]:
         init+=f'if = {{ limit = {{ has_idea = SPA_recovering_from_civil_war{suffix} }} set_variable = {{ TFR_SPA_recovery_stage = {stage} }} }}\n'
-    init+='\n'.join('remove_ideas = '+i for i in ('SPA_recovering_from_civil_war','SPA_recovering_from_civil_war_2','SPA_recovering_from_civil_war_3'))+'\n'
+    init+='\n'.join('remove_ideas = '+i for i in ('SPA_recovering_from_civil_war','SPA_recovering_from_civil_war_2','SPA_recovering_from_civil_war_3','SPA_awaiting_the_rebellion'))+'\n'
     # Import only effects already earned in old saves. New-tree purchases of these
     # migrated rewards are marked paid without repeating buildings, PP or stats.
     for old,values in LEGACY_IDEAS.items():
@@ -831,6 +848,7 @@ def generate_events_decisions():
         'TFR_SPA_recovery_programme_2_tt':'Advance National Recovery to at least stage 2: retain its consumer goods and weekly stability bonuses and gain +10% infrastructure construction speed. The original programme expiry date is preserved.',
         'TFR_SPA_recovery_programme_3_tt':'Advance National Recovery to at least stage 3: consumer goods factor -25% and infrastructure construction speed +10%, replacing the temporary weekly stability bonus. Equivalent permanent consumer-goods bonuses do not stack twice.',
         'TFR_SPA_diplomatic_cooperation':'Spanish Diplomatic Cooperation',
+        'TFR_SPA_diplomatic_cooperation_desc':"Diplomatic channels and bilateral arrangements governing Spain's role alongside European partners and alignment with foreign powers.",
         'TFR_SPA_renew_axis_request':'Renew the Axis Membership Request',
         'TFR_SPA_renew_axis_request_desc':'Ask Germany to reconsider Spanish membership of the Axis.',
         'TFR_SPA_regional_reconstruction':'Regional Reconstruction',

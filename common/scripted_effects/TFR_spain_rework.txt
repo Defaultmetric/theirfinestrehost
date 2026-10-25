@@ -462,6 +462,7 @@ TFR_SPA_refresh_modifiers = {
 	set_variable = { TFR_SPA_navy_repair_speed_factor = TFR_SPA_base_navy_repair_speed_factor }
 	set_variable = { TFR_SPA_navy_screening_efficiency = TFR_SPA_base_navy_screening_efficiency }
 	set_variable = { TFR_SPA_navy_spotting_chance = TFR_SPA_base_navy_spotting_chance }
+	subtract_from_variable = { TFR_SPA_army_planning_speed = 0.025 }
 	if = {
 		limit = { has_country_flag = TFR_SPA_reward_M16 has_country_flag = TFR_SPA_reward_M19 }
 		add_to_variable = { TFR_SPA_army_army_armor_attack_factor = -0.025 }

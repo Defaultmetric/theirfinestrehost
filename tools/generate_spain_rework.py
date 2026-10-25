@@ -418,6 +418,8 @@ def generate_runtime():
     for stage in (2,3):
         effects+=block(f'TFR_SPA_advance_recovery_programme_{stage}',choose(f'NOT = {{ has_country_flag = TFR_SPA_recovery_programme_expired }} check_variable = {{ TFR_SPA_recovery_programme > 0 }} check_variable = {{ TFR_SPA_recovery_programme < {stage} }}',f'set_variable = {{ TFR_SPA_recovery_programme = {stage} }}'))+'\n'
     refresh = 'TFR_SPA_apply_balance_revision = yes\nTFR_SPA_expire_recovery_programme = yes\n'+'\n'.join(f'set_variable = {{ {v(k)} = {v(k,True)} }}' for k in MODS)+'\n'
+    # Apply after rebuilding the displayed value so daily refreshes cannot stack it.
+    refresh += 'subtract_from_variable = { TFR_SPA_army_planning_speed = 0.025 }\n'
     # Project saved rewards onto the permitted specialisations. Old saves may
     # have completed both sides before mutual exclusion existed. Resolve those
     # to infantry/artillery, without rewriting their earned base variables or

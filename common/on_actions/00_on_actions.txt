@@ -1107,30 +1107,14 @@ on_actions = {
 
 		#GERMANY - Set Flag in capitulated countries and add them to array for Seize Gold Reserves Decision purposes
 		effect = {
-			if = {
-				limit = {
-					FROM = {
-						OR = {
-							original_tag = GER
-							is_ally_with = GER
-						}
-					}
-					ROOT = {
-						OR = {
-							capital_scope = { is_on_continent = europe }
-							original_tag = TUR
-						}
-					}
-				}
-				ROOT = {
-					set_country_flag = GER_has_capitulated_to_germany
-					add_to_array = { 
-						array = GER.GER_seize_gold_targets_array 
-						value = THIS
-					}
-				}
-			}
-		}
+            if = {
+                limit = {
+                    FROM = { OR = { original_tag = GER is_ally_with = GER } }
+                    ROOT = { TFR_GER_gold_country_has_scope = yes }
+                }
+                ROOT = { TFR_GER_register_gold_target = yes }
+            }
+        }
 
 		effect = { #if Austria resists Anschluss, give Germany cores on Austria once they capitulate
 			IF = {

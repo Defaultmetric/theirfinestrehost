@@ -1,0 +1,29 @@
+# Victim-country scope. Preserve the vanilla flag and array used by the decision.
+TFR_GER_register_gold_target = {
+    set_country_flag = GER_has_capitulated_to_germany
+    if = {
+        limit = {
+            NOT = { is_in_array = { array = GER.GER_seize_gold_targets_array value = THIS } }
+        }
+        add_to_array = { array = GER.GER_seize_gold_targets_array value = THIS }
+    }
+}
+
+# Germany scope. Includes annexed tags, but requires evidence they were defeated.
+TFR_GER_recover_gold_targets = {
+    every_possible_country = {
+        limit = { NOT = { original_tag = GER } }
+        if = {
+            limit = { exists = yes NOT = { has_country_flag = TFR_GER_gold_seen_active } }
+            set_country_flag = TFR_GER_gold_seen_active
+        }
+        if = {
+            limit = {
+                TFR_GER_gold_defeat_recorded = yes
+                TFR_GER_gold_country_has_scope = yes
+                any_core_state = { TFR_GER_gold_state_eligible = yes }
+            }
+            TFR_GER_register_gold_target = yes
+        }
+    }
+}

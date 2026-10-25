@@ -1,0 +1,11 @@
+on_actions = {
+    on_startup = {
+        effect = {
+            every_country = { TFR_submarine_upkeep_refresh = yes }
+        }
+    }
+    # Country scope also initializes existing saves and newly released countries.
+    on_daily = {
+        effect = { TFR_submarine_upkeep_refresh = yes }
+    }
+}

@@ -212,7 +212,7 @@ SPECIAL = {
     'P12': 'if = { limit = { has_country_leader = { character = SPA_francisco_franco ruling_only = yes } } swap_ruler_traits = { remove = caudillo_1 add = caudillo_2 } }',
     'E03': placements('infrastructure', 3),
     'E18': placements('infrastructure', 2),
-    'E16': '175 = { if = { limit = { is_owned_and_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }',
+    'E16': '175 = { if = { limit = { is_owned_and_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }\nrandom_owned_controlled_state = { limit = { is_core_of = PREV } add_resource = { type = coal amount = 16 } }',
     'E08': 'TFR_SPA_upgrade_supply_railways = yes',
     'E27': '''every_owned_state = { clr_state_flag = TFR_SPA_placement }
     TFR_SPA_add_domestic_steel = yes

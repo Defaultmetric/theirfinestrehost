@@ -224,7 +224,7 @@ class World:
             elif k=='add_stability':obj['stability']+=float(v)
             elif k=='add_war_support':obj['war_support']+=float(v)
             elif k=='add_tech_bonus':self.research.append((scope,get(v,'category')))
-            elif k=='add_resource':obj[get(v,'type')]+=int(get(v,'amount'))
+            elif k=='add_resource':obj[get(v,'type')]=obj.get(get(v,'type'),0)+int(get(v,'amount'))
             elif k=='add_equipment_to_stockpile':self.stockpile[(scope,get(v,'type'))]+=int(get(v,'amount'))
             elif k=='build_railway':
                 for key in ('start_state','target_state'):

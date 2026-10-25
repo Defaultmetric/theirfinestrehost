@@ -15333,6 +15333,7 @@ focus_tree = {
 				}
 
 				175 = { if = { limit = { is_owned_and_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }
+				random_owned_controlled_state = { limit = { is_core_of = PREV } add_resource = { type = coal amount = 16 } }
 				hidden_effect = {
 					set_temp_variable = { TFR_SPA_grant = 1 }
 					if = {

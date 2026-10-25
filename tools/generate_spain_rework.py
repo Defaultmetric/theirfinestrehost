@@ -185,7 +185,7 @@ def placements(building, count, levels=1, cap=5, coastal=False, extra=''):
         for _ in range(levels - 1):
             action += '\n' + block('if', f'limit = {{ free_building_slots = {{ building = {building} size > 0 }} }}\nadd_building_construction = {{ type = {building} level = 1 instant_build = yes }}')
         result += choose(f'any_owned_state = {{ {eligible} }}', block('random_owned_controlled_state', f'limit = {{ {eligible} }}\n{action}'), 'add_political_power = 25')
-    result += 'every_owned_state = { clr_state_flag = TFR_SPA_placement }\n'
+    result += 'hidden_effect = { every_owned_state = { clr_state_flag = TFR_SPA_placement } }\n'
     return result
 
 

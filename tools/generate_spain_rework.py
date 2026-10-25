@@ -101,6 +101,7 @@ RESEARCH = {
     'M03': ['infantry_weapons', 'support_tech'], 'M04': ['artillery'],
     'M06': ['motorized_equipment'], 'M09': ['mountaineers_tech'], 'M10': ['marine_tech'],
     'M18': ['support_tech'], 'M19': ['armor'], 'A03': ['light_air'],
+    'A06': ['light_air'], 'A07': ['medium_air'], 'A08': ['radar_tech'],
     'N09': ['dd_tech'], 'N10': ['ca_tech'], 'N13': ['ss_tech'],
     'N16': ['dd_tech'], 'N17': ['bb_tech'],
 }

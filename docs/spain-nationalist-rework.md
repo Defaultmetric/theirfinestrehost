@@ -1,10 +1,10 @@
 # Rework: Spania naționalistă
 
-Implementarea cuprinde 115 de focusuri după războiul civil: 14 de diplomație,
-12 de reconstrucție, 32 economice, 32 militare, 5 aeriene și 20 navale.
+Implementarea cuprinde 119 focusuri după războiul civil: 14 de diplomație,
+12 de reconstrucție, 32 economice, 32 militare, 9 aeriene și 20 navale.
 Numele și tooltipurile sunt localizate în engleză. Descrierile focusurilor sunt goale.
 
-Cele 115 de focusuri noi sunt vizibile permanent. Cele două alegeri de rol cer
+Cele 119 focusuri noi sunt vizibile permanent. Cele două alegeri de rol cer
 ruta lui Franco și încheierea războiului civil; descendenții moștenesc această
 restricție prin prerequisite, fără repetarea ei la fiecare focus. Cele 37 de focusuri vechi
 înlocuite sunt ascunse permanent, păstrând ID-urile pentru compatibilitate cu
@@ -33,11 +33,28 @@ disponibilitate afișate în tooltip. Recompensele și duratele rămân identice
 [raportul verificărilor](spain-staff-academy-layout.json) descriu schimbarea;
 schema nu reprezintă o captură din joc.
 
-Toate cele 115 focusuri ale rework-ului folosesc acum `relative_position_id`, cu
-aceleași coordonate absolute ca înainte. Rădăcina rework-ului este ancorată la
-`SPA_a_great_spain`, fără modificarea focusului original. Descendenții existenți
-ai Public Works Programme și The Staff Academy își păstrează ancorele.
-[Raportul conversiei](spain-relative-positions.json) păstrează coordonatele inițiale.
+Toate cele 119 focusuri ale rework-ului folosesc `relative_position_id` către
+primul prerequisite imediat. Cele două rădăcini de rol sunt ancorate la
+`SPA_a_great_spain`, fără modificarea focusului original. Coordonatele relative
+sunt recalculate astfel încât cele 115 focusuri existente să păstreze exact
+pozițiile absolute. Descendenții Public Works Programme și The Staff Academy
+sunt ancorați acum fiecare la propriul predecesor, în locul rădăcinii ramurii.
+[Raportul actualizării](spain-predecessors-air-extension.json) păstrează pozițiile
+de dinainte și cele patru poziții adăugate.
+
+Aviația se extinde de la 5 la 9 focusuri, fără fabrici suplimentare sau modificări
+ale recompenselor existente. După Pilot Training and Maintenance urmează
+Fighter Modernisation Programme (35 zile, +5% rază aeriană și un bonus de
+cercetare de 50% pentru avioane ușoare), apoi Aircraft Warning Network
+(28 zile, un bonus de cercetare de 50% pentru radar). După Forward Airfield
+Network urmează Tactical Aviation School (28 zile, un bonus de cercetare de
+50% pentru avioane medii). Ambele linii sunt necesare pentru All-Weather Air
+Operations (35 zile, −5% penalizare de noapte și −5% penalizare de vreme).
+Toate cele 20 de trasee complete pot parcurge cele patru focusuri noi;
+durata completării lor este de 126 de zile. Bonusurile noi intră în modifierul
+Spanish Air Force, inclusiv în salvările existente după completarea noilor focusuri.
+[Schema ramurii aeriene](spain-air-extension-layout.png) arată amplasarea din
+fișiere; nu reprezintă o captură din joc.
 
 Arsenal of the Axis păstrează Spania în afara facțiunilor; nu poate declara sau accepta
 războaie externe prin diplomație. Sunt blocate și garanțiile noi, care ar putea
@@ -104,7 +121,7 @@ python -B tools/generate_spain_rework.py --check
 python -B -m unittest discover -s tools -p 'test_*.py' -v
 ```
 
-Testele execută scripturile într-un simulator determinist: cele opt trasee
+Testele execută scripturile într-un simulator determinist: cele 20 de trasee
 complete, recuperarea, legile, aderarea, transferul și conservarea industriei,
 recompensele în așteptare și izolarea celorlalte rute. Simulatorul nu înlocuiește
 încărcarea modului în executabilul HOI4. Nu a fost rulată o campanie în joc.

@@ -340,7 +340,7 @@ class SpainStructureTests(unittest.TestCase):
                     self.assertNotEqual((e.key,e.value),('_','}'),rel)
 
     def test_nodes_unique_positions_and_references(self):
-        self.assertEqual(len(FOCUSES),115)
+        self.assertEqual(len(FOCUSES),119)
         def position(name):
             return absolute_position(name)
         positions=set()
@@ -351,11 +351,11 @@ class SpainStructureTests(unittest.TestCase):
                     for _,_,target in body:self.assertIn(target,FOCUSES)
         self.assertEqual(sum(key=='mutually_exclusive' for f in FOCUSES.values() for key,_,v in f),10)
 
-    def test_presentation_has_five_air_focuses_and_compact_local_links(self):
+    def test_presentation_has_nine_air_focuses_and_compact_local_links(self):
         abs_pos=plan_position
         air=[f for f in generator.FOCUSES if f['code'].startswith('A')]
-        self.assertEqual([f['code'] for f in air],['A01','A02','A03','A04','A05'])
-        self.assertEqual(sum(len(f.get('modifiers',{})) for f in air),5)
+        self.assertEqual([f['code'] for f in air],[f'A{i:02}' for i in range(1,10)])
+        self.assertEqual(sum(len(f.get('modifiers',{})) for f in air),8)
         self.assertGreaterEqual(len({get(f,'icon') for f in FOCUSES.values()}),100)
         self.assertLessEqual(max(abs_pos(f)[0] for f in generator.FOCUSES)-min(abs_pos(f)[0] for f in generator.FOCUSES),44)
         self.assertLessEqual(max(abs_pos(f)[1] for f in generator.FOCUSES),19)
@@ -922,29 +922,41 @@ class SpainRuntimeTests(unittest.TestCase):
         w.focus('P03');self.assertFalse(w.states['165']['dynamic']);self.assertIn('semi_autonomous_state',w.states['171']['dynamic'])
 
     def test_all_rework_focuses_use_relative_positions_without_moving(self):
-        e14_desc = {'E15','E16','E17','E18','E19','E20','E21','E22','E23','E24','E25','E26','E27','E28','E29','E30','E31','E32'}
-        m14_desc = {'M15','M16','M17','M18','M19','M20','M21','M22','M23','M24','M25','M26','M27','M28','M29','M30','M31','M32'}
         for f in generator.FOCUSES:
-            rel = f.get('relative_position_id')
-            if f['code'] in e14_desc:
-                self.assertEqual(rel, 'TFR_SPA_public_works_programme', f['code'])
-            elif f['code'] in m14_desc:
-                self.assertEqual(rel, 'TFR_SPA_the_staff_academy', f['code'])
-            else:
-                self.assertIn(rel,set(FOCUSES)|{'SPA_a_great_spain'},f['code'])
-        for name, focus in FOCUSES.items():
-            rel = next((v for k, _, v in focus if k == 'relative_position_id'), None)
-            code = next(c for c, f in generator.BY_CODE.items() if f['id'] == name)
-            if code in e14_desc:
-                self.assertEqual(rel, 'TFR_SPA_public_works_programme', name)
-            elif code in m14_desc:
-                self.assertEqual(rel, 'TFR_SPA_the_staff_academy', name)
-            else:
-                self.assertEqual(rel,generator.BY_CODE[code]['relative_position_id'],name)
-        baseline=json.loads((ROOT/'docs/spain-relative-positions.json').read_text())['positionsBefore']
-        self.assertEqual(set(baseline),set(FOCUSES))
+            expected = (generator.BY_CODE[f['prerequisites'][0][0]]['id']
+                        if f['prerequisites'] else 'SPA_a_great_spain')
+            self.assertEqual(f.get('relative_position_id'),expected,f['code'])
+            self.assertEqual(get(FOCUSES[f['id']],'relative_position_id'),expected,f['code'])
+        report=json.loads((ROOT/'docs/spain-predecessors-air-extension.json').read_text())
+        baseline=report['positionsBefore']
+        self.assertEqual(len(baseline),115)
+        self.assertEqual(set(baseline)|set(report['newFocusPositions']),set(FOCUSES))
         for name,expected in baseline.items():
             self.assertEqual(absolute_position(name),tuple(expected),name)
+        for name,expected in report['newFocusPositions'].items():
+            self.assertEqual(absolute_position(name),tuple(expected),name)
+
+    def test_air_extension_requires_both_lines_and_keeps_existing_rewards(self):
+        for mode in ('D01','D02'):
+            w=World();w.focus(mode);w.focus('P01');w.focus('P04');w.focus('M01')
+            for code in ('A01','A02','A03','A04','A05'):
+                self.assertTrue(w.can_start(code),code);w.focus(code)
+            original={key:w.stat(key) for key in ('air.air_mission_efficiency','air.air_agility_factor','air.air_cas_present_factor','air.air_accidents_factor','air.air_fuel_consumption_factor')}
+            factories=w.total('arms_factory','SPR')
+            self.assertFalse(w.can_start('A08'));self.assertFalse(w.can_start('A09'))
+            self.assertTrue(w.can_start('A06'));w.focus('A06')
+            self.assertTrue(w.can_start('A08'));w.focus('A08')
+            self.assertFalse(w.can_start('A09'))
+            self.assertTrue(w.can_start('A07'));w.focus('A07')
+            self.assertTrue(w.can_start('A09'));w.focus('A09')
+            self.assertAlmostEqual(w.stat('air.air_range_factor'),.05)
+            self.assertAlmostEqual(w.stat('air.air_night_penalty'),-.05)
+            self.assertAlmostEqual(w.stat('air.air_weather_penalty'),-.05)
+            self.assertEqual(factories,w.total('arms_factory','SPR'))
+            for key,value in original.items():self.assertEqual(w.stat(key),value,key)
+            self.assertIn(('SPR','light_air'),w.research)
+            self.assertIn(('SPR','medium_air'),w.research)
+            self.assertIn(('SPR','radar_tech'),w.research)
 
 
     def test_volunteer_spain_unlocks_axis_shared_tree(self):

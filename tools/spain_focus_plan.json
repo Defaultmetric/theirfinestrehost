@@ -1,7 +1,7 @@
 {
   "title": "Spania TFR — arbore naționalist implementat",
-  "status": "Implementat; reechilibrare a specializărilor și focusurilor finale.",
-  "target": "115 focusuri naționaliste; aviație compactă și bonusuri cumulate reechilibrate.",
+  "status": "Implementat; aviatia extinsa si toate ancorele legate de predecesor.",
+  "target": "119 focusuri nationaliste; ancorare la prerequisite imediat si 9 focusuri aeriene.",
   "focusDays": 7,
   "baseResearchSlots": 3,
   "dates": {
@@ -33,7 +33,7 @@
     {
       "code": "A",
       "name": "Aviație",
-      "count": 5
+      "count": 9
     },
     {
       "code": "N",
@@ -76,10 +76,10 @@
       ],
       "mode": "war",
       "reuse": "SPA_join_the_axis; funcția efectivă de aderare este mutată în D04",
-      "x": 4,
+      "x": 32,
       "y": 0,
       "icon": "GFX_goal_support_fascism",
-      "relative_position_id": "TFR_SPA_volunteer_spain"
+      "relative_position_id": "SPA_a_great_spain"
     },
     {
       "code": "D03",
@@ -946,8 +946,8 @@
       "buildings": {
         "civ": 1
       },
-      "x": -4,
-      "y": 2,
+      "x": -2,
+      "y": 1,
       "icon": "GFX_focus_generic_industry_3",
       "buildingStates": [
         {
@@ -956,7 +956,7 @@
           "count": 1
         }
       ],
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_metropolitan_industrial_expansion"
     },
     {
       "code": "E17",
@@ -991,10 +991,10 @@
       "modifiers": {
         "economy.local_resources_factor": 0.15
       },
-      "x": 3,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_focus_ARG_develop_the_electricity_sector",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_civil_engineering_institutes"
     },
     {
       "code": "E19",
@@ -1010,10 +1010,10 @@
       "modifiers": {
         "economy.industrial_capacity_factory": 0.025
       },
-      "x": -1,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_focus_generic_combined_arms",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_metropolitan_industrial_expansion"
     },
     {
       "code": "E20",
@@ -1029,10 +1029,10 @@
       "modifiers": {
         "economy.production_factory_max_efficiency_factor": 0.05
       },
-      "x": -1,
-      "y": 3,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_focus_HUN_expand_the_diosgyor_machinery_factory",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_mass_production_standards"
     },
     {
       "code": "E21",
@@ -1048,10 +1048,10 @@
       "modifiers": {
         "economy.production_factory_efficiency_gain_factor": 0.025
       },
-      "x": 1,
-      "y": 3,
+      "x": 2,
+      "y": 1,
       "icon": "GFX_focus_generic_university_3",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_mass_production_standards"
     },
     {
       "code": "E22",
@@ -1067,10 +1067,10 @@
       "modifiers": {
         "economy.line_change_production_efficiency_factor": 0.1
       },
-      "x": 2,
-      "y": 4,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_focus_DEN_no_regulations",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_factory_technical_schools"
     },
     {
       "code": "E23",
@@ -1086,8 +1086,8 @@
       "buildings": {
         "mil": 2
       },
-      "x": -3,
-      "y": 3,
+      "x": -2,
+      "y": 1,
       "icon": "GFX_goal_generic_construct_military",
       "buildingStates": [
         {
@@ -1096,7 +1096,7 @@
           "count": 2
         }
       ],
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_mass_production_standards"
     },
     {
       "code": "E24",
@@ -1113,10 +1113,10 @@
         "economy.production_speed_arms_factory_factor": 0.05,
         "economy.conversion_cost_civ_to_mil_factor": -0.1
       },
-      "x": -4,
-      "y": 4,
+      "x": -1,
+      "y": 1,
       "icon": "GFX_goal_generic_production2",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_national_armament_contracts"
     },
     {
       "code": "E25",
@@ -1132,10 +1132,10 @@
       "modifiers": {
         "economy.research_speed_factor": 0.05
       },
-      "x": 3,
-      "y": 3,
+      "x": 1,
+      "y": 2,
       "icon": "GFX_focus_CZE_military_research_institute",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_civil_engineering_institutes"
     },
     {
       "code": "E26",
@@ -1157,10 +1157,10 @@
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 0,
-      "y": 5,
+      "x": 1,
+      "y": 2,
       "icon": "GFX_focus_generic_modernize_industry",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_interchangeable_components"
     },
     {
       "code": "E27",
@@ -1173,10 +1173,10 @@
         ]
       ],
       "effect": "+12 steel distribuit în două state spaniole proprii/controlate cu industrie și 1×50% research pentru excavation. Resursele se adaugă o singură dată.",
-      "x": 4,
-      "y": 4,
+      "x": 1,
+      "y": 2,
       "icon": "GFX_focus_generic_mining_industry",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_integrated_electricity_network"
     },
     {
       "code": "E28",
@@ -1193,9 +1193,9 @@
         "economy.production_factory_efficiency_gain_factor": 0.075
       },
       "x": 0,
-      "y": 6,
+      "y": 1,
       "icon": "GFX_goal_generic_construction2",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_advanced_machine_tooling"
     },
     {
       "code": "E29",
@@ -1212,10 +1212,10 @@
         "economy.conversion_cost_civ_to_mil_factor": -0.05,
         "economy.production_speed_arms_factory_factor": 0.05
       },
-      "x": -4,
-      "y": 5,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_build_tank",
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_industrial_subcontracting"
     },
     {
       "code": "E30",
@@ -1237,8 +1237,8 @@
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": -2,
-      "y": 6,
+      "x": 2,
+      "y": 1,
       "icon": "GFX_goal_generic_construct_mil_factory",
       "buildingStates": [
         {
@@ -1247,7 +1247,7 @@
           "count": 3
         }
       ],
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_industrial_conversion_offices"
     },
     {
       "code": "E31",
@@ -1269,8 +1269,8 @@
       "buildings": {
         "civ": 2
       },
-      "x": 3,
-      "y": 6,
+      "x": 0,
+      "y": 3,
       "icon": "GFX_focus_generic_industry_investment",
       "buildingStates": [
         {
@@ -1279,7 +1279,7 @@
           "count": 2
         }
       ],
-      "relative_position_id": "TFR_SPA_public_works_programme"
+      "relative_position_id": "TFR_SPA_spanish_industrial_research"
     },
     {
       "code": "E32",
@@ -1304,10 +1304,10 @@
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": 0,
-      "y": 7,
+      "x": 2,
+      "y": 1,
       "icon": "GFX_focus_GER_wirtschaftswunder",
-      "relative_position_id": "TFR_SPA_public_works_programme",
+      "relative_position_id": "TFR_SPA_war_industry_expansion",
       "buildings": {
         "civ": 2
       },
@@ -1717,10 +1717,10 @@
         "army.army_fuel_consumption_factor": -0.05,
         "army.army_armor_speed_factor": 0.05
       },
-      "x": -4,
-      "y": 3,
+      "x": -1,
+      "y": 2,
       "icon": "GFX_focus_generic_tank_assembly",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_armoured_formations"
     },
     {
       "code": "M21",
@@ -1737,10 +1737,10 @@
         "army.motorized_attack_factor": 0.05,
         "army.mechanized_attack_factor": 0.05
       },
-      "x": -2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_focus_generic_combined_arms",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_armoured_formations"
     },
     {
       "code": "M22",
@@ -1756,10 +1756,10 @@
       "modifiers": {
         "army.supply_consumption_factor": -0.05
       },
-      "x": -11,
-      "y": 2,
+      "x": -2,
+      "y": 1,
       "icon": "GFX_goal_generic_position_armies",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_professional_nco_corps"
     },
     {
       "code": "M23",
@@ -1775,10 +1775,10 @@
       "modifiers": {
         "army.land_reinforce_rate": 0.01
       },
-      "x": -9,
-      "y": 2,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_radar",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_professional_nco_corps"
     },
     {
       "code": "M24",
@@ -1795,10 +1795,10 @@
         "army.army_infantry_attack_factor": 0.025,
         "army.max_planning_factor": 0.05
       },
-      "x": 3,
-      "y": 5,
+      "x": 0,
+      "y": 4,
       "icon": "GFX_goal_generic_military_sphere",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_infantry_fire_coordination"
     },
     {
       "code": "M25",
@@ -1816,10 +1816,10 @@
         "army.special_forces_attack_factor": 0.025,
         "army.special_forces_defence_factor": 0.025
       },
-      "x": 11,
-      "y": 2,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_focus_generic_naval_discipline",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_assault_engineering"
     },
     {
       "code": "M26",
@@ -1835,10 +1835,10 @@
       "modifiers": {
         "army.org_loss_when_moving": -0.05
       },
-      "x": -2,
-      "y": 3,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_occupy_states_ongoing_war",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_motorised_combat_groups"
     },
     {
       "code": "M27",
@@ -1855,10 +1855,10 @@
         "army.army_artillery_attack_factor": 0.05,
         "army.army_artillery_defence_factor": 0.05
       },
-      "x": 7,
-      "y": 2,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_focus_SWE_let_fly_all_guns",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_artillery_liaison_officers"
     },
     {
       "code": "M28",
@@ -1876,10 +1876,10 @@
         "army.army_morale_factor": 0.05,
         "army.planning_speed": 0.05
       },
-      "x": 0,
-      "y": 6,
+      "x": -3,
+      "y": 1,
       "icon": "GFX_focus_generic_military_mission",
-      "relative_position_id": "TFR_SPA_the_staff_academy",
+      "relative_position_id": "TFR_SPA_operational_planning",
       "requiredCompletedFocuses": [
         "M23"
       ],
@@ -1911,10 +1911,10 @@
       "conditions": [
         "Data >= 1940.1.1."
       ],
-      "x": -3,
-      "y": 4,
+      "x": 1,
+      "y": 1,
       "icon": "GFX_goal_continuous_armor_production",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_mobile_repair_columns"
     },
     {
       "code": "M30",
@@ -1931,9 +1931,9 @@
         "army.army_org_factor": 0.05
       },
       "x": 0,
-      "y": 7,
+      "y": 1,
       "icon": "GFX_goal_generic_allies_build_infantry",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_unified_operational_doctrine"
     },
     {
       "code": "M31",
@@ -1950,10 +1950,10 @@
         "army.breakthrough_factor": 0.025,
         "army.org_loss_when_moving": -0.1
       },
-      "x": -3,
-      "y": 5,
+      "x": 0,
+      "y": 1,
       "icon": "GFX_goal_generic_army_tanks",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_armoured_breakthrough"
     },
     {
       "code": "M32",
@@ -1974,9 +1974,9 @@
         "Data >= 1940.1.1."
       ],
       "x": 0,
-      "y": 8,
+      "y": 1,
       "icon": "GFX_goal_generic_demand_territory",
-      "relative_position_id": "TFR_SPA_the_staff_academy"
+      "relative_position_id": "TFR_SPA_expanded_officer_corps"
     },
     {
       "code": "A01",
@@ -2083,6 +2083,82 @@
       "y": 1,
       "icon": "GFX_goal_generic_air_production",
       "relative_position_id": "TFR_SPA_national_aircraft_design_bureaus"
+    },
+    {
+      "code": "A06",
+      "id": "TFR_SPA_fighter_modernisation_programme",
+      "name": "Fighter Modernisation Programme",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A04"
+        ]
+      ],
+      "effect": "Modernizarea vânătorilor: +5% rază aeriană și un bonus de cercetare de 50% pentru avioane ușoare.",
+      "modifiers": {
+        "air.air_range_factor": 0.05
+      },
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_air_fighter2",
+      "relative_position_id": "TFR_SPA_pilot_training_schools"
+    },
+    {
+      "code": "A07",
+      "id": "TFR_SPA_tactical_aviation_school",
+      "name": "Tactical Aviation School",
+      "days": 28,
+      "prerequisites": [
+        [
+          "A05"
+        ]
+      ],
+      "effect": "Un bonus de cercetare de 50% pentru avioane medii.",
+      "modifiers": {},
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_air_bomber",
+      "relative_position_id": "TFR_SPA_forward_airfield_network"
+    },
+    {
+      "code": "A08",
+      "id": "TFR_SPA_aircraft_warning_network",
+      "name": "Aircraft Warning Network",
+      "days": 28,
+      "prerequisites": [
+        [
+          "A06"
+        ]
+      ],
+      "effect": "Un bonus de cercetare de 50% pentru radar.",
+      "modifiers": {},
+      "x": 0,
+      "y": 1,
+      "icon": "GFX_goal_generic_radar",
+      "relative_position_id": "TFR_SPA_fighter_modernisation_programme"
+    },
+    {
+      "code": "A09",
+      "id": "TFR_SPA_all_weather_air_operations",
+      "name": "All-Weather Air Operations",
+      "days": 35,
+      "prerequisites": [
+        [
+          "A08"
+        ],
+        [
+          "A07"
+        ]
+      ],
+      "effect": "Reducerea penalizărilor aeriene de noapte și vreme cu câte 5%.",
+      "modifiers": {
+        "air.air_night_penalty": -0.05,
+        "air.air_weather_penalty": -0.05
+      },
+      "x": 1,
+      "y": 1,
+      "icon": "GFX_focus_generic_air_defense",
+      "relative_position_id": "TFR_SPA_aircraft_warning_network"
     },
     {
       "code": "N01",

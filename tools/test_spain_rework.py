@@ -265,6 +265,13 @@ class World:
 
 
 class SpainStructureTests(unittest.TestCase):
+    def test_spanish_ideas_use_the_native_root_without_a_byte_order_mark(self):
+        # The text harness accepts utf-8-sig, but the native idea loader treats
+        # the BOM as part of the root token and rejects the entire idea file.
+        raw=(ROOT/'common/ideas/spain_nationalist.txt').read_bytes()
+        self.assertTrue(raw.startswith(b'ideas = {'))
+        self.assertFalse(raw.startswith(b'\xef\xbb\xbf'))
+
     def test_native_variable_grammar_does_not_use_combined_comparison_tokens(self):
         # The generic test parser accepts >= and <=; HoI4 1.19's script lexer
         # does not. This caused the native load failure at D09, line 308.

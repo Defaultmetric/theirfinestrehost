@@ -464,6 +464,13 @@ class SpainStructureTests(unittest.TestCase):
         if not backup.exists():self.skipTest('Local pre-rework backup unavailable')
         old=parse(backup/'common/national_focus/spain.txt')[0][2];new=parse(ROOT/'common/national_focus/spain.txt')[0][2]
         old={get(v,'id'):v for k,_,v in old if k=='focus'};new={get(v,'id'):v for k,_,v in new if k=='focus'}
+        # Main migrated the Latin Bloc to its faction-logo template.
+        # Preserve every other field when comparing with the pre-rework backup.
+        reward=get(old['SPA_the_latin_bloc'],'completion_reward')
+        previous=('create_faction','=','SPA_latin_bloc')
+        replacement=('create_faction_from_template','=','faction_template_tfr_spa_latin_bloc')
+        self.assertIn(previous,reward)
+        reward[reward.index(previous)]=replacement
         for name in scope['untouched']:self.assertEqual(old[name],new[name],name)
         for name in scope['civil_war']:
             allowed=scope.get('civil_war_edits',{}).get(name,[])

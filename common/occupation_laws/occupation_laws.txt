@@ -557,14 +557,40 @@ colonial_police = {
 					}
 					AND = {
 						has_completed_focus = ITA_ministry_of_italian_africa
-						FROM = { capital_scope = { is_on_continent = africa } }
+						FROM = {
+				OR = {
+					tag = FET
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = africa }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = africa }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 					}
 				}
 			}
 			AND = {
 				original_tag = FBL
 				has_completed_focus = CONGO_force_publique
-				FROM = { capital_scope = { is_on_continent = africa } }
+				FROM = {
+				OR = {
+					tag = FET
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = africa }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = africa }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 			}
 		}
 		
@@ -616,7 +642,20 @@ colonial_police_improved = {
 				FROM = { original_tag = FAL }
 				has_completed_focus = ITA_albanian_fascist_militia
 			}
-			FROM = { capital_scope = { is_on_continent = africa } }
+			FROM = {
+				OR = {
+					tag = FET
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = africa }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = africa }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 		}
 	}
 
@@ -667,7 +706,20 @@ colonial_police_final = {
 				FROM = { original_tag = FAL }
 				has_completed_focus = ITA_albanian_fascist_militia
 			}
-			FROM = { capital_scope = { is_on_continent = africa } }
+			FROM = {
+				OR = {
+					tag = FET
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = africa }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = africa }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 		}
 	}
 
@@ -955,7 +1007,20 @@ GEACPS_exploitation_occupation_law = {
 		AND = {
 			original_tag = JAP
 			has_country_flag = JAP_chose_to_exploit_east_asia_flag
-			FROM = { capital_scope = { is_on_continent = asia } }
+			FROM = {
+				OR = {
+					tag = FCH
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = asia }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = asia }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 		}
 		
 	}
@@ -1005,7 +1070,20 @@ GEACPS_prosperity_occupation_law = {
 		AND = {
 			original_tag = JAP
 			has_country_flag = JAP_chose_to_support_east_asia_flag
-			FROM = { capital_scope = { is_on_continent = asia } }
+			FROM = {
+				OR = {
+					tag = FCH
+					AND = {
+						exists = yes
+						capital_scope = { is_on_continent = asia }
+					}
+					AND = {
+						exists = no
+						any_core_state = { is_on_continent = asia }
+						NOT = { any_core_state = { is_on_continent = europe } }
+					}
+				}
+			}
 		}
 		
 	}

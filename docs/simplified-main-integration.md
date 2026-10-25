@@ -34,3 +34,25 @@ Validation before publication:
   involved runtime files match the source branch exactly; this pre-existing
   mismatch is preserved, rather than changing Case Anton during this merge.
 - The merged main checkout was not loaded into the running HOI4 instance.
+
+## Main merged back into the simplified branch (2026-10-25)
+
+`origin/main` at `4531e487` is merged into `Mihai'sNavySimplified`, starting
+from `312a8cce`. The earlier Spain deferral applies to main; this branch keeps
+its complete Spanish rework and the seven shared-file integrations needed by it.
+The Latin Bloc faction-template update from main is retained in the shared
+Spanish tree, and its preservation test explicitly accounts for that update.
+Both audit JSON conflicts retain the simplified branch's reports, matching its
+naval setup and shared Axis layout.
+
+Main's remaining changes include the German gold-reserve guards, occupation-law
+scope guards, Japanese faction-demand fallback, aircraft/tank entity fixes and
+removal of guerrilla warfare's war-support bonus. Existing balance and toolbar
+changes already present on the simplified branch remain integrated.
+
+Validation: all 74 regression tests pass; generated Spanish scripts reproduce
+exactly after restoring LF line endings; doctrine checks pass 40 scenarios,
+120 repeated switches and 240 mastery snapshots. Naval startup validation passes
+43 designs, 33 research hooks, 518 historical variants, 1,189 MTG fleet entries
+and 267 production lines. The unchanged Case Anton validator still has the
+previously documented Vichy-identity assertion failure. No in-game test was run.

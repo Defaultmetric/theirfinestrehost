@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PLAN = json.loads((ROOT / 'tools/spain_focus_plan.json').read_text(encoding='utf-8'))
 FOCUSES = PLAN['focuses']
 BY_CODE = {f['code']: f for f in FOCUSES}
+BRANCH_MODIFIERS = {'air': 'A01', 'navy': 'N01'}
 BALANCE_REVISION = json.loads((ROOT/'tools/spain_balance_revision.json').read_text())
 TYPES = {'civ': 'industrial_complex', 'mil': 'arms_factory', 'dock': 'dockyard', 'refinery': 'synthetic_refinery'}
 BUILDING_DESTINATIONS = sorted({(a['state'],a['kind']) for f in FOCUSES for a in f.get('buildingStates',[])})
@@ -283,6 +284,11 @@ def reward(f):
         visible.append(f'unlock_decision_tooltip = {{ decision = {CAMPAIGN} show_effect_tooltip = yes }}')
     if code=='P05':
         visible.append('country_event = { id = TFR_spain_rework.5 days = 1 }')
+    for bucket, first_code in BRANCH_MODIFIERS.items():
+        if code == first_code:
+            # Publish the first bonus before displaying the modifier's tooltip.
+            visible += ['hidden_effect = { TFR_SPA_refresh_modifiers = yes }',
+                        f'add_dynamic_modifier = {{ modifier = TFR_SPA_{bucket}_dynamic }}']
     if f.get('specialization'):
         hidden.append(f'set_country_flag = TFR_SPA_{f["specialization"]}_specialization')
     hidden += ['TFR_SPA_flush_building_rewards = yes', 'TFR_SPA_refresh_modifiers = yes']
@@ -363,6 +369,9 @@ def generate_modifiers():
     for bucket,name in [('economy','Spanish Economy'),('army','Spanish Armed Forces'),('air','Spanish Air Force'),('navy','Spanish Navy')]:
         icon={'economy':'GFX_idea_generic_production_bonus','army':'GFX_idea_generic_army_war_college','air':'GFX_idea_generic_air_fighter','navy':'GFX_idea_generic_navy_bonus'}[bucket]
         body = f'enable = {{ has_country_flag = TFR_SPA_rework_initialized }}\nicon = {icon}\n'
+        if bucket in BRANCH_MODIFIERS:
+            body = body.replace('has_country_flag = TFR_SPA_rework_initialized',
+                                f'has_country_flag = TFR_SPA_rework_initialized TFR_SPA_{bucket}_branch_started = yes')
         for key in MODS:
             if key.startswith(bucket+'.'):
                 body+= f'{key.split(".")[1]} = var:{v(key)}\n'
@@ -443,6 +452,16 @@ def generate_runtime():
     for f in FOCUSES:
         if f.get('conditionalModifiers'):
             refresh+=block('if',f'limit = {{ has_completed_focus = {f["id"]} TFR_SPA_main_axis_war = yes }}\n'+'\n'.join(addmod(k,val,False) for k,val in f['conditionalModifiers'].items()))
+    # Migrate existing saves that received all four modifiers at mode selection.
+    # Reward flags work during completion; completed focuses cover older saves.
+    for bucket in BRANCH_MODIFIERS:
+        modifier = f'TFR_SPA_{bucket}_dynamic'
+        refresh += choose('has_country_flag = TFR_SPA_rework_initialized',
+            choose(f'TFR_SPA_{bucket}_branch_started = yes',
+                choose(f'NOT = {{ has_dynamic_modifier = {{ modifier = {modifier} }} }}',
+                       f'add_dynamic_modifier = {{ modifier = {modifier} }}'),
+                choose(f'has_dynamic_modifier = {{ modifier = {modifier} }}',
+                       f'remove_dynamic_modifier = {{ modifier = {modifier} }}')))
     # A country's modifiers are updated immediately after effects, then daily by the engine.
     effects+=block('TFR_SPA_refresh_modifiers',refresh)+'\n'
     init='limit = { NOT = { has_country_flag = TFR_SPA_rework_initialized } }\nset_country_flag = TFR_SPA_rework_initialized\n'
@@ -471,7 +490,7 @@ def generate_runtime():
     }
     for flag,(kind,n) in legacy_factories.items():
         init+=block('every_owned_state',f'limit = {{ has_state_flag = {flag} }}\nPREV = {{ add_to_variable = {{ TFR_SPA_credit_building_{kind} = {n} }} }}')
-    init+='TFR_SPA_refresh_modifiers = yes\n'+'\n'.join('add_dynamic_modifier = { modifier = TFR_SPA_'+b+'_dynamic }' for b in ('economy','army','air','navy'))+'\nmark_focus_tree_layout_dirty = yes'
+    init+='TFR_SPA_refresh_modifiers = yes\n'+'\n'.join('add_dynamic_modifier = { modifier = TFR_SPA_'+b+'_dynamic }' for b in ('economy','army'))+'\nmark_focus_tree_layout_dirty = yes'
     effects+=block('TFR_SPA_initialize',block('if',init))+'\n'
     effects+=block('TFR_SPA_enforce_volunteer_rules','''set_rule = {
         desc = TFR_SPA_volunteer_role_tt
@@ -536,7 +555,7 @@ def generate_runtime():
     effects+=block('TFR_SPA_flush_naval_arsenals',arsenals)+'\n'
     effects+=block('TFR_SPA_request_axis_membership',choose('is_in_faction_with = GER',
         'set_country_flag = TFR_SPA_axis_membership_accepted',
-        choose('has_country_flag = TFR_SPA_war_mode is_in_faction = no NOT = { has_war_with = GER } GER = { exists = yes is_faction_leader = yes has_government = fascism }',
+        choose('TFR_SPA_axis_membership_eligible = yes NOT = { has_country_flag = TFR_SPA_axis_request_pending }',
             'set_country_flag = { flag = TFR_SPA_axis_request_pending days = 30 }\nGER = { country_event = { id = TFR_spain_rework.1 days = 1 } }')))+'\n'
     effects+=block('TFR_SPA_portugal_agreement','''save_event_target_as = TFR_SPA_recipient
     NPR = {
@@ -595,6 +614,8 @@ def generate_runtime():
         relocation+=block('NPR',block('every_owned_state',move))
     relocation+='''if = {
         limit = {
+            has_country_flag = TFR_SPA_relocating_industry
+            NOT = { has_country_flag = TFR_SPA_relocation_complete }
             NOT = { any_state = { has_state_flag = TFR_SPA_industry_source OR = { check_variable = { TFR_SPA_owed_civ > 0 } check_variable = { TFR_SPA_owed_mil > 0 } check_variable = { TFR_SPA_owed_dock > 0 } } } }
         }
         clr_country_flag = TFR_SPA_relocating_industry
@@ -647,14 +668,19 @@ def generate_triggers_actions():
         any_enemy_country = { is_major = yes NOT = { original_tag = NPR } has_war_with = GER }
     }
     TFR_SPA_can_retry_axis_request = {
-        has_country_flag = TFR_SPA_war_mode
+        TFR_SPA_axis_membership_eligible = yes
         has_completed_focus = TFR_SPA_join_the_axis
+        NOT = { has_country_flag = TFR_SPA_axis_request_pending }
+    }
+    TFR_SPA_axis_membership_eligible = {
+        has_country_flag = TFR_SPA_war_mode
         is_in_faction = no
         is_subject = no
-        NOT = { has_country_flag = TFR_SPA_axis_request_pending }
         NOT = { has_war_with = GER }
         GER = { exists = yes has_government = fascism is_faction_leader = yes }
-    }''')
+    }\n\n'''+''.join(block(f'TFR_SPA_{bucket}_branch_started',
+        f'OR = {{ has_country_flag = TFR_SPA_reward_{code} has_completed_focus = {BY_CODE[code]["id"]} }}')
+        for bucket,code in BRANCH_MODIFIERS.items()))
     daily='''if = {
         limit = { original_tag = SPR has_focus_tree = spanish_focus }
         if = {
@@ -679,12 +705,19 @@ def generate_events_decisions():
         desc = TFR_spain_rework.1.d
         picture = GFX_report_event_generic_handshake
         is_triggered_only = yes
-        trigger = { tag = GER has_government = fascism is_faction_leader = yes NOT = { has_war_with = FROM } FROM = { has_country_flag = TFR_SPA_war_mode is_in_faction = no is_subject = no } }
+        trigger = { tag = GER FROM = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
         option = {
             name = TFR_spain_rework.1.a
             ai_chance = { factor = 95 }
-            add_to_faction = FROM
-            FROM = { clr_country_flag = TFR_SPA_axis_request_pending set_country_flag = TFR_SPA_axis_membership_accepted country_event = { id = TFR_spain_rework.2 days = 1 } }
+            # Recheck after a player has left the request open: diplomacy may change.
+            if = {
+                limit = { FROM = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
+                add_to_faction = FROM
+                FROM = { clr_country_flag = TFR_SPA_axis_request_pending set_country_flag = TFR_SPA_axis_membership_accepted country_event = { id = TFR_spain_rework.2 days = 1 } }
+            }
+            else = {
+                FROM = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
+            }
         }
         option = {
             name = TFR_spain_rework.1.b
@@ -805,7 +838,7 @@ def generate_events_decisions():
         'TFR_spain_rework.2.t':'Germany Accepts Spanish Membership',
         'TFR_spain_rework.2.d':'Spain has joined the Axis. Participation in its wars can now be arranged through normal diplomacy.',
         'TFR_spain_rework.3.t':'Germany Refuses Spanish Membership',
-        'TFR_spain_rework.3.d':'Germany has declined our request. We can renew our request through diplomatic decisions.',
+        'TFR_spain_rework.3.d':'Germany has declined our request, or changed diplomatic circumstances have prevented admission. We can renew our request through diplomatic decisions when eligible.',
         'TFR_spain_rework.4.t':'Portuguese Industry Relocated',
         'TFR_spain_rework.4.d':'The agreed civilian, military and naval production facilities have been moved into Spain. Portugal remains independent and its resource agreement remains in force.',
         'TFR_spain_rework.5.t':'The National Labour Accords',

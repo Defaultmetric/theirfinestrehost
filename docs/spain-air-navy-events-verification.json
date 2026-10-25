@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-25",
+  "preservedWorkshopPositions": {
+    "TFR_SPA_war_spain": [
+      34,
+      0
+    ],
+    "TFR_SPA_join_the_axis": [
+      36,
+      1
+    ],
+    "TFR_SPA_attack_portugal": [
+      43,
+      2
+    ],
+    "TFR_SPA_integrate_portugal": [
+      43,
+      3
+    ],
+    "TFR_SPA_full_war_commitment": [
+      45,
+      2
+    ],
+    "TFR_SPA_continental_war_coordination": [
+      45,
+      3
+    ],
+    "TFR_SPA_domestic_chemical_industry": [
+      27,
+      8
+    ]
+  },
+  "preservedWorkshopShipments": {
+    "focus": "SPA_equipment_shipments",
+    "cost": 5,
+    "infantry_equipment_1": 2000
+  },
+  "validation": {
+    "repositoryTests": 98,
+    "result": "passed",
+    "generatorCheck": "passed",
+    "nativeGameplay": "Not executed for these changes. Verification executes the shipped scripts in the repository harness.",
+    "workshopTests": 98,
+    "workshopGeneratorCheck": "passed"
+  },
+  "modifierActivation": {
+    "air": "TFR_SPA_establish_the_air_command",
+    "navy": "TFR_SPA_establish_the_naval_staff",
+    "oldSaves": "Daily refresh removes premature modifiers and restores earned ones without resetting rewards."
+  },
+  "eventCoverage": [
+    "Axis request recipient and sender, one-day delays, acceptance, refusal and retry",
+    "Duplicate requests suppressed while pending",
+    "Acceptance rechecks subject status, faction, war, German government and leadership, and request expiry",
+    "Portuguese relocation waits for industrial transfer, restores local targets after reload and notifies exactly once",
+    "Labour Accords offers both political choices once and preserves economic recovery",
+    "All five new events and their option localisation references resolve"
+  ],
+  "deployment": {
+    "workshop": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\394360\\3513811852",
+    "gameClosedBeforeSync": true,
+    "restoredCommentOnlyStub": "common/national_focus/TFR_spain_rework.txt"
+  }
+}

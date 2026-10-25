@@ -934,12 +934,12 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SPA_the_corpo_truppe_volontarie
-		cost = 1
+		cost = 5
 
 		available_if_capitulated = yes
 
 		completion_reward = {
-			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = ROOT }
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 2000 producer = ROOT }
 			add_equipment_to_stockpile = { type = support_equipment_1 amount = 500 producer = ROOT }
 			add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 200 producer = ROOT }
 		}
@@ -13408,7 +13408,7 @@ focus_tree = {
 		id = TFR_SPA_war_spain
 		icon = GFX_goal_support_fascism
 		relative_position_id = SPA_a_great_spain
-		x = 32
+		x = 33
 		y = 0
 		cost = 2
 		available_if_capitulated = no
@@ -14961,8 +14961,8 @@ focus_tree = {
 		id = TFR_SPA_domestic_chemical_industry
 		icon = GFX_goal_generic_oil_refinery
 		relative_position_id = TFR_SPA_hydroelectric_development
-		x = 1
-		y = 1
+		x = 0
+		y = 2
 		cost = 5
 		available_if_capitulated = no
 		cancel_if_invalid = yes
@@ -18048,6 +18048,8 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
+				hidden_effect = { TFR_SPA_refresh_modifiers = yes }
+				add_dynamic_modifier = { modifier = TFR_SPA_air_dynamic }
 				hidden_effect = {
 					subtract_from_variable = { TFR_SPA_base_air_air_mission_efficiency = 0.05 }
 					set_temp_variable = { TFR_SPA_grant = 0.05 }
@@ -18502,6 +18504,8 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
+				hidden_effect = { TFR_SPA_refresh_modifiers = yes }
+				add_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic }
 				hidden_effect = {
 					subtract_from_variable = { TFR_SPA_base_navy_naval_detection = 0.05 }
 					set_temp_variable = { TFR_SPA_grant = 0.05 }

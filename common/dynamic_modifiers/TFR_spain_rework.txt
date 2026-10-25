@@ -51,7 +51,7 @@ TFR_SPA_army_dynamic = {
 }
 
 TFR_SPA_air_dynamic = {
-	enable = { has_country_flag = TFR_SPA_rework_initialized }
+	enable = { has_country_flag = TFR_SPA_rework_initialized TFR_SPA_air_branch_started = yes }
 	icon = GFX_idea_generic_air_fighter
 	air_accidents_factor = var:TFR_SPA_air_air_accidents_factor
 	air_agility_factor = var:TFR_SPA_air_air_agility_factor
@@ -64,7 +64,7 @@ TFR_SPA_air_dynamic = {
 }
 
 TFR_SPA_navy_dynamic = {
-	enable = { has_country_flag = TFR_SPA_rework_initialized }
+	enable = { has_country_flag = TFR_SPA_rework_initialized TFR_SPA_navy_branch_started = yes }
 	icon = GFX_idea_generic_navy_bonus
 	convoy_escort_efficiency = var:TFR_SPA_navy_convoy_escort_efficiency
 	convoy_raiding_efficiency_factor = var:TFR_SPA_navy_convoy_raiding_efficiency_factor

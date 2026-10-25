@@ -606,6 +606,38 @@ TFR_SPA_refresh_modifiers = {
 		limit = { has_completed_focus = TFR_SPA_continental_war_coordination TFR_SPA_main_axis_war = yes }
 		add_to_variable = { TFR_SPA_army_army_morale_factor = 0.025 }
 	}
+	if = {
+		limit = { has_country_flag = TFR_SPA_rework_initialized }
+		if = {
+			limit = { TFR_SPA_air_branch_started = yes }
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = TFR_SPA_air_dynamic } } }
+				add_dynamic_modifier = { modifier = TFR_SPA_air_dynamic }
+			}
+		}
+		else = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TFR_SPA_air_dynamic } }
+				remove_dynamic_modifier = { modifier = TFR_SPA_air_dynamic }
+			}
+		}
+	}
+	if = {
+		limit = { has_country_flag = TFR_SPA_rework_initialized }
+		if = {
+			limit = { TFR_SPA_navy_branch_started = yes }
+			if = {
+				limit = { NOT = { has_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic } } }
+				add_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic }
+			}
+		}
+		else = {
+			if = {
+				limit = { has_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic } }
+				remove_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic }
+			}
+		}
+	}
 }
 
 TFR_SPA_initialize = {
@@ -865,8 +897,6 @@ TFR_SPA_initialize = {
 		TFR_SPA_refresh_modifiers = yes
 		add_dynamic_modifier = { modifier = TFR_SPA_economy_dynamic }
 		add_dynamic_modifier = { modifier = TFR_SPA_army_dynamic }
-		add_dynamic_modifier = { modifier = TFR_SPA_air_dynamic }
-		add_dynamic_modifier = { modifier = TFR_SPA_navy_dynamic }
 		mark_focus_tree_layout_dirty = yes
 	}
 }
@@ -1198,7 +1228,7 @@ TFR_SPA_request_axis_membership = {
 	}
 	else = {
 		if = {
-			limit = { has_country_flag = TFR_SPA_war_mode is_in_faction = no NOT = { has_war_with = GER } GER = { exists = yes is_faction_leader = yes has_government = fascism } }
+			limit = { TFR_SPA_axis_membership_eligible = yes NOT = { has_country_flag = TFR_SPA_axis_request_pending } }
 			set_country_flag = { flag = TFR_SPA_axis_request_pending days = 30 }
 			GER = { country_event = { id = TFR_spain_rework.1 days = 1 } }
 		}
@@ -1329,6 +1359,8 @@ TFR_SPA_process_relocation = {
 	}
 	if = {
 	        limit = {
+	            has_country_flag = TFR_SPA_relocating_industry
+	            NOT = { has_country_flag = TFR_SPA_relocation_complete }
 	            NOT = { any_state = { has_state_flag = TFR_SPA_industry_source OR = { check_variable = { TFR_SPA_owed_civ > 0 } check_variable = { TFR_SPA_owed_mil > 0 } check_variable = { TFR_SPA_owed_dock > 0 } } } }
 	        }
 	        clr_country_flag = TFR_SPA_relocating_industry

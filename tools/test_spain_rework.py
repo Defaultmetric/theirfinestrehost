@@ -51,6 +51,9 @@ class World:
         self.global_flags={'scw_over'}
         self.days_since_scw=0
         self.events=[]
+        self.event_queue=[]
+        self.event_history=set()
+        self.event_day=0
         self.rights=[]
         self.research=[]
         self.stockpile=defaultdict(int)
@@ -114,11 +117,12 @@ class World:
             if k=='original_tag':return scope==v
             if k=='tag':return scope==self.target(v,scope,prev,root)
             if k=='has_country_leader':return obj['leader']
-            if k=='has_government':return v=='fascism'
-            if k in ('has_civil_war','is_subject'):return v=='no'
+            if k=='has_government':return v==obj.get('government','fascism')
+            if k=='has_civil_war':return v=='no'
+            if k=='is_subject':return obj.get('subject',False)==(v=='yes')
             if k=='is_ai':return (obj.get('is_ai',False))==(v=='yes')
             if k=='exists':return (scope in self.countries)==(v=='yes')
-            if k=='is_faction_leader':return (scope=='GER')==(v=='yes')
+            if k=='is_faction_leader':return obj.get('faction_leader',scope=='GER')==(v=='yes')
             if k=='is_major':return obj['major']==(v=='yes')
             if k=='is_in_faction':return (obj['faction'] is not None)==(v=='yes')
             if k=='is_in_faction_with':return obj['faction'] is not None and obj['faction']==self.countries[self.target(v,scope,prev,root)]['faction']
@@ -211,7 +215,10 @@ class World:
             elif k=='add_dynamic_modifier':obj['dynamic'].add(get(v,'modifier'))
             elif k=='remove_dynamic_modifier':
                 assert get(v,'modifier') in obj['dynamic'];obj['dynamic'].remove(get(v,'modifier'))
-            elif k=='country_event':self.events.append((scope,get(v,'id')))
+            elif k=='country_event':
+                name=get(v,'id');self.events.append((scope,name))
+                delay=float(next((a for key,_,a in v if key=='days'),'0'))
+                self.event_queue.append((scope,name,root,self.event_day+delay))
             elif k=='create_wargoal':self.wargoals.append((scope,get(v,'target')))
             elif k=='add_political_power':obj['pp']+=float(v)
             elif k=='add_stability':obj['stability']+=float(v)
@@ -230,6 +237,22 @@ class World:
             else:raise AssertionError(('unsupported effect',k,scope))
 
     def run(self,name,scope='SPR'):self.effect(EFFECTS[name],scope)
+    def deliver_next_event(self,option=0):
+        recipient,name,sender,due=self.event_queue.pop(0)
+        self.event_day=max(self.event_day,due)
+        event=EVENTS[name];previous=self.from_scope;self.from_scope=sender
+        try:
+            trigger=next((body for key,_,body in event if key=='trigger'),[])
+            if not self.check(trigger,recipient):return False
+            once=next((value for key,_,value in event if key=='fire_only_once'),'no')
+            if once=='yes' and (recipient,name) in self.event_history:return False
+            self.event_history.add((recipient,name))
+            immediate=next((body for key,_,body in event if key=='immediate'),[])
+            self.effect(immediate,recipient)
+            options=[body for key,_,body in event if key=='option']
+            self.effect([e for e in options[option] if e[0] not in ('name','ai_chance')],recipient)
+            return True
+        finally:self.from_scope=previous
     def focus(self,code):
         self.countries['SPR']['completed'].add(get(BY_CODE[code],'id'))
         self.effect(get(BY_CODE[code],'completion_reward'))
@@ -476,6 +499,12 @@ class SpainStructureTests(unittest.TestCase):
         replacement=('create_faction_from_template','=','faction_template_tfr_spa_latin_bloc')
         self.assertIn(previous,reward)
         reward[reward.index(previous)]=replacement
+        # Preserve the user's Workshop adjustment to the civil-war shipments.
+        shipments=old['SPA_equipment_shipments']
+        shipments[shipments.index(('cost','=','1'))]=('cost','=','5')
+        self.assertEqual(get(new['SPA_equipment_shipments'],'cost'),'5')
+        stockpiles=[v for k,_,v in get(new['SPA_equipment_shipments'],'completion_reward') if k=='add_equipment_to_stockpile']
+        self.assertEqual(get(next(v for v in stockpiles if get(v,'type')=='infantry_equipment_1'),'amount'),'2000')
         for name in scope['untouched']:self.assertEqual(old[name],new[name],name)
         for name in scope['civil_war']:
             allowed=scope.get('civil_war_edits',{}).get(name,[])
@@ -936,6 +965,8 @@ class SpainRuntimeTests(unittest.TestCase):
             self.assertEqual(get(FOCUSES[f['id']],'relative_position_id'),expected,f['code'])
         report=json.loads((ROOT/'docs/native-log-repairs-20261025.json').read_text())
         baseline=report['focusPositionsBeforeRepair']
+        preserved=json.loads((ROOT/'docs/spain-air-navy-events-verification.json').read_text())
+        baseline.update(preserved['preservedWorkshopPositions'])
         self.assertEqual(set(baseline),set(FOCUSES))
         for name,expected in baseline.items():
             self.assertEqual(absolute_position(name),tuple(expected),name)
@@ -986,6 +1017,126 @@ class SpainRuntimeTests(unittest.TestCase):
         self.assertTrue(w.check(bypass, 'SPR'))
         shared_opt = (ROOT/'common/on_actions/shared_tree_optimization.txt').read_text()
         self.assertIn('has_completed_focus = TFR_SPA_volunteer_spain', shared_opt)
+
+
+class SpainBranchEventTests(unittest.TestCase):
+    def test_air_and_navy_modifiers_start_independently_at_the_first_focus(self):
+        definitions={k:v for k,_,v in parse(ROOT/'common/dynamic_modifiers/TFR_spain_rework.txt')}
+        for mode in ('D01','D02'):
+            for order in (('A01','N01'),('N01','A01')):
+                w=World();w.focus(mode);country=w.countries['SPR']
+                self.assertEqual(country['dynamic'],{'TFR_SPA_economy_dynamic','TFR_SPA_army_dynamic'})
+                for n,code in enumerate(order):
+                    bucket='air' if code=='A01' else 'navy';modifier=f'TFR_SPA_{bucket}_dynamic'
+                    self.assertFalse(w.check(get(definitions[modifier],'enable')))
+                    w.focus(code)
+                    self.assertIn(modifier,country['dynamic'])
+                    self.assertTrue(w.check(get(definitions[modifier],'enable')))
+                    first=[e for e in get(BY_CODE[code],'completion_reward')[0][2] if e[0]=='add_dynamic_modifier']
+                    self.assertEqual(get(first[0][2],'modifier'),modifier)
+                    if n==0:self.assertNotIn(f'TFR_SPA_{"navy" if bucket=="air" else "air"}_dynamic',country['dynamic'])
+                before=dict(country['vars']);w.focus('A01');w.focus('N01');w.run('TFR_SPA_refresh_modifiers')
+                self.assertEqual(dict(country['vars']),before)
+                self.assertAlmostEqual(w.stat('air.air_mission_efficiency'),.05)
+                self.assertAlmostEqual(w.stat('navy.naval_detection'),.05)
+
+    def test_daily_update_migrates_premature_modifiers_without_losing_rewards(self):
+        daily=get(get(parse(ROOT/'common/on_actions/TFR_spain_rework.txt')[0][2],'on_daily'),'effect')
+        for first in (None,'A01','N01'):
+            w=World();w.focus('D01');country=w.countries['SPR']
+            if first:w.focus(first)
+            country['dynamic'].update({'TFR_SPA_air_dynamic','TFR_SPA_navy_dynamic'})
+            before=dict(country['vars']);w.effect(daily)
+            self.assertEqual('TFR_SPA_air_dynamic' in country['dynamic'],first=='A01')
+            self.assertEqual('TFR_SPA_navy_dynamic' in country['dynamic'],first=='N01')
+            self.assertEqual(dict(country['vars']),before)
+            if first:
+                bucket='air' if first=='A01' else 'navy'
+                country['dynamic'].discard(f'TFR_SPA_{bucket}_dynamic')
+                country['flags'].discard(f'TFR_SPA_reward_{first}')
+                w.effect(daily)
+                self.assertIn(f'TFR_SPA_{bucket}_dynamic',country['dynamic'])
+
+    def test_axis_events_deliver_both_responses_to_spain_with_the_right_sender(self):
+        for choice in (0,1):
+            w=World();w.focus('D02');w.focus('D04')
+            self.assertEqual(w.event_queue,[('GER','TFR_spain_rework.1','SPR',1)])
+            w.run('TFR_SPA_request_axis_membership');self.assertEqual(len(w.event_queue),1)
+            self.assertTrue(w.deliver_next_event(option=choice))
+            response='TFR_spain_rework.'+('2' if choice==0 else '3')
+            self.assertEqual(w.event_queue,[('SPR',response,'GER',2)])
+            self.assertTrue(w.deliver_next_event())
+            self.assertEqual(w.event_queue,[])
+            self.assertNotIn('TFR_SPA_axis_request_pending',w.countries['SPR']['flags'])
+            self.assertEqual(w.countries['SPR']['faction'],'axis' if choice==0 else None)
+            if choice==1:
+                decision=DECISIONS['TFR_SPA_renew_axis_request']
+                self.assertTrue(w.check(get(decision,'available')))
+                w.effect(get(decision,'complete_effect'))
+                self.assertEqual(w.event_queue,[('GER','TFR_spain_rework.1','SPR',3)])
+
+    def test_stale_acceptance_cannot_override_changed_diplomacy(self):
+        for scenario in ('subject','other_faction','war','german_government','german_leadership','expired'):
+            w=World();w.focus('D02');w.focus('D04');w.from_scope='SPR'
+            event=EVENTS['TFR_spain_rework.1'];self.assertTrue(w.check(get(event,'trigger'),'GER'))
+            if scenario=='subject':w.countries['SPR']['subject']=True
+            elif scenario=='other_faction':w.countries['SPR']['faction']='allies'
+            elif scenario=='war':w.countries['SPR']['wars'].add('GER')
+            elif scenario=='german_government':w.countries['GER']['government']='democratic'
+            elif scenario=='german_leadership':w.countries['GER']['faction_leader']=False
+            else:w.countries['SPR']['flags'].discard('TFR_SPA_axis_request_pending')
+            self.assertFalse(w.check(get(event,'trigger'),'GER'))
+            # The panel was already open before the changed conditions.
+            option=next(v for k,_,v in event if k=='option')
+            w.effect([e for e in option if e[0] not in ('name','ai_chance')],'GER')
+            self.assertNotEqual(w.countries['SPR']['faction'],'axis',scenario)
+            self.assertNotIn('TFR_SPA_axis_membership_accepted',w.countries['SPR']['flags'])
+            self.assertNotIn('TFR_SPA_axis_request_pending',w.countries['SPR']['flags'])
+            self.assertEqual(w.events[-1],('SPR','TFR_spain_rework.3'))
+
+    def test_portuguese_completion_event_waits_for_transfer_and_fires_once(self):
+        w=World();w.focus('D01');w.states['112']['buildings']['dockyard']=3
+        for state in w.states.values():
+            if state['owner']=='SPR':state['coast']=False
+        w.focus('D05');w.focus('D06');self.assertEqual(w.event_queue,[])
+        w=deepcopy(w);w.targets.clear();w.states['171']['coast']=True
+        daily=get(get(parse(ROOT/'common/on_actions/TFR_spain_rework.txt')[0][2],'on_daily'),'effect')
+        w.effect(daily)
+        self.assertEqual(w.event_queue,[('SPR','TFR_spain_rework.4','SPR',1)])
+        self.assertTrue(w.deliver_next_event())
+        for _ in range(3):
+            w.run('TFR_SPA_process_relocation');w.run('TFR_SPA_begin_relocation');w.effect(daily)
+        self.assertEqual(w.events.count(('SPR','TFR_spain_rework.4')),1)
+        self.assertEqual(w.event_queue,[]);self.assertEqual(w.total('dockyard','NPR'),0)
+
+    def test_labour_event_delay_single_use_and_both_choices(self):
+        for choice in (0,1):
+            w=World();w.focus('D01');w.focus('P01');w.focus('P04');w.focus('P05')
+            self.assertEqual(w.event_queue,[('SPR','TFR_spain_rework.5','SPR',1)])
+            before=w.stat('economy.consumer_goods_factor')
+            self.assertTrue(w.deliver_next_event(option=choice))
+            self.assertAlmostEqual(w.countries['SPR']['stability'],.05 if choice==0 else -.025)
+            self.assertAlmostEqual(w.countries['SPR']['war_support'],0 if choice==0 else .1)
+            self.assertEqual(w.stat('economy.consumer_goods_factor'),before)
+            w.focus('P05');self.assertEqual(w.event_queue,[])
+            w.event_queue.append(('SPR','TFR_spain_rework.5','SPR',2))
+            self.assertFalse(w.deliver_next_event(option=1-choice))
+
+    def test_all_new_events_and_options_have_localisation_and_known_targets(self):
+        generator.generate()
+        self.assertEqual(set(EVENTS),{f'TFR_spain_rework.{n}' for n in range(1,6)})
+        for name,event in EVENTS.items():
+            for key in ('title','desc'):self.assertIn(get(event,key),generator.LOC)
+            for k,_,body in event:
+                if k=='option':self.assertIn(get(body,'name'),generator.LOC)
+            self.assertEqual(get(event,'is_triggered_only'),'yes')
+        for rel,data in generator.OUT.items():
+            if not rel.endswith('.txt'):continue
+            for entry in syntax.walk(syntax.parse(data.decode())):
+                if entry.key=='country_event' and entry.get('id'):
+                    name=entry.get('id').value
+                    if name.startswith('TFR_spain_rework.'):
+                        self.assertIn(name,EVENTS,rel)
 
 
 if __name__=='__main__':unittest.main()

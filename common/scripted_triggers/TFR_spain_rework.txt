@@ -20,11 +20,21 @@ TFR_SPA_postwar_tree_ready = {
         any_enemy_country = { is_major = yes NOT = { original_tag = NPR } has_war_with = GER }
     }
     TFR_SPA_can_retry_axis_request = {
-        has_country_flag = TFR_SPA_war_mode
+        TFR_SPA_axis_membership_eligible = yes
         has_completed_focus = TFR_SPA_join_the_axis
+        NOT = { has_country_flag = TFR_SPA_axis_request_pending }
+    }
+    TFR_SPA_axis_membership_eligible = {
+        has_country_flag = TFR_SPA_war_mode
         is_in_faction = no
         is_subject = no
-        NOT = { has_country_flag = TFR_SPA_axis_request_pending }
         NOT = { has_war_with = GER }
         GER = { exists = yes has_government = fascism is_faction_leader = yes }
     }
+
+TFR_SPA_air_branch_started = {
+	OR = { has_country_flag = TFR_SPA_reward_A01 has_completed_focus = TFR_SPA_establish_the_air_command }
+}
+TFR_SPA_navy_branch_started = {
+	OR = { has_country_flag = TFR_SPA_reward_N01 has_completed_focus = TFR_SPA_establish_the_naval_staff }
+}

@@ -655,7 +655,11 @@ class SpainRuntimeTests(unittest.TestCase):
 
     def test_revision_runs_before_a_new_focus_reward_can_be_reduced_twice(self):
         w=World();w.focus('D01');w.countries['SPR']['flags'].discard('TFR_SPA_balance_revision_1')
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),.1)
         w.focus('E32');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.075)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),0)
+        w.run('TFR_SPA_refresh_modifiers')
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),0)
         w.run('TFR_SPA_refresh_modifiers');self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.075)
 
     def test_air_utility_additions_do_not_increase_combat_stats_or_exceed_airfield_cap(self):
@@ -757,7 +761,7 @@ class SpainRuntimeTests(unittest.TestCase):
                 self.assertNotIn(idea,w.countries['SPR']['ideas'])
                 self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],stage)
                 for key,value in generator.RECOVERY_PENALTIES[stage].items():
-                    self.assertAlmostEqual(w.stat(key),value)
+                    self.assertAlmostEqual(w.stat(key),value + (.1 if key=='economy.consumer_goods_factor' else 0))
 
     def test_every_original_positive_and_negative_recovery_profile_is_preserved(self):
         # Independent oracle: read the original idea modifiers, rather than the
@@ -774,25 +778,25 @@ class SpainRuntimeTests(unittest.TestCase):
                     for name in names:
                         for entry in ideas[name].get('modifier').active():expected['economy.'+entry.key]+=float(entry.value)
                     w=World();w.countries['SPR']['ideas'].update(names);w.focus('D01')
-                    for key,value in expected.items():self.assertAlmostEqual(w.stat(key),value,msg=key)
+                    for key,value in expected.items():self.assertAlmostEqual(w.stat(key),value + (.1 if key=='economy.consumer_goods_factor' else 0),msg=key)
                     self.assertFalse(w.countries['SPR']['ideas'] & set(names))
 
     def test_positive_recovery_progresses_in_dynamic_and_expires_without_reset(self):
         w=World();w.countries['SPR']['ideas'].add('SPA_recovering_from_civil_war');w.focus('D01');w.focus('P01')
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),.05)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),0.15)
         self.assertAlmostEqual(w.stat('economy.stability_weekly'),.002)
         self.assertEqual(w.stat('economy.ai_join_ally_desire_factor'),-300)
         w.countries['SPR']['flag_ages']['TFR_SPA_recovery_programme_started']=1000
         w.focus('P04');self.assertAlmostEqual(w.stat('economy.production_speed_infrastructure_factor'),.1)
         self.assertEqual(w.stat('economy.ai_join_ally_desire_factor'),-200)
         w.focus('P05');self.assertEqual(w.stat('economy.stability_weekly'),0)
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.1)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),0)
         self.assertEqual(w.countries['SPR']['flag_ages']['TFR_SPA_recovery_programme_started'],1000)
-        w.focus('P09');w.focus('P10');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.25)
+        w.focus('P09');w.focus('P10');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-0.15)
         self.assertEqual(w.stat('economy.join_faction_tension'),0)
         w.countries['SPR']['flag_ages']['TFR_SPA_recovery_programme_started']=1825;w.run('TFR_SPA_refresh_modifiers')
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.1)
-        w.focus('P12');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.15)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),0)
+        w.focus('P12');self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-0.05)
         self.assertEqual(w.stat('economy.production_speed_infrastructure_factor'),0)
         self.assertIn('TFR_SPA_recovery_programme_expired',w.countries['SPR']['flags'])
 
@@ -849,17 +853,17 @@ class SpainRuntimeTests(unittest.TestCase):
             w.focus('P04');self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],max(stage,2))
             w.focus('P09');self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],max(stage,3))
             w.focus('P10');self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],4)
-            self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.15)
+            self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-0.05)
 
     def test_old_economic_ideas_import_without_stacking_new_rewards(self):
         w=World();w.countries['SPR']['ideas'].update(['SPA_the_duty_to_work','SPA_fascist_economic_aid','SPA_national_recovery_3'])
         w.focus('D01')
         self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.1)
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.25)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-0.15)
         w.focus('E11');w.focus('E24');w.focus('E29');w.focus('P05');w.focus('P10')
         self.assertAlmostEqual(w.stat('economy.industrial_capacity_factory'),.1)
         self.assertAlmostEqual(w.stat('economy.production_speed_arms_factory_factor'),.1)
-        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-.25)
+        self.assertAlmostEqual(w.stat('economy.consumer_goods_factor'),-0.15)
         self.assertFalse(w.countries['SPR']['ideas'] & set(generator.LEGACY_IDEAS))
 
     def test_old_factory_flags_credit_only_existing_nationalist_rewards(self):

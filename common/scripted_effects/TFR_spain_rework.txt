@@ -607,6 +607,11 @@ TFR_SPA_refresh_modifiers = {
 		limit = { has_completed_focus = TFR_SPA_continental_war_coordination TFR_SPA_main_axis_war = yes }
 		add_to_variable = { TFR_SPA_army_army_morale_factor = 0.025 }
 	}
+	add_to_variable = { TFR_SPA_economy_consumer_goods_factor = 0.1 }
+	if = {
+		limit = { OR = { has_country_flag = TFR_SPA_reward_E32 has_completed_focus = TFR_SPA_an_iberian_economic_powerhouse } }
+		add_to_variable = { TFR_SPA_economy_consumer_goods_factor = -0.1 }
+	}
 	if = {
 		limit = { has_country_flag = TFR_SPA_rework_initialized }
 		if = {

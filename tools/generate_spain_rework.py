@@ -276,6 +276,8 @@ def reward(f):
         hidden.append(special)
     else:
         visible.append(special)
+    if code=='E32':
+        visible.append(modifier_preview({'economy.consumer_goods_factor': -.1}))
     if code=='E03':
         visible.append('unlock_decision_category_tooltip = TFR_SPA_regional_reconstruction')
     else:
@@ -454,6 +456,11 @@ def generate_runtime():
     for f in FOCUSES:
         if f.get('conditionalModifiers'):
             refresh+=block('if',f'limit = {{ has_completed_focus = {f["id"]} TFR_SPA_main_axis_war = yes }}\n'+'\n'.join(addmod(k,val,False) for k,val in f['conditionalModifiers'].items()))
+    # Apply these independent adjustments after the recovery programme's cap.
+    # Rebuilding the displayed value makes refreshes safe for existing saves.
+    refresh += 'add_to_variable = { TFR_SPA_economy_consumer_goods_factor = 0.1 }\n'
+    refresh += choose('OR = { has_country_flag = TFR_SPA_reward_E32 has_completed_focus = TFR_SPA_an_iberian_economic_powerhouse }',
+                      'add_to_variable = { TFR_SPA_economy_consumer_goods_factor = -0.1 }')
     # Migrate existing saves that received all four modifiers at mode selection.
     # Reward flags work during completion; completed focuses cover older saves.
     for bucket in BRANCH_MODIFIERS:

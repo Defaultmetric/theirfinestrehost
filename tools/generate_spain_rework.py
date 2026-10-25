@@ -150,7 +150,7 @@ def tech(code, category):
 RESEARCH = {
     'D09': ['support_tech'], 'D10': ['dd_tech'], 'D11': ['light_air'],
     'P06': ['electronics'], 'E05': ['construction_tech'], 'E09': ['synth_resources'], 'E12': ['industry'],
-    'E17': ['construction_tech'], 'E27': ['excavation_tech'],
+    'E17': ['construction_tech'],
     'M03': ['infantry_weapons', 'support_tech'], 'M04': ['artillery'],
     'M06': ['motorized_equipment'], 'M09': ['mountaineers_tech'], 'M10': ['marine_tech'],
     'M18': ['support_tech'], 'M19': ['armor'], 'A03': ['light_air'],
@@ -214,10 +214,13 @@ SPECIAL = {
     'E18': placements('infrastructure', 2),
     'E16': '175 = { if = { limit = { is_owned_and_controlled_by = ROOT infrastructure < 5 } add_building_construction = { type = infrastructure level = 1 instant_build = yes } } }\nrandom_owned_controlled_state = { limit = { is_core_of = PREV } add_resource = { type = coal amount = 16 } }',
     'E08': 'TFR_SPA_upgrade_supply_railways = yes',
-    'E27': '''every_owned_state = { clr_state_flag = TFR_SPA_placement }
-    TFR_SPA_add_domestic_steel = yes
-    TFR_SPA_add_domestic_steel = yes
-    every_owned_state = { clr_state_flag = TFR_SPA_placement }''',
+    'E27': '''random_owned_controlled_state = {
+        limit = { is_core_of = PREV }
+        add_resource = { type = steel amount = 12 }
+        add_resource = { type = tungsten amount = 12 }
+        add_resource = { type = coal amount = 12 }
+        add_resource = { type = aluminium amount = 12 }
+    }''',
     'A05': '\n'.join(block(str(state),choose('is_owned_and_controlled_by = ROOT air_base < 10','add_building_construction = { type = air_base level = 2 instant_build = yes }')) for state in (167,169)),
     'N04': 'TFR_SPA_expand_naval_bases = yes',
     'N05': 'add_equipment_to_stockpile = { type = convoy amount = 40 producer = ROOT }',
@@ -632,11 +635,6 @@ def generate_runtime():
         country_event = { id = TFR_spain_rework.4 days = 1 }
     }'''
     effects+=block('TFR_SPA_process_relocation',relocation)+'\n'
-    effects+=block('TFR_SPA_add_domestic_steel',choose('any_owned_state = { is_owned_and_controlled_by = PREV is_core_of = PREV NOT = { has_state_flag = TFR_SPA_placement } OR = { industrial_complex > 0 arms_factory > 0 } }', '''random_owned_controlled_state = {
-            limit = { is_core_of = PREV NOT = { has_state_flag = TFR_SPA_placement } OR = { industrial_complex > 0 arms_factory > 0 } }
-            set_state_flag = TFR_SPA_placement
-            add_resource = { type = steel amount = 6 }
-        }''', 'add_political_power = 25'))+'\n'
     # Increment an existing internal supply corridor by one, maximum level three.
     rail=''
     for target in (171,165):

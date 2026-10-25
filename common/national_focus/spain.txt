@@ -15902,7 +15902,7 @@ focus_tree = {
 		relative_position_id = TFR_SPA_integrated_electricity_network
 		x = 0
 		y = 2
-		cost = 4
+		cost = 5
 		available_if_capitulated = no
 		cancel_if_invalid = yes
 		allow_branch = { always = yes }
@@ -15913,11 +15913,13 @@ focus_tree = {
 				limit = { NOT = { has_country_flag = TFR_SPA_reward_E27 } }
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_E27
-				add_tech_bonus = { name = TFR_SPA_domestic_materials_programme bonus = 0.5 uses = 1 category = excavation_tech }
-				every_owned_state = { clr_state_flag = TFR_SPA_placement }
-				    TFR_SPA_add_domestic_steel = yes
-				    TFR_SPA_add_domestic_steel = yes
-				    every_owned_state = { clr_state_flag = TFR_SPA_placement }
+				random_owned_controlled_state = {
+				        limit = { is_core_of = PREV }
+				        add_resource = { type = steel amount = 12 }
+				        add_resource = { type = tungsten amount = 12 }
+				        add_resource = { type = coal amount = 12 }
+				        add_resource = { type = aluminium amount = 12 }
+				    }
 				hidden_effect = {
 					TFR_SPA_flush_building_rewards = yes
 					TFR_SPA_refresh_modifiers = yes

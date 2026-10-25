@@ -1375,20 +1375,6 @@ TFR_SPA_process_relocation = {
 	    }
 }
 
-TFR_SPA_add_domestic_steel = {
-	if = {
-		limit = { any_owned_state = { is_owned_and_controlled_by = PREV is_core_of = PREV NOT = { has_state_flag = TFR_SPA_placement } OR = { industrial_complex > 0 arms_factory > 0 } } }
-		random_owned_controlled_state = {
-		            limit = { is_core_of = PREV NOT = { has_state_flag = TFR_SPA_placement } OR = { industrial_complex > 0 arms_factory > 0 } }
-		            set_state_flag = TFR_SPA_placement
-		            add_resource = { type = steel amount = 6 }
-		        }
-	}
-	else = {
-		add_political_power = 25
-	}
-}
-
 TFR_SPA_upgrade_supply_railways = {
 	if = {
 		limit = { 41 = { is_owned_and_controlled_by = ROOT } 171 = { is_owned_and_controlled_by = ROOT } }

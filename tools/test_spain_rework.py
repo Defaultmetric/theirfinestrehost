@@ -968,7 +968,7 @@ class SpainRuntimeTests(unittest.TestCase):
         w=World();w.focus('D01');w.states['165']['dynamic'].add('autonomous_state');w.states['171']['dynamic'].add('semi_autonomous_state');w.states['171']['controller']='ENG'
         w.focus('P03');self.assertFalse(w.states['165']['dynamic']);self.assertIn('semi_autonomous_state',w.states['171']['dynamic'])
 
-    def test_all_rework_focuses_use_relative_positions_without_moving(self):
+    def test_all_rework_focuses_use_relative_positions_and_reviewed_layout(self):
         for f in generator.FOCUSES:
             expected = (generator.BY_CODE[f['prerequisites'][0][0]]['id']
                         if f['prerequisites'] else 'SPA_a_great_spain')
@@ -978,6 +978,8 @@ class SpainRuntimeTests(unittest.TestCase):
         baseline=report['focusPositionsBeforeRepair']
         preserved=json.loads((ROOT/'docs/spain-air-navy-events-verification.json').read_text())
         baseline.update(preserved['preservedWorkshopPositions'])
+        # Keep Integrated Electricity Network clear of the research connector.
+        baseline['TFR_SPA_integrated_electricity_network']=[28,13]
         self.assertEqual(set(baseline),set(FOCUSES))
         for name,expected in baseline.items():
             self.assertEqual(absolute_position(name),tuple(expected),name)

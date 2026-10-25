@@ -725,7 +725,8 @@ def generate_events_decisions():
             FROM = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
         }''')+'\n'
     for n in (2,3,4):
-        text+=block('country_event',f'id = TFR_spain_rework.{n}\ntitle = TFR_spain_rework.{n}.t\ndesc = TFR_spain_rework.{n}.d\nis_triggered_only = yes\noption = {{ name = TFR_spain_rework.continue }}')+'\n'
+        picture = 'GFX_report_event_generic_factory' if n == 4 else 'GFX_report_event_generic_handshake'
+        text+=block('country_event',f'id = TFR_spain_rework.{n}\ntitle = TFR_spain_rework.{n}.t\ndesc = TFR_spain_rework.{n}.d\npicture = {picture}\nis_triggered_only = yes\noption = {{ name = TFR_spain_rework.continue }}')+'\n'
     text+=block('country_event','''id = TFR_spain_rework.5
         title = TFR_spain_rework.5.t
         desc = TFR_spain_rework.5.d

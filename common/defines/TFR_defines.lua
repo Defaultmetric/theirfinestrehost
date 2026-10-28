@@ -53,8 +53,9 @@ NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 NDefines.NOperatives.AGENCY_CREATION_FACTORIES = 5						-- Number of factories used to create an intelligence agency
 
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
-NDefines.NIndustrialOrganisation.FUNDS_FROM_MANUFACTURER_PER_IC_PER_DAY = 0.2				-- Funds added to MIO when a manufacturer is attached to a production line. Added every day proportional to IC produced.
-NDefines.NIndustrialOrganisation.MAX_FUNDS_FROM_MANUFACTURER_PER_DAY = 200					-- Max funds generated per manufacturer per day. Set to 0 for no Maximum.
+NDefines.NIndustrialOrganisation.FUNDS_FOR_RESEARCH_COMPLETION_PER_RESEARCH_COST = 750     	-- Funds added to MIO when the Design Team has completed a research, multiplied by research_cost in technology template (was: 500, +50%)
+NDefines.NIndustrialOrganisation.FUNDS_FROM_MANUFACTURER_PER_IC_PER_DAY = 0.3				-- Funds added to MIO when a manufacturer is attached to a production line. Added every day proportional to IC produced. (was: 0.2, +50%)
+NDefines.NIndustrialOrganisation.MAX_FUNDS_FROM_MANUFACTURER_PER_DAY = 300					-- Max funds generated per manufacturer per day. Set to 0 for no Maximum. (was: 200, +50%)
 
 NDefines.NMilitary.RELIABILTY_RECOVERY = 0.1
 --NDefines.NMilitary.ATTRITION_EQUIPMENT_LOSS_CHANCE = 0.01
@@ -77,8 +78,8 @@ NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.5	-- DO NOT LET THE C
 NDefines.NMilitary.LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.030    -- global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.030    -- air global damage modifier
 NDefines.NMilitary.LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 2 -- max 2 CAS per combat width (2/w)
-NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.055        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
-NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.048        -- global damage modifier
+NDefines.NMilitary.LAND_COMBAT_STR_DAMAGE_MODIFIER = 0.046        -- global damage modifier... but some equipment is returned at end of battles see : EQUIPMENT_COMBAT_LOSS_FACTOR
+NDefines.NMilitary.LAND_COMBAT_ORG_DAMAGE_MODIFIER = 0.045        -- global damage modifier
 NDefines.NMilitary.COMBAT_STACKING_PENALTY = -0.05                -- how much stackign penalty per division
 NDefines.NMilitary.PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 	1.00,

@@ -413,33 +413,43 @@ GER_seize_gold_reserves_cat = {
 		cost = 25
 
 		complete_effect = {
-            set_temp_variable = { occupied_state_num_factory = 0 }
-            FROM = {
-                every_core_state = {
-                    limit = { TFR_GER_gold_state_eligible = yes }
-                    add_to_temp_variable = { GER.occupied_state_num_factory = arms_factory_level }
-                    add_to_temp_variable = { GER.occupied_state_num_factory = industrial_complex_level }
-                    add_to_temp_variable = { GER.occupied_state_num_factory = building_level@dockyard }
-                    if = {
-                        limit = { has_resistance = yes }
-                        add_compliance = -5
-                        add_resistance = 10
-                    }
-                    set_state_flag = GER_seize_gold_reserves_state_flag
-                    add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
-                }
-            }
-            # Same reward rate: -0.5 percentage points per eligible factory.
-            # State flags already exclude previously seized Soviet cities.
-            divide_temp_variable = { occupied_state_num_factory = 200 }
-            multiply_temp_variable = { occupied_state_num_factory = -1 }
-            custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
-            add_to_variable = {
-                GER_industrial_consumer_goods_factor = occupied_state_num_factory
-                tooltip = consumer_goods_factor_tt
-            }
-            GER_reduce_mefo_bills_penalty = yes
-        }
+			set_temp_variable = { occupied_state_num_factory = 0 }
+			add_to_temp_variable = { occupied_state_num_factory = FROM.num_of_military_factories_in_cores@GER }
+			add_to_temp_variable = { occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@GER }
+			add_to_temp_variable = { occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@GER }
+
+			FROM = {
+				every_core_state = {
+					limit = { TFR_GER_gold_state_eligible = yes }
+					if = {
+						limit = { has_resistance = yes }
+						add_compliance = -5
+						add_resistance = 10
+					}
+					set_state_flag = GER_seize_gold_reserves_state_flag
+					add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
+				}
+			}
+
+			# Same reward rate: -0.5 percentage points per eligible factory.
+			divide_temp_variable = { occupied_state_num_factory = 200 }
+			multiply_temp_variable = { occupied_state_num_factory = -1 }
+
+			if = {
+				limit = {
+					FROM = { original_tag = SOV }
+					check_variable = { GER_reduce_russian_CG_bonus < 0 }
+				}
+				subtract_from_temp_variable = { occupied_state_num_factory = GER_reduce_russian_CG_bonus }
+			}
+
+			custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
+			add_to_variable = {
+				GER_industrial_consumer_goods_factor = occupied_state_num_factory
+				tooltip = consumer_goods_factor_tt
+			}
+			GER_reduce_mefo_bills_penalty = yes
+		}
 	}
 	GER_seize_russian_citites_gold_reserves = {
 		priority = 1

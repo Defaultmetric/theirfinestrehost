@@ -37,20 +37,26 @@ ideas = {
 		}
 
 		the_world_against_us = {
-		picture = hol_caved_to_the_germans
+			picture = hol_caved_to_the_germans
 	
-		allowed = {
-			original_tag = GER
-		}
+			allowed = {
+				OR = {
+					original_tag = GER
+					tag = GER
+				}
+			}
 
-		removal_cost = -1
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
 	
-		modifier = 
-		{
-			consumer_goods_factor = -0.1
-			army_core_attack_factor = 0.10
-			army_core_defence_factor = 0.10
-		}
+			modifier = {
+				consumer_goods_factor = -0.1
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+			}
 		}
 
 		factory_overdrive_2 = {

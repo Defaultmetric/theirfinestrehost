@@ -304,10 +304,7 @@
           "D12"
         ]
       ],
-      "effect": "army_morale_factor: 2.5% (numai în războiul principal al Axei).",
-      "conditionalModifiers": {
-        "army.army_morale_factor": 0.025
-      },
+      "effect": "Deblocheaza deciziile de specializare din shared tree-ul Axei pentru War Spain; necesita deblocarea specializarilor de catre Axa si apartenenta la factiunea Germaniei.",
       "x": 0,
       "y": 1,
       "icon": "GFX_focus_generic_military_mission",
@@ -346,7 +343,7 @@
           "D02"
         ]
       ],
-      "effect": "Importă o singură dată nivelul existent de recuperare în Spanish Economy și înlocuiește ideea economică veche echivalentă; +50 PP.",
+      "effect": "Importă o singură dată nivelul existent de recuperare în Spanish Economy și înlocuiește ideea economică veche echivalentă; +50 PP. +20% civilian factory construction speed permanent.",
       "politics": {
         "pp": 50
       },
@@ -354,7 +351,10 @@
       "x": 2,
       "y": 2,
       "icon": "GFX_focus_generic_public_works",
-      "relative_position_id": "TFR_SPA_volunteer_spain"
+      "relative_position_id": "TFR_SPA_volunteer_spain",
+      "modifiers": {
+        "economy.production_speed_industrial_complex_factor": 0.2
+      }
     },
     {
       "code": "P02",
@@ -601,9 +601,10 @@
           "P02"
         ]
       ],
-      "effect": "+2.5% construction speed; nucleul comun al Spanish Economy.",
+      "effect": "+2.5% construction speed si +15% civilian factory construction speed permanent; nucleul comun al Spanish Economy.",
       "modifiers": {
-        "economy.production_speed_buildings_factor": 0.025
+        "economy.production_speed_buildings_factor": 0.025,
+        "economy.production_speed_industrial_complex_factor": 0.15
       },
       "x": -6,
       "y": 1,
@@ -620,7 +621,7 @@
           "E01"
         ]
       ],
-      "effect": "+2 fabrici civile cu sloturi.",
+      "effect": "+2 fabrici civile cu sloturi si +15% civilian factory construction speed permanent.",
       "buildings": {
         "civ": 2
       },
@@ -634,7 +635,10 @@
           "count": 2
         }
       ],
-      "relative_position_id": "TFR_SPA_national_economic_plan"
+      "relative_position_id": "TFR_SPA_national_economic_plan",
+      "modifiers": {
+        "economy.production_speed_industrial_complex_factor": 0.15
+      }
     },
     {
       "code": "E03",
@@ -878,14 +882,12 @@
           "M12"
         ]
       ],
-      "effect": "Alege permanent specializarea economică; +20% civilian factory construction speed. Blochează M13–M32.",
+      "effect": "Alege permanent specializarea economica; 1x100% research pentru industry, cu 2 ani de reducere a penalizarii ahead-of-time. Blocheaza M13-M32.",
       "exclusiveWith": [
         "M13"
       ],
       "specialization": "economy",
-      "modifiers": {
-        "economy.production_speed_industrial_complex_factor": 0.2
-      },
+      "modifiers": {},
       "x": 3,
       "y": 1,
       "icon": "GFX_focus_AUS_courting_the_princess_of_industry",
@@ -972,9 +974,9 @@
           "E14"
         ]
       ],
-      "effect": "1×50% research pentru construction tech și +5% civilian factory construction speed.",
+      "effect": "1x50% research pentru construction tech si +5% construction speed general.",
       "modifiers": {
-        "economy.production_speed_industrial_complex_factor": 0.05
+        "economy.production_speed_buildings_factor": 0.05
       },
       "x": 2,
       "y": 1,
@@ -1303,11 +1305,10 @@
           "E28"
         ]
       ],
-      "effect": "+7.5% factory output, +5% construction speed, +5% civilian factory construction speed și +5% military factory construction speed și -10% consumer goods.",
+      "effect": "+7.5% factory output, +10% construction speed general, +5% military factory construction speed si -10% consumer goods.",
       "modifiers": {
         "economy.industrial_capacity_factory": 0.075,
-        "economy.production_speed_buildings_factor": 0.05,
-        "economy.production_speed_industrial_complex_factor": 0.05,
+        "economy.production_speed_buildings_factor": 0.1,
         "economy.production_speed_arms_factory_factor": 0.05
       },
       "conditions": [
@@ -2776,5 +2777,33 @@
       ],
       "legacyPreferred": "M17"
     }
-  ]
+  ],
+  "constructionRevision": {
+    "flag": "TFR_SPA_construction_revision_1",
+    "permanent_reward_deltas": {
+      "P01": {
+        "economy.production_speed_industrial_complex_factor": 0.2
+      },
+      "E01": {
+        "economy.production_speed_industrial_complex_factor": 0.15
+      },
+      "E02": {
+        "economy.production_speed_industrial_complex_factor": 0.15
+      },
+      "E13": {
+        "economy.production_speed_industrial_complex_factor": -0.2
+      },
+      "E17": {
+        "economy.production_speed_industrial_complex_factor": -0.05,
+        "economy.production_speed_buildings_factor": 0.05
+      },
+      "E32": {
+        "economy.production_speed_industrial_complex_factor": -0.05,
+        "economy.production_speed_buildings_factor": 0.05
+      }
+    },
+    "research_replacements": [
+      "E13"
+    ]
+  }
 }

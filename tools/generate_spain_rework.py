@@ -159,7 +159,7 @@ def tech(code, item):
 RESEARCH = {
     'D09': ['support_tech'], 'D10': ['dd_tech'], 'D11': ['light_air'],
     'P06': ['electronics'], 'E05': ['construction_tech'], 'E07': [('infantry_weapons', 1.0, 1)], 'E09': ['synth_resources'], 'E12': ['industry'],
-    'E17': ['construction_tech'],
+    'E13': [('industry', 1.0, 1, 2)], 'E17': ['construction_tech'],
     'M03': ['infantry_weapons', 'support_tech'], 'M04': ['artillery'],
     'M06': ['motorized_equipment'], 'M07': [('electronics', 1.0, 1)], 'M09': ['mountaineers_tech'], 'M10': ['marine_tech'],
     'M18': ['support_tech'], 'M19': [('armor', 1.0, 1, 1)], 'M23': [('radar_tech', 1.0, 1)], 'A03': ['light_air'],
@@ -199,7 +199,7 @@ def placements(building, count, levels=1, cap=5, coastal=False, extra=''):
 
 
 SPECIAL = {
-    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nset_country_flag = accessible_shared_tree\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
+    'D01': 'set_country_flag = TFR_SPA_volunteer_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\nTFR_SPA_enforce_volunteer_rules = yes\ncustom_effect_tooltip = TFR_SPA_volunteer_role_tt',
     'D02': 'set_country_flag = TFR_SPA_war_mode\nhidden_effect = { TFR_SPA_initialize = yes }\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\ncustom_effect_tooltip = TFR_SPA_war_role_tt',
     'D04': 'TFR_SPA_request_axis_membership = yes\ncustom_effect_tooltip = TFR_SPA_membership_tt',
     'D05': 'TFR_SPA_portugal_agreement = yes\ncustom_effect_tooltip = TFR_SPA_resource_rights_tt',
@@ -207,7 +207,7 @@ SPECIAL = {
     'D07': 'create_wargoal = { type = annex_everything target = NPR }',
     'D08': '\n'.join(f'{s} = {{ add_core_of = ROOT }}' for s in (112,179,180,181,795)) + '\nset_cosmetic_tag = ESU_POR_unified',
     'D12': 'custom_effect_tooltip = TFR_SPA_war_commitment_tt',
-    'D13': 'custom_effect_tooltip = TFR_SPA_war_coordination_tt',
+    'D13': 'unlock_decision_category_tooltip = Shared_axis_army_specializations\ncustom_effect_tooltip = TFR_SPA_war_coordination_tt',
     'P01': 'TFR_SPA_start_recovery_programme = yes\ncustom_effect_tooltip = TFR_SPA_recovery_import_tt\ncustom_effect_tooltip = TFR_SPA_recovery_programme_1_tt',
     'P03': '\n'.join(f'{s} = {{ if = {{ limit = {{ is_owned_and_controlled_by = ROOT }} '+''.join(f'if = {{ limit = {{ has_dynamic_modifier = {d} }} remove_dynamic_modifier = {{ modifier = {d} }} }} ' for d in ('autonomous_state','semi_autonomous_state'))+'} }' for s in (165,171,792)),
     'P04': 'if = { limit = { check_variable = { TFR_SPA_recovery_stage < 2 } } set_variable = { TFR_SPA_recovery_stage = 2 } }\nTFR_SPA_advance_recovery_programme_2 = yes\ncustom_effect_tooltip = TFR_SPA_recovery_2_tt\ncustom_effect_tooltip = TFR_SPA_recovery_programme_2_tt',
@@ -426,7 +426,19 @@ def generate_runtime():
         rebalance+=choose(f'check_variable = {{ var = {v(key,True)} value = TFR_SPA_balance_floor compare = less_than }}',
             f'set_temp_variable = {{ TFR_SPA_balance_restore = TFR_SPA_balance_floor }}\nsubtract_from_temp_variable = {{ TFR_SPA_balance_restore = {v(key,True)} }}\nadd_to_variable = {{ TFR_SPA_credit_{key.replace(".","_")} = TFR_SPA_balance_restore }}\nset_variable = {{ {v(key,True)} = TFR_SPA_balance_floor }}')
     rebalance+=f'set_country_flag = TFR_SPA_balance_revision_{BALANCE_REVISION["revision"]}\n'
-    effects+=block('TFR_SPA_apply_balance_revision',choose(f'has_country_flag = TFR_SPA_rework_initialized NOT = {{ has_country_flag = TFR_SPA_balance_revision_{BALANCE_REVISION["revision"]} }}',rebalance))+'\n'
+    balance_effect=choose(f'has_country_flag = TFR_SPA_rework_initialized NOT = {{ has_country_flag = TFR_SPA_balance_revision_{BALANCE_REVISION["revision"]} }}',rebalance)
+    # Apply this independently after the original balance revision so saves
+    # already on that revision also receive the new early construction rewards.
+    construction=PLAN['constructionRevision']
+    upgrades=''
+    for code,values in construction['permanent_reward_deltas'].items():
+        changes='\n'.join(addmod(key,delta) for key,delta in values.items())
+        if code in construction['research_replacements']:
+            changes+='\n'+'\n'.join(tech(code,item) for item in RESEARCH[code])
+        upgrades+=choose(f'has_country_flag = TFR_SPA_reward_{code}',changes)
+    upgrades+=f'set_country_flag = {construction["flag"]}\n'
+    balance_effect+=choose(f'has_country_flag = TFR_SPA_rework_initialized NOT = {{ has_country_flag = {construction["flag"]} }}',upgrades)
+    effects+=block('TFR_SPA_apply_balance_revision',balance_effect)+'\n'
     # Positive National Recovery and negative Recovering from the Civil War are
     # separate components of the same economy modifier. Keep every numeric field
     # from the original ideas, including AI diplomacy and faction tension.
@@ -528,6 +540,8 @@ def generate_runtime():
         can_create_factions = no
         can_decline_call_to_war = yes
     }
+    clr_country_flag = accessible_shared_tree
+    if = { limit = { has_dynamic_modifier = axis_dynamic } remove_dynamic_modifier = { modifier = axis_dynamic } }
     if = { limit = { is_in_faction = yes } leave_faction = yes }''')+'\n'
     # Factory queues survive save/load, occupation, and temporarily missing coasts.
     # A successful placement is measured before consuming the queued unit.
@@ -685,6 +699,20 @@ def generate_triggers_actions():
             has_country_leader = { character = SPA_francisco_franco ruling_only = yes }
         }
     }
+    TFR_SPA_shared_tree_allowed = {
+        NOT = { has_country_flag = TFR_SPA_volunteer_mode }
+        NOT = { has_completed_focus = TFR_SPA_volunteer_spain }
+    }
+    TFR_SPA_shared_specializations_allowed = {
+        TFR_SPA_shared_tree_allowed = yes
+        OR = {
+            NOT = { original_tag = SPR }
+            AND = {
+                has_country_flag = TFR_SPA_war_mode
+                has_completed_focus = TFR_SPA_continental_war_coordination
+            }
+        }
+    }
     TFR_SPA_main_axis_war = {
         has_country_flag = TFR_SPA_war_mode
         is_in_faction_with = GER
@@ -831,7 +859,7 @@ def generate_events_decisions():
     decisions+='\n'+''.join(block(category,body) for category,body in projects.items())
     emit('common/decisions/TFR_spain_rework.txt',decisions)
     LOC.update({
-        'TFR_SPA_volunteer_role_tt':'Spain permanently supports its partners through volunteers. Cannot join or create factions, declare wars, or join foreign wars. Defensive wars remain possible. Portugal remains independent.',
+        'TFR_SPA_volunteer_role_tt':'Spain permanently supports its partners through volunteers. Cannot join or create factions, declare wars, or join foreign wars. Defensive wars remain possible. Portugal remains independent. Axis shared-tree bonuses and specialization decisions are unavailable.',
         'TFR_SPA_postwar_ready_tt':"Finish the Spanish Civil War as Franco's Nationalist Spain before starting this focus.",
         'TFR_SPA_war_role_tt':'Spain may join the Axis and participate directly in its wars. The Portuguese annexation and integration route is available from 1939.',
         'TFR_SPA_membership_tt':'Germany receives a membership request and may accept or refuse it. A refused request can be renewed through decisions.',
@@ -839,7 +867,7 @@ def generate_events_decisions():
         'TFR_SPA_relocation_tt':'Move the civilian factories, military factories and dockyards actually present in mainland Portugal into Spain, with building slots. Remove the transferred buildings from Portugal and end its scripted industry growth. Any pending transfer is retried daily.',
         'TFR_SPA_main_war_tt':'The additional wartime modifiers apply only while Spain and Germany fight the same enemy major power as members of the same faction. War against Portugal alone does not qualify.',
         'TFR_SPA_war_commitment_tt':'Additional factory output and army organization apply while Spain and Germany fight the same enemy major power in the same faction. War against Portugal alone does not qualify.',
-        'TFR_SPA_war_coordination_tt':'Additional army recovery applies while Spain and Germany fight the same enemy major power in the same faction. War against Portugal alone does not qualify.',
+        'TFR_SPA_war_coordination_tt':'Unlock Axis shared-tree specialization decisions for War Spain once the Axis has completed Unlock Army Specializations and Spain is in the same faction as Germany.',
         'TFR_SPA_recovery_import_tt':'The current recovery stage is preserved in Spanish Economy. Existing research slots and more advanced mobilisation laws are preserved.',
         'TFR_SPA_recovery_2_tt':'Recovery advances to at least stage 2: factory and dockyard output -14%, construction speed -7%, consumer goods factor +15%.',
         'TFR_SPA_recovery_3_tt':'Recovery advances to at least stage 3: factory and dockyard output -7%, construction speed -4%, consumer goods factor +10%.',

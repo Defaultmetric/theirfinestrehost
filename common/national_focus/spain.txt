@@ -13391,7 +13391,6 @@ focus_tree = {
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_D01
 				set_country_flag = TFR_SPA_volunteer_mode
-				set_country_flag = accessible_shared_tree
 				hidden_effect = { TFR_SPA_initialize = yes }
 				custom_effect_tooltip = TFR_SPA_recovery_import_tt
 				TFR_SPA_enforce_volunteer_rules = yes
@@ -13663,6 +13662,13 @@ focus_tree = {
 				limit = { NOT = { has_country_flag = TFR_SPA_reward_P01 } }
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_P01
+				custom_effect_tooltip = TFR_SPA_economy_modifier_tt
+				add_to_variable = {
+					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.2
+					tooltip = production_speed_industrial_complex_factor_tt
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
 				add_political_power = 50
 				if = {
 					limit = { NOT = { has_country_flag = TFR_SPA_recovery_programme_expired } check_variable = { TFR_SPA_recovery_programme < 1 } }
@@ -13682,6 +13688,22 @@ focus_tree = {
 
 				custom_effect_tooltip = TFR_SPA_recovery_import_tt
 				hidden_effect = {
+					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.2 }
+					set_temp_variable = { TFR_SPA_grant = 0.2 }
+					if = {
+						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
+						if = {
+							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.2 compare = greater_than_or_equals } }
+							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.2 }
+							set_temp_variable = { TFR_SPA_grant = 0 }
+						}
+						else = {
+							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
+							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
+						}
+					}
+					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
+
 					TFR_SPA_start_recovery_programme = yes
 					custom_effect_tooltip = TFR_SPA_recovery_import_tt
 
@@ -13955,18 +13977,9 @@ focus_tree = {
 				limit = { NOT = { has_country_flag = TFR_SPA_reward_D13 } }
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_D13
-				custom_effect_tooltip = TFR_SPA_main_war_tt
-				effect_tooltip = {
-					custom_effect_tooltip = TFR_SPA_army_modifier_tt
-					add_to_variable = {
-						TFR_SPA_army_army_morale_factor = 0.025
-						tooltip = army_morale_factor_tt
-					}
-					custom_effect_tooltip = generic_skip_one_line_tt
-				}
-
+				unlock_decision_category_tooltip = Shared_axis_army_specializations
+				custom_effect_tooltip = TFR_SPA_war_coordination_tt
 				hidden_effect = {
-					custom_effect_tooltip = TFR_SPA_war_coordination_tt
 					TFR_SPA_flush_building_rewards = yes
 					TFR_SPA_refresh_modifiers = yes
 				}
@@ -14602,6 +14615,11 @@ focus_tree = {
 					tooltip = production_speed_buildings_factor_tt
 				}
 
+				add_to_variable = {
+					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15
+					tooltip = production_speed_industrial_complex_factor_tt
+				}
+
 				custom_effect_tooltip = generic_skip_one_line_tt
 
 				hidden_effect = {
@@ -14620,6 +14638,22 @@ focus_tree = {
 						}
 					}
 					add_to_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = TFR_SPA_grant }
+
+					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15 }
+					set_temp_variable = { TFR_SPA_grant = 0.15 }
+					if = {
+						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
+						if = {
+							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.15 compare = greater_than_or_equals } }
+							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.15 }
+							set_temp_variable = { TFR_SPA_grant = 0 }
+						}
+						else = {
+							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
+							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
+						}
+					}
+					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
 
 					TFR_SPA_flush_building_rewards = yes
 					TFR_SPA_refresh_modifiers = yes
@@ -14645,6 +14679,13 @@ focus_tree = {
 				limit = { NOT = { has_country_flag = TFR_SPA_reward_E02 } }
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_E02
+				custom_effect_tooltip = TFR_SPA_economy_modifier_tt
+				add_to_variable = {
+					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15
+					tooltip = production_speed_industrial_complex_factor_tt
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
 				effect_tooltip = {
 					790 = {
 						add_extra_state_shared_building_slots = 2
@@ -14654,6 +14695,22 @@ focus_tree = {
 
 
 				hidden_effect = {
+					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15 }
+					set_temp_variable = { TFR_SPA_grant = 0.15 }
+					if = {
+						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
+						if = {
+							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.15 compare = greater_than_or_equals } }
+							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.15 }
+							set_temp_variable = { TFR_SPA_grant = 0 }
+						}
+						else = {
+							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
+							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
+						}
+					}
+					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
+
 					set_temp_variable = { TFR_SPA_grant = 2 }
 					if = {
 						limit = { check_variable = { TFR_SPA_credit_building_civ > 0 } }
@@ -15223,31 +15280,9 @@ focus_tree = {
 				limit = { NOT = { has_country_flag = TFR_SPA_reward_E13 } }
 				hidden_effect = { TFR_SPA_apply_balance_revision = yes }
 				set_country_flag = TFR_SPA_reward_E13
-				custom_effect_tooltip = TFR_SPA_economy_modifier_tt
-				add_to_variable = {
-					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.2
-					tooltip = production_speed_industrial_complex_factor_tt
-				}
-
-				custom_effect_tooltip = generic_skip_one_line_tt
+				add_tech_bonus = { name = TFR_SPA_civilian_development_priority bonus = 1.0 ahead_reduction = 2 uses = 1 category = industry }
 
 				hidden_effect = {
-					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.2 }
-					set_temp_variable = { TFR_SPA_grant = 0.2 }
-					if = {
-						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
-						if = {
-							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.2 compare = greater_than_or_equals } }
-							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.2 }
-							set_temp_variable = { TFR_SPA_grant = 0 }
-						}
-						else = {
-							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
-							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
-						}
-					}
-					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
-
 					set_country_flag = TFR_SPA_economy_specialization
 					TFR_SPA_flush_building_rewards = yes
 					TFR_SPA_refresh_modifiers = yes
@@ -15421,29 +15456,29 @@ focus_tree = {
 				set_country_flag = TFR_SPA_reward_E17
 				custom_effect_tooltip = TFR_SPA_economy_modifier_tt
 				add_to_variable = {
-					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.05
-					tooltip = production_speed_industrial_complex_factor_tt
+					TFR_SPA_base_economy_production_speed_buildings_factor = 0.05
+					tooltip = production_speed_buildings_factor_tt
 				}
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 				add_tech_bonus = { name = TFR_SPA_civil_engineering_institutes bonus = 0.5 uses = 1 category = construction_tech }
 
 				hidden_effect = {
-					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.05 }
+					subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
 					set_temp_variable = { TFR_SPA_grant = 0.05 }
 					if = {
-						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
+						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor > 0 } }
 						if = {
-							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.05 compare = greater_than_or_equals } }
-							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.05 }
+							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.05 compare = greater_than_or_equals } }
+							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.05 }
 							set_temp_variable = { TFR_SPA_grant = 0 }
 						}
 						else = {
-							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
-							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
+							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_buildings_factor }
+							set_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0 }
 						}
 					}
-					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
+					add_to_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = TFR_SPA_grant }
 
 					TFR_SPA_flush_building_rewards = yes
 					TFR_SPA_refresh_modifiers = yes
@@ -16238,13 +16273,8 @@ focus_tree = {
 				}
 
 				add_to_variable = {
-					TFR_SPA_base_economy_production_speed_buildings_factor = 0.05
+					TFR_SPA_base_economy_production_speed_buildings_factor = 0.1
 					tooltip = production_speed_buildings_factor_tt
-				}
-
-				add_to_variable = {
-					TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.05
-					tooltip = production_speed_industrial_complex_factor_tt
 				}
 
 				add_to_variable = {
@@ -16280,13 +16310,13 @@ focus_tree = {
 					}
 					add_to_variable = { TFR_SPA_base_economy_industrial_capacity_factory = TFR_SPA_grant }
 
-					subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
-					set_temp_variable = { TFR_SPA_grant = 0.05 }
+					subtract_from_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.1 }
+					set_temp_variable = { TFR_SPA_grant = 0.1 }
 					if = {
 						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor > 0 } }
 						if = {
-							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.05 compare = greater_than_or_equals } }
-							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.05 }
+							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_buildings_factor value = 0.1 compare = greater_than_or_equals } }
+							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_buildings_factor = 0.1 }
 							set_temp_variable = { TFR_SPA_grant = 0 }
 						}
 						else = {
@@ -16295,22 +16325,6 @@ focus_tree = {
 						}
 					}
 					add_to_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = TFR_SPA_grant }
-
-					subtract_from_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.05 }
-					set_temp_variable = { TFR_SPA_grant = 0.05 }
-					if = {
-						limit = { check_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor > 0 } }
-						if = {
-							limit = { check_variable = { var = TFR_SPA_credit_economy_production_speed_industrial_complex_factor value = 0.05 compare = greater_than_or_equals } }
-							subtract_from_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0.05 }
-							set_temp_variable = { TFR_SPA_grant = 0 }
-						}
-						else = {
-							subtract_from_temp_variable = { TFR_SPA_grant = TFR_SPA_credit_economy_production_speed_industrial_complex_factor }
-							set_variable = { TFR_SPA_credit_economy_production_speed_industrial_complex_factor = 0 }
-						}
-					}
-					add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = TFR_SPA_grant }
 
 					subtract_from_variable = { TFR_SPA_base_economy_production_speed_arms_factory_factor = 0.05 }
 					set_temp_variable = { TFR_SPA_grant = 0.05 }

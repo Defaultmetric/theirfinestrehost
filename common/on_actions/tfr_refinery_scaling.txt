@@ -1,0 +1,31 @@
+on_actions = {
+    on_startup = {
+        effect = {
+            every_country = {
+                limit = {
+                    OR = {
+                        tag = GER
+                        AND = { NOT = { country_exists = GER } tag = ENG }
+                    }
+                }
+                TFR_refinery_scaling_manager_daily = yes
+            }
+        }
+    }
+    on_daily = {
+        effect = {
+            if = {
+                limit = {
+                    OR = {
+                        tag = GER
+                        AND = {
+                            NOT = { country_exists = GER }
+                            tag = ENG
+                        }
+                    }
+                }
+                TFR_refinery_scaling_manager_daily = yes
+            }
+        }
+    }
+}

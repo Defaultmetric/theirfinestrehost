@@ -7155,16 +7155,16 @@ form_greater_german_reich_category = {
 		}
 
 		visible = {
-		
 			original_tag = GER
-				
 			NOT = { has_global_flag = form_reich_der_vergeltung }
+			has_global_flag = czech_denied_flag
 		}
 
 		cost = 25
 		icon = generic_form_nation
 
 		complete_effect = {
+			set_variable = { GER_hitlers_blunders_variable = 0 }
 		add_war_support = 0.05
 		add_stability = 0.05
 		set_cosmetic_tag = GER_reich_der_vergeltung

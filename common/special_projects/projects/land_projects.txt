@@ -71,6 +71,8 @@ sp_land_flamethrower_tank = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = sp_armored_advanced_flamethrower_tech	
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_flamethrower_tank = 1 popup = no } } # TFR: project card
 		}
 
 		enable_equipment_modules = {
@@ -170,6 +172,8 @@ sp_land_military_engineering_vehicles = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = sp_armored_motorized_military_police_tech
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_military_engineering_vehicles = 1 popup = no } } # TFR: project card
 		}
 	}
 
@@ -297,32 +301,14 @@ sp_land_land_cruiser = {
 				}
 			}
 
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_lc_naval_engine_conversion_tech	
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_lc_transmission_improvements_tech	
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_lc_specialized_field_manuals_tech	
-			}
-			custom_effect_tooltip = {
-				localization_key = SP_UNLOCK_TECH
-				TECH = sp_armored_lc_weapon_fire_control_tech	
-			}
+			# TFR: follow-up technology integrated into unit stats.
+			# TFR: follow-up technology integrated into unit stats.
+			# TFR: follow-up technology integrated into unit stats.
+			# TFR: follow-up technology integrated into unit stats.
 
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				custom_effect_tooltip = {
-					localization_key = SP_UNLOCK_TECH
-					TECH = sp_armored_lc_high_impact_obliterator_cannon_tech	
-				}
-			}
+			# TFR: follow-up technology integrated into unit stats.
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_land_cruiser = 1 popup = no } } # TFR: project card
 		}
 
 		enable_subunits = {
@@ -985,6 +971,8 @@ sp_land_super_heavy_howitzer = {
 				TECH = sp_artillery_rocket_assisted_projectiles_tech
 				EXTRA_TECH = experimental_rockets
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_super_heavy_howitzer = 1 popup = no } } # TFR: project card
 		}
 	}
 
@@ -1112,6 +1100,8 @@ sp_land_self_propelled_super_heavy_howitzer = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = sp_artillery_purpose_built_gun_motor_carriages_tech
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_self_propelled_super_heavy_howitzer = 1 popup = no } } # TFR: project card
 		}
 		
 		enable_subunits = {
@@ -1277,6 +1267,8 @@ sp_land_super_heavy_railway_gun = {
 					amount = 1
 				}
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_super_heavy_railway_gun = 1 popup = no } } # TFR: project card
 		}
 	}
 
@@ -1314,7 +1306,7 @@ sp_land_multi_charge_large_caliber_gun = {
 	}
 
 	special_project_parent = {
-		sp_land_super_heavy_howitzer
+		sp_land_self_propelled_super_heavy_howitzer
 	}
 		
 	prototype_time = sp_time.prototype.medium
@@ -1363,6 +1355,8 @@ sp_land_multi_charge_large_caliber_gun = {
 					popup = no
 				}
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_multi_charge_large_caliber_gun = 1 popup = no } } # TFR: project card
 		}
 	}
 
@@ -1593,6 +1587,8 @@ sp_land_stronghold_network = {
 					popup = no
 				}
 			}
+		
+			hidden_effect = { set_technology = { tfr_project_card_land_stronghold_network = 1 popup = no } } # TFR: project card
 		}
 	}
 

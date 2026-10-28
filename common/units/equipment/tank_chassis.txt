@@ -279,7 +279,7 @@ equipments = {
 		abbreviation = "lt2"
 		derived_variant_name = light_tank_equipment_2
 		visual_level = 1
-		year = 1936
+		year = 1937
 		archetype = light_tank_chassis
 		parent = light_tank_chassis_1
 		priority = 2000
@@ -334,7 +334,7 @@ equipments = {
 		abbreviation = "lt3"
 		derived_variant_name = light_tank_equipment_3
 		visual_level = 2
-		year = 1942
+		year = 1940
 		archetype = light_tank_chassis
 		parent = light_tank_chassis_2
 		priority = 2000
@@ -636,7 +636,38 @@ equipments = {
 		}
 	}
 
-	medium_tank_chassis_1 = {
+	medium_tank_chassis_1934 = {
+        abbreviation = "mt34"
+        derived_variant_name = medium_tank_equipment_1934
+        visual_level = 0
+        year = 1934
+        archetype = medium_tank_chassis
+        parent = medium_tank_chassis_0
+        priority = 2000
+        module_slots = {
+            turret_type_slot = {
+                required = yes
+                allowed_module_categories = { tank_medium_turret_tier_1 tank_medium_turret_tier_f }
+            }
+            main_armament_slot = inherit
+            suspension_type_slot = inherit
+            armor_type_slot = inherit
+            engine_type_slot = inherit
+            special_type_slot_1 = inherit
+            special_type_slot_2 = {
+                required = no
+                allowed_module_categories = { tank_special_module tank_secondary_turret tank_secondary_turret_0 }
+            }
+        }
+        maximum_speed = 5.5
+        breakthrough = 20
+        defense = 6
+        armor_value = 20
+        build_cost_ic = 10
+        reliability = 0.70
+    }
+
+    medium_tank_chassis_1 = {
 		abbreviation = "mt1"
 		derived_variant_name = medium_tank_equipment_1
 		visual_level = 0
@@ -1317,6 +1348,7 @@ equipments = {
 			module = amphibious_drive
 			count < 1
 		}
+		module_count_limit = { module = tfr_tank_amphibious_engine count < 1 }
 
 		module_count_limit = {
 			module = wet_ammo_storage
@@ -1525,6 +1557,7 @@ equipments = {
 			module = amphibious_drive
 			count < 1
 		}
+		module_count_limit = { module = tfr_tank_amphibious_engine count < 1 }
 		module_count_limit = {
 			module = wet_ammo_storage
 			count < 2
@@ -1721,6 +1754,7 @@ equipments = {
 			module = amphibious_drive
 			count < 1
 		}
+		module_count_limit = { module = tfr_tank_amphibious_engine count < 1 }
 		module_count_limit = {
 			module = wet_ammo_storage
 			count < 2
@@ -2019,4 +2053,125 @@ equipments = {
 	    #}
 	}
 
+
+	light_tank_chassis_1943 = {
+		abbreviation = "lt43"
+		derived_variant_name = light_tank_equipment_1943
+		visual_level = 2
+		year = 1943
+		archetype = light_tank_chassis
+		parent = light_tank_chassis_3
+		priority = 2000
+		module_slots = {			
+
+			turret_type_slot = { #Turrets must go at the top
+				required = yes
+				allowed_module_categories = {
+					tank_light_turret_tier_3
+					tank_medium_turret_tier_f
+				}
+			}
+			
+			main_armament_slot = inherit		
+			suspension_type_slot = inherit
+			armor_type_slot = inherit
+			engine_type_slot = inherit
+			special_type_slot_1 = inherit
+			special_type_slot_2 = inherit
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_armor_protection_type
+				}
+			}
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_reliability_module
+					tank_stabilizers
+				}
+			}
+			special_type_slot_5 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_reliability_module
+				}
+			}
+		}	
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		build_cost_ic = 13
+		maximum_speed = 8.5
+		breakthrough = 33
+		defense = 11
+		reliability = 1
+		armor_value = 30
+		resources = {
+			steel = 1
+		}
+	}
+
+	heavy_tank_chassis_1937 = {
+		abbreviation = "hv37"
+		derived_variant_name = heavy_tank_equipment_1937
+		visual_level = 0
+		year = 1937
+		archetype = heavy_tank_chassis
+		parent = heavy_tank_chassis_1
+		priority = 2000
+		module_slots = {
+
+			turret_type_slot = {
+				required = yes
+				allowed_module_categories = {
+					tank_heavy_turret_tier_1
+					tank_heavy_turret_tier_f
+				}
+			}
+			
+			main_armament_slot = inherit
+			suspension_type_slot = inherit
+			armor_type_slot = inherit
+			engine_type_slot = inherit
+			special_type_slot_1 = inherit
+			special_type_slot_2 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_secondary_turret
+					tank_secondary_turret_0
+				}
+			}
+			special_type_slot_3 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_armor_protection_type
+				}
+			}
+			special_type_slot_4 = {
+				required = no
+				allowed_module_categories = {
+					tank_special_module
+					tank_reliability_module
+					tank_stabilizers
+				}
+			}
+		}
+		#upgrades = {
+		#	tank_nsb_engine_upgrade
+		#	tank_nsb_armor_upgrade
+	    #}
+		maximum_speed = 5.5
+		breakthrough = 40
+		defense = 15
+		build_cost_ic = 19
+		armor_value = 40
+		reliability = 0.78
+	}
 }

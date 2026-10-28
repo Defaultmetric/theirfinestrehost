@@ -1,0 +1,18 @@
+TFR_grant_interwar_tanks = {
+    if = {
+        limit = { has_dlc = "No Step Back" NOT = { has_tech = gwtank_chassis } }
+        set_technology = { gwtank_chassis = 1 popup = no }
+    }
+    if = {
+        limit = { has_dlc = "No Step Back" OR = { NOT = { has_tech = basic_light_tank_chassis } NOT = { has_tech = tfr_medium_tank_chassis_1934 } NOT = { has_tech = basic_heavy_tank_chassis } } }
+        set_technology = { basic_light_tank_chassis = 1 tfr_medium_tank_chassis_1934 = 1 basic_heavy_tank_chassis = 1 popup = no }
+    }
+    if = {
+        limit = { NOT = { has_dlc = "No Step Back" } NOT = { has_tech = gwtank } }
+        set_technology = { gwtank = 1 popup = no }
+    }
+    if = {
+        limit = { NOT = { has_dlc = "No Step Back" } OR = { NOT = { has_tech = basic_light_tank } NOT = { has_tech = basic_heavy_tank } } }
+        set_technology = { basic_light_tank = 1 basic_heavy_tank = 1 popup = no }
+    }
+}

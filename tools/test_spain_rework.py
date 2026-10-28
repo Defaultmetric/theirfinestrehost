@@ -170,6 +170,11 @@ class World:
             elif k=='else':
                 if taken is False:self.effect(v,scope,prev,root)
             elif k=='hidden_effect':self.effect(v,scope,prev,root)
+            elif k=='every_country':
+                limit=next((body for key,_,body in v if key=='limit'),[])
+                for country in self.countries:
+                    if self.check(limit,country,scope,root):
+                        self.effect([e for e in v if e[0]!='limit'],country,scope,root)
             elif k in ('set_variable','set_temp_variable','add_to_variable','add_to_temp_variable','subtract_from_variable','subtract_from_temp_variable'):
                 key,_,amount=v[0];value=self.value(amount,scope)
                 if k.startswith('set_'):obj['vars'][key]=value
@@ -422,6 +427,7 @@ class SpainStructureTests(unittest.TestCase):
         self.assertEqual(len(DECISIONS),7)
         self.assertEqual(set(EVENTS),{f'TFR_spain_rework.{n}' for n in range(1,6)})
         categories={name for name,_,body in parse(ROOT/'common/decisions/categories/TFR_spain_rework.txt')}
+        categories.update(name for name,_,body in parse(ROOT/'common/decisions/categories/Shared_decision_categories.txt'))
         for focus in FOCUSES.values():
             for entry in syntax.walk(syntax.parse(generator.reward(generator.BY_CODE[next(c for c,f in BY_CODE.items() if f is focus)]))):
                 if entry.key=='unlock_decision_tooltip':self.assertIn(entry.get('decision').value,DECISIONS)
@@ -571,6 +577,67 @@ class SpainStructureTests(unittest.TestCase):
 
 
 class SpainRuntimeTests(unittest.TestCase):
+    def test_early_civilian_construction_is_available_on_both_postwar_roles(self):
+        for role in ('D01','D02'):
+            w=World();w.date=(1937,1,1)
+            w.countries['SPR']['ideas'].add('SPA_recovering_from_civil_war')
+            for code,bonus in ((role,0),('P01',.2),('P02',.2),('E01',.35),('E02',.5)):
+                self.assertTrue(w.can_start(code),(role,code))
+                w.focus(code)
+                self.assertAlmostEqual(w.stat('economy.production_speed_industrial_complex_factor'),bonus)
+            self.assertEqual(w.total('industrial_complex','SPR'),2)
+            self.assertEqual(w.countries['SPR']['vars']['TFR_SPA_recovery_stage'],1)
+            before=dict(w.countries['SPR']['vars'])
+            w.focus('E02');w.run('TFR_SPA_refresh_modifiers')
+            self.assertEqual(dict(w.countries['SPR']['vars']),before)
+            self.assertEqual(w.total('industrial_complex','SPR'),2)
+
+    def test_late_civilian_bonuses_become_general_construction_and_industry_research(self):
+        w=World();w.focus('D01');w.focus('P01');w.focus('E01');w.focus('E02')
+        w.focus('E13');w.focus('E17');w.focus('E32')
+        self.assertAlmostEqual(w.stat('economy.production_speed_industrial_complex_factor'),.5)
+        self.assertAlmostEqual(w.stat('economy.production_speed_buildings_factor'),.175)
+        bonuses=[e for e in syntax.walk(syntax.parse(generator.reward(generator.BY_CODE['E13']))) if e.key=='add_tech_bonus']
+        self.assertEqual(len(bonuses),1)
+        bonus=bonuses[0]
+        self.assertEqual(bonus.get('category').value,'industry')
+        self.assertEqual(float(bonus.get('bonus').value),1)
+        self.assertEqual(float(bonus.get('ahead_reduction').value),2)
+        self.assertEqual(int(bonus.get('uses').value),1)
+        self.assertEqual(w.research.count(('SPR','industry')),1)
+
+    def test_construction_migration_rebases_old_saves_and_grants_research_only_once(self):
+        for original_balance_applied in (False,True):
+            w=World();w.focus('D01');country=w.countries['SPR']
+            country['flags'].discard('TFR_SPA_construction_revision_1')
+            if not original_balance_applied:country['flags'].discard('TFR_SPA_balance_revision_1')
+            country['flags'].update('TFR_SPA_reward_'+c for c in ('P01','E01','E02','E13','E17','E32'))
+            country['vars'][generator.v('economy.production_speed_industrial_complex_factor',True)]=.3
+            country['vars'][generator.v('economy.production_speed_buildings_factor',True)]=.075
+            country['vars']['TFR_SPA_recovery_programme']=3
+            country['flag_ages']['TFR_SPA_recovery_programme_started']=200
+            w.run('TFR_SPA_refresh_modifiers')
+            self.assertAlmostEqual(w.stat('economy.production_speed_industrial_complex_factor'),.5)
+            self.assertAlmostEqual(w.stat('economy.production_speed_buildings_factor'),.175)
+            self.assertEqual(w.research,[('SPR','industry')])
+            before=dict(country['vars'])
+            w.focus('E13');w.run('TFR_SPA_refresh_modifiers')
+            self.assertEqual(dict(country['vars']),before)
+            self.assertEqual(w.research,[('SPR','industry')])
+            self.assertEqual(country['vars']['TFR_SPA_recovery_programme'],3)
+            self.assertEqual(country['flag_ages']['TFR_SPA_recovery_programme_started'],200)
+
+    def test_construction_migration_runs_before_a_new_reward_is_marked_paid(self):
+        w=World();w.focus('D01');country=w.countries['SPR']
+        country['flags'].discard('TFR_SPA_construction_revision_1')
+        country['flags'].add('TFR_SPA_reward_P01')
+        w.focus('E13')
+        self.assertAlmostEqual(w.stat('economy.production_speed_industrial_complex_factor'),.2)
+        self.assertEqual(w.research,[('SPR','industry')])
+        w.run('TFR_SPA_refresh_modifiers')
+        self.assertAlmostEqual(w.stat('economy.production_speed_industrial_complex_factor'),.2)
+        self.assertEqual(w.research,[('SPR','industry')])
+
     def test_military_specialisations_block_the_opposite_and_keep_the_capstone_reachable(self):
         for line in ('M16','M19'):
             for support in ('M17','M18'):
@@ -883,7 +950,7 @@ class SpainRuntimeTests(unittest.TestCase):
         w.countries['SPR']['wars'].add('ENG');self.assertFalse(w.check(TRIGGERS['TFR_SPA_main_axis_war']))
         w.countries['GER']['wars'].add('ENG');self.assertTrue(w.check(TRIGGERS['TFR_SPA_main_axis_war']))
         w.focus('D12');w.focus('D13');self.assertAlmostEqual(w.stat('army.army_org_factor'),0.0)
-        self.assertAlmostEqual(w.stat('army.army_morale_factor'),.025);self.assertEqual(w.total('arms_factory','SPR'),4)
+        self.assertAlmostEqual(w.stat('army.army_morale_factor'),0);self.assertEqual(w.total('arms_factory','SPR'),4)
         w.countries['GER']['wars'].remove('ENG');w.run('TFR_SPA_refresh_modifiers');self.assertEqual(w.stat('army.army_org_factor'),-0.025)
         w.focus('D12');self.assertEqual(w.total('arms_factory','SPR'),4)
 
@@ -1015,16 +1082,62 @@ class SpainRuntimeTests(unittest.TestCase):
             self.assertIn(('SPR','radar_tech'),w.research)
 
 
-    def test_volunteer_spain_unlocks_axis_shared_tree(self):
+    def test_volunteer_spain_cannot_access_axis_shared_tree(self):
         w = World()
+        w.countries['SPR']['flags'].add('accessible_shared_tree')
+        w.countries['SPR']['dynamic'].add('axis_dynamic')
         w.focus('D01')
-        self.assertIn('accessible_shared_tree', w.countries['SPR']['flags'])
+        self.assertNotIn('accessible_shared_tree', w.countries['SPR']['flags'])
+        self.assertNotIn('axis_dynamic', w.countries['SPR']['dynamic'])
         axis_shared = parse(ROOT/'common/national_focus/axis_shared.txt')
         joint_alliance = next(v for k, _, v in axis_shared if k == 'shared_focus' and get(v, 'id') == 'AXIS_joint_alliance')
         bypass = next(v for k, _, v in joint_alliance if k == 'bypass')
-        self.assertTrue(w.check(bypass, 'SPR'))
-        shared_opt = (ROOT/'common/on_actions/shared_tree_optimization.txt').read_text()
-        self.assertIn('has_completed_focus = TFR_SPA_volunteer_spain', shared_opt)
+        self.assertFalse(w.check(bypass, 'SPR'))
+        self.assertFalse(w.check(get(joint_alliance,'available')))
+        # A stale faction or access flag must not make volunteers eligible.
+        w.countries['SPR']['faction']='axis'
+        w.countries['SPR']['flags'].add('accessible_shared_tree')
+        self.assertFalse(w.check(bypass))
+        self.assertFalse(w.check(get(joint_alliance,'available')))
+        weekly=get(get(parse(ROOT/'common/on_actions/shared_tree_optimization.txt')[0][2],'on_weekly'),'effect')
+        w.effect(weekly)
+        self.assertNotIn('accessible_shared_tree',w.countries['SPR']['flags'])
+
+    def test_axis_specializations_require_war_spain_coordination_and_axis_unlock(self):
+        category=get(parse(ROOT/'common/decisions/categories/Shared_decision_categories.txt'),'Shared_axis_army_specializations')
+        decisions=get(parse(ROOT/'common/decisions/axis_shared.txt'),'Shared_axis_army_specializations')
+        self.assertEqual(len(decisions),5)
+        def visible(w):
+            return w.check(get(category,'visible')) and all(w.check(get(d,'visible')) and w.check(get(d,'available')) for _,_,d in decisions)
+        w=World();w.focus('D02');w.countries['SPR']['faction']='axis'
+        w.global_flags.add('AXIS_high_command_flag')
+        self.assertFalse(visible(w))
+        w.focus('D12');self.assertFalse(visible(w))
+        w.focus('D13');self.assertTrue(visible(w))
+        self.assertEqual(w.total('arms_factory','SPR'),4)
+        self.assertAlmostEqual(w.stat('army.army_morale_factor'),0)
+        w.global_flags.remove('AXIS_high_command_flag');self.assertFalse(visible(w))
+        w.global_flags.add('AXIS_high_command_flag')
+        w.countries['SPR']['faction']=None;self.assertFalse(visible(w))
+        w=World();w.focus('D01');w.countries['SPR']['faction']='axis'
+        w.global_flags.add('AXIS_high_command_flag')
+        w.countries['SPR']['completed'].add('TFR_SPA_continental_war_coordination')
+        self.assertFalse(visible(w))
+        self.assertTrue(w.check(TRIGGERS['TFR_SPA_shared_specializations_allowed'],'ROM'))
+
+    def test_shared_axis_rewards_exclude_volunteer_spain(self):
+        import hoi4_script
+        source=(ROOT/'common/national_focus/axis_shared.txt').read_text(encoding='utf-8-sig')
+        guards=[]
+        for entry,parents in hoi4_script.walk(hoi4_script.parse(source)):
+            if entry.key=='limit' and parents[-1].key=='every_country':
+                guards.append([x for x in entry.value.entries() if x.key in ('TFR_SPA_shared_tree_allowed','TFR_SPA_shared_specializations_allowed')])
+        self.assertEqual(len(guards),18)
+        self.assertTrue(all(guards))
+        w=World();w.focus('D01')
+        self.assertFalse(w.check(TRIGGERS['TFR_SPA_shared_tree_allowed']))
+        self.assertNotIn('TFR_SPA_volunteer_spain',source)
+        self.assertNotIn('TFR_SPA_volunteer_mode',source)
 
 
 class SpainBranchEventTests(unittest.TestCase):

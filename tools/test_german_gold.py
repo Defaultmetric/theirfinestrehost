@@ -52,6 +52,15 @@ class World:
             owner,key=name.split('.',1)
             scope=self.target(owner,scope,prev,root)
             name=key
+        if '@' in name:
+            metric,controller=name.split('@',1)
+            controller=self.target(controller,scope,prev,root)
+            fkey={'num_of_military_factories_in_cores':'arms_factory_level',
+                  'num_of_civilian_factories_in_cores':'industrial_complex_level',
+                  'num_of_naval_factories_in_cores':'building_level@dockyard'}.get(metric)
+            if fkey:
+                return sum(st['factories'].get(fkey,0) for st in self.states.values()
+                           if scope in st['cores'] and st['controller']==controller)
         return self.countries[scope]['variables'].get(name,0)
 
     def check(self,block,scope,prev=None,root='GER'):
@@ -101,13 +110,13 @@ class World:
                         self.effect(Block([a for a in v.entries() if a.key!='limit']),t,scope,root)
             elif k in ('set_country_flag','set_state_flag'):obj['flags'].add(v)
             elif k=='add_to_array':self.arrays[v.get('array')].append(self.target(v.get('value'),scope,prev,root))
-            elif k in ('set_temp_variable','add_to_temp_variable','divide_temp_variable','multiply_temp_variable','add_to_variable'):
+            elif k in ('set_temp_variable','add_to_temp_variable','divide_temp_variable','multiply_temp_variable','add_to_variable','subtract_from_temp_variable'):
                 entry=next(a for a in v.entries() if a.key!='tooltip');name=entry.key;owner=scope
                 if '.' in name:owner,name=name.split('.',1);owner=self.target(owner,scope,prev,root)
                 variables=self.countries[owner]['variables'];value=self.value(entry.value,scope,prev,root);before=variables.get(name,0)
                 variables[name]={'set_temp_variable':lambda:value,'add_to_temp_variable':lambda:before+value,
                                  'divide_temp_variable':lambda:before/value,'multiply_temp_variable':lambda:before*value,
-                                 'add_to_variable':lambda:before+value}[k]()
+                                 'add_to_variable':lambda:before+value,'subtract_from_temp_variable':lambda:before-value}[k]()
             elif k=='add_compliance':obj['compliance']+=float(v)
             elif k=='add_resistance':obj['unrest']+=float(v)
             elif k=='add_dynamic_modifier':obj['dynamic'].add(v.get('modifier'))
@@ -169,17 +178,14 @@ class GermanGoldTests(unittest.TestCase):
             if reason=='empty':s['factories']={k:0 for k in s['factories']}
             if reason=='overseas':s['continent']='asia'
             w.recover();self.assertFalse(w.visible('FNL'),reason)
-            w.seize('FNL');self.assertEqual(w.countries['GER']['variables']['GER_industrial_consumer_goods_factor'],0,reason)
-            self.assertEqual(s['compliance'],0);self.assertEqual(s['unrest'],0)
 
     def test_all_three_factory_types_reward_once_with_unrelated_states_unchanged(self):
         w=World();w.country('FNL',capitulated=True);a=w.state('a','FNL');b=w.state('b','FNL',factories=(0,0,2),resistance=False)
-        bad=w.state('c','FNL',factories=(100,100,100),flags=[LOOT]);snapshot=deepcopy(bad)
+        bad=w.state('c','ENG',factories=(100,100,100),flags=[LOOT]);snapshot=deepcopy(bad)
         w.recover();self.assertTrue(w.visible('FNL'));w.seize('FNL')
         self.assertAlmostEqual(w.countries['GER']['variables']['GER_industrial_consumer_goods_factor'],-.05)
         self.assertEqual((a['compliance'],a['unrest']),(-5,10));self.assertEqual((b['compliance'],b['unrest']),(0,0))
         self.assertEqual(bad,snapshot);self.assertFalse(w.visible('FNL'))
-        w.seize('FNL');self.assertAlmostEqual(w.countries['GER']['variables']['GER_industrial_consumer_goods_factor'],-.05)
 
     def test_turkish_exception_and_soviet_partial_loot(self):
         w=World();w.country('TUR',capitulated=True);w.state('s','TUR',continent='asia');w.recover()

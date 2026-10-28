@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-28",
+  "backup_directory": "C:\\Users\\mihai\\.codex\\backups\\spain-construction-20261028-143854",
+  "scope": "Nationalist Spanish post-civil-war construction and industrial research rewards",
+  "early_civilian_construction": {
+    "P01": 0.2,
+    "E01": 0.15,
+    "E02": 0.15,
+    "total": 0.5,
+    "focus_days_from_role_choice": 126
+  },
+  "replacement_rewards": {
+    "E13": {
+      "category": "industry",
+      "bonus": 1,
+      "uses": 1,
+      "ahead_reduction": 2
+    },
+    "E17": {
+      "general_construction": 0.05,
+      "existing_construction_research_preserved": true
+    },
+    "E32": {
+      "general_construction": 0.1
+    }
+  },
+  "save_migration_flag": "TFR_SPA_construction_revision_1",
+  "validation": {
+    "generator_check": "passed",
+    "spain_tests": {
+      "run": 70,
+      "passed": 70
+    },
+    "all_mod_tests": {
+      "run": 104,
+      "passed": 103,
+      "errors": 1,
+      "unrelated_error": "test_submarine_upkeep.SubmarineUpkeepTests.test_imported_base_costs_and_special_hull_aliases: parser returned no equipments block for common/units/equipment/ship_hull_submarine.txt"
+    },
+    "native_game_tested": false
+  },
+  "changed_files": [
+    {
+      "path": "common/national_focus/spain.txt",
+      "before_sha256": "ec0bbe73538a002bc31627b43cea6d4d1ad2afd5a302ef47ef8487a63cd32cd4",
+      "after_sha256": "d99415eece031aa81a89fc44e1a271acc0ab6912b3c948d058c8da09206e06d6"
+    },
+    {
+      "path": "common/scripted_effects/TFR_spain_rework.txt",
+      "before_sha256": "d0eee24e03953190d5eaa43bedba4d573cb631ba79e7763e681c2358483cf5c3",
+      "after_sha256": "712fa23f7ffda9b179cc455eecb025b95fb1bed3972cf69d35242492f2898cb8"
+    },
+    {
+      "path": "docs/spain-nationalist-rework.md",
+      "before_sha256": "7d8c6876ef7f4bf52bb721abb53d2de94378fd9d51babd742ad5b844c467472e",
+      "after_sha256": "720ecf80484eec4b346811d189c086bc7851c2538a5554ed32404342e10249d0"
+    },
+    {
+      "path": "tools/generate_spain_rework.py",
+      "before_sha256": "7c2ce2405d24018a68fc16031bbc6b229e3543aa3277b21b94b6e650bcb72d3a",
+      "after_sha256": "3d3db57f5df3252b7ac37aac6a166c50ea75f809686180b35d33141fea965e1e"
+    },
+    {
+      "path": "tools/spain_balance_limits.json",
+      "before_sha256": "f94cd7b9d80953a3d759a4dfdeb9014bfce63a3e1ad09e8552bd2d33ef5306cb",
+      "after_sha256": "2f8014d7f6055123bf4d53e6f7a10090b1786c67667b27167d86c1fffd4a6d01"
+    },
+    {
+      "path": "tools/spain_focus_expected_totals.json",
+      "before_sha256": "e2772f5491591fd47285addf1a332e2ed6115b553c2e57125312d93221c71a91",
+      "after_sha256": "b22c3ce3550047b31e7e5e3260e29172acedd5348537ca9a7b4981d483bad7e8"
+    },
+    {
+      "path": "tools/spain_focus_plan.json",
+      "before_sha256": "0494aa004be99e72ac0506d44b24e09fb500ad0999ddec4b6bc7f070cc7c4869",
+      "after_sha256": "25064e8f97e7ae25106e64eb58691c66a8b7741bf2468e77326a87fbf14264af"
+    },
+    {
+      "path": "tools/test_spain_rework.py",
+      "before_sha256": "3e3c9a7b8e69c709dbdfe9a4bfcf8024fe17e32df4759033d037c5e67550763b",
+      "after_sha256": "16039e43d62a116ebc0112648851a45bd5b8177089e3a853e0be2e5bdf759ced"
+    }
+  ]
+}

@@ -4296,24 +4296,9 @@ increase_state_category = {
 }
 
 add_potential_special_forces_tree = {
-	custom_effect_tooltip = add_potential_special_forces_tree_tt
-	if = {
-		limit = { NOT = { has_variable = sf_trees } }
-		set_variable = { sf_trees = 2 }
-	}
-	else = {
-		add_to_variable = { sf_trees = 1 }
-	}
 }
 
 remove_potential_special_forces_tree = {
-	if = {
-		limit = { NOT = { has_variable = sf_trees } }
-		set_variable = { sf_trees = 0 }
-	}
-	else = {
-		subtract_from_variable = { sf_trees = 1 }
-	}
 }
 
 store_core_states_on_game_start = { #Should be called from history file
@@ -4344,6 +4329,73 @@ add_random_stat_to_general = {
 			1 = { add_defense = 1 } 
 			1 = { add_planning = 1 } 
 			1 = { add_logistics = 1 }
+		}
+	}
+}
+
+MTG_naval_treaty_sync_ui_compliance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_naval_treaty_over_allowance_trigger = yes
+			}
+			MTG_naval_treaty_mark_over_allowance_effect = yes
+		}
+		else = {
+			MTG_naval_treaty_clear_over_allowance_effect = yes
+		}
+	}
+}
+
+MTG_naval_treaty_sync_ui_membership_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				exists = yes
+				has_naval_treaty_trigger = yes
+				NOT = { is_in_array = { array = global.MTG_naval_treaty_members value = THIS } }
+			}
+			add_to_array = { global.MTG_naval_treaty_members = THIS }
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+		}
+		else_if = {
+			limit = {
+				is_in_array = { array = global.MTG_naval_treaty_members value = THIS }
+				# Annexed signatories keep their idea, so existence has to be checked separately or dead tags pile up.
+				OR = {
+					NOT = { exists = yes }
+					NOT = { has_naval_treaty_trigger = yes }
+				}
+			}
+			remove_from_array = { global.MTG_naval_treaty_members = THIS }
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+			# Leaving the treaty clears the treaty-derived badge, otherwise a rejoining country shows a stale one
+			MTG_naval_treaty_clear_over_allowance_effect = yes
+		}
+	}
+}
+
+
+MTG_naval_treaty_mark_over_allowance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = MTG_over_treaty_allowance }
+			}
+			set_country_flag = MTG_over_treaty_allowance
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
+		}
+	}
+}
+
+MTG_naval_treaty_clear_over_allowance_effect = {
+	hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = MTG_over_treaty_allowance
+			}
+			clr_country_flag = MTG_over_treaty_allowance
+			add_to_variable = { global.MTG_naval_treaty_ui_version = 1 }
 		}
 	}
 }

@@ -1,0 +1,16 @@
+# Grant the retained IDs and the cannon once; stats are in the unit definitions.
+TFR_grant_lc_integrated_tech = {
+    if = {
+        limit = {
+            has_dlc = "Gotterdammerung"
+            OR = {
+                NOT = { has_tech = sp_armored_lc_naval_engine_conversion_tech }
+                NOT = { has_tech = sp_armored_lc_transmission_improvements_tech }
+                NOT = { has_tech = sp_armored_lc_specialized_field_manuals_tech }
+                NOT = { has_tech = sp_armored_lc_weapon_fire_control_tech }
+                NOT = { has_tech = sp_armored_lc_high_impact_obliterator_cannon_tech }
+            }
+        }
+        set_technology = { sp_armored_lc_naval_engine_conversion_tech = 1 sp_armored_lc_transmission_improvements_tech = 1 sp_armored_lc_specialized_field_manuals_tech = 1 sp_armored_lc_weapon_fire_control_tech = 1 sp_armored_lc_high_impact_obliterator_cannon_tech = 1 popup = no }
+    }
+}

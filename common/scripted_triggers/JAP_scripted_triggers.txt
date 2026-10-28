@@ -435,3 +435,31 @@ JAP_imperial_influence_demands_ready = {
 	NOT = { has_country_flag = JAP_faction_demands_cooldown_flag }
 }
 
+
+
+JAP_pacific_approach_breached = {
+	OR = {
+		282 = { NOT = { is_fully_controlled_by = JAP } }
+		532 = { NOT = { is_fully_controlled_by = JAP } }
+		530 = { NOT = { is_fully_controlled_by = JAP } }
+		1019 = { NOT = { is_fully_controlled_by = JAP } }
+	}
+}
+
+JAP_western_approach_breached = {
+	OR = {
+		528 = { NOT = { is_fully_controlled_by = JAP } }
+		1018 = { NOT = { is_fully_controlled_by = JAP } }
+		529 = { NOT = { is_fully_controlled_by = JAP } }
+		531 = { NOT = { is_fully_controlled_by = JAP } }
+	}
+}
+
+JAP_northern_approach_breached = {
+	OR = {
+		536 = { NOT = { is_fully_controlled_by = JAP } }
+		534 = { NOT = { is_fully_controlled_by = JAP } }
+		1020 = { NOT = { is_fully_controlled_by = JAP } }
+		533 = { NOT = { is_fully_controlled_by = JAP } }
+	}
+}

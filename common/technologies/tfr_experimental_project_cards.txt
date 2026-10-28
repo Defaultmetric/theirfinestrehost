@@ -1,0 +1,472 @@
+# Informational cards; project output is applied by the project itself.
+technologies = {
+	tfr_project_card_air_bouncing_bomb = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_bouncing_bomb } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_earthshaker_bomb = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_earthshaker_bomb } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_intercontinental_bomber = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_intercontinental_bomber } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"	
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_mothership_aircraft = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_mothership_aircraft } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_jet_engine = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_jet_engine } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_axial_jet_engine = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_axial_jet_engine } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_supersonic_jet = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_supersonic_jet } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_air_helicopter = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_air_helicopter } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_land_flamethrower_tank = {
+        path = { leads_to_tech = sp_armored_advanced_flamethrower_tech research_cost_coeff = 1 }
+
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_flamethrower_tank } }
+		allow_branch = {
+		has_dlc = "No Step Back"
+	}
+		research_cost = 1
+		start_year = 1934
+		ai_will_do = { factor = 0 }
+		folder = { name = armour_folder position = { x = 12 y = 2 } }
+folder = { name = nsb_armour_folder position = { x = 0 y = 0 } }
+	
+		# Display-only equipment selects the standard wide research card.
+		enable_equipments = { tfr_visual_marker_flame_tank }
+	}
+
+	tfr_project_card_land_military_engineering_vehicles = {
+		is_special_project_tech = yes
+        # Non-buildable marker selects the wide equipment card.
+        enable_equipments = { tfr_visual_marker_military_engineering_vehicles }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_military_engineering_vehicles } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = support_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_land_land_cruiser = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_land_cruiser } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = armour_folder position = { x = 9 y = 10 } }
+folder = { name = nsb_armour_folder position = { x = 10 y = 8 } }
+	
+		# Display-only equipment selects the standard wide research card.
+		enable_equipments = { tfr_visual_marker_land_cruiser }
+	}
+
+	tfr_project_card_land_super_heavy_howitzer = {
+        path = { leads_to_tech = sp_artillery_rocket_assisted_projectiles_tech research_cost_coeff = 1 }
+        path = { leads_to_tech = sp_artillery_purpose_built_gun_motor_carriages_tech research_cost_coeff = 1 }
+
+        path = { leads_to_tech = tfr_project_card_land_self_propelled_super_heavy_howitzer research_cost_coeff = 1 }
+
+		is_special_project_tech = yes
+        enable_equipments = { tfr_visual_marker_super_heavy_howitzer }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_super_heavy_howitzer } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = artillery_folder position = { x = -3 y = 2 } }
+	}
+
+	tfr_project_card_land_self_propelled_super_heavy_howitzer = {
+        path = { leads_to_tech = tfr_project_card_land_multi_charge_large_caliber_gun research_cost_coeff = 1 }
+
+		is_special_project_tech = yes
+        enable_equipments = { tfr_visual_marker_self_propelled_super_heavy_howitzer }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_self_propelled_super_heavy_howitzer } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = artillery_folder position = { x = -3 y = 6 } }
+	}
+
+	tfr_project_card_land_super_heavy_railway_gun = {
+		is_special_project_tech = yes
+        enable_equipments = { tfr_visual_marker_super_heavy_railway_gun }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_super_heavy_railway_gun } }
+		allow_branch = {
+		has_dlc = "No Step Back"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = support_folder position = { x = 4 y = 7 } }
+	}
+
+	tfr_project_card_land_multi_charge_large_caliber_gun = {
+		is_special_project_tech = yes
+        enable_equipments = { tfr_visual_marker_multi_charge_large_caliber_gun }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_multi_charge_large_caliber_gun } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = artillery_folder position = { x = -3 y = 10 } }
+	}
+
+	tfr_project_card_land_stronghold_network = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_stronghold_network } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_naval_rocket_launching_submarine = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_rocket_launching_submarine } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_nuclear_missile_submarine = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_nuclear_missile_submarine } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_nuclear_torpedo = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_nuclear_torpedo } }
+		allow_branch = {
+		AND = {
+			has_dlc= "Gotterdammerung"
+			has_dlc = "Man the Guns"
+		}
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_aip_engine = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_aip_engine } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_anechoic_tiles = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_anechoic_tiles } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_underway_replenishment = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_underway_replenishment } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_naval_proximity_fuze = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_naval_proximity_fuze } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
+folder = { name = naval_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_nuclear_reactor = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_nuclear_reactor } }
+		allow_branch = {
+		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_commercial_nuclear_reactor = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_commercial_nuclear_reactor } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_nuclear_engines = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_nuclear_engines } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_nuclear_bomb = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_nuclear_bomb } }
+		allow_branch = {
+		
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_thermo_nuclear_bomb = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_thermo_nuclear_bomb } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_nuclear_warheads = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_nuclear_warheads } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+	}
+
+	tfr_project_card_rockets_flying_bomb = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rockets_flying_bomb } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_rockets_ballistic_missile = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rockets_ballistic_missile } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_rockets_medium_range_ballistic_missile = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rockets_medium_range_ballistic_missile } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_rockets_long_range_ballistic_missile = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rockets_long_range_ballistic_missile } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_rockets_ground_to_air_missile = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rockets_ground_to_air_missile } }
+		allow_branch = {
+		has_dlc = "Gotterdammerung"
+	}
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = electronics_folder position = { x = 0 y = 0 } }
+		
+	}
+
+	tfr_project_card_rocket_interceptor = {
+		is_special_project_tech = yes
+		allow = { ROOT = { is_special_project_completed = sp:sp_rocket_interceptor } }
+
+		research_cost = 1
+		start_year = 1936
+		ai_will_do = { factor = 0 }
+		folder = { name = bba_air_techs_folder position = { x = 0 y = 0 } }
+folder = { name = air_techs_folder position = { x = 0 y = 0 } }
+		
+	}
+
+}

@@ -367,6 +367,37 @@ TFR_SPA_apply_balance_revision = {
 		}
 		set_country_flag = TFR_SPA_balance_revision_1
 	}
+	if = {
+		limit = { has_country_flag = TFR_SPA_rework_initialized NOT = { has_country_flag = TFR_SPA_construction_revision_1 } }
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_P01 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.2 }
+		}
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_E01 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15 }
+		}
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_E02 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = 0.15 }
+		}
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_E13 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = -0.2 }
+			add_tech_bonus = { name = TFR_SPA_civilian_development_priority bonus = 1.0 ahead_reduction = 2 uses = 1 category = industry }
+		}
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_E17 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = -0.05 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
+		}
+		if = {
+			limit = { has_country_flag = TFR_SPA_reward_E32 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_industrial_complex_factor = -0.05 }
+			add_to_variable = { TFR_SPA_base_economy_production_speed_buildings_factor = 0.05 }
+		}
+		set_country_flag = TFR_SPA_construction_revision_1
+	}
 }
 
 TFR_SPA_expire_recovery_programme = {
@@ -605,10 +636,6 @@ TFR_SPA_refresh_modifiers = {
 		limit = { has_completed_focus = TFR_SPA_full_war_commitment TFR_SPA_main_axis_war = yes }
 		add_to_variable = { TFR_SPA_economy_industrial_capacity_factory = 0.05 }
 		add_to_variable = { TFR_SPA_army_army_org_factor = 0.025 }
-	}
-	if = {
-		limit = { has_completed_focus = TFR_SPA_continental_war_coordination TFR_SPA_main_axis_war = yes }
-		add_to_variable = { TFR_SPA_army_army_morale_factor = 0.025 }
 	}
 	add_to_variable = { TFR_SPA_economy_consumer_goods_factor = 0.1 }
 	if = {
@@ -925,6 +952,8 @@ TFR_SPA_enforce_volunteer_rules = {
 	        can_create_factions = no
 	        can_decline_call_to_war = yes
 	    }
+	    clr_country_flag = accessible_shared_tree
+	    if = { limit = { has_dynamic_modifier = axis_dynamic } remove_dynamic_modifier = { modifier = axis_dynamic } }
 	    if = { limit = { is_in_faction = yes } leave_faction = yes }
 }
 

@@ -36,22 +36,13 @@ technologies = {
 			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
 		}
 
-		path = {
-			leads_to_tech = basic_light_tank
-			research_cost_coeff = 1
-		}
+		
 
-		path = {
-			leads_to_tech = basic_heavy_tank
-			research_cost_coeff = 1
-		}
+		
 
 		research_cost = 2
 		start_year = 1918
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
+		
 
 		ai_will_do = {
 			base = 1
@@ -999,10 +990,7 @@ technologies = {
 			leads_to_tech = advanced_medium_tank
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = improved_heavy_tank
-			research_cost_coeff = 0.9
-		}
+		
 
 		research_cost = 2
 		start_year = 1941
@@ -1229,10 +1217,7 @@ technologies = {
 			leads_to_tech = main_battle_tank
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = advanced_heavy_tank
-			research_cost_coeff = 0.9
-		}
+		
 
 		research_cost = 2
 		start_year = 1943
@@ -1801,15 +1786,9 @@ technologies = {
 			leads_to_tech = advanced_heavy_tank
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = improved_medium_tank
-			research_cost_coeff = 0.9
-		}
+		
 
-		path = {
-			leads_to_tech = super_heavy_tank
-			research_cost_coeff = 1
-		}
+		
 
 		research_cost = 2.5
 		start_year = 1941
@@ -1968,14 +1947,8 @@ technologies = {
 			heavy_tank_equipment_3
 		}
 
-		path = {
-			leads_to_tech = main_battle_tank
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = advanced_medium_tank
-			research_cost_coeff = 0.9
-		}
+		
+		
 
 		research_cost = 2.5
 		start_year = 1943
@@ -2117,27 +2090,17 @@ technologies = {
 		special_project_specialization = { specialization_land }
 	}
 
-	super_heavy_tank = { #Maus
+	super_heavy_tank = {
+        path = { leads_to_tech = tfr_project_card_land_land_cruiser research_cost_coeff = 1 }
+ #Maus
 
-		path = {
-			leads_to_tech = sp_armored_lc_high_impact_obliterator_cannon_tech
-			research_cost_coeff = 1
-		}
+		# TFR: follow-up technology integrated.
 
-		path = {
-			leads_to_tech = sp_armored_lc_naval_engine_conversion_tech
-			research_cost_coeff = 1
-		}
+		# TFR: follow-up technology integrated.
 
-		path = {
-			leads_to_tech = sp_armored_lc_transmission_improvements_tech
-			research_cost_coeff = 1
-		}
+		# TFR: follow-up technology integrated.
 
-		path = {
-			leads_to_tech = sp_armored_lc_specialized_field_manuals_tech
-			research_cost_coeff = 1
-		}
+		# TFR: follow-up technology integrated.
 
 		enable_equipments = {
 			super_heavy_tank_equipment_1

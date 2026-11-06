@@ -9252,7 +9252,7 @@ focus_tree = {
 					}
 					add_faction_goal = faction_goal_secure_the_oil_supply
 					add_faction_goal = faction_goal_war_on_communism_in_asia
-					set_faction_rule = joining_rule_asia_pacific_ocenania_only
+					# TFR disables faction joining rules; no geographic rule to set.
 					set_faction_rule = faction_peace_rule_puppeting_focus
 				}
 				set_faction_name = JAP_greater_east_asian_co_prosperity_sphere
@@ -13443,10 +13443,11 @@ focus_tree = {
 						671 = { 
 							CONTROLLER = { 
 								OR = { 
-									tag = FRA 
+									original_tag = FRA 
 									tag = VIC 
 									is_subject_of = FRA
 									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 								} 
 							}
 						}
@@ -13464,10 +13465,11 @@ focus_tree = {
 					671 = { 
 						CONTROLLER = { 
 							NOT = {
-								tag = FRA 
+								original_tag = FRA 
 								tag = VIC 
 								is_subject_of = FRA
 								is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 							}
 						}
 					}
@@ -13552,6 +13554,38 @@ focus_tree = {
 						}
 					} 
 				}
+				1066 = { 
+					CONTROLLER = { 
+						NOT = {
+							has_war_with = ROOT
+							is_ally_with = ROOT
+						}
+					} 
+				}
+				1067 = { 
+					CONTROLLER = { 
+						NOT = {
+							has_war_with = ROOT
+							is_ally_with = ROOT
+						}
+					} 
+				}
+				1068 = { 
+					CONTROLLER = { 
+						NOT = {
+							has_war_with = ROOT
+							is_ally_with = ROOT
+						}
+					} 
+				}
+				1069 = { 
+					CONTROLLER = { 
+						NOT = {
+							has_war_with = ROOT
+							is_ally_with = ROOT
+						}
+					} 
+				}
 				670 = { 
 					CONTROLLER = { 
 						NOT = {
@@ -13587,40 +13621,88 @@ focus_tree = {
 							286 = { 
 								CONTROLLER = { 
 									OR = { 
-										tag = FRA 
+										original_tag = FRA 
 										tag = VIC
 										is_subject_of = FRA
-										is_subject_of = VIC 
+										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+									}  
+								}
+							}
+							1066 = { 
+								CONTROLLER = { 
+									OR = { 
+										original_tag = FRA 
+										tag = VIC
+										is_subject_of = FRA
+										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+									}  
+								}
+							}
+							1067 = { 
+								CONTROLLER = { 
+									OR = { 
+										original_tag = FRA 
+										tag = VIC
+										is_subject_of = FRA
+										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+									}  
+								}
+							}
+							1068 = { 
+								CONTROLLER = { 
+									OR = { 
+										original_tag = FRA 
+										tag = VIC
+										is_subject_of = FRA
+										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+									}  
+								}
+							}
+							1069 = { 
+								CONTROLLER = { 
+									OR = { 
+										original_tag = FRA 
+										tag = VIC
+										is_subject_of = FRA
+										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
 									}  
 								}
 							}
 							670 = { 
 								CONTROLLER = { 
 									OR = { 
-										tag = FRA 
+										original_tag = FRA 
 										tag = VIC 
 										is_subject_of = FRA
 										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 									} 
 								}
 							}
 							741 = { 
 								CONTROLLER = { 
 									OR = { 
-										tag = FRA 
+										original_tag = FRA 
 										tag = VIC 
 										is_subject_of = FRA
 										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 									} 
 								}
 							}
 							1017 = { 
 								CONTROLLER = { 
 									OR = { 
-										tag = FRA 
+										original_tag = FRA 
 										tag = VIC 
 										is_subject_of = FRA
 										is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 									} 
 								}
 							}
@@ -13633,40 +13715,88 @@ focus_tree = {
 						286 = { 
 							CONTROLLER = { 
 								NOT = { 
-									tag = FRA 
+									original_tag = FRA 
 									tag = VIC
 									is_subject_of = FRA
-									is_subject_of = VIC 
+									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+								} 
+							}
+						}
+						1066 = { 
+							CONTROLLER = { 
+								NOT = { 
+									original_tag = FRA 
+									tag = VIC
+									is_subject_of = FRA
+									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+								} 
+							}
+						}
+						1067 = { 
+							CONTROLLER = { 
+								NOT = { 
+									original_tag = FRA 
+									tag = VIC
+									is_subject_of = FRA
+									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+								} 
+							}
+						}
+						1068 = { 
+							CONTROLLER = { 
+								NOT = { 
+									original_tag = FRA 
+									tag = VIC
+									is_subject_of = FRA
+									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
+								} 
+							}
+						}
+						1069 = { 
+							CONTROLLER = { 
+								NOT = { 
+									original_tag = FRA 
+									tag = VIC
+									is_subject_of = FRA
+									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } } 
 								} 
 							}
 						}
 						670 = { 
 							CONTROLLER = { 
 								NOT = { 
-									tag = FRA 
+									original_tag = FRA 
 									tag = VIC 
 									is_subject_of = FRA
 									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 								} 
 							}
 						}
 						741 = { 
 							CONTROLLER = { 
 								NOT = { 
-									tag = FRA 
+									original_tag = FRA 
 									tag = VIC 
 									is_subject_of = FRA
 									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 								} 
 							}
 						}
 						1017 = { 
 							CONTROLLER = { 
 								NOT = { 
-									tag = FRA 
+									original_tag = FRA 
 									tag = VIC 
 									is_subject_of = FRA
 									is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 								} 
 							}
 						}
@@ -13706,53 +13836,29 @@ focus_tree = {
 				}
 			}
 				
-			IF = {
+			# Request the territory from each French authority that actually controls it.
+			every_other_country = {
 				limit = {
-					FRA = {
-						OR = {
-							controls_state = 670
-							670 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 286
-							286 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 1017
-							1017 = { CONTROLLER = { is_subject_of = FRA } }
-							controls_state = 741
-							741 = { CONTROLLER = { is_subject_of = FRA } }
-						}
+					OR = {
+						original_tag = FRA
+						tag = VIC
+						is_subject_of = FRA
+						is_subject_of = VIC
+						AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
+					}
+					OR = {
+						controls_state = 286
+						controls_state = 670
+						controls_state = 671
+						controls_state = 741
+						controls_state = 1017
+						controls_state = 1066
+						controls_state = 1067
+						controls_state = 1068
+						controls_state = 1069
 					}
 				}
-				FRA = { 
-					country_event = { 
-						id = france.1 
-						hours = 12
-						random_hours = 24
-					} 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			ELSE_IF = {
-				limit = {
-					VIC = {
-						OR = {
-							controls_state = 670
-							controls_state = 286
-							controls_state = 1017
-							controls_state = 741
-							670 = { CONTROLLER = { is_subject_of = VIC } }
-							286 = { CONTROLLER = { is_subject_of = VIC } }
-							1017 = { CONTROLLER = { is_subject_of = VIC } }
-							741 = { CONTROLLER = { is_subject_of = VIC } }
-						}
-					}
-				}
-				VIC = { 
-					country_event = { 
-						id = france.1 
-						hours = 12
-						random_hours = 24
-					} 
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
+				country_event = { id = france.1 hours = 12 random_hours = 24 }
 			}
 
 			IF = {
@@ -13763,13 +13869,17 @@ focus_tree = {
 							state = 286
 							state = 1017
 							state = 741
-							state = 728
+							state = 1066
+							state = 1067
+							state = 1068
+							state = 1069
 						}
 						OWNER = {
 							NOT = {
 								original_tag = FRA
 								is_subject_of = FRA
 								is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 							}
 							OR = {
 								original_tag = VIN
@@ -13792,12 +13902,16 @@ focus_tree = {
 							owns_state = 286
 							owns_state = 1017
 							owns_state = 741
-							owns_state = 728
+							owns_state = 1066
+							owns_state = 1067
+							owns_state = 1068
+							owns_state = 1069
 						}
 						NOT = {
 							original_tag = FRA
 							is_subject_of = FRA
 							is_subject_of = VIC
+									AND = { is_subject = yes OVERLORD = { original_tag = FRA } }
 						}
 						OR = {
 							original_tag = VIN
@@ -25087,8 +25201,9 @@ focus_tree = {
 				mio:JAP_mitsubishi_organization = {
 					add_mio_funds_gain_factor = 0.15
 				}
-				mio:JAP_mitsubishi_heavy_industries_organization = {
-					add_mio_funds_gain_factor = 0.15
+				if = {
+					limit = { has_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization }
+					mio:JAP_mitsubishi_heavy_industries_organization = { add_mio_funds_gain_factor = 0.15 }
 				}
 				mio:JAP_mitsubishi_kobe_shipyard_organization = {
 					add_mio_funds_gain_factor = 0.15
@@ -28160,8 +28275,9 @@ focus_tree = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-				mio:JAP_mitsubishi_heavy_industries_organization = {
-					add_mio_size = 1
+				if = {
+					limit = { has_military_industrial_organization = JAP_mitsubishi_heavy_industries_organization }
+					mio:JAP_mitsubishi_heavy_industries_organization = { add_mio_size = 1 }
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}
@@ -28632,8 +28748,9 @@ focus_tree = {
 				mio:JAP_osaka_army_arsenal_artillery_organization = {
 					add_mio_size = 1
 				}
-				mio:JAP_hitachi_arms_department_organization = {
-					add_mio_size = 1
+				if = {
+					limit = { has_military_industrial_organization = JAP_hitachi_arms_department_organization }
+					mio:JAP_hitachi_arms_department_organization = { add_mio_size = 1 }
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 			}

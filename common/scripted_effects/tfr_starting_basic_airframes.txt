@@ -1,0 +1,18 @@
+# Grant missing basic aircraft to starting and later-released countries.
+TFR_grant_starting_basic_airframes = {
+    if = {
+        limit = { has_dlc = "By Blood Alone" }
+        if = { limit = { NOT = { has_tech = basic_small_airframe } } set_technology = { basic_small_airframe = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = basic_medium_airframe } } set_technology = { basic_medium_airframe = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = basic_large_airframe } } set_technology = { basic_large_airframe = 1 popup = no } }
+        TFR_air_unlock_modules = yes
+    }
+    else = {
+        if = { limit = { NOT = { has_tech = fighter1 } } set_technology = { fighter1 = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = CAS1 } } set_technology = { CAS1 = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = naval_bomber1 } } set_technology = { naval_bomber1 = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = heavy_fighter1 } } set_technology = { heavy_fighter1 = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = tactical_bomber1 } } set_technology = { tactical_bomber1 = 1 popup = no } }
+        if = { limit = { NOT = { has_tech = strategic_bomber1 } } set_technology = { strategic_bomber1 = 1 popup = no } }
+    }
+}

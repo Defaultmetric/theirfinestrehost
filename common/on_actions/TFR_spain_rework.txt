@@ -11,10 +11,24 @@ on_actions = {
 			            # existing war-end flag date so late mode selection and old saves
 			            # cannot restart that clock.
 			            if = { limit = { has_global_flag = { flag = scw_over days > 2189 } } set_variable = { TFR_SPA_recovery_stage = 4 } }
+			            # Repair a previously completed focus whose request was lost, once per save.
+			            if = {
+			                limit = {
+			                    has_completed_focus = TFR_SPA_join_the_axis
+			                    TFR_SPA_axis_membership_eligible = yes
+			                    NOT = { has_country_flag = TFR_SPA_axis_request_pending }
+			                    NOT = { has_country_flag = TFR_SPA_axis_membership_accepted }
+			                    NOT = { has_country_flag = TFR_SPA_axis_request_recovery_checked }
+			                }
+			                TFR_SPA_request_axis_membership = yes
+			            }
+			            # If the diplomatic situation changes, allow a later manual retry.
+			            if = { limit = { has_country_flag = TFR_SPA_axis_request_pending NOT = { TFR_SPA_axis_membership_eligible = yes } } clr_country_flag = TFR_SPA_axis_request_pending }
 			            TFR_SPA_flush_building_rewards = yes
 			            if = { limit = { has_country_flag = TFR_SPA_relocating_industry } TFR_SPA_process_relocation = yes }
 			            TFR_SPA_refresh_modifiers = yes
 			            if = { limit = { has_country_flag = TFR_SPA_volunteer_mode } TFR_SPA_enforce_volunteer_rules = yes }
+			            if = { limit = { has_completed_focus = TFR_SPA_war_spain NOT = { has_idea = TFR_SPA_war_no_volunteers } } add_ideas = TFR_SPA_war_no_volunteers }
 			        }
 			    }
 		}

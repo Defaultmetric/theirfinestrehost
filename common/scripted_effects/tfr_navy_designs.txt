@@ -664,6 +664,66 @@ TFR_navy_create_designs = {
 	}
 	if = {
 		limit = {
+			has_tech = tfr_torpedo_cruiser_1938
+			NOT = { has_country_flag = tfr_dsg_tc_3 }
+		}
+		create_equipment_variant = {
+			name = "Torpedo Cruiser 1938"
+			type = ship_hull_torpedo_cruiser_3
+			parent_version = 0
+			role_icon_index = 8
+			allow_without_tech = yes
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_3
+				fixed_ship_anti_air_slot = ship_anti_air_3
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+				fixed_ship_radar_slot = ship_radar_2
+				fixed_ship_engine_slot = cruiser_ship_engine_3
+				fixed_ship_secondaries_slot = empty
+				fixed_ship_armor_slot = ship_armor_cruiser_3
+				front_1_custom_slot = ship_torpedo_3
+				mid_1_custom_slot = ship_torpedo_3
+				mid_2_custom_slot = ship_torpedo_3
+				rear_1_custom_slot = ship_torpedo_3
+				rear_2_custom_slot = ship_anti_air_3
+			}
+			upgrades = { tfr_hidden_support_tc_2 = 1 }
+		}
+		set_country_flag = tfr_dsg_tc_3
+	}
+
+	if = {
+		limit = {
+			has_tech = tfr_torpedo_cruiser_1942
+			NOT = { has_country_flag = tfr_dsg_tc_4 }
+		}
+		create_equipment_variant = {
+			name = "Torpedo Cruiser 1942"
+			type = ship_hull_torpedo_cruiser_4
+			parent_version = 0
+			role_icon_index = 8
+			allow_without_tech = yes
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air_4
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+				fixed_ship_radar_slot = ship_radar_3
+				fixed_ship_engine_slot = cruiser_ship_engine_4
+				fixed_ship_secondaries_slot = empty
+				fixed_ship_armor_slot = ship_armor_cruiser_4
+				front_1_custom_slot = ship_torpedo_4
+				mid_1_custom_slot = ship_torpedo_4
+				mid_2_custom_slot = ship_torpedo_4
+				rear_1_custom_slot = ship_torpedo_4
+				rear_2_custom_slot = ship_anti_air_4
+			}
+			upgrades = { tfr_hidden_support_tc_2 = 1 }
+		}
+		set_country_flag = tfr_dsg_tc_4
+	}
+
+	if = {
+		limit = {
 			has_tech = basic_ship_hull_heavy
 			NOT = { has_country_flag = tfr_dsg_bb_2 }
 		}

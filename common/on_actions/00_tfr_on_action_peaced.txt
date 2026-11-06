@@ -195,10 +195,6 @@ on_actions = {
                                 state = 33
                                 state = 1
 
-                                state = 671
-                                state = 670
-                                state = 741
-                                state = 286
                             }
 
                             CONTROLLER = {
@@ -214,6 +210,27 @@ on_actions = {
                         event_target:vichy_france = {
                             transfer_state = PREV
                         }
+                    }
+
+                    # Transfer only Indochinese states still owned and controlled by France.
+                    # Guangzhouwan (728) is not part of the Indochinese state group here.
+                    every_state = {
+                        limit = {
+                            OR = {
+                                state = 286
+                                state = 670
+                                state = 671
+                                state = 741
+                                state = 1017
+                                state = 1066
+                                state = 1067
+                                state = 1068
+                                state = 1069
+                            }
+                            is_owned_by = FRA
+                            is_controlled_by = FRA
+                        }
+                        event_target:vichy_france = { transfer_state = PREV }
                     }
 
                     every_state = { #set up cores for French cores

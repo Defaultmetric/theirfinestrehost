@@ -1,0 +1,19 @@
+# Country scope. The project and the cruiser technology can be completed in either order.
+TFR_sync_torpedo_cruiser_progression = {
+	if = {
+		limit = {
+			OR = { has_tech = tfr_card_naval_torpedo_cruiser has_tech = torpedo_cruiser_mtg }
+			has_tech = improved_ship_hull_cruiser
+			NOT = { has_tech = tfr_torpedo_cruiser_1938 }
+		}
+		set_technology = { tfr_torpedo_cruiser_1938 = 1 popup = no }
+	}
+	if = {
+		limit = {
+			OR = { has_tech = tfr_card_naval_torpedo_cruiser has_tech = torpedo_cruiser_mtg }
+			has_tech = advanced_ship_hull_cruiser
+			NOT = { has_tech = tfr_torpedo_cruiser_1942 }
+		}
+		set_technology = { tfr_torpedo_cruiser_1942 = 1 popup = no }
+	}
+}

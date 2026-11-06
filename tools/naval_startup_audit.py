@@ -104,7 +104,10 @@ class NavalData:
         b = self.equipment[name][0]
         result = {}
         archetype = b.get('archetype')
-        if archetype:
+        parent = b.get('parent')
+        if parent:
+            result.update(self.hull(parent))
+        elif archetype:
             result.update(self.hull(archetype))
         for e in b.entries():
             if e.key == 'module_slots' and e.value == 'inherit':
@@ -180,15 +183,28 @@ class NavalData:
             if b.get('required') == 'yes' and slot not in mods:
                 issues.append(('required', slot, 'empty'))
         # Hull-specific restrictions; archetype limits are validated too.
-        limits = self.equipment[name][0].entries('module_count_limit')
-        archetype = self.equipment[name][0].get('archetype')
-        if archetype:
-            limits += self.equipment[archetype][0].entries('module_count_limit')
-        for e in limits:
+        # Parent limits are inherited; an identical child match overrides them.
+        limits_by_match = {}
+        visited = set()
+        def collect_limits(hull):
+            if not hull or hull in visited:
+                return
+            visited.add(hull)
+            definition = self.equipment[hull][0]
+            collect_limits(definition.get('archetype'))
+            collect_limits(definition.get('parent'))
+            for entry in definition.entries('module_count_limit'):
+                value = entry.value
+                match = (tuple(value.atoms()), tuple((x.key, x.value) for x in value.entries() if x.key in ('module', 'category')))
+                limits_by_match[match] = entry
+        collect_limits(name)
+        for e in limits_by_match.values():
             b = e.value
             module, category = b.get('module'), b.get('category')
             count = sum(m == module if module else self.modules.get(m, (Block([]),))[0].get('category') == category for m in mods.values())
             rule = b.entries('count')[0]
+            if rule.op == '=' and rule.value == 'any':
+                continue
             maximum = number(rule.value)
             valid = {'<': count < maximum, '<=': count <= maximum, '=': count == maximum, '>': count > maximum, '>=': count >= maximum}[rule.op]
             if not valid:

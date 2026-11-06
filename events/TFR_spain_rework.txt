@@ -8,24 +8,24 @@ country_event = {
 	        desc = TFR_spain_rework.1.d
 	        picture = GFX_report_event_generic_handshake
 	        is_triggered_only = yes
-	        trigger = { tag = GER FROM = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
+	        trigger = { tag = GER event_target:TFR_SPA_axis_applicant = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
 	        option = {
 	            name = TFR_spain_rework.1.a
 	            ai_chance = { factor = 95 }
 	            # Recheck after a player has left the request open: diplomacy may change.
 	            if = {
-	                limit = { FROM = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
-	                add_to_faction = FROM
-	                FROM = { clr_country_flag = TFR_SPA_axis_request_pending set_country_flag = TFR_SPA_axis_membership_accepted country_event = { id = TFR_spain_rework.2 days = 1 } }
+	                limit = { event_target:TFR_SPA_axis_applicant = { has_country_flag = TFR_SPA_axis_request_pending TFR_SPA_axis_membership_eligible = yes } }
+	                add_to_faction = event_target:TFR_SPA_axis_applicant
+	                event_target:TFR_SPA_axis_applicant = { clr_country_flag = TFR_SPA_axis_request_pending set_country_flag = TFR_SPA_axis_membership_accepted country_event = { id = TFR_spain_rework.2 days = 1 } }
 	            }
 	            else = {
-	                FROM = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
+	                event_target:TFR_SPA_axis_applicant = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
 	            }
 	        }
 	        option = {
 	            name = TFR_spain_rework.1.b
 	            ai_chance = { factor = 5 }
-	            FROM = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
+	            event_target:TFR_SPA_axis_applicant = { clr_country_flag = TFR_SPA_axis_request_pending country_event = { id = TFR_spain_rework.3 days = 1 } }
 	        }
 }
 

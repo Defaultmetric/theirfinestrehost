@@ -7,22 +7,13 @@ sub_units = {
 		ai_priority = 2520
 		active = yes
 
-		type = {
-			support
-			armor
-		}
+		type = { support armor }
 		
 		group = support
 
-		categories = {
-			category_tanks
-			category_support_battalions
-			category_divisional_support_battalions
-			category_front_line
-			category_all_armor
-			category_army
-		}
+		categories = { category_tanks category_support_battalions category_divisional_support_battalions category_front_line category_all_armor category_army }
 
+		
 		regimental = no
 		combat_width = 0
 
@@ -37,19 +28,18 @@ sub_units = {
 		training_time = 180
 		weight = 1.0
 		
-		supply_consumption = 0.4
+		supply_consumption = 0.36
 
-		#Support nerfs to combat abilities
-		#defense = -0.50
-		#breakthrough = -0.30
-		#armor_value = -0.50
-		#ap_attack = -0.50
+		# Offset the shared chassis buff for the support company only.
+		defense = -0.75
+		breakthrough = -0.60
+		armor_value = -0.31
 		
 		suppression = 2.5
 
 		forest = {
 		    attack = -0.3
-			movement = -0.3
+			movement = -0.1
 		}
 		hills = {
 		    attack = -0.3
@@ -66,7 +56,7 @@ sub_units = {
 		jungle = {
 		    attack = -0.35
 		    defence = -0.35
-			movement = -0.3
+			movement = -0.1
 		}
 		marsh = {
 		    attack = -0.3
@@ -90,5 +80,86 @@ sub_units = {
 			attack = 0.50
 			defence = 0.50
 		}
+	
+		# Integrated Land Cruiser project follow-up bonuses.
+		maximum_speed = 0.05
+		reliability = 0.05
+	}
+
+	tfr_super_heavy_battalion = {
+		abbreviation = "STK"
+		sprite = heavy_armor
+		map_icon_category = armored
+		priority = 2520
+		ai_priority = 2520
+		active = yes
+
+		type = { armor }
+		
+		group = armor
+
+		categories = { category_tanks category_front_line category_all_armor category_army }
+
+		
+		combat_width = 2
+
+		need = {
+			super_heavy_tank_chassis = 40
+		}
+
+		manpower = 500
+		max_organisation = 15
+		default_morale = 0.3
+		max_strength = 5
+		training_time = 180
+		weight = 1.5
+		
+		supply_consumption = 0.36
+
+		#Support nerfs to combat abilities
+		#defense = -0.50
+		#breakthrough = -0.30
+		#armor_value = -0.50
+		#ap_attack = -0.50
+		
+		suppression = 2.5
+
+		forest = {
+		    attack = -0.40
+			movement = -0.40
+		}
+		hills = {
+		    attack = -0.20
+		}
+		mountain = 	{
+		    attack = -0.3
+		}
+		urban = {
+			attack = -0.5
+			defence = -0.2
+		}
+		jungle = {
+		    attack = -0.6
+			movement = -0.4
+		}
+		marsh = {
+		    attack = -0.4 
+			movement = -0.2
+		}
+		fort = {
+			attack = 0.1
+		}
+		river = { 
+			attack = -0.4 
+			movement = -0.4
+		}
+		amphibious = { 
+			attack = -0.9
+		}
+		
+	
+		# Integrated Land Cruiser project follow-up bonuses.
+		maximum_speed = 0.05
+		reliability = 0.05
 	}
 }

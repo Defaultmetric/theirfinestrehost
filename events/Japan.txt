@@ -846,158 +846,94 @@ country_event = {
 	title = japan.6.t
 	desc = japan.6.d
 	picture = GFX_report_event_japanese_soldiers_02
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = japan.6.a
 		USA = { set_country_flag = { flag = USA_indochina_window days = 60 value = 1 } }
-		hidden_effect = {
-			news_event = { days = 5 id = news.5 }
+		hidden_effect = { news_event = { days = 5 id = news.5 } }
+		# FROM is the consenting French authority. Do not take states from third parties.
+		if = {
+			limit = {
+				286 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 286
 		}
-		JAP = {
-			IF = {
-				limit = {
-					286 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
+		if = {
+			limit = {
+				670 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
 				}
-				transfer_state = 286
 			}
-			IF = {
-				limit = {
-					670 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 670
-			}
-			IF = {
-				limit = {
-					1069 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 1069
-			}
-			IF = {
-				limit = {
-					1068 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 1068
-			}
-			IF = {
-				limit = {
-					671 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 671
-			}
-			IF = {
-				limit = {
-					741 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 741
-			}
-			IF = {
-				limit = {
-					1067 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 1067
-			}
-			IF = {
-				limit = {
-					728 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 728
-			}
-			IF = {
-				limit = {
-					1017 = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 1017
-			}
-			IF = {
-				limit = {
-					1066  = {
-						CONTROLLER = {
-							OR = {
-								original_tag = FRA
-								is_subject_of = FRA
-								is_subject_of = VIC
-							}
-						}
-					}
-				}
-				transfer_state = 1066 
-			}
-			add_named_threat = { threat = 3 name = france.1.t }
+			transfer_state = 670
 		}
+		if = {
+			limit = {
+				671 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 671
+		}
+		if = {
+			limit = {
+				741 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 741
+		}
+		if = {
+			limit = {
+				1017 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 1017
+		}
+		if = {
+			limit = {
+				1066 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 1066
+		}
+		if = {
+			limit = {
+				1067 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 1067
+		}
+		if = {
+			limit = {
+				1068 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 1068
+		}
+		if = {
+			limit = {
+				1069 = {
+					OR = { is_owned_by = FROM OWNER = { is_subject_of = FROM } }
+					OR = { is_controlled_by = FROM CONTROLLER = { is_subject_of = FROM } }
+				}
+			}
+			transfer_state = 1069
+		}
+		add_named_threat = { threat = 3 name = france.1.t }
 	}
 }
 
@@ -1016,7 +952,7 @@ country_event = {
 			type = take_state
 			target = FROM
 			generator = {
-				286 741 670 671 728 1017 
+				286 670 671 741 1017 1066 1067 1068 1069 
 			}
 		}
 		hidden_effect = {

@@ -3,7 +3,7 @@
 TFR_SPA_diplomatic_cooperation = {
         TFR_SPA_renew_axis_request = {
             icon = generic_political_actions
-            visible = { has_country_flag = TFR_SPA_war_mode has_completed_focus = TFR_SPA_join_the_axis is_in_faction = no }
+            visible = { OR = { has_country_flag = TFR_SPA_war_mode has_completed_focus = TFR_SPA_war_spain } has_completed_focus = TFR_SPA_join_the_axis is_in_faction = no }
             available = { TFR_SPA_can_retry_axis_request = yes }
             cost = 25
             days_re_enable = 30

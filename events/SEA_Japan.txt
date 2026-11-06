@@ -705,7 +705,10 @@ country_event = {
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		transfer_state = 671
+		if = {
+			limit = { 671 = { is_owned_by = FROM is_controlled_by = FROM } }
+			transfer_state = 671
+		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
 

@@ -3299,10 +3299,13 @@ SOV_apply_collective_ageement_on_mutual_assistance_effects_basic = {
 
 	#FRA -> SOV
 	FROM = {
-		diplomatic_relation = {
-			country = ROOT
-			relation = non_aggression_pact
-			active = yes
+		if = {
+			limit = { NOT = { has_non_aggression_pact_with = ROOT } }
+			diplomatic_relation = {
+				country = ROOT
+				relation = non_aggression_pact
+				active = yes
+			}
 		}
 		give_guarantee = ROOT
 		add_opinion_modifier = {
@@ -3312,10 +3315,13 @@ SOV_apply_collective_ageement_on_mutual_assistance_effects_basic = {
 	}
 
 	#SOV -> FRA
-	diplomatic_relation = {
-		country = FROM
-		relation = non_aggression_pact
-		active = yes
+	if = {
+		limit = { NOT = { has_non_aggression_pact_with = FROM } }
+		diplomatic_relation = {
+			country = FROM
+			relation = non_aggression_pact
+			active = yes
+		}
 	}
 	give_guarantee = FROM
 	add_opinion_modifier = {

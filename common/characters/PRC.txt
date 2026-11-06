@@ -1256,8 +1256,9 @@ PRC_zhang_wentian = {
 			advisor={
 				slot = political_advisor
 				available  = {
-					PRC_zhou_enlai = {
-						is_hired_as_advisor = no
+					if = {
+						limit = { has_character = PRC_zhou_enlai }
+						PRC_zhou_enlai = { is_hired_as_advisor = no }
 					}
 					OR =  {
 						has_completed_focus = PRC_form_central_social_affairs_department
@@ -1290,8 +1291,9 @@ PRC_zhang_wentian = {
 			advisor={
 				slot = political_advisor
 				available  = {
-					PRC_zhou_enlai = {
-						is_hired_as_advisor = no
+					if = {
+						limit = { has_character = PRC_zhou_enlai }
+						PRC_zhou_enlai = { is_hired_as_advisor = no }
 					}
 					OR =  {
 						has_completed_focus = PRC_form_central_social_affairs_department

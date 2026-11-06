@@ -1454,3 +1454,61 @@ check_allow_alternate_political_events = {
 	}
 }
 
+
+
+has_naval_treaty_over_allowance_trigger = {
+	if = {
+		limit = {
+			ENG = { has_naval_treaty_trigger = yes }
+		}
+		NOT = {
+			naval_strength_comparison = {
+				other = ENG
+				ratio < 1
+				sub_unit_def_weights = {
+					carrier = 0.5
+					battleship = 1
+					battle_cruiser = 0.8
+					heavy_cruiser = 0.5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			USA = { has_naval_treaty_trigger = yes }
+		}
+		NOT = {
+			naval_strength_comparison = {
+				other = USA
+				ratio < 1
+				sub_unit_def_weights = {
+					carrier = 0.5
+					battleship = 1
+					battle_cruiser = 0.8
+					heavy_cruiser = 0.5
+				}
+			}
+		}
+	}
+	else = {
+		has_navy_size = {
+			type = capital_ship
+			size > 50
+		}
+	}
+}
+
+pc_has_authored_wholesale_puppet_plan = {
+	OR = {
+		original_tag = GER # yalta.txt, FRA/USA/ENG each puppet an occupation zone. Was the existing exemption.
+		AND = {
+			original_tag = CHI # JAP.txt, JAP_create_chinese_puppet
+			ROOT = { original_tag = JAP }
+		}
+		AND = {
+			original_tag = JAP # USA.txt, USA_puppet_japan
+			ROOT = { original_tag = USA }
+		}
+	}
+}

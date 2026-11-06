@@ -1012,7 +1012,10 @@ GEACPS_exploitation_occupation_law = {
 					tag = FCH
 					AND = {
 						exists = yes
-						capital_scope = { is_on_continent = asia }
+						any_owned_state = {
+							is_capital = yes
+							is_on_continent = asia
+						}
 					}
 					AND = {
 						exists = no
@@ -1075,7 +1078,10 @@ GEACPS_prosperity_occupation_law = {
 					tag = FCH
 					AND = {
 						exists = yes
-						capital_scope = { is_on_continent = asia }
+						any_owned_state = {
+							is_capital = yes
+							is_on_continent = asia
+						}
 					}
 					AND = {
 						exists = no

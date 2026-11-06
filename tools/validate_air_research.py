@@ -214,12 +214,35 @@ def main():
     transport_equipment = read('common/units/equipment/quad_engine_airframe.txt').get('equipments')
     assert transport_equipment.get('transport_plane_equipment_2').get('year') == '1939'
     assert transport_equipment.get('transport_plane_equipment_3').get('year') == '1942'
-    # Unrelated UI sections can evolve independently of the aircraft tree.
+    # Existing designer and equipment files have not been altered.
+    report = json.loads((ROOT / 'docs/air-research-simplified.json').read_text())
+    backup = Path(report['backup'])
+    before = read('interface/countrytechtreeview.gui', backup)
+    def outside_air(tree):
+        def normalized(block, skip_height=False):
+            result = []
+            name = block.get('name')
+            for e in block.entries():
+                if isinstance(e.value, Block):
+                    child_name = e.value.get('name')
+                    if child_name in {'bba_air_techs_folder', 'armor_tech_1_tree'} or str(child_name).startswith('tfr_experimental_projects_title') or str(child_name).startswith('tfr_project_card_'):
+                        continue
+                    # The experimental sections extend these existing backgrounds.
+                    child_skip_height = e.key == 'size' and name in {'techtree_stripes', 'tiled_window_transparent_transparent', 'size_filler'}
+                    value = normalized(e.value, child_skip_height)
+                else:
+                    if skip_height and e.key in {'height', 'width'}:
+                        continue
+                    value = e.value
+                result.append((e.key, e.op, value))
+            return result
+        return normalized(tree)
+    assert outside_air(ui) == outside_air(before), 'Unrelated UI changed'
     loc = ROOT / 'localisation/english/tfr_air_simplified_l_english.yml'
     assert loc.read_bytes().startswith(b'\xef\xbb\xbf')
     print(f'PASS: {len(hidden)} hidden module techs; {hooks} airframe hooks; {scenarios} DLC/era/family/project scenarios.')
     print('PASS: no future engines, free airframes, unrelated technology grants or template creation; project gates retained.')
-    print('PASS: startup/monthly catch-up, idempotence, four main UI branches and localized module unlocks.')
+    print('PASS: startup/monthly catch-up, idempotence, four main UI branches and unchanged surrounding UI.')
 
 
 if __name__ == '__main__':

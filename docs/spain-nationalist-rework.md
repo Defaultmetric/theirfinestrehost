@@ -61,10 +61,17 @@ Arsenal of the Axis păstrează Spania în afara facțiunilor; nu poate declara 
 războaie externe prin diplomație. Sunt blocate și garanțiile noi, care ar putea
 provoca intrarea automată într-un război. Războaiele defensive rămân posibile.
 Nu primește capacitate suplimentară de voluntari și nu schimbă alocările SCW.
+Nu are acces la bonusurile sau deciziile de specializare din shared tree-ul Axei.
+Verificarea zilnică elimină accesul și modifierul `axis_dynamic` din salvările vechi.
 
 Our Place in the New Order permite solicitarea aderării Germaniei, care poate accepta sau refuza.
-Un refuz permite o nouă cerere prin decizie. Bonusurile de război din D12 și
-D13 cer un adversar major comun cu Germania, în aceeași facțiune; NPR nu califică.
+Un refuz permite o nouă cerere prin decizie. D12 (Full War Commitment) păstrează
+cele patru fabrici militare și bonusurile condiționate de războiul comun cu o
+mare putere; NPR nu califică. D13 (Continental War Coordination) înlocuiește
+bonusul de recuperare a armatei cu accesul la cele cinci decizii de specializare
+din shared tree. Acestea cer și `AXIS_high_command_flag` (Unlock Army
+Specializations) și apartenența la facțiunea Germaniei. Celelalte țări își
+păstrează condițiile de acces existente.
 Vizibilitatea pingurilor în multiplayer trebuie verificată în joc.
 
 ## Portugalia
@@ -112,6 +119,34 @@ verificate prin condiții și legături, fără ascunderea arborelui. Ramurile n
 sunt așezate în dreapta ramurii originale de război civil, fără suprapuneri.
 
 ## Verificare
+
+### Construcție și cercetare industrială — 28 octombrie 2026
+
+Bonusurile permanente pentru construcția fabricilor civile sunt acum accesibile
+devreme pe ambele rute de după războiul civil:
+
+- National Reconstruction Commission: +20%.
+- National Economic Plan: +15%, împreună cu bonusul existent de +2,5% construcție generală.
+- Reopen Northern Industry: +15%, împreună cu cele două fabrici civile existente.
+
+Totalul specific fabricilor civile este +50%, disponibil după 126 de zile de
+focusuri de la începutul alegerii rolului: 14 + 28 + 28 + 21 + 35.
+Penalizările de recuperare și bonusurile generale de construcție se aplică separat.
+
+Civilian Development Priority înlocuiește vechiul +20% de construcție civilă cu
+un singur bonus de cercetare de 100% pentru categoria `industry`, cu
+`ahead_reduction = 2`. Civil Engineering Institutes înlocuiește +5% de construcție
+civilă cu +5% construcție generală și păstrează bonusul de cercetare pentru
+construcții. An Iberian Economic Powerhouse înlocuiește componenta de +5%
+construcție civilă cu +5% construcție generală: recompensa sa generală devine
++10%, păstrând celelalte efecte. Totalul permanent de construcție generală al
+rutei economice este acum +20%; fabricile oferite de arbore rămân identice.
+
+Migrarea independentă `TFR_SPA_construction_revision_1` ajustează doar
+recompensele deja plătite, după migrarea de balanță originală. Bonusul industrial
+înlocuitor este oferit o singură dată și în salvările cu Civilian Development
+Priority deja completat. Reîmprospătarea zilnică nu repetă bonusurile și nu
+repornește programul de recuperare.
 
 Schema și bugetele aprobate sunt în `tools/spain_focus_plan.json` și
 `tools/spain_focus_expected_totals.json`. Generatorul rescrie numai fișierele

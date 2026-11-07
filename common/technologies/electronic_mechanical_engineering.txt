@@ -3,7 +3,6 @@ technologies = {
 	@radio = -3
 	@radar = -1
 	@computing = 3
-	@firecontrol = 4
 	@encryption_x = 1
 	@decryption_x = 5
 	@rockets_1940 = 0
@@ -520,7 +519,6 @@ technologies = {
 	}
 	
 	mechanical_computing = {
-
 		# small boost to research speed
 		research_speed_factor = 0.04
 		
@@ -529,11 +527,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = basic_fire_control_system
-			research_cost_coeff = 1
-		}
 		enable_equipment_modules = {
+			ship_fire_control_system_1
 			bomb_sights_1
 		}
 		
@@ -557,6 +552,8 @@ technologies = {
 	}
 	
 	computing_machine = {
+		enable_equipment_modules = { ship_fire_control_system_2 }
+
 
 		# small boost to research speed
 		research_speed_factor = 0.05
@@ -571,10 +568,6 @@ technologies = {
 		}
 		path = {
 			leads_to_tech = basic_decryption 
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = improved_fire_control_system
 			research_cost_coeff = 1
 		}
 		research_cost = 2.5
@@ -609,10 +602,10 @@ technologies = {
 	}
 	
 	improved_computing_machine = {
-
 		# small boost to research speed
 		research_speed_factor = 0.08
 		enable_equipment_modules = {
+			ship_fire_control_system_3
 			stabilizer
 			bomb_sights_2
 		}
@@ -629,11 +622,6 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = advanced_fire_control_system
-			research_cost_coeff = 1
-		}
-		
 		research_cost = 2.5
 		start_year = 1940
 		
@@ -977,11 +965,6 @@ technologies = {
 		
 		research_cost = 1
 		
-		folder = {
-			name = electronics_folder
-			position = { x = @firecontrol y = 4 }
-		}
-		
 		ai_will_do = {
 			factor = 0.75
 			modifier = {
@@ -1018,11 +1001,6 @@ technologies = {
 		allow_branch = {
 			has_dlc = "Man the Guns"
 		}
-		folder = {
-			name = electronics_folder
-			position = { x = @firecontrol y = 8 }
-		}
-		
 		ai_will_do = {
 			factor = 0.75
 			modifier = {
@@ -1059,11 +1037,6 @@ technologies = {
 		}
 		
 		research_cost = 1
-		
-		folder = {
-			name = electronics_folder
-			position = { x = @firecontrol y = 12 }
-		}
 		
 		ai_will_do = {
 			factor = 0.75

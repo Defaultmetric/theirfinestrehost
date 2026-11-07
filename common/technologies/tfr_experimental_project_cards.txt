@@ -43,13 +43,16 @@ technologies = {
 	}
 
 	tfr_project_card_air_mothership_aircraft = {
+		path = { leads_to_tech = reinforced_wings_mothership research_cost_coeff = 1 }
 		is_special_project_tech = yes
+		enable_equipments = { tfr_visual_marker_mothership }
 		allow = { ROOT = { is_special_project_completed = sp:sp_air_mothership_aircraft } }
 		allow_branch = {
 		has_dlc = "Gotterdammerung"		
 	}
 		research_cost = 1
-		start_year = 1936
+		start_year = 1939
+		folder = { name = bba_air_techs_folder position = { x = 4 y = 4 } }
 		ai_will_do = { factor = 0 }
 		
 
@@ -57,11 +60,15 @@ technologies = {
 	}
 
 	tfr_project_card_air_jet_engine = {
+		path = { leads_to_tech = tfr_project_card_air_axial_jet_engine research_cost_coeff = 1 }
+		path = { leads_to_tech = sp_centrifugal_jet_tech research_cost_coeff = 1 }
 		is_special_project_tech = yes
+		allow_branch = { has_dlc = "Gotterdammerung" }
 		allow = { ROOT = { is_special_project_completed = sp:sp_air_jet_engine } }
 
 		research_cost = 1
-		start_year = 1936
+		start_year = 1939
+		folder = { name = bba_air_techs_folder position = { x = -6 y = 6 } }
 		ai_will_do = { factor = 0 }
 		
 
@@ -69,11 +76,14 @@ technologies = {
 	}
 
 	tfr_project_card_air_axial_jet_engine = {
+		path = { leads_to_tech = tfr_project_card_air_supersonic_jet research_cost_coeff = 1 }
 		is_special_project_tech = yes
+		allow_branch = { has_dlc = "Gotterdammerung" }
 		allow = { ROOT = { is_special_project_completed = sp:sp_air_axial_jet_engine } }
 
 		research_cost = 1
-		start_year = 1936
+		start_year = 1941
+		folder = { name = bba_air_techs_folder position = { x = -6 y = 9 } }
 		ai_will_do = { factor = 0 }
 		
 
@@ -82,12 +92,14 @@ technologies = {
 
 	tfr_project_card_air_supersonic_jet = {
 		is_special_project_tech = yes
+		enable_equipments = { tfr_visual_marker_supersonic_jet }
 		allow = { ROOT = { is_special_project_completed = sp:sp_air_supersonic_jet } }
 		allow_branch = {
 		has_dlc = "Gotterdammerung"		
 	}
 		research_cost = 1
-		start_year = 1936
+		start_year = 1945
+		folder = { name = bba_air_techs_folder position = { x = -5 y = 12 } }
 		ai_will_do = { factor = 0 }
 		
 
@@ -234,8 +246,6 @@ folder = { name = nsb_armour_folder position = { x = 12 y = 8 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -248,8 +258,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -265,8 +273,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -279,8 +285,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -293,8 +297,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -307,8 +309,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 
@@ -321,8 +321,6 @@ folder = { name = naval_folder position = { x = 0 y = 0 } }
 		research_cost = 1
 		start_year = 1936
 		ai_will_do = { factor = 0 }
-		folder = { name = mtgnavalfolder position = { x = 0 y = 0 } }
-folder = { name = naval_folder position = { x = 0 y = 0 } }
 		
 	}
 

@@ -45,8 +45,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 35
-			add_ideas = idea_SIA_military_neutral
-			add_ideas = idea_SIA_civilian_neutral
+			set_country_flag = SIA_turn_off_the_khana_ratsadon
 			custom_effect_tooltip = SIA_the_khana_ratsadon_tt
 		}
 	}
@@ -474,13 +473,7 @@ focus_tree = {
 		#mutually_exclusive = { focus =  focus =  }
 		cost = 5
 		ai_will_do = {
-			factor = 10
-			modifier = { 
-				has_completed_focus = SIA_and_spring_the_trap 
-				NOT = { has_completed_focus = SIA_secure_the_state }
-
-				factor = 100
-			}
+			factor = 0
 		}
 		available = {
 		}
@@ -1164,7 +1157,7 @@ focus_tree = {
 
 		cost = 5
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 		available = {
 			neutrality > 0.5
@@ -1176,17 +1169,9 @@ focus_tree = {
 
 		completion_reward = {
 
-			check_cheating_before_civil_war = yes
-			set_variable = { monarchist_size_cw = 1 }
-			subtract_from_variable = { monarchist_size_cw =  additional_support_monarchist_cw }
-			start_civil_war = {
-				ideology = fascism
+			set_politics = {
 				ruling_party = neutrality
-				size = var:additional_support_monarchist_cw
-				states = { 1078 1077 1076 869 868 }
-				keep_all_characters = yes
-
-				capital = 1076
+				elections_allowed = no
 			}
 			SIA_phraya_songsuradet = {
 				set_nationality = SIA
@@ -2137,7 +2122,7 @@ focus_tree = {
 		#mutually_exclusive = { focus =  }
 		cost = 5
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 		available = {
 			democratic > 0.5
@@ -2194,27 +2179,11 @@ focus_tree = {
 				}
 			}
 			else = {
-
-				set_temp_variable = { _one = 1 }
-				subtract_from_temp_variable = { _one = SIA_dem_event_count_cw_scale }
-				check_cheating_before_civil_war = yes
-				start_civil_war = {
-					ideology = fascism
+				set_politics = {
 					ruling_party = democratic
-					size = var:_one
-					keep_unit_leaders_trigger = {
-						OR = {
-							is_character = SIA_phraya_songsuradet
-							is_character = SIA_adul_aduldejajaras
-
-						}
-
-					}
+					elections_allowed = yes
 				}
-
-				hidden_effect = {
-					spawn_pret_in_cw_if_cheating = yes
-				}
+				set_country_flag = SIA_turn_off_the_khana_ratsadon
 			}
 		}
 	}
@@ -4370,32 +4339,17 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-
-			if = {
-				limit = {
-					has_completed_focus = SIA_support_songsuradets_military_clique
-				}
-
-				country_event = {
-					id = siam.6
-					hours = 2 
-				}
-
-				custom_effect_tooltip = SIA_the_songsuradet_rebellion_alt_tt
+			country_event = {
+				id = siam.3
+				hours = 2 
 			}
-			else = {
-				country_event = {
-					id = siam.3
-					hours = 2 
-				}
 
-				custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt
-				show_ideas_tooltip = idea_SIA_purged_senior_military
-				custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt3
-				custom_effect_tooltip = newline_tt
-				custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt2
-				show_ideas_tooltip = idea_SIA_cemented_control
-			}
+			custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt
+			show_ideas_tooltip = idea_SIA_purged_senior_military
+			custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt3
+			custom_effect_tooltip = newline_tt
+			custom_effect_tooltip = SIA_the_songsuradet_rebellion_historical_tt2
+			show_ideas_tooltip = idea_SIA_cemented_control
 		}
 	}
 
@@ -9492,7 +9446,7 @@ focus_tree = {
 		#mutually_exclusive = { focus =  }
 		cost = 5
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 		available = {
 			democratic > 0.35
@@ -9515,31 +9469,9 @@ focus_tree = {
 				
 				add_to_variable = { SIA_seri_thai_cw_scale = party_popularity@democratic }
 
-				if = {
-					limit = { check_variable = { SIA_seri_thai_cw_scale > 0.8 } }
-					set_politics = {
-						ruling_party = democratic
-						elections_allowed = yes
-					}
-				}
-				else = {
-					start_civil_war = {
-						ruling_party = democratic
-						ideology = ROOT
-						size = var:SIA_seri_thai_cw_scale
-						# the current (revolting-ideology) leader heads the loyalist revolt
-						keep_political_leader = no
-						keep_unit_leaders_trigger = {
-							has_character_flag = SIA_seri_thai_swayed
-						}
-						# Phibun always sides with the loyalist revolt, never us
-						PREV = {
-							if = {
-								limit = { has_character = SIA_plaek_phibunsongkhram }
-								SIA_plaek_phibunsongkhram = { set_nationality = PREV.PREV }
-							}
-						}
-					}
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
 				}
 				join_allies_effect = yes
 			}

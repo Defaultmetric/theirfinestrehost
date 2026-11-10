@@ -823,29 +823,32 @@ FRA_spanish_intervention_category = {
 	FRA_allow_arms_purchases = {
 		available = {  }
 
-		visible = { not = { has_country_flag = FRA_arms_purchases_allowed } }
+		visible = { NOT = { has_country_flag = FRA_arms_purchases_allowed } }
 
 		cancel_trigger = {
 			OR = {
 				has_global_flag = scw_over
-				not = { has_country_flag = FRA_arms_purchases_allowed }
+				NOT = { SPR_scw_in_progress = yes }
+				has_country_flag = FRA_arms_purchases_banned
 			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = FRA_arms_purchases_allowed
+			clr_country_flag = FRA_arms_purchases_banned
 		}
 
 		complete_effect = { 
 			set_country_flag = FRA_arms_purchases_allowed 
+			clr_country_flag = FRA_arms_purchases_banned
 			clr_country_flag = FRA_non_intervention
 			custom_effect_tooltip = FRA_allow_arms_purchases_tt
 			unlock_decision_tooltip = FRA_ban_arms_purchases
 		}
 
-		cost = 25
+		cost = 0
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_stability < 0.4
-				factor = 0
-			}
+			factor = 0
 		}
 		days_remove = -1
 		modifier = {
@@ -861,6 +864,8 @@ FRA_spanish_intervention_category = {
 		visible = { has_country_flag = FRA_arms_purchases_allowed }
 
 		complete_effect = { 
+			set_country_flag = FRA_arms_purchases_banned
+			remove_decision = FRA_allow_arms_purchases
 			clr_country_flag = FRA_arms_purchases_allowed 
 			set_country_flag = FRA_non_intervention
 		}
@@ -868,30 +873,35 @@ FRA_spanish_intervention_category = {
 		cost = 0
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				has_stability < 0.4
-				add = 5
-			}
 		}
 	}
 
 	FRA_allow_sending_weapons = {
 		available = {  }
 
-		visible = { not = { has_country_flag = FRA_sending_weapons_allowed } }
+		visible = { NOT = { has_country_flag = FRA_sending_weapons_allowed } }
 
 		cancel_trigger = {
 			OR = {
 				has_global_flag = scw_over
-				not = { has_country_flag = FRA_sending_weapons_allowed }
+				NOT = { SPR_scw_in_progress = yes }
+				has_country_flag = FRA_sending_weapons_banned
 			}
 		}
 
-		complete_effect = { 
-			set_global_flag = FRA_sending_weapons_allowed_fake 
+		cancel_effect = {
+			clr_country_flag = FRA_sending_weapons_allowed
+			clr_country_flag = FRA_sending_weapons_banned
 		}
 
-		cost = 25
+		complete_effect = { 
+			set_country_flag = FRA_sending_weapons_allowed 
+			clr_country_flag = FRA_sending_weapons_banned
+			clr_country_flag = FRA_non_intervention
+			unlock_decision_tooltip = FRA_ban_sending_weapons
+		}
+
+		cost = 0
 		days_remove = -1
 		modifier = {
 			stability_factor = -0.15
@@ -900,46 +910,48 @@ FRA_spanish_intervention_category = {
 			request_lease_tension = -1
 		}
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_stability < 0.45
-				factor = 0
-			}
+			factor = 0
 		}
 	}
 
 	FRA_ban_sending_weapons = {
 		available = {  }
 
-		visible = { has_country_flag = FRA_sending_weapons_allowed_fake }
+		visible = { has_country_flag = FRA_sending_weapons_allowed }
 
 		complete_effect = { 
+			set_country_flag = FRA_sending_weapons_banned
+			remove_decision = FRA_allow_sending_weapons
 			clr_country_flag = FRA_sending_weapons_allowed 
 		}
 
 		cost = 0
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				has_stability < 0.45
-				add = 5
-			}
 		}
 	}
+
 	FRA_allow_volunteer_work = {
 		available = {  }
 
-		visible = { not = { has_country_flag = FRA_volunteer_work_allowed } }
+		visible = { NOT = { has_country_flag = FRA_volunteer_work_allowed } }
 
 		cancel_trigger = {
 			OR = {
 				has_global_flag = scw_over
-				not = { has_country_flag = FRA_volunteer_work_allowed }
+				NOT = { SPR_scw_in_progress = yes }
+				has_country_flag = FRA_volunteer_work_banned
 			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = FRA_volunteer_work_allowed
+			clr_country_flag = FRA_volunteer_work_banned
 		}
 
 		complete_effect = { 
 			set_country_flag = FRA_volunteer_work_allowed 
+			clr_country_flag = FRA_volunteer_work_banned
 			clr_country_flag = FRA_non_intervention
 			unlock_decision_tooltip = FRA_ban_volunteer_work
 			every_other_country = {
@@ -958,13 +970,9 @@ FRA_spanish_intervention_category = {
 			custom_effect_tooltip = FRA_allow_volunteer_work_tt
 		}
 
-		cost = 25
+		cost = 0
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_stability < 0.5
-				factor = 0
-			}
+			factor = 0
 		}
 		days_remove = -1
 		modifier = {
@@ -979,45 +987,44 @@ FRA_spanish_intervention_category = {
 		visible = { has_country_flag = FRA_volunteer_work_allowed }
 
 		complete_effect = { 
+			set_country_flag = FRA_volunteer_work_banned
+			remove_decision = FRA_allow_volunteer_work
 			clr_country_flag = FRA_volunteer_work_allowed 
 		}
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				has_stability < 0.5
-				add = 5
-			}
 		}
 		cost = 0
 	}
+
 	FRA_allow_covert_intervention = {
 		available = {  }
 
-		visible = { not = { has_country_flag = FRA_covert_intervention_allowed } }
+		visible = { NOT = { has_country_flag = FRA_covert_intervention_allowed } }
 
 		cancel_trigger = {
 			OR = {
 				has_global_flag = scw_over
-				not = { has_country_flag = FRA_covert_intervention_allowed }
+				NOT = { SPR_scw_in_progress = yes }
+				has_country_flag = FRA_covert_intervention_banned
 			}
+		}
+
+		cancel_effect = {
+			clr_country_flag = FRA_covert_intervention_allowed
+			clr_country_flag = FRA_covert_intervention_banned
 		}
 
 		complete_effect = { 
 			set_country_flag = FRA_covert_intervention_allowed 
+			clr_country_flag = FRA_covert_intervention_banned
 			clr_country_flag = FRA_non_intervention
+			unlock_decision_tooltip = FRA_ban_covert_intervention
 		}
 
-		cost = 25
+		cost = 0
 		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_stability < 0.55
-				factor = 0
-			}
-			modifier = {
-				has_stability < 0.8
-				factor = 0.5
-			}
+			factor = 0
 		}
 		days_remove = -1
 		modifier = {
@@ -1027,21 +1034,19 @@ FRA_spanish_intervention_category = {
 	}
 
 	FRA_ban_covert_intervention = {
+		available = {  }
 
 		visible = { has_country_flag = FRA_covert_intervention_allowed }
 
 		complete_effect = { 
+			set_country_flag = FRA_covert_intervention_banned
+			remove_decision = FRA_allow_covert_intervention
 			clr_country_flag = FRA_covert_intervention_allowed 
-			#recall_volunteers_from = SPR
 		}
 
 		cost = 0
 		ai_will_do = {
 			factor = 0
-			modifier = {
-				has_stability < 0.55
-				add = 5
-			}
 		}
 	}
 
@@ -1161,6 +1166,10 @@ FRA_spanish_intervention_category = {
 				limit = { has_country_flag = FRA_arms_purchases_allowed }
 				clr_country_flag = FRA_arms_purchases_allowed
 			}
+			remove_decision = FRA_allow_arms_purchases
+			remove_decision = FRA_allow_sending_weapons
+			remove_decision = FRA_allow_volunteer_work
+			remove_decision = FRA_allow_covert_intervention
 			
 		}
 

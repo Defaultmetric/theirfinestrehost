@@ -53,6 +53,14 @@ TFR_sync_experimental_project_cards = {
 		set_technology = { tfr_project_card_land_self_propelled_super_heavy_howitzer = 1 popup = no }
 	}
 	if = {
+		limit = { is_special_project_completed = sp:sp_land_super_heavy_at NOT = { has_tech = tfr_project_card_land_super_heavy_at } }
+		set_technology = { tfr_project_card_land_super_heavy_at = 1 popup = no }
+	}
+	if = {
+		limit = { is_special_project_completed = sp:sp_land_self_propelled_super_heavy_at NOT = { has_tech = tfr_project_card_land_self_propelled_super_heavy_at } }
+		set_technology = { tfr_project_card_land_self_propelled_super_heavy_at = 1 popup = no }
+	}
+	if = {
 		limit = { is_special_project_completed = sp:sp_land_super_heavy_railway_gun NOT = { has_tech = tfr_project_card_land_super_heavy_railway_gun } }
 		set_technology = { tfr_project_card_land_super_heavy_railway_gun = 1 popup = no }
 	}

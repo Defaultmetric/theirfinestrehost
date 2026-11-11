@@ -108,11 +108,29 @@ anti_tank_frontline = {
      # EFFECTS
      
 
-    engineer = {
+    effect = {
+        add_tech_bonus = {
+            name = SUBDOCTRINE_ANTI_TANK_FRONT
+            bonus = 1
+            uses = 1
+            category = cat_anti_tank
+        }
+    }
+
+    super_heavy_at = {
         battalion_mult = {
-            category = category_line_artillery
-            entrenchment = 0.2
-            add = yes
+            category = category_army
+            hard_attack = 0.05
+            defense = 0.05
+            ap_attack = 0.05
+        }
+    }
+    self_propelled_super_heavy_at = {
+        battalion_mult = {
+            category = category_army
+            hard_attack = 0.05
+            defense = 0.05
+            ap_attack = 0.05
         }
     }
 
@@ -122,7 +140,15 @@ anti_tank_frontline = {
             anti_tank_brigade = {
                 defense = 0.2
                 ap_attack = 0.1
-                soft_attack = 0.1
+            }
+            anti_tank = {
+                defense = 0.2
+            }
+            super_heavy_at = {
+                defense = 0.2
+            }
+            self_propelled_super_heavy_at = {
+                defense = 0.2
             }
         }
         emplacement_rotation = {
@@ -130,25 +156,50 @@ anti_tank_frontline = {
             anti_tank_brigade = {
                 max_organisation = 10
             }
+            anti_tank = {
+                max_organisation = 5
+            }
+            super_heavy_at = {
+                max_organisation = 10
+            }
+            self_propelled_super_heavy_at = {
+                max_organisation = 10
+            }
         }
         weakpoint_studies = {
         #3
             anti_tank_brigade = {
+                hard_attack = 0.1
+            }
+            anti_tank = {
+                hard_attack = 0.1
                 ap_attack = 0.1
-                hard_attack = 0.05
+            }
+            super_heavy_at = {
+                hard_attack = 0.1
+                ap_attack = 0.1
+            }
+            self_propelled_super_heavy_at = {
+                hard_attack = 0.1
+                ap_attack = 0.1
             }
         }
         offensive_deployments = {
         #4
             mot_anti_tank_brigade = {
                 breakthrough = 0.2
-                ap_attack = 0.2
+                ap_attack = 0.1
+            }
+            self_propelled_super_heavy_at = {
+                breakthrough = 0.2
+                plains = {
+                    movement = 0.1
+                }
             }
         }
         assault_anti_tank = {
         #5
             mot_anti_tank_brigade = {
-                soft_attack = 0.1
                 hard_attack = 0.1
             }
         }
@@ -795,6 +846,11 @@ field_engineering = {
     }
 
     engineer = {
+        battalion_mult = {
+            category = category_line_artillery
+            entrenchment = 0.2
+            add = yes
+        }
         river = {
             movement = 0.2
         }

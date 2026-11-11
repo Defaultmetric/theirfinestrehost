@@ -51,6 +51,7 @@ NDefines.NTechnology.LICENSE_PRODUCTION_TECH_BONUS = 0.5
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
 
 NDefines.NOperatives.AGENCY_CREATION_FACTORIES = 5						-- Number of factories used to create an intelligence agency
+NDefines.NIntel.ARMY_INTEL_COMBAT_BONUS_MAX_BONUS = 0.10
 
 NDefines.NIndustrialOrganisation.ASSIGN_DESIGN_TEAM_PP_COST_PER_DAY = 0.0
 NDefines.NIndustrialOrganisation.FUNDS_FOR_RESEARCH_COMPLETION_PER_RESEARCH_COST = 750     	-- Funds added to MIO when the Design Team has completed a research, multiplied by research_cost in technology template (was: 500, +50%)
@@ -69,6 +70,20 @@ NDefines.NMilitary.UNIT_EXPERIENCE_PER_COMBAT_HOUR = 0.00015
 NDefines.NMilitary.EXPERIENCE_LOSS_FACTOR = 0.7
 
 NDefines.NMilitary.UNIT_LEADER_USE_NONLINEAR_XP_GAIN = false
+NDefines.NMilitary.MAX_DIVISION_BRIGADE_WIDTH = 6
+NDefines.NMilitary.MAX_DIVISION_BRIGADE_HEIGHT = 6
+NDefines.NMilitary.MIN_DIVISION_BRIGADE_HEIGHT = 5
+NDefines.NMilitary.MAX_DIVISION_SUPPORT_HEIGHT = 6
+NDefines.NMilitary.MAX_REGIMENTAL_SUPPORT_WIDTH = 6
+NDefines.NMilitary.REGIMENTAL_SUPPORT_REQUIRED_BATTALIONS = { 3 }
+NDefines.NMilitary.AI_BATTALION_BUILD_ORDER = {
+	 1,  7, 13, 19, 25, 31,
+	 2,  8, 14, 20, 26, 32,
+	 3,  9, 15, 21, 27, 33,
+	 4, 10, 16, 22, 28, 34,
+	 5, 11, 17, 23, 29, 35,
+	 6, 12, 18, 24, 30, 36,
+}
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_GROUP_COST = 0 	--Base cost to unlock a regiment slot
 NDefines.NMilitary.BASE_DIVISION_BRIGADE_CHANGE_COST = 0	--Base cost to change a regiment column.
 NDefines.NMilitary.BASE_DIVISION_SUPPORT_SLOT_COST = 0 	--Base cost to unlock a support slot

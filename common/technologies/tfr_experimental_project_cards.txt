@@ -199,6 +199,35 @@ folder = { name = nsb_armour_folder position = { x = 12 y = 8 } }
 		folder = { name = artillery_folder position = { x = -3 y = 6 } }
 	}
 
+	tfr_project_card_land_super_heavy_at = {
+		path = { leads_to_tech = super_heavy_at_upgrade_1 research_cost_coeff = 1 }
+		path = { leads_to_tech = tfr_project_card_land_self_propelled_super_heavy_at research_cost_coeff = 1 }
+
+		is_special_project_tech = yes
+		enable_equipments = { tfr_visual_marker_super_heavy_at }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_super_heavy_at } }
+		allow_branch = {
+			has_dlc = "Gotterdammerung"
+		}
+		research_cost = 1
+		start_year = 1940
+		ai_will_do = { factor = 0 }
+		folder = { name = artillery_folder position = { x = 5 y = 6 } }
+	}
+
+	tfr_project_card_land_self_propelled_super_heavy_at = {
+		is_special_project_tech = yes
+		enable_equipments = { tfr_visual_marker_self_propelled_super_heavy_at }
+		allow = { ROOT = { is_special_project_completed = sp:sp_land_self_propelled_super_heavy_at } }
+		allow_branch = {
+			has_dlc = "Gotterdammerung"
+		}
+		research_cost = 1
+		start_year = 1941
+		ai_will_do = { factor = 0 }
+		folder = { name = artillery_folder position = { x = 7 y = 8 } }
+	}
+
 	tfr_project_card_land_super_heavy_railway_gun = {
 		is_special_project_tech = yes
         enable_equipments = { tfr_visual_marker_super_heavy_railway_gun }

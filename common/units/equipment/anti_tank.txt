@@ -24,7 +24,7 @@ equipments = {
 		#Offensive Abilities
 		soft_attack = 2
 		hard_attack = 18
-		ap_attack = 40
+		ap_attack = 45
 		air_attack = 0
 
 		#Space taken in convoy
@@ -57,7 +57,7 @@ equipments = {
 		breakthrough = 4
 		soft_attack = 4
 		hard_attack = 23
-		ap_attack = 50
+		ap_attack = 65
 		
 		build_cost_ic = 6
 		resources = {
@@ -78,12 +78,144 @@ equipments = {
 		breakthrough = 4
 		soft_attack = 6
 		hard_attack = 28
-		ap_attack = 60
+		ap_attack = 80
 		
 		build_cost_ic = 8
 		resources = {
 			tungsten = 2
 			steel = 3
 		}
+	}
+
+	###################################
+	######## SPECIAL PROJECTS #########
+	###################################
+
+	super_heavy_at_equipment = {
+		year = 1939
+
+		is_archetype = yes
+		picture = archetype_anti_tank_equipment		
+		type = {
+			anti_tank
+			infantry
+		}
+		group_by = archetype
+		
+		interface_category = interface_category_land
+
+		max_military_factories = 10
+
+		#Misc Abilities
+		reliability = 0.7
+
+		#Defensive Abilities
+		defense = 14
+		breakthrough = 12
+		hardness = 0
+		armor_value = 0
+
+		#Offensive Abilities
+		soft_attack = 6
+		hard_attack = 32
+		ap_attack = 110
+		air_attack = 0
+
+		fuel_consumption = 0.25
+
+		#Space taken in convoy
+		lend_lease_cost = 8
+		
+		build_cost_ic = 30
+		resources = {
+			steel = 4
+			tungsten = 2
+		}
+	}
+
+	super_heavy_at_equipment_1 = {
+		year = 1939
+
+		archetype = super_heavy_at_equipment
+		priority = 90
+		module_slots = inherit
+		visual_level = 0
+	}
+
+	super_heavy_at_equipment_2 = {
+		year = 1943
+
+		archetype = super_heavy_at_equipment
+		parent = super_heavy_at_equipment_1
+		priority = 90
+		module_slots = inherit
+		visual_level = 1
+
+		#Defensive Abilities
+		defense = 18
+		breakthrough = 16
+
+		#Offensive Abilities
+		soft_attack = 8
+		hard_attack = 42
+		ap_attack = 145
+
+		build_cost_ic = 34
+		resources = {
+			steel = 4
+			tungsten = 3
+		}
+	}
+
+	self_propelled_super_heavy_at_equipment = {
+		year = 1939
+
+		is_archetype = yes
+		picture = archetype_anti_tank_equipment		
+		type = {
+			anti_tank
+			infantry
+		}
+		group_by = archetype
+		
+		interface_category = interface_category_land
+
+		max_military_factories = 10
+
+		#Misc Abilities
+		reliability = 0.7
+
+		#Defensive Abilities
+		defense = 14
+		breakthrough = 16
+		hardness = 0.1
+		armor_value = 6
+
+		#Offensive Abilities
+		soft_attack = 8
+		hard_attack = 36
+		ap_attack = 105
+		air_attack = 0
+
+		fuel_consumption = 1.8
+
+		#Space taken in convoy
+		lend_lease_cost = 10
+		
+		build_cost_ic = 65
+
+		resources = {
+			tungsten = 3
+			steel = 4
+			chromium = 1
+		}
+	}
+
+	self_propelled_super_heavy_at_equipment_1 = {
+		year = 1939
+
+		archetype = self_propelled_super_heavy_at_equipment
+		priority = 90
+		visual_level = 0
 	}
 }

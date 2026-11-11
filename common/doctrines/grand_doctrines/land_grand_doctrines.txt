@@ -390,7 +390,7 @@ mass_assault = {
 
     # EFFECTS
     no_supply_grace = 48
-    out_of_supply_factor = -0.10
+    out_of_supply_factor = -0.15
     enable_tactic = tactic_relentless_assault
     
 
@@ -398,8 +398,17 @@ mass_assault = {
         {
             #Infantry
             enable_tactic = tactic_human_wave_tactics
-            additional_brigade_column_size = 1
             supply_consumption_factor = -0.2
+            category_vehicle_infantry = {
+                combat_width = -0.1
+                soft_attack = -0.1
+                hard_attack = -0.1
+            }
+            infantry = {
+                combat_width = -0.1
+                soft_attack = -0.1
+                hard_attack = -0.1
+            }
             category_regimental_support_battalions = {
                 max_organisation = 5
                 supply_consumption = -0.02
@@ -423,6 +432,7 @@ mass_assault = {
         {
             #Artillery/Support
             enable_tactic = tactic_elastic_defense
+            additional_brigade_column_size = 1
             out_of_supply_factor = -0.05
             land_reinforce_rate = 0.02
 

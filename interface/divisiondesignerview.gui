@@ -210,7 +210,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "countrydivisiondesignerview"
 		position = { x=0 y=0}	
-		size = { width = 1302 height = 766 }
+		size = { width = 1302 height = 674 }
 		moveable = yes
 		fade_time = 500
 		fade_type = linear
@@ -285,7 +285,7 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "hq_support_header"
-				position = { x = 40 y = 529 }
+				position = { x = 40 y = 475 }
 				font = "hoi_16mbs"
 				text = "DESIGNER_HQ_SUPPORT_HEADER"
 				maxWidth = 340
@@ -307,7 +307,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "hq_modifiers_list"
 				position = { x = 418 y = 270 }
-				size = { width = 334 height = 379 }
+				size = { width = 334 height = 291 }
 				verticalScrollbar = "right_vertical_slider"
 
 				# An (invisible) background is required so the list reports its content bounds
@@ -346,19 +346,27 @@ guiTypes = {
 
 		iconType = {
 			name = "select_model"
-			position = { x = 1040 y = 412 }	
+			position = { x = 1040 y = 364 }
 			quadTextureSprite = "GFX_3d_view_placeholder"
 		}		
 		
 		buttonType = {
 			name = "toggle_model_selector_button"
-			position = { x = 1038 y = 409 }
-			size = { x = 249 y = 249 }
+			position = { x = 1038 y = 361 }
+			size = { x = 249 y = 205 }
 			quadTextureSprite ="GFX_division_3d_bg"	
 			pdx_tooltip = "TOGGLE_MODEL_SELECTOR"
 			clicksound = click_default
 		}
 			
+
+		# Cover the 3D viewport where it extends below the compact preview frame.
+		iconType = {
+			name = "model_preview_footer"
+			position = { x = 1028 y = 566 }
+			spriteType = "GFX_TFR_division_model_footer"
+			alwaystransparent = yes
+		}
 
 		containerWindowType = {
 			name = "hardness_stat"
@@ -523,7 +531,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "subunits"
 			position = { x=0 y=170}
-			size = { width = 758 height = 493 }
+			size = { width = 758 height = 401 }
 			verticalScrollbar = "right_vertical_slider"
 
 			instantTextboxType = {
@@ -539,7 +547,7 @@ guiTypes = {
 
 			instantTextboxType = {
 				name = "regimental_support_header_label"
-				position = { x = 216 y = 446 }
+				position = { x = 216 y = 354 }
 				font = "hoi_16mbs"
 				text = "REGIMENTAL_SUPPORT_HEADER"
 				maxWidth = 250
@@ -566,7 +574,7 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "regiment_support_grid"
-				position = { x = 54 y = 388 }
+				position = { x = 54 y = 296 }
 				size = { width = 547 height = 100%% }
 				slotsize = { width = 102 height = 36 }
 				format = "UPPER_LEFT"
@@ -577,7 +585,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "subunits_hq"
 			position = { x=0 y=170}
-			size = { width = 758 height = 493 }
+			size = { width = 758 height = 401 }
 			verticalScrollbar = "right_vertical_slider"
 
 			gridboxtype = {
@@ -602,7 +610,7 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "support_grid"
-				position = { x = 50 y = 396 }
+				position = { x = 50 y = 327 }
 				size = { width = 328 height = 35 }
 				slotsize = { width = 82 height = 35 }
 				max_slots_horizontal = 4
@@ -619,7 +627,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "base_stats"
 				position = { x = 7 y = 55 }
-				size = { width = 172 height = 284 }
+				size = { width = 172 height = 264 }
 				clipping = yes
 				
 				background = {
@@ -653,7 +661,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "combat_stats"
 				position = { x = 181 y = 55 }
-				size = { width = 172 height = 284 }
+				size = { width = 172 height = 264 }
 				clipping = yes
 				
 				background = {
@@ -687,7 +695,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "equipment_stats"
 				position = { x = 353 y = 55 }
-				size = { width = 174 height = 284 }
+				size = { width = 174 height = 264 }
 				clipping = yes
 				scroll_wheel_factor = 20
 				smooth_scrolling = yes
@@ -702,7 +710,7 @@ guiTypes = {
 				gridboxtype = {
 					name = "stats_grid"
 					position = { x = 5 y = 0 }
-					size = { width = 155 height = 280 }
+					size = { width = 155 height = 260 }
 					slotsize = { width = 155 height = 20 }
 					max_slots_horizontal = 1
 					format = "UPPER_LEFT"
@@ -723,8 +731,8 @@ guiTypes = {
 			
 			containerWindowType = {
 				name = "adjuster_stats"
-				position = { x = 9 y = 403 }
-				size = { width = 262 height = 236 }
+				position = { x = 9 y = 355 }
+				size = { width = 262 height = 196 }
 				scroll_wheel_factor = 62
 				smooth_scrolling = yes
 				
@@ -738,7 +746,7 @@ guiTypes = {
 				gridboxtype = {
 					name = "stats_grid"
 					size = { width = 100%% height = 100%% }
-					slotsize = { width = 77 height = 72 }
+					slotsize = { width = 77 height = 64 }
 					max_slots_horizontal = 3
 					format = "UPPER_LEFT"
 				}
@@ -937,7 +945,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "designerregimentswindow"
 			position = { x=0 y=40}	
-			size = { width = 762 height = 626 }
+			size = { width = 762 height = 530 }
 			margin = { top = 14 bottom = 11 }
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 40
@@ -1015,7 +1023,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "division_equipment_view"
 			position = { x=10 y=40 }
-			size = { width = 744 height = 612 }
+			size = { width = 744 height = 520 }
 			moveable = no
 			fade_time = 500
 			fade_type = linear
@@ -1093,7 +1101,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "equipment_variants"
 				position = {x=0 y=104}
-				size = { width = 744 height = 512 }
+				size = { width = 744 height = 420 }
 				margin = {top=15 left=0 bottom=15 right=0}				
 				verticalScrollbar = "right_vertical_slider"
 				scroll_wheel_factor = 40
@@ -1118,7 +1126,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "div_templ_custom_icon_view"
 			position = { x=13 y=47 }
-			size = { width = 741 height = 601 }
+			size = { width = 741 height = 509 }
 			moveable = no
 			fade_time = 500
 			fade_type = linear
@@ -1169,7 +1177,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "div_template_select_model"
 			position = { x = 772 y = 40 }
-			size = { width = 538 height = 627 }
+			size = { width = 538 height = 530 }
 			
 			
 			background = {
@@ -1200,7 +1208,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "grid_container"
 				position = { x=0 y=335}	
-				size = { width = 513 height = 266 }
+				size = { width = 513 height = 174 }
 				verticalScrollbar = "right_vertical_slider"
 				scroll_wheel_factor = 42
 				smooth_scrolling = yes

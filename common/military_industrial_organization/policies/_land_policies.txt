@@ -112,31 +112,6 @@ mio_policy_land_factory_applied_camouflage  = {
 
 mio_policy_land_cutting_corners  = {
 	icon = GFX_mio_policy_cutting_corners
-	allowed = { 
-		OR = {
-			has_mio_equipment_type = armor
-			has_mio_equipment_type = motorized
-			has_mio_equipment_type = mechanized
-			has_mio_equipment_type = anti_tank
-			has_mio_equipment_type = flame
-			has_mio_equipment_type = anti_air
-			has_mio_equipment_type = artillery
-			has_mio_equipment_type = rocket
-			has_mio_equipment_type = infantry
-			has_mio_equipment_type = mio_cat_eq_all_medium_tank
-			has_mio_equipment_type = mio_cat_eq_all_heavy_tank
-			has_mio_equipment_type = light_tank_artillery_chassis 
-			has_mio_equipment_type = medium_tank_artillery_chassis 
-			has_mio_equipment_type = heavy_tank_artillery_chassis
-		} 
-	 }
+	allowed = { always = no }
 	available = { has_mio_size > 5}
-	equipment_bonus = {
-		same_as_mio = {
-			build_cost_ic = -0.05
-			reliability = -0.05
-			armor_value = -0.05
-			max_strength = -0.2
-		}
-	}
 }

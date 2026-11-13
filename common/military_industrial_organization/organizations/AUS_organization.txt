@@ -434,24 +434,6 @@ AUS_osterreichische_fleugzeugfabrik_organization = {
 		}
 	}
 
-	add_trait = {
-		token = AUS_mio_trait_cutting_corners
-		name = AUS_mio_trait_cutting_corners
-		icon = GFX_generic_mio_trait_icon_build_cost_ic
-		special_trait_background = yes
-
-		position = { x=0 y=2 }
-		relative_position_id = AUS_mio_trait_speed_up_production
-
-		all_parents = { AUS_mio_trait_speed_up_production }
-
-		mutually_exclusive = { AUS_mio_trait_solid_construction }
-
-		equipment_bonus = {
-			build_cost_ic = -0.1
-			reliability = -0.07
-		}
-	}
 
 	add_trait = { 
 		token = AUS_mio_trait_solid_construction
@@ -463,8 +445,6 @@ AUS_osterreichische_fleugzeugfabrik_organization = {
 		relative_position_id = AUS_mio_trait_speed_up_production
 
 		all_parents = { AUS_mio_trait_speed_up_production }
-
-		mutually_exclusive = { AUS_mio_trait_cutting_corners }
 
 
 		equipment_bonus = {

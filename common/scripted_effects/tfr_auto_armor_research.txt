@@ -1,0 +1,14 @@
+# The tank designer protection tiers are granted to every country once.
+TFR_grant_tank_armor_research = {
+    if = {
+        limit = {
+            has_dlc = "No Step Back"
+            OR = {
+                NOT = { has_tech = armor_tech_1 }
+                NOT = { has_tech = armor_tech_2 }
+                NOT = { has_tech = armor_tech_3 }
+            }
+        }
+        set_technology = { armor_tech_1 = 1 armor_tech_2 = 1 armor_tech_3 = 1 popup = no }
+    }
+}

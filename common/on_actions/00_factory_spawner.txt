@@ -1,0 +1,15 @@
+on_actions = {
+	on_monthly_GER = {
+		effect = {
+			# Monthly industry growth for the fake replacement countries.
+			if = {
+				limit = {
+					date > 1936.1.1
+					# March is a safety window for any February growth waiting on a controlled core.
+					date < 1941.4.1
+				}
+				TFR_apply_logged_fake_industry_growth = yes
+			}
+		}
+	}
+}

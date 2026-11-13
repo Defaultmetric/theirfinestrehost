@@ -1,0 +1,253 @@
+# All equipment based on light tank chassis
+
+equipments = {
+
+	armored_car_equipment = {
+		year = 1939
+	
+		is_archetype = yes
+		is_buildable = no
+		is_convertable = yes
+		picture = archetype_armored_car_equipment			
+		type = armor
+		group_by = archetype
+		
+		interface_category = interface_category_armor
+
+
+		# TFR armored-car designer: the old equipment remains available for saves.
+		module_slots = {
+			turret_type_slot = { required = yes allowed_module_categories = { tank_light_turret_tier_1 tank_light_turret_tier_2 tank_light_turret_tier_3 tank_light_turret_tier_f } }
+			main_armament_slot = { required = yes allowed_module_categories = { tank_tiny_main_armament tank_light_main_armament_1 tank_light_main_armament_2 } }
+			suspension_type_slot = { required = yes allowed_module_categories = { tfr_armored_car_suspension } }
+			armor_type_slot = { required = yes allowed_module_categories = { tank_armor_type } }
+			engine_type_slot = { required = yes allowed_module_categories = { tank_engine_type } }
+			special_type_slot_1 = { required = no allowed_module_categories = { tank_radio_module } }
+			special_type_slot_2 = { required = no allowed_module_categories = { tank_special_module } }
+			special_type_slot_3 = { required = no allowed_module_categories = { tank_special_module } }
+			special_type_slot_4 = { required = no allowed_module_categories = { tank_special_module } }
+		}
+		module_count_limit = { category = tank_radio_module count < 2 }
+		default_modules = {
+			turret_type_slot = tank_light_one_man_tank_turret
+			main_armament_slot = tank_heavy_machine_gun
+			suspension_type_slot = car_4x4_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+
+		#Misc Abilities
+		maximum_speed 	= 10
+		reliability 	= 0.8
+		#recon 			= 2
+
+		#Defensive Abilities
+		defense 		= 4
+		breakthrough 	= 15
+		hardness 		= 0.70
+		armor_value 	= 10
+
+		#Offensive Abilities
+		soft_attack 	= 27
+		hard_attack 	= 16
+		ap_attack 		= 8
+		air_attack 		= 0
+
+		#Space taken in convoy
+		lend_lease_cost = 10
+		
+		build_cost_ic 	= 15
+		resources = {
+			#oil 		= 1
+			steel 		= 2
+		}
+
+		fuel_consumption 	= 0.2
+	}
+
+	# WW1 Armored Car
+	gw_armored_car_equipment = {
+		type = motorized
+		year = 1914
+	
+		archetype = armored_car_equipment
+		priority = 5
+		visual_level = 0
+		
+		
+
+		#Misc Abilities
+		maximum_speed 	= 8
+		reliability 	= 0.8
+		#recon 			= 1
+
+		#Defensive Abilities
+		defense 		= 4
+		breakthrough 	= 10
+		armor_value 	= 10
+
+		#Offensive Abilities
+		soft_attack 	= 20
+		hard_attack 	= 11
+		ap_attack 		= 6
+		air_attack 		= 0
+
+		build_cost_ic 		= 10 
+		fuel_consumption 	= 0.2
+	}
+
+	armored_car_equipment_1 = {
+		type = motorized
+		year = 1937
+		
+		archetype = armored_car_equipment
+		parent = gw_armored_car_equipment
+		priority = 10
+		visual_level = 0
+		is_convertable = yes
+		armor_value = 15
+
+		#recon = 2
+	}
+
+	armored_car_equipment_2 = {
+		type = motorized
+		year = 1939
+		
+		archetype = armored_car_equipment
+		parent = armored_car_equipment_1
+		priority = 10
+		visual_level = 1
+		is_convertable = yes
+
+		#Misc Abilities
+		maximum_speed 	= 12
+
+		#Defensive Abilities
+		defense 		= 4
+		breakthrough 	= 20
+		hardness 		= 0.70
+		armor_value 	= 20
+		#recon 			= 2
+
+		#Offensive Abilities
+		soft_attack 	= 31
+		hard_attack 	= 18
+		ap_attack 		= 36
+		air_attack 		= 0		
+		
+		build_cost_ic = 20
+		resources = {
+			#oil = 1
+			steel = 2
+			tungsten = 1
+		}
+	}
+
+	armored_car_at_equipment = {
+		type = motorized
+		#should be closer to a tank than an AT tank/SPG
+		year = 1940
+
+		archetype = armored_car_equipment
+		parent = armored_car_equipment_2
+		priority = 10
+		visual_level = 1
+		is_convertable = yes
+
+		#Misc Abilities
+		maximum_speed 	= 12
+		reliability 	= 0.8
+		#recon 			= 1
+
+		#Defensive Abilities
+		defense 		= 6
+		breakthrough 	= 28
+		hardness 		= 0.70
+		armor_value 	= 25
+
+		#Offensive Abilities
+		soft_attack 	= 26
+		hard_attack 	= 22
+		ap_attack 		= 60
+		air_attack 		= 0
+		
+		build_cost_ic 	= 20
+		resources = {
+			#oil 		= 1
+			steel 		= 2
+			tungsten 	= 1
+		}
+		fuel_consumption = 0.2
+	}
+
+	
+	
+
+
+	tfr_armored_car_chassis_0 = {
+		can_be_produced = { has_dlc = "No Step Back" }
+		year = 1914
+		archetype = armored_car_equipment
+		priority = 20
+		visual_level = 0
+		module_slots = { turret_type_slot = inherit main_armament_slot = inherit suspension_type_slot = inherit armor_type_slot = inherit engine_type_slot = inherit special_type_slot_1 = inherit special_type_slot_2 = inherit }
+		upgrades = { tank_nsb_engine_upgrade tank_nsb_armor_upgrade }
+		maximum_speed = 8
+		reliability = 1.0
+		defense = 4
+		breakthrough = 4
+		hardness = 0.80
+		armor_value = 11
+		soft_attack = 13
+		hard_attack = 9
+		ap_attack = 1
+		build_cost_ic = 0.5
+		fuel_consumption = -1.8
+		resources = { steel = 1 }
+	}
+
+	tfr_armored_car_chassis_1 = {
+		can_be_produced = { has_dlc = "No Step Back" }
+		year = 1937
+		archetype = armored_car_equipment
+		priority = 20
+		visual_level = 0
+		module_slots = { turret_type_slot = inherit main_armament_slot = inherit suspension_type_slot = inherit armor_type_slot = inherit engine_type_slot = inherit special_type_slot_1 = inherit special_type_slot_2 = inherit special_type_slot_3 = inherit }
+		upgrades = { tank_nsb_engine_upgrade tank_nsb_armor_upgrade }
+		maximum_speed = 10
+		reliability = 1.0
+		defense = 4
+		breakthrough = 9
+		hardness = 0.80
+		armor_value = 17
+		soft_attack = 20
+		hard_attack = 14
+		ap_attack = 4
+		build_cost_ic = 1.5
+		fuel_consumption = -1.8
+		resources = { steel = 2 }
+	}
+
+	tfr_armored_car_chassis_2 = {
+		can_be_produced = { has_dlc = "No Step Back" }
+		year = 1939
+		archetype = armored_car_equipment
+		priority = 20
+		visual_level = 1
+		module_slots = { turret_type_slot = inherit main_armament_slot = inherit suspension_type_slot = inherit armor_type_slot = inherit engine_type_slot = inherit special_type_slot_1 = inherit special_type_slot_2 = inherit special_type_slot_3 = inherit special_type_slot_4 = inherit }
+		upgrades = { tank_nsb_engine_upgrade tank_nsb_armor_upgrade }
+		maximum_speed = 12
+		reliability = 1.0
+		defense = 4
+		breakthrough = 14
+		hardness = 0.80
+		armor_value = 23
+		soft_attack = 23
+		hard_attack = 16
+		ap_attack = 30
+		build_cost_ic = 3
+		fuel_consumption = -1.8
+		resources = { steel = 2 }
+	}
+}

@@ -1,0 +1,690 @@
+### Part cabinet (v2): the War Cabinet. Tiered ministers' spirits (tier 1 on appointment, +1 per completed lane focus,
+### tier 5 only with ENG_together_we_stand). No factory output, efficiency-cap or construction-speed lines here:
+### the industrial value of the cabinet goes through the ENG_eco_* variables, where core's caps apply.
+
+ideas = {
+	country = {
+		# Ernest Bevin
+		ENG_cabinet_bevin_1 = {
+			picture = ENG_ernest_bevin
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				conscription_factor = 0.03
+			}
+		}
+		ENG_cabinet_bevin_2 = {
+			picture = ENG_ernest_bevin
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				conscription_factor = 0.05
+			}
+		}
+		ENG_cabinet_bevin_3 = {
+			picture = ENG_ernest_bevin
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				conscription_factor = 0.07
+			}
+		}
+		ENG_cabinet_bevin_4 = {
+			picture = ENG_ernest_bevin
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				conscription_factor = 0.10
+			}
+		}
+		ENG_cabinet_bevin_5 = {
+			picture = ENG_ernest_bevin
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				conscription_factor = 0.10
+			}
+		}
+
+		# Stafford Cripps
+		ENG_cabinet_cripps_1 = {
+			picture = ENG_generic_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = -0.03
+				production_lack_of_resource_penalty_factor = -0.05
+			}
+		}
+		ENG_cabinet_cripps_2 = {
+			picture = ENG_generic_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = -0.03
+				production_lack_of_resource_penalty_factor = -0.05
+			}
+		}
+		ENG_cabinet_cripps_3 = {
+			picture = ENG_generic_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.02
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+		}
+		ENG_cabinet_cripps_4 = {
+			picture = ENG_generic_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.02
+				production_lack_of_resource_penalty_factor = -0.10
+			}
+		}
+		ENG_cabinet_cripps_5 = {
+			picture = ENG_generic_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.01
+				production_lack_of_resource_penalty_factor = -0.15
+			}
+		}
+
+		# Lord Beaverbrook
+		ENG_cabinet_beaverbrook_1 = {
+			picture = ENG_maxwell_aitken
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = -0.02
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+			}
+		}
+		ENG_cabinet_beaverbrook_2 = {
+			picture = ENG_maxwell_aitken
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = -0.02
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+			}
+		}
+		ENG_cabinet_beaverbrook_3 = {
+			picture = ENG_maxwell_aitken
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.02
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.02
+					instant = yes
+				}
+			}
+		}
+		ENG_cabinet_beaverbrook_4 = {
+			picture = ENG_maxwell_aitken
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.02
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.04
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.04
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.04
+					instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.04
+					instant = yes
+				}
+			}
+		}
+		ENG_cabinet_beaverbrook_5 = {
+			picture = ENG_maxwell_aitken
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.01
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+			}
+		}
+
+		# Stewart Menzies
+		ENG_cabinet_menzies_1 = {
+			picture = eng_stewart_menzies
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = 0.02
+				decryption_factor = 0.05
+				encryption_factor = 0.05
+			}
+		}
+		ENG_cabinet_menzies_2 = {
+			picture = eng_stewart_menzies
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = 0.02
+				operative_slot = 1
+				intel_network_gain_factor = 0.10
+				decryption_factor = 0.10
+				encryption_factor = 0.10
+			}
+		}
+		ENG_cabinet_menzies_3 = {
+			picture = eng_stewart_menzies
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = 0.01
+				operative_slot = 1
+				intel_network_gain_factor = 0.15
+				decryption_factor = 0.15
+				encryption_factor = 0.10
+			}
+		}
+		ENG_cabinet_menzies_4 = {
+			picture = eng_stewart_menzies
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.01
+				operative_slot = 1
+				intel_network_gain_factor = 0.20
+				decryption_factor = 0.20
+				encryption_factor = 0.15
+			}
+		}
+		ENG_cabinet_menzies_5 = {
+			picture = eng_stewart_menzies
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				operative_slot = 1
+				intel_network_gain_factor = 0.25
+				decryption_factor = 0.20
+				encryption_factor = 0.15
+			}
+		}
+
+		# Brendan Bracken
+		ENG_cabinet_bracken_1 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.03
+				consumer_goods_factor = 0.02
+			}
+		}
+		ENG_cabinet_bracken_2 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = 0.02
+				consumer_goods_factor = 0.02
+			}
+		}
+		ENG_cabinet_bracken_3 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = 0.03
+				consumer_goods_factor = 0.02
+			}
+		}
+		ENG_cabinet_bracken_4 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.07
+				stability_factor = 0.05
+				consumer_goods_factor = 0.01
+			}
+		}
+		ENG_cabinet_bracken_5 = {
+			picture = generic_political_advisor_europe_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = 0.07
+				stability_factor = 0.05
+				surrender_limit = 0.05
+			}
+		}
+
+		# Anthony Eden
+		ENG_cabinet_eden_1 = {
+			picture = ENG_generic_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				consumer_goods_factor = 0.02
+				trade_opinion_factor = 0.10
+				opinion_gain_monthly_factor = 0.10
+			}
+		}
+		ENG_cabinet_eden_2 = {
+			picture = ENG_generic_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.02
+				political_power_factor = 0.03
+				trade_opinion_factor = 0.15
+				opinion_gain_monthly_factor = 0.15
+				improve_relations_maintain_cost_factor = -0.25
+			}
+		}
+		ENG_cabinet_eden_3 = {
+			picture = ENG_generic_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.02
+				political_power_factor = 0.05
+				trade_opinion_factor = 0.20
+				opinion_gain_monthly_factor = 0.20
+				improve_relations_maintain_cost_factor = -0.25
+				lend_lease_tension = -0.20
+			}
+		}
+		ENG_cabinet_eden_4 = {
+			picture = ENG_generic_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.01
+				political_power_factor = 0.05
+				trade_opinion_factor = 0.25
+				opinion_gain_monthly_factor = 0.25
+				improve_relations_maintain_cost_factor = -0.50
+				lend_lease_tension = -0.25
+			}
+		}
+		ENG_cabinet_eden_5 = {
+			picture = ENG_generic_2
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.07
+				trade_opinion_factor = 0.25
+				opinion_gain_monthly_factor = 0.25
+				improve_relations_maintain_cost_factor = -0.50
+				lend_lease_tension = -0.25
+			}
+		}
+
+		# Edward Bridges
+		ENG_cabinet_bridges_1 = {
+			picture = ENG_generic_3
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_advisor_cost_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+		ENG_cabinet_bridges_2 = {
+			picture = ENG_generic_3
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.05
+				political_advisor_cost_factor = -0.10
+				mobilization_laws_cost_factor = -0.10
+				economy_cost_factor = -0.10
+				trade_laws_cost_factor = -0.10
+				consumer_goods_factor = 0.02
+			}
+		}
+		ENG_cabinet_bridges_3 = {
+			picture = ENG_generic_3
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				political_advisor_cost_factor = -0.15
+				mobilization_laws_cost_factor = -0.15
+				economy_cost_factor = -0.15
+				trade_laws_cost_factor = -0.15
+				consumer_goods_factor = 0.02
+			}
+		}
+		ENG_cabinet_bridges_4 = {
+			picture = ENG_generic_3
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.10
+				political_advisor_cost_factor = -0.20
+				mobilization_laws_cost_factor = -0.20
+				economy_cost_factor = -0.20
+				trade_laws_cost_factor = -0.20
+				consumer_goods_factor = 0.01
+			}
+		}
+		ENG_cabinet_bridges_5 = {
+			picture = ENG_generic_3
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.15
+				political_advisor_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+				trade_laws_cost_factor = -0.25
+			}
+		}
+
+		# Bevin Boys tie-in: held while ENG_the_bevin_boys_programme is done AND the Bevin Boys concern is hired
+		ENG_cabinet_bevin_boys_pits = {
+			picture = generic_industrial_concern_1
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				country_resource_coal = 6
+			}
+		}
+
+		# Decision ENG_beaverbrook_mass_production (timed, 120 days, added after the 30-day start-up)
+		ENG_beaverbrook_mass_production_idea = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = ENG
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				stability_factor = -0.05
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+			}
+		}
+	}
+}

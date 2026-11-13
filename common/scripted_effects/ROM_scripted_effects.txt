@@ -1,0 +1,230 @@
+###############################################################
+### calculating the effect of claim strength in Yugoslavia ####
+###############################################################
+
+calculate_claimant_effect = {	
+	if = {
+		limit = {
+			check_variable = { claim_strength_@PREV < 2 }
+		}
+		add_to_variable = { var = claim_strength_@PREV value = 1 }
+		custom_effect_tooltip = romania_add_claims_tt
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				any_country = {
+					has_country_flag = invited_to_split_yugo
+					PREV = {
+						is_claimed_by = PREV
+					}
+				}
+			}
+		}
+		add_to_variable = { var = claim_strength_@PREV value = 1 }
+		custom_effect_tooltip = newline_tt
+		add_claim_by = PREV
+	}
+	if = {
+		limit = {
+			check_variable = {claim_strength_ROM > claim_strength_HUN }
+			check_variable = {claim_strength_ROM > claim_strength_ITA }
+			check_variable = {claim_strength_ROM > claim_strength_GER }
+		}
+		set_state_flag = strongest_claimant_ROM
+		clr_state_flag = strongest_claimant_GER
+		clr_state_flag = strongest_claimant_ITA
+		clr_state_flag = strongest_claimant_HUN
+	}
+	if = {
+		limit = {
+			check_variable = {claim_strength_GER > claim_strength_HUN }
+			check_variable = {claim_strength_GER > claim_strength_ITA }
+			check_variable = {claim_strength_GER > claim_strength_ROM }
+		}
+		set_state_flag = strongest_claimant_GER
+		clr_state_flag = strongest_claimant_ROM
+		clr_state_flag = strongest_claimant_ITA
+		clr_state_flag = strongest_claimant_HUN
+	}
+	if = {
+		limit = {
+			check_variable = {claim_strength_ITA > claim_strength_HUN }
+			check_variable = {claim_strength_ITA > claim_strength_ROM }
+			check_variable = {claim_strength_ITA > claim_strength_GER }
+		}
+		set_state_flag = strongest_claimant_ITA
+		clr_state_flag = strongest_claimant_GER
+		clr_state_flag = strongest_claimant_ROM
+		clr_state_flag = strongest_claimant_HUN
+	}
+	if = {
+		limit = {
+			check_variable = {claim_strength_HUN > claim_strength_ROM }
+			check_variable = {claim_strength_HUN > claim_strength_ITA }
+			check_variable = {claim_strength_HUN > claim_strength_GER }
+		}
+		set_state_flag = strongest_claimant_HUN
+		clr_state_flag = strongest_claimant_GER
+		clr_state_flag = strongest_claimant_ITA
+		clr_state_flag = strongest_claimant_ROM
+	}
+}
+
+
+##################### Corruption System #########################
+
+
+ROM_political_corruption_lvl_up = 
+{
+	custom_effect_tooltip = ROM_corruption_up_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	if = {
+		limit = { has_idea = ROM_high_corruption }
+		swap_ideas = {
+			remove_idea = ROM_high_corruption
+			add_idea = ROM_extreme_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_medium_corruption }
+		swap_ideas = {
+			remove_idea = ROM_medium_corruption
+			add_idea = ROM_high_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_low_corruption }
+		swap_ideas = {
+			remove_idea = ROM_low_corruption
+			add_idea = ROM_medium_corruption
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = ROM_low_corruption } }
+		add_ideas = ROM_low_corruption
+	}
+}
+
+ROM_political_corruption_lvl_down = {
+
+	custom_effect_tooltip = ROM_corruption_down_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	if = {
+		limit = { has_idea = ROM_extreme_corruption }
+		swap_ideas = {
+			remove_idea = ROM_extreme_corruption
+			add_idea = ROM_high_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_high_corruption }
+		swap_ideas = {
+			remove_idea = ROM_high_corruption
+			add_idea = ROM_medium_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_medium_corruption }
+		swap_ideas = {
+			remove_idea = ROM_medium_corruption
+			add_idea = ROM_low_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_low_corruption }
+		remove_ideas = ROM_low_corruption
+	}
+}
+
+ROM_political_corruption_2x_lvl_down = {
+
+	custom_effect_tooltip = ROM_corruption_down2_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	if = {
+		limit = { has_idea = ROM_extreme_corruption }
+		swap_ideas = {
+			remove_idea = ROM_extreme_corruption
+			add_idea = ROM_medium_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_high_corruption }
+		swap_ideas = {
+			remove_idea = ROM_high_corruption
+			add_idea = ROM_low_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_medium_corruption }
+		remove_ideas = ROM_medium_corruption
+	}
+	else_if = {
+		limit = { has_idea = ROM_low_corruption }
+		remove_ideas = ROM_low_corruption
+	}
+}
+
+ROM_political_corruption_2x_lvl_up = {
+
+	custom_effect_tooltip = ROM_corruption_up2_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+	
+	if = {
+		limit = { has_idea = ROM_low_corruption }
+		swap_ideas = {
+			remove_idea = ROM_low_corruption
+			add_idea = ROM_high_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_medium_corruption }
+		swap_ideas = {
+			remove_idea = ROM_medium_corruption
+			add_idea = ROM_extreme_corruption
+		}
+	}
+	else_if = {
+		limit = { has_idea = ROM_high_corruption }
+		swap_ideas = {
+			remove_idea = ROM_high_corruption
+			add_idea = ROM_extreme_corruption
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = ROM_low_corruption } }
+		add_ideas = ROM_high_corruption
+	}
+}
+
+ROM_political_corruption_clear_all = {
+
+	custom_effect_tooltip = ROM_corruption_clear_tt
+	custom_effect_tooltip = generic_skip_one_line_tt
+
+	remove_ideas = {
+		ROM_low_corruption
+		ROM_medium_corruption
+		ROM_high_corruption
+		ROM_extreme_corruption
+	}
+}
+
+ROM_malaxa_increment = {
+	add_to_variable = { ROM_malaxa_monopoly = 1 }
+	add_to_variable = { ROM_malaxa_mod = 1 }
+	if = {
+		limit = { 
+			check_variable = { ROM_malaxa_mod = 3 }
+			ROM = {has_country_flag = corruption_system_active}
+		}
+		add_to_variable = { ROM_malaxa_mod = -3 }
+		ROM = { country_event = { id = DOD_romania.200 } }
+	}
+}
+
+
+

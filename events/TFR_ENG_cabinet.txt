@@ -1,0 +1,330 @@
+### Part cabinet (v2): events of the War Cabinet.
+### .<i>1 = start work on the next lane focus, .<i>2 = complete the lane focus in work (hidden; i = 1 bevin, 2 cripps,
+### 3 beaverbrook, 4 menzies, 5 bracken, 6 eden, 7 bridges). Every event re-checks the state, so a stray or duplicate
+### firing does nothing. .80 = Menzies's path (visible, two options).
+
+add_namespace = tfr_eng_cabinet
+
+# Ernest Bevin - start work
+country_event = {
+	id = tfr_eng_cabinet.11
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bevin_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_bevin_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_bevin_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_bevin_lane_done
+				}
+			}
+			ENG_cabinet_bevin_sync_tier = yes
+			ENG_cabinet_bevin_start_next = yes
+		}
+	}
+}
+
+# Ernest Bevin - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.12
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bevin_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_bevin_work_is_due = yes
+			}
+			ENG_cabinet_bevin_complete_current = yes
+		}
+	}
+}
+
+# Stafford Cripps - start work
+country_event = {
+	id = tfr_eng_cabinet.21
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_cripps_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_cripps_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_cripps_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_cripps_lane_done
+				}
+			}
+			ENG_cabinet_cripps_sync_tier = yes
+			ENG_cabinet_cripps_start_next = yes
+		}
+	}
+}
+
+# Stafford Cripps - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.22
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_cripps_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_cripps_work_is_due = yes
+			}
+			ENG_cabinet_cripps_complete_current = yes
+		}
+	}
+}
+
+# Lord Beaverbrook - start work
+country_event = {
+	id = tfr_eng_cabinet.31
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_beaverbrook_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_beaverbrook_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_beaverbrook_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_beaverbrook_lane_done
+				}
+			}
+			ENG_cabinet_beaverbrook_sync_tier = yes
+			ENG_cabinet_beaverbrook_start_next = yes
+		}
+	}
+}
+
+# Lord Beaverbrook - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.32
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_beaverbrook_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_beaverbrook_work_is_due = yes
+			}
+			ENG_cabinet_beaverbrook_complete_current = yes
+		}
+	}
+}
+
+# Stewart Menzies - start work
+country_event = {
+	id = tfr_eng_cabinet.41
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_menzies_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_menzies_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_menzies_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_menzies_lane_done
+				}
+			}
+			ENG_cabinet_menzies_sync_tier = yes
+			ENG_cabinet_menzies_start_next = yes
+		}
+	}
+}
+
+# Stewart Menzies - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.42
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_menzies_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_menzies_work_is_due = yes
+			}
+			ENG_cabinet_menzies_complete_current = yes
+		}
+	}
+}
+
+# Brendan Bracken - start work
+country_event = {
+	id = tfr_eng_cabinet.51
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bracken_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_bracken_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_bracken_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_bracken_lane_done
+				}
+			}
+			ENG_cabinet_bracken_sync_tier = yes
+			ENG_cabinet_bracken_start_next = yes
+		}
+	}
+}
+
+# Brendan Bracken - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.52
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bracken_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_bracken_work_is_due = yes
+			}
+			ENG_cabinet_bracken_complete_current = yes
+		}
+	}
+}
+
+# Anthony Eden - start work
+country_event = {
+	id = tfr_eng_cabinet.61
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_eden_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_eden_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_eden_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_eden_lane_done
+				}
+			}
+			ENG_cabinet_eden_sync_tier = yes
+			ENG_cabinet_eden_start_next = yes
+		}
+	}
+}
+
+# Anthony Eden - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.62
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_eden_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_eden_work_is_due = yes
+			}
+			ENG_cabinet_eden_complete_current = yes
+		}
+	}
+}
+
+# Edward Bridges - start work
+country_event = {
+	id = tfr_eng_cabinet.71
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bridges_event_pending
+		if = {
+			limit = {
+				has_country_flag = ENG_cabinet_bridges_seated
+				NOT = {
+					has_country_flag = ENG_cabinet_bridges_working
+				}
+				NOT = {
+					has_country_flag = ENG_cabinet_bridges_lane_done
+				}
+			}
+			ENG_cabinet_bridges_sync_tier = yes
+			ENG_cabinet_bridges_start_next = yes
+		}
+	}
+}
+
+# Edward Bridges - complete the focus in work
+country_event = {
+	id = tfr_eng_cabinet.72
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_country_flag = ENG_cabinet_bridges_event_pending
+		if = {
+			limit = {
+				ENG_cabinet_bridges_work_is_due = yes
+			}
+			ENG_cabinet_bridges_complete_current = yes
+		}
+	}
+}
+
+# Menzies's path: signals intelligence or special operations. The option not taken can never be completed.
+country_event = {
+	id = tfr_eng_cabinet.80
+	title = tfr_eng_cabinet.80.t
+	desc = tfr_eng_cabinet.80.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+	option = {
+		name = tfr_eng_cabinet.80.a
+		ai_chance = {
+			base = 60
+		}
+		custom_effect_tooltip = ENG_menzies_path_sigint_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = ENG_menzies_path_sigint
+					}
+					NOT = {
+						has_country_flag = ENG_menzies_path_soe
+					}
+				}
+				set_country_flag = ENG_menzies_path_sigint
+				clr_country_flag = ENG_cabinet_menzies_choice_pending
+			}
+		}
+	}
+	option = {
+		name = tfr_eng_cabinet.80.b
+		ai_chance = {
+			base = 40
+		}
+		custom_effect_tooltip = ENG_menzies_path_soe_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = ENG_menzies_path_sigint
+					}
+					NOT = {
+						has_country_flag = ENG_menzies_path_soe
+					}
+				}
+				set_country_flag = ENG_menzies_path_soe
+				clr_country_flag = ENG_cabinet_menzies_choice_pending
+			}
+		}
+	}
+}

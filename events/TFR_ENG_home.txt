@@ -1,0 +1,31 @@
+add_namespace = tfr_eng_home
+
+# TFR UK focus tree rework - part home (v2)
+# The Tizard Mission: bonus for the USA (sent by tizard_mission_focus when the USA is friendly).
+# Single option, no cost, nothing goes back to the UK: the UK's reward is paid by the focus itself.
+country_event = {
+	id = tfr_eng_home.1
+	title = tfr_eng_home.1.t
+	desc = tfr_eng_home.1.d
+	picture = GFX_report_event_physics_lab_01
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_home.1.a
+		add_breakthrough_progress = {
+			specialization = specialization_air
+			value = 0.5
+		}
+		add_tech_bonus = {
+			name = tizard_mission_focus
+			bonus = 1
+			uses = 1
+			category = light_fighter
+		}
+		add_opinion_modifier = {
+			target = FROM
+			modifier = tizard_relations
+		}
+	}
+}

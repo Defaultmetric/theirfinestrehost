@@ -1,0 +1,90 @@
+### TFR UK rework v2, part economy: the American account and three industrial concerns.
+### The concerns share the single industrial concern seat with the Bevin Boys, AIOC and English Electric,
+### so they are side-grades: an existing trait and a modest research bonus, no modifier lines that the
+### economy spirit's capped variables already cover.
+
+ideas = {
+	country = {
+
+		# Timed (365 days). Added by event tfr_eng_economy.3, 730 days after ENG_utilize_american_aid.
+		# Removed early only by the decision ENG_settle_the_american_account.
+		ENG_american_debt = {
+			picture = AST_liberty_loans
+			allowed = { original_tag = ENG }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.10
+			}
+		}
+	}
+
+	industrial_concern = {
+
+		# Unlocked by ENG_billingham_works
+		ENG_imperial_chemical_industries = {
+			picture = CHI_yongli_chemical_industries
+
+			allowed = { original_tag = ENG }
+
+			available = {
+				has_completed_focus = ENG_billingham_works
+			}
+
+			cost = 150
+
+			research_bonus = {
+				synth_resources = 0.15
+				industry = 0.05
+			}
+
+			traits = { refinery_concern }
+
+			ai_will_do = { factor = 1 }
+		}
+
+		# Unlocked by ENG_computing_machines
+		ENG_marconi_company = {
+			picture = generic_radio_concern
+
+			allowed = { original_tag = ENG }
+
+			available = {
+				has_completed_focus = ENG_computing_machines
+			}
+
+			cost = 150
+
+			research_bonus = {
+				electronics = 0.10
+				radar_tech = 0.10
+			}
+
+			traits = { electronics_concern }
+
+			ai_will_do = { factor = 1 }
+		}
+
+		# Unlocked by ENG_aero_engine_shadow_factories
+		ENG_nuffield_organisation = {
+			picture = generic_industrial_concern_3
+
+			allowed = { original_tag = ENG }
+
+			available = {
+				has_completed_focus = ENG_aero_engine_shadow_factories
+			}
+
+			cost = 150
+
+			research_bonus = {
+				motorized_equipment = 0.10
+			}
+
+			traits = { engine_manufacturing_concern }
+
+			ai_will_do = { factor = 1 }
+		}
+	}
+}

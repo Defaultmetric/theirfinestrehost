@@ -1,0 +1,103 @@
+# TFR UK rework v2, part navy. Scope: ENG (country). Called from naval_rearmament_focus and ENG_expand_the_repair_yards.
+# Each call builds exactly the stated number of dockyards and adds the same number of shared building slots,
+# so the payout never depends on how many states or slots the player has (anti-abuse rule 6).
+
+# One dockyard level in a coastal core state we own and control. Prefers a state that already has a free
+# (or locked) dockyard slot; otherwise any coastal core state (the extra slot added first makes room);
+# with no coastal core state at all, one offsite dockyard (as ENG_economy_grant_mil).
+ENG_navy_build_one_dockyard = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_coastal = yes
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				is_core_of = ROOT
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			any_owned_state = {
+				is_coastal = yes
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				is_core_of = ROOT
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else = {
+		add_offsite_building = { type = dockyard level = 1 }
+	}
+}
+
+# Two dockyard levels, in one state when one coastal core state has room for both, else one by one.
+ENG_navy_build_two_dockyards = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_coastal = yes
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				is_core_of = ROOT
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	else = {
+		ENG_navy_build_one_dockyard = yes
+		ENG_navy_build_one_dockyard = yes
+	}
+}

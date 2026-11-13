@@ -1,0 +1,79 @@
+# Use integer variables only. Assemble decimal digits as text because script
+# arithmetic has less precision and range than doctrine mastery.
+tfr_probe_track_mastery = {
+    meta_effect = {
+        text = {
+            if = {
+                limit = { has_mastery = { track = $TRACK$ amount = [AMOUNT] } }
+                set_variable = { tfr_doctrine_probe_pass = 1 }
+            }
+            else = { set_variable = { tfr_doctrine_probe_pass = 0 } }
+        }
+        AMOUNT = "[?tfr_doctrine_probe|.0].[?tfr_doctrine_d1|.0][?tfr_doctrine_d2|.0][?tfr_doctrine_d3|.0][?tfr_doctrine_d4|.0][?tfr_doctrine_d5|.0]"
+    }
+}
+
+tfr_save_track_mastery = {
+    set_variable = { tfr_doctrine_d1 = 0 }
+    set_variable = { tfr_doctrine_d2 = 0 }
+    set_variable = { tfr_doctrine_d3 = 0 }
+    set_variable = { tfr_doctrine_d4 = 0 }
+    set_variable = { tfr_doctrine_d5 = 0 }
+    set_variable = { tfr_doctrine_low = 0 }
+    set_variable = { tfr_doctrine_high = 1024 }
+    set_variable = { tfr_doctrine_probe = 1024 }
+    tfr_probe_track_mastery = { TRACK = $TRACK$ }
+    while_loop_effect = {
+        limit = { check_variable = { tfr_doctrine_probe_pass = 1 } }
+        multiply_variable = { tfr_doctrine_high = 2 }
+        multiply_variable = { tfr_doctrine_probe = 2 }
+        tfr_probe_track_mastery = { TRACK = $TRACK$ }
+    }
+    set_variable = { tfr_doctrine_gap = tfr_doctrine_high }
+    while_loop_effect = {
+        limit = { check_variable = { tfr_doctrine_gap > 1 } }
+        set_variable = { tfr_doctrine_mid = tfr_doctrine_low }
+        add_to_variable = { tfr_doctrine_mid = tfr_doctrine_high }
+        divide_variable = { tfr_doctrine_mid = 2 }
+        round_variable = tfr_doctrine_mid
+        set_variable = { tfr_doctrine_probe = tfr_doctrine_mid }
+        tfr_probe_track_mastery = { TRACK = $TRACK$ }
+        if = {
+            limit = { check_variable = { tfr_doctrine_probe_pass = 1 } }
+            set_variable = { tfr_doctrine_low = tfr_doctrine_mid }
+        }
+        else = { set_variable = { tfr_doctrine_high = tfr_doctrine_mid } }
+        set_variable = { tfr_doctrine_gap = tfr_doctrine_high }
+        subtract_from_variable = { tfr_doctrine_gap = tfr_doctrine_low }
+    }
+    set_variable = { tfr_saved_mastery_$TRACK$_whole = tfr_doctrine_low }
+    set_variable = { tfr_doctrine_probe = tfr_doctrine_low }
+$DIGIT_SEARCH$
+}
+
+tfr_restore_track_mastery = {
+    if = {
+        limit = {
+            OR = {
+                check_variable = { tfr_saved_mastery_$TRACK$_whole > 0 }
+                check_variable = { tfr_saved_mastery_$TRACK$_d1 > 0 }
+                check_variable = { tfr_saved_mastery_$TRACK$_d2 > 0 }
+                check_variable = { tfr_saved_mastery_$TRACK$_d3 > 0 }
+                check_variable = { tfr_saved_mastery_$TRACK$_d4 > 0 }
+                check_variable = { tfr_saved_mastery_$TRACK$_d5 > 0 }
+            }
+        }
+        meta_effect = {
+            text = {
+                add_mastery = { folder = $FOLDER$ track = $TRACK$ amount = [AMOUNT] }
+            }
+            AMOUNT = "[?tfr_saved_mastery_$TRACK$_whole|.0].[?tfr_saved_mastery_$TRACK$_d1|.0][?tfr_saved_mastery_$TRACK$_d2|.0][?tfr_saved_mastery_$TRACK$_d3|.0][?tfr_saved_mastery_$TRACK$_d4|.0][?tfr_saved_mastery_$TRACK$_d5|.0]"
+        }
+    }
+    clear_variable = tfr_saved_mastery_$TRACK$_whole
+    clear_variable = tfr_saved_mastery_$TRACK$_d1
+    clear_variable = tfr_saved_mastery_$TRACK$_d2
+    clear_variable = tfr_saved_mastery_$TRACK$_d3
+    clear_variable = tfr_saved_mastery_$TRACK$_d4
+    clear_variable = tfr_saved_mastery_$TRACK$_d5
+}

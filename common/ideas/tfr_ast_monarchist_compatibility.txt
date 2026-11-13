@@ -1,0 +1,28 @@
+ideas = {
+	country = {
+		AST_monarchist_intervention_spirit = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_monarchist_uprising
+
+			modifier = {
+				stability_factor = 0.15
+				war_support_factor = 0.05
+				neutrality_drift = 0.1
+			}
+
+			on_remove = {
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+}

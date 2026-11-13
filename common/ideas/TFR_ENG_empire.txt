@@ -1,0 +1,41 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2)
+###########################################################################
+
+ideas = {
+	country = {
+
+		# ENG_the_sterling_area (Partnership path)
+		ENG_the_sterling_area_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_economic_increase
+
+			modifier = {
+				political_power_factor = 0.05
+				trade_opinion_factor = 0.20
+			}
+		}
+
+		# ENG_the_colonies_will_fight (Britain Alone path). A fixed line (review v2 #58): nothing conquest can inflate.
+		ENG_the_colonies_will_fight_idea = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus
+
+			modifier = {
+				conscription = 0.005
+			}
+		}
+	}
+}

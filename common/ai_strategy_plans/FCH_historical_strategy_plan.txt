@@ -1,0 +1,30 @@
+FCH_historical_plan = {
+	name = "Nationalist China historical plan"
+	desc = "Essentially historical behavior for Nationalist China"
+
+	allowed = {
+		original_tag = FCH
+	}
+	enable = {
+		is_historical_focus_on = yes
+				
+	
+	}
+	
+	research = {
+		industry = 3
+    	engineering = 2
+		artillery = 2
+		infantry_weapons = 2
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

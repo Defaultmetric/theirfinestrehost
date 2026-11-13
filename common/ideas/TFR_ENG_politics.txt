@@ -1,0 +1,103 @@
+###########################################################################
+# TFR UK rework v2 - part `politics`: timed national spirits of the
+# appeasement road. All are timed (add_timed_idea from a focus that fires
+# once). Non-stacking: Buy Time | Co-ordination of Defence are mutually
+# exclusive; Peace for Our Time removes Buying Time, The Gathering Storm
+# removes Co-ordination of Defence; Peace | Storm are mutually exclusive.
+# Review v2 fix round (#3/#22/#23): no construction-speed line in any of these
+# ideas (construction speed lives only in core's capped variables and in the
+# balance of power); modest stability / political power / war support /
+# conscription lines instead.
+###########################################################################
+
+ideas = {
+
+	country = {
+
+		# 365 days, from ENG_buy_time
+		ENG_politics_buying_time = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.1
+			}
+
+			picture = ARG_civilian_economy_boost
+
+			removal_cost = -1
+		}
+
+		# 365 days, from ENG_coordination_of_defence
+		ENG_politics_defence_coordination = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				war_support_factor = 0.05
+				political_power_factor = 0.05
+			}
+
+			picture = BEL_defensive_reorganization
+
+			removal_cost = -1
+		}
+
+		# 270 days, from ENG_peace_for_our_time (removes ENG_politics_buying_time)
+		ENG_politics_peace_for_our_time = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.1
+				war_support_factor = -0.05
+			}
+
+			picture = ENG_neville_chamberlain
+
+			removal_cost = -1
+		}
+
+		# 270 days, from ENG_the_gathering_storm (removes ENG_politics_defence_coordination)
+		ENG_politics_gathering_storm = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				war_support_factor = 0.05
+				conscription_factor = 0.05
+				stability_factor = -0.05
+			}
+
+			picture = HUN_secret_rearmament
+
+			removal_cost = -1
+		}
+	}
+}

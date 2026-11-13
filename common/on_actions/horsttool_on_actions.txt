@@ -1,0 +1,176 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = {has_game_rule = {rule = horst_host_country option = GER}}
+				set_variable={host = GER.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = ITA}}
+				set_variable={host = ITA.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = ROM}}
+				set_variable={host = ROM.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = HUN}}
+				set_variable={host = HUN.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = BUL}}
+				set_variable={host = BUL.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FIN}}
+				set_variable={host = FIN.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = ENG}}
+				set_variable={host = ENG.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = USA}}
+				set_variable={host = USA.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = CAN}}
+				set_variable={host = CAN.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = SAF}}
+				set_variable={host = SAF.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = RAJ}}
+				set_variable={host = RAJ.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = AST}}
+				set_variable={host = AST.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = JAP}}
+				set_variable={host = JAP.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FRA}}
+				set_variable={host = FRA.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = SPR}}
+				set_variable={host = SPR.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = BRA}}
+				set_variable={host = BRA.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FSW}}
+				set_variable={host = FSW.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = NSW}}
+				set_variable={host = NSW.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = NDE}}
+				set_variable={host = NDE.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FYG}}
+				set_variable={host = FYG.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = NPO}}
+				set_variable={host = NPO.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FCH}}
+				set_variable={host = FCH.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = PRC}}
+				set_variable={host = PRC.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = NNG}}
+				set_variable={host = NNG.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = SIA}}
+				set_variable={host = SIA.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FCZ}}
+				set_variable={host = FCZ.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FAU}}
+				set_variable={host = FAU.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FNL}}
+				set_variable={host = FNL.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = FBL}}
+				set_variable={host = FBL.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = MON}}
+				set_variable={host = MON.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = SOV}}
+				set_variable={host = SOV.id}
+			}
+			else_if = {
+				limit = {has_game_rule = {rule = horst_host_country option = HON}}
+				set_variable={host = HON.id}
+			}
+			if = {
+				limit = {
+					has_game_rule = { rule = TFR_fifi_settings option = ENABLED }
+					NOT = { has_global_flag = TFR_fifi_settings_enabled }
+				}
+				set_global_flag = TFR_fifi_settings_enabled
+				every_country = {
+					limit = {
+						NOT = {
+							OR = {
+								original_tag = ADT
+								original_tag = FAL
+								original_tag = FAU
+								original_tag = FBL
+								original_tag = FCH
+								original_tag = FCZ
+								original_tag = FET
+								original_tag = FNL
+								original_tag = FPR
+								original_tag = FSW
+								original_tag = FYG
+								original_tag = INF
+								original_tag = NDE
+								original_tag = NES
+								original_tag = NLA
+								original_tag = NLI
+								original_tag = NNG
+								original_tag = NNO
+								original_tag = NPO
+								original_tag = NPR
+								original_tag = NSW
+							}
+						}
+					}
+					add_research_slot = 1
+				}
+			}
+			var:host = {
+				set_variable = { marked_states = 0 }
+				set_country_flag = host
+			}
+		}
+	}
+}
+

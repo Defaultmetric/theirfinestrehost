@@ -1,0 +1,1277 @@
+technologies = {
+
+	 ##  ###  #   #  ##  #   # ### #  # ###  ##
+	#  # #  # ## ## #  # ## ## #   ## #  #  #
+	#### ###  # # # #### # # # ##  # ##  #   #
+	#  # #  # #   # #  # #   # #   #  #  #    #
+	#  # #  # #   # #  # #   # ### #  #  #  ##
+
+
+	basic_battery = {
+
+		research_cost = 1
+
+		start_year = 1922
+
+		path = {
+			leads_to_tech = basic_light_battery
+			research_cost_coeff = 1
+		}
+		on_research_complete = {
+			custom_effect_tooltip = light_battery_advice_tt
+			custom_effect_tooltip = medium_battery_advice_tt
+			custom_effect_tooltip = heavy_battery_advice_tt
+			custom_effect_tooltip = secondary_battery_advice_tt
+		}
+
+		#path = {
+		#	leads_to_tech = basic_medium_battery
+		#	research_cost_coeff = 1
+		#}
+
+		path = {
+			leads_to_tech = basic_heavy_battery
+			research_cost_coeff = 1
+		}
+
+		enable_equipment_modules = {
+			ship_light_battery_1
+			ship_medium_battery_1
+			ship_light_medium_battery_1
+			ship_heavy_battery_1
+			ship_secondaries_1
+		}
+
+
+
+		# TFR: 1922 tier given to everyone at start and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 1 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR = {
+					has_tech = early_ship_hull_light
+					has_tech = early_ship_hull_cruiser
+					has_tech = early_ship_hull_heavy
+				}
+				factor = 500
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_light_battery
+			cat_ship_medium_battery
+			cat_ship_heavy_battery
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_carrier_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	basic_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1936
+
+		# TFR: basic_light_shell removed
+		#path = {
+		#	leads_to_tech = basic_light_shell
+		#	research_cost_coeff = 1
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = light_battery_advice_tt
+		}
+
+		enable_equipment_modules = {
+			ship_light_battery_2
+			ship_light_medium_battery_2
+			ship_secondaries_2			
+		}
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = -3 y = 5 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = basic_ship_hull_light
+				factor = 20
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_light_battery
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	basic_light_shell = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	improved_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1937
+
+		# TFR: improved_light_shell removed
+		#path = {
+		#	leads_to_tech = improved_light_shell
+		#	research_cost_coeff = 1
+		#}
+
+		path = {
+			leads_to_tech = basic_dp_light_battery
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = light_battery_advice_tt
+		}
+
+		enable_equipment_modules = {
+			ship_light_battery_3
+			ship_light_medium_battery_3
+		}
+
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = -3 y = 11 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = improved_ship_hull_light
+				factor = 20
+			}
+			
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
+			
+			modifier = {
+				factor = 3
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = ITA
+					tag = JAP
+				}
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_light_battery
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	improved_light_shell = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	advanced_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1942
+
+		enable_equipment_modules = {
+			ship_light_battery_4
+			ship_light_medium_battery_4
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = light_battery_advice_tt
+		}
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = -3 y = 19 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = advanced_ship_hull_light
+				factor = 20
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_light_battery
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+	
+	basic_heavy_battery = {
+
+		research_cost = 1
+
+		start_year = 1936
+
+		# TFR: basic_heavy_shell removed
+		#path = {
+		#	leads_to_tech = basic_heavy_shell
+		#	research_cost_coeff = 1
+		#}
+
+		enable_equipment_modules = {
+			ship_heavy_battery_2
+			ship_super_heavy_battery_1
+			ship_medium_battery_2
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = heavy_battery_advice_tt
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 3 y = 5 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = basic_ship_hull_heavy
+				factor = 20
+			}
+			modifier = {
+				OR = {
+					tag = GER
+					tag = JAP
+				}
+				factor = 2
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_heavy_battery
+			mio_cat_tech_all_capital_ship_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	improved_heavy_battery = {
+
+		research_cost = 1
+
+		start_year = 1937
+
+		# TFR: improved_heavy_shell removed
+		#path = {
+		#	leads_to_tech = improved_heavy_shell
+		#	research_cost_coeff = 1
+		#}
+
+		enable_equipment_modules = {
+			ship_heavy_battery_3
+			ship_medium_battery_3
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = heavy_battery_advice_tt
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 3 y = 11 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = improved_ship_hull_heavy
+				factor = 20
+			}
+			modifier = {
+				OR = {
+					tag = GER
+					tag = JAP
+				}
+				factor = 2
+			}
+			
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
+			
+			modifier = {
+				factor = 3
+				OR = {
+					tag = USA
+					tag = ENG
+				}
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_heavy_battery
+			mio_cat_tech_all_capital_ship_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	advanced_heavy_battery = {
+
+		research_cost = 1
+
+		start_year = 1942
+
+		enable_equipment_modules = {
+			ship_heavy_battery_4
+			ship_medium_battery_4
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = heavy_battery_advice_tt
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 3 y = 19 }
+		#}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_tech = advanced_ship_hull_heavy
+				factor = 20
+			}
+			modifier = {
+				OR = {
+					tag = GER
+					tag = JAP
+				}
+				factor = 2
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			cat_ship_heavy_battery
+			mio_cat_tech_all_capital_ship_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	basic_heavy_shell = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	improved_heavy_shell = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	basic_dp_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1939
+
+		enable_equipment_modules = {
+			dp_light_battery_2
+			dp_ship_secondaries_2
+			dp_light_battery_1
+			dp_ship_secondaries_1
+		}
+
+		path = {
+			leads_to_tech = improved_dp_light_battery
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = secondary_battery_advice_tt
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 11 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+					tag = JAP
+				}
+				factor = 20
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_carrier_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	improved_dp_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1940
+
+		enable_equipment_modules = {
+			dp_light_battery_3
+			dp_ship_secondaries_3
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = secondary_battery_advice_tt
+		}
+
+		path = {
+			leads_to_tech = advanced_dp_light_battery
+			research_cost_coeff = 1
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 13 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+					tag = JAP
+				}
+				factor = 20
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_carrier_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	advanced_dp_light_battery = {
+
+		research_cost = 1
+
+		start_year = 1944
+
+		enable_equipment_modules = {
+			dp_light_battery_4
+			dp_ship_secondaries_4
+			dp_ship_medium_1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = secondary_battery_advice_tt
+		}
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 19 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				OR = {
+					tag = ENG
+					tag = USA
+					tag = JAP
+				}
+				factor = 20
+			}
+		}
+
+		categories = {
+			naval_artillery
+			naval_equipment
+			ship_modules_tech
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_carrier_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+
+###  ##  ###  ###  ### ###   ##      #   #  ##  ###   ##  ### ###  ###
+ #  #  # #  # #  # #   #  # #  #     #   # #  # #  # #  # #   #  # #  
+ #  #  # ###  ###  ##  #  # #  #     # # # #### ###  #### ##  ###  ## 
+ #  #  # #  # #    #   #  # #  #     # # # #  # #  # #  # #   #  # #  
+ #   ##  #  # #    ### ###   ##       # #  #  # #  # #  # #   #  # ###
+
+	basic_torpedo = {
+
+		research_cost = 2.0
+
+		start_year = 1922
+
+
+
+		path = {
+			leads_to_tech = improved_ship_torpedo_launcher
+			research_cost_coeff = 1
+		}
+
+		enable_equipment_modules = {
+			ship_torpedo_1
+			ship_torpedo_sub_1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = torpedo_advice_tt
+		}
+
+		# TFR: 1922 tier given to everyone at start and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 1 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				OR = {
+					tag = JAP
+					tag = USA
+					tag = GER
+				}
+				factor = 5
+			}
+			modifier = {
+				has_war = yes
+				factor = 3
+			}
+		}
+
+		categories = {
+			naval_equipment
+			ship_modules_tech
+			cat_torpedoes
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+			mio_cat_tech_all_submarine_and_modules #Not really Sub but unlocks tech improving Subs torpedo stuff later #Now it is actually really a Sub Tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	magnetic_detonator = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	homing_torpedo = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+	
+	improved_ship_torpedo_launcher = {
+
+		research_cost = 1.5
+
+		start_year = 1936
+
+		# TFR: magnetic_detonator removed
+		#path = {
+		#	leads_to_tech = magnetic_detonator
+		#	research_cost_coeff = 1
+		#}
+		on_research_complete = {
+			custom_effect_tooltip = torpedo_advice_tt
+		}
+
+		enable_equipment_modules = {
+			ship_torpedo_2
+			ship_torpedo_sub_2			
+		}
+		
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 5 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = JAP
+				factor = 5
+			}
+			
+			modifier = {
+				factor = 1.5
+				date > 1937.1.1
+			}
+			modifier = {
+				factor = 1.5
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+		}
+
+		categories = {
+			naval_equipment
+			ship_modules_tech
+			cat_torpedoes
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+			mio_cat_tech_all_submarine_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+	
+	advanced_ship_torpedo_launcher = {
+
+		research_cost = 1.5
+
+		start_year = 1940
+
+
+		# TFR: homing_torpedo removed
+		#path = {
+		#	leads_to_tech = homing_torpedo
+		#	research_cost_coeff = 1
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = torpedo_advice_tt
+		}
+
+		enable_equipment_modules = {
+			ship_torpedo_3
+			ship_torpedo_sub_3			
+		}
+		
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 13 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = JAP
+				factor = 5
+			}
+			modifier = {
+				factor = 1.5
+				date > 1941.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1942.1.1
+			}
+		}
+
+		categories = {
+			naval_equipment
+			ship_modules_tech
+			cat_torpedoes
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+			mio_cat_tech_all_submarine_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+	
+	modern_ship_torpedo_launcher = {
+
+		research_cost = 1.5
+
+		start_year = 1944
+
+		enable_equipment_modules = {
+			ship_torpedo_4
+			ship_torpedo_sub_4			
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = torpedo_advice_tt
+		}
+
+
+		# TFR: module tech given to everyone at start (fixed designs need the modules) and hidden from the tree
+		#folder = {
+		#	name = mtgnavalsupportfolder
+		#	position = { x = 0 y = 19 }
+		#}
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				tag = JAP
+				factor = 5
+			}
+		}
+
+		categories = {
+			naval_equipment
+			ship_modules_tech
+			cat_torpedoes
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+			mio_cat_tech_all_destroyer_and_modules
+			mio_cat_tech_all_submarine_and_modules
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+
+###   ##  #   #  ##   ##  ###      ##   ##  #  # ### ###   ##  #
+#  # #  # ## ## #  # #    #       #  # #  # ## #  #  #  # #  # #
+#  # #### # # # #### # ## ##      #    #  # # ##  #  ###  #  # #
+#  # #  # #   # #  # #  # #       #  # #  # #  #  #  #  # #  # #
+###  #  # #   # #  #  ##  ###      ##   ##  #  #  #  #  #  ##  ###
+
+	damage_control_1 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	damage_control_2 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	damage_control_3 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+### ### ###  ###      ##   ##  #  # ### ###   ##  #       #   # ### ### #  #  ##  ###   ##
+#    #  #  # #       #  # #  # ## #  #  #  # #  # #       ## ## #    #  #  # #  # #  # #
+##   #  ###  ##      #    #  # # ##  #  ###  #  # #       # # # ##   #  #### #  # #  #  #
+#    #  #  # #       #  # #  # #  #  #  #  # #  # #       #   # #    #  #  # #  # #  #   #
+#   ### #  # ###      ##   ##  #  #  #  #  #  ##  ###     #   # ###  #  #  #  ##  ###  ##
+
+#NOTE: FIRE CONTROL SYSTEMS ARE IN ELECTROMECHANICAL ENGINEERING FOLDER!
+
+	fire_control_methods_1 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	fire_control_methods_2 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	fire_control_methods_3 = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+
+#   # ### #  # ###  ##
+## ##  #  ## # #   #
+# # #  #  # ## ##   #
+#   #  #  #  # #     #
+#   # ### #  # ### ##
+
+	basic_naval_mines = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	submarine_mine_laying = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	improved_submarine_mine_laying = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	improved_naval_mines = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	degaussing = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	advanced_naval_mines = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	airdrop_mines = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	airdrop_mines_bba = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	#modern_naval_mines = {
+
+	#	research_cost = 2
+
+	#	start_year = 1945
+
+	#	path = {
+	#		leads_to_tech = airsweep_mines
+	#		research_cost_coeff = 1
+	#	}
+	#	path = {
+	#		leads_to_tech = airsweep_mines_bba
+	#		research_cost_coeff = 1
+	#	}
+
+	#	naval_mines_damage_factor = 0.2 # more boom for the boom box
+	#	folder = {
+	#		name = mtgnavalsupportfolder
+	#		position = { x = 0 y = 19 }
+	#	}
+
+	#	ai_will_do = {
+	#		factor = 1
+	#		modifier = {
+	#			tag = USA
+	#			factor = 3
+	#		}
+	#	}
+
+	#	categories = {
+	#		naval_mines
+	#		naval_minelaying
+	#		naval_equipment
+	#		mio_cat_tech_all_screen_ship_and_modules
+	#		mio_cat_tech_all_cruiser_and_modules
+	#		mio_cat_tech_all_destroyer_and_modules
+	#	}
+	#	special_project_specialization = { specialization_naval }
+	#}
+
+	airsweep_mines = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	airsweep_mines_bba = {
+		# TFR: removed by Mihai's Navy Simplified. Empty stub so vanilla history/focus references still load without errors.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	mtg_transport = { 
+
+		transport_capacity = -0.33
+		naval_invasion_prep_days = -10
+		naval_invasion_division_cap = 2 
+		naval_invasion_plan_cap = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = {
+				localization_key = SP_UNLOCK_PROJECT
+				PROJECT = sp_naval_support_ships	
+			}
+		}
+
+		path = {
+			leads_to_tech = mtg_landing_craft
+			research_cost_coeff = 1
+		}	
+
+		# TFR: sp_multi_product_supply_ships removed
+		#path = {
+		#	leads_to_tech = sp_multi_product_supply_ships
+		#	research_cost_coeff = 1
+		#}	
+
+		research_cost = 1.5
+		start_year = 1922
+
+		folder = {	# TFR: transports moved to the support companies tab
+			name = support_folder
+			position = { x = 0 y = 0 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+
+			modifier = {
+				factor = 2
+				tag = USA
+			}
+			modifier = {
+				has_war_with = JAP
+				factor = 2
+			}
+
+			modifier = {
+				factor = 3
+				tag = JAP
+			}
+
+			modifier = {
+				factor = 2
+				tag = ENG
+			}
+		}
+
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	mtg_landing_craft = {
+
+		#invasion_preparation = -0.25
+		amphibious_invasion_defence = 0.15
+		naval_invasion_prep_days = -10
+		naval_invasion_division_cap = 4 
+		naval_invasion_plan_cap = 3	
+		#naval_invasion_capacity = 20
+
+		path = {
+			leads_to_tech = mtg_tank_landing_craft
+			research_cost_coeff = 1
+		}
+
+		# TFR: sp_improved_support_ship removed
+		#path = {
+		#	leads_to_tech = sp_improved_support_ship
+		#	research_cost_coeff = 1
+		#}
+
+		enable_equipments = {
+			floating_harbor_equipment_1
+		}
+		force_use_small_tech_layout = yes
+		show_equipment_icon = yes
+
+		research_cost = 2
+		start_year = 1940
+
+		folder = {	# TFR: transports moved to the support companies tab
+			name = support_folder
+			position = { x = 0 y = 30 }
+		}
+
+		ai_will_do = {
+			factor = 5
+
+			modifier = {
+				factor = 0.1
+				has_war = no
+			}
+
+			modifier = {
+				factor = 15
+				tag = USA				
+				date > 1942.1.1
+			}
+			modifier = {
+				factor = 15
+				tag = ENG				
+				date > 1941.6.1
+			}
+			modifier = {
+				factor = 15
+				tag = JAP
+			}
+		}
+
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	mtg_tank_landing_craft = {
+
+		amphibious_invasion = 0.25
+		amphibious_invasion_defence = 0.5
+		naval_invasion_prep_days = -10
+		naval_invasion_division_cap = 5 
+		naval_invasion_plan_cap = 4			
+		#naval_invasion_capacity = 100
+
+		research_cost = 2
+		start_year = 1944
+		folder = {	# TFR: transports moved to the support companies tab
+			name = support_folder
+			position = { x = 0 y = 60 }
+		}
+
+		ai_will_do = {
+			factor = 2
+
+			modifier = {
+				factor = 0.5
+				has_war = no
+			}
+
+			modifier = {
+				factor = 20
+				tag = USA
+			}
+			modifier = {
+				factor = 2
+				has_war_with = JAP
+			}
+			modifier = {
+				factor = 3
+				tag = JAP
+			}
+
+			modifier = {
+				factor = 2
+				tag = ENG
+			}
+		}
+
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	### SPECIAL PROJECTS ###
+
+	sp_multi_product_supply_ships = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+
+	sp_standard_tenshioned_replenishment_alongside_method = {
+		# TFR: removed by Mihai's Navy Simplified (stat bonus, to be re-added later as fixed numbers). Empty stub so old references still load.
+		allow = { always = no }
+		research_cost = 1
+		start_year = 1936
+	}
+
+	#### SUPPORT & REPAIR SHIPS ####
+
+	sp_improved_support_ship = {
+		allow_branch = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+
+		allow = {
+			ROOT = {
+				is_special_project_completed = sp:sp_naval_support_ships
+			}
+		}
+
+		enable_equipments = {
+			support_ship_2
+		}
+
+		is_special_project_tech = yes
+		xp_research_type = navy
+		xp_boost_cost = 75
+		xp_research_bonus = 1
+		research_cost = 2
+		start_year = 1942
+
+		folder = {	# TFR: support ships row of the naval tab
+			name = mtgnavalfolder
+			position = { x = 172 y = 192 }
+		}
+
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+	sp_improved_repair_ship = {
+		allow_branch = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+
+		allow = {
+			ROOT = {
+				is_special_project_completed = sp:sp_naval_support_ships
+			}
+		}
+
+		enable_equipments = {
+			repair_ship_2
+		}
+
+		is_special_project_tech = yes
+		xp_research_type = navy
+		xp_boost_cost = 75
+		xp_research_bonus = 1
+		research_cost = 2
+		start_year = 1942
+
+		folder = {	# TFR: support ships row of the naval tab
+			name = mtgnavalfolder
+			position = { x = 72 y = 192 }
+		}
+
+		categories = {
+			naval_equipment
+			tp_tech
+		}
+		special_project_specialization = { specialization_naval }
+	}
+
+}

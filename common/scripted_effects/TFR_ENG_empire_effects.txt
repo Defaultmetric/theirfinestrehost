@@ -1,0 +1,2732 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2)
+# Investment and requisition happen ONLY through focuses (no decisions).
+# Scopes are given per effect. Partner-scope effects never rely on ROOT; they name ENG explicitly.
+###########################################################################
+
+###########################################################################
+# COMMONWEALTH INVESTMENT: building one level for a partner (scope: partner)
+# A state it owns and controls with a free slot gets +1 slot and the building, booked on the state
+# (counter + ENG_inv_for_<TAG> flag) so it can be clawed back from any other owner; otherwise the
+# building is granted offsite and booked on the partner (ENG_inv_offsite_*).
+###########################################################################
+
+ENG_inv_build_civ = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_controlled_by = PREV
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			ENG_inv_flag_state = yes
+		}
+	}
+	else = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+	}
+	add_to_variable = { ENG_inv_alive = 1 }
+}
+
+ENG_inv_build_mil = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_controlled_by = PREV
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			ENG_inv_flag_state = yes
+		}
+	}
+	else = {
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+	}
+	add_to_variable = { ENG_inv_alive = 1 }
+}
+
+ENG_inv_build_dock = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_controlled_by = PREV
+				is_coastal = yes
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_coastal = yes
+				NOT = { ENG_inv_state_foreign_owned = yes }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			ENG_inv_flag_state = yes
+		}
+	}
+	else = {
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+	}
+	add_to_variable = { ENG_inv_alive = 1 }
+}
+
+# Scope state (OWNER = the partner, from the build effects). Marks the state as built up for its owner.
+ENG_inv_flag_state = {
+	if = {
+		limit = { OWNER = { tag = CAN } }
+		set_state_flag = ENG_inv_for_CAN
+	}
+	if = {
+		limit = { OWNER = { tag = AST } }
+		set_state_flag = ENG_inv_for_AST
+	}
+	if = {
+		limit = { OWNER = { tag = SAF } }
+		set_state_flag = ENG_inv_for_SAF
+	}
+	if = {
+		limit = { OWNER = { tag = RAJ } }
+		set_state_flag = ENG_inv_for_RAJ
+	}
+	if = {
+		limit = { OWNER = { tag = BRA } }
+		set_state_flag = ENG_inv_for_BRA
+	}
+}
+
+# Scope state. Clears the booking (live and suspended counters, partner flag) after the buildings are gone.
+ENG_inv_clear_state_booking = {
+	set_variable = { ENG_inv_civ_here = 0 }
+	set_variable = { ENG_inv_mil_here = 0 }
+	set_variable = { ENG_inv_dock_here = 0 }
+	set_variable = { ENG_inv_civ_susp = 0 }
+	set_variable = { ENG_inv_mil_susp = 0 }
+	set_variable = { ENG_inv_dock_susp = 0 }
+	clr_state_flag = ENG_inv_for_CAN
+	clr_state_flag = ENG_inv_for_AST
+	clr_state_flag = ENG_inv_for_SAF
+	clr_state_flag = ENG_inv_for_RAJ
+	clr_state_flag = ENG_inv_for_BRA
+}
+
+# Scope: partner. Recomputes the British Investment spirit from the step count (no drift, no stacking):
+# +2% factory output and +3% construction speed per step, counted up to 5 steps;
+# +5% local resources for each themed step flag (at most two).
+ENG_partner_refresh_investment_dm = {
+	set_variable = { ENG_inv_steps_capped = ENG_investment_level }
+	clamp_variable = { var = ENG_inv_steps_capped min = 0 max = 5 }
+	set_variable = { ENG_inv_factory_output = ENG_inv_steps_capped }
+	multiply_variable = { ENG_inv_factory_output = 0.02 }
+	set_variable = { ENG_inv_construction = ENG_inv_steps_capped }
+	multiply_variable = { ENG_inv_construction = 0.03 }
+	set_variable = { ENG_inv_resources = 0 }
+	if = {
+		limit = { has_country_flag = ENG_inv_res_a }
+		add_to_variable = { ENG_inv_resources = 0.05 }
+	}
+	if = {
+		limit = { has_country_flag = ENG_inv_res_b }
+		add_to_variable = { ENG_inv_resources = 0.05 }
+	}
+	if = {
+		limit = {
+			check_variable = { ENG_investment_level > 0 }
+			NOT = { has_dynamic_modifier = { modifier = ENG_british_investment_dm } }
+		}
+		add_dynamic_modifier = { modifier = ENG_british_investment_dm }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+# Scope: partner. Book-keeping shared by every step: count it, refresh the spirit, notify.
+ENG_inv_step_common = {
+	add_to_variable = { ENG_investment_level = 1 }
+	add_opinion_modifier = { target = ENG modifier = aided_industry }
+	ENG_partner_refresh_investment_dm = yes
+	country_event = { id = tfr_eng_empire.1 hours = 6 }
+}
+
+###########################################################################
+# ONE EFFECT PER INVESTMENT FOCUS (scope ENG, called from the focus completion_reward).
+# The partner is checked AT COMPLETION: if it is gone, has left or has capitulated, the UK is told
+# there is nothing to invest in and nothing is paid or owed.
+###########################################################################
+
+# uk_canada_focus: CAN step 1 (0 civ, 0 mil, 2 dock)
+ENG_step_uk_canada_focus = {
+	if = {
+		limit = {
+			CAN = { ENG_partner_can_receive_step = yes }
+		}
+		CAN = {
+			custom_effect_tooltip = ENG_step_uk_canada_focus_tt
+			hidden_effect = {
+				ENG_inv_build_dock = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_CAN_tt
+	}
+}
+
+# ENG_arvida_aluminium: CAN step 2 (1 civ, 1 mil, 0 dock, resources)
+ENG_step_arvida_aluminium = {
+	if = {
+		limit = {
+			CAN = { ENG_partner_can_receive_step = yes }
+		}
+		CAN = {
+			custom_effect_tooltip = ENG_step_arvida_aluminium_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				set_country_flag = ENG_inv_res_a
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_CAN_tt
+	}
+}
+
+# ENG_victory_aircraft: CAN step 3 (1 civ, 2 mil, 0 dock)
+ENG_step_victory_aircraft = {
+	if = {
+		limit = {
+			CAN = { ENG_partner_can_receive_step = yes }
+		}
+		CAN = {
+			custom_effect_tooltip = ENG_step_victory_aircraft_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_CAN_tt
+	}
+}
+
+# ENG_canadian_car_and_foundry: CAN step 4 (0 civ, 2 mil, 0 dock)
+ENG_step_canadian_car_and_foundry = {
+	if = {
+		limit = {
+			CAN = { ENG_partner_can_receive_step = yes }
+		}
+		CAN = {
+			custom_effect_tooltip = ENG_step_canadian_car_and_foundry_tt
+			hidden_effect = {
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_CAN_tt
+	}
+}
+
+# uk_australia_focus: AST step 1 (2 civ, 0 mil, 0 dock, resources)
+ENG_step_uk_australia_focus = {
+	if = {
+		limit = {
+			AST = { ENG_partner_can_receive_step = yes }
+		}
+		AST = {
+			custom_effect_tooltip = ENG_step_uk_australia_focus_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_civ = yes
+				set_country_flag = ENG_inv_res_a
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_AST_tt
+	}
+}
+
+# ENG_australian_munitions: AST step 2 (0 civ, 2 mil, 0 dock)
+ENG_step_australian_munitions = {
+	if = {
+		limit = {
+			AST = { ENG_partner_can_receive_step = yes }
+		}
+		AST = {
+			custom_effect_tooltip = ENG_step_australian_munitions_tt
+			hidden_effect = {
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_AST_tt
+	}
+}
+
+# ENG_commonwealth_aircraft_corporation: AST step 3 (1 civ, 2 mil, 0 dock)
+ENG_step_commonwealth_aircraft_corporation = {
+	if = {
+		limit = {
+			AST = { ENG_partner_can_receive_step = yes }
+		}
+		AST = {
+			custom_effect_tooltip = ENG_step_commonwealth_aircraft_corporation_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_AST_tt
+	}
+}
+
+# ENG_australian_dockyards: AST step 4 (1 civ, 0 mil, 2 dock)
+ENG_step_australian_dockyards = {
+	if = {
+		limit = {
+			AST = { ENG_partner_can_receive_step = yes }
+		}
+		AST = {
+			custom_effect_tooltip = ENG_step_australian_dockyards_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_AST_tt
+	}
+}
+
+# uk_south_africa_focus: SAF step 1 (1 civ, 1 mil, 0 dock, resources)
+ENG_step_uk_south_africa_focus = {
+	if = {
+		limit = {
+			SAF = { ENG_partner_can_receive_step = yes }
+		}
+		SAF = {
+			custom_effect_tooltip = ENG_step_uk_south_africa_focus_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				set_country_flag = ENG_inv_res_a
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_SAF_tt
+	}
+}
+
+# ENG_the_rand_mines: SAF step 2 (2 civ, 0 mil, 0 dock, resources)
+ENG_step_the_rand_mines = {
+	if = {
+		limit = {
+			SAF = { ENG_partner_can_receive_step = yes }
+		}
+		SAF = {
+			custom_effect_tooltip = ENG_step_the_rand_mines_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_civ = yes
+				set_country_flag = ENG_inv_res_b
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_SAF_tt
+	}
+}
+
+# ENG_cape_ports: SAF step 3 (0 civ, 0 mil, 2 dock)
+ENG_step_cape_ports = {
+	if = {
+		limit = {
+			SAF = { ENG_partner_can_receive_step = yes }
+		}
+		SAF = {
+			custom_effect_tooltip = ENG_step_cape_ports_tt
+			hidden_effect = {
+				ENG_inv_build_dock = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_SAF_tt
+	}
+}
+
+# uk_india_focus: RAJ step 1 (0 civ, 2 mil, 0 dock)
+ENG_step_uk_india_focus = {
+	if = {
+		limit = {
+			RAJ = { ENG_partner_can_receive_step = yes }
+		}
+		RAJ = {
+			custom_effect_tooltip = ENG_step_uk_india_focus_tt
+			hidden_effect = {
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_RAJ_tt
+	}
+}
+
+# ENG_tata_steel: RAJ step 2 (2 civ, 0 mil, 0 dock, resources)
+ENG_step_tata_steel = {
+	if = {
+		limit = {
+			RAJ = { ENG_partner_can_receive_step = yes }
+		}
+		RAJ = {
+			custom_effect_tooltip = ENG_step_tata_steel_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_civ = yes
+				set_country_flag = ENG_inv_res_a
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_RAJ_tt
+	}
+}
+
+# ENG_eastern_group_supply_council: RAJ step 3 (1 civ, 2 mil, 0 dock)
+ENG_step_eastern_group_supply_council = {
+	if = {
+		limit = {
+			RAJ = { ENG_partner_can_receive_step = yes }
+		}
+		RAJ = {
+			custom_effect_tooltip = ENG_step_eastern_group_supply_council_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_RAJ_tt
+	}
+}
+
+# ENG_hindustan_aircraft: RAJ step 4 (1 civ, 2 mil, 0 dock)
+ENG_step_hindustan_aircraft = {
+	if = {
+		limit = {
+			RAJ = { ENG_partner_can_receive_step = yes }
+		}
+		RAJ = {
+			custom_effect_tooltip = ENG_step_hindustan_aircraft_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_RAJ_tt
+	}
+}
+
+# ENG_indian_dockyards: RAJ step 5 (1 civ, 0 mil, 2 dock)
+ENG_step_indian_dockyards = {
+	if = {
+		limit = {
+			RAJ = { ENG_partner_can_receive_step = yes }
+		}
+		RAJ = {
+			custom_effect_tooltip = ENG_step_indian_dockyards_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_RAJ_tt
+	}
+}
+
+# ENG_brazilian_partnership: BRA step 1 (2 civ, 0 mil, 0 dock, resources)
+ENG_step_brazilian_partnership = {
+	if = {
+		limit = {
+			BRA = { ENG_partner_can_receive_step = yes }
+		}
+		BRA = {
+			custom_effect_tooltip = ENG_step_brazilian_partnership_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_civ = yes
+				set_country_flag = ENG_inv_res_a
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_BRA_tt
+	}
+}
+
+# ENG_brazilian_rubber: BRA step 2 (1 civ, 1 mil, 0 dock, resources)
+ENG_step_brazilian_rubber = {
+	if = {
+		limit = {
+			BRA = { ENG_partner_can_receive_step = yes }
+		}
+		BRA = {
+			custom_effect_tooltip = ENG_step_brazilian_rubber_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				set_country_flag = ENG_inv_res_b
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_BRA_tt
+	}
+}
+
+# ENG_fabrica_nacional_de_motores: BRA step 3 (1 civ, 2 mil, 0 dock)
+ENG_step_fabrica_nacional_de_motores = {
+	if = {
+		limit = {
+			BRA = { ENG_partner_can_receive_step = yes }
+		}
+		BRA = {
+			custom_effect_tooltip = ENG_step_fabrica_nacional_de_motores_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_BRA_tt
+	}
+}
+
+# ENG_galeao_aircraft_factory: BRA step 4 (1 civ, 2 mil, 0 dock)
+ENG_step_galeao_aircraft_factory = {
+	if = {
+		limit = {
+			BRA = { ENG_partner_can_receive_step = yes }
+		}
+		BRA = {
+			custom_effect_tooltip = ENG_step_galeao_aircraft_factory_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_build_mil = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_BRA_tt
+	}
+}
+
+# ENG_brazilian_naval_arsenal: BRA step 5 (1 civ, 0 mil, 2 dock)
+ENG_step_brazilian_naval_arsenal = {
+	if = {
+		limit = {
+			BRA = { ENG_partner_can_receive_step = yes }
+		}
+		BRA = {
+			custom_effect_tooltip = ENG_step_brazilian_naval_arsenal_tt
+			hidden_effect = {
+				ENG_inv_build_civ = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_build_dock = yes
+				ENG_inv_step_common = yes
+			}
+		}
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = ENG_inv_obligation_step_tt
+		hidden_effect = { ENG_update_obligations = yes }
+	}
+	else = {
+		custom_effect_tooltip = ENG_inv_nothing_BRA_tt
+	}
+}
+
+###########################################################################
+# SUSPENSION, RESUMPTION AND CLAW-BACK
+# Suspension removes every factory the investment gave: offsite grants are reversed (their count is kept on
+# the partner) and state-built ones are removed and kept as a SUSPENDED count on their own state (the booking
+# flag stays). Resumption, and the weekly check while the partner is active, rebuilds them in those same
+# states without adding a slot (review v2 #14/#48), each as soon as its slot is free (a slot the partner filled
+# meanwhile is waited for, weekly); offsite only where the state is gone (now owned by another country:
+# claw-back, ENG_inv_lost_*). Polish round #5: no 'slot used' offsite fallback.
+###########################################################################
+
+# Scope: partner. It left the UK's faction. The step count is kept, so nothing can ever be paid twice.
+ENG_investment_suspend = {
+	if = {
+		limit = {
+			check_variable = { ENG_investment_level > 0 }
+			NOT = { has_country_flag = ENG_investment_suspended }
+		}
+		set_country_flag = ENG_investment_suspended
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_civ }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_mil }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_dock }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = dockyard level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		if = {
+			limit = { has_dynamic_modifier = { modifier = ENG_british_investment_dm } }
+			remove_dynamic_modifier = { modifier = ENG_british_investment_dm }
+		}
+		if = {
+			limit = { tag = CAN }
+			every_owned_state = {
+				limit = { has_state_flag = ENG_inv_for_CAN }
+				ENG_inv_suspend_state = yes
+			}
+		}
+		if = {
+			limit = { tag = AST }
+			every_owned_state = {
+				limit = { has_state_flag = ENG_inv_for_AST }
+				ENG_inv_suspend_state = yes
+			}
+		}
+		if = {
+			limit = { tag = SAF }
+			every_owned_state = {
+				limit = { has_state_flag = ENG_inv_for_SAF }
+				ENG_inv_suspend_state = yes
+			}
+		}
+		if = {
+			limit = { tag = RAJ }
+			every_owned_state = {
+				limit = { has_state_flag = ENG_inv_for_RAJ }
+				ENG_inv_suspend_state = yes
+			}
+		}
+		if = {
+			limit = { tag = BRA }
+			every_owned_state = {
+				limit = { has_state_flag = ENG_inv_for_BRA }
+				ENG_inv_suspend_state = yes
+			}
+		}
+		country_event = { id = tfr_eng_empire.3 }
+	}
+}
+
+# Scope: state owned by the leaving partner. Removes the live investment buildings and keeps them as a
+# suspended count on the state, to be rebuilt here (ENG_inv_restore_<TAG>).
+ENG_inv_suspend_state = {
+	while_loop_effect = {
+		limit = { check_variable = { ENG_inv_civ_here > 0 } }
+		remove_building = { type = industrial_complex level = 1 }
+		subtract_from_variable = { ENG_inv_civ_here = 1 }
+		add_to_variable = { ENG_inv_civ_susp = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_inv_mil_here > 0 } }
+		remove_building = { type = arms_factory level = 1 }
+		subtract_from_variable = { ENG_inv_mil_here = 1 }
+		add_to_variable = { ENG_inv_mil_susp = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_inv_dock_here > 0 } }
+		remove_building = { type = dockyard level = 1 }
+		subtract_from_variable = { ENG_inv_dock_here = 1 }
+		add_to_variable = { ENG_inv_dock_susp = 1 }
+	}
+}
+
+# Scope CAN (active again). Gives back what suspension took: suspended buildings are rebuilt in their own
+# controlled states (into the slot they left, once it is free; if CAN has filled it, the count waits and the
+# weekly check retries), and buildings whose state changed owner while suspended (ENG_inv_lost_*, booked by the
+# claw-back) come back as offsite grants. A suspended state that is occupied keeps its count until it is
+# controlled again (weekly).
+ENG_inv_restore_CAN = {
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_civ }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_civ = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_mil }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_mil = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_dock }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_dock = 0 }
+	every_owned_state = {
+		limit = {
+			has_state_flag = ENG_inv_for_CAN
+			is_controlled_by = CAN
+			OR = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				check_variable = { ENG_inv_mil_susp > 0 }
+				check_variable = { ENG_inv_dock_susp > 0 }
+			}
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			subtract_from_variable = { ENG_inv_civ_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_mil_susp > 0 }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			subtract_from_variable = { ENG_inv_mil_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_dock_susp > 0 }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			subtract_from_variable = { ENG_inv_dock_susp = 1 }
+		}
+	}
+}
+
+# Scope AST (active again). Gives back what suspension took: suspended buildings are rebuilt in their own
+# controlled states (into the slot they left, once it is free; if AST has filled it, the count waits and the
+# weekly check retries), and buildings whose state changed owner while suspended (ENG_inv_lost_*, booked by the
+# claw-back) come back as offsite grants. A suspended state that is occupied keeps its count until it is
+# controlled again (weekly).
+ENG_inv_restore_AST = {
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_civ }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_civ = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_mil }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_mil = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_dock }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_dock = 0 }
+	every_owned_state = {
+		limit = {
+			has_state_flag = ENG_inv_for_AST
+			is_controlled_by = AST
+			OR = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				check_variable = { ENG_inv_mil_susp > 0 }
+				check_variable = { ENG_inv_dock_susp > 0 }
+			}
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			subtract_from_variable = { ENG_inv_civ_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_mil_susp > 0 }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			subtract_from_variable = { ENG_inv_mil_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_dock_susp > 0 }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			subtract_from_variable = { ENG_inv_dock_susp = 1 }
+		}
+	}
+}
+
+# Scope SAF (active again). Gives back what suspension took: suspended buildings are rebuilt in their own
+# controlled states (into the slot they left, once it is free; if SAF has filled it, the count waits and the
+# weekly check retries), and buildings whose state changed owner while suspended (ENG_inv_lost_*, booked by the
+# claw-back) come back as offsite grants. A suspended state that is occupied keeps its count until it is
+# controlled again (weekly).
+ENG_inv_restore_SAF = {
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_civ }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_civ = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_mil }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_mil = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_dock }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_dock = 0 }
+	every_owned_state = {
+		limit = {
+			has_state_flag = ENG_inv_for_SAF
+			is_controlled_by = SAF
+			OR = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				check_variable = { ENG_inv_mil_susp > 0 }
+				check_variable = { ENG_inv_dock_susp > 0 }
+			}
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			subtract_from_variable = { ENG_inv_civ_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_mil_susp > 0 }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			subtract_from_variable = { ENG_inv_mil_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_dock_susp > 0 }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			subtract_from_variable = { ENG_inv_dock_susp = 1 }
+		}
+	}
+}
+
+# Scope RAJ (active again). Gives back what suspension took: suspended buildings are rebuilt in their own
+# controlled states (into the slot they left, once it is free; if RAJ has filled it, the count waits and the
+# weekly check retries), and buildings whose state changed owner while suspended (ENG_inv_lost_*, booked by the
+# claw-back) come back as offsite grants. A suspended state that is occupied keeps its count until it is
+# controlled again (weekly).
+ENG_inv_restore_RAJ = {
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_civ }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_civ = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_mil }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_mil = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_dock }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_dock = 0 }
+	every_owned_state = {
+		limit = {
+			has_state_flag = ENG_inv_for_RAJ
+			is_controlled_by = RAJ
+			OR = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				check_variable = { ENG_inv_mil_susp > 0 }
+				check_variable = { ENG_inv_dock_susp > 0 }
+			}
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			subtract_from_variable = { ENG_inv_civ_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_mil_susp > 0 }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			subtract_from_variable = { ENG_inv_mil_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_dock_susp > 0 }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			subtract_from_variable = { ENG_inv_dock_susp = 1 }
+		}
+	}
+}
+
+# Scope BRA (active again). Gives back what suspension took: suspended buildings are rebuilt in their own
+# controlled states (into the slot they left, once it is free; if BRA has filled it, the count waits and the
+# weekly check retries), and buildings whose state changed owner while suspended (ENG_inv_lost_*, booked by the
+# claw-back) come back as offsite grants. A suspended state that is occupied keeps its count until it is
+# controlled again (weekly).
+ENG_inv_restore_BRA = {
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_civ }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_inv_offsite_civ = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_civ = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_mil }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_inv_offsite_mil = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_mil = 0 }
+	set_temp_variable = { ENG_t_n = ENG_inv_lost_dock }
+	while_loop_effect = {
+		limit = { check_variable = { ENG_t_n > 0 } }
+		add_offsite_building = { type = dockyard level = 1 }
+		add_to_variable = { ENG_inv_offsite_dock = 1 }
+		subtract_from_temp_variable = { ENG_t_n = 1 }
+	}
+	set_variable = { ENG_inv_lost_dock = 0 }
+	every_owned_state = {
+		limit = {
+			has_state_flag = ENG_inv_for_BRA
+			is_controlled_by = BRA
+			OR = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				check_variable = { ENG_inv_mil_susp > 0 }
+				check_variable = { ENG_inv_dock_susp > 0 }
+			}
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_civ_susp > 0 }
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_civ_here = 1 }
+			subtract_from_variable = { ENG_inv_civ_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_mil_susp > 0 }
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_mil_here = 1 }
+			subtract_from_variable = { ENG_inv_mil_susp = 1 }
+		}
+		while_loop_effect = {
+			limit = {
+				check_variable = { ENG_inv_dock_susp > 0 }
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+			add_to_variable = { ENG_inv_dock_here = 1 }
+			subtract_from_variable = { ENG_inv_dock_susp = 1 }
+		}
+	}
+}
+
+# Scope: partner. Dispatches to its own restore effect.
+ENG_inv_restore = {
+	if = {
+		limit = { tag = CAN }
+		ENG_inv_restore_CAN = yes
+	}
+	if = {
+		limit = { tag = AST }
+		ENG_inv_restore_AST = yes
+	}
+	if = {
+		limit = { tag = SAF }
+		ENG_inv_restore_SAF = yes
+	}
+	if = {
+		limit = { tag = RAJ }
+		ENG_inv_restore_RAJ = yes
+	}
+	if = {
+		limit = { tag = BRA }
+		ENG_inv_restore_BRA = yes
+	}
+}
+
+# Scope: partner. Back in the UK's faction: offsite grants restored, state-built buildings rebuilt in place.
+ENG_investment_resume = {
+	if = {
+		limit = { has_country_flag = ENG_investment_suspended }
+		clr_country_flag = ENG_investment_suspended
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_civ }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = 1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_mil }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = 1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_inv_offsite_dock }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = dockyard level = 1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		ENG_inv_restore = yes
+		ENG_partner_refresh_investment_dm = yes
+	}
+}
+
+# Scope: partner. Weekly state machine: suspend when out of the faction, resume when back; while active,
+# finish any pending rebuild and make sure the spirit is present.
+ENG_investment_state_check = {
+	if = {
+		limit = {
+			check_variable = { ENG_investment_level > 0 }
+			has_country_flag = ENG_investment_suspended
+			is_in_faction_with = ENG
+		}
+		ENG_investment_resume = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { ENG_investment_level > 0 }
+			NOT = { has_country_flag = ENG_investment_suspended }
+			NOT = { is_in_faction_with = ENG }
+		}
+		ENG_investment_suspend = yes
+	}
+	else_if = {
+		limit = {
+			check_variable = { ENG_investment_level > 0 }
+			NOT = { has_country_flag = ENG_investment_suspended }
+		}
+		ENG_inv_restore = yes
+		if = {
+			limit = { NOT = { has_dynamic_modifier = { modifier = ENG_british_investment_dm } } }
+			ENG_partner_refresh_investment_dm = yes
+		}
+	}
+}
+
+# Scope any (global). Every state that British investment built up for one partner but that is now owned by
+# any other country loses the live investment buildings for good (taking an invested partner's land gains
+# nobody the investment; the partner's surviving count ENG_inv_alive falls, the owner is notified). Buildings
+# that were suspended there are booked back on the partner (ENG_inv_lost_*) and return to it as offsite grants.
+ENG_investment_clawback_states = {
+	every_state = {
+		limit = { ENG_inv_state_foreign_owned = yes }
+		set_temp_variable = { ENG_t_live = ENG_inv_civ_here }
+		add_to_temp_variable = { ENG_t_live = ENG_inv_mil_here }
+		add_to_temp_variable = { ENG_t_live = ENG_inv_dock_here }
+		set_temp_variable = { ENG_t_lost_civ = ENG_inv_civ_susp }
+		set_temp_variable = { ENG_t_lost_mil = ENG_inv_mil_susp }
+		set_temp_variable = { ENG_t_lost_dock = ENG_inv_dock_susp }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_inv_civ_here > 0 } }
+			remove_building = { type = industrial_complex level = 1 }
+			subtract_from_variable = { ENG_inv_civ_here = 1 }
+			OWNER = { add_to_variable = { ENG_clawed_civ = 1 } }
+		}
+		while_loop_effect = {
+			limit = { check_variable = { ENG_inv_mil_here > 0 } }
+			remove_building = { type = arms_factory level = 1 }
+			subtract_from_variable = { ENG_inv_mil_here = 1 }
+			OWNER = { add_to_variable = { ENG_clawed_mil = 1 } }
+		}
+		while_loop_effect = {
+			limit = { check_variable = { ENG_inv_dock_here > 0 } }
+			remove_building = { type = dockyard level = 1 }
+			subtract_from_variable = { ENG_inv_dock_here = 1 }
+			OWNER = { add_to_variable = { ENG_clawed_dock = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = ENG_inv_for_CAN
+				country_exists = CAN
+			}
+			CAN = {
+				subtract_from_variable = { ENG_inv_alive = ENG_t_live }
+				add_to_variable = { ENG_inv_lost_civ = ENG_t_lost_civ }
+				add_to_variable = { ENG_inv_lost_mil = ENG_t_lost_mil }
+				add_to_variable = { ENG_inv_lost_dock = ENG_t_lost_dock }
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = ENG_inv_for_AST
+				country_exists = AST
+			}
+			AST = {
+				subtract_from_variable = { ENG_inv_alive = ENG_t_live }
+				add_to_variable = { ENG_inv_lost_civ = ENG_t_lost_civ }
+				add_to_variable = { ENG_inv_lost_mil = ENG_t_lost_mil }
+				add_to_variable = { ENG_inv_lost_dock = ENG_t_lost_dock }
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = ENG_inv_for_SAF
+				country_exists = SAF
+			}
+			SAF = {
+				subtract_from_variable = { ENG_inv_alive = ENG_t_live }
+				add_to_variable = { ENG_inv_lost_civ = ENG_t_lost_civ }
+				add_to_variable = { ENG_inv_lost_mil = ENG_t_lost_mil }
+				add_to_variable = { ENG_inv_lost_dock = ENG_t_lost_dock }
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = ENG_inv_for_RAJ
+				country_exists = RAJ
+			}
+			RAJ = {
+				subtract_from_variable = { ENG_inv_alive = ENG_t_live }
+				add_to_variable = { ENG_inv_lost_civ = ENG_t_lost_civ }
+				add_to_variable = { ENG_inv_lost_mil = ENG_t_lost_mil }
+				add_to_variable = { ENG_inv_lost_dock = ENG_t_lost_dock }
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = ENG_inv_for_BRA
+				country_exists = BRA
+			}
+			BRA = {
+				subtract_from_variable = { ENG_inv_alive = ENG_t_live }
+				add_to_variable = { ENG_inv_lost_civ = ENG_t_lost_civ }
+				add_to_variable = { ENG_inv_lost_mil = ENG_t_lost_mil }
+				add_to_variable = { ENG_inv_lost_dock = ENG_t_lost_dock }
+			}
+		}
+		if = {
+			limit = { check_variable = { ENG_t_live > 0 } }
+			OWNER = { set_country_flag = ENG_clawback_notify }
+		}
+		ENG_inv_clear_state_booking = yes
+	}
+	every_country = {
+		limit = { has_country_flag = ENG_clawback_notify }
+		clr_country_flag = ENG_clawback_notify
+		set_variable = { ENG_clawed_civ_last = ENG_clawed_civ }
+		set_variable = { ENG_clawed_mil_last = ENG_clawed_mil }
+		set_variable = { ENG_clawed_dock_last = ENG_clawed_dock }
+		set_variable = { ENG_clawed_civ = 0 }
+		set_variable = { ENG_clawed_mil = 0 }
+		set_variable = { ENG_clawed_dock = 0 }
+		country_event = { id = tfr_eng_empire.4 }
+	}
+}
+
+
+###########################################################################
+# IMPERIAL OBLIGATIONS AND THE COMMONWEALTH RETURN (scope ENG)
+###########################################################################
+
+# Partnership path only (safe to call from anywhere in ENG scope, e.g. after Eden's flags are set).
+# Recount the ACTIVE steps, recompute the rates from completed focuses and Eden's flags (nothing is
+# stored that could drift), set the Imperial Obligations spirit and the return.
+ENG_update_obligations = {
+	if = {
+		limit = { has_country_flag = ENG_partnership_chosen }
+		set_variable = { ENG_total_investment = 0 }
+		set_variable = { ENG_total_inv_buildings = 0 }
+		if = {
+			limit = {
+				country_exists = CAN
+				CAN = { ENG_partner_investment_active = yes }
+			}
+			add_to_variable = { ENG_total_investment = CAN.ENG_investment_level }
+			add_to_variable = { ENG_total_inv_buildings = CAN.ENG_inv_alive }
+		}
+		if = {
+			limit = {
+				country_exists = AST
+				AST = { ENG_partner_investment_active = yes }
+			}
+			add_to_variable = { ENG_total_investment = AST.ENG_investment_level }
+			add_to_variable = { ENG_total_inv_buildings = AST.ENG_inv_alive }
+		}
+		if = {
+			limit = {
+				country_exists = SAF
+				SAF = { ENG_partner_investment_active = yes }
+			}
+			add_to_variable = { ENG_total_investment = SAF.ENG_investment_level }
+			add_to_variable = { ENG_total_inv_buildings = SAF.ENG_inv_alive }
+		}
+		if = {
+			limit = {
+				country_exists = RAJ
+				RAJ = { ENG_partner_investment_active = yes }
+			}
+			add_to_variable = { ENG_total_investment = RAJ.ENG_investment_level }
+			add_to_variable = { ENG_total_inv_buildings = RAJ.ENG_inv_alive }
+		}
+		if = {
+			limit = {
+				country_exists = BRA
+				BRA = { ENG_partner_investment_active = yes }
+			}
+			add_to_variable = { ENG_total_investment = BRA.ENG_investment_level }
+			add_to_variable = { ENG_total_inv_buildings = BRA.ENG_inv_alive }
+		}
+		set_variable = { ENG_obl_cg_rate = 0.025 }
+		if = {
+			limit = { has_completed_focus = ENG_the_sterling_area }
+			set_variable = { ENG_obl_cg_rate = 0.02 }
+		}
+		set_variable = { ENG_obl_civ_rate = -0.012 }
+		if = {
+			limit = { has_completed_focus = ENG_imperial_preference }
+			set_variable = { ENG_obl_civ_rate = -0.009 }
+		}
+		set_variable = { ENG_obl_out_rate = -0.012 }
+		set_temp_variable = { ENG_t_mult = 1 }
+		if = {
+			limit = { has_country_flag = ENG_eden_investment_discount_2 }
+			set_temp_variable = { ENG_t_mult = 0.8 }
+		}
+		else_if = {
+			limit = { has_country_flag = ENG_eden_investment_discount_1 }
+			set_temp_variable = { ENG_t_mult = 0.9 }
+		}
+		multiply_variable = { ENG_obl_cg_rate = ENG_t_mult }
+		multiply_variable = { ENG_obl_civ_rate = ENG_t_mult }
+		multiply_variable = { ENG_obl_out_rate = ENG_t_mult }
+		set_variable = { ENG_obl_consumer_goods = ENG_total_investment }
+		multiply_variable = { ENG_obl_consumer_goods = ENG_obl_cg_rate }
+		set_variable = { ENG_obl_civ_construction = ENG_total_investment }
+		multiply_variable = { ENG_obl_civ_construction = ENG_obl_civ_rate }
+		set_variable = { ENG_obl_factory_output = ENG_total_investment }
+		multiply_variable = { ENG_obl_factory_output = ENG_obl_out_rate }
+		if = {
+			limit = {
+				check_variable = { ENG_total_investment > 0 }
+				NOT = { has_dynamic_modifier = { modifier = ENG_imperial_obligations_dm } }
+			}
+			add_dynamic_modifier = { modifier = ENG_imperial_obligations_dm }
+		}
+		else_if = {
+			limit = {
+				NOT = { check_variable = { ENG_total_investment > 0 } }
+				has_dynamic_modifier = { modifier = ENG_imperial_obligations_dm }
+			}
+			remove_dynamic_modifier = { modifier = ENG_imperial_obligations_dm }
+		}
+		if = {
+			limit = { has_country_flag = ENG_commonwealth_returns_active }
+			ENG_commonwealth_returns = yes
+		}
+		force_update_dynamic_modifier = yes
+	}
+}
+
+# The Commonwealth of Nations return follows the SURVIVING invested factories of active partners
+# (ENG_total_inv_buildings, review v2 #57): +1 offsite civilian factory at 15 and at 25, +1 offsite
+# military factory at 35. Below a threshold that factory is taken back; reaching it again pays it again.
+ENG_commonwealth_returns = {
+	set_temp_variable = { ENG_t_civ_target = 0 }
+	if = {
+		limit = { check_variable = { ENG_total_inv_buildings > 14 } }
+		set_temp_variable = { ENG_t_civ_target = 1 }
+	}
+	if = {
+		limit = { check_variable = { ENG_total_inv_buildings > 24 } }
+		set_temp_variable = { ENG_t_civ_target = 2 }
+	}
+	set_temp_variable = { ENG_t_mil_target = 0 }
+	if = {
+		limit = { check_variable = { ENG_total_inv_buildings > 34 } }
+		set_temp_variable = { ENG_t_mil_target = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_cwn_civ_granted < ENG_t_civ_target } }
+		add_offsite_building = { type = industrial_complex level = 1 }
+		add_to_variable = { ENG_cwn_civ_granted = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_cwn_civ_granted > ENG_t_civ_target } }
+		add_offsite_building = { type = industrial_complex level = -1 }
+		subtract_from_variable = { ENG_cwn_civ_granted = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_cwn_mil_granted < ENG_t_mil_target } }
+		add_offsite_building = { type = arms_factory level = 1 }
+		add_to_variable = { ENG_cwn_mil_granted = 1 }
+	}
+	while_loop_effect = {
+		limit = { check_variable = { ENG_cwn_mil_granted > ENG_t_mil_target } }
+		add_offsite_building = { type = arms_factory level = -1 }
+		subtract_from_variable = { ENG_cwn_mil_granted = 1 }
+	}
+}
+
+###########################################################################
+# BRITAIN ALONE: IMPERIAL REQUISITIONS
+###########################################################################
+
+# Scope ENG. Stability cost of Britain Alone focuses, softened by Eden's flags (-20% / -40%).
+ENG_ba_stability_cost_large = {
+	if = {
+		limit = { has_country_flag = ENG_eden_investment_discount_2 }
+		add_stability = -0.03
+	}
+	else_if = {
+		limit = { has_country_flag = ENG_eden_investment_discount_1 }
+		add_stability = -0.04
+	}
+	else = {
+		add_stability = -0.05
+	}
+}
+
+ENG_ba_stability_cost_small = {
+	if = {
+		limit = { has_country_flag = ENG_eden_investment_discount_2 }
+		add_stability = -0.006
+	}
+	else_if = {
+		limit = { has_country_flag = ENG_eden_investment_discount_1 }
+		add_stability = -0.008
+	}
+	else = {
+		add_stability = -0.01
+	}
+}
+
+# Scope subject. Spirit values from the requisition count: base -10% output, -15% construction,
+# +10% consumer goods; each requisition focus taken from it -5% output, -5% construction, +5% consumer goods.
+ENG_requisition_refresh_dm = {
+	set_variable = { ENG_req_factory_output = ENG_requisition_level }
+	multiply_variable = { ENG_req_factory_output = -0.05 }
+	add_to_variable = { ENG_req_factory_output = -0.10 }
+	set_variable = { ENG_req_consumer_goods = ENG_requisition_level }
+	multiply_variable = { ENG_req_consumer_goods = 0.05 }
+	add_to_variable = { ENG_req_consumer_goods = 0.10 }
+	set_variable = { ENG_req_construction = ENG_requisition_level }
+	multiply_variable = { ENG_req_construction = -0.05 }
+	add_to_variable = { ENG_req_construction = -0.15 }
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } } }
+		add_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm }
+	}
+	force_update_dynamic_modifier = yes
+}
+
+# Scope subject. Puts Imperial Requisitions on a partner subject that does not carry it yet.
+# The level is read back from the UK's own ledger, so the spirit always matches what the UK has taken.
+ENG_requisition_impose = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } } }
+		if = {
+			limit = { tag = CAN }
+			set_variable = { ENG_requisition_level = ENG.ENG_req_level_CAN }
+		}
+		if = {
+			limit = { tag = AST }
+			set_variable = { ENG_requisition_level = ENG.ENG_req_level_AST }
+		}
+		if = {
+			limit = { tag = SAF }
+			set_variable = { ENG_requisition_level = ENG.ENG_req_level_SAF }
+		}
+		if = {
+			limit = { tag = RAJ }
+			set_variable = { ENG_requisition_level = ENG.ENG_req_level_RAJ }
+		}
+		ENG_requisition_refresh_dm = yes
+		country_event = { id = tfr_eng_empire.2 hours = 6 }
+	}
+}
+
+###########################################################################
+# ONE EFFECT PER REQUISITION FOCUS (scope ENG). The subject is checked AT COMPLETION.
+# Each requisition is a TRANSFER (review v2 #13/#16): for every factory the focus names, the subject loses one
+# from a state it owns and controls (booked on that state: ENG_req_<type>_taken + ENG_req_from_<TAG>) and the UK
+# gains it offsite (booked on the UK: ENG_req_mil_<TAG> / ENG_req_civ_<TAG>). If the subject has none of that
+# type, the UK gets nothing for that part. ENG_req_level_<TAG> counts the valid requisitions (spirit, Workshop);
+# a requisition that moved nothing does not count (polish round #8).
+###########################################################################
+
+# ENG_requisition_canadian_industry: CAN requisition 1 (1 mil, 1 civ transferred to the UK as offsite)
+ENG_req_step_requisition_canadian_industry = {
+	if = {
+		limit = {
+			CAN = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				CAN = {
+					any_owned_state = {
+						is_controlled_by = CAN
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				CAN = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_CAN
+					}
+				}
+				add_to_variable = { ENG_req_mil_CAN = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_CAN_tt
+		}
+		if = {
+			limit = {
+				CAN = {
+					any_owned_state = {
+						is_controlled_by = CAN
+						industrial_complex > 0
+					}
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				CAN = {
+					random_owned_controlled_state = {
+						limit = { industrial_complex > 0 }
+						remove_building = { type = industrial_complex level = 1 }
+						add_to_variable = { ENG_req_civ_taken = 1 }
+						set_state_flag = ENG_req_from_CAN
+					}
+				}
+				add_to_variable = { ENG_req_civ_CAN = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_civ_CAN_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					CAN = {
+						any_owned_state = {
+							is_controlled_by = CAN
+							arms_factory > 0
+						}
+					}
+					CAN = {
+						any_owned_state = {
+							is_controlled_by = CAN
+							industrial_complex > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_CAN_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_CAN = 1 }
+				ENG_req_count_active = yes
+			}
+			CAN = {
+				custom_effect_tooltip = ENG_req_worsen_CAN_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_CAN }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_CAN_tt
+	}
+}
+
+# ENG_the_canadian_munitions_pool: CAN requisition 2 (1 mil, 1 civ transferred to the UK as offsite)
+ENG_req_step_the_canadian_munitions_pool = {
+	if = {
+		limit = {
+			CAN = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				CAN = {
+					any_owned_state = {
+						is_controlled_by = CAN
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				CAN = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_CAN
+					}
+				}
+				add_to_variable = { ENG_req_mil_CAN = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_CAN_tt
+		}
+		if = {
+			limit = {
+				CAN = {
+					any_owned_state = {
+						is_controlled_by = CAN
+						industrial_complex > 0
+					}
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				CAN = {
+					random_owned_controlled_state = {
+						limit = { industrial_complex > 0 }
+						remove_building = { type = industrial_complex level = 1 }
+						add_to_variable = { ENG_req_civ_taken = 1 }
+						set_state_flag = ENG_req_from_CAN
+					}
+				}
+				add_to_variable = { ENG_req_civ_CAN = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_civ_CAN_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					CAN = {
+						any_owned_state = {
+							is_controlled_by = CAN
+							arms_factory > 0
+						}
+					}
+					CAN = {
+						any_owned_state = {
+							is_controlled_by = CAN
+							industrial_complex > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_CAN_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_CAN = 1 }
+				ENG_req_count_active = yes
+			}
+			CAN = {
+				custom_effect_tooltip = ENG_req_worsen_CAN_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_CAN }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_CAN_tt
+	}
+}
+
+# ENG_requisition_australian_industry: AST requisition 1 (1 mil, 1 civ transferred to the UK as offsite)
+ENG_req_step_requisition_australian_industry = {
+	if = {
+		limit = {
+			AST = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				AST = {
+					any_owned_state = {
+						is_controlled_by = AST
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				AST = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_AST
+					}
+				}
+				add_to_variable = { ENG_req_mil_AST = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_AST_tt
+		}
+		if = {
+			limit = {
+				AST = {
+					any_owned_state = {
+						is_controlled_by = AST
+						industrial_complex > 0
+					}
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				AST = {
+					random_owned_controlled_state = {
+						limit = { industrial_complex > 0 }
+						remove_building = { type = industrial_complex level = 1 }
+						add_to_variable = { ENG_req_civ_taken = 1 }
+						set_state_flag = ENG_req_from_AST
+					}
+				}
+				add_to_variable = { ENG_req_civ_AST = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_civ_AST_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					AST = {
+						any_owned_state = {
+							is_controlled_by = AST
+							arms_factory > 0
+						}
+					}
+					AST = {
+						any_owned_state = {
+							is_controlled_by = AST
+							industrial_complex > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_AST_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_AST = 1 }
+				ENG_req_count_active = yes
+			}
+			AST = {
+				custom_effect_tooltip = ENG_req_worsen_AST_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_AST }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_AST_tt
+	}
+}
+
+# ENG_australian_steel_for_britain: AST requisition 2 (1 mil, 0 civ transferred to the UK as offsite)
+ENG_req_step_australian_steel_for_britain = {
+	if = {
+		limit = {
+			AST = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				AST = {
+					any_owned_state = {
+						is_controlled_by = AST
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				AST = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_AST
+					}
+				}
+				add_to_variable = { ENG_req_mil_AST = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_AST_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					AST = {
+						any_owned_state = {
+							is_controlled_by = AST
+							arms_factory > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_AST_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_AST = 1 }
+				ENG_req_count_active = yes
+			}
+			AST = {
+				custom_effect_tooltip = ENG_req_worsen_AST_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_AST }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_AST_tt
+	}
+}
+
+# ENG_requisition_the_rand: SAF requisition 1 (1 mil, 0 civ transferred to the UK as offsite)
+ENG_req_step_requisition_the_rand = {
+	if = {
+		limit = {
+			SAF = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				SAF = {
+					any_owned_state = {
+						is_controlled_by = SAF
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				SAF = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_SAF
+					}
+				}
+				add_to_variable = { ENG_req_mil_SAF = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_SAF_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					SAF = {
+						any_owned_state = {
+							is_controlled_by = SAF
+							arms_factory > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_SAF_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_SAF = 1 }
+				ENG_req_count_active = yes
+			}
+			SAF = {
+				custom_effect_tooltip = ENG_req_worsen_SAF_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_SAF }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_SAF_tt
+	}
+}
+
+# ENG_requisition_indian_ordnance: RAJ requisition 1 (1 mil, 1 civ transferred to the UK as offsite)
+ENG_req_step_requisition_indian_ordnance = {
+	if = {
+		limit = {
+			RAJ = { ENG_can_be_requisitioned = yes }
+		}
+		hidden_effect = { set_temp_variable = { ENG_t_req_moved = 0 } }
+		if = {
+			limit = {
+				RAJ = {
+					any_owned_state = {
+						is_controlled_by = RAJ
+						arms_factory > 0
+					}
+				}
+			}
+			add_offsite_building = { type = arms_factory level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				RAJ = {
+					random_owned_controlled_state = {
+						limit = { arms_factory > 0 }
+						remove_building = { type = arms_factory level = 1 }
+						add_to_variable = { ENG_req_mil_taken = 1 }
+						set_state_flag = ENG_req_from_RAJ
+					}
+				}
+				add_to_variable = { ENG_req_mil_RAJ = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_mil_RAJ_tt
+		}
+		if = {
+			limit = {
+				RAJ = {
+					any_owned_state = {
+						is_controlled_by = RAJ
+						industrial_complex > 0
+					}
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 1 }
+			hidden_effect = {
+				set_temp_variable = { ENG_t_req_moved = 1 }
+				RAJ = {
+					random_owned_controlled_state = {
+						limit = { industrial_complex > 0 }
+						remove_building = { type = industrial_complex level = 1 }
+						add_to_variable = { ENG_req_civ_taken = 1 }
+						set_state_flag = ENG_req_from_RAJ
+					}
+				}
+				add_to_variable = { ENG_req_civ_RAJ = 1 }
+			}
+		}
+		else = {
+			custom_effect_tooltip = ENG_req_no_civ_RAJ_tt
+		}
+		# polish round #8: the requisition counts (level, spirit, Workshop's active count) only when something moved
+		if = {
+			limit = {
+				OR = {
+					check_variable = { ENG_t_req_moved > 0 }
+					RAJ = {
+						any_owned_state = {
+							is_controlled_by = RAJ
+							arms_factory > 0
+						}
+					}
+					RAJ = {
+						any_owned_state = {
+							is_controlled_by = RAJ
+							industrial_complex > 0
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = ENG_req_transfer_RAJ_tt
+			hidden_effect = {
+				add_to_variable = { ENG_req_level_RAJ = 1 }
+				ENG_req_count_active = yes
+			}
+			RAJ = {
+				custom_effect_tooltip = ENG_req_worsen_RAJ_tt
+				hidden_effect = {
+					set_variable = { ENG_requisition_level = ENG.ENG_req_level_RAJ }
+					ENG_requisition_refresh_dm = yes
+					country_event = { id = tfr_eng_empire.2 hours = 6 }
+				}
+			}
+		}
+		ENG_ba_stability_cost_small = yes
+	}
+	else = {
+		custom_effect_tooltip = ENG_req_nothing_RAJ_tt
+	}
+}
+
+# Scope ENG. Active requisitions = valid requisition focuses of the subjects still held (Workshop gate).
+ENG_req_count_active = {
+	set_variable = { ENG_req_active = 0 }
+	add_to_variable = { ENG_req_active = ENG_req_level_CAN }
+	add_to_variable = { ENG_req_active = ENG_req_level_AST }
+	add_to_variable = { ENG_req_active = ENG_req_level_SAF }
+	add_to_variable = { ENG_req_active = ENG_req_level_RAJ }
+}
+
+# Scope ENG. Unconditional release of CAN. If CAN still exists, the UK gives up the offsite factories it took
+# from CAN and CAN gets them back in the states they came from (into the freed slot; offsite to CAN where the
+# state is no longer its own and controlled, or the slot is used). If CAN no longer exists, the UK keeps them
+# (polish round #7: nothing vanishes from the game). All bookings are cleared.
+ENG_requisition_release_CAN = {
+	if = {
+		limit = { country_exists = CAN }
+		set_temp_variable = { ENG_t_n = ENG_req_mil_CAN }
+		add_to_variable = { ENG_req_released_mil = ENG_req_mil_CAN }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_req_civ_CAN }
+		add_to_variable = { ENG_req_released_civ = ENG_req_civ_CAN }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+	}
+	set_variable = { ENG_req_mil_CAN = 0 }
+	set_variable = { ENG_req_civ_CAN = 0 }
+	set_variable = { ENG_req_level_CAN = 0 }
+	every_state = {
+		limit = { has_state_flag = ENG_req_from_CAN }
+		if = {
+			limit = { country_exists = CAN }
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_mil_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = CAN
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					CAN = { add_offsite_building = { type = arms_factory level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_mil_taken = 1 }
+			}
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_civ_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = CAN
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					CAN = { add_offsite_building = { type = industrial_complex level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_civ_taken = 1 }
+			}
+		}
+		set_variable = { ENG_req_mil_taken = 0 }
+		set_variable = { ENG_req_civ_taken = 0 }
+		clr_state_flag = ENG_req_from_CAN
+	}
+	if = {
+		limit = { country_exists = CAN }
+		CAN = {
+			set_variable = { ENG_requisition_level = 0 }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } }
+				remove_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm }
+			}
+		}
+	}
+}
+
+# Scope ENG. Unconditional release of AST. If AST still exists, the UK gives up the offsite factories it took
+# from AST and AST gets them back in the states they came from (into the freed slot; offsite to AST where the
+# state is no longer its own and controlled, or the slot is used). If AST no longer exists, the UK keeps them
+# (polish round #7: nothing vanishes from the game). All bookings are cleared.
+ENG_requisition_release_AST = {
+	if = {
+		limit = { country_exists = AST }
+		set_temp_variable = { ENG_t_n = ENG_req_mil_AST }
+		add_to_variable = { ENG_req_released_mil = ENG_req_mil_AST }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_req_civ_AST }
+		add_to_variable = { ENG_req_released_civ = ENG_req_civ_AST }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+	}
+	set_variable = { ENG_req_mil_AST = 0 }
+	set_variable = { ENG_req_civ_AST = 0 }
+	set_variable = { ENG_req_level_AST = 0 }
+	every_state = {
+		limit = { has_state_flag = ENG_req_from_AST }
+		if = {
+			limit = { country_exists = AST }
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_mil_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = AST
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					AST = { add_offsite_building = { type = arms_factory level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_mil_taken = 1 }
+			}
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_civ_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = AST
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					AST = { add_offsite_building = { type = industrial_complex level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_civ_taken = 1 }
+			}
+		}
+		set_variable = { ENG_req_mil_taken = 0 }
+		set_variable = { ENG_req_civ_taken = 0 }
+		clr_state_flag = ENG_req_from_AST
+	}
+	if = {
+		limit = { country_exists = AST }
+		AST = {
+			set_variable = { ENG_requisition_level = 0 }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } }
+				remove_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm }
+			}
+		}
+	}
+}
+
+# Scope ENG. Unconditional release of SAF. If SAF still exists, the UK gives up the offsite factories it took
+# from SAF and SAF gets them back in the states they came from (into the freed slot; offsite to SAF where the
+# state is no longer its own and controlled, or the slot is used). If SAF no longer exists, the UK keeps them
+# (polish round #7: nothing vanishes from the game). All bookings are cleared.
+ENG_requisition_release_SAF = {
+	if = {
+		limit = { country_exists = SAF }
+		set_temp_variable = { ENG_t_n = ENG_req_mil_SAF }
+		add_to_variable = { ENG_req_released_mil = ENG_req_mil_SAF }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_req_civ_SAF }
+		add_to_variable = { ENG_req_released_civ = ENG_req_civ_SAF }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+	}
+	set_variable = { ENG_req_mil_SAF = 0 }
+	set_variable = { ENG_req_civ_SAF = 0 }
+	set_variable = { ENG_req_level_SAF = 0 }
+	every_state = {
+		limit = { has_state_flag = ENG_req_from_SAF }
+		if = {
+			limit = { country_exists = SAF }
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_mil_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = SAF
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					SAF = { add_offsite_building = { type = arms_factory level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_mil_taken = 1 }
+			}
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_civ_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = SAF
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					SAF = { add_offsite_building = { type = industrial_complex level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_civ_taken = 1 }
+			}
+		}
+		set_variable = { ENG_req_mil_taken = 0 }
+		set_variable = { ENG_req_civ_taken = 0 }
+		clr_state_flag = ENG_req_from_SAF
+	}
+	if = {
+		limit = { country_exists = SAF }
+		SAF = {
+			set_variable = { ENG_requisition_level = 0 }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } }
+				remove_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm }
+			}
+		}
+	}
+}
+
+# Scope ENG. Unconditional release of RAJ. If RAJ still exists, the UK gives up the offsite factories it took
+# from RAJ and RAJ gets them back in the states they came from (into the freed slot; offsite to RAJ where the
+# state is no longer its own and controlled, or the slot is used). If RAJ no longer exists, the UK keeps them
+# (polish round #7: nothing vanishes from the game). All bookings are cleared.
+ENG_requisition_release_RAJ = {
+	if = {
+		limit = { country_exists = RAJ }
+		set_temp_variable = { ENG_t_n = ENG_req_mil_RAJ }
+		add_to_variable = { ENG_req_released_mil = ENG_req_mil_RAJ }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = arms_factory level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+		set_temp_variable = { ENG_t_n = ENG_req_civ_RAJ }
+		add_to_variable = { ENG_req_released_civ = ENG_req_civ_RAJ }
+		while_loop_effect = {
+			limit = { check_variable = { ENG_t_n > 0 } }
+			add_offsite_building = { type = industrial_complex level = -1 }
+			subtract_from_temp_variable = { ENG_t_n = 1 }
+		}
+	}
+	set_variable = { ENG_req_mil_RAJ = 0 }
+	set_variable = { ENG_req_civ_RAJ = 0 }
+	set_variable = { ENG_req_level_RAJ = 0 }
+	every_state = {
+		limit = { has_state_flag = ENG_req_from_RAJ }
+		if = {
+			limit = { country_exists = RAJ }
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_mil_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = RAJ
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					RAJ = { add_offsite_building = { type = arms_factory level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_mil_taken = 1 }
+			}
+			while_loop_effect = {
+				limit = { check_variable = { ENG_req_civ_taken > 0 } }
+				if = {
+					limit = {
+						is_owned_and_controlled_by = RAJ
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				else = {
+					RAJ = { add_offsite_building = { type = industrial_complex level = 1 } }
+				}
+				subtract_from_variable = { ENG_req_civ_taken = 1 }
+			}
+		}
+		set_variable = { ENG_req_mil_taken = 0 }
+		set_variable = { ENG_req_civ_taken = 0 }
+		clr_state_flag = ENG_req_from_RAJ
+	}
+	if = {
+		limit = { country_exists = RAJ }
+		RAJ = {
+			set_variable = { ENG_requisition_level = 0 }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } }
+				remove_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm }
+			}
+		}
+	}
+}
+
+# Scope ENG. Release every subject that is no longer an ENG subject in the faction (independence, leaving,
+# annexed by anyone). Runs for every tag: a no-op at zero, but it still drops a base spirit. The UK is notified.
+ENG_requisition_release_check = {
+	if = {
+		limit = {
+			NOT = {
+				AND = {
+					country_exists = CAN
+					CAN = { ENG_is_requisition_candidate = yes }
+				}
+			}
+		}
+		ENG_requisition_release_CAN = yes
+	}
+	if = {
+		limit = {
+			NOT = {
+				AND = {
+					country_exists = AST
+					AST = { ENG_is_requisition_candidate = yes }
+				}
+			}
+		}
+		ENG_requisition_release_AST = yes
+	}
+	if = {
+		limit = {
+			NOT = {
+				AND = {
+					country_exists = SAF
+					SAF = { ENG_is_requisition_candidate = yes }
+				}
+			}
+		}
+		ENG_requisition_release_SAF = yes
+	}
+	if = {
+		limit = {
+			NOT = {
+				AND = {
+					country_exists = RAJ
+					RAJ = { ENG_is_requisition_candidate = yes }
+				}
+			}
+		}
+		ENG_requisition_release_RAJ = yes
+	}
+	ENG_req_count_active = yes
+	if = {
+		limit = {
+			OR = {
+				check_variable = { ENG_req_released_mil > 0 }
+				check_variable = { ENG_req_released_civ > 0 }
+			}
+		}
+		set_variable = { ENG_req_released_mil_last = ENG_req_released_mil }
+		set_variable = { ENG_req_released_civ_last = ENG_req_released_civ }
+		set_variable = { ENG_req_released_mil = 0 }
+		set_variable = { ENG_req_released_civ = 0 }
+		country_event = { id = tfr_eng_empire.5 }
+	}
+}
+
+# Scope ENG. Workshop of the World's factory output lapses for good once fewer than 3 requisitions stay
+# active (review v2 #56). Flag-guarded: once. Workshop's output is its own variable (core: the spirit reads
+# ENG_eco_factory_output_total, clamped), so the lapse removes exactly what Workshop added (polish round #6).
+ENG_workshop_lapse_check = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_workshop_of_the_world
+			NOT = { has_country_flag = ENG_workshop_lapsed }
+			NOT = { check_variable = { ENG_req_active > 2 } }
+		}
+		set_country_flag = ENG_workshop_lapsed
+		set_variable = { ENG_eco_workshop_output = 0 }
+		ENG_refresh_modifiers = yes
+	}
+}
+
+###########################################################################
+# WEEKLY SWEEP (on_weekly_ENG). Scope ENG.
+# The Britain Alone colour is set once, by the focus, and never re-applied (review v2 #12), so the host's
+# colour tool (COLORBLIND_* cosmetic tags) is never overridden.
+###########################################################################
+ENG_empire_weekly_sweep = {
+	if = {
+		limit = { has_country_flag = ENG_partnership_chosen }
+		if = {
+			limit = { country_exists = CAN }
+			CAN = { ENG_investment_state_check = yes }
+		}
+		if = {
+			limit = { country_exists = AST }
+			AST = { ENG_investment_state_check = yes }
+		}
+		if = {
+			limit = { country_exists = SAF }
+			SAF = { ENG_investment_state_check = yes }
+		}
+		if = {
+			limit = { country_exists = RAJ }
+			RAJ = { ENG_investment_state_check = yes }
+		}
+		if = {
+			limit = { country_exists = BRA }
+			BRA = { ENG_investment_state_check = yes }
+		}
+		ENG_investment_clawback_states = yes
+		ENG_update_obligations = yes
+	}
+	if = {
+		limit = { has_country_flag = ENG_britain_alone_chosen }
+		ENG_requisition_release_check = yes
+		every_country = {
+			limit = {
+				ENG_is_requisition_candidate = yes
+				NOT = { has_dynamic_modifier = { modifier = ENG_imperial_requisitions_dm } }
+			}
+			ENG_requisition_impose = yes
+		}
+		ENG_workshop_lapse_check = yes
+	}
+}

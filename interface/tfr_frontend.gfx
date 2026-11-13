@@ -1,0 +1,41 @@
+spriteTypes = {
+
+	# Flat main menu button. Three frames of 340x54:
+	#   1 - idle    : dark translucent bar, thin red accent on the left
+	#   2 - active  : lighter bar, brighter and wider red accent
+	#   3 - muted   : dimmed, grey accent (disabled)
+	# The fill fades out towards the right so it never reads as a hard box.
+	# buttonstate.shader is vanilla and gives the hover brighten for free.
+	spriteType = {
+		name = "GFX_TFR_menu_button"
+		texturefile = "gfx/interface/tfr_menu_button.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate.shader"
+	}
+
+	# TFR mark for the top right corner. The black plate from the source logo
+	# is keyed out and the edges fall off softly, so it sits into whatever
+	# background art is behind it instead of reading as a pasted square.
+	spriteType = {
+		name = "GFX_TFR_logo_menu"
+		texturefile = "gfx/interface/tfr_logo_menu.dds"
+		noOfFrames = 1
+		alwaystransparent = yes
+	}
+
+	# Flat black plate, alpha baked at 40%, sits under the TFR mark.
+	spriteType = {
+		name = "GFX_TFR_logo_backdrop"
+		texturefile = "gfx/interface/tfr_logo_backdrop.dds"
+		noOfFrames = 1
+		alwaystransparent = yes
+	}
+
+	# Overrides the vanilla title plate in the top left corner.
+	spriteType = {
+		name = "GFX_frontend_game_logo"
+		texturefile = "gfx/interface/tfr_frontend_logo.dds"
+		noOfFrames = 1
+		alwaystransparent = yes
+	}
+}

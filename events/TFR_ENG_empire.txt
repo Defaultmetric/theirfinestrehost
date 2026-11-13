@@ -1,0 +1,88 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2)
+# Notifications only: one option, no consent, nothing depends on the answer.
+###########################################################################
+
+add_namespace = tfr_eng_empire
+
+# To the partner: a step of British investment has arrived (the factories are already built).
+country_event = {
+	id = tfr_eng_empire.1
+	title = tfr_eng_empire.1.t
+	desc = tfr_eng_empire.1.d
+	picture = GFX_report_event_generic_factory
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_empire.1.a
+	}
+}
+
+# To the subject: Imperial Requisitions imposed, or a further requisition taken.
+country_event = {
+	id = tfr_eng_empire.2
+	title = tfr_eng_empire.2.t
+	desc = {
+		trigger = {
+			NOT = { check_variable = { ENG_requisition_level > 0 } }
+		}
+		text = tfr_eng_empire.2.d_imposed
+	}
+	desc = {
+		trigger = {
+			check_variable = { ENG_requisition_level > 0 }
+		}
+		text = tfr_eng_empire.2.d_level
+	}
+	picture = GFX_report_event_generic_construction_site
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_empire.2.a
+	}
+}
+
+# To the partner: it left the UK's faction, so the British investment is suspended (ENG_investment_suspend).
+country_event = {
+	id = tfr_eng_empire.3
+	title = tfr_eng_empire.3.t
+	desc = tfr_eng_empire.3.d
+	picture = GFX_report_event_worker_protests
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_empire.3.a
+		custom_effect_tooltip = tfr_eng_empire.3.tt
+	}
+}
+
+# To the owner of states that British investment built up for another partner (ENG_investment_clawback_states).
+country_event = {
+	id = tfr_eng_empire.4
+	title = tfr_eng_empire.4.t
+	desc = tfr_eng_empire.4.d
+	picture = GFX_report_event_generic_factory
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_empire.4.a
+	}
+}
+
+# To the UK: requisitions released because a country stopped being a UK subject in the faction.
+country_event = {
+	id = tfr_eng_empire.5
+	title = tfr_eng_empire.5.t
+	desc = tfr_eng_empire.5.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_empire.5.a
+	}
+}

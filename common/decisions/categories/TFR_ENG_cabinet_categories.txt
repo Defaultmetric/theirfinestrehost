@@ -1,0 +1,16 @@
+### Part cabinet (v2): decision category of the War Cabinet (Beaverbrook, Ministry of Information).
+
+ENG_war_cabinet_category = {
+	icon = GFX_decision_category_generic_political_actions
+	picture = GFX_decision_cat_picture_constitutional_arrows
+	priority = 90
+	allowed = {
+		original_tag = ENG
+	}
+	visible = {
+		OR = {
+			has_completed_focus = ENG_the_beaverbrook_method
+			has_country_flag = ENG_cabinet_bracken_seated
+		}
+	}
+}

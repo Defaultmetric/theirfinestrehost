@@ -1,0 +1,19 @@
+###########################################
+### TFR - United Kingdom: Whitehall Balance static modifiers
+### Added to the balance with add_power_balance_modifier, removed with remove_power_balance_modifier.
+### Each is guarded by has_power_balance_modifier, so none can stack.
+###########################################
+
+# Timed campaigns (decisions, 180 days)
+ENG_bop_appeasers_campaign_mod = {
+	power_balance_weekly = -0.01
+}
+
+ENG_bop_rearmers_campaign_mod = {
+	power_balance_weekly = 0.01
+}
+
+# While the UK is at war with a major (added / removed weekly by on_weekly_ENG)
+ENG_bop_wartime_drift_mod = {
+	power_balance_weekly = 0.005
+}

@@ -1,0 +1,27 @@
+# TFR UK focus tree rework - part home (v2)
+
+# State scope. Raises Static Anti-Air to the state's maximum by building only the free levels
+# (the coastal states start at 2 of 5), so no over-max construction is ever requested.
+# Used by air_defense_focus on states 123, 125, 127. Same total as the original focus.
+ENG_home_fill_anti_air = {
+	if = {
+		limit = { free_building_slots = { building = anti_air_building size > 4 } }
+		add_building_construction = { type = anti_air_building level = 5 instant_build = yes }
+	}
+	else_if = {
+		limit = { free_building_slots = { building = anti_air_building size > 3 } }
+		add_building_construction = { type = anti_air_building level = 4 instant_build = yes }
+	}
+	else_if = {
+		limit = { free_building_slots = { building = anti_air_building size > 2 } }
+		add_building_construction = { type = anti_air_building level = 3 instant_build = yes }
+	}
+	else_if = {
+		limit = { free_building_slots = { building = anti_air_building size > 1 } }
+		add_building_construction = { type = anti_air_building level = 2 instant_build = yes }
+	}
+	else_if = {
+		limit = { free_building_slots = { building = anti_air_building size > 0 } }
+		add_building_construction = { type = anti_air_building level = 1 instant_build = yes }
+	}
+}

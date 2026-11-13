@@ -1,0 +1,53 @@
+# Generated into interface/TFR_doctrine_switch.gui by generate_doctrine_switch.py.
+guiTypes = {
+    containerWindowType = {
+        name = "tfr_doctrine_selector_open_window"
+        position = { x = -219 y = 198 }
+        orientation = CENTER_UP
+        size = { width = 438 height = 34 }
+        buttonType = {
+            name = "open"
+            position = { x = 0 y = 0 }
+            size = { x = 438 y = 34 }
+            spriteType = "GFX_tiled_decisions_bg_small"
+            buttonText = "tfr_doctrine_ui_open"
+            buttonFont = "hoi_18mbs"
+            pdx_tooltip = "tfr_doctrine_ui_open_tt"
+            clicksound = click_ok
+        }
+    }
+    containerWindowType = {
+        name = "tfr_doctrine_selector_window"
+        position = { x = -450 y = -220 }
+        orientation = CENTER
+        size = { width = 900 height = 440 }
+        background = { name = "background" spriteType = "GFX_tiled_window_thin_border" }
+        instantTextboxType = {
+            name = "title"
+            position = { x = 24 y = 18 }
+            text = "tfr_doctrine_ui_title"
+            font = "hoi_24header"
+            maxWidth = 820 maxHeight = 32
+            alwaystransparent = yes
+        }
+        instantTextboxType = {
+            name = "help"
+            position = { x = 24 y = 56 }
+            text = "tfr_doctrine_ui_help"
+            font = "hoi_16mbs"
+            maxWidth = 852 maxHeight = 44
+            fixedsize = yes multiline = yes
+            alwaystransparent = yes
+        }
+        buttonType = {
+            name = "close"
+            position = { x = 854 y = 14 }
+            quadTextureSprite = "GFX_closebutton"
+            clicksound = click_close
+        }
+        instantTextboxType = { name = "land" position = { x = 24 y = 106 } text = "tfr_doctrine_ui_land" font = "hoi_18mbs" maxWidth = 274 maxHeight = 24 alwaystransparent = yes }
+        instantTextboxType = { name = "naval" position = { x = 314 y = 106 } text = "tfr_doctrine_ui_naval" font = "hoi_18mbs" maxWidth = 274 maxHeight = 24 alwaystransparent = yes }
+        instantTextboxType = { name = "air" position = { x = 604 y = 106 } text = "tfr_doctrine_ui_air" font = "hoi_18mbs" maxWidth = 274 maxHeight = 24 alwaystransparent = yes }
+$BUTTONS$
+    }
+}

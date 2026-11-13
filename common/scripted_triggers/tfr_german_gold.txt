@@ -1,0 +1,45 @@
+# Country scope. A defeated country's current capital may be overseas or absent.
+TFR_GER_gold_country_has_scope = {
+    OR = {
+        any_core_state = { is_on_continent = europe }
+        original_tag = TUR
+    }
+}
+
+# State scope, entered through the target country's any/every_core_state.
+# These exact filters govern visibility, recovery and the paid reward.
+TFR_GER_gold_state_eligible = {
+    OR = {
+        is_on_continent = europe
+        PREV = { original_tag = TUR }
+    }
+    is_fully_controlled_by = GER
+    NOT = { is_core_of = GER }
+    NOT = { has_state_flag = GER_seize_gold_reserves_state_flag }
+    NOT = { has_state_flag = VIC_dont_loot }
+    OR = {
+        check_variable = { industrial_complex_level > 0 }
+        check_variable = { arms_factory_level > 0 }
+        check_variable = { building_level@dockyard > 0 }
+    }
+}
+
+# Do not invent a capitulation for dormant releasable tags sharing occupied cores.
+TFR_GER_gold_defeat_recorded = {
+    OR = {
+        has_country_flag = GER_has_capitulated_to_germany
+        is_in_array = { array = GER.GER_seize_gold_targets_array value = THIS }
+        AND = { exists = yes has_capitulated = yes }
+        AND = {
+            exists = no
+            OR = {
+                has_country_flag = TFR_GER_gold_seen_active
+                has_country_flag = tfr_spawned_initial_defense
+            }
+        }
+        AND = {
+            original_tag = FRA
+            has_global_flag = fall_of_france
+        }
+    }
+}

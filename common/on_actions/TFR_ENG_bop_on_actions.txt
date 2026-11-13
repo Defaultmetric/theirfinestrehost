@@ -1,0 +1,17 @@
+###########################################
+### TFR - United Kingdom: Whitehall Balance on_actions (part bop)
+###########################################
+
+on_actions = {
+	on_weekly_ENG = {
+		effect = {
+			if = {
+				limit = {
+					has_power_balance = { id = ENG_whitehall_balance }
+				}
+				ENG_bop_update_costs = yes
+			}
+			ENG_bop_update_wartime_drift = yes
+		}
+	}
+}

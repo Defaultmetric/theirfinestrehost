@@ -1,0 +1,69 @@
+#scripted trigger for RAJ - GOE
+
+
+is_raj_or_raj_inheritor = {
+	OR = {
+		original_tag = RAJ
+		original_tag = BAN
+		original_tag = PAK
+	}
+}
+
+is_raj_releasable = {
+	OR = {
+		original_tag = MPU
+		original_tag = KAS
+		original_tag = HYD
+		original_tag = MYS
+		original_tag = NWF
+		original_tag = RJP
+		original_tag = KOL
+		original_tag = WIS
+		original_tag = CIP
+		original_tag = RAS
+		original_tag = SKK
+		original_tag = KLT
+		original_tag = KHL
+		original_tag = SIN
+		original_tag = PAK
+		original_tag = BLC
+		original_tag = SKK 
+		original_tag = BAN
+		original_tag = FSA
+		is_in_array = { #mostly as failsafe
+			array = RAJ.raj_releasables
+			value = THIS
+		}
+	} 
+}
+
+RAJ_gandhian_branch_open = {
+	RAJ_swaraj_branch_open = yes
+	NOT = { has_completed_focus = RAJ_league_against_gandhism }
+}
+
+RAJ_league_branch_open = {
+	RAJ_swaraj_branch_open = yes
+	NOT = { has_completed_focus = RAJ_mahatma }
+}
+
+RAJ_forward_bloc_branch_open = {
+	RAJ_league_branch_open = yes
+	NOT = { has_completed_focus = RAJ_red_in_the_shadows }
+}
+
+RAJ_eic_branch_open = {
+	NOT = {
+		has_completed_focus = RAJ_his_majestys_loyal_government
+		has_completed_focus = RAJ_look_to_the_past
+		has_completed_focus = RAJ_provincial_autonomy
+	}
+}
+
+
+RAJ_swaraj_branch_open = {
+	NOT = {
+		has_completed_focus = RAJ_great_depression_price_controls
+		has_completed_focus = RAJ_his_majestys_loyal_government
+	}
+}

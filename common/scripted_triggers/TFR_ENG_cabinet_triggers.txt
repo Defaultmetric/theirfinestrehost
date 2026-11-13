@@ -1,0 +1,248 @@
+### Part cabinet (v2): public and internal triggers of the War Cabinet.
+
+# Public: a War Cabinet seat is free.
+ENG_cabinet_has_free_seat = {
+	check_variable = {
+		ENG_cabinet_seats_used < ENG_cabinet_seats_max
+	}
+}
+
+# Public: Ernest Bevin holds a War Cabinet seat.
+ENG_cabinet_bevin_is_seated = {
+	has_country_flag = ENG_cabinet_bevin_seated
+}
+# Public: Stafford Cripps holds a War Cabinet seat.
+ENG_cabinet_cripps_is_seated = {
+	has_country_flag = ENG_cabinet_cripps_seated
+}
+# Public: Lord Beaverbrook holds a War Cabinet seat.
+ENG_cabinet_beaverbrook_is_seated = {
+	has_country_flag = ENG_cabinet_beaverbrook_seated
+}
+# Public: Stewart Menzies holds a War Cabinet seat.
+ENG_cabinet_menzies_is_seated = {
+	has_country_flag = ENG_cabinet_menzies_seated
+}
+# Public: Brendan Bracken holds a War Cabinet seat.
+ENG_cabinet_bracken_is_seated = {
+	has_country_flag = ENG_cabinet_bracken_seated
+}
+# Public: Anthony Eden holds a War Cabinet seat.
+ENG_cabinet_eden_is_seated = {
+	has_country_flag = ENG_cabinet_eden_seated
+}
+# Public: Edward Bridges holds a War Cabinet seat.
+ENG_cabinet_bridges_is_seated = {
+	has_country_flag = ENG_cabinet_bridges_seated
+}
+
+# Internal: the lane focus Ernest Bevin is working on has run its 100/120/140 days.
+ENG_cabinet_bevin_work_is_due = {
+	has_country_flag = ENG_cabinet_bevin_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_bevin_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_bevin_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_bevin_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Stafford Cripps is working on has run its 100/120/140 days.
+ENG_cabinet_cripps_work_is_due = {
+	has_country_flag = ENG_cabinet_cripps_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_cripps_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_cripps_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_cripps_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Lord Beaverbrook is working on has run its 100/120/140 days.
+ENG_cabinet_beaverbrook_work_is_due = {
+	has_country_flag = ENG_cabinet_beaverbrook_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_beaverbrook_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_beaverbrook_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_beaverbrook_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Stewart Menzies is working on has run its 100/120/140 days.
+ENG_cabinet_menzies_work_is_due = {
+	has_country_flag = ENG_cabinet_menzies_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_menzies_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_menzies_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_menzies_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_menzies_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_menzies_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_menzies_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Brendan Bracken is working on has run its 100/120/140 days.
+ENG_cabinet_bracken_work_is_due = {
+	has_country_flag = ENG_cabinet_bracken_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_bracken_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_bracken_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_bracken_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Anthony Eden is working on has run its 100/120/140 days.
+ENG_cabinet_eden_work_is_due = {
+	has_country_flag = ENG_cabinet_eden_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_eden_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_eden_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_eden_days > 139
+			}
+		}
+	}
+}
+# Internal: the lane focus Edward Bridges is working on has run its 100/120/140 days.
+ENG_cabinet_bridges_work_is_due = {
+	has_country_flag = ENG_cabinet_bridges_working
+	OR = {
+		AND = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 1
+			}
+			check_variable = {
+				ENG_cabinet_bridges_days > 99
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 2
+			}
+			check_variable = {
+				ENG_cabinet_bridges_days > 119
+			}
+		}
+		AND = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 3
+			}
+			check_variable = {
+				ENG_cabinet_bridges_days > 139
+			}
+		}
+	}
+}

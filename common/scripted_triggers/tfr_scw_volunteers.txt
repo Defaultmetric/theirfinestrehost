@@ -1,0 +1,176 @@
+TFR_scw_manager_in_period = {
+ date < 1939.1.1
+ NOT = { has_global_flag = scw_over }
+ NOT = { has_global_flag = TFR_scw_manager_finished }
+}
+TFR_scw_managed_recipient = {
+ has_global_flag = TFR_scw_manager_initialized
+ TFR_scw_manager_in_period = yes
+ original_tag = SPR
+ has_civil_war = yes
+}
+# Tolerant on purpose: other send_volunteer_size sources (ideas, advisors) must not turn a committed donor into "not approved".
+# Over-quota situations are handled by TFR_scw_update_limits (cap + warning + grace), not by this trigger.
+TFR_scw_approved_sender = {
+ TFR_scw_eligible_donor = yes
+ has_country_flag = TFR_scw_committed_donor
+ has_dynamic_modifier = TFR_scw_volunteer_limits
+ OR = {
+  check_variable = { TFR_scw_land > 0 }
+  check_variable = { TFR_scw_air > 0 }
+ }
+}
+# Scope: donor. Room left under its own quota and the remaining bloc pool (computed by TFR_scw_update_limits).
+TFR_scw_has_room = {
+ OR = {
+  check_variable = { TFR_scw_land_room > 0 }
+  check_variable = { TFR_scw_air_room > 0 }
+ }
+}
+TFR_scw_axis_recipient = {
+ original_tag = SPR
+ OR = {
+  has_country_flag = SPR_nationalist_spain_flag
+  has_country_flag = scw_no_lar_nationalists
+ }
+}
+TFR_scw_allied_recipient = {
+ original_tag = SPR
+ OR = {
+  has_country_flag = SPR_republican_spain_flag
+  has_country_flag = scw_no_lar_republicans
+ }
+}
+# ROOT = sender, FROM = Spanish receiver (DIPLOMACY_SEND_VOLUNTEERS_ENABLE_TRIGGER). Also blocks requests when the sender
+# or its bloc has no room left, so a human Spain cannot accept volunteers beyond the limit.
+TFR_scw_volunteer_permission = {
+ TFR_scw_approved_sender = yes
+ TFR_scw_has_room = yes
+ OR = {
+  AND = {
+   FROM = { TFR_scw_axis_recipient = yes }
+   has_country_flag = TFR_scw_axis_donor
+  }
+  AND = {
+   FROM = { TFR_scw_allied_recipient = yes }
+   has_country_flag = TFR_scw_allied_donor
+  }
+ }
+}
+TFR_scw_eligible_donor = {
+	OR = {
+		original_tag = GER
+		original_tag = ITA
+		original_tag = ROM
+		original_tag = HUN
+		original_tag = BUL
+		original_tag = ENG
+		original_tag = FRA
+		original_tag = CAN
+		original_tag = AST
+		original_tag = SAF
+		original_tag = RAJ
+		original_tag = BRA
+		original_tag = MEX
+		original_tag = SOV
+	}
+}
+TFR_scw_can_view = {
+	TFR_scw_manager_in_period = yes
+	OR = { TFR_scw_eligible_donor = yes original_tag = SPR original_tag = SPA original_tag = SPD original_tag = SPB original_tag = SPC }
+}
+TFR_scw_uk_priority_ready = {
+ OR = {
+  has_global_flag = TFR_scw_soviet_confirmed
+  NOT = { date < 1936.8.1 }
+ }
+}
+TFR_scw_axis_can_commit = {
+	original_tag = GER
+	TFR_scw_manager_in_period = yes
+	NOT = { has_country_flag = TFR_scw_month_committed }
+	check_variable = { TFR_scw_draft_total_land < 17 }
+	check_variable = { TFR_scw_draft_total_air < 601 }
+	GER = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	ITA = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	ROM = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	HUN = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	BUL = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+}
+TFR_scw_allies_can_commit = {
+	original_tag = ENG
+	TFR_scw_manager_in_period = yes
+	NOT = { has_country_flag = TFR_scw_month_committed }
+	TFR_scw_uk_priority_ready = yes
+	check_variable = { TFR_scw_draft_total_land < 13 }
+	check_variable = { TFR_scw_draft_total_air < 301 }
+	ENG = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	FRA = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	CAN = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	AST = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	SAF = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	RAJ = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	BRA = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+	MEX = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+}
+TFR_scw_soviet_can_commit = {
+	original_tag = SOV
+	TFR_scw_manager_in_period = yes
+	NOT = { has_country_flag = TFR_scw_month_committed }
+	check_variable = { TFR_scw_draft_total_land < 7 }
+	check_variable = { TFR_scw_draft_total_air < 301 }
+	check_variable = { TFR_scw_draft_total_land > -1 }
+	check_variable = { TFR_scw_draft_total_air > -1 }
+	check_variable = { TFR_scw_allied_new_land < 13 }
+	check_variable = { TFR_scw_allied_new_air < 301 }
+	SOV = { TFR_scw_ground_within_draft = yes TFR_scw_air_within_draft = yes }
+}
+# Scope: donor. Owns/controls a state in the Spanish regions, so planes based there are not only volunteers.
+TFR_scw_air_untracked = {
+	any_controlled_state = { OR = { region = 41 region = 209 region = 210 } }
+}
+TFR_scw_air_over_quota = {
+	NOT = { TFR_scw_air_untracked = yes }
+	OR = {
+		AND = { check_variable = { TFR_scw_air = 0 } num_planes_stationed_in_regions = { value > 0 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 100 } num_planes_stationed_in_regions = { value > 100 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 200 } num_planes_stationed_in_regions = { value > 200 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 300 } num_planes_stationed_in_regions = { value > 300 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 400 } num_planes_stationed_in_regions = { value > 400 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 500 } num_planes_stationed_in_regions = { value > 500 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_air = 600 } num_planes_stationed_in_regions = { value > 600 regions = { 41 209 210 } } }
+	}
+}
+TFR_scw_ground_within_draft = {
+	OR = {
+		AND = { check_variable = { TFR_scw_draft_land = 0 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 0 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 1 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 1 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 2 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 2 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 3 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 3 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 4 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 4 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 5 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 5 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 6 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 6 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 7 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 7 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 8 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 8 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 9 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 9 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 10 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 10 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 11 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 11 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 12 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 12 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 13 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 13 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 14 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 14 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 15 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 15 } } } }
+		AND = { check_variable = { TFR_scw_draft_land = 16 } NOT = { any_country = { original_tag = SPR has_volunteers_amount_from = { tag = PREV count > 16 } } } }
+	}
+}
+TFR_scw_air_within_draft = {
+	OR = {
+		TFR_scw_air_untracked = yes
+		AND = { check_variable = { TFR_scw_draft_air = 0 } num_planes_stationed_in_regions = { value < 1 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 100 } num_planes_stationed_in_regions = { value < 101 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 200 } num_planes_stationed_in_regions = { value < 201 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 300 } num_planes_stationed_in_regions = { value < 301 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 400 } num_planes_stationed_in_regions = { value < 401 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 500 } num_planes_stationed_in_regions = { value < 501 regions = { 41 209 210 } } }
+		AND = { check_variable = { TFR_scw_draft_air = 600 } num_planes_stationed_in_regions = { value < 601 regions = { 41 209 210 } } }
+	}
+}

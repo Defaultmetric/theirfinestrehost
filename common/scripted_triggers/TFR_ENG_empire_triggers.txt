@@ -1,0 +1,87 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2): Commonwealth investment by focuses, Britain Alone
+# Every trigger names ENG explicitly, so it works from any ROOT.
+###########################################################################
+
+# PUBLIC (contract 3.4). Scope: the candidate country.
+# True for CAN AST SAF, RAJ (not in noAsia) and BRA (only in noAsia) while it exists, is in the UK's faction
+# and has not capitulated (review v2 #54: only the countries whose focuses are shown).
+ENG_is_investment_partner = {
+	OR = {
+		tag = CAN
+		tag = AST
+		tag = SAF
+		AND = {
+			tag = RAJ
+			NOT = { has_global_flag = noAsia }
+		}
+		AND = {
+			tag = BRA
+			has_global_flag = noAsia
+		}
+	}
+	exists = yes
+	NOT = { tag = ENG }
+	is_in_faction_with = ENG
+	has_capitulated = no
+}
+
+# Scope: partner. A new investment step may be taken and paid out now.
+ENG_partner_can_receive_step = {
+	ENG_is_investment_partner = yes
+	NOT = { has_country_flag = ENG_investment_suspended }
+}
+
+# Scope: partner. Its steps count towards the UK's obligations and the Commonwealth of Nations return.
+ENG_partner_investment_active = {
+	exists = yes
+	is_in_faction_with = ENG
+	has_capitulated = no
+	NOT = { has_country_flag = ENG_investment_suspended }
+}
+
+# Scope: state. British investment built factories here for one partner (ENG_inv_for_<TAG>),
+# but the state is now owned by some other country: those factories are to be clawed back.
+ENG_inv_state_foreign_owned = {
+	OR = {
+		AND = {
+			has_state_flag = ENG_inv_for_CAN
+			OWNER = { NOT = { tag = CAN } }
+		}
+		AND = {
+			has_state_flag = ENG_inv_for_AST
+			OWNER = { NOT = { tag = AST } }
+		}
+		AND = {
+			has_state_flag = ENG_inv_for_SAF
+			OWNER = { NOT = { tag = SAF } }
+		}
+		AND = {
+			has_state_flag = ENG_inv_for_RAJ
+			OWNER = { NOT = { tag = RAJ } }
+		}
+		AND = {
+			has_state_flag = ENG_inv_for_BRA
+			OWNER = { NOT = { tag = BRA } }
+		}
+	}
+}
+
+# Scope: candidate. A partner that is a subject of the UK and in its faction (Britain Alone targets).
+ENG_is_requisition_candidate = {
+	OR = {
+		tag = CAN
+		tag = AST
+		tag = SAF
+		tag = RAJ
+	}
+	exists = yes
+	is_subject_of = ENG
+	is_in_faction_with = ENG
+}
+
+# Scope: subject. A requisition focus can be taken and paid out now.
+ENG_can_be_requisitioned = {
+	ENG_is_requisition_candidate = yes
+	has_capitulated = no
+}

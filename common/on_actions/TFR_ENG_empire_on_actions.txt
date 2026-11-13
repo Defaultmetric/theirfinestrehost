@@ -1,0 +1,65 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2)
+###########################################################################
+
+on_actions = {
+
+	# Weekly book-keeping of the Commonwealth investment and the Imperial Requisitions:
+	# suspend / resume / rebuild partners, claw back investment factories in states another country took,
+	# recount the obligations, release subjects that left, lapse Workshop of the World if needed.
+	on_weekly_ENG = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = ENG_partnership_chosen
+						has_country_flag = ENG_britain_alone_chosen
+					}
+				}
+				ENG_empire_weekly_sweep = yes
+			}
+		}
+	}
+
+	# ROOT is the country leaving the faction, FROM the faction leader.
+	# An invested partner that leaves loses every factory British investment gave it at once.
+	on_leave_faction = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = CAN
+						tag = AST
+						tag = SAF
+						tag = RAJ
+						tag = BRA
+					}
+					check_variable = { ENG_investment_level > 0 }
+				}
+				ENG_investment_suspend = yes
+				if = {
+					limit = { country_exists = ENG }
+					ENG = { ENG_update_obligations = yes }
+				}
+			}
+		}
+	}
+
+	# ROOT is the winner, FROM the annexed country. Whoever annexed whom, every state that British investment
+	# built up for a partner and that is now owned by another country loses those factories again.
+	# The weekly sweep repeats this in case the states are only transferred after this on_action.
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					country_exists = ENG
+					ENG = { has_country_flag = ENG_partnership_chosen }
+				}
+				ENG = {
+					ENG_investment_clawback_states = yes
+					ENG_update_obligations = yes
+				}
+			}
+		}
+	}
+}

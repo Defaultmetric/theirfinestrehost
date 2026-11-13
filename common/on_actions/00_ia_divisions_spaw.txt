@@ -1,0 +1,144 @@
+on_actions = {
+    # 1. War declaration (manual or via scripted declare_war_on)
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
+                    }
+                }
+                FROM = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
+            }
+        }
+    }
+
+    # 2. Fires whenever any two countries enter a war (via alliance, guarantee, focus, event or DOW)
+    on_war_relation_added = {
+        effect = {
+            if = {
+                limit = {
+                    ROOT = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
+                    }
+                }
+                ROOT = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        is_ai = yes
+                        OR = {
+                            tag = FBL
+                            tag = FNL
+                            tag = NDE
+                            tag = NNO
+                            tag = NPO
+                            tag = FCZ
+                            tag = FYG
+                            tag = NNG
+                            tag = FPR
+                            tag = NPR
+                        }
+                        NOT = { has_country_flag = tfr_spawned_initial_defense }
+                    }
+                }
+                FROM = {
+                    TFR_spawn_initial_defense_divisions = yes
+                }
+            }
+
+            # Denmark occupation event
+            if = { 
+                limit = {
+                    FROM = {
+                        original_tag = NDE
+                    }
+                    ROOT = { 
+                        NOT = { #Don't trigger event in Civil War
+                            original_tag = NDE
+                        }
+                        strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                            tag = NDE
+                            ratio > 0.5
+                        }
+                        OR = {
+                            is_neighbor_of = NDE
+                            any_subject_country = {
+                                is_subject_of = ROOT
+                                is_neighbor_of = NDE
+                            }
+                            AND = {
+                                naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                                    tag = NDE
+                                    ratio > 0.5
+                                }
+                                any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+                                    is_coastal = yes
+                                    state_is_in_the_mediterranean_sea = no
+                                    BUL_state_is_in_the_black_sea = no
+                                    distance_to = {
+                                        target = 37
+                                        value < 2451
+                                    }
+                                }
+                            }
+                            any_subject_country = {
+                                is_subject_of = ROOT
+                                naval_strength_ratio = { #Gotta be strong enough to intimidate Denmark
+                                    tag = NDE
+                                    ratio > 0.5
+                                }
+                                any_controlled_state = { #Gotta be close enough for Denmark to take you seriously
+                                    is_coastal = yes
+                                    state_is_in_the_mediterranean_sea = no
+                                    BUL_state_is_in_the_black_sea = no
+                                    distance_to = {
+                                        target = 37
+                                        value < 2451
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                ROOT = {
+                    NDE = { 
+                        country_event = { id = denmark_occupation_event.1 hours = 6 } 
+                        set_country_flag = DEN_attacked #Used to check if DEN was attacked by GER in Tests
+                    }
+                }	
+            }
+        }
+    }
+}

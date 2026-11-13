@@ -1,0 +1,242 @@
+### Part cabinet (v2): daily driver of the War Cabinet lanes (ENG only, a few flag checks per day).
+
+on_actions = {
+	on_daily_ENG = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = ENG_cabinet_formed
+						has_completed_focus = ENG_the_war_cabinet
+					}
+				}
+				ENG_cabinet_daily_tick = yes
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_labour
+					}
+					clr_country_flag = ENG_cabinet_due_labour
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_mil_construction = 0.05
+						tooltip = ENG_eco_mil_construction_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+					if = {
+						limit = {
+							check_variable = {
+								ENG_eco_mil_construction > 0.1
+							}
+						}
+						custom_effect_tooltip = ENG_cabinet_mil_construction_capped_tt
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_bevin_boys
+					}
+					clr_country_flag = ENG_cabinet_due_bevin_boys
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_resources = 0.05
+						tooltip = ENG_eco_resources_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+					custom_effect_tooltip = ENG_cabinet_bevin_boys_pits_tt
+					show_ideas_tooltip = ENG_cabinet_bevin_boys_pits
+					hidden_effect = {
+						ENG_cabinet_bevin_boys_pits_sync = yes
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_planning_board
+					}
+					clr_country_flag = ENG_cabinet_due_planning_board
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_line_retention = 0.05
+						tooltip = ENG_eco_line_retention_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_planned_targets
+					}
+					clr_country_flag = ENG_cabinet_due_planned_targets
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_start_efficiency = 0.05
+						tooltip = ENG_eco_start_efficiency_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_coordinated_cripps
+					}
+					clr_country_flag = ENG_cabinet_due_coordinated_cripps
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_factory_output = 0.05
+						tooltip = ENG_eco_factory_output_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_beaverbrook_method
+					}
+					clr_country_flag = ENG_cabinet_due_beaverbrook_method
+					custom_effect_tooltip = ENG_economy_modifier_tt
+					add_to_variable = {
+						ENG_eco_efficiency_gain = 0.05
+						tooltip = ENG_eco_efficiency_gain_tt
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					hidden_effect = {
+						ENG_refresh_modifiers = yes
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_coordinated_beaverbrook
+					}
+					clr_country_flag = ENG_cabinet_due_coordinated_beaverbrook
+					if = {
+						limit = {
+							any_owned_state = {
+								is_core_of = ROOT
+								is_fully_controlled_by = ROOT
+								NOT = {
+									has_state_flag = ENG_cabinet_dispersal_state
+								}
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+							}
+						}
+						random_owned_controlled_state = {
+							limit = {
+								is_core_of = ROOT
+								is_fully_controlled_by = ROOT
+								NOT = {
+									has_state_flag = ENG_cabinet_dispersal_state
+								}
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+							}
+							set_state_flag = ENG_cabinet_dispersal_state
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = arms_factory
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+					else = {
+						add_offsite_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+					if = {
+						limit = {
+							any_owned_state = {
+								is_core_of = ROOT
+								is_fully_controlled_by = ROOT
+								NOT = {
+									has_state_flag = ENG_cabinet_dispersal_state
+								}
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+							}
+						}
+						random_owned_controlled_state = {
+							limit = {
+								is_core_of = ROOT
+								is_fully_controlled_by = ROOT
+								NOT = {
+									has_state_flag = ENG_cabinet_dispersal_state
+								}
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = yes
+								}
+							}
+							set_state_flag = ENG_cabinet_dispersal_state
+							add_extra_state_shared_building_slots = 1
+							add_building_construction = {
+								type = arms_factory
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+					else = {
+						add_offsite_building = {
+							type = arms_factory
+							level = 1
+						}
+					}
+				}
+				if = {
+					limit = {
+						date > 1941.1.1
+						has_capitulated = no
+						has_country_flag = ENG_cabinet_due_aircraft_production
+					}
+					clr_country_flag = ENG_cabinet_due_aircraft_production
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						mio:ENG_supermarine_organization = {
+							add_mio_size = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,101 @@
+###########################################
+### TFR - United Kingdom: Whitehall Balance effects (part bop)
+### Negative = towards the Appeasers (left), positive = towards the Rearmers (right).
+###########################################
+
+### Public push effects (contract 3.2)
+ENG_bop_push_appeasers_small = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = -0.05
+		tooltip_side = ENG_bop_appeasers_side
+	}
+}
+
+ENG_bop_push_appeasers_medium = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = -0.10
+		tooltip_side = ENG_bop_appeasers_side
+	}
+}
+
+ENG_bop_push_appeasers_large = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = -0.20
+		tooltip_side = ENG_bop_appeasers_side
+	}
+}
+
+ENG_bop_push_rearmers_small = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = 0.05
+		tooltip_side = ENG_bop_rearmers_side
+	}
+}
+
+ENG_bop_push_rearmers_medium = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = 0.10
+		tooltip_side = ENG_bop_rearmers_side
+	}
+}
+
+ENG_bop_push_rearmers_large = {
+	add_power_balance_value = {
+		id = ENG_whitehall_balance
+		value = 0.20
+		tooltip_side = ENG_bop_rearmers_side
+	}
+}
+
+### Decision costs (political power). Lower while ENG_bridges_bop_discount is set (War Cabinet, Edward Bridges).
+### Called from history, weekly from on_weekly_ENG, and (integrator request) right after the cabinet part sets the flag.
+ENG_bop_update_costs = {
+	if = {
+		limit = { has_country_flag = ENG_bridges_bop_discount }
+		set_variable = { ENG_bop_push_cost = 35 }
+		set_variable = { ENG_bop_campaign_cost = 50 }
+	}
+	else = {
+		set_variable = { ENG_bop_push_cost = 50 }
+		set_variable = { ENG_bop_campaign_cost = 75 }
+	}
+}
+
+### Wartime drift towards the Rearmers while at war with a major.
+### Idempotent: adds the modifier once, removes it when peace returns. Called weekly from on_weekly_ENG.
+ENG_bop_update_wartime_drift = {
+	if = {
+		limit = {
+			has_power_balance = { id = ENG_whitehall_balance }
+			has_war_with_major = yes
+			NOT = {
+				has_power_balance_modifier = {
+					id = ENG_whitehall_balance
+					modifier = ENG_bop_wartime_drift_mod
+				}
+			}
+		}
+		add_power_balance_modifier = {
+			id = ENG_whitehall_balance
+			modifier = ENG_bop_wartime_drift_mod
+		}
+	}
+	else_if = {
+		limit = {
+			has_war_with_major = no
+			has_power_balance_modifier = {
+				id = ENG_whitehall_balance
+				modifier = ENG_bop_wartime_drift_mod
+			}
+		}
+		remove_power_balance_modifier = {
+			id = ENG_whitehall_balance
+			modifier = ENG_bop_wartime_drift_mod
+		}
+	}
+}

@@ -1,0 +1,60 @@
+add_namespace = tfr_ai_defense
+
+# Day 3 check: First reinforcement pulse if battleplan caused rapid overrun
+country_event = {
+    id = tfr_ai_defense.1
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        is_ai = yes
+        has_war = yes
+        has_capitulated = no
+        surrender_progress < 0.85
+        any_owned_state = { is_controlled_by = ROOT }
+    }
+
+    immediate = {
+        TFR_replenish_defense_divisions = yes
+        country_event = { id = tfr_ai_defense.2 days = 4 }
+    }
+}
+
+# Day 7 check: Second reinforcement pulse if frontline is still under heavy pressure
+country_event = {
+    id = tfr_ai_defense.2
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        is_ai = yes
+        has_war = yes
+        has_capitulated = no
+        surrender_progress < 0.85
+        any_owned_state = { is_controlled_by = ROOT }
+    }
+
+    immediate = {
+        TFR_replenish_defense_divisions = yes
+        country_event = { id = tfr_ai_defense.3 days = 4 }
+    }
+}
+
+# Day 11 check: Final reinforcement pulse for longer defense
+country_event = {
+    id = tfr_ai_defense.3
+    hidden = yes
+    is_triggered_only = yes
+
+    trigger = {
+        is_ai = yes
+        has_war = yes
+        has_capitulated = no
+        surrender_progress < 0.85
+        any_owned_state = { is_controlled_by = ROOT }
+    }
+
+    immediate = {
+        TFR_replenish_defense_divisions = yes
+    }
+}

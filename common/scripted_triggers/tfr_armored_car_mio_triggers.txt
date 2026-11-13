@@ -1,0 +1,108 @@
+# Keep these eligibility rules in sync with the existing manufacturers.
+tfr_has_existing_armored_car_mio = {
+	OR = {
+		# AST_ford_australia_organization
+		AND = {
+			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
+		}
+		# AUS_osterreichische_saurerwerke_organization
+		AND = {
+			original_tag = FAU
+			has_dlc = "Arms Against Tyranny"
+			has_dlc = "Gotterdammerung"
+			has_dlc = "La Resistance"
+		}
+		# BEL_minerva_imperia_armored_car_organization
+		AND = {
+			OR = {
+				original_tag = BEL
+				original_tag = COG
+			}
+			has_dlc = "Gotterdammerung"
+			has_dlc = "La Resistance"
+		}
+		# CHI_shanghai_arsenal
+		AND = {
+			OR = {
+				is_literally_china = yes
+				tag = MAN
+				tag = MEN
+			}
+			has_dlc = "No Compromise, No Surrender"
+		}
+		# CZE_ringhoffer_tatra_organization
+		AND = {
+			OR = {
+				tag = FCZ
+				tag = RKH
+			}
+		}
+		# ENG_crossley_motors_organization
+		AND = {
+			has_dlc = "La Resistance"
+			OR = {
+				tag = ENG
+				tag = SAF
+				AND = {
+					tag = HUN
+					has_dlc = "Gotterdammerung"
+				}
+				AND = {
+					tag = NES
+					has_dlc = "No Step Back"
+				}
+				AND = {
+					tag = NLA
+					has_dlc = "No Step Back"
+				}
+				AND = {
+					tag = NLI
+					has_dlc = "No Step Back"
+				}
+			}
+		}
+		# FRA_panhard_organization
+		AND = {
+			tag = FRA
+			has_dlc = "La Resistance"
+		}
+		# GER_auto_union_organization
+		AND = {
+			original_tag = GER
+		}
+		# JAP_tokyo_automobile_industries_organization
+		AND = {
+			OR = {
+				AND = {
+					original_tag = JAP
+					has_dlc = "La Resistance"
+				}
+				PHI_SEA = yes
+			}
+			has_dlc = "Arms Against Tyranny"
+		}
+		# PRC_first_automative_works_organization
+		AND = {
+			tag = PRC
+			has_dlc = "No Compromise, No Surrender"
+			has_dlc = "La Resistance"
+		}
+		# RAJ_crossley_motors_organization
+		AND = {
+			has_dlc = "Graveyard of Empires"
+			original_tag = RAJ
+		}
+		# SWE_scania_vabis_organization
+		AND = {
+			has_dlc = "La Resistance"
+			OR = {
+				tag = FSW
+				AND = {
+					tag = BRA
+					has_dlc = "Trial of Allegiance"
+				}
+			}
+		}
+	}
+}

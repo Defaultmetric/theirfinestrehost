@@ -1,0 +1,309 @@
+# Scripted effects for AI fake/not tag frontline defense and battleplan anti-overrun replacement
+
+TFR_spawn_initial_defense_divisions = {
+    set_country_flag = tfr_spawned_initial_defense
+    if = {
+        limit = { is_ai = yes }
+        add_ideas = tfr_ai_frontline_defense
+    }
+
+    if = {
+        limit = { tag = FBL }
+        every_state = {
+            limit = { is_controlled_by = FBL }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FBL
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FBL
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = FNL }
+        every_state = {
+            limit = { is_controlled_by = FNL }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FNL
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FNL
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FNL
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = NDE }
+        every_state = {
+            limit = { is_controlled_by = NDE }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NDE
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NDE
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = NNO }
+        every_state = {
+            limit = { is_controlled_by = NNO }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNO
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNO
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = NPO }
+        every_state = {
+            limit = { is_controlled_by = NPO }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPO
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPO
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPO
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = FCZ }
+        every_state = {
+            limit = { is_controlled_by = FCZ }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FCZ
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FCZ
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FCZ
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = FYG }
+        every_state = {
+            limit = { is_controlled_by = FYG }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FYG
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FYG
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = NNG }
+        every_state = {
+            limit = { is_controlled_by = NNG }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNG
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNG
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = FPR }
+        every_state = {
+            limit = { is_controlled_by = FPR }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FPR
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FPR
+            }
+        }
+    }
+    else_if = {
+        limit = { tag = NPR }
+        every_state = {
+            limit = { is_controlled_by = NPR }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPR
+            }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPR
+            }
+        }
+    }
+
+    # Schedule first anti-overrun check 3 days after war begins
+    country_event = { id = tfr_ai_defense.1 days = 3 }
+}
+
+# Targeted reinforcement wave executed purely via hidden event pulse (zero on_daily lag)
+TFR_replenish_defense_divisions = {
+    if = {
+        limit = {
+            tag = FBL
+            num_divisions < 4
+            any_owned_state = { is_controlled_by = FBL }
+        }
+        every_state = {
+            limit = { is_controlled_by = FBL }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FBL
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = FNL
+            num_divisions < 6
+            any_owned_state = { is_controlled_by = FNL }
+        }
+        every_state = {
+            limit = { is_controlled_by = FNL }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FNL
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = NDE
+            num_divisions < 3
+            any_owned_state = { is_controlled_by = NDE }
+        }
+        every_state = {
+            limit = { is_controlled_by = NDE }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NDE
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = NNO
+            num_divisions < 4
+            any_owned_state = { is_controlled_by = NNO }
+        }
+        every_state = {
+            limit = { is_controlled_by = NNO }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNO
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = NPO
+            num_divisions < 16
+            any_owned_state = { is_controlled_by = NPO }
+        }
+        every_state = {
+            limit = { is_controlled_by = NPO }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPO
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = FCZ
+            num_divisions < 8
+            any_owned_state = { is_controlled_by = FCZ }
+        }
+        every_state = {
+            limit = { is_controlled_by = FCZ }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FCZ
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = FYG
+            num_divisions < 8
+            any_owned_state = { is_controlled_by = FYG }
+        }
+        every_state = {
+            limit = { is_controlled_by = FYG }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FYG
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = NNG
+            num_divisions < 4
+            any_owned_state = { is_controlled_by = NNG }
+        }
+        every_state = {
+            limit = { is_controlled_by = NNG }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NNG
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = FPR
+            num_divisions < 6
+            any_owned_state = { is_controlled_by = FPR }
+        }
+        every_state = {
+            limit = { is_controlled_by = FPR }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = FPR
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            tag = NPR
+            num_divisions < 3
+            any_owned_state = { is_controlled_by = NPR }
+        }
+        every_state = {
+            limit = { is_controlled_by = NPR }
+            create_unit = {
+                division = "division_template = \"16w\" start_experience_factor = 0.5 start_manpower_factor = 1.0 start_equipment_factor = 1.0"
+                owner = NPR
+            }
+        }
+    }
+}

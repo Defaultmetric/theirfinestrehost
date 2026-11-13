@@ -1,0 +1,89 @@
+# Country scope. Explicit effects avoid parameter expansion in the native parser.
+TFR_submarine_upkeep_apply_tier_1 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_submarine_upkeep_1 } }
+        remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        add_ideas = tfr_submarine_upkeep_1
+    }
+}
+
+TFR_submarine_upkeep_apply_tier_2 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_submarine_upkeep_2 } }
+        remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        add_ideas = tfr_submarine_upkeep_2
+    }
+}
+
+TFR_submarine_upkeep_apply_tier_3 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_submarine_upkeep_3 } }
+        remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        add_ideas = tfr_submarine_upkeep_3
+    }
+}
+
+TFR_submarine_upkeep_apply_tier_4 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_submarine_upkeep_4 } }
+        remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        add_ideas = tfr_submarine_upkeep_4
+    }
+}
+
+TFR_submarine_upkeep_apply_tier_5 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_submarine_upkeep_5 } }
+        remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        add_ideas = tfr_submarine_upkeep_5
+    }
+}
+
+TFR_submarine_upkeep_refresh = {
+    if = {
+        limit = { TFR_submarine_upkeep_major = yes }
+        if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 99 } }
+            TFR_submarine_upkeep_apply_tier_5 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 74 } }
+            TFR_submarine_upkeep_apply_tier_4 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 49 } }
+            TFR_submarine_upkeep_apply_tier_3 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 24 } }
+            TFR_submarine_upkeep_apply_tier_2 = yes
+        }
+        else = { TFR_submarine_upkeep_apply_tier_1 = yes }
+    }
+    else_if = {
+        limit = { TFR_submarine_upkeep_dutch = yes }
+        if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 33 } }
+            TFR_submarine_upkeep_apply_tier_5 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 24 } }
+            TFR_submarine_upkeep_apply_tier_4 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 16 } }
+            TFR_submarine_upkeep_apply_tier_3 = yes
+        }
+        else_if = {
+            limit = { has_navy_size = { archetype = ship_hull_submarine size > 8 } }
+            TFR_submarine_upkeep_apply_tier_2 = yes
+        }
+        else = { TFR_submarine_upkeep_apply_tier_1 = yes }
+    }
+    else = {
+        if = {
+            limit = { OR = { has_idea = tfr_submarine_upkeep_1 has_idea = tfr_submarine_upkeep_2 has_idea = tfr_submarine_upkeep_3 has_idea = tfr_submarine_upkeep_4 has_idea = tfr_submarine_upkeep_5 } }
+            remove_ideas = { tfr_submarine_upkeep_1 tfr_submarine_upkeep_2 tfr_submarine_upkeep_3 tfr_submarine_upkeep_4 tfr_submarine_upkeep_5 }
+        }
+    }
+}

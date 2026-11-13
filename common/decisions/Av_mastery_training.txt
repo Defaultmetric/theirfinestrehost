@@ -1,0 +1,989 @@
+#########################################################################
+# Army Mastery Decisions
+#########################################################################
+army_mastery_category = {
+
+    # 1. Infantry Track
+	army_infantry_mastery_training = {
+		icon = generic_military
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+		
+		visible = {
+			has_subdoctrine_in_track = infantry
+			NOT = { has_completed_track = infantry }
+		}
+
+		available = {
+			has_army_experience > 99
+			NOT = { has_completed_track = infantry }
+		}
+        
+		custom_cost_trigger = {
+			has_army_experience > 99
+		}
+		custom_cost_text = decision_cost_army_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = infantry
+					has_subdoctrine_in_track = combat_support
+					has_subdoctrine_in_track = armor
+					has_subdoctrine_in_track = operations
+				}
+				add = 2
+			}
+			modifier = {
+				has_army_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = infantry
+			}
+
+			hidden_effect = {
+            	army_experience = -100
+			}
+        }
+	}
+
+	# 2. Combat Support Track
+	army_combat_support_mastery_training = {
+		icon = generic_army_support
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = combat_support
+			NOT = { has_completed_track = combat_support }
+		}
+
+		available = {
+			has_army_experience > 99
+			NOT = { has_completed_track = combat_support }
+		}
+
+		custom_cost_trigger = {
+			has_army_experience > 99
+		}
+		custom_cost_text = decision_cost_army_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = infantry
+					has_subdoctrine_in_track = combat_support
+					has_subdoctrine_in_track = armor
+					has_subdoctrine_in_track = operations
+				}
+				add = 2
+			}
+			modifier = {
+				has_army_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = combat_support
+			}
+		
+			hidden_effect = {
+            	army_experience = -100
+			}
+        }
+	}
+
+	# 3. Armor Track
+	army_armor_mastery_training = {
+		icon = generic_tank
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = armor
+			NOT = { has_completed_track = armor }
+		}
+
+		available = {
+			has_army_experience > 99
+			NOT = { has_completed_track = armor }
+		}
+
+		custom_cost_trigger = {
+			has_army_experience > 99
+		}
+		custom_cost_text = decision_cost_army_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = infantry
+					has_subdoctrine_in_track = combat_support
+					has_subdoctrine_in_track = armor
+					has_subdoctrine_in_track = operations
+				}
+				add = 2
+			}
+			modifier = {
+				has_army_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = armor
+			}
+		
+			hidden_effect = {
+            	army_experience = -100
+			}
+        }
+	}
+
+	# 4. Operations Track
+	army_operations_mastery_training = {
+		icon = generic_operation
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = operations
+			NOT = { has_completed_track = operations }
+		}
+
+		available = {
+			has_army_experience > 99
+			NOT = { has_completed_track = operations }
+		}
+
+		custom_cost_trigger = {
+			has_army_experience > 99
+		}
+		custom_cost_text = decision_cost_army_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = infantry
+					has_subdoctrine_in_track = combat_support
+					has_subdoctrine_in_track = armor
+					has_subdoctrine_in_track = operations
+				}
+				add = 2
+			}
+			modifier = {
+				has_army_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = operations
+			}
+		
+			hidden_effect = {
+            	army_experience = -100
+			}
+        }
+	}
+}
+
+#########################################################################
+# Air Mastery Decisions
+#########################################################################
+air_mastery_category = {
+
+	# 1. Fighter Aircraft Track
+	air_fighter_mastery_training = {
+		icon = generic_air
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = fighter_aircraft
+			NOT = { has_completed_track = fighter_aircraft }
+		}
+
+		available = {
+			has_air_experience > 99
+			NOT = { has_completed_track = fighter_aircraft }
+		}
+
+		custom_cost_trigger = {
+			has_air_experience > 99
+		}
+		custom_cost_text = decision_cost_air_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = fighter_aircraft
+					has_subdoctrine_in_track = strike_aircraft
+					has_subdoctrine_in_track = medium_aircraft
+					has_subdoctrine_in_track = heavy_aircraft
+				}
+				add = 2
+			}
+			modifier = {
+				has_air_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = fighter_aircraft
+			}
+		
+			hidden_effect = {
+            	air_experience = -100
+			}
+        }
+	}
+
+	# 2. Strike Aircraft Track
+	air_strike_mastery_training = {
+		icon = generic_air
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = strike_aircraft
+			NOT = { has_completed_track = strike_aircraft }
+		}
+
+		available = {
+			has_air_experience > 99
+			NOT = { has_completed_track = strike_aircraft }
+		}
+
+		custom_cost_trigger = {
+			has_air_experience > 99
+		}
+		custom_cost_text = decision_cost_air_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = fighter_aircraft
+					has_subdoctrine_in_track = strike_aircraft
+					has_subdoctrine_in_track = medium_aircraft
+					has_subdoctrine_in_track = heavy_aircraft
+				}
+				add = 2
+			}
+			modifier = {
+				has_air_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = strike_aircraft
+			}
+		
+			hidden_effect = {
+            	air_experience = -100
+			}
+        }
+	}
+
+	# 3. Medium Aircraft Track
+	air_medium_mastery_training = {
+		icon = generic_air
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = medium_aircraft
+			NOT = { has_completed_track = medium_aircraft }
+		}
+
+		available = {
+			has_air_experience > 99
+			NOT = { has_completed_track = medium_aircraft }
+		}
+
+		custom_cost_trigger = {
+			has_air_experience > 99
+		}
+		custom_cost_text = decision_cost_air_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = fighter_aircraft
+					has_subdoctrine_in_track = strike_aircraft
+					has_subdoctrine_in_track = medium_aircraft
+					has_subdoctrine_in_track = heavy_aircraft
+				}
+				add = 2
+			}
+			modifier = {
+				has_air_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = medium_aircraft
+			}
+		
+			hidden_effect = {
+            	air_experience = -100
+			}
+        }
+	}
+
+	# 4. Heavy Aircraft Track
+	air_heavy_mastery_training = {
+		icon = generic_air
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = heavy_aircraft
+			NOT = { has_completed_track = heavy_aircraft }
+		}
+
+		available = {
+			has_air_experience > 99
+			NOT = { has_completed_track = heavy_aircraft }
+		}
+
+		custom_cost_trigger = {
+			has_air_experience > 99
+		}
+		custom_cost_text = decision_cost_air_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = fighter_aircraft
+					has_subdoctrine_in_track = strike_aircraft
+					has_subdoctrine_in_track = medium_aircraft
+					has_subdoctrine_in_track = heavy_aircraft
+				}
+				add = 2
+			}
+			modifier = {
+				has_air_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = heavy_aircraft
+			}
+		
+			hidden_effect = {
+            	air_experience = -100
+			}
+        }
+	}
+}
+
+#########################################################################
+# Navy Mastery Decisions
+#########################################################################
+navy_mastery_category = {
+
+	# 1. Submarine Track
+	navy_submarine_mastery_training = {
+		icon = generic_naval
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = submarines
+			NOT = { has_completed_track = submarines }
+		}
+
+		available = {
+			has_navy_experience > 99
+			NOT = { has_completed_track = submarines }
+		}
+
+		custom_cost_trigger = {
+			has_navy_experience > 99
+		}
+		custom_cost_text = decision_cost_navy_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = submarines
+					has_subdoctrine_in_track = screens
+					has_subdoctrine_in_track = carriers
+					has_subdoctrine_in_track = capital_ships
+				}
+				add = 2
+			}
+			modifier = {
+				has_navy_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = submarines
+			}
+		
+			hidden_effect = {
+            	navy_experience = -100
+			}
+        }
+	}
+
+	# 2. Screen Track
+	navy_screen_mastery_training = {
+		icon = generic_naval
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = screens
+			NOT = { has_completed_track = screens }
+		}
+
+		available = {
+			has_navy_experience > 99
+			NOT = { has_completed_track = screens }
+		}
+
+		custom_cost_trigger = {
+			has_navy_experience > 99
+		}
+		custom_cost_text = decision_cost_navy_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = submarines
+					has_subdoctrine_in_track = screens
+					has_subdoctrine_in_track = carriers
+					has_subdoctrine_in_track = capital_ships
+				}
+				add = 2
+			}
+			modifier = {
+				has_navy_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = screens
+			}
+		
+			hidden_effect = {
+            	navy_experience = -100
+			}
+        }
+	}
+
+	# 3. Carrier Track
+	navy_carrier_mastery_training = {
+		icon = generic_naval
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = carriers
+			NOT = { has_completed_track = carriers }
+		}
+
+		available = {
+			has_navy_experience > 99
+			NOT = { has_completed_track = carriers }
+		}
+
+		custom_cost_trigger = {
+			has_navy_experience > 99
+		}
+		custom_cost_text = decision_cost_navy_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = submarines
+					has_subdoctrine_in_track = screens
+					has_subdoctrine_in_track = carriers
+					has_subdoctrine_in_track = capital_ships
+				}
+				add = 2
+			}
+			modifier = {
+				has_navy_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = carriers
+			}
+		
+			hidden_effect = {
+            	navy_experience = -100
+			}
+        }
+	}
+
+	# 4. Capital Track
+	navy_capital_mastery_training = {
+		icon = generic_naval
+		allowed = {
+            always = yes
+        }
+
+		days_remove = 60
+
+		visible = {
+			has_subdoctrine_in_track = capital_ships
+			NOT = { has_completed_track = capital_ships }
+		}
+
+		available = {
+			has_navy_experience > 99
+			NOT = { has_completed_track = capital_ships }
+		}
+
+		custom_cost_trigger = {
+			has_navy_experience > 99
+		}
+		custom_cost_text = decision_cost_navy_xp_100
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				AND = {
+					has_subdoctrine_in_track = submarines
+					has_subdoctrine_in_track = screens
+					has_subdoctrine_in_track = carriers
+					has_subdoctrine_in_track = capital_ships
+				}
+				add = 2
+			}
+			modifier = {
+				has_navy_experience > 249
+				add = 100
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				threat > 0.5
+				factor = 1.5
+			}
+			modifier = {
+				has_government = democratic
+				threat > 0.3
+				factor = 1.5
+			}
+			modifier = {
+				has_government = neutrality
+				threat > 0.25
+				factor = 2
+			}
+			modifier = {
+				has_government = communism
+				threat > 0.2
+				factor = 2
+			}
+			modifier = {
+				has_government = fascism
+				threat > 0.15
+				factor = 2
+			}
+		}
+
+		complete_effect = {
+			add_mastery = {
+				amount = 50
+				track = capital_ships
+			}
+		
+			hidden_effect = {
+            	navy_experience = -100
+			}
+        }
+	}
+}

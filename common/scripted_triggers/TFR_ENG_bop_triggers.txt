@@ -1,0 +1,46 @@
+###########################################
+### TFR - United Kingdom: Whitehall Balance triggers (part bop)
+### Range based (explicit OR of ranges), so the centre range counts for neither side.
+###########################################
+
+ENG_bop_appeasers_side_active = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_bop_appeasers_side_active_tt
+		OR = {
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_appeasers_low_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_appeasers_mid_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_appeasers_high_range }
+		}
+	}
+}
+
+ENG_bop_rearmers_side_active = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_bop_rearmers_side_active_tt
+		OR = {
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_rearmers_low_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_rearmers_mid_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_rearmers_high_range }
+		}
+	}
+}
+
+ENG_bop_at_least_appeasers_mid = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_bop_at_least_appeasers_mid_tt
+		OR = {
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_appeasers_mid_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_appeasers_high_range }
+		}
+	}
+}
+
+ENG_bop_at_least_rearmers_mid = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_bop_at_least_rearmers_mid_tt
+		OR = {
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_rearmers_mid_range }
+			is_power_balance_in_range = { id = ENG_whitehall_balance range = ENG_bop_rearmers_high_range }
+		}
+	}
+}

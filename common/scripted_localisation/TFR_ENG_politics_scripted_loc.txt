@@ -1,0 +1,99 @@
+###########################################################################
+# TFR UK rework v2 - part `politics`: focus descriptions of the appeasement
+# road. Every gate also opens on a date or on a war with a major, so a
+# description states an event as fact only when it has happened (same
+# triggers as the focus gates); otherwise a neutral text is shown.
+###########################################################################
+
+defined_text = {
+	name = ENG_GetRhinelandDesc
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = rhineland_remilitarized
+				42 = { is_demilitarized_zone = no }
+			}
+		}
+		localization_key = ENG_accepting_rhineland_remilitarization_desc_hist
+	}
+	text = {
+		localization_key = ENG_accepting_rhineland_remilitarization_desc_alt
+	}
+}
+
+defined_text = {
+	name = ENG_GetAnschlussDesc
+	text = {
+		trigger = {
+			4 = {
+				owner = {
+					NOT = { original_tag = FAU }
+				}
+			}
+		}
+		localization_key = ENG_allow_the_anschluss_desc_hist
+	}
+	text = {
+		localization_key = ENG_allow_the_anschluss_desc_alt
+	}
+}
+
+# Munich: the Sudetenland was handed over without a war
+defined_text = {
+	name = ENG_GetMunichDesc
+	text = {
+		trigger = {
+			GER = { has_country_flag = sudetenland_acquired }
+			NOT = { has_global_flag = czech_denied_flag }
+			NOT = { has_global_flag = CZE_refused_sudetenland }
+		}
+		localization_key = ENG_peace_for_our_time_desc_hist
+	}
+	text = {
+		localization_key = ENG_peace_for_our_time_desc_alt
+	}
+}
+
+# The Gathering Storm: refusal first (it is the stronger fact), then the peaceful handover, then neutral
+defined_text = {
+	name = ENG_GetGatheringStormDesc
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = czech_denied_flag
+				has_global_flag = CZE_refused_sudetenland
+				GER = { has_country_flag = allies_support_czechs }
+			}
+		}
+		localization_key = ENG_the_gathering_storm_desc_refused
+	}
+	text = {
+		trigger = {
+			GER = { has_country_flag = sudetenland_acquired }
+		}
+		localization_key = ENG_the_gathering_storm_desc_hist
+	}
+	text = {
+		localization_key = ENG_the_gathering_storm_desc_alt
+	}
+}
+
+defined_text = {
+	name = ENG_GetEndAppeasementDesc
+	text = {
+		trigger = {
+			OR = {
+				has_global_flag = end_of_czechoslovakia
+				9 = {
+					owner = {
+						NOT = { original_tag = FCZ }
+					}
+				}
+			}
+		}
+		localization_key = ENG_end_the_policy_of_appeasement_desc_hist
+	}
+	text = {
+		localization_key = ENG_end_the_policy_of_appeasement_desc_alt
+	}
+}

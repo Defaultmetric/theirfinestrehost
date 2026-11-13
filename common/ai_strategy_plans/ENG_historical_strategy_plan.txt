@@ -1,0 +1,141 @@
+ENG_historical_plan = {
+	name = "United Kingdom historical plan"
+	desc = "Historical behavior for United Kingdom"
+
+	allowed = {
+		original_tag = ENG
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					not = { has_dlc = "Man the Guns" }
+					has_game_rule = {
+						rule = ENG_ai_behavior 
+						option = DEFAULT
+					}
+				}
+			}
+			has_country_flag = ENG_AI_DEMOCRATIC_HISTORICAL
+			has_game_rule = {
+				rule = ENG_ai_behavior 
+				option = DEMOCRATIC_HISTORICAL
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		ENG_steady_as_she_goes
+		uk_industrial_focus
+		limited_rearmament_focus
+		shadow_scheme_focus
+		ENG_the_policy_of_appeasement
+		ENG_invest_in_the_construction_sector
+		ENG_home_defence
+		royal_ordinance_focus
+		ENG_accepting_rhineland_remilitarization
+		uk_empire_focus
+		general_rearmament_focus
+		uk_extra_tech_slot
+		uk_mediterranean_focus
+		uk_colonial_focus
+		ENG_avoid_a_constitutional_crisis
+		ENG_buy_time
+		ENG_prepare_for_the_inevitable
+		ENG_steady_production
+		air_rearmament_focus
+		naval_rearmament_focus
+		ENG_army_rearmament_focus
+		air_defense_focus
+		radar_focus
+		ENG_allow_the_anschluss
+		uk_small_arms_focus
+		fighter_command_focus
+		ENG_the_dowding_system
+		aircraft_production_focus
+		ENG_vickers_experimental_facility_focus
+		ENG_commonwealth_partnership
+		uk_canada_focus
+		uk_australia_focus
+		ENG_the_gathering_storm
+		ENG_end_the_policy_of_appeasement
+		ENG_the_war_cabinet
+		ENG_ernest_bevin_focus
+		ENG_stafford_cripps_focus
+		ENG_military_training_act
+		ENG_issue_gasmasks
+		ENG_guarantee_poland
+		ENG_anglo_french_staff_talks
+		ENG_the_hore_belisha_reforms
+		ENG_the_set_piece_battle
+		ENG_motorized_focus
+		ENG_royal_artillery
+		ENG_colossal_cracks
+		uk_destroyer_focus
+		uk_convoy_focus
+		ENG_a_s_warfare
+		uk_waves_focus
+		uk_battleship_focus
+		ENG_western_approaches_command
+		ENG_forward_interception
+		ENG_the_few
+		coastal_command_focus
+		ENG_maritime_patrol_squadrons
+		ENG_expand_the_secret_intelligence_service_focus
+		crypto_bomb_focus
+		tizard_mission_focus
+		uk_fortify_the_isles
+		ENG_the_home_guard
+		ENG_auxiliary_units
+		uk_south_africa_focus
+		uk_india_focus
+		ENG_brazilian_partnership
+		ENG_british_commonwealth_air_training_plan
+		ENG_the_sterling_area
+		ENG_imperial_preference
+		ENG_computing_machines
+		uk_protect_suez
+		uk_malta_focus
+		uk_rock_focus
+		uk_asia_focus
+		singapore_focus
+		peninsular_focus
+		ENG_tank_focus
+		ENG_the_commandos
+		ENG_special_air_service
+		ENG_a_modern_army
+		ENG_whale_island_gunnery_school
+		ENG_the_line_of_battle
+		ENG_the_arsenal_of_britain
+		ENG_expand_the_repair_yards
+		ENG_their_finest_hour
+		uk_amphibious_focus
+		ENG_the_royal_marines
+		maud_focus
+		UK_secret_focus
+		uk_jet_focus
+		ENG_the_imperial_conference
+		ENG_commonwealth_of_nations
+		ENG_britain_can_take_it
+		ENG_the_cabinet_united
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		home_defence_spirit = 1
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

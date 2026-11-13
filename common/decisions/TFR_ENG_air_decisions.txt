@@ -1,0 +1,153 @@
+ENG_air_chain_home_category = {
+	ENG_air_chain_home_yorkshire = {
+		icon = GFX_decision_generic_air
+		allowed = { original_tag = ENG }
+
+		visible = {
+			has_completed_focus = ENG_the_dowding_system
+		}
+
+		available = {
+			has_tech = radio_detection
+			130 = { is_fully_controlled_by = ROOT }
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = { highlight_state_targets = { state = 130 } }
+
+		remove_effect = {
+			if = {
+				limit = { 130 = { is_fully_controlled_by = ROOT } }
+				130 = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 3 }
+	}
+
+	ENG_air_chain_home_northern_england = {
+		icon = GFX_decision_generic_air
+		allowed = { original_tag = ENG }
+
+		visible = {
+			has_completed_focus = ENG_the_dowding_system
+		}
+
+		available = {
+			has_tech = radio_detection
+			131 = { is_fully_controlled_by = ROOT }
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = { highlight_state_targets = { state = 131 } }
+
+		remove_effect = {
+			if = {
+				limit = { 131 = { is_fully_controlled_by = ROOT } }
+				131 = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 3 }
+	}
+
+	ENG_air_chain_home_scottish_lowlands = {
+		icon = GFX_decision_generic_air
+		allowed = { original_tag = ENG }
+
+		visible = {
+			has_completed_focus = ENG_the_dowding_system
+		}
+
+		available = {
+			has_tech = radio_detection
+			121 = { is_fully_controlled_by = ROOT }
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = { highlight_state_targets = { state = 121 } }
+
+		remove_effect = {
+			if = {
+				limit = { 121 = { is_fully_controlled_by = ROOT } }
+				121 = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 3 }
+	}
+
+	ENG_air_chain_home_aberdeenshire = {
+		icon = GFX_decision_generic_air
+		allowed = { original_tag = ENG }
+
+		visible = {
+			has_completed_focus = ENG_the_dowding_system
+		}
+
+		available = {
+			has_tech = radio_detection
+			136 = { is_fully_controlled_by = ROOT }
+		}
+
+		cost = 25
+		fire_only_once = yes
+		days_remove = 60
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		highlight_states = { highlight_state_targets = { state = 136 } }
+
+		remove_effect = {
+			if = {
+				limit = { 136 = { is_fully_controlled_by = ROOT } }
+				136 = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 3 }
+	}
+}

@@ -1,0 +1,20 @@
+# TFR UK focus tree rework - part home (v2)
+# Scope: country (the UK). ROOT = the UK.
+
+# The USA exists, is not at war with the UK and is not in a faction with anyone at war with the UK.
+# Decides only whether the USA receives the Tizard Mission bonus event; the UK's own reward never depends on it.
+ENG_home_usa_is_friendly = {
+	custom_trigger_tooltip = {
+		tooltip = ENG_home_usa_is_friendly_tt
+		country_exists = USA
+		USA = {
+			NOT = { has_war_with = ROOT }
+		}
+		NOT = {
+			any_country = {
+				has_war_with = ROOT
+				is_in_faction_with = USA
+			}
+		}
+	}
+}

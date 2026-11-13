@@ -1,0 +1,16 @@
+# Spain may receive Axis reconstruction aid without joining the faction.
+TFR_SPA_axis_development_eligible = {
+    OR = {
+        AND = {
+            is_in_faction_with = GER
+            TFR_SPA_shared_tree_allowed = yes
+        }
+        AND = {
+            is_in_faction = no
+            OR = {
+                has_country_flag = TFR_SPA_volunteer_mode
+                has_completed_focus = TFR_SPA_volunteer_spain
+            }
+        }
+    }
+}

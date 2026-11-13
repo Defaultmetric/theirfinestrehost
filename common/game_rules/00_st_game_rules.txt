@@ -1,0 +1,111 @@
+#
+# List of options showing in the Game Rules screen
+#
+# format is:
+# rule_token = {
+#	name = "TEXT_KEY_FOR_NAME"
+#	required_dlc = "Name of the Required DLC"
+#	desc = "TEXT_KEY_FOR_LONG_DESC"
+#	group = "TEXT_KEY_FOR_GROUP"					# Used for filtering. A single rule can be in multiple groups 
+#	icon = gfx_option_token							# Optional icon
+#	option = {										# Unless other specified, the first option is the default option
+#		name = option_token
+#		text = "TEXT_KEY_FOR_OPTION_NAME"
+#		allow_achievements = no						# Achievements cannot be earned if one or more game rules are set to an option that has this property set to no.
+#													# If not specified, this is set to yes for default options and no for all other options.
+#	}
+#	default = {										# Specify an option with the "default" token to override the behavior of treating the first option as the default.
+#		name = option_token
+#		text = "TEXT_KEY_FOR_OPTION_NAME"
+#		...
+#	}
+# }
+
+allow_subject_transfers = {
+	name = "RULE_ALLOW_SUBJECT_TRANSFERS"
+	group = "State Transfer MP"
+	#icon = "GFX_release_nations"
+	default = {
+		name = "FREE"
+		text = "Free"
+		desc = "RULE_ALLOW_SUBJECT_TRANSFERS_FREE_DESC"
+		allow_achievements = no	
+	}
+	option = {
+		name = "LOW_AUTONOMY_ONLY"
+		text = "Low autonomy only"
+		desc = "RULE_ALLOW_SUBJECT_TRANSFERS_LOW_AUTONOMY_ONLY_DESC"
+	}
+	option = {
+		name = "BLOCKED"
+		text = "Blocked"
+		desc = "RULE_ALLOW_SUBJECT_TRANSFERS_BLOCKED_DESC"
+	}
+}
+
+use_new_tool = {
+	name = "RULE_USE_NEW_TOOL"
+	group = "State Transfer MP"
+	#icon = "GFX_release_nations"
+	default = {
+		name = "NO"
+		text = "No"
+		allow_achievements = no	
+	}
+	option = {
+		name = "YES"
+		text = "Yes"
+	}
+}
+
+SIA_ai_behavior = {
+	name = "SIA_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_DEFAULT_AI_DESC"
+	}
+	option = {
+		name = HISTORICAL
+		text = "RULE_OPTION_HISTORICAL"
+		desc = "RULE_HISTORICAL_CHL_AI_DESC"
+		allow_achievements = yes
+	}
+}
+
+TFR_fifi_settings = {
+	name = "TFR_FIFI_SETTINGS"
+	group = "host_tool"
+	default = {
+		name = DISABLED
+		text = "TFR_FIFI_DISABLED"
+		desc = "TFR_FIFI_DISABLED_DESC"
+	}
+	option = {
+		name = ENABLED
+		text = "TFR_FIFI_ENABLED"
+		desc = "TFR_FIFI_ENABLED_DESC"
+	}
+}
+
+tradebacks = {
+	name = "Tradeback Idea"
+	group = "host_tool"
+	icon = "GFX_decision_generic_forestry"
+	option = {
+		name = off
+		text = "Off"
+		desc = "No tradeback idea."
+	}
+	option = {
+		name = on
+		text = "On"
+		desc = "Everyone has a tradeback idea that gives -100% missing resource penalty, -100% factory energy consumption (coal), and disables market trade."
+	}
+	default = {
+		name = until_1938
+		text = "Until 1938"
+		desc = "Everyone has a tradeback idea that gives -100% missing resource penalty, -100% factory energy consumption (coal), and disables market trade until 1 January 1938 (Standard)."
+	}
+}

@@ -1,0 +1,2406 @@
+### Part cabinet (v2): War Cabinet seats, automatic minister lanes, Menzies's path, deferred industrial payloads.
+### State per minister <k>: flags ENG_cabinet_<k>_seated (permanent), ENG_cabinet_<k>_working (a lane focus is in work),
+### ENG_cabinet_<k>_lane_done, ENG_cabinet_<k>_event_pending (5-day guard); variables ENG_cabinet_<k>_stage
+### (1..3 = focus in work) and ENG_cabinet_<k>_days (progress; +1 per daily tick, not while capitulated).
+### Menzies: ENG_menzies_path_sigint / ENG_menzies_path_soe (set by event tfr_eng_cabinet.80), guard ENG_cabinet_menzies_choice_pending.
+### Deferred payloads: flag ENG_cabinet_due_<name>, paid by on_daily_ENG (on_actions file) from 1941.1.1.
+### Definitions are ordered callee first.
+### Driven once a day by on_daily_ENG -> ENG_cabinet_daily_tick (TFR_ENG_cabinet_on_actions.txt).
+
+# ---- Ernest Bevin ----
+ENG_cabinet_bevin_clear_tiers = {
+	remove_ideas = ENG_cabinet_bevin_1
+	remove_ideas = ENG_cabinet_bevin_2
+	remove_ideas = ENG_cabinet_bevin_3
+	remove_ideas = ENG_cabinet_bevin_4
+	remove_ideas = ENG_cabinet_bevin_5
+}
+ENG_cabinet_bevin_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bevin_1
+			}
+		}
+		ENG_cabinet_bevin_clear_tiers = yes
+		add_ideas = ENG_cabinet_bevin_1
+	}
+}
+ENG_cabinet_bevin_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bevin_2
+			}
+		}
+		ENG_cabinet_bevin_clear_tiers = yes
+		add_ideas = ENG_cabinet_bevin_2
+	}
+}
+ENG_cabinet_bevin_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bevin_3
+			}
+		}
+		ENG_cabinet_bevin_clear_tiers = yes
+		add_ideas = ENG_cabinet_bevin_3
+	}
+}
+ENG_cabinet_bevin_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bevin_4
+			}
+		}
+		ENG_cabinet_bevin_clear_tiers = yes
+		add_ideas = ENG_cabinet_bevin_4
+	}
+}
+ENG_cabinet_bevin_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bevin_5
+			}
+		}
+		ENG_cabinet_bevin_clear_tiers = yes
+		add_ideas = ENG_cabinet_bevin_5
+	}
+}
+ENG_cabinet_bevin_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_fuel_the_laboratories
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ENG_together_we_stand
+					has_country_flag = ENG_cabinet_together_we_stand
+				}
+			}
+			ENG_cabinet_bevin_set_tier_5 = yes
+		}
+		else = {
+			ENG_cabinet_bevin_set_tier_4 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_the_bevin_boys_programme
+		}
+		ENG_cabinet_bevin_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_ministry_of_labour_and_national_service
+		}
+		ENG_cabinet_bevin_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_bevin_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_bevin = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_bevin_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_bevin_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_ernest_bevin = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_ernest_bevin
+		}
+		ENG_cabinet_bevin_sync_tier = yes
+	}
+}
+ENG_cabinet_bevin_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_ministry_of_labour_and_national_service
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bevin_stage = 1
+		}
+		set_country_flag = ENG_cabinet_bevin_working
+		set_variable = {
+			ENG_cabinet_bevin_days = 0
+		}
+		activate_shine_on_focus = ENG_ministry_of_labour_and_national_service
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_the_bevin_boys_programme
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bevin_stage = 2
+		}
+		set_country_flag = ENG_cabinet_bevin_working
+		set_variable = {
+			ENG_cabinet_bevin_days = 0
+		}
+		activate_shine_on_focus = ENG_the_bevin_boys_programme
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_fuel_the_laboratories
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bevin_stage = 3
+		}
+		set_country_flag = ENG_cabinet_bevin_working
+		set_variable = {
+			ENG_cabinet_bevin_days = 0
+		}
+		activate_shine_on_focus = ENG_fuel_the_laboratories
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_bevin_stage = 0
+		}
+		set_country_flag = ENG_cabinet_bevin_lane_done
+	}
+}
+ENG_cabinet_bevin_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_ministry_of_labour_and_national_service
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_ministry_of_labour_and_national_service
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_ministry_of_labour_and_national_service
+				use_side_message = yes
+				originator_name = ENG_ernest_bevin
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_the_bevin_boys_programme
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_the_bevin_boys_programme
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_the_bevin_boys_programme
+				use_side_message = yes
+				originator_name = ENG_ernest_bevin
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bevin_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_fuel_the_laboratories
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_fuel_the_laboratories
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_fuel_the_laboratories
+				use_side_message = yes
+				originator_name = ENG_ernest_bevin
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_bevin_working
+	set_variable = {
+		ENG_cabinet_bevin_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_bevin_stage = 0
+	}
+}
+ENG_cabinet_bevin_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bevin_working
+		}
+		add_to_variable = {
+			ENG_cabinet_bevin_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_ernest_bevin_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_bevin_seated
+			}
+		}
+		ENG_cabinet_seat_bevin = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bevin_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_bevin_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_bevin_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_bevin_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bevin_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.11
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_bevin_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bevin_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.12
+		}
+	}
+}
+
+# ---- Stafford Cripps ----
+ENG_cabinet_cripps_clear_tiers = {
+	remove_ideas = ENG_cabinet_cripps_1
+	remove_ideas = ENG_cabinet_cripps_2
+	remove_ideas = ENG_cabinet_cripps_3
+	remove_ideas = ENG_cabinet_cripps_4
+	remove_ideas = ENG_cabinet_cripps_5
+}
+ENG_cabinet_cripps_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_cripps_1
+			}
+		}
+		ENG_cabinet_cripps_clear_tiers = yes
+		add_ideas = ENG_cabinet_cripps_1
+	}
+}
+ENG_cabinet_cripps_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_cripps_2
+			}
+		}
+		ENG_cabinet_cripps_clear_tiers = yes
+		add_ideas = ENG_cabinet_cripps_2
+	}
+}
+ENG_cabinet_cripps_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_cripps_3
+			}
+		}
+		ENG_cabinet_cripps_clear_tiers = yes
+		add_ideas = ENG_cabinet_cripps_3
+	}
+}
+ENG_cabinet_cripps_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_cripps_4
+			}
+		}
+		ENG_cabinet_cripps_clear_tiers = yes
+		add_ideas = ENG_cabinet_cripps_4
+	}
+}
+ENG_cabinet_cripps_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_cripps_5
+			}
+		}
+		ENG_cabinet_cripps_clear_tiers = yes
+		add_ideas = ENG_cabinet_cripps_5
+	}
+}
+ENG_cabinet_cripps_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_coordinated_war_economy
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ENG_together_we_stand
+					has_country_flag = ENG_cabinet_together_we_stand
+				}
+			}
+			ENG_cabinet_cripps_set_tier_5 = yes
+		}
+		else = {
+			ENG_cabinet_cripps_set_tier_4 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_planned_production_targets
+		}
+		ENG_cabinet_cripps_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_economic_planning_board
+		}
+		ENG_cabinet_cripps_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_cripps_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_cripps = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_cripps_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_cripps_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_stafford_cripps = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_stafford_cripps
+		}
+		if = {
+			limit = {
+				ENG_maxwell_aitken = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_maxwell_aitken
+		}
+		ENG_cabinet_cripps_sync_tier = yes
+	}
+}
+ENG_cabinet_cripps_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_economic_planning_board
+			}
+		}
+		set_variable = {
+			ENG_cabinet_cripps_stage = 1
+		}
+		set_country_flag = ENG_cabinet_cripps_working
+		set_variable = {
+			ENG_cabinet_cripps_days = 0
+		}
+		activate_shine_on_focus = ENG_economic_planning_board
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_planned_production_targets
+			}
+		}
+		set_variable = {
+			ENG_cabinet_cripps_stage = 2
+		}
+		set_country_flag = ENG_cabinet_cripps_working
+		set_variable = {
+			ENG_cabinet_cripps_days = 0
+		}
+		activate_shine_on_focus = ENG_planned_production_targets
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_coordinated_war_economy
+			}
+		}
+		set_variable = {
+			ENG_cabinet_cripps_stage = 3
+		}
+		set_country_flag = ENG_cabinet_cripps_working
+		set_variable = {
+			ENG_cabinet_cripps_days = 0
+		}
+		activate_shine_on_focus = ENG_coordinated_war_economy
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_cripps_stage = 0
+		}
+		set_country_flag = ENG_cabinet_cripps_lane_done
+	}
+}
+ENG_cabinet_cripps_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_economic_planning_board
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_economic_planning_board
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_economic_planning_board
+				use_side_message = yes
+				originator_name = ENG_stafford_cripps
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_planned_production_targets
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_planned_production_targets
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_planned_production_targets
+				use_side_message = yes
+				originator_name = ENG_stafford_cripps
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_cripps_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_coordinated_war_economy
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_coordinated_war_economy
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_coordinated_war_economy
+				use_side_message = yes
+				originator_name = ENG_stafford_cripps
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_cripps_working
+	set_variable = {
+		ENG_cabinet_cripps_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_cripps_stage = 0
+	}
+}
+ENG_cabinet_cripps_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_cripps_working
+		}
+		add_to_variable = {
+			ENG_cabinet_cripps_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_stafford_cripps_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_cripps_seated
+			}
+		}
+		ENG_cabinet_seat_cripps = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_cripps_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_cripps_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_cripps_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_cripps_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_cripps_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.21
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_cripps_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_cripps_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.22
+		}
+	}
+}
+
+# ---- Lord Beaverbrook ----
+ENG_cabinet_beaverbrook_clear_tiers = {
+	remove_ideas = ENG_cabinet_beaverbrook_1
+	remove_ideas = ENG_cabinet_beaverbrook_2
+	remove_ideas = ENG_cabinet_beaverbrook_3
+	remove_ideas = ENG_cabinet_beaverbrook_4
+	remove_ideas = ENG_cabinet_beaverbrook_5
+}
+ENG_cabinet_beaverbrook_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_beaverbrook_1
+			}
+		}
+		ENG_cabinet_beaverbrook_clear_tiers = yes
+		add_ideas = ENG_cabinet_beaverbrook_1
+	}
+}
+ENG_cabinet_beaverbrook_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_beaverbrook_2
+			}
+		}
+		ENG_cabinet_beaverbrook_clear_tiers = yes
+		add_ideas = ENG_cabinet_beaverbrook_2
+	}
+}
+ENG_cabinet_beaverbrook_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_beaverbrook_3
+			}
+		}
+		ENG_cabinet_beaverbrook_clear_tiers = yes
+		add_ideas = ENG_cabinet_beaverbrook_3
+	}
+}
+ENG_cabinet_beaverbrook_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_beaverbrook_4
+			}
+		}
+		ENG_cabinet_beaverbrook_clear_tiers = yes
+		add_ideas = ENG_cabinet_beaverbrook_4
+	}
+}
+ENG_cabinet_beaverbrook_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_beaverbrook_5
+			}
+		}
+		ENG_cabinet_beaverbrook_clear_tiers = yes
+		add_ideas = ENG_cabinet_beaverbrook_5
+	}
+}
+ENG_cabinet_beaverbrook_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_coordinated_war_economy
+		}
+		if = {
+			limit = {
+				date > 1941.1.1
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = ENG_together_we_stand
+						has_country_flag = ENG_cabinet_together_we_stand
+					}
+				}
+				ENG_cabinet_beaverbrook_set_tier_5 = yes
+			}
+			else = {
+				ENG_cabinet_beaverbrook_set_tier_4 = yes
+			}
+		}
+		else = {
+			ENG_cabinet_beaverbrook_set_tier_3 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_the_beaverbrook_method
+		}
+		ENG_cabinet_beaverbrook_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_form_the_ministry_of_aircraft_production
+		}
+		ENG_cabinet_beaverbrook_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_beaverbrook_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_beaverbrook = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_beaverbrook_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_beaverbrook_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_maxwell_aitken = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_maxwell_aitken
+		}
+		if = {
+			limit = {
+				ENG_stafford_cripps = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_stafford_cripps
+		}
+		ENG_cabinet_beaverbrook_sync_tier = yes
+	}
+}
+ENG_cabinet_beaverbrook_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_form_the_ministry_of_aircraft_production
+			}
+		}
+		set_variable = {
+			ENG_cabinet_beaverbrook_stage = 1
+		}
+		set_country_flag = ENG_cabinet_beaverbrook_working
+		set_variable = {
+			ENG_cabinet_beaverbrook_days = 0
+		}
+		activate_shine_on_focus = ENG_form_the_ministry_of_aircraft_production
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_the_beaverbrook_method
+			}
+		}
+		set_variable = {
+			ENG_cabinet_beaverbrook_stage = 2
+		}
+		set_country_flag = ENG_cabinet_beaverbrook_working
+		set_variable = {
+			ENG_cabinet_beaverbrook_days = 0
+		}
+		activate_shine_on_focus = ENG_the_beaverbrook_method
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_coordinated_war_economy
+			}
+		}
+		set_variable = {
+			ENG_cabinet_beaverbrook_stage = 3
+		}
+		set_country_flag = ENG_cabinet_beaverbrook_working
+		set_variable = {
+			ENG_cabinet_beaverbrook_days = 0
+		}
+		activate_shine_on_focus = ENG_coordinated_war_economy
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_beaverbrook_stage = 0
+		}
+		set_country_flag = ENG_cabinet_beaverbrook_lane_done
+	}
+}
+ENG_cabinet_beaverbrook_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_form_the_ministry_of_aircraft_production
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_form_the_ministry_of_aircraft_production
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_form_the_ministry_of_aircraft_production
+				use_side_message = yes
+				originator_name = ENG_maxwell_aitken
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_the_beaverbrook_method
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_the_beaverbrook_method
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_the_beaverbrook_method
+				use_side_message = yes
+				originator_name = ENG_maxwell_aitken
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_beaverbrook_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_coordinated_war_economy
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_coordinated_war_economy
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_coordinated_war_economy
+				use_side_message = yes
+				originator_name = ENG_maxwell_aitken
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_beaverbrook_working
+	set_variable = {
+		ENG_cabinet_beaverbrook_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_beaverbrook_stage = 0
+	}
+}
+ENG_cabinet_beaverbrook_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_beaverbrook_working
+		}
+		add_to_variable = {
+			ENG_cabinet_beaverbrook_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_maxwell_aitken_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_beaverbrook_seated
+			}
+		}
+		ENG_cabinet_seat_beaverbrook = yes
+	}
+	if = {
+		limit = {
+			date > 1941.1.1
+			has_country_flag = ENG_cabinet_beaverbrook_seated
+			has_idea = ENG_cabinet_beaverbrook_3
+			has_completed_focus = ENG_coordinated_war_economy
+		}
+		ENG_cabinet_beaverbrook_sync_tier = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_beaverbrook_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_beaverbrook_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_beaverbrook_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_beaverbrook_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_beaverbrook_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.31
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_beaverbrook_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_beaverbrook_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.32
+		}
+	}
+}
+
+# ---- Stewart Menzies ----
+ENG_cabinet_menzies_clear_tiers = {
+	remove_ideas = ENG_cabinet_menzies_1
+	remove_ideas = ENG_cabinet_menzies_2
+	remove_ideas = ENG_cabinet_menzies_3
+	remove_ideas = ENG_cabinet_menzies_4
+	remove_ideas = ENG_cabinet_menzies_5
+}
+ENG_cabinet_menzies_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_menzies_1
+			}
+		}
+		ENG_cabinet_menzies_clear_tiers = yes
+		add_ideas = ENG_cabinet_menzies_1
+	}
+}
+ENG_cabinet_menzies_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_menzies_2
+			}
+		}
+		ENG_cabinet_menzies_clear_tiers = yes
+		add_ideas = ENG_cabinet_menzies_2
+	}
+}
+ENG_cabinet_menzies_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_menzies_3
+			}
+		}
+		ENG_cabinet_menzies_clear_tiers = yes
+		add_ideas = ENG_cabinet_menzies_3
+	}
+}
+ENG_cabinet_menzies_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_menzies_4
+			}
+		}
+		ENG_cabinet_menzies_clear_tiers = yes
+		add_ideas = ENG_cabinet_menzies_4
+	}
+}
+ENG_cabinet_menzies_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_menzies_5
+			}
+		}
+		ENG_cabinet_menzies_clear_tiers = yes
+		add_ideas = ENG_cabinet_menzies_5
+	}
+}
+ENG_cabinet_menzies_sync_tier = {
+	if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_sigint
+		}
+		if = {
+			limit = {
+				has_completed_focus = ENG_absolute_intelligence_dominance
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = ENG_together_we_stand
+						has_country_flag = ENG_cabinet_together_we_stand
+					}
+				}
+				ENG_cabinet_menzies_set_tier_5 = yes
+			}
+			else = {
+				ENG_cabinet_menzies_set_tier_4 = yes
+			}
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = ENG_government_code_and_cypher_school
+			}
+			ENG_cabinet_menzies_set_tier_3 = yes
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = ENG_expand_mi6
+			}
+			ENG_cabinet_menzies_set_tier_2 = yes
+		}
+		else = {
+			ENG_cabinet_menzies_set_tier_1 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_soe
+		}
+		if = {
+			limit = {
+				has_completed_focus = ENG_absolute_intelligence_dominance
+			}
+			if = {
+				limit = {
+					OR = {
+						has_completed_focus = ENG_together_we_stand
+						has_country_flag = ENG_cabinet_together_we_stand
+					}
+				}
+				ENG_cabinet_menzies_set_tier_5 = yes
+			}
+			else = {
+				ENG_cabinet_menzies_set_tier_4 = yes
+			}
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = ENG_set_europe_ablaze
+			}
+			ENG_cabinet_menzies_set_tier_3 = yes
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = ENG_special_operations_executive
+			}
+			ENG_cabinet_menzies_set_tier_2 = yes
+		}
+		else = {
+			ENG_cabinet_menzies_set_tier_1 = yes
+		}
+	}
+	else = {
+		ENG_cabinet_menzies_set_tier_1 = yes
+	}
+}
+# Fires the path choice once (30-day guard against a lost or duplicate event); the tick re-asks if no path is set.
+ENG_cabinet_menzies_ask_path = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_menzies_path_sigint
+			}
+			NOT = {
+				has_country_flag = ENG_menzies_path_soe
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_menzies_choice_pending
+			}
+		}
+		set_country_flag = {
+			flag = ENG_cabinet_menzies_choice_pending
+			days = 30
+			value = 1
+		}
+		country_event = tfr_eng_cabinet.80
+	}
+}
+ENG_cabinet_seat_menzies = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_menzies_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_menzies_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_stewart_menzies = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = eng_stewart_menzies
+		}
+		ENG_cabinet_menzies_sync_tier = yes
+		ENG_cabinet_menzies_ask_path = yes
+	}
+}
+ENG_cabinet_menzies_start_next = {
+	if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_sigint
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_expand_mi6
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 1
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_expand_mi6
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_government_code_and_cypher_school
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 2
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_government_code_and_cypher_school
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_absolute_intelligence_dominance
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 3
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_absolute_intelligence_dominance
+		}
+		else = {
+			set_variable = {
+				ENG_cabinet_menzies_stage = 0
+			}
+			set_country_flag = ENG_cabinet_menzies_lane_done
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_soe
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_special_operations_executive
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 1
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_special_operations_executive
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_set_europe_ablaze
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 2
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_set_europe_ablaze
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_absolute_intelligence_dominance
+				}
+			}
+			set_variable = {
+				ENG_cabinet_menzies_stage = 3
+			}
+			set_country_flag = ENG_cabinet_menzies_working
+			set_variable = {
+				ENG_cabinet_menzies_days = 0
+			}
+			activate_shine_on_focus = ENG_absolute_intelligence_dominance
+		}
+		else = {
+			set_variable = {
+				ENG_cabinet_menzies_stage = 0
+			}
+			set_country_flag = ENG_cabinet_menzies_lane_done
+		}
+	}
+}
+ENG_cabinet_menzies_complete_current = {
+	if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_sigint
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 1
+				}
+			}
+			deactivate_shine_on_focus = ENG_expand_mi6
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_expand_mi6
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_expand_mi6
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 2
+				}
+			}
+			deactivate_shine_on_focus = ENG_government_code_and_cypher_school
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_government_code_and_cypher_school
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_government_code_and_cypher_school
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 3
+				}
+			}
+			deactivate_shine_on_focus = ENG_absolute_intelligence_dominance
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_absolute_intelligence_dominance
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_absolute_intelligence_dominance
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = ENG_menzies_path_soe
+		}
+		if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 1
+				}
+			}
+			deactivate_shine_on_focus = ENG_special_operations_executive
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_special_operations_executive
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_special_operations_executive
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 2
+				}
+			}
+			deactivate_shine_on_focus = ENG_set_europe_ablaze
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_set_europe_ablaze
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_set_europe_ablaze
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					ENG_cabinet_menzies_stage = 3
+				}
+			}
+			deactivate_shine_on_focus = ENG_absolute_intelligence_dominance
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = ENG_absolute_intelligence_dominance
+					}
+				}
+				complete_national_focus = {
+					focus = ENG_absolute_intelligence_dominance
+					use_side_message = yes
+					originator_name = ENG_stewart_menzies
+				}
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_menzies_working
+	set_variable = {
+		ENG_cabinet_menzies_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_menzies_stage = 0
+	}
+}
+ENG_cabinet_menzies_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_menzies_working
+		}
+		add_to_variable = {
+			ENG_cabinet_menzies_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_stewart_menzies_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_menzies_seated
+			}
+		}
+		ENG_cabinet_seat_menzies = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_menzies_seated
+		}
+		ENG_cabinet_menzies_ask_path = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_menzies_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_menzies_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_menzies_event_pending
+			}
+			OR = {
+				has_country_flag = ENG_menzies_path_sigint
+				has_country_flag = ENG_menzies_path_soe
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_menzies_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_menzies_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.41
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_menzies_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_menzies_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.42
+		}
+	}
+}
+
+# ---- Brendan Bracken ----
+ENG_cabinet_bracken_clear_tiers = {
+	remove_ideas = ENG_cabinet_bracken_1
+	remove_ideas = ENG_cabinet_bracken_2
+	remove_ideas = ENG_cabinet_bracken_3
+	remove_ideas = ENG_cabinet_bracken_4
+	remove_ideas = ENG_cabinet_bracken_5
+}
+ENG_cabinet_bracken_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bracken_1
+			}
+		}
+		ENG_cabinet_bracken_clear_tiers = yes
+		add_ideas = ENG_cabinet_bracken_1
+	}
+}
+ENG_cabinet_bracken_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bracken_2
+			}
+		}
+		ENG_cabinet_bracken_clear_tiers = yes
+		add_ideas = ENG_cabinet_bracken_2
+	}
+}
+ENG_cabinet_bracken_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bracken_3
+			}
+		}
+		ENG_cabinet_bracken_clear_tiers = yes
+		add_ideas = ENG_cabinet_bracken_3
+	}
+}
+ENG_cabinet_bracken_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bracken_4
+			}
+		}
+		ENG_cabinet_bracken_clear_tiers = yes
+		add_ideas = ENG_cabinet_bracken_4
+	}
+}
+ENG_cabinet_bracken_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bracken_5
+			}
+		}
+		ENG_cabinet_bracken_clear_tiers = yes
+		add_ideas = ENG_cabinet_bracken_5
+	}
+}
+ENG_cabinet_bracken_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_master_of_words
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ENG_together_we_stand
+					has_country_flag = ENG_cabinet_together_we_stand
+				}
+			}
+			ENG_cabinet_bracken_set_tier_5 = yes
+		}
+		else = {
+			ENG_cabinet_bracken_set_tier_4 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_keep_calm_and_carry_on
+		}
+		ENG_cabinet_bracken_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_the_ministry_of_information
+		}
+		ENG_cabinet_bracken_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_bracken_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_bracken = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_bracken_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_bracken_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_brendan_bracken = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_brendan_bracken
+		}
+		ENG_cabinet_bracken_sync_tier = yes
+	}
+}
+ENG_cabinet_bracken_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_the_ministry_of_information
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bracken_stage = 1
+		}
+		set_country_flag = ENG_cabinet_bracken_working
+		set_variable = {
+			ENG_cabinet_bracken_days = 0
+		}
+		activate_shine_on_focus = ENG_the_ministry_of_information
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_keep_calm_and_carry_on
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bracken_stage = 2
+		}
+		set_country_flag = ENG_cabinet_bracken_working
+		set_variable = {
+			ENG_cabinet_bracken_days = 0
+		}
+		activate_shine_on_focus = ENG_keep_calm_and_carry_on
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_master_of_words
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bracken_stage = 3
+		}
+		set_country_flag = ENG_cabinet_bracken_working
+		set_variable = {
+			ENG_cabinet_bracken_days = 0
+		}
+		activate_shine_on_focus = ENG_master_of_words
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_bracken_stage = 0
+		}
+		set_country_flag = ENG_cabinet_bracken_lane_done
+	}
+}
+ENG_cabinet_bracken_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_the_ministry_of_information
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_the_ministry_of_information
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_the_ministry_of_information
+				use_side_message = yes
+				originator_name = ENG_brendan_bracken
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_keep_calm_and_carry_on
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_keep_calm_and_carry_on
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_keep_calm_and_carry_on
+				use_side_message = yes
+				originator_name = ENG_brendan_bracken
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bracken_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_master_of_words
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_master_of_words
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_master_of_words
+				use_side_message = yes
+				originator_name = ENG_brendan_bracken
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_bracken_working
+	set_variable = {
+		ENG_cabinet_bracken_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_bracken_stage = 0
+	}
+}
+ENG_cabinet_bracken_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bracken_working
+		}
+		add_to_variable = {
+			ENG_cabinet_bracken_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_brendan_bracken_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_bracken_seated
+			}
+		}
+		ENG_cabinet_seat_bracken = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bracken_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_bracken_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_bracken_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_bracken_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bracken_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.51
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_bracken_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bracken_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.52
+		}
+	}
+}
+
+# ---- Anthony Eden ----
+ENG_cabinet_eden_clear_tiers = {
+	remove_ideas = ENG_cabinet_eden_1
+	remove_ideas = ENG_cabinet_eden_2
+	remove_ideas = ENG_cabinet_eden_3
+	remove_ideas = ENG_cabinet_eden_4
+	remove_ideas = ENG_cabinet_eden_5
+}
+ENG_cabinet_eden_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_eden_1
+			}
+		}
+		ENG_cabinet_eden_clear_tiers = yes
+		add_ideas = ENG_cabinet_eden_1
+	}
+}
+ENG_cabinet_eden_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_eden_2
+			}
+		}
+		ENG_cabinet_eden_clear_tiers = yes
+		add_ideas = ENG_cabinet_eden_2
+	}
+}
+ENG_cabinet_eden_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_eden_3
+			}
+		}
+		ENG_cabinet_eden_clear_tiers = yes
+		add_ideas = ENG_cabinet_eden_3
+	}
+}
+ENG_cabinet_eden_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_eden_4
+			}
+		}
+		ENG_cabinet_eden_clear_tiers = yes
+		add_ideas = ENG_cabinet_eden_4
+	}
+}
+ENG_cabinet_eden_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_eden_5
+			}
+		}
+		ENG_cabinet_eden_clear_tiers = yes
+		add_ideas = ENG_cabinet_eden_5
+	}
+}
+ENG_cabinet_eden_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_clarity_of_purpose
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ENG_together_we_stand
+					has_country_flag = ENG_cabinet_together_we_stand
+				}
+			}
+			ENG_cabinet_eden_set_tier_5 = yes
+		}
+		else = {
+			ENG_cabinet_eden_set_tier_4 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_imperial_diplomacy
+		}
+		ENG_cabinet_eden_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_the_foreign_office
+		}
+		ENG_cabinet_eden_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_eden_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_eden = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_eden_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_eden_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_anthony_eden = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_anthony_eden
+		}
+		if = {
+			limit = {
+				ENG_edward_bridges = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_edward_bridges
+		}
+		ENG_cabinet_eden_sync_tier = yes
+	}
+}
+ENG_cabinet_eden_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_the_foreign_office
+			}
+		}
+		set_variable = {
+			ENG_cabinet_eden_stage = 1
+		}
+		set_country_flag = ENG_cabinet_eden_working
+		set_variable = {
+			ENG_cabinet_eden_days = 0
+		}
+		activate_shine_on_focus = ENG_the_foreign_office
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_imperial_diplomacy
+			}
+		}
+		set_variable = {
+			ENG_cabinet_eden_stage = 2
+		}
+		set_country_flag = ENG_cabinet_eden_working
+		set_variable = {
+			ENG_cabinet_eden_days = 0
+		}
+		activate_shine_on_focus = ENG_imperial_diplomacy
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_clarity_of_purpose
+			}
+		}
+		set_variable = {
+			ENG_cabinet_eden_stage = 3
+		}
+		set_country_flag = ENG_cabinet_eden_working
+		set_variable = {
+			ENG_cabinet_eden_days = 0
+		}
+		activate_shine_on_focus = ENG_clarity_of_purpose
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_eden_stage = 0
+		}
+		set_country_flag = ENG_cabinet_eden_lane_done
+	}
+}
+ENG_cabinet_eden_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_the_foreign_office
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_the_foreign_office
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_the_foreign_office
+				use_side_message = yes
+				originator_name = ENG_anthony_eden
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_imperial_diplomacy
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_imperial_diplomacy
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_imperial_diplomacy
+				use_side_message = yes
+				originator_name = ENG_anthony_eden
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_eden_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_clarity_of_purpose
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_clarity_of_purpose
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_clarity_of_purpose
+				use_side_message = yes
+				originator_name = ENG_anthony_eden
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_eden_working
+	set_variable = {
+		ENG_cabinet_eden_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_eden_stage = 0
+	}
+}
+ENG_cabinet_eden_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_eden_working
+		}
+		add_to_variable = {
+			ENG_cabinet_eden_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_anthony_eden_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_eden_seated
+			}
+		}
+		ENG_cabinet_seat_eden = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_eden_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_eden_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_eden_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_eden_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_eden_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.61
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_eden_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_eden_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.62
+		}
+	}
+}
+
+# ---- Edward Bridges ----
+ENG_cabinet_bridges_clear_tiers = {
+	remove_ideas = ENG_cabinet_bridges_1
+	remove_ideas = ENG_cabinet_bridges_2
+	remove_ideas = ENG_cabinet_bridges_3
+	remove_ideas = ENG_cabinet_bridges_4
+	remove_ideas = ENG_cabinet_bridges_5
+}
+ENG_cabinet_bridges_set_tier_1 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bridges_1
+			}
+		}
+		ENG_cabinet_bridges_clear_tiers = yes
+		add_ideas = ENG_cabinet_bridges_1
+	}
+}
+ENG_cabinet_bridges_set_tier_2 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bridges_2
+			}
+		}
+		ENG_cabinet_bridges_clear_tiers = yes
+		add_ideas = ENG_cabinet_bridges_2
+	}
+}
+ENG_cabinet_bridges_set_tier_3 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bridges_3
+			}
+		}
+		ENG_cabinet_bridges_clear_tiers = yes
+		add_ideas = ENG_cabinet_bridges_3
+	}
+}
+ENG_cabinet_bridges_set_tier_4 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bridges_4
+			}
+		}
+		ENG_cabinet_bridges_clear_tiers = yes
+		add_ideas = ENG_cabinet_bridges_4
+	}
+}
+ENG_cabinet_bridges_set_tier_5 = {
+	if = {
+		limit = {
+			NOT = {
+				has_idea = ENG_cabinet_bridges_5
+			}
+		}
+		ENG_cabinet_bridges_clear_tiers = yes
+		add_ideas = ENG_cabinet_bridges_5
+	}
+}
+ENG_cabinet_bridges_sync_tier = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_clarity_of_purpose
+		}
+		if = {
+			limit = {
+				OR = {
+					has_completed_focus = ENG_together_we_stand
+					has_country_flag = ENG_cabinet_together_we_stand
+				}
+			}
+			ENG_cabinet_bridges_set_tier_5 = yes
+		}
+		else = {
+			ENG_cabinet_bridges_set_tier_4 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_control_the_government_agenda
+		}
+		ENG_cabinet_bridges_set_tier_3 = yes
+	}
+	else_if = {
+		limit = {
+			has_completed_focus = ENG_the_cabinet_secretariat
+		}
+		ENG_cabinet_bridges_set_tier_2 = yes
+	}
+	else = {
+		ENG_cabinet_bridges_set_tier_1 = yes
+	}
+}
+ENG_cabinet_seat_bridges = {
+	if = {
+		limit = {
+			NOT = {
+				has_country_flag = ENG_cabinet_bridges_seated
+			}
+		}
+		set_country_flag = ENG_cabinet_bridges_seated
+		add_to_variable = {
+			ENG_cabinet_seats_used = 1
+		}
+		if = {
+			limit = {
+				ENG_edward_bridges = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_edward_bridges
+		}
+		if = {
+			limit = {
+				ENG_anthony_eden = {
+					is_hired_as_advisor = yes
+				}
+			}
+			deactivate_advisor = ENG_anthony_eden
+		}
+		ENG_cabinet_bridges_sync_tier = yes
+	}
+}
+ENG_cabinet_bridges_start_next = {
+	if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_the_cabinet_secretariat
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bridges_stage = 1
+		}
+		set_country_flag = ENG_cabinet_bridges_working
+		set_variable = {
+			ENG_cabinet_bridges_days = 0
+		}
+		activate_shine_on_focus = ENG_the_cabinet_secretariat
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_control_the_government_agenda
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bridges_stage = 2
+		}
+		set_country_flag = ENG_cabinet_bridges_working
+		set_variable = {
+			ENG_cabinet_bridges_days = 0
+		}
+		activate_shine_on_focus = ENG_control_the_government_agenda
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_completed_focus = ENG_clarity_of_purpose
+			}
+		}
+		set_variable = {
+			ENG_cabinet_bridges_stage = 3
+		}
+		set_country_flag = ENG_cabinet_bridges_working
+		set_variable = {
+			ENG_cabinet_bridges_days = 0
+		}
+		activate_shine_on_focus = ENG_clarity_of_purpose
+	}
+	else = {
+		set_variable = {
+			ENG_cabinet_bridges_stage = 0
+		}
+		set_country_flag = ENG_cabinet_bridges_lane_done
+	}
+}
+ENG_cabinet_bridges_complete_current = {
+	if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 1
+			}
+		}
+		deactivate_shine_on_focus = ENG_the_cabinet_secretariat
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_the_cabinet_secretariat
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_the_cabinet_secretariat
+				use_side_message = yes
+				originator_name = ENG_edward_bridges
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 2
+			}
+		}
+		deactivate_shine_on_focus = ENG_control_the_government_agenda
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_control_the_government_agenda
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_control_the_government_agenda
+				use_side_message = yes
+				originator_name = ENG_edward_bridges
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				ENG_cabinet_bridges_stage = 3
+			}
+		}
+		deactivate_shine_on_focus = ENG_clarity_of_purpose
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = ENG_clarity_of_purpose
+				}
+			}
+			complete_national_focus = {
+				focus = ENG_clarity_of_purpose
+				use_side_message = yes
+				originator_name = ENG_edward_bridges
+			}
+		}
+	}
+	clr_country_flag = ENG_cabinet_bridges_working
+	set_variable = {
+		ENG_cabinet_bridges_days = 0
+	}
+	set_variable = {
+		ENG_cabinet_bridges_stage = 0
+	}
+}
+ENG_cabinet_bridges_lane_tick = {
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bridges_working
+		}
+		add_to_variable = {
+			ENG_cabinet_bridges_days = 1
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = ENG_edward_bridges_focus
+			NOT = {
+				has_country_flag = ENG_cabinet_bridges_seated
+			}
+		}
+		ENG_cabinet_seat_bridges = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_cabinet_bridges_seated
+			NOT = {
+				has_country_flag = ENG_cabinet_bridges_lane_done
+			}
+			NOT = {
+				has_country_flag = ENG_cabinet_bridges_event_pending
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = ENG_cabinet_bridges_working
+				}
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bridges_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.71
+		}
+		else_if = {
+			limit = {
+				ENG_cabinet_bridges_work_is_due = yes
+			}
+			set_country_flag = {
+				flag = ENG_cabinet_bridges_event_pending
+				days = 5
+				value = 1
+			}
+			country_event = tfr_eng_cabinet.72
+		}
+	}
+}
+
+# Internal: Bevin Boys tie-in. Spirit held from 1941.1.1 while the Bevin focus is done and the concern is hired.
+ENG_cabinet_bevin_boys_pits_sync = {
+	if = {
+		limit = {
+			date > 1941.1.1
+			OR = {
+				has_country_flag = ENG_cabinet_bevin_boys_programme_done
+				has_completed_focus = ENG_the_bevin_boys_programme
+			}
+			OR = {
+				has_idea = ENG_the_bevin_boys_1
+				has_idea = ENG_the_bevin_boys_2_mill
+				has_idea = ENG_the_bevin_boys_2_civ
+				has_idea = ENG_the_bevin_boys_2_dockyard
+				has_idea = ENG_the_bevin_boys_2_fighter
+			}
+			NOT = {
+				has_idea = ENG_cabinet_bevin_boys_pits
+			}
+		}
+		add_ideas = ENG_cabinet_bevin_boys_pits
+	}
+	else_if = {
+		limit = {
+			has_idea = ENG_cabinet_bevin_boys_pits
+			NOT = {
+				OR = {
+					has_idea = ENG_the_bevin_boys_1
+					has_idea = ENG_the_bevin_boys_2_mill
+					has_idea = ENG_the_bevin_boys_2_civ
+					has_idea = ENG_the_bevin_boys_2_dockyard
+					has_idea = ENG_the_bevin_boys_2_fighter
+				}
+			}
+		}
+		remove_ideas = ENG_cabinet_bevin_boys_pits
+	}
+}
+
+# Called by on_daily_ENG once the War Cabinet exists.
+ENG_cabinet_daily_tick = {
+	if = {
+		limit = {
+			has_completed_focus = ENG_the_cabinet_united
+			check_variable = {
+				ENG_cabinet_seats_max < 4
+			}
+		}
+		set_variable = {
+			ENG_cabinet_seats_max = 4
+		}
+	}
+	if = {
+		limit = {
+			has_capitulated = no
+		}
+		ENG_cabinet_bevin_lane_tick = yes
+		ENG_cabinet_cripps_lane_tick = yes
+		ENG_cabinet_beaverbrook_lane_tick = yes
+		ENG_cabinet_menzies_lane_tick = yes
+		ENG_cabinet_bracken_lane_tick = yes
+		ENG_cabinet_eden_lane_tick = yes
+		ENG_cabinet_bridges_lane_tick = yes
+	}
+	ENG_cabinet_bevin_boys_pits_sync = yes
+}
+

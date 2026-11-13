@@ -1,0 +1,264 @@
+# Country scope tier application helpers
+TFR_refinery_scaling_apply_tier_1 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_1 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_1
+    }
+}
+
+TFR_refinery_scaling_apply_tier_2 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_2 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_2
+    }
+}
+
+TFR_refinery_scaling_apply_tier_3 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_3 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_3
+    }
+}
+
+TFR_refinery_scaling_apply_tier_4 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_4 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_4
+    }
+}
+
+TFR_refinery_scaling_apply_tier_5 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_5 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_5
+    }
+}
+
+TFR_refinery_scaling_apply_tier_6 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_6 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_6
+    }
+}
+
+TFR_refinery_scaling_apply_tier_7 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_7 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_7
+    }
+}
+
+TFR_refinery_scaling_apply_tier_8 = {
+    if = {
+        limit = { NOT = { has_idea = tfr_refinery_scaling_8 } }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+        add_ideas = tfr_refinery_scaling_8
+    }
+}
+
+TFR_refinery_scaling_clear = {
+    if = {
+        limit = {
+            OR = {
+                has_idea = tfr_refinery_scaling_1
+                has_idea = tfr_refinery_scaling_2
+                has_idea = tfr_refinery_scaling_3
+                has_idea = tfr_refinery_scaling_4
+                has_idea = tfr_refinery_scaling_5
+                has_idea = tfr_refinery_scaling_6
+                has_idea = tfr_refinery_scaling_7
+                has_idea = tfr_refinery_scaling_8
+            }
+        }
+        remove_ideas = {
+            tfr_refinery_scaling_1 tfr_refinery_scaling_2 tfr_refinery_scaling_3
+            tfr_refinery_scaling_4 tfr_refinery_scaling_5 tfr_refinery_scaling_6
+            tfr_refinery_scaling_7 tfr_refinery_scaling_8
+        }
+    }
+}
+
+TFR_refinery_scaling_recalculate_pools = {
+    set_variable = { global.tfr_axis_refineries = 0 }
+    set_variable = { global.tfr_geacps_refineries = 0 }
+    set_variable = { global.tfr_allies_refineries = 0 }
+
+    every_country = {
+        if = {
+            limit = { TFR_is_axis_refinery_pool_member = yes }
+            every_controlled_state = {
+                add_to_variable = { global.tfr_axis_refineries = building_level@synthetic_refinery }
+            }
+        }
+        else_if = {
+            limit = { TFR_is_geacps_refinery_pool_member = yes }
+            every_controlled_state = {
+                add_to_variable = { global.tfr_geacps_refineries = building_level@synthetic_refinery }
+            }
+        }
+        else_if = {
+            limit = { TFR_is_allies_refinery_pool_member = yes }
+            every_controlled_state = {
+                add_to_variable = { global.tfr_allies_refineries = building_level@synthetic_refinery }
+            }
+        }
+    }
+}
+
+TFR_refinery_scaling_update_axis = {
+    if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 40 } }
+        TFR_refinery_scaling_apply_tier_8 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 32 } }
+        TFR_refinery_scaling_apply_tier_7 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 24 } }
+        TFR_refinery_scaling_apply_tier_6 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 18 } }
+        TFR_refinery_scaling_apply_tier_5 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 12 } }
+        TFR_refinery_scaling_apply_tier_4 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 9 } }
+        TFR_refinery_scaling_apply_tier_3 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_axis_refineries > 6 } }
+        TFR_refinery_scaling_apply_tier_2 = yes
+    }
+    else = {
+        TFR_refinery_scaling_apply_tier_1 = yes
+    }
+}
+
+TFR_refinery_scaling_update_geacps = {
+    if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 40 } }
+        TFR_refinery_scaling_apply_tier_8 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 32 } }
+        TFR_refinery_scaling_apply_tier_7 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 24 } }
+        TFR_refinery_scaling_apply_tier_6 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 18 } }
+        TFR_refinery_scaling_apply_tier_5 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 12 } }
+        TFR_refinery_scaling_apply_tier_4 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 9 } }
+        TFR_refinery_scaling_apply_tier_3 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_geacps_refineries > 6 } }
+        TFR_refinery_scaling_apply_tier_2 = yes
+    }
+    else = {
+        TFR_refinery_scaling_apply_tier_1 = yes
+    }
+}
+
+TFR_refinery_scaling_update_allies = {
+    if = {
+        limit = { check_variable = { global.tfr_allies_refineries > 40 } }
+        TFR_refinery_scaling_apply_tier_8 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_allies_refineries > 32 } }
+        TFR_refinery_scaling_apply_tier_7 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_allies_refineries > 24 } }
+        TFR_refinery_scaling_apply_tier_6 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_allies_refineries > 18 } }
+        TFR_refinery_scaling_apply_tier_5 = yes
+    }
+    else_if = {
+        limit = { check_variable = { global.tfr_allies_refineries > 12 } }
+        TFR_refinery_scaling_apply_tier_4 = yes
+    }
+    else = {
+        TFR_refinery_scaling_clear = yes
+    }
+}
+
+TFR_refinery_scaling_refresh_country = {
+    if = {
+        limit = { TFR_is_axis_refinery_pool_member = yes }
+        TFR_refinery_scaling_update_axis = yes
+    }
+    else_if = {
+        limit = { TFR_is_geacps_refinery_pool_member = yes }
+        TFR_refinery_scaling_update_geacps = yes
+    }
+    else_if = {
+        limit = { TFR_is_allies_refinery_pool_member = yes }
+        TFR_refinery_scaling_update_allies = yes
+    }
+    else = {
+        TFR_refinery_scaling_clear = yes
+    }
+}
+
+TFR_refinery_scaling_manager_daily = {
+    TFR_refinery_scaling_recalculate_pools = yes
+    every_country = {
+        TFR_refinery_scaling_refresh_country = yes
+    }
+}

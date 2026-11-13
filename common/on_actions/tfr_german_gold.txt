@@ -1,0 +1,18 @@
+on_actions = {
+    on_startup = {
+        effect = { GER = { TFR_GER_recover_gold_targets = yes } }
+    }
+    on_daily_GER = {
+        effect = {
+            if = {
+                limit = {
+                    OR = {
+                        has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+                        has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+                    }
+                }
+                TFR_GER_recover_gold_targets = yes
+            }
+        }
+    }
+}

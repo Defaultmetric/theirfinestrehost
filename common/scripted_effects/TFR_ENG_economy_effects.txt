@@ -1,0 +1,113 @@
+### TFR UK rework v2, part economy: scripted effects. Scope: ENG (country).
+### Every grant puts the factory in a fully controlled British home core state that has room and adds one
+### building slot with it (the slot pays for itself), and falls back to an offsite building when no such state exists.
+
+# +1 civilian factory and +1 building slot (Special Areas first), or +1 offsite civilian factory.
+ENG_economy_grant_civ = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 131 133 122 132 }
+			limit = {
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_in_home_area = yes
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else = {
+		add_offsite_building = { type = industrial_complex level = 1 }
+	}
+}
+
+# +1 military factory and +1 building slot (the Midlands and the North-west first), or +1 offsite military factory.
+ENG_economy_grant_mil = {
+	if = {
+		limit = {
+			any_owned_state = {
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_in_home_area = yes
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+		}
+		random_owned_controlled_state = {
+			prioritize = { 128 132 338 133 }
+			limit = {
+				is_core_of = ROOT
+				is_fully_controlled_by = ROOT
+				is_in_home_area = yes
+				free_building_slots = {
+					building = arms_factory
+					size > 0
+					include_locked = yes
+				}
+			}
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+	else = {
+		add_offsite_building = { type = arms_factory level = 1 }
+	}
+}
+
+# One step of "The Construction Sector Matures" (event tfr_eng_economy.2). Three steps in all:
+# stage 0 -> 1: +1 civilian factory (not before 1 June 1938)
+# stage 1 -> 2: +1 civilian factory (not before 1 January 1941)
+# stage 2 -> 3: +2 civilian factories (not before 1 January 1942)
+# Each step also needs a year since the focus or the previous step (country flag ENG_construction_sector_settling).
+ENG_construction_sector_step = {
+	if = {
+		limit = { check_variable = { ENG_construction_sector_stage < 2 } }
+		custom_effect_tooltip = ENG_construction_sector_one_civ_tt
+		hidden_effect = {
+			ENG_economy_grant_civ = yes
+		}
+	}
+	else = {
+		custom_effect_tooltip = ENG_economy_two_civ_home_tt
+		hidden_effect = {
+			ENG_economy_grant_civ = yes
+			ENG_economy_grant_civ = yes
+		}
+	}
+	hidden_effect = {
+		add_to_variable = { ENG_construction_sector_stage = 1 }
+		set_country_flag = { flag = ENG_construction_sector_settling value = 1 days = 365 }
+		if = {
+			limit = { check_variable = { ENG_construction_sector_stage < 3 } }
+			country_event = { id = tfr_eng_economy.1 days = 30 }
+		}
+	}
+}

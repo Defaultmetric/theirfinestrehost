@@ -1,0 +1,50 @@
+###########################################################################
+# TFR UK rework - part `empire` (version 2)
+###########################################################################
+
+# On ENG (Partnership path, only while at least one step is active). Cost of the Commonwealth investment per
+# ACTIVE step (contract 3.4, review v2 #15): consumer goods +2.5% (+2% after the Sterling Area),
+# civilian construction -1.2% (-0.9% after Imperial Preference), factory output -1.2%;
+# all three x0.9 / x0.8 with Eden's flags. Set by ENG_update_obligations.
+ENG_imperial_obligations_dm = {
+	enable = { always = yes }
+	icon = GFX_idea_generic_economic_crisis
+
+	consumer_goods_factor                      = var:ENG_obl_consumer_goods
+	production_speed_industrial_complex_factor = var:ENG_obl_civ_construction
+	industrial_capacity_factory                = var:ENG_obl_factory_output
+}
+
+# On the partner (AI or human). +2% factory output and +3% construction speed per step (counted up to 5),
+# +5% local resources per themed step (at most two). Set by ENG_partner_refresh_investment_dm.
+ENG_british_investment_dm = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = { is_in_faction_with = ENG }
+	}
+	icon = GFX_idea_RAJ_external_investments
+
+	industrial_capacity_factory       = var:ENG_inv_factory_output
+	production_speed_buildings_factor = var:ENG_inv_construction
+	local_resources_factor            = var:ENG_inv_resources
+}
+
+# On a UK subject in the UK's faction while Britain Alone is chosen. Base -10% output, -15% construction,
+# +10% consumer goods; every requisition focus taken from it -5% output, -5% construction, +5% consumer goods.
+# Set by ENG_requisition_refresh_dm. Ends when the country is no longer a UK subject in the UK's faction.
+# (Review v2 #55, accepted as is: these are percentage lines, so in noAsia, where the dated events give the
+# dominions +20 to +40 offsite factories from 1941, the burden on them grows with that; the UK's gain does not.)
+ENG_imperial_requisitions_dm = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			NOT = { is_subject_of = ENG }
+			NOT = { is_in_faction_with = ENG }
+		}
+	}
+	icon = GFX_idea_generic_exploit_mines
+
+	industrial_capacity_factory       = var:ENG_req_factory_output
+	production_speed_buildings_factor = var:ENG_req_construction
+	consumer_goods_factor             = var:ENG_req_consumer_goods
+}

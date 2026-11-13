@@ -1,0 +1,229 @@
+###########################################
+### TFR - United Kingdom: Whitehall Balance decisions (part bop)
+### Shown inside the balance of power window (decision_category of ENG_whitehall_balance).
+### Both directions are always open: nothing here can trap the balance at an extreme.
+### Campaigns: only one at a time (either side), never re-taken while running (engine + modifier guard),
+### 60 days' cooldown after each ends. Pushes: 60 days' cooldown each.
+### Costs are variables kept by ENG_bop_update_costs (lower with ENG_bridges_bop_discount).
+### Tooltips (review v2, rule A): none custom; the campaign's modifier shows natively; the end of a campaign is silent.
+###########################################
+
+ENG_whitehall_balance_category = {
+
+	### Immediate push: Appeasers
+	ENG_bop_rally_the_appeasers = {
+		icon = GFX_decision_generic_political_address
+		priority = 100
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			has_power_balance = { id = ENG_whitehall_balance }
+		}
+
+		available = {
+			power_balance_value = {
+				id = ENG_whitehall_balance
+				value > -0.95
+			}
+		}
+
+		cost = ENG_bop_push_cost
+		fire_only_once = no
+		days_re_enable = 60
+
+		complete_effect = {
+			ENG_bop_push_appeasers_medium = yes
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				has_war = no
+				threat < 0.5
+				has_political_power > 150
+				power_balance_value = {
+					id = ENG_whitehall_balance
+					value > -0.2
+				}
+			}
+		}
+	}
+
+	### Immediate push: Rearmers
+	ENG_bop_rally_the_rearmers = {
+		icon = GFX_decision_generic_military
+		priority = 100
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			has_power_balance = { id = ENG_whitehall_balance }
+		}
+
+		available = {
+			power_balance_value = {
+				id = ENG_whitehall_balance
+				value < 0.95
+			}
+		}
+
+		cost = ENG_bop_push_cost
+		fire_only_once = no
+		days_re_enable = 60
+
+		complete_effect = {
+			ENG_bop_push_rearmers_medium = yes
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				OR = {
+					has_war_with_major = yes
+					threat > 0.5
+				}
+				has_political_power > 100
+				power_balance_value = {
+					id = ENG_whitehall_balance
+					value < 0.6
+				}
+			}
+		}
+	}
+
+	### Timed campaign: Appeasers (weekly drift for 180 days)
+	ENG_bop_appeasers_campaign = {
+		icon = GFX_decision_generic_consumer_goods
+		priority = 90
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			has_power_balance = { id = ENG_whitehall_balance }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ENG_bop_no_campaign_running_tt
+				NOT = {
+					has_power_balance_modifier = {
+						id = ENG_whitehall_balance
+						modifier = ENG_bop_rearmers_campaign_mod
+					}
+					has_power_balance_modifier = {
+						id = ENG_whitehall_balance
+						modifier = ENG_bop_appeasers_campaign_mod
+					}
+				}
+			}
+		}
+
+		cost = ENG_bop_campaign_cost
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 60
+
+		complete_effect = {
+			add_power_balance_modifier = {
+				id = ENG_whitehall_balance
+				modifier = ENG_bop_appeasers_campaign_mod
+			}
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				remove_power_balance_modifier = {
+					id = ENG_whitehall_balance
+					modifier = ENG_bop_appeasers_campaign_mod
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 3
+				has_war = no
+				threat < 0.4
+				has_political_power > 200
+				power_balance_value = {
+					id = ENG_whitehall_balance
+					value > 0
+				}
+			}
+		}
+	}
+
+	### Timed campaign: Rearmers (weekly drift for 180 days)
+	ENG_bop_rearmers_campaign = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		priority = 90
+
+		allowed = {
+			original_tag = ENG
+		}
+
+		visible = {
+			has_power_balance = { id = ENG_whitehall_balance }
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ENG_bop_no_campaign_running_tt
+				NOT = {
+					has_power_balance_modifier = {
+						id = ENG_whitehall_balance
+						modifier = ENG_bop_appeasers_campaign_mod
+					}
+					has_power_balance_modifier = {
+						id = ENG_whitehall_balance
+						modifier = ENG_bop_rearmers_campaign_mod
+					}
+				}
+			}
+		}
+
+		cost = ENG_bop_campaign_cost
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 60
+
+		complete_effect = {
+			add_power_balance_modifier = {
+				id = ENG_whitehall_balance
+				modifier = ENG_bop_rearmers_campaign_mod
+			}
+		}
+
+		remove_effect = {
+			hidden_effect = {
+				remove_power_balance_modifier = {
+					id = ENG_whitehall_balance
+					modifier = ENG_bop_rearmers_campaign_mod
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 3
+				threat > 0.4
+				has_political_power > 150
+				power_balance_value = {
+					id = ENG_whitehall_balance
+					value < 0.4
+				}
+			}
+		}
+	}
+}

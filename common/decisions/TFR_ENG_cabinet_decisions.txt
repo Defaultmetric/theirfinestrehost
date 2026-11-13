@@ -1,0 +1,211 @@
+### Part cabinet (v2): War Cabinet decisions.
+### Beaverbrook's drive: from 1941.1.1, at war with a major only, once a year (flag + days_re_enable);
+### 30 days of retooling, then 120 days.
+### Ministry of Information: one campaign at a time, then 30 days of rest; timed modifiers only (nothing permanent).
+
+ENG_war_cabinet_category = {
+	ENG_beaverbrook_mass_production = {
+		icon = GFX_decision_generic_air
+		priority = 10
+		allowed = {
+			original_tag = ENG
+		}
+		visible = {
+			has_completed_focus = ENG_the_beaverbrook_method
+		}
+		available = {
+			date > 1941.1.1
+			has_war_with_major = yes
+			NOT = {
+				has_idea = ENG_beaverbrook_mass_production_idea
+			}
+			custom_trigger_tooltip = {
+				tooltip = ENG_beaverbrook_once_a_year_tt
+				NOT = {
+					has_country_flag = ENG_beaverbrook_drive_cooldown
+				}
+			}
+		}
+		cost = 75
+		days_remove = 30
+		days_re_enable = 365
+		modifier = {
+			industrial_capacity_factory = -0.05
+			stability_factor = -0.05
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = {
+					flag = ENG_beaverbrook_drive_cooldown
+					days = 365
+					value = 1
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = ENG_beaverbrook_mass_production_idea
+					}
+				}
+				add_timed_idea = {
+					idea = ENG_beaverbrook_mass_production_idea
+					days = 120
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war_with_major = no
+			}
+		}
+	}
+	ENG_moi_dig_for_victory = {
+		icon = GFX_decision_generic_civil_support
+		priority = 5
+		allowed = {
+			original_tag = ENG
+		}
+		visible = {
+			has_country_flag = ENG_cabinet_bracken_seated
+			has_completed_focus = ENG_the_ministry_of_information
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ENG_moi_no_campaign_running_tt
+				NOT = {
+					has_country_flag = ENG_moi_campaign_active
+				}
+				NOT = {
+					has_country_flag = ENG_moi_campaign_rest
+				}
+			}
+		}
+		cost = 50
+		days_remove = 120
+		days_re_enable = 90
+		modifier = {
+			stability_factor = 0.04
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = ENG_moi_campaign_active
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = ENG_moi_campaign_active
+				set_country_flag = {
+					flag = ENG_moi_campaign_rest
+					days = 30
+					value = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ENG_moi_careless_talk_costs_lives = {
+		icon = GFX_decision_generic_political_discourse
+		priority = 5
+		allowed = {
+			original_tag = ENG
+		}
+		visible = {
+			has_country_flag = ENG_cabinet_bracken_seated
+			has_completed_focus = ENG_keep_calm_and_carry_on
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ENG_moi_no_campaign_running_tt
+				NOT = {
+					has_country_flag = ENG_moi_campaign_active
+				}
+				NOT = {
+					has_country_flag = ENG_moi_campaign_rest
+				}
+			}
+		}
+		cost = 50
+		days_remove = 120
+		days_re_enable = 90
+		modifier = {
+			encryption_factor = 0.15
+			war_support_factor = 0.02
+			stability_factor = 0.02
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = ENG_moi_campaign_active
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = ENG_moi_campaign_active
+				set_country_flag = {
+					flag = ENG_moi_campaign_rest
+					days = 30
+					value = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	ENG_moi_wings_for_victory = {
+		icon = GFX_decision_generic_nationalism
+		priority = 5
+		allowed = {
+			original_tag = ENG
+		}
+		visible = {
+			has_country_flag = ENG_cabinet_bracken_seated
+			has_completed_focus = ENG_master_of_words
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ENG_moi_no_campaign_running_tt
+				NOT = {
+					has_country_flag = ENG_moi_campaign_active
+				}
+				NOT = {
+					has_country_flag = ENG_moi_campaign_rest
+				}
+			}
+		}
+		cost = 75
+		days_remove = 90
+		days_re_enable = 90
+		modifier = {
+			war_support_factor = 0.05
+			consumer_goods_factor = 0.01
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = ENG_moi_campaign_active
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				clr_country_flag = ENG_moi_campaign_active
+				set_country_flag = {
+					flag = ENG_moi_campaign_rest
+					days = 30
+					value = 1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+		}
+	}
+}

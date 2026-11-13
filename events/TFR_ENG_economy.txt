@@ -1,0 +1,71 @@
+### TFR UK rework v2, part economy: events of the Recovery branch.
+
+add_namespace = tfr_eng_economy
+
+# Hidden monthly check for The Construction Sector Matures. Started 30 days after ENG_invest_in_the_construction_sector.
+# A step is due when a year has passed since the focus or the previous step (flag ENG_construction_sector_settling)
+# AND the step's date has come: stage 0 -> 1 June 1938, stage 1 -> 1 January 1941, stage 2 -> 1 January 1942.
+# Otherwise it checks again in 30 days, until all three steps are done.
+country_event = {
+	id = tfr_eng_economy.1
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = ENG_construction_sector_settling }
+				OR = {
+					AND = {
+						check_variable = { ENG_construction_sector_stage = 0 }
+						date > 1938.6.1
+					}
+					AND = {
+						check_variable = { ENG_construction_sector_stage = 1 }
+						date > 1941.1.1
+					}
+					AND = {
+						check_variable = { ENG_construction_sector_stage = 2 }
+						date > 1942.1.1
+					}
+				}
+			}
+			country_event = { id = tfr_eng_economy.2 }
+		}
+		else_if = {
+			limit = { check_variable = { ENG_construction_sector_stage < 3 } }
+			country_event = { id = tfr_eng_economy.1 days = 30 }
+		}
+	}
+}
+
+# The Construction Sector Matures (single option). ENG_construction_sector_step pays the step and
+# re-arms event .1 while steps remain.
+country_event = {
+	id = tfr_eng_economy.2
+	title = tfr_eng_economy.2.t
+	desc = tfr_eng_economy.2.d
+	picture = GFX_report_event_generic_construction_site
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_economy.2.a
+		ENG_construction_sector_step = yes
+	}
+}
+
+# The American Account Falls Due (single option). Fired 730 days after ENG_utilize_american_aid.
+country_event = {
+	id = tfr_eng_economy.3
+	title = tfr_eng_economy.3.t
+	desc = tfr_eng_economy.3.d
+	picture = GFX_report_event_generic_stock_traders
+
+	is_triggered_only = yes
+
+	option = {
+		name = tfr_eng_economy.3.a
+		add_timed_idea = { idea = ENG_american_debt days = 300 }	# integration balance round 2 (was 365)
+	}
+}
